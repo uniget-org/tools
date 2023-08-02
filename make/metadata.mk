@@ -15,7 +15,7 @@ metadata.json--build: \
 		; $(info $(M) Building metadata image for $(GIT_COMMIT_SHA)...)
 	@set -o errexit; \
 	if ! docker buildx build . \
-			--builder docker-setup \
+			--builder uniget \
 			--file @metadata/Dockerfile \
 			--build-arg commit=$(GIT_COMMIT_SHA) \
 			--tag $(REGISTRY)/$(REPOSITORY_PREFIX)metadata:$(DOCKER_TAG) \

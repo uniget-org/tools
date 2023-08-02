@@ -6,7 +6,7 @@ if [ -z "$TOOL" ]; then
     exit 1
 fi
 
-REGISTRY_IMAGE_PREFIX="ghcr.io/nicholasdille/docker-setup/"
+REGISTRY_IMAGE_PREFIX="ghcr.io/uniget-org/tools/"
 VERSION=main
 
 MANIFEST_JSON="$(
@@ -20,7 +20,7 @@ fi
 # Store digests and platforms for later
 declare -A GET_PLATFORM_FOR_IMAGE
 mapfile GET_PLATFORM_FOR_IMAGE_ARRAY < <(
-    regctl manifest get ghcr.io/nicholasdille/docker-setup/yq:main --format raw-body \
+    regctl manifest get ghcr.io/uniget-org/tools/yq:main --format raw-body \
     | jq --raw-output '.manifests[] | select(.platform.os != "unknown" and .platform.architecture != "unknown") | "\(.digest)=\(.platform.os)/\(.platform.architecture)"'
 )
 i=0
@@ -41,7 +41,7 @@ for digest in ${!GET_PLATFORM_FOR_IMAGE[@]}; do
 done
 
 # Tag sbom images
-regctl manifest get ghcr.io/nicholasdille/docker-setup/yq:main --format raw-body \
+regctl manifest get ghcr.io/uniget-org/tools/yq:main --format raw-body \
 | jq --compact-output '.manifests[] | select(.platform.os == "unknown" and .platform.architecture == "unknown")' \
 | while read -r manifest; do
     digest="$(jq --raw-output '.digest' <<<"${manifest}")"

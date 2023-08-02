@@ -22,13 +22,13 @@ jobs:
       with:
         fetch-depth: 0
 
-    - name: Install docker-setup
+    - name: Install uniget
       uses: uniget-org/uniget-action@main
       with:
         prefix: helper
 
     - name: Cleanup
       env:
-        GH_TOKEN: ${{ secrets.BOT_PACKAGES_TOKEN }}
+        GH_TOKEN: ${{ secrets.BOT_PACKAGES }}
       run: |
         make clean-registry-untagged

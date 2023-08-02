@@ -5,7 +5,3 @@ metadata.json
 cosign.key
 /@base/build.log
 /@metadata/build.log
-/docker-setup
-coverage.*
-dist/
-.task
