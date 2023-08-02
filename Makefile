@@ -174,13 +174,6 @@ $(addsuffix --show,$(ALL_TOOLS_RAW)):%--show: $(TOOLS_DIR)/$*
 include make/dev.mk
 include make/metadata.mk
 include make/tool.mk
-include make/checks.mk
 include make/sbom.mk
 include make/ghcr.mk
 include make/helper.mk
-include make/site.mk
-include make/hcloud.mk
-include make/terraform.mk
-include make/remote.mk
-include make/go.mk
-include make/release.mk
