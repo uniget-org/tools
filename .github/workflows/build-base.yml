@@ -23,7 +23,7 @@ jobs:
       with:
         fetch-depth: 0
 
-    - name: Install docker-setup
+    - name: Install uniget
       uses: uniget-org/uniget-action@main
       with:
         prefix: helper

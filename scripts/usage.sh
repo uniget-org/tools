@@ -1,8 +1,8 @@
 #!/bin/bash
 
 : "${REGISTRY:=ghcr.io}"
-: "${OWNER:=nicholasdille}"
-: "${PROJECT:=docker-setup}"
+: "${OWNER:=uniget-org}"
+: "${PROJECT:=tools}"
 : "${VERSION:=main}"
 
 SUM=0

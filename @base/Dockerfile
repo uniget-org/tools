@@ -61,7 +61,7 @@ mkdir -p \
     "${prefix}${target}/share/zsh/vendor-completions"
 EOF
 
-LABEL org.opencontainers.image.source="https://github.com/nicholasdille/docker-setup" \
+LABEL org.opencontainers.image.source="https://github.com/uniget-org/tools" \
       org.opencontainers.image.ref.name="main" \
       org.opencontainers.image.description="Base image for building tools images" \
       org.opencontainers.image.version="main"

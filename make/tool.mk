@@ -51,8 +51,8 @@ install: \
 builders: \
 		; $(info $(M) Starting builders...)
 	@\
-	docker buildx ls | grep -q "^docker-setup " \
-	|| docker buildx create --name docker-setup \
+	docker buildx ls | grep -q "^uniget " \
+	|| docker buildx create --name uniget \
 		--platform $(subst $(eval ) ,$(shell echo ","),$(addprefix linux/,$(SUPPORTED_ALT_ARCH))) \
 		--bootstrap; \
 	docker container run --privileged --rm tonistiigi/binfmt --install all >/dev/null
@@ -67,7 +67,7 @@ base: \
 	ARCHS="$$(jq --raw-output '[ .tools[] | select(.platforms != null) | .platforms[] ] | unique[]' metadata.json | paste -sd,)"; \
 	echo "Platforms: $${ARCHS}"; \
 	if ! docker buildx build @base \
-			--builder docker-setup \
+			--builder uniget \
 			--build-arg prefix_override=$(PREFIX) \
 			--build-arg target_override=$(TARGET) \
 			--platform $${ARCHS} \
@@ -106,7 +106,7 @@ $(ALL_TOOLS_RAW):%: \
 		EXTRA_DOCKER_TAG="--tag $(REGISTRY)/$(REPOSITORY_PREFIX)$*:test"; \
 	fi; \
 	if ! docker buildx build $(TOOLS_DIR)/$@ \
-			--builder docker-setup \
+			--builder uniget \
 			--build-arg branch=$(DOCKER_TAG) \
 			--build-arg ref=$(DOCKER_TAG) \
 			--build-arg name=$* \
@@ -193,7 +193,7 @@ $(addsuffix --debug,$(ALL_TOOLS_RAW)):%--debug: \
 	echo "Version:      $${TOOL_VERSION}"; \
 	echo "Build deps:   $${DEPS}"; \
 	docker buildx build $(TOOLS_DIR)/$* \
-		--builder docker-setup \
+		--builder uniget \
 		--build-arg branch=$(DOCKER_TAG) \
 		--build-arg ref=$(DOCKER_TAG) \
 		--build-arg name=$* \
