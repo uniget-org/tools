@@ -63,7 +63,7 @@
         "docker"
       ],
       "matchPackagePrefixes": [
-        "ghcr.io/nicholasdille/docker-setup/"
+        "ghcr.io/uniget-org/tools/"
       ],
       "updateTypes": [
         "pin",

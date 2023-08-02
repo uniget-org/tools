@@ -13,14 +13,14 @@ cat <<EOF
 ### Closed pull requests
 ############################################################
 EOF
-curl 'https://api.github.com/repos/nicholasdille/docker-setup/pulls?state=closed&per_page=100' \
+curl 'https://api.github.com/repos/uniget-org/tools/pulls?state=closed&per_page=100' \
     --silent \
     --fail \
     --header "Authorization: token ${GITHUB_TOKEN}" \
 | jq --raw-output --arg today "${today}" '
     .[]
     | select(.closed_at > $today)
-    | "#\(.number) - \(.title) - https://github.com/nicholasdille/docker-setup/pull/\(.number)"
+    | "#\(.number) - \(.title) - https://github.com/uniget-org/tools/pull/\(.number)"
 '
 
 cat <<EOF
@@ -29,7 +29,7 @@ cat <<EOF
 ### Failed workflow runs
 ############################################################
 EOF
-curl 'https://api.github.com/repos/nicholasdille/docker-setup/actions/runs?status=failure' \
+curl 'https://api.github.com/repos/uniget-org/tools/actions/runs?status=failure' \
     --silent \
     --fail \
     --header "Authorization: token ${GITHUB_TOKEN}" \
