@@ -37,8 +37,8 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: ghcr.io
-        username: nicholasdille
-        password: ${{ secrets.PACKAGES_TOKEN }}
+        username: uniget-bot
+        password: ${{ secrets.BOT_PACKAGES }}
 
     - name: Test
       env:
