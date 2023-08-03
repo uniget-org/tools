@@ -2,7 +2,7 @@
 
 ARG ref=main
 
-FROM --platform=amd64 ghcr.io/nicholasdille/docker-setup/base:${ref} AS prepare
+FROM --platform=amd64 ghcr.io/uniget-org/tools/base:${ref} AS prepare
 ARG name
 ARG version
 COPY docker-compose-cli-plugin ${prefix}${target}/libexec/docker/cli-plugins/docker-compose
