@@ -25,7 +25,7 @@ cp pigz /opt/pigz/bin/
 cp pigz.1 /opt/pigz/share/man/man1/
 EOF
 
-FROM ghcr.io/nicholasdille/docker-setup/base:${ref} AS prepare
+FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
 ARG name
 ARG version
 COPY --from=build /opt/pigz/ ${prefix}${target}/
