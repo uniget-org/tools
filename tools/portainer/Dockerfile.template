@@ -2,9 +2,9 @@
 
 ARG ref=main
 
-FROM ghcr.io/nicholasdille/docker-setup/docker-compose-v1:${ref} AS docker-compose-v1
+FROM ghcr.io/uniget-org/tools/docker-compose-v1:${ref} AS docker-compose-v1
 
-FROM ghcr.io/nicholasdille/docker-setup/base:${ref} AS prepare
+FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
 ARG name
 ARG version
 COPY portainer.service ${prefix}${target}/etc/systemd/system/
