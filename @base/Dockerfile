@@ -2,12 +2,12 @@
 
 FROM nicholasdille/ubuntu:22.04 AS base
 
-ARG prefix_override=/docker_setup_install
+ARG prefix_override=/uniget_bootstrap
 ARG target_override=/usr/local
-ENV docker_setup_cache=/var/cache/uniget \
-    docker_setup_contrib=/var/lib/uniget/contrib \
-    docker_setup_manifests=/var/lib/uniget/manifests \
-    docker_setup_post_install=/var/lib/uniget/post_install \
+ENV uniget_cache=/var/cache/uniget \
+    uniget_contrib=/var/lib/uniget/contrib \
+    uniget_manifests=/var/lib/uniget/manifests \
+    uniget_post_install=/var/lib/uniget/post_install \
     prefix=${prefix_override} \
     target=${target_override}
 ARG TARGETPLATFORM
@@ -33,10 +33,10 @@ COPY --chmod=0755 check-github-release-asset.sh /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit"]
 RUN <<EOF
 mkdir -p \
-    "${prefix}${docker_setup_cache}" \
-    "${prefix}${docker_setup_contrib}" \
-    "${prefix}${docker_setup_manifests}" \
-    "${prefix}${docker_setup_post_install}" \
+    "${prefix}${uniget_cache}" \
+    "${prefix}${uniget_contrib}" \
+    "${prefix}${uniget_manifests}" \
+    "${prefix}${uniget_post_install}" \
     "${prefix}${target}/etc/profile.d" \
     "${prefix}${target}/etc/systemd/system" \
     "${prefix}${target}/bin" \

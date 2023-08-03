@@ -10,7 +10,7 @@ ALL_TOOLS           = $(shell find tools -type f -wholename \*/manifest.yaml | c
 ALL_TOOLS_RAW       = $(subst tools/,,$(ALL_TOOLS))
 TOOLS              ?= $(shell find tools -type f -wholename \*/manifest.yaml | cut -d/ -f1-2 | sort)
 TOOLS_RAW          ?= $(subst tools/,,$(TOOLS))
-PREFIX             ?= /docker_setup_install
+PREFIX             ?= /uniget_bootstrap
 TARGET             ?= /usr/local
 
 # Pre-defined colors: https://github.com/moby/buildkit/blob/master/util/progress/progressui/colors.go
