@@ -33,9 +33,9 @@ if test -d /var/lib/uniget/post_install; then
     mkdir -p /var/cache/uniget
     export prefix=
     export target=${prefix}/usr/local
-    export docker_setup_cache=/var/cache/uniget
-    export docker_setup_contrib=/var/lib/uniget/contrib
-    export docker_setup_manifests=/var/lib/uniget/manifests
+    export uniget_cache=/var/cache/uniget
+    export uniget_contrib=/var/lib/uniget/contrib
+    export uniget_manifests=/var/lib/uniget/manifests
     FILES="$(find /var/lib/uniget/post_install -type f -name \*.sh)"
     for FILE in ${FILES}; do
         echo "Running post install for $(basename "${FILE}" .sh)"

@@ -27,7 +27,7 @@ clean-registry-untagged--%: \
 		echo "### Error: Need GH_TOKEN or configured gh."; \
 		exit 1; \
 	fi; \
-	NAME="docker-setup/$*"; \
+	NAME="uniget/$*"; \
 	gh api --paginate "users/$(OWNER)/packages/container/$${NAME////%2F}/versions" \
 	| jq --raw-output '.[] | select(.metadata.container.tags | length == 0) | .id' \
 	| while read -r ID; do \
@@ -74,7 +74,7 @@ ghcr-orphaned: \
 .PHONY:
 ghcr-exists--%: \
 		$(HELPER)/var/lib/uniget/manifests/gh.json
-	@gh api --paginate "users/$(OWNER)/packages/container/docker-setup%2F$*" >/dev/null 2>&1
+	@gh api --paginate "users/$(OWNER)/packages/container/uniget%2F$*" >/dev/null 2>&1
 
 .PHONY:
 ghcr-exists: \
@@ -97,7 +97,7 @@ $(addsuffix --ghcr-tags,$(ALL_TOOLS_RAW)):%--ghcr-tags: \
 		$(HELPER)/var/lib/uniget/manifests/gh.json \
 		$(HELPER)/var/lib/uniget/manifests/gojq.json
 	@set -o errexit; \
-	gh api --paginate "users/$(OWNER)/packages/container/docker-setup%2F$*/versions" \
+	gh api --paginate "users/$(OWNER)/packages/container/uniget%2F$*/versions" \
 	| jq --raw-output '.[] | "\(.metadata.container.tags[]);\(.name);\(.id)"' \
 	| column --separator ";" --table --table-columns Tag,SHA256,ID
 
@@ -106,7 +106,7 @@ $(addsuffix --ghcr-inspect,$(ALL_TOOLS_RAW)):%--ghcr-inspect: \
 		$(HELPER)/var/lib/uniget/manifests/gh.json \
 		$(HELPER)/var/lib/uniget/manifests/yq.json
 	@set -o errexit; \
-	gh api --paginate "users/$(OWNER)/packages/container/docker-setup%2F$*" \
+	gh api --paginate "users/$(OWNER)/packages/container/uniget%2F$*" \
 	| yq --prettyPrint
 
 .PHONY:
@@ -115,10 +115,10 @@ $(addsuffix --ghcr-delete-test,$(ALL_TOOLS_RAW)):%--ghcr-delete-test: \
 		$(HELPER)/var/lib/uniget/manifests/yq.json \
 		; $(info $(M) Removing tag test from tool $*...)
 	@\
-	helper/usr/local/bin/gh api --paginate "users/$(OWNER)/packages/container/docker-setup%2f$*/versions" \
+	helper/usr/local/bin/gh api --paginate "users/$(OWNER)/packages/container/uniget%2F$*/versions" \
 	| jq --raw-output '.[] | select(.metadata.container.tags[] | contains("test")) | .id' \
 	| xargs -I{} \
-		helper/usr/local/bin/gh api --method DELETE "users/$(OWNER)/packages/container/docker-setup%2f$*/versions/{}"
+		helper/usr/local/bin/gh api --method DELETE "users/$(OWNER)/packages/container/uniget%2F$*/versions/{}"
 
 .PHONY:
 delete-ghcr--%: \
@@ -133,10 +133,10 @@ delete-ghcr--%: \
 	NAME="$${PARAM%%:*}"; \
 	TAG="$${PARAM#*:}"; \
 	echo "Removing $${NAME}:$${TAG}"; \
-	gh api --paginate "users/$(OWNER)/packages/container/docker-setup%2F$${NAME}/versions" \
+	gh api --paginate "users/$(OWNER)/packages/container/uniget%2F$${NAME}/versions" \
 	| jq --raw-output --arg tag "$${TAG}" '.[] | select(.metadata.container.tags[] | contains($$tag)) | .id' \
 	| xargs -I{} \
-		gh api --method DELETE "users/$(OWNER)/packages/container/docker-setup%2F$${NAME}/versions/{}"
+		gh api --method DELETE "users/$(OWNER)/packages/container/uniget%2F$${NAME}/versions/{}"
 
 .PHONY:
 ghcr-private: \
@@ -152,5 +152,5 @@ $(addsuffix --ghcr-private,$(ALL_TOOLS_RAW)): \
 		$(HELPER)/var/lib/uniget/manifests/gh.json \
 		$(HELPER)/var/lib/uniget/manifests/gojq.json \
 		; $(info $(M) Testing that $* is publicly visible...)
-	@gh api "users/$(OWNER)/packages/container/docker-setup%2F$*" \
+	@gh api "users/$(OWNER)/packages/container/uniget%2F$*" \
 	| jq --exit-status 'select(.visibility == "public")' >/dev/null 2>&1
