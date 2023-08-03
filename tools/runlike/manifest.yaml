@@ -3,6 +3,11 @@ $schema: https://docker-setup.dille.io/schema.yaml
 name: runlike
 version: "1.4.2"
 check: "" # No version parameter
+build_dependencies:
+#- python
+- shiv
+runtime_dependencies:
+#- python
 platforms:
 - linux/amd64
 - linux/arm64
