@@ -6,7 +6,7 @@ FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
 ARG name
 ARG version
 RUN <<EOF
-check-github-release-asset "jqlng/jq" "jq-${version}" "jq-linux64"
+check-github-release-asset "jqlang/jq" "jq-${version}" "jq-linux64"
 curl --silent --location --fail --output "${prefix}${target}/bin/jq" \
     "https://github.com/jqlang/jq/releases/download/jq-${version}/jq-linux64"
 chmod +x "${prefix}${target}/bin/jq"
