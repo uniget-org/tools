@@ -73,8 +73,7 @@ base: \
 			--platform $${ARCHS} \
 			--cache-from $(REGISTRY)/$(REPOSITORY_PREFIX)base:$(DOCKER_TAG) \
 			--tag $(REGISTRY)/$(REPOSITORY_PREFIX)base:$(DOCKER_TAG) \
-			--attest=type=provenance \
-			--attest=type=sbom \
+			--provenance=false \
 			--push \
 			--progress plain \
 			>@base/build.log 2>&1; then \
@@ -117,8 +116,7 @@ $(ALL_TOOLS_RAW):%: \
 			--cache-from $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(DOCKER_TAG) \
 			--tag $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(DOCKER_TAG) \
 			$${EXTRA_DOCKER_TAG} \
-			--attest=type=provenance \
-			--attest=type=sbom \
+			--provenance=false \
 			--metadata-file $(TOOLS_DIR)/$@/build-metadata.json \
 			--push="$${PUSH}" \
 			--progress plain \
