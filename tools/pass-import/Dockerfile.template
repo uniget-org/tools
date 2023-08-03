@@ -2,10 +2,17 @@
 
 ARG ref=main
 
-FROM ghcr.io/uniget-org/tools/python:${ref} AS python
+#FROM ghcr.io/uniget-org/tools/python:${ref} AS python
 
 FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
-COPY --link --from=python / /
+#COPY --link --from=python / /
+RUN <<EOF
+apt-get update
+apt-get -y install --no-install-recommends \
+    python3-pip \
+    python3-venv \
+    python-is-python3
+EOF
 ENV PIPX_HOME=${prefix}${target}/libexec/pipx \
     PIPX_BIN_DIR=${prefix}${target}/bin
 ARG name
