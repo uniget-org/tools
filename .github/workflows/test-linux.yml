@@ -64,17 +64,16 @@ jobs:
             echo "### Got TOOLS=${TOOLS}"
         fi
 
-        if test -n "${TOOLS}"; then
-            echo "### Building all tools"
-            for TOOL in ${TOOLS}; do
-                echo "### Building ${TOOL}"
-                VERSION=test make ${TOOL} PUSH=true
-            done
-
-        else
-            echo "### Building all container images"
-            VERSION=test make
+        if test -z "${TOOLS}"; then
+            echo "### No tools changed"
+            exit 0
         fi
+
+        echo "### Building all tools"
+        for TOOL in ${TOOLS}; do
+            echo "### Building ${TOOL}"
+            VERSION=test make ${TOOL} PUSH=true
+        done
 
     - name: Store logs
       uses: actions/upload-artifact@v3
