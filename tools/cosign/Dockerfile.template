@@ -2,7 +2,7 @@
 
 ARG ref=main
 
-FROM ghcr.io/nicholasdille/docker-setup/base:${ref} AS cosign-bootstrap
+FROM ghcr.io/uniget-org/tools/base:${ref} AS cosign-bootstrap
 ARG TARGETPLATFORM
 # renovate: datasource=github-releases depName=sigstore/cosign
 ARG COSIGN_VERSION=2.1.1
@@ -21,7 +21,7 @@ mv "cosign-linux-${alt_arch}" /usr/local/bin/cosign
 cosign version
 EOF
 
-FROM ghcr.io/nicholasdille/docker-setup/base:${ref} AS prepare
+FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
 COPY --link --from=cosign-bootstrap /usr/local/bin/cosign /usr/local/bin/
 ARG name
 ARG version

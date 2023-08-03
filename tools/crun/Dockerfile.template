@@ -14,6 +14,6 @@ cp -rfp ./result/bin/crun /usr/local/bin/
 cp *.1 /usr/local/share/man/man1/
 EOF
 
-FROM ghcr.io/nicholasdille/docker-setup/base:${ref} AS prepare
+FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
 COPY --link --from=build /usr/local/bin/ ${prefix}${target}/bin/
 COPY --link --from=build /usr/local/share/man/man1/ ${prefix}${target}/share/man/man1/
