@@ -20,7 +20,7 @@ ARG version
 RUN <<EOF
 shiv --output-file "${prefix}${target}/bin/pipx" --console-script pipx "pipx==${version}"
 
-register-python-argcomplete              pipx >"${prefix}${target}/share/bash-completion/completions/pipx"
-register-python-argcomplete --shell fish pipx >"${prefix}${target}/share/fish/vendor_completions.d/pipx.fish"
-register-python-argcomplete              pipx >"${prefix}${target}/share/zsh/vendor-completions/_pipx"
+#register-python-argcomplete              pipx >"${prefix}${target}/share/bash-completion/completions/pipx"
+#register-python-argcomplete --shell fish pipx >"${prefix}${target}/share/fish/vendor_completions.d/pipx.fish"
+#register-python-argcomplete              pipx >"${prefix}${target}/share/zsh/vendor-completions/_pipx"
 EOF
