@@ -15,8 +15,8 @@ EOF
 WORKDIR /tmp/github.com/paritytech/wasmi
 ARG name
 ARG version
-SHELL [ "/bin/bash", "--login", "-ec" ]
 RUN <<EOF
+source "${target}/etc/profile.d/cargo.sh"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/paritytech/wasmi .
 export RUSTFLAGS='-C target-feature=+crt-static'
 cargo build --release --target "${arch}-unknown-linux-gnu"
