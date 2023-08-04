@@ -60,8 +60,8 @@ ARG version
 #    build-essential
 #EOF
 #WORKDIR /tmp/github.com/foo/bar
-#SHELL [ "/bin/bash", "--login", "-ec" ]
 #RUN <<EOF
+#source "${target}/etc/profile.d/cargo.sh"
 #git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" https://github.com/foo/bar .
 #export RUSTFLAGS='-C target-feature=+crt-static'
 #cargo build --release --target "${arch}-unknown-linux-gnu"

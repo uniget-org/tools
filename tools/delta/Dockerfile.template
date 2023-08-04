@@ -15,8 +15,8 @@ EOF
 WORKDIR /tmp/github.com/dandavison/delta
 ARG name
 ARG version
-SHELL [ "/bin/bash", "--login", "-ec" ]
 RUN <<EOF
+source "${target}/etc/profile.d/cargo.sh"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" https://github.com/dandavison/delta .
 export RUSTFLAGS='-C target-feature=+crt-static'
 cargo build --release --target "${arch}-unknown-linux-gnu"
