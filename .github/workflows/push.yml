@@ -35,7 +35,7 @@ jobs:
       uses: uniget-org/uniget-action@main
       with:
         prefix: helper
-        tools: gojq
+        tools: gojq regclient
 
     - name: Collect
       id: collect
@@ -47,10 +47,11 @@ jobs:
         if test -z "${CHANGED_TOOLS}"; then
             echo "### Fetching config for metadata"
             OLD_COMMIT_SHA="$(
-                helper/usr/local/bin/jq \
-                    --raw-output \
-                    '.revision' \
-                    helper/var/cache/uniget/metadata.json
+                helper/usr/local/bin/regctl manifest get ghcr.io/uniget-org/tools/metadata:main --format raw-body \
+                | helper/usr/local/bin/jq --raw-output '.layers[0].digest' \
+                | xargs -I{} regctl blob get ghcr.io/uniget-org/tools/metadata:main {} \
+                | tar --extract --gzip --to-stdout \
+                | helper/usr/local/bin/jq --raw-output '.revision'
             )"
 
             echo "### Fetching changed tools for ${OLD_COMMIT_SHA}..${GITHUB_SHA}"
@@ -74,7 +75,7 @@ jobs:
         CHANGED_TOOLS_JSON="$(
             echo -n "${CHANGED_TOOLS}" \
             | tr ' ' '\n' \
-            | jq --raw-input '.' | jq --slurp --compact-output '.'
+            | helper/usr/local/bin/jq --raw-input '.' | jq --slurp --compact-output '.'
         )"
         echo "    JSON: ${CHANGED_TOOLS_JSON}"
         echo "tools=${CHANGED_TOOLS_JSON}" >>"${GITHUB_OUTPUT}"
