@@ -49,7 +49,8 @@ jobs:
             OLD_COMMIT_SHA="$(
                 helper/usr/local/bin/regctl manifest get ghcr.io/uniget-org/tools/metadata:main --format raw-body \
                 | helper/usr/local/bin/jq --raw-output '.layers[0].digest' \
-                | xargs -I{} regctl blob get ghcr.io/uniget-org/tools/metadata:main {} \
+                | xargs -I{} \
+                    helper/usr/local/bin/regctl blob get ghcr.io/uniget-org/tools/metadata:main {} \
                 | tar --extract --gzip --to-stdout \
                 | helper/usr/local/bin/jq --raw-output '.revision'
             )"
