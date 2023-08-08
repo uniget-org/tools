@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://docker-setup.dille.io/schema.yaml
+$schema: https://docker-setup.dille.io/schema.yaml
+name: cdncheck
+version: "1.0.9"
+check: ${binary} --version 2>&1 | grep version | cut -d' ' -f4 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/go
+- type/cli
+homepage: https://github.com/projectdiscovery/cdncheck
+description: Detect various technology for a given IP address
+renovate:
+  datasource: github-releases
+  package: projectdiscovery/cdncheck
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
