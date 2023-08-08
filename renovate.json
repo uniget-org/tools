@@ -551,6 +551,17 @@
     },
     {
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "projectdiscovery/cdncheck",
+      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/cdncheck/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "CycloneDX/cdxgen",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
