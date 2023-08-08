@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://docker-setup.dille.io/schema.yaml
+$schema: https://docker-setup.dille.io/schema.yaml
+name: updatecli
+version: "0.56.0"
+check: ${binary} version 2>&1 | grep ^Application | tr -d '\t' | cut -d':' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/cli
+homepage: https://github.com/updatecli/updatecli
+description: Declarative Dependency Management
+renovate:
+  datasource: github-releases
+  package: updatecli/updatecli
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
