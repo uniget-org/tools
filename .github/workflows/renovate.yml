@@ -5,7 +5,6 @@ on:
   push:
     branches:
     - main
-    - renovate-token-debug
     paths:
     - .github/workflows/renovate.yml
   workflow_run:
