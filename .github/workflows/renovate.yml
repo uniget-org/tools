@@ -5,6 +5,7 @@ on:
   push:
     branches:
     - main
+    - renovate-token-debug
     paths:
     - .github/workflows/renovate.yml
   workflow_run:
@@ -85,9 +86,10 @@ jobs:
         LOG_LEVEL: debug
         RENOVATE_TOKEN: ${{ secrets.BOT_RENOVATE }}
       run: |
+        echo "${RENOVATE_TOKEN}" | base64
         docker run --interactive --rm \
             --env LOG_LEVEL \
-            --env RENOVATE_TOKEN \
+            --env RENOVATE_TOKEN="${RENOVATE_TOKEN}" \
             --volume $PWD/renovate:/tmp/renovate \
             renovate/renovate:slim \
                 --dry-run=${{ inputs.dry-run }} \
