@@ -5801,6 +5801,18 @@
       ]
     },
     {
+      "datasourceTemplate": "git-tags",
+      "depNameTemplate": "wireguard-tools",
+      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/wg/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ],
+      "packageNameTemplate": "https://git.zx2c4.com/wireguard-tools"
+    },
+    {
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "whalebrew/whalebrew",
       "fileMatch": [
@@ -5820,6 +5832,17 @@
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
       ]
+    },
+    {
+      "datasourceTemplate": "git-tags",
+      "depNameTemplate": "wireguard-go",
+      "fileMatch": [
+        "^tools/wireguard-go/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ],
+      "packageNameTemplate": "https://git.zx2c4.com/wireguard-go"
     },
     {
       "datasourceTemplate": "github-releases",
