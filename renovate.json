@@ -3848,6 +3848,17 @@
     },
     {
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "alajmo/mani",
+      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/mani/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "estesp/manifest-tool",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
