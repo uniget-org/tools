@@ -10,6 +10,19 @@ today="$(date -d "yesterday" +%Y-%m-%dT00:00:00Z)"
 cat <<EOF
 
 ############################################################
+### Private packages
+############################################################
+EOF
+curl --url "https://api.github.com/orgs/uniget-org/packages?package_type=container&visibility=private" \
+    --silent \
+    --fail \
+    --header "Authorization: Bearer ${GITHUB_TOKEN}" \
+| jq --raw-output '.[].name' \
+| cut -d/ -f2
+
+cat <<EOF
+
+############################################################
 ### Closed pull requests
 ############################################################
 EOF
