@@ -2035,6 +2035,18 @@
     },
     {
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "nosarthur/gita",
+      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/gita/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ],
+      "versioningTemplate": "loose"
+    },
+    {
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "go-gitea/gitea",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
