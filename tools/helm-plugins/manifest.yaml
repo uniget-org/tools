@@ -11,5 +11,5 @@ tags:
   - templating
   - package
   - management
-homepage: https://github.com/nicholasdille/docker-setup
+homepage: https://github.com/uniget-org/tools
 description: Helm plugins
