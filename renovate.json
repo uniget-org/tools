@@ -4001,6 +4001,18 @@
     },
     {
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "fabioz/mu-repo/",
+      "extractVersionTemplate": "^mu_repo_(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/mu-repo/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ],
+      "versioningTemplate": "regex:^(?<major>\\\\d+)_(?<minor>\\\\d+)_(?<patch>\\\\d+)$"
+    },
+    {
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "mutagen-io/mutagen",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
