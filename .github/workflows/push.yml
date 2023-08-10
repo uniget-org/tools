@@ -190,3 +190,23 @@ jobs:
     - name: Update metadata
       run: |
         make metadata.json--push
+
+  pages:
+    name: tools.uniget.dev
+    runs-on: ubuntu-22.04
+    needs:
+    - metadata
+    steps:
+
+    - name: Trigger
+      env:
+        GITHUB_TOKEN: ${{ secrets.BOT_PACKAGES }}
+      run: |
+        curl \
+            --url https://api.github.com/repos/uniget-org/tools.uniget.dev/dispatches \
+            --silent \
+            --fail \
+            --request POST \
+            --header "Authorization: token ${GITHUB_TOKEN}" \
+            --header "Accept: application/vnd.github.v3+json" \
+            --data '{"event_type": "pages"}'
