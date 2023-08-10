@@ -55,7 +55,7 @@ jobs:
                     --fail \
                     --header "Accept: application/vnd.github.v3+json" \
                     --header 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
-                | jq --raw-output '.[].filename' \
+                | jq --raw-output '.[] | select(.status != "removed") | .filename' \
                 | grep -E '^tools/[^/]+/' \
                 | cut -d/ -f2 \
                 | uniq \
