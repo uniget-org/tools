@@ -1,5 +1,5 @@
-# yaml-language-server: $schema=https://docker-setup.dille.io/schema.yaml
-$schema: https://docker-setup.dille.io/schema.yaml
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
 name: xh
 version: "0.18.0"
 check: ${binary} --version | grep ^xh | cut -d' ' -f2

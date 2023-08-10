@@ -22,5 +22,5 @@ messages:
   usage: |
     Installed plugins are available as subcommands of kubectl. Use
     krew-uniget to manage globally installed plugins
-homepage: https://github.com/nicholasdille/docker-setup
+homepage: https://github.com/uniget-org/tools
 description: kubectl plugins

@@ -1,5 +1,5 @@
-# yaml-language-server: $schema=https://docker-setup.dille.io/schema.yaml
-$schema: https://docker-setup.dille.io/schema.yaml
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
 name: proot
 version: "5.4.0"
 check: "" # Too complicated to parse ASCII art

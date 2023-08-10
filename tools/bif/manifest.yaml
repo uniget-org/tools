@@ -1,5 +1,5 @@
-# yaml-language-server: $schema=https://docker-setup.dille.io/schema.yaml
-$schema: https://docker-setup.dille.io/schema.yaml
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
 name: bif
 version: "0.0.11"
 check: ""
