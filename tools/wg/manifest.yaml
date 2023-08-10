@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=https://docker-setup.dille.io/schema.yaml
+$schema: https://docker-setup.dille.io/schema.yaml
+name: wg
+version: "1.0.20210914"
+check: ${binary} --version | cut -d' ' -f2 | cut -d- -f1 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/security
+- lang/c
+- type/cli
+homepage: https://git.zx2c4.com/wireguard-tools
+description: Tools for configuring WireGuard
+renovate:
+  datasource: git-tags
+  package: wireguard-tools
+  url: https://git.zx2c4.com/wireguard-tools
+  extractVersion: ^v(?<version>.+?)$
+  priority: low

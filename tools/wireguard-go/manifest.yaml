@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://docker-setup.dille.io/schema.yaml
+$schema: https://docker-setup.dille.io/schema.yaml
+name: wireguard-go
+version: "0.0.20230223"
+check: ${binary} --version | grep ^wireguard-go | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/security
+- lang/c
+- type/cli
+homepage: https://git.zx2c4.com/wireguard-go
+description: Go Implementation of WireGuard
+renovate:
+  datasource: git-tags
+  package: wireguard-go
+  url: https://git.zx2c4.com/wireguard-go
+  priority: low
