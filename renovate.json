@@ -4156,8 +4156,8 @@
     },
     {
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "nodejs/node",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "depNameTemplate": "uniget-org/renovate-custom",
+      "extractVersionTemplate": "^nodejs-lts/(?<version>.+?)$",
       "fileMatch": [
         "^tools/nodejs-lts/manifest.yaml$"
       ],
