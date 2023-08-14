@@ -1,10 +1,12 @@
 name: nodejs-lts
 # See https://github.com/nodejs/Release
-# Find latest LTS major version:
+# Find latest LTS major version using jq:
 #    MAJOR_VERSION="$(
 #        curl --silent --location --fail https://github.com/nodejs/Release/raw/main/schedule.json \
 #        | jq -r 'to_entries[] | select(.value.maintenance > (now | todate)) | select(.value.lts != null) | select(.value.lts < (now | todate)) | .key'
 #    )"
+# Find latest LTS major version using jsonata:
+#    $each($, function($v, $k) { ($v.maintenance > $now() and $v.lts <$now() ? $replace($k, "v", "") : $null) })
 # Find latest version for major version:
 #    git ls-remote https://github.com/nodejs/node "refs/tags/${MAJOR_VERSION}.*" \
 #    | grep -v '\^{}' \
@@ -24,6 +26,6 @@ homepage: https://github.com/nodejs/node
 description: Node.js JavaScript runtime
 renovate:
   datasource: github-releases
-  package: nodejs/node
-  extractVersion: ^v(?<version>.+?)$
+  package: uniget-org/renovate-custom
+  extractVersion: ^nodejs-lts/(?<version>.+?)$
   priority: low
