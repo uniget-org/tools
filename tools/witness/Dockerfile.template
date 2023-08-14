@@ -6,8 +6,8 @@ FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
 ARG name
 ARG version
 RUN <<EOF
-check-github-release-asset "testifysec/witness" "v${version}" "witness_${version}-linux_${alt_arch}.tar.gz"
-curl --silent --location --fail "https://github.com/testifysec/witness/releases/download/v${version}/witness_${version}-linux_${alt_arch}.tar.gz" \
+check-github-release-asset "testifysec/witness" "v${version}" "witness_${version}_linux_${alt_arch}.tar.gz"
+curl --silent --location --fail "https://github.com/testifysec/witness/releases/download/v${version}/witness_${version}_linux_${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}${target}/bin/" --no-same-owner \
     witness
 
