@@ -2800,6 +2800,16 @@
       ]
     },
     {
+      "datasourceTemplate": "npm",
+      "depNameTemplate": "jsonata-cli",
+      "fileMatch": [
+        "^tools/jsonata-cli/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "google/go-jsonnet",
       "extractVersionTemplate": "^v(?<version>.+?)$",
