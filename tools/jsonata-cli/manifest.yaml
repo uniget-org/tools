@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: jsonata-cli
+version: "2.0.0"
+check: ""
+build_dependencies:
+- node
+- npm
+runtime_dependencies:
+- node
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/javascript
+- type/cli
+homepage: https://github.com/rubystream/jsonata-cli
+description: CLI for JSONata
+renovate:
+  datasource: npm
+  package: jsonata-cli
+  priority: low
