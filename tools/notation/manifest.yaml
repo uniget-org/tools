@@ -5,7 +5,6 @@ runtime_dependencies:
 - docker
 tags:
 - type/cli
-- type/plugin
 - category/security
 - container/sign
 - lang/go
