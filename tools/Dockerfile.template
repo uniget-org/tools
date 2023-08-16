@@ -1,6 +1,6 @@
 #syntax=docker/dockerfile:1.6.0
 
-ARG image=ubuntu:22.04@sha256:48b91484d95722628efcbc356501ac3700f7e2a7c564802ca6a5dbffc2486e92
+ARG image=ubuntu:22.04@sha256:ec050c32e4a6085b423d36ecd025c0d3ff00c38ab93a3d71a460ff1c44fa6d77
 ARG ref=main
 # INSERT FROM
 
