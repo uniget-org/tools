@@ -1,5 +1,8 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "automergeSchedule": [
+    "at any time"
+  ],
   "digest": {
     "labels": [
       "bump/digest",
@@ -121,7 +124,7 @@
   },
   "platformAutomerge": true,
   "prConcurrentLimit": 0,
-  "prHourlyLimit": 5,
+  "prHourlyLimit": 0,
   "rebaseLabel": "renovate/rebase",
   "rebaseWhen": "conflicted",
   "recreateClosed": false,
@@ -6086,6 +6089,9 @@
         "version: \"?(?<currentValue>.*?)\"?\\n"
       ]
     }
+  ],
+  "schedule": [
+    "* */4 * * *"
   ],
   "stopUpdatingLabel": "renovate/stop-updating",
   "timezone": "Europe/Berlin",

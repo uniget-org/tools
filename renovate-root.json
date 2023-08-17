@@ -17,7 +17,13 @@
   ],
   "timezone": "Europe/Berlin",
   "prConcurrentLimit": 0,
-  "prHourlyLimit": 5,
+  "prHourlyLimit": 0,
+  "schedule":[
+    "* */4 * * *"
+  ],
+  "automergeSchedule":[
+    "at any time"
+  ],
   "enabledManagers": [
     "dockerfile",
     "github-actions",
