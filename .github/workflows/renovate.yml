@@ -100,3 +100,21 @@ jobs:
       with:
         path: renovate/cache
         key: ${{ steps.cache-restore.outputs.cache-primary-key }}-${{ github.sha }}
+
+  check:
+    runs-on: ubuntu-22.04
+    needs:
+    - renovate
+    if: always()
+    env:
+        GITHUB_TOKEN: ${{ secrets.BOT_RENOVATE }}
+    steps:
+
+    - name: Check rate limit
+      id: rate-limit
+      run: |
+        JSON="$(curl --silent --header "Authorization: token ${GITHUB_TOKEN}" https://api.github.com/rate_limit)"
+        LIMIT="$(echo ${JSON} | jq --raw-output '.rate.limit')"
+        REMAINING="$(echo ${JSON} | jq --raw-output '.rate.remaining')"
+        RESET="$(echo ${JSON} | jq --raw-output '.rate.reset')"
+        echo "Rate limit: ${REMAINING}/${LIMIT} (reset: $(date --date=@${RESET}))"
