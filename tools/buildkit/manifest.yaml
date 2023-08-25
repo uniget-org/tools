@@ -1,5 +1,5 @@
 name: buildkit
-version: "0.12.1"
+version: "0.12.2"
 binary: buildkitd
 check: ${binary} --version | cut -d' ' -f3 | tr -d v
 platforms:
