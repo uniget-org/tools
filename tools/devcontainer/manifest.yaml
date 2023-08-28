@@ -1,5 +1,5 @@
 name: devcontainer
-version: "0.50.2"
+version: "0.51.1"
 check: ""
 platforms:
 - linux/amd64
