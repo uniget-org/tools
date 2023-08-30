@@ -18,17 +18,16 @@
   "timezone": "Europe/Berlin",
   "prConcurrentLimit": 0,
   "prHourlyLimit": 0,
-  "schedule":[
+  "schedule": [
     "* */4 * * *"
   ],
-  "automergeSchedule":[
-    "at any time"
+  "automergeSchedule": [
+    "* 1-23/2 * * *"
   ],
   "enabledManagers": [
     "dockerfile",
     "github-actions",
-    "regex",
-    "gomod"
+    "regex"
   ],
   "useBaseBranchConfig": "merge",
   "platformAutomerge": true,
