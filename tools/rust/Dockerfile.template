@@ -36,6 +36,7 @@ RUN <<EOF
 "${prefix}${target}/cargo/bin/rustup" completions bash rustup >"${prefix}${target}/share/bash-completion/completions/rustup"
 "${prefix}${target}/cargo/bin/rustup" completions fish rustup >"${prefix}${target}/share/fish/vendor_completions.d/rustup.fish"
 "${prefix}${target}/cargo/bin/rustup" completions zsh rustup >"${prefix}${target}/share/zsh/vendor-completions/_rustup"
+find "${prefix}${target}/rustup/toolchains/${version}-${arch}-unknown-linux-gnu/src" -type f
 cp \
     "${prefix}${target}/rustup/toolchains/${version}-${arch}-unknown-linux-gnu/src/etc/bash_completion.d/cargo" \
     "${prefix}${target}/share/bash-completion/completions/"
