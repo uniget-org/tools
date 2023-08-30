@@ -7,11 +7,11 @@ on:
     - main
     paths:
     - .github/workflows/renovate.yml
-  workflow_run:
-    workflows:
-    - Test-Linux
-    types:
-    - completed
+  #workflow_run:
+  #  workflows:
+  #  - Test-Linux
+  #  types:
+  #  - completed
   workflow_dispatch:
     inputs:
       dry-run:
@@ -26,7 +26,7 @@ jobs:
 
   prepare:
     runs-on: ubuntu-22.04
-    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    #if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     outputs:
       limit: ${{ steps.rate-limit.outputs.limit }}
       remaining: ${{ steps.rate-limit.outputs.remaining }}
