@@ -23,7 +23,7 @@ curl --url "https://api.github.com/orgs/uniget-org/packages?package_type=contain
 cat <<EOF
 
 ############################################################
-### Closed pull requests
+### Merged pull requests (from last 100)
 ############################################################
 EOF
 curl 'https://api.github.com/repos/uniget-org/tools/pulls?state=closed&per_page=100' \
@@ -32,7 +32,23 @@ curl 'https://api.github.com/repos/uniget-org/tools/pulls?state=closed&per_page=
     --header "Authorization: token ${GITHUB_TOKEN}" \
 | jq --raw-output --arg today "${today}" '
     .[]
+    | select(.merged_at != null)
     | select(.closed_at > $today)
+    | "#\(.number) - \(.title) - https://github.com/uniget-org/tools/pull/\(.number)"
+'
+
+cat <<EOF
+
+############################################################
+### Open pull requests
+############################################################
+EOF
+curl 'https://api.github.com/repos/uniget-org/tools/pulls?state=open&per_page=100' \
+    --silent \
+    --fail \
+    --header "Authorization: token ${GITHUB_TOKEN}" \
+| jq --raw-output --arg today "${today}" '
+    .[]
     | "#\(.number) - \(.title) - https://github.com/uniget-org/tools/pull/\(.number)"
 '
 
