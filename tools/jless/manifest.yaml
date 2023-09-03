@@ -3,17 +3,19 @@ version: "0.9.0"
 check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
-#Requires:
-#- libxcb1
-#- libxcb-render0
-#- libxcb-shape0
-#- libxcb-xfixes0
 tags:
 - category/development
 - lang/rust
 - type/cli
 homepage: https://github.com/PaulJuliusMartinez/jless
 description: Command-line JSON viewer designed for reading, exploring, and searching
+messages:
+  usage: |
+    You must make sure the following libraries are installed:
+    - libxcb1
+    - libxcb-render0
+    - libxcb-shape0
+    - libxcb-xfixes0
 renovate:
   datasource: github-releases
   package: PaulJuliusMartinez/jless
