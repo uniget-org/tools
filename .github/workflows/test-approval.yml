@@ -1,0 +1,21 @@
+name: Test
+
+on:
+  pull_request_target:
+    types:
+    - opened
+    - synchronize
+    paths:
+    - tools/**
+    - .github/workflows/*
+
+jobs:
+
+  test:
+    name: Test
+    runs-on: ubuntu-22.04
+    steps:
+
+    - name: Test
+      run: |
+        echo "test"
