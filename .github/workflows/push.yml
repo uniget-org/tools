@@ -127,12 +127,12 @@ jobs:
         sha_version="$(
             helper/usr/local/bin/regctl manifest head ghcr.io/uniget-org/tools/${{ matrix.tool }}:${tool_version} || true
         )"
-        echo "    SHA of tag main: ${sha_main}"
-        echo "    SHA of tag test: ${sha_test}"
-        echo "    SHA of tag ${tool_version}: ${sha_version}"
+        echo "    SHA of tag main: ${sha_main}."
+        echo "    SHA of tag test: ${sha_test}."
+        echo "    SHA of tag ${tool_version}: ${sha_version}."
 
         tool_needs_rebuild=false
-        if test -n "{sha_version}"; then
+        if test "{sha_version:0:3}" == "sha"; then
             echo "### Version SHA found -> no rebuild"
             :
         
