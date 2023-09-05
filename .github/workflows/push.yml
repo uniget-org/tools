@@ -123,7 +123,7 @@ jobs:
         sha_test="$(
             helper/usr/local/bin/regctl manifest head ghcr.io/uniget-org/tools/${{ matrix.tool }}:test || true
         )"
-        tool_version="$( yq eval .version tools/yq/manifest.yaml )"
+        tool_version="$( yq eval .version tools/${{ matrix.tool }}/manifest.yaml )"
         sha_version="$(
             helper/usr/local/bin/regctl manifest head ghcr.io/uniget-org/tools/${{ matrix.tool }}:${tool_version} || true
         )"

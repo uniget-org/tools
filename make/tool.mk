@@ -158,16 +158,16 @@ promote: \
 $(addsuffix --promote,$(ALL_TOOLS_RAW)):%--promote: \
 		$(HELPER)/var/lib/uniget/manifests/regclient.json \
 		; $(info $(M) Promoting image for $*...)
-	TOOL_VERSION="$$(jq --raw-output '.tools[].version' tools/$*/manifest.json)"; \
-	@regctl image copy $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION} $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(DOCKER_TAG)
-	@regctl image copy $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION} $(REGISTRY)/$(REPOSITORY_PREFIX)$*:latest
+	@TOOL_VERSION="$$(jq --raw-output '.tools[].version' tools/$*/manifest.json)"; \
+	regctl image copy $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION} $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(DOCKER_TAG); \
+	regctl image copy $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION} $(REGISTRY)/$(REPOSITORY_PREFIX)$*:latest
 
 .PHONY:
 $(addsuffix --inspect,$(ALL_TOOLS_RAW)):%--inspect: \
 		$(HELPER)/var/lib/uniget/manifests/regclient.json \
 		; $(info $(M) Inspecting image for $*...)
-	TOOL_VERSION="$$(jq --raw-output '.tools[].version' tools/$*/manifest.json)"; \
-	@regctl manifest get $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION}
+	@TOOL_VERSION="$$(jq --raw-output '.tools[].version' tools/$*/manifest.json)"; \
+	regctl manifest get $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION}
 
 .PHONY:
 $(addsuffix --install,$(ALL_TOOLS_RAW)):%--install: \
