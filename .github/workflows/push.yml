@@ -123,25 +123,35 @@ jobs:
         sha_test="$(
             helper/usr/local/bin/regctl manifest head ghcr.io/uniget-org/tools/${{ matrix.tool }}:test || true
         )"
+        tool_version="$( yq eval .version tools/yq/manifest.yaml )"
+        sha_version="$(
+            helper/usr/local/bin/regctl manifest head ghcr.io/uniget-org/tools/${{ matrix.tool }}:${tool_version} || true
+        )"
         echo "    SHA of tag main: ${sha_main}"
         echo "    SHA of tag test: ${sha_test}"
+        echo "    SHA of tag ${tool_version}: ${sha_version}"
 
         tool_needs_rebuild=false
-        if test -z "${sha_test}"; then
+        if test -n "{sha_version}"; then
+            echo "### Version SHA found -> no rebuild"
+            :
+        
+        elif test -z "${sha_test}"; then
+            echo "### SHA for tag test not -> rebuild"
             tool_needs_rebuild=true
         
         elif test "${sha_test}" == "${sha_main}"; then
+            echo "### SHA for tags test and main match -> rebuild"
             tool_needs_rebuild=true
         fi
 
         if "${tool_needs_rebuild}"; then
             echo "### Building ${{ matrix.tool }}"
             make "${{ matrix.tool }}--push"
-
-        else
-            echo "### Promoting ${{ matrix.tool }}"
-            make "${{ matrix.tool }}--promote"
         fi
+
+        echo "### Promoting ${{ matrix.tool }}"
+        make "${{ matrix.tool }}--promote"
 
     - name: Store logs
       uses: actions/upload-artifact@v3

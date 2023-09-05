@@ -101,9 +101,6 @@ $(ALL_TOOLS_RAW):%: \
 	echo "Build deps:   $${DEPS}"; \
 	echo "Platforms:    $${ARCHS}"; \
 	echo "Push:         $${PUSH}"; \
-	if test "$(DOCKER_TAG)" == "main"; then \
-		EXTRA_DOCKER_TAG="--tag $(REGISTRY)/$(REPOSITORY_PREFIX)$*:test"; \
-	fi; \
 	if ! docker buildx build $(TOOLS_DIR)/$@ \
 			--builder uniget \
 			--build-arg branch=$(DOCKER_TAG) \
@@ -114,8 +111,7 @@ $(ALL_TOOLS_RAW):%: \
 			--build-arg tags=$${TAGS} \
 			--platform $${ARCHS} \
 			--cache-from $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(DOCKER_TAG) \
-			--tag $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(DOCKER_TAG) \
-			$${EXTRA_DOCKER_TAG} \
+			--tag $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION} \
 			--provenance=false \
 			--metadata-file $(TOOLS_DIR)/$@/build-metadata.json \
 			--push="$${PUSH}" \
@@ -162,13 +158,16 @@ promote: \
 $(addsuffix --promote,$(ALL_TOOLS_RAW)):%--promote: \
 		$(HELPER)/var/lib/uniget/manifests/regclient.json \
 		; $(info $(M) Promoting image for $*...)
-	@regctl image copy $(REGISTRY)/$(REPOSITORY_PREFIX)$*:test $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(DOCKER_TAG)
+	TOOL_VERSION="$$(jq --raw-output '.tools[].version' tools/$*/manifest.json)"; \
+	@regctl image copy $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION} $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(DOCKER_TAG)
+	@regctl image copy $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION} $(REGISTRY)/$(REPOSITORY_PREFIX)$*:latest
 
 .PHONY:
 $(addsuffix --inspect,$(ALL_TOOLS_RAW)):%--inspect: \
 		$(HELPER)/var/lib/uniget/manifests/regclient.json \
 		; $(info $(M) Inspecting image for $*...)
-	@regctl manifest get $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(DOCKER_TAG)
+	TOOL_VERSION="$$(jq --raw-output '.tools[].version' tools/$*/manifest.json)"; \
+	@regctl manifest get $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION}
 
 .PHONY:
 $(addsuffix --install,$(ALL_TOOLS_RAW)):%--install: \
@@ -200,7 +199,7 @@ $(addsuffix --debug,$(ALL_TOOLS_RAW)):%--debug: \
 		--build-arg tags=$${TAGS} \
 		--cache-from $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(DOCKER_TAG) \
 		--platform linux/amd64 \
-		--tag $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(DOCKER_TAG) \
+		--tag $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION} \
 		--target prepare \
 		--load \
 		--progress plain && \
