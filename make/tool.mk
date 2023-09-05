@@ -157,6 +157,7 @@ promote: \
 .PHONY:
 $(addsuffix --promote,$(ALL_TOOLS_RAW)):%--promote: \
 		$(HELPER)/var/lib/uniget/manifests/regclient.json \
+		$(TOOLS_DIR)/%/manifest.json \
 		; $(info $(M) Promoting image for $*...)
 	@TOOL_VERSION="$$(jq --raw-output '.tools[].version' tools/$*/manifest.json)"; \
 	regctl image copy $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION} $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(DOCKER_TAG); \
