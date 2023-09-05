@@ -131,21 +131,10 @@ jobs:
         echo "    SHA of tag test: ${sha_test}."
         echo "    SHA of tag ${tool_version}: ${sha_version}."
 
-        tool_needs_rebuild=false
         if test "{sha_version:0:3}" == "sha"; then
             echo "### Version SHA found -> no rebuild"
-            :
-        
-        elif test -z "${sha_test}"; then
-            echo "### SHA for tag test not -> rebuild"
-            tool_needs_rebuild=true
-        
-        elif test "${sha_test}" == "${sha_main}"; then
-            echo "### SHA for tags test and main match -> rebuild"
-            tool_needs_rebuild=true
-        fi
 
-        if "${tool_needs_rebuild}"; then
+        else
             echo "### Building ${{ matrix.tool }}"
             make "${{ matrix.tool }}--push"
         fi
