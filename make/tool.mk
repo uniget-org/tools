@@ -92,12 +92,14 @@ $(ALL_TOOLS_RAW):%: \
 	@set -o errexit; \
 	PUSH=$(or $(PUSH), false); \
 	TOOL_VERSION="$$(jq --raw-output '.tools[].version' tools/$*/manifest.json)"; \
+	VERSION_TAG="$$( echo "$${TOOL_VERSION}" | tr '+' '-' )"; \
 	DEPS="$$(jq --raw-output '.tools[] | select(.build_dependencies != null) | .build_dependencies[]' tools/$*/manifest.json | paste -sd,)"; \
 	TAGS="$$(jq --raw-output '.tools[] | select(.tags != null) | .tags[]' tools/$*/manifest.json | paste -sd,)"; \
 	ARCHS="$$(jq --raw-output '.tools[] | select(.platforms != null) | .platforms[]' tools/$*/manifest.json | paste -sd,)"; \
 	test -n "$${ARCHS}" || ARCHS="linux/$(ALT_ARCH)"; \
 	echo "Name:         $*"; \
 	echo "Version:      $${TOOL_VERSION}"; \
+	echo "Version tag:  $${VERSION_TAG}"; \
 	echo "Build deps:   $${DEPS}"; \
 	echo "Platforms:    $${ARCHS}"; \
 	echo "Push:         $${PUSH}"; \
@@ -111,7 +113,7 @@ $(ALL_TOOLS_RAW):%: \
 			--build-arg tags=$${TAGS} \
 			--platform $${ARCHS} \
 			--cache-from $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(DOCKER_TAG) \
-			--tag $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION} \
+			--tag $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${VERSION_TAG} \
 			--provenance=false \
 			--metadata-file $(TOOLS_DIR)/$@/build-metadata.json \
 			--push="$${PUSH}" \
@@ -160,15 +162,17 @@ $(addsuffix --promote,$(ALL_TOOLS_RAW)):%--promote: \
 		$(TOOLS_DIR)/%/manifest.json \
 		; $(info $(M) Promoting image for $*...)
 	@TOOL_VERSION="$$(jq --raw-output '.tools[].version' tools/$*/manifest.json)"; \
-	regctl image copy $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION} $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(DOCKER_TAG); \
-	regctl image copy $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION} $(REGISTRY)/$(REPOSITORY_PREFIX)$*:latest
+	VERSION_TAG="$$( echo "$${TOOL_VERSION}" | tr '+' '-' )"; \
+	regctl image copy $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${VERSION_TAG} $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(DOCKER_TAG); \
+	regctl image copy $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${VERSION_TAG} $(REGISTRY)/$(REPOSITORY_PREFIX)$*:latest
 
 .PHONY:
 $(addsuffix --inspect,$(ALL_TOOLS_RAW)):%--inspect: \
 		$(HELPER)/var/lib/uniget/manifests/regclient.json \
 		; $(info $(M) Inspecting image for $*...)
 	@TOOL_VERSION="$$(jq --raw-output '.tools[].version' tools/$*/manifest.json)"; \
-	regctl manifest get $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION}
+	VERSION_TAG="$$( echo "$${TOOL_VERSION}" | tr '+' '-' )"; \
+	regctl manifest get $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${VERSION_TAG}
 
 .PHONY:
 $(addsuffix --install,$(ALL_TOOLS_RAW)):%--install: \
@@ -198,7 +202,7 @@ $(addsuffix --debug,$(ALL_TOOLS_RAW)):%--debug: \
 		--build-arg version=$${TOOL_VERSION} \
 		--build-arg deps=$${DEPS} \
 		--build-arg tags=$${TAGS} \
-		--cache-from $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(DOCKER_TAG) \
+		--cache-from $(REGISTRY)/$(REPOSITORY_PREFIX)$*:latest \
 		--platform linux/amd64 \
 		--tag $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION} \
 		--target prepare \
