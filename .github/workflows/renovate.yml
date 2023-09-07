@@ -67,6 +67,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.BOT_RENOVATE }}
     steps:
 
+    # See https://docs.github.com/en/graphql/overview/resource-limitations#returning-a-calls-rate-limit-status
     - name: Check graphql rate limit
       id: rate-limit
       run: |
