@@ -56,6 +56,30 @@ jobs:
             echo "renovate=true" >>"${GITHUB_OUTPUT}"
         fi
 
+  graphql:
+    runs-on: ubuntu-22.04
+    #if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    outputs:
+      limit: ${{ steps.rate-limit.outputs.limit }}
+      remaining: ${{ steps.rate-limit.outputs.remaining }}
+      renovate: ${{ steps.rate-limit.outputs.renovate }}
+    env:
+        GITHUB_TOKEN: ${{ secrets.BOT_RENOVATE }}
+    steps:
+
+    - name: Check graphql rate limit
+      id: rate-limit
+      run: |
+        curl \
+            --silent \
+            --fail \
+            --url https://api.github.com/graphql \
+            --header 'Content-Type: application/json' \
+            --header "Authorization: bearer ${GITHUB_TOKEN}" \
+            --request POST \
+            --data '{"query": "query { viewer { login } rateLimit { limit cost remaining resetAt } }"}' \
+        | jq .
+
   renovate:
     runs-on: ubuntu-22.04
     needs: prepare
