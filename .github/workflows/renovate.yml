@@ -24,7 +24,7 @@ concurrency:
 
 jobs:
 
-  prepare:
+  rest:
     runs-on: ubuntu-22.04
     #if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     outputs:
@@ -83,8 +83,10 @@ jobs:
 
   renovate:
     runs-on: ubuntu-22.04
-    needs: prepare
-    if: ${{ needs.prepare.outputs.renovate == 'true' }}
+    needs:
+    - rest
+    - graphql
+    if: ${{ needs.rest.outputs.renovate == 'true' }}
     permissions: write-all
     steps:
 
@@ -138,8 +140,18 @@ jobs:
     - name: Check rate limit
       id: rate-limit
       run: |
-        JSON="$(curl --silent --header "Authorization: token ${GITHUB_TOKEN}" https://api.github.com/rate_limit)"
-        LIMIT="$(echo ${JSON} | jq --raw-output '.rate.limit')"
-        REMAINING="$(echo ${JSON} | jq --raw-output '.rate.remaining')"
-        RESET="$(echo ${JSON} | jq --raw-output '.rate.reset')"
-        echo "Rate limit: ${REMAINING}/${LIMIT} (reset: $(date --date=@${RESET}))"
+        curl \
+            --url https://api.github.com/rate_limit \
+            --silent \
+            --header "Authorization: token ${GITHUB_TOKEN}" \
+        | jq .
+
+        curl \
+            --url https://api.github.com/graphql \
+            --silent \
+            --fail \
+            --header 'Content-Type: application/json' \
+            --header "Authorization: bearer ${GITHUB_TOKEN}" \
+            --request POST \
+            --data '{"query": "query { viewer { login } rateLimit { limit cost remaining resetAt } }"}' \
+        | jq .
