@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: vexy
+version: "0.3.1"
+check: ""
+build_dependencies:
+#- python
+- shiv
+#runtime_dependencies:
+#- python
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/security
+- lang/python
+- type/cli
+homepage: https://github.com/madpah/vexy
+description: Generate VEX CycloneDX documents
+renovate:
+  datasource: pypi
+  package: vexy
+  priority: medium
