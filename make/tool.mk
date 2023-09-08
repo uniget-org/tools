@@ -88,7 +88,7 @@ $(ALL_TOOLS_RAW):%: \
 		$(TOOLS_DIR)/%/Dockerfile \
 		builders \
 		base \
-		; $(info $(M) Building image $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(DOCKER_TAG)...)
+		; $(info $(M) Building image $(REGISTRY)/$(REPOSITORY_PREFIX)$*...)
 	@set -o errexit; \
 	PUSH=$(or $(PUSH), false); \
 	TOOL_VERSION="$$(jq --raw-output '.tools[].version' tools/$*/manifest.json)"; \
@@ -112,7 +112,7 @@ $(ALL_TOOLS_RAW):%: \
 			--build-arg deps=$${DEPS} \
 			--build-arg tags=$${TAGS} \
 			--platform $${ARCHS} \
-			--cache-from $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(DOCKER_TAG) \
+			--cache-from $(REGISTRY)/$(REPOSITORY_PREFIX)$*:latest \
 			--tag $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${VERSION_TAG} \
 			--provenance=false \
 			--metadata-file $(TOOLS_DIR)/$@/build-metadata.json \
@@ -215,7 +215,7 @@ $(addsuffix --debug,$(ALL_TOOLS_RAW)):%--debug: \
 		--env name=$* \
 		--env version=$${TOOL_VERSION} \
 		--rm \
-		$(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(DOCKER_TAG) \
+		$(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION} \
 			bash
 
 .PHONY:
@@ -240,7 +240,7 @@ $(addsuffix --buildg,$(ALL_TOOLS_RAW)):%--buildg: \
 		--build-arg version=$${TOOL_VERSION} \
 		--build-arg deps=$${DEPS} \
 		--build-arg tags=$${TAGS} \
-		--cache-from $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(DOCKER_TAG)
+		--cache-from $(REGISTRY)/$(REPOSITORY_PREFIX)$*:latest
 
 .PHONY:
 $(addsuffix --test,$(ALL_TOOLS_RAW)):%--test: \
