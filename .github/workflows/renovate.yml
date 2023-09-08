@@ -148,6 +148,7 @@ jobs:
       run: |
         curl --url https://api.github.com/repos/uniget-org/tools/actions/jobs/${{ needs.renovate.outputs.run-id }}/logs \
             --silent \
+            --verbose \
             --location \
             --fail \
             --header "Authorization: Bearer ${{ secrets.BOT_RENOVATE }}" \
