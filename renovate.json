@@ -6100,7 +6100,7 @@
     }
   ],
   "schedule": [
-    "* */4 * * *"
+    "* 0,4,8,12,16,20 * * *"
   ],
   "stopUpdatingLabel": "renovate/stop-updating",
   "timezone": "Europe/Berlin",

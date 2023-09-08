@@ -1,7 +1,7 @@
 name: Renovate
 on:
   schedule:
-  - cron: '13 * * * *'
+  - cron: '13 */2 * * *'
   push:
     branches:
     - main
@@ -128,7 +128,7 @@ jobs:
         path: renovate/cache
         key: ${{ steps.cache-restore.outputs.cache-primary-key }}-${{ github.sha }}
 
-  check:
+  check-post-rest:
     runs-on: ubuntu-22.04
     needs:
     - renovate
@@ -146,6 +146,18 @@ jobs:
             --header "Authorization: token ${GITHUB_TOKEN}" \
         | jq .
 
+  check-post-graphql:
+    runs-on: ubuntu-22.04
+    needs:
+    - renovate
+    if: always()
+    env:
+        GITHUB_TOKEN: ${{ secrets.BOT_RENOVATE }}
+    steps:
+
+    - name: Check rate limit
+      id: rate-limit
+      run: |
         curl \
             --url https://api.github.com/graphql \
             --silent \
