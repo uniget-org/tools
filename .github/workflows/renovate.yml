@@ -89,13 +89,13 @@ jobs:
     if: ${{ needs.rest.outputs.renovate == 'true' }}
     permissions: write-all
     outputs:
-      job-id: ${{ steps.job-id.outputs.job-id }}
+      run-id: ${{ steps.run-id.outputs.run-id }}
     steps:
 
     - name: Save job ID
-      id: job-id
+      id: run-id
       run: |
-        echo "job-id=${{ github.job }}" >>"${GITHUB_OUTPUT}"
+        echo "run-id=${{ github.run_id }}" >>"${GITHUB_OUTPUT}"
 
     - name: Restore cache
       id: cache-restore
@@ -146,7 +146,7 @@ jobs:
 
     - name: Fetch log
       run: |
-        curl --url https://api.github.com/repos/uniget-org/tools/actions/jobs/${{ needs.renovate.outputs.job-id }}/logs \
+        curl --url https://api.github.com/repos/uniget-org/tools/actions/jobs/${{ needs.renovate.outputs.run-id }}/logs \
             --silent \
             --location \
             --fail \
