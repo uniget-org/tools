@@ -88,7 +88,14 @@ jobs:
     - graphql
     if: ${{ needs.rest.outputs.renovate == 'true' }}
     permissions: write-all
+    outputs:
+      job-id: ${{ steps.job-id.outputs.job-id }}
     steps:
+
+    - name: Save job ID
+      id: job-id
+      run: |
+        echo "job-id=${{ github.job }}" >>"${GITHUB_OUTPUT}"
 
     - name: Restore cache
       id: cache-restore
@@ -127,6 +134,36 @@ jobs:
       with:
         path: renovate/cache
         key: ${{ steps.cache-restore.outputs.cache-primary-key }}-${{ github.sha }}
+
+  check-log:
+    runs-on: ubuntu-22.04
+    needs:
+    - renovate
+    if: always()
+    env:
+        GITHUB_TOKEN: ${{ secrets.BOT_RENOVATE }}
+    steps:
+
+    - name: Fetch log
+      run: |
+        curl --url https://api.github.com/repos/uniget-org/tools/actions/jobs/${{ needs.renovate.outputs.job-id }}/logs \
+            --silent \
+            --location \
+            --fail \
+            --header "Authorization: Bearer ${{ secrets.BOT_RENOVATE }}" \
+        >job.log
+
+    - name: Store logs
+      uses: actions/upload-artifact@v3
+      with:
+        name: logs.zip
+        path: "job.log"
+    
+    - name: Check log
+      run: |
+        if grep secondary job.log; then
+            exit 1
+        fi
 
   check-post-rest:
     runs-on: ubuntu-22.04
