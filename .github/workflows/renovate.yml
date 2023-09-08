@@ -88,14 +88,7 @@ jobs:
     - graphql
     if: ${{ needs.rest.outputs.renovate == 'true' }}
     permissions: write-all
-    outputs:
-      run-id: ${{ steps.run-id.outputs.run-id }}
     steps:
-
-    - name: Save job ID
-      id: run-id
-      run: |
-        echo "run-id=${{ github.run_id }}" >>"${GITHUB_OUTPUT}"
 
     - name: Restore cache
       id: cache-restore
@@ -151,9 +144,19 @@ jobs:
 
     - name: Fetch log
       run: |
-        curl --url https://api.github.com/repos/uniget-org/tools/actions/jobs/${{ needs.renovate.outputs.run-id }}/logs \
+        echo "### Processing run id ${{ github.run_id }}"
+        JOB_ID="$(
+            curl --url https://api.github.com/repos/uniget-org/tools/actions/runs/${{ github.run_id }}/jobs \
+                --silent \
+                --location \
+                --fail \
+                --header "Authorization: Bearer ${{ secrets.BOT_RENOVATE }}" \
+            | jq '.jobs[] | select(.name == "renovate") | .id'
+        )"
+
+        echo "### Fetching log for job id ${JOB_ID}"
+        curl --url https://api.github.com/repos/uniget-org/tools/actions/jobs/${JOB_ID}/logs \
             --silent \
-            --verbose \
             --location \
             --fail \
             --header "Authorization: Bearer ${{ secrets.BOT_RENOVATE }}" \
