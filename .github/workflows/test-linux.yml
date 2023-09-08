@@ -75,6 +75,24 @@ jobs:
             VERSION=test make ${TOOL} PUSH=true
         done
 
+        echo "### Checking if all tools are public"
+        PRIVATE_TOOLS=""
+        for TOOL in ${TOOLS}; do
+            if curl --url "https://api.github.com/orgs/${GITHUB_REPOSITORY_OWNER}/packages?package_type=container&visibility=public&per_page=100" \
+                        --silent \
+                        --fail \
+                        --header "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+                    | jq --raw-output '.[].name' \
+                    | grep -q "^tools\/${TOOL}\$"; then
+                echo "### ${TOOL} is not public"
+                PRIVATE_TOOLS="${PRIVATE_TOOLS}${TOOL} "
+            fi
+        done
+        if test -n "${PRIVATE_TOOLS}"; then
+            echo "### The following tools are not public: ${PRIVATE_TOOLS}"
+            exit 1
+        fi
+
     - name: Store logs
       uses: actions/upload-artifact@v3
       if: always()
