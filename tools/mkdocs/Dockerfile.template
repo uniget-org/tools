@@ -20,6 +20,10 @@ RUN <<EOF
 shiv --output-file "${prefix}${target}/bin/mkdocs" --console-script mkdocs \
     "mkdocs==${version}" \
     mkdocs-material \
+    mkdocs-material-extensions \
+    pymdown-extensions \
     mkdocs-minify-plugin \
+    mkdocs-macros-plugin \
+    mkdocs-redirects \
     regex
 EOF
