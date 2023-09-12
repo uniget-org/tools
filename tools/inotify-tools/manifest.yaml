@@ -1,5 +1,5 @@
 name: inotify-tools
-version: "3.22.6.0"
+version: "4.23.9.0"
 binary: inotifywait
 check: ${binary} --help | head -1 | cut -d' ' -f2
 tags:
