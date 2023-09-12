@@ -26,11 +26,13 @@ cp src/newuidmap /opt/uidmap/bin
 cp src/newgidmap /opt/uidmap/bin
 cp man/man1/newuidmap.1 /opt/uidmap/share/man/man1
 cp man/man1/newgidmap.1 /opt/uidmap/share/man/man1
-chmod u+s /opt/uidmap/bin/newuidmap
-chmod u+s /opt/uidmap/bin/newgidmap
 EOF
 
 FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
 ARG name
 ARG version
 COPY --from=build /opt/uidmap/ ${prefix}${target}/
+RUN <<EOF
+chmod u+s "${prefix}${target}/bin/newuidmap"
+chmod u+s "${prefix}${target}/bin/newgidmap"
+EOF
