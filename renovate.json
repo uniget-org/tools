@@ -1,8 +1,5 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "automergeSchedule": [
-    "* 1-23/2 * * *"
-  ],
   "digest": {
     "labels": [
       "bump/digest",
@@ -6098,9 +6095,6 @@
         "version: \"?(?<currentValue>.*?)\"?\\n"
       ]
     }
-  ],
-  "schedule": [
-    "* 0,4,8,12,16,20 * * *"
   ],
   "stopUpdatingLabel": "renovate/stop-updating",
   "timezone": "Europe/Berlin",
