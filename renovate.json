@@ -395,6 +395,17 @@
     },
     {
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "chainguard-dev/bomshell",
+      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/bomshell/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "containers/bubblewrap",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [

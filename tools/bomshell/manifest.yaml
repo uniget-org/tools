@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: bomshell
+version: "0.1.0"
+check: ""
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/chainguard
+- category/security
+- lang/go
+- type/cli
+homepage: https://github.com/chainguard-dev/bomshell
+description: SBOM query language and associated utilities
+renovate:
+  datasource: github-releases
+  package: chainguard-dev/bomshell
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
