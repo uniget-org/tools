@@ -9,6 +9,7 @@ WORKDIR /tmp/buildah
 RUN git clone --config advice.detachedHead=false --depth 1 --recursive --branch "v${version}" https://github.com/containers/buildah.git .
 RUN <<EOF
 nix build --extra-experimental-features nix-command -f nix/
+nix log /nix/store/jb63gx4wwr661p3vbg2k6500haada84g-go-1.16.5.drv
 mkdir -p ./bin
 cp -rfp ./result/bin/* ./bin/
 find . -type f
