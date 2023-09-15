@@ -24,6 +24,10 @@ curl --silent --show-error --fail --header "Authorization: token ${GITHUB_TOKEN}
         continue
     fi
 
+    # Check for approval if required by branch protection
+    # https://docs.github.com/en/rest/pulls/reviews?apiVersion=2022-11-28#list-reviews-for-a-pull-request
+    # https://api.github.com/repos/OWNER/REPO/pulls/PULL_NUMBER/reviews
+
     HEAD_REF="$( jq --raw-output '.head.ref' <<<"${PR_JSON}" )"
     echo "HEAD reference in PR ${PR} is ${HEAD_REF}"
 
@@ -34,6 +38,7 @@ curl --silent --show-error --fail --header "Authorization: token ${GITHUB_TOKEN}
         | xargs echo
     )"
     # Fetch check run and check for status of required actions
+    # .check_runs_url in JSON of check suite
     if test -z "${CHECK_SUITE_ID}"; then
         echo "PR ${PR} has not completed the checks"
         continue
