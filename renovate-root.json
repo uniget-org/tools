@@ -11,8 +11,6 @@
     ":pinVersions",
     ":separateMajorReleases",
     ":separatePatchReleases",
-    ":automergePr",
-    ":automergeRequireAllStatusChecks",
     ":semanticCommits"
   ],
   "timezone": "Europe/Berlin",
@@ -36,26 +34,10 @@
   "digest": { "labels": [ "bump/digest", "type/renovate" ] },
   "packageRules": [
     {
-      "matchDatasources":  [ "docker" ],
-      "matchPackageNames": [ "golang", "rust" ],
-      "updateTypes":       [ "pin", "digest", "patch", "minor", "major" ],
-      "automerge":           true
-    },
-    {
       "matchDatasources":     [ "docker" ],
       "matchPackagePrefixes": [ "ghcr.io/uniget-org/tools/" ],
       "updateTypes":          [ "pin", "digest" ],
       "enabled":                false
-    },
-    {
-      "matchDatasources": [ "docker" ],
-      "updateTypes":      [ "pin", "digest" ],
-      "automerge":          true
-    },
-    {
-      "matchDatasources": [ "github-releases", "github-tags", "git-tags", "gitlab-releases", "pypi" ],
-      "updateTypes":      [ "pin", "digest", "patch", "minor", "major" ],
-      "automerge":          true
     }
   ],
   "regexManagers": [

@@ -22,8 +22,6 @@
     ":pinVersions",
     ":separateMajorReleases",
     ":separatePatchReleases",
-    ":automergePr",
-    ":automergeRequireAllStatusChecks",
     ":semanticCommits"
   ],
   "major": {
@@ -40,23 +38,6 @@
   },
   "packageRules": [
     {
-      "automerge": true,
-      "matchDatasources": [
-        "docker"
-      ],
-      "matchPackageNames": [
-        "golang",
-        "rust"
-      ],
-      "updateTypes": [
-        "pin",
-        "digest",
-        "patch",
-        "minor",
-        "major"
-      ]
-    },
-    {
       "enabled": false,
       "matchDatasources": [
         "docker"
@@ -67,33 +48,6 @@
       "updateTypes": [
         "pin",
         "digest"
-      ]
-    },
-    {
-      "automerge": true,
-      "matchDatasources": [
-        "docker"
-      ],
-      "updateTypes": [
-        "pin",
-        "digest"
-      ]
-    },
-    {
-      "automerge": true,
-      "matchDatasources": [
-        "github-releases",
-        "github-tags",
-        "git-tags",
-        "gitlab-releases",
-        "pypi"
-      ],
-      "updateTypes": [
-        "pin",
-        "digest",
-        "patch",
-        "minor",
-        "major"
       ]
     },
     {
