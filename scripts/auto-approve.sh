@@ -6,30 +6,39 @@ if test -z "${GITHUB_TOKEN}"; then
     exit 1
 fi
 
-GITHUB_REPOSITORY=uniget-org/test-pr-actions
-PR=13
+: "${GITHUB_REPOSITORY:=uniget-org/tools}"
 
-# Ensure PR has label type/renovate
-LABELS="$(
-    curl --silent --show-error --fail --header "Authorization: token ${GITHUB_TOKEN}" \
-        --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/${PR}/labels" \
-    | jq -r '.[].name'
-)"
-if ! echo "${LABELS}" | grep -q "^type/renovate$"; then
-    echo "PR ${PR} does not have label type/renovate. Aborting"
-    exit 0
-fi
-
-# Get the latest commit from PR
-COMMIT_SHA=$(
-    curl --silent --show-error --fail --header "Authorization: token ${GITHUB_TOKEN}" \
-        --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${PR}/commits" \
-    | jq -r '.[0].sha'
-)
-echo "Latest commit in PR ${PR} is ${COMMIT_SHA}"
-
-# Create a review for the latest commit in PR
 curl --silent --show-error --fail --header "Authorization: token ${GITHUB_TOKEN}" \
-    --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${PR}/reviews" \
-    --request POST \
-    --data "{\"commit_id\": \"${COMMIT_SHA}\", \"body\": \"Auto-approved because label type/renovate is present.\", \"event\": \"APPROVE\"}"
+    --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls" \
+| jq --compact-output '.[]' \
+| while read -r PR_JSON; do
+    PR="$( jq '.number' <<<"${PR_JSON}" )"
+    if ! jq --raw-output '.labels[].name' <<<"${PR_JSON}" | grep -q "^type/renovate$"; then
+        echo "PR ${PR} does not have label type/renovate. Skipping"
+        continue
+    fi
+
+    COMMIT_SHA="$( jq --raw-output '.head.sha' <<<"${PR_JSON}" )"
+    echo "Latest commit in PR ${PR} is ${COMMIT_SHA}"
+
+    REVIEW_ID="$(
+        curl --silent --show-error --fail --header "Authorization: token ${GITHUB_TOKEN}" \
+            --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${PR}/reviews" \
+        | jq --raw-output --arg sha "${COMMIT_SHA}" '.[] | select(.state == "APPROVED" and .commit_id == $sha) | .id' \
+        | xargs echo
+    )"
+    if test -n "${REVIEW_ID}"; then
+        echo "PR ${PR} is already approved (ID ${REVIEW_ID}). Skipping"
+        continue
+    fi
+
+    echo "Approving PR ${PR}"
+    NEW_REVIEW_ID="$(
+        curl --silent --show-error --fail --header "Authorization: token ${GITHUB_TOKEN}" \
+            --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${PR}/reviews" \
+            --request POST \
+            --data '{"commit_id": "'${COMMIT_SHA}'", "body": "Auto-approved because label type/renovate is present.", "event": "APPROVE"}' \
+        | jq --raw-output '.id'
+    )"
+    echo "Review ID is ${NEW_REVIEW_ID}"
+done
