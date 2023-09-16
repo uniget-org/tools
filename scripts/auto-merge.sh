@@ -24,6 +24,12 @@ curl --silent --show-error --fail --header "Authorization: token ${GITHUB_TOKEN}
         continue
     fi
 
+    # Alternative solution:
+    # Get PR and check .mergeable_state
+    # If 'unknown' retry after short delay
+    # If 'blocked' continue
+    # If 'clean' merge
+
     # Check for approval if required by branch protection
     # https://docs.github.com/en/rest/pulls/reviews?apiVersion=2022-11-28#list-reviews-for-a-pull-request
     # https://api.github.com/repos/OWNER/REPO/pulls/PULL_NUMBER/reviews
