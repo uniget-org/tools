@@ -1,5 +1,5 @@
 name: graphviz
-version: "8.1.0"
+version: "9.0.0"
 check: ""
 platforms:
 - linux/amd64
