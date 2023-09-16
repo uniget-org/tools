@@ -1,5 +1,5 @@
 name: parca-agent
-version: "0.23.3"
+version: "0.24.0"
 check: "" # No version parameter
 platforms:
   - linux/amd64
