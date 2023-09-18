@@ -29,5 +29,40 @@ jobs:
     - name: Test
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        PR: ${{ github.event.pull_request.number }}
       run: |
-        bash scripts/auto-approve.sh
+        set -o errexit -o pipefail
+
+        PR_JSON="$(
+            curl --silent --show-error --fail --header "Authorization: token ${GITHUB_TOKEN}" \
+                --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${PR}" \
+            | jq --compact-output '.'
+        )"
+        if ! jq --raw-output '.labels[].name' <<<"${PR_JSON}" | grep -q "^type/renovate$"; then
+            echo "PR ${PR} does not have label type/renovate. Skipping"
+            exit
+        fi
+
+        COMMIT_SHA="$( jq --raw-output '.head.sha' <<<"${PR_JSON}" )"
+        echo "Latest commit in PR ${PR} is ${COMMIT_SHA}"
+
+        REVIEW_ID="$(
+            curl --silent --show-error --fail --header "Authorization: token ${GITHUB_TOKEN}" \
+                --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${PR}/reviews" \
+            | jq --raw-output --arg sha "${COMMIT_SHA}" '.[] | select(.state == "APPROVED" and .commit_id == $sha) | .id' \
+            | xargs echo
+        )"
+        if test -n "${REVIEW_ID}"; then
+            echo "PR ${PR} is already approved (ID ${REVIEW_ID}). Skipping"
+            exit
+        fi
+
+        echo "Approving PR ${PR}"
+        NEW_REVIEW_ID="$(
+            curl --silent --show-error --fail --header "Authorization: token ${GITHUB_TOKEN}" \
+                --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${PR}/reviews" \
+                --request POST \
+                --data '{"commit_id": "'${COMMIT_SHA}'", "body": "Auto-approved because label type/renovate is present.", "event": "APPROVE"}' \
+            | jq --raw-output '.id'
+        )"
+        echo "Review ID is ${NEW_REVIEW_ID}"
