@@ -1,0 +1,33 @@
+name: Approve
+
+on:
+  pull_request:
+    types:
+    - opened
+    - labeled
+  workflow_dispatch:
+
+jobs:
+
+  test:
+    name: Renovate
+    permissions:
+      issues: read
+      pull-requests: write
+    runs-on: ubuntu-22.04
+    steps:
+
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install uniget
+      uses: uniget-org/uniget-action@main
+      with:
+        prefix: helper
+        tools: gojq
+
+    - name: Test
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        bash scripts/auto-approve.sh
