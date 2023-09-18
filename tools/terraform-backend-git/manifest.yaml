@@ -2,17 +2,17 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: terraform-backend-git
 version: "0.1.5"
-check: ""
+check: ${binary} version | tr -d v
 runtime_dependencies:
 - terraform
 platforms:
 - linux/amd64
 - linux/arm64
 tags:
-- org/?
-- category/?
-- lang/?
-- type/?
+- org/hashicorp
+- category/operations
+- lang/go
+- type/cli
 homepage: https://github.com/plumber-cd/terraform-backend-git
 description: Terraform HTTP Backend implementation that uses Git repository as storage
 renovate:

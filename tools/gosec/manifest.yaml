@@ -1,6 +1,6 @@
 name: gosec
 version: "2.17.0"
-check: ""
+check: ${binary} -version | grep ^Version | cut -d' ' -f2
 platforms:
   - linux/amd64
   - linux/arm64

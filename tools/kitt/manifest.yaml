@@ -2,7 +2,7 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: kitt
 version: "0.8.1"
-check: ""
+check: "" # No version/help provided
 build_dependencies:
 #- python
 - shiv

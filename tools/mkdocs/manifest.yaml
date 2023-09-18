@@ -2,7 +2,7 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: mkdocs
 version: "1.5.3"
-check: ""
+check: ${binary} --version | cut -d' ' -f3
 build_dependencies:
 #- python
 - shiv
