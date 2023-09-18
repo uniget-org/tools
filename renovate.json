@@ -4797,6 +4797,17 @@
     },
     {
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "shenwei356/rush",
+      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/rush/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "rust-lang/rust",
       "fileMatch": [
         "^tools/rust/manifest.yaml$"
