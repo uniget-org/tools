@@ -52,5 +52,20 @@ curl --silent --show-error --fail --header "Authorization: token ${GITHUB_TOKEN}
 
     echo "PR ${PR} is ready for auto-merge"
 
-    #break
+    echo "Merging PR ${PR}..."
+    if ! curl --silent --show-error --fail --request PUT --header "Authorization: token ${GITHUB_TOKEN}" \
+            --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${PR}/merge" \
+            --data '{"merge_method": "rebase"}'; then
+        echo "ERROR: Unable to merge PR ${PR}"
+        continue
+    fi
+    echo "PR ${PR} has been merged"
+
+    echo "Deleting branch ${HEAD_REF}..."
+    if ! curl --silent --show-error --fail --request DELETE --header "Authorization: token ${GITHUB_TOKEN}" \
+            --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/git/refs/heads/${HEAD_REF}"; then
+        echo "ERROR: Unable to delete branch ${HEAD_REF} from PR ${PR}"
+        continue
+    fi
+    echo "Branch ${HEAD_REF} has been deleted"
 done
