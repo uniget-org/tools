@@ -1,6 +1,9 @@
 name: sops
 version: "3.8.0"
 check: ${binary} --version | head -n 1 | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 tags:
   - org/mozilla
   - category/security
