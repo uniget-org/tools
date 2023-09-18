@@ -1,6 +1,8 @@
 name: kubeval
 version: "0.16.1"
 check: ${binary} --version | grep ^Version | cut -d' ' -f2
+runtime_dependencies:
+- kubernetes-json-schema
 tags:
   - type/cli
   - category/security
