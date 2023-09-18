@@ -1,6 +1,8 @@
 name: kubeconform
 version: "0.6.3"
 check: ${binary} -v | tr -d v
+runtime_dependencies:
+- kubernetes-json-schema
 tags:
   - category/operations
   - type/cli
