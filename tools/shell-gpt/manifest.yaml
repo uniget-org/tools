@@ -2,7 +2,8 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: shell-gpt
 version: "0.9.4"
-check: ""
+binary: sgpt
+check: "" # No help without OpenAI API key
 build_dependencies:
 #- python
 - shiv

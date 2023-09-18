@@ -2,7 +2,7 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: bomshell
 version: "0.1.0"
-check: ""
+check: ${binary} --version | cut -d' ' -f2 | tr -d v
 platforms:
 - linux/amd64
 - linux/arm64

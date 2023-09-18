@@ -1,6 +1,6 @@
 name: devcontainer
 version: "0.51.3"
-check: ""
+check: ${binary} --version
 platforms:
 - linux/amd64
 #- linux/arm64
