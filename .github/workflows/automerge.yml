@@ -1,0 +1,81 @@
+name: Automerge
+
+on:
+  workflow_run:
+    workflows:
+    - Test-Linux
+    types:
+    - completed
+
+jobs:
+
+  test:
+    name: Renovate
+    permissions:
+      issues: read
+      pull-requests: write
+    runs-on: ubuntu-22.04
+    steps:
+
+    - name: Install uniget
+      uses: uniget-org/uniget-action@main
+      with:
+        prefix: helper
+        tools: gojq
+
+    - name: Test
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        PR: ${{ github.event.pull_request.number }}
+      run: |
+        set -o errexit -o pipefail
+
+        if test -z "${PR}"; then
+            echo "ERROR: Failed to retrieve PR number from event payload"
+            exit 1
+        fi
+
+        PR_JSON="$(
+            curl --silent --show-error --fail --header "Authorization: token ${GITHUB_TOKEN}" \
+                --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${PR}" \
+            | jq --compact-output '.'
+        )"
+        if ! jq --raw-output '.labels[].name' <<<"${PR_JSON}" | grep -q "^type/renovate$"; then
+            echo "PR ${PR} does not have label type/renovate. Skipping"
+            exit
+        fi
+
+        HEAD_REF="$( jq --raw-output '.head.ref' <<<"${PR_JSON}" )"
+        echo "HEAD reference in PR ${PR} is ${HEAD_REF}"
+
+        CHECK_SUITE_ID="$(
+            curl --silent --show-error --fail --header "Authorization: token ${GITHUB_TOKEN}" \
+                --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/commits/${HEAD_REF}/check-suites" \
+            | jq --raw-output '.check_suites[] | select(.status == "completed" and .conclusion == "success") | .id' \
+            | xargs echo
+        )"
+        # Fetch check run and check for status of required actions
+        # .check_runs_url in JSON of check suite
+        if test -z "${CHECK_SUITE_ID}"; then
+            echo "PR ${PR} has not completed the checks"
+            continue
+        fi
+
+        echo "PR ${PR} is ready for auto-merge"
+
+        echo "Merging PR ${PR}..."
+        if ! curl --silent --show-error --fail --request PUT --header "Authorization: token ${GITHUB_TOKEN}" \
+                --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${PR}/merge" \
+                --data '{"merge_method": "rebase"}'; then
+            echo "ERROR: Unable to merge PR ${PR}"
+            continue
+        fi
+        echo "PR ${PR} has been merged"
+
+        echo "Deleting branch ${HEAD_REF}..."
+        if ! curl --silent --show-error --fail --request DELETE --header "Authorization: token ${GITHUB_TOKEN}" \
+                --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/git/refs/heads/${HEAD_REF}"; then
+            echo "ERROR: Unable to delete branch ${HEAD_REF} from PR ${PR}"
+            continue
+        fi
+        echo "Branch ${HEAD_REF} has been deleted"
