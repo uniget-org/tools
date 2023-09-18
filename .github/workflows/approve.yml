@@ -19,9 +19,6 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
 
-    - name: Checkout code
-      uses: actions/checkout@v3
-
     - name: Install uniget
       uses: uniget-org/uniget-action@main
       with:
