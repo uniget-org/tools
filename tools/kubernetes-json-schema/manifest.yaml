@@ -2,9 +2,11 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: kubernetes-json-schema
 version: "1.28.2"
+binary: "false"
 check: ""
 platforms:
 - linux/amd64
+- linux/arm64
 tags:
 - category/kubernetes
 - lang/json

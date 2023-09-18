@@ -3,11 +3,26 @@
 ARG ref=main
 
 FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+RUN <<EOF
+apt-get update
+apt-get -y install --no-install-recommends \
+    python3-pip \
+    python3-venv \
+    python-is-python3
+EOF
+WORKDIR /tmp/openapi2jsonschema
+RUN <<EOF
+git clone -q --config advice.detachedHead=false --depth 1 --branch master https://github.com/yannh/openapi2jsonschema .
+EOF
+RUN <<EOF
+pip install --requirement requirements.txt --no-build-isolation .
+EOF
 ARG name
 ARG version
 RUN <<EOF
+echo "${name} ${version}"
 mkdir -p "${prefix}${target}/share/kubernetes/${version}"
-curl --silent --location --fail "https://github.com/yannh/kubernetes-json-schema/archive/refs/heads/master.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/share/kubernetes/${version}" --strip-components=2 --no-same-owner \
-    "kubernetes-json-schema-master/v${version}-standalone-strict"
+mkdir -p "/tmp/openapi2jsonschema/${prefix}/usr/local/share/kubernetes/${version}"
+python /tmp/openapi2jsonschema/openapi2jsonschema/command.py -o "${prefix}${target}/share/kubernetes/${version}" --expanded --kubernetes --stand-alone --strict "https://github.com/kubernetes/kubernetes/raw/v${version}/api/openapi-spec/swagger.json"
+python /tmp/openapi2jsonschema/openapi2jsonschema/command.py -o "${prefix}${target}/share/kubernetes/${version}"            --kubernetes --stand-alone --strict "https://github.com/kubernetes/kubernetes/raw/v${version}/api/openapi-spec/swagger.json"
 EOF
