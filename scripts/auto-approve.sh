@@ -33,12 +33,15 @@ curl --silent --show-error --fail --header "Authorization: token ${GITHUB_TOKEN}
     fi
 
     echo "Approving PR ${PR}"
-    NEW_REVIEW_ID="$(
-        curl --silent --show-error --fail --header "Authorization: token ${GITHUB_TOKEN}" \
-            --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${PR}/reviews" \
-            --request POST \
-            --data '{"commit_id": "'${COMMIT_SHA}'", "body": "Auto-approved because label type/renovate is present.", "event": "APPROVE"}' \
-        | jq --raw-output '.id'
-    )"
+    if ! NEW_REVIEW_ID="$(
+                curl --silent --show-error --fail --header "Authorization: token ${GITHUB_TOKEN}" \
+                    --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${PR}/reviews" \
+                    --request POST \
+                    --data '{"commit_id": "'${COMMIT_SHA}'", "body": "Auto-approved because label type/renovate is present.", "event": "APPROVE"}' \
+                | jq --raw-output '.id'
+            )"; then
+        echo "ERROR: Failed to approve PR ${PR}"
+        continue
+    fi
     echo "Review ID is ${NEW_REVIEW_ID}"
 done
