@@ -44,28 +44,29 @@ jobs:
     - name: Test
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        PR: ${{ github.event.pull_request.number }}
+        REF: ${{ github.event.workflow_run.head_branch }}
       run: |
         set -o errexit -o pipefail
-
+        
+        echo "Running on branch: ${REF}"
+        PR_JSON="$(
+            curl --silent --show-error --fail --header "Authorization: token ${GITHUB_TOKEN}" \
+                --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls?state=open&head=uniget-org:${REF}" \
+            | jq '.[]'
+        )"
+        PR="$( jq --raw-output '.number' <<<"${PR_JSON}" )"
         if test -z "${PR}"; then
             echo "ERROR: Failed to retrieve PR number from event payload"
             exit 1
         fi
-
-        PR_JSON="$(
-            curl --silent --show-error --fail --header "Authorization: token ${GITHUB_TOKEN}" \
-                --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${PR}" \
-            | jq --compact-output '.'
-        )"
+        echo "PR ${PR} uses branch ${REF}"
+        
         if ! jq --raw-output '.labels[].name' <<<"${PR_JSON}" | grep -q "^type/renovate$"; then
             echo "PR ${PR} does not have label type/renovate. Skipping"
             exit
         fi
 
-        MERGEABLE_STATE="$(
-            jq --raw-output '.mergeable_state' <<<"${PR_JSON}"
-        )"
+        MERGEABLE_STATE="$( jq --raw-output '.mergeable_state' <<<"${PR_JSON}" )"
         if test "${MERGEABLE_STATE}" == "unknown"; then
             PR_JSON="$(
                 curl --silent --show-error --fail --header "Authorization: token ${GITHUB_TOKEN}" \
