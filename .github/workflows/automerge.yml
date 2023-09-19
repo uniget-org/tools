@@ -9,23 +9,6 @@ on:
 
 jobs:
 
-  foo:
-    name: Debug
-    runs-on: ubuntu-22.04
-    steps:
-    - name: Contexts
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        REF: ${{ github.event.workflow_run.head_branch }}
-      run: |
-        echo "head_branch: ${REF}"
-        PR="$(
-            curl --silent --show-error --fail --header "Authorization: token ${GITHUB_TOKEN}" \
-                --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls?state=open&head=uniget-org:${REF}" \
-            | jq --raw-output '.[].number'
-        )"
-        echo "PR ${PR} uses branch ${REF}"
-
   test:
     name: Renovate
     if: github.event.workflow_run.conclusion == 'success'
