@@ -67,7 +67,8 @@ jobs:
         fi
 
         MERGEABLE_STATE="$( jq --raw-output '.mergeable_state' <<<"${PR_JSON}" )"
-        if test "${MERGEABLE_STATE}" == "unknown"; then
+        echo "Got mergeable state: ${MERGEABLE_STATE}"
+        if test "${MERGEABLE_STATE}" == "unknown" || test "${MERGEABLE_STATE}" == "null"; then
             PR_JSON="$(
                 curl --silent --show-error --fail --header "Authorization: token ${GITHUB_TOKEN}" \
                     --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${PR}" \
