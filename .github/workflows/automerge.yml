@@ -15,6 +15,7 @@ jobs:
     steps:
     - name: Contexts
       env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         REF: ${{ github.event.workflow_run.head_branch }}
       run: |
         echo "head_branch: ${REF}"
