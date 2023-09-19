@@ -1,16 +1,17 @@
 name: bandwhich
-version: "v0.21.0"
+version: "0.21.0"
 check: ${binary} --version | cut -d' ' -f2
 platforms:
-  - linux/amd64
+- linux/amd64
 tags:
-  - category/operations
-  - type/cli
-  - lang/rust
-  - state/stale
+- category/operations
+- type/cli
+- lang/rust
+- state/stale
 homepage: https://github.com/imsnif/bandwhich
 description: Terminal bandwidth utilization tool
 renovate:
   datasource: github-releases
   package: imsnif/bandwhich
+  extractVersion: ^v(?<version>.+?)$
   priority: low
