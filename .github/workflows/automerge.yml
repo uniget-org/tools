@@ -46,22 +46,29 @@ jobs:
             exit
         fi
 
-        HEAD_REF="$( jq --raw-output '.head.ref' <<<"${PR_JSON}" )"
-        echo "HEAD reference in PR ${PR} is ${HEAD_REF}"
-
-        CHECK_SUITE_ID="$(
-            curl --silent --show-error --fail --header "Authorization: token ${GITHUB_TOKEN}" \
-                --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/commits/${HEAD_REF}/check-suites" \
-            | jq --raw-output '.check_suites[] | select(.status == "completed" and .conclusion == "success") | .id' \
-            | xargs echo
+        MERGEABLE_STATE="$(
+            jq --raw-output '.mergeable_state' <<<"${PR_JSON}"
         )"
-        # Fetch check run and check for status of required actions
-        # .check_runs_url in JSON of check suite
-        if test -z "${CHECK_SUITE_ID}"; then
-            echo "PR ${PR} has not completed the checks"
-            continue
+        if test "${MERGEABLE_STATE}" == "unknown"; then
+            PR_JSON="$(
+                curl --silent --show-error --fail --header "Authorization: token ${GITHUB_TOKEN}" \
+                    --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${PR}" \
+                | jq --compact-output '.'
+            )"
         fi
-
+        case "${MERGEABLE_STATE}" in
+            blocked)
+                echo "PR ${PR} is blocked and can not be merged"
+                exit
+                ;;
+            clean)
+                echo "PR ${PR} is clean and can be merged"
+                ;;
+            *)
+                echo "ERROR: Unknown mergeable_state ${MERGEABLE_STATE} for PR ${PR}"
+                exit 1
+                ;;
+        esac
         echo "PR ${PR} is ready for auto-merge"
 
         echo "Merging PR ${PR}..."
@@ -72,6 +79,9 @@ jobs:
             continue
         fi
         echo "PR ${PR} has been merged"
+
+        HEAD_REF="$( jq --raw-output '.head.ref' <<<"${PR_JSON}" )"
+        echo "HEAD reference in PR ${PR} is ${HEAD_REF}"
 
         echo "Deleting branch ${HEAD_REF}..."
         if ! curl --silent --show-error --fail --request DELETE --header "Authorization: token ${GITHUB_TOKEN}" \
