@@ -9,6 +9,16 @@ on:
 
 jobs:
 
+  foo:
+    name: Debug
+    runs-on: ubuntu-22.04
+  steps:
+  - name: Contexts
+    env:
+      REF: ${{ github.event.workflow_run.head_branch }}
+    run: |
+      echo "head_branch: ${REF}"
+
   test:
     name: Renovate
     if: github.event.workflow_run.conclusion == 'success'
