@@ -67,15 +67,19 @@ jobs:
         fi
 
         MERGEABLE_STATE="$( jq --raw-output '.mergeable_state' <<<"${PR_JSON}" )"
-        echo "Got mergeable state: ${MERGEABLE_STATE}"
-        if test "${MERGEABLE_STATE}" == "unknown" || test "${MERGEABLE_STATE}" == "null"; then
+        MAX_ATTEMPTS=3
+        ATTEMPT=0
+        #test "${ATTEMPT}" -lt "${MAX_ATTEMPTS}"
+        while test "${MERGEABLE_STATE}" == "unknown" || test "${MERGEABLE_STATE}" == "null"; do
+            echo "Got mergeable state: ${MERGEABLE_STATE}"
             PR_JSON="$(
                 curl --silent --show-error --fail --header "Authorization: token ${GITHUB_TOKEN}" \
                     --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${PR}" \
                 | jq --compact-output '.'
             )"
             MERGEABLE_STATE="$( jq --raw-output '.mergeable_state' <<<"${PR_JSON}" )"
-        fi
+            ATTEMPT=$(( ATTEMPT + 1 ))
+        done
         case "${MERGEABLE_STATE}" in
             blocked)
                 echo "PR ${PR} is blocked and can not be merged"
