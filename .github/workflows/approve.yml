@@ -58,7 +58,7 @@ jobs:
 
         echo "Approving PR ${PR}"
         NEW_REVIEW_ID="$(
-            curl --silent --verbose --show-error --fail --header "Authorization: token ${GITHUB_TOKEN}" \
+            curl --silent --verbose --trace /dev/stderr --show-error --fail --header "Authorization: token ${GITHUB_TOKEN}" \
                 --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${PR}/reviews" \
                 --request POST \
                 --data '{"commit_id": "'${COMMIT_SHA}'", "body": "Auto-approved because label type/renovate is present.", "event": "APPROVE"}' \
