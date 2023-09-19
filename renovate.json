@@ -285,6 +285,7 @@
     {
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "imsnif/bandwhich",
+      "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
         "^tools/bandwhich/manifest.yaml$"
       ],
