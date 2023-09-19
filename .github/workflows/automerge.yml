@@ -74,6 +74,7 @@ jobs:
                     --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${PR}" \
                 | jq --compact-output '.'
             )"
+            MERGEABLE_STATE="$( jq --raw-output '.mergeable_state' <<<"${PR_JSON}" )"
         fi
         case "${MERGEABLE_STATE}" in
             blocked)
