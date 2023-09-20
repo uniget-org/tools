@@ -1,5 +1,5 @@
 name: openjdk
-version: "20"
+version: "21"
 binary: javac
 check: ${binary} -version | cut -d' ' -f2
 build_dependencies:
