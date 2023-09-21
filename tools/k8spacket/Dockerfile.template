@@ -2,7 +2,7 @@
 
 ARG ref=main
 
-FROM golang:1.21.1@sha256:cffaba795c36f07e372c7191b35ceaae114d74c31c3763d442982e3a4df3b39e AS build
+FROM golang:1.21.1@sha256:d17e930de0a6c6dc8f78f326efb6ccf51e661fd7a7fe45477f1430e2632baa8a AS build
 RUN <<EOF
 apt-get update
 apt-get -y install \
