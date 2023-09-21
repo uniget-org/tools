@@ -2,16 +2,20 @@
 
 ARG ref=main
 
+FROM ghcr.io/uniget-org/tools/go:${ref} AS go
+
 FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+COPY --link --from=go / /
+RUN <<EOF
+apt-get update
+apt-get -y install --no-install-recommends \
+    make
+EOF
+WORKDIR /go/src/github.com/projectdiscovery/mapcidr
 ARG name
 ARG version
 RUN <<EOF
-check-github-release-asset "projectdiscovery/mapcidr" "v${version}" "mapcidr_${version}_linux_${alt_arch}.zip"
-url="https://github.com/projectdiscovery/mapcidr/releases/download/v${version}/mapcidr_${version}_linux_${alt_arch}.zip"
-filename="$(basename "${url}")"
-curl --silent --location --fail --remote-name "${url}"
-unzip -q -o -d "${prefix}${target}/bin" "${filename}"
-rm \
-    "${prefix}${target}/bin/LICENSE.MD" \
-    "${prefix}${target}/bin/README.md"
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/projectdiscovery/mapcidr .
+make
+cp mapcidr "${prefix}${target}/bin/"
 EOF
