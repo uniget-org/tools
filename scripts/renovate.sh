@@ -45,12 +45,37 @@ jq '
                     {
                         "matchFiles": [ "^tools/" + .name + "/manifest.yaml$" ],
                         "matchPackageNames": [ .renovate.package ],
-                        "ignoreUnstable": (.renovate.allowPrereleases // false)
+                        "ignoreUnstable": (.renovate.allowPrereleases // false),
+                        "priority": .renovate.priority
                     }
 
                 else
-                    empty
+                    {
+                        "matchFiles": [ "^tools/" + .name + "/manifest.yaml$" ],
+                        "matchPackageNames": [ .renovate.package ],
+                        "priority": .renovate.priority
+                    }
                 end
+                |
+                if .priority == "high" then
+                    .schedule = [ "* 0,8,16 * * *" ]
+                else
+                    .
+                end
+                |
+                if .priority == "medium" then
+                    .schedule = [ "* 4,20 * * *" ]
+                else
+                    .
+                end
+                |
+                if .priority == "low" or .priority == null or .priority == "" then
+                    .schedule = [ "* 12 * * *" ]
+                else
+                    .
+                end
+                |
+                del(.priority)
 
             else
                 empty
