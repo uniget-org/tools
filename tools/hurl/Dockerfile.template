@@ -6,8 +6,8 @@ FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
 ARG name
 ARG version
 RUN <<EOF
-check-github-release-asset "Orange-OpenSource/hurl" "${version}" "hurl-${version}-${arch}-unknown-linux-gnu.tar.gz "
-curl --silent --location --fail "https://github.com/Orange-OpenSource/hurl/releases/download/${version}/hurl-${version}-${arch}-unknown-linux-gnu.tar.gz " \
+check-github-release-asset "Orange-OpenSource/hurl" "${version}" "hurl-${version}-${arch}-unknown-linux-gnu.tar.gz"
+curl --silent --location --fail "https://github.com/Orange-OpenSource/hurl/releases/download/${version}/hurl-${version}-${arch}-unknown-linux-gnu.tar.gz" \
 | tar --extract --gzip --directory="${prefix}${target}/bin/" --strip-components=1 --no-same-owner
 mv \
     "${prefix}${target}/bin/hurl.1.gz" \
