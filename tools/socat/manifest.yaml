@@ -9,8 +9,7 @@ homepage: http://www.dest-unreach.org/socat/
 description: Multipurpose relay
 renovate:
   datasource: git-tags
-  package: socat
-  url: git://repo.or.cz/socat.git
+  package: git://repo.or.cz/socat.git
   extractVersion: ^tag-(<version>\d+\.\d+\.\d+(\.\d+)?)$
   versioning: loose
   priority: low

@@ -16,7 +16,6 @@ tags:
 homepage: https://github.com/amueller/word_cloud
 description: Little word cloud generator in Python
 renovate:
-  datasource: github-releases
-  package: amueller/word_cloud
-  extractVersion: loose
+  datasource: pypi
+  package: wordcloud
   priority: low

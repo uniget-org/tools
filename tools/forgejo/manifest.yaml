@@ -15,6 +15,6 @@ renovate:
   datasource: git-tags
   package: forgejo/forgejo
   url: https://codeberg.org/forgejo/forgejo
-  extractVersion: ^v(?<version>\\d+\.\\d+\.\\d+-\\d+?)$
+  extractVersion: ^v(?<version>\\d+\.\\d+\.\\d+(-\\d+)?)$
   versioning: loose
   priority: low
