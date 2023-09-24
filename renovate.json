@@ -87,6 +87,17 @@
     },
     {
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "acorn-io/runtime",
+      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/acorn/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "nektos/act",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
