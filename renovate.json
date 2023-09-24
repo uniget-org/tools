@@ -323,6 +323,16 @@
       ]
     },
     {
+      "datasourceTemplate": "pypi",
+      "depNameTemplate": "bogrod",
+      "fileMatch": [
+        "^tools/bogrod/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "kubernetes-sigs/bom",
       "extractVersionTemplate": "^v(?<version>.+?)$",
