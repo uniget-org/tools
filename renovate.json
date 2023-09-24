@@ -2783,6 +2783,17 @@
       ]
     },
     {
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "prometheus-community/json_exporter",
+      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/json-exporter/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
       "datasourceTemplate": "npm",
       "depNameTemplate": "jsonata-cli",
       "fileMatch": [
