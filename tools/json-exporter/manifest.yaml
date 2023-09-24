@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: json-exporter
+version: "0.6.0"
+check: "" # No version parameter
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/go
+- type/cli
+homepage: https://github.com/prometheus-community/json_exporter
+description: Prometheus exporter which scrapes remote JSON by JSONPath
+renovate:
+  datasource: github-releases
+  package: prometheus-community/json_exporter
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
