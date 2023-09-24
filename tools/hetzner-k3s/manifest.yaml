@@ -5,6 +5,7 @@ version: "1.1.4"
 check: ${binary} --version
 platforms:
 - linux/amd64
+- linux/arm64
 tags:
 - category/operations
 - lang/crystal
