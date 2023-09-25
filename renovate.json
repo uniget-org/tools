@@ -759,6 +759,17 @@
     },
     {
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "coder/code-server",
+      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/code-server/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "abiosoft/colima",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [

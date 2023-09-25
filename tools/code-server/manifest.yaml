@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: code-server
+version: "4.17.0"
+check: ${binary} --version 2>/dev/null | cut -d' ' -f1
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/javascript
+- type/daemon
+homepage: https://github.com/coder/code-server
+description: VS Code in the browser
+renovate:
+  datasource: github-releases
+  package: coder/code-server
+  extractVersion: ^v(?<version>.+?)$
+  priority: low

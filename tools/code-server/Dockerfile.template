@@ -1,0 +1,13 @@
+#syntax=docker/dockerfile:1.6.0
+
+ARG ref=main
+
+FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+ARG name
+ARG version
+RUN <<EOF
+check-github-release-asset "coder/code-server" "v${version}" "code-server-${version}-linux-${alt_arch}.tar.gz"
+
+curl --silent --location --fail "https://github.com/coder/code-server/releases/download/v${version}/code-server-${version}-linux-${alt_arch}.tar.gz" \
+| tar --extract --gzip --directory="${prefix}${target}/" --strip-components=1 --no-same-owner
+EOF
