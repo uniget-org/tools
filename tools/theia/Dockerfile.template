@@ -1,0 +1,64 @@
+#syntax=docker/dockerfile:1.6.0
+
+ARG ref=main
+
+FROM ghcr.io/uniget-org/tools/nodejs:${ref} AS nodejs
+FROM ghcr.io/uniget-org/tools/npm:${ref} AS npm
+FROM ghcr.io/uniget-org/tools/yarn:${ref} AS yarn
+
+FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+COPY --link --from=nodejs / /
+COPY --link --from=npm / /
+COPY --link --from=yarn / /
+WORKDIR ${prefix}${target}/libexec/theia
+ARG name
+ARG version
+COPY <<EOF package.json
+{
+  "private": true,
+  "dependencies": {
+    "@theia/callhierarchy": "${version}",
+    "@theia/file-search": "${version}",
+    "@theia/git": "${version}",
+    "@theia/markers": "${version}",
+    "@theia/messages": "${version}",
+    "@theia/navigator": "${version}",
+    "@theia/outline-view": "${version}",
+    "@theia/plugin-ext-vscode": "${version}",
+    "@theia/preferences": "${version}",
+    "@theia/preview": "${version}",
+    "@theia/search-in-workspace": "${version}",
+    "@theia/terminal": "${version}",
+    "@theia/vsx-registry": "${version}"
+  },
+  "devDependencies": {
+    "@theia/cli": "${version}"
+  },
+  "scripts": {
+    "prepare": "yarn run clean && yarn build && yarn run download:plugins",
+    "clean": "theia clean",
+    "build": "theia build --mode development",
+    "start": "theia start --plugins=local-dir:plugins",
+    "download:plugins": "theia download:plugins"
+  },
+  "theiaPluginsDir": "plugins",
+  "theiaPlugins": {
+    "vscode-builtin-extensions-pack": "https://open-vsx.org/api/eclipse-theia/builtin-extension-pack/1.50.1/file/eclipse-theia.builtin-extension-pack-1.50.1.vsix"
+  },
+  "theiaPluginsExcludeIds": [
+    "ms-vscode.js-debug-companion",
+    "vscode.extension-editing",
+    "vscode.git",
+    "vscode.git-ui",
+    "vscode.github",
+    "vscode.github-authentication",
+    "vscode.microsoft-authentication"
+  ]
+}
+EOF
+RUN <<EOF
+curl --silent --show-error --location --fail --remote-name https://nodejs.org/download/release/v20.7.0/node-v20.7.0-headers.tar.gz
+npm_config_tarball=node-v20.7.0-headers.tar.gz yarn install
+yarn theia build
+touch "${prefix}${target}/foo"
+EOF
