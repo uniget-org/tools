@@ -10,5 +10,9 @@ jobs:
 
   test:
     name: Test
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
     uses: ./.github/workflows/automerge.yml
     
