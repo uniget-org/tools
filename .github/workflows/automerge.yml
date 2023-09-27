@@ -14,13 +14,13 @@ jobs:
     name: Test
     runs-on: ubuntu-22.04
     env:
-      github_json: ${{ toJson(github) }}
+      github_json: ${{ toJSON(github) }}
       #PR: ${{ github.event.pull_request.number }}
     steps:
     - name: Test
       run: |
         echo "Test"
-        echo "${{ env.github_json }}"
+        echo "${github_json}"
 
   renovate:
     name: Renovate
