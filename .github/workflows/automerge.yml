@@ -19,7 +19,7 @@ jobs:
     - name: Test
       run: |
         echo "Test"
-        echo "${{ toJSON(github.event) }}"
+        echo "${{ toJson(github) }}"
 
   renovate:
     name: Renovate
