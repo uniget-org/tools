@@ -6,12 +6,24 @@ on:
     - Test-Linux
     types:
     - completed
+  workflow_call:
 
 jobs:
 
   test:
+    name: Test
+    runs-on: ubuntu-22.04
+    #env:
+    #  PR: ${{ github.event.pull_request.number }}
+    steps:
+    - name: Test
+      run: |
+        echo "Test"
+        echo "${{ toJSON(github.event) }}"
+
+  renovate:
     name: Renovate
-    if: github.event.workflow_run.conclusion == 'success'
+    if: github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success'
     permissions:
       issues: write
       pull-requests: write
