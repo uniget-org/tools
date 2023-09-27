@@ -99,3 +99,13 @@ jobs:
       with:
         name: logs.zip
         path: "**/build.log"
+
+  automerge:
+    name: Test
+    needs:
+    - test
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    uses: ./.github/workflows/automerge.yml
