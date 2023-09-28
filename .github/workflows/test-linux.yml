@@ -70,8 +70,8 @@ jobs:
         echo "    JSON: ${TOOLS_JSON}"
         echo "tools=${TOOLS_JSON}" >>"${GITHUB_OUTPUT}"
 
-  test:
-    name: Test
+  build:
+    name: Build new version
     permissions:
       packages: write
     runs-on: ubuntu-22.04
@@ -99,7 +99,7 @@ jobs:
         username: uniget-bot
         password: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Test
+    - name: Build container image
       env:
         DOCKER_BUILDKIT: 1
         IS_PR: ${{ github.event_name == 'pull_request' }}
@@ -160,7 +160,7 @@ jobs:
         path: "**/build.log"
 
   automerge:
-    name: Test
+    name: Automerge
     needs:
     - test
     permissions:
