@@ -153,6 +153,8 @@ jobs:
 
   metadata:
     name: Metadata
+    permissions:
+      packages: write
     runs-on: ubuntu-22.04
     needs:
     - tag
