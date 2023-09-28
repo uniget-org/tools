@@ -165,6 +165,6 @@ jobs:
       fail-fast: false
       matrix:
         tool: ${{ fromJSON(needs.collect.outputs.tools) }}
-    uses: ./.github/workflows/check-visibility.yml@main
+    uses: ./.github/workflows/check-visibility.yml
     with:
       TOOL: ${{ matrix.tool }}
