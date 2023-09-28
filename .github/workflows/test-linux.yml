@@ -5,8 +5,6 @@ on:
     types:
     - opened
     - synchronize
-    #- labeled
-    #- reopened
     paths:
     - tools/**
     - .github/workflows/*
@@ -21,8 +19,6 @@ jobs:
     runs-on: ubuntu-22.04
     outputs:
       tools: ${{ steps.collect.outputs.tools }}
-    env:
-      IS_PR: ${{ github.event_name == 'pull_request' }}
     steps:
 
     - name: Install uniget
@@ -35,13 +31,9 @@ jobs:
       id: collect
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        PR: ${{ github.event.pull_request.number }}
       run: |
         set -o errexit
-
-        if ! ${IS_PR}; then
-            echo "ERROR: Why is this not a PR?"
-            exit 1
-        fi
 
         echo "### This is PR ${PR}"
         curl --silent --show-error --fail \
