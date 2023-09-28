@@ -1,0 +1,43 @@
+name: Visibility
+
+on:
+  workflow_dispatch:
+    inputs:
+      TOOL:
+        description: 'Tool name'
+        required: true
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+
+  check:
+    name: Check
+    permissions:
+      packages: read
+    runs-on: ubuntu-22.04
+    steps:
+
+    - name: Install uniget
+      uses: uniget-org/uniget-action@main
+      with:
+        prefix: helper
+        tools: gojq
+
+    - name: Check
+      env:
+        GITHU_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        set -o errexit -o pipefail
+
+        # Check package with name $TOOL for private visibility
+        VISIBILITY="$(
+            curl -sSLfH "Authorization: Bearer ${GITHUB_TOKEN}" https://api.github.com/orgs/uniget-org/packages/container/tools%2fyq \
+            | jq --raw-output '.visibility'
+        )"
+        if test "${VISIBILITY}" == "private"; then
+            echo "Package visibility is private for ${TOOL}"
+            exit 1
+        fi
