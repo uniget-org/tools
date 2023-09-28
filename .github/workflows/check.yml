@@ -18,7 +18,7 @@ jobs:
       tools: ${{ steps.collect.outputs.tools }}
     steps:
 
-    - uses: GitHubSecurityLab/actions-permissions@v1
+    - uses: GitHubSecurityLab/actions-permissions/monitor@v1
 
     - name: Install uniget
       uses: uniget-org/uniget-action@main
