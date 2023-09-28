@@ -114,6 +114,9 @@ jobs:
     name: Scan dummy container image
     needs:
     - build
+    permissions:
+      security-events: write
+      pull-requests: write
     uses: ./.github/workflows/scan.yml
     with:
       name_and_version: "dummy:0.0.1"
