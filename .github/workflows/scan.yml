@@ -1,10 +1,11 @@
 name: Scan
 
 on:
-  workflow_dispatch:
+  workflow_call:
     inputs:
-      name:
-        description: 'Name of tool to scan'
+      name_and_version:
+        description: 'Name and version of tool to scan, e.g. foo:0.1.0'
+        type: string
         required: true
 
 concurrency:
@@ -17,6 +18,7 @@ jobs:
     name: Scout
     permissions:
       security-events: write
+      pull-requests: write
     runs-on: ubuntu-22.04
     steps:
 
@@ -32,7 +34,7 @@ jobs:
       uses: docker/scout-action@v0.23.4
       with:
         command: cves
-        image: ghcr.io/${{ github.repository }}/${{ inputs.name}}:latest
+        image: ghcr.io/${{ github.repository }}/${{ inputs.name_and_version }}
         dockerhub-user: ${{ secrets.DOCKERHUB_USER }}
         dockerhub-password: ${{ secrets.DOCKERHUB_TOKEN }}
         sarif-file: sarif.output.json

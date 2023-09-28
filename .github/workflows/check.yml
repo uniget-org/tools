@@ -110,6 +110,48 @@ jobs:
     - run: |
         true
 
+  test_scan:
+    name: Scan dummy container image
+    needs:
+    - build
+    uses: ./.github/workflows/scan.yml
+    with:
+      name: "dummy:0.0.1"
+
+#  collect_versions:
+#    name: Collect versions for tools
+#    needs:
+#    - collect
+#    runs-on: ubuntu-22.04
+#    outputs:
+#      tools_with_version: ${{ steps.collect_versions.outputs.tools_with_version }}
+#    steps:
+#
+#    - name: Checkout code
+#      uses: actions/checkout@v3
+#
+#    - name: Install uniget
+#      uses: uniget-org/uniget-action@main
+#      with:
+#        prefix: helper
+#        tools: yq
+#
+#    - name: Extract versions
+#      run: |
+#        echo "Do it"
+#
+#  scan:
+#    name: Scan container images
+#    needs:
+#    - build
+#    strategy:
+#      fail-fast: false
+#      matrix:
+#        tool_with_version: ${{ fromJSON(needs.collect_versions.outputs.tools_with_version) }}
+#    uses: ./.github/workflows/scan.yml
+#    with:
+#      name: ${{ matrix.tool_with_version }}
+
   visibility:
     name: Check visibility
     needs:
