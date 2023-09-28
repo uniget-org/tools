@@ -1,12 +1,17 @@
 name: Automerge
 
 on:
-  workflow_call:
+  workflow_run:
+    workflows:
+    - Test-Linux
+    types:
+    - completed
 
 jobs:
 
-  renovate:
+  test:
     name: Renovate
+    if: github.event.workflow_run.conclusion == 'success'
     permissions:
       issues: write
       pull-requests: write
@@ -20,23 +25,25 @@ jobs:
         prefix: helper
         tools: gojq
 
-    - name: Automerge renovate PRs
+    - name: Test
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        PR: ${{ github.event.pull_request.number }}
+        REF: ${{ github.event.workflow_run.head_branch }}
       run: |
         set -o errexit -o pipefail
-
-        if test -z "${PR}"; then
-            echo "ERROR: Missing PR number"
-            exit 1
-        fi
         
-        echo "Running on PR ${PR}"
+        echo "Running on branch: ${REF}"
         PR_JSON="$(
             curl --silent --show-error --fail --header "Authorization: token ${GITHUB_TOKEN}" \
-                --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${PR}"
+                --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls?state=open&head=uniget-org:${REF}" \
+            | jq '.[]'
         )"
+        PR="$( jq --raw-output '.number' <<<"${PR_JSON}" )"
+        if test -z "${PR}"; then
+            echo "ERROR: Failed to retrieve PR number from event payload"
+            exit 1
+        fi
+        echo "PR ${PR} uses branch ${REF}"
         
         if ! jq --raw-output '.labels[].name' <<<"${PR_JSON}" | grep -q "^type/renovate$"; then
             echo "PR ${PR} does not have label type/renovate. Skipping"
@@ -44,9 +51,6 @@ jobs:
         fi
 
         MERGEABLE_STATE="$( jq --raw-output '.mergeable_state' <<<"${PR_JSON}" )"
-        MAX_ATTEMPTS=3
-        ATTEMPT=0
-        #test "${ATTEMPT}" -lt "${MAX_ATTEMPTS}"
         while test "${MERGEABLE_STATE}" == "unknown" || test "${MERGEABLE_STATE}" == "null"; do
             echo "Got mergeable state: ${MERGEABLE_STATE}"
             PR_JSON="$(
@@ -55,18 +59,29 @@ jobs:
                 | jq --compact-output '.'
             )"
             MERGEABLE_STATE="$( jq --raw-output '.mergeable_state' <<<"${PR_JSON}" )"
-            ATTEMPT=$(( ATTEMPT + 1 ))
         done
         case "${MERGEABLE_STATE}" in
             blocked)
                 echo "PR ${PR} is blocked and can not be merged"
-                exit
+                curl --silent --show-error --fail \
+                    --request POST \
+                    --header "Authorization: token ${GITHUB_TOKEN}" \
+                    --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/${PR}/comments" \
+                    --data '{"body": "PR is blocked and can not be merged"}'
+                echo "Aborting workflow"
+                exit 1
                 ;;
             clean)
                 echo "PR ${PR} is clean and can be merged"
                 ;;
             *)
                 echo "ERROR: Unknown mergeable_state ${MERGEABLE_STATE} for PR ${PR}"
+                curl --silent --show-error --fail \
+                    --request POST \
+                    --header "Authorization: token ${GITHUB_TOKEN}" \
+                    --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/${PR}/comments" \
+                    --data '{"body": "PR has unknown mergeable_state ('"${MERGEABLE_STATE}"') and can not be merged"}'
+                echo "Aborting workflow"
                 exit 1
                 ;;
         esac
@@ -80,9 +95,6 @@ jobs:
             exit 1
         fi
         echo "PR ${PR} has been merged"
-
-        echo "Fetching head ref for PR ${PR}..."
-        REF="$( jq --raw-output '.head.ref' <<<"${PR_JSON}" )"
 
         echo "Deleting branch ${REF}..."
         if ! curl --silent --show-error --fail --request DELETE --header "Authorization: token ${GITHUB_TOKEN}" \

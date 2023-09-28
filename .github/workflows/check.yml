@@ -113,14 +113,3 @@ jobs:
     uses: ./.github/workflows/check-visibility.yml
     with:
       name: ${{ matrix.tool }}
-
-  automerge:
-    name: Automerge
-    needs:
-    - build
-    - visibility
-    permissions:
-      contents: write
-      issues: write
-      pull-requests: write
-    uses: ./.github/workflows/automerge.yml
