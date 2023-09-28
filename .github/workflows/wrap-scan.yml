@@ -92,9 +92,12 @@ jobs:
         echo "Processing tools: ${tools}."
 
         tools_with_version=""
-        echo "${tools}" \
-        | helper/usr/local/bin/jq --raw-output '.[]' \
-        | while read -r TOOL; do
+        TOOLS_RAW="$(
+            echo "${tools}" \
+            | helper/usr/local/bin/jq --raw-output '.[]'
+        )"
+
+        for TOOL in ${TOOLS_RAW}; do
             echo "${TOOL}"
             VERSION="$( helper/usr/local/bin/yq '.version' "tools/${TOOL}/manifest.yaml" )"
             echo "${VERSION}"
@@ -108,7 +111,7 @@ jobs:
             | helper/usr/local/bin/jq --raw-input '.' \
             | helper/usr/local/bin/jq --slurp --compact-output '.'
         )"
-        echo "tools_with_version=${tools_with_version_json}" >>"${GITHUB_OUTPUT}
+        echo "tools_with_version=${tools_with_version_json}" >>"${GITHUB_OUTPUT}"
 
   scan:
     name: Scan container images
