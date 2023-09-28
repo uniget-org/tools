@@ -15,6 +15,7 @@ jobs:
     name: Collect tools
     permissions:
       contents: read
+      issues: read
       pull-requests: read
     runs-on: ubuntu-22.04
     outputs:
@@ -36,7 +37,7 @@ jobs:
         set -o errexit
 
         echo "### This is PR ${PR}"
-        curl --silent --verbose --show-error --fail \
+        curl --silent --show-error --fail \
                 --header "Accept: application/vnd.github.v3+json" \
                 --header 'Authorization: Bearer ${GITHUB_TOKEN}' \
                 --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${PR}/files" \
