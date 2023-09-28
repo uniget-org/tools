@@ -62,6 +62,9 @@ jobs:
     uses: ./.github/workflows/scan.yml
     with:
       name_and_version: "dummy:0.0.1"
+    secrets:
+      DOCKERHUB_USER: ${{ secrets.DOCKERHUB_USER }}
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
 
 #  collect_versions:
 #    name: Collect versions for tools
