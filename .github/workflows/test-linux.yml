@@ -62,6 +62,8 @@ jobs:
 
   test:
     name: Test
+    permissions:
+      packages: write
     runs-on: ubuntu-22.04
     steps:
 
@@ -85,7 +87,7 @@ jobs:
       with:
         registry: ghcr.io
         username: uniget-bot
-        password: ${{ secrets.BOT_PACKAGES }}
+        password: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Test
       env:
