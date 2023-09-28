@@ -180,7 +180,7 @@ jobs:
       with:
         registry: ghcr.io
         username: uniget-bot
-        password: ${{ secrets.BOT_PACKAGES }}
+        password: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Update metadata
       run: |
@@ -195,7 +195,7 @@ jobs:
 
     - name: Trigger
       env:
-        GITHUB_TOKEN: ${{ secrets.BOT_PACKAGES }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         curl \
             --url https://api.github.com/repos/uniget-org/tools.uniget.dev/dispatches \
