@@ -41,6 +41,7 @@ jobs:
 
         if ! curl --silent --show-error --location --fail \
                 --head \
+                --output /dev/null \
                 --header "Authorization: Bearer ${GITHUB_TOKEN}" \
                 --url https://api.github.com/orgs/${GITHUB_REPOSITORY_OWNER}/packages/container/tools%2f${TOOL}; then
             echo "ERROR: Package not found for ${TOOL}"
