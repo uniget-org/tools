@@ -1,4 +1,4 @@
-name: Check
+name: Wrap Scan
 
 on:
   pull_request:
@@ -54,71 +54,45 @@ jobs:
         echo "    JSON: ${TOOLS_JSON}"
         echo "tools=${TOOLS_JSON}" >>"${GITHUB_OUTPUT}"
 
-  build:
-    name: Build container image
-    needs:
-    - collect
-    strategy:
-      fail-fast: false
-      matrix:
-        tool: ${{ fromJSON(needs.collect.outputs.tools) }}
+  test_scan:
+    name: Scan dummy container image
     permissions:
-      packages: write
-    runs-on: ubuntu-22.04
-    steps:
-
-    - name: Checkout code
-      uses: actions/checkout@v3
-
-    - name: Install uniget
-      uses: uniget-org/uniget-action@main
-      with:
-        prefix: helper
-        tools: gojq regclient
-
-    - name: Set up QEMU
-      uses: docker/setup-qemu-action@v2
-
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v2
-
-    - name: Login to GitHub Container Registry
-      uses: docker/login-action@v2
-      with:
-        registry: ghcr.io
-        username: uniget-bot
-        password: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Build container image
-      run: |
-        echo "### Building ${{ matrix.tool }}"
-        make ${{ matrix.tool }}--push
-
-    - name: Store logs
-      uses: actions/upload-artifact@v3
-      if: always()
-      with:
-        name: logs.zip
-        path: "**/build.log"
-
-  success:
-    name: Build container images successfully
-    needs:
-    - build
-    runs-on: ubuntu-22.04
-    steps:
-    - run: |
-        true
-
-  visibility:
-    name: Check visibility
-    needs:
-    - collect
-    - build
-    strategy:
-      fail-fast: false
-      matrix:
-        tool: ${{ fromJSON(needs.collect.outputs.tools) }}
-    uses: ./.github/workflows/check-visibility.yml
+      security-events: write
+      pull-requests: write
+    uses: ./.github/workflows/scan.yml
     with:
-      name: ${{ matrix.tool }}
+      name_and_version: "dummy:0.0.1"
+
+#  collect_versions:
+#    name: Collect versions for tools
+#    needs:
+#    - collect
+#    runs-on: ubuntu-22.04
+#    outputs:
+#      tools_with_version: ${{ steps.collect_versions.outputs.tools_with_version }}
+#    steps:
+#
+#    - name: Checkout code
+#      uses: actions/checkout@v3
+#
+#    - name: Install uniget
+#      uses: uniget-org/uniget-action@main
+#      with:
+#        prefix: helper
+#        tools: yq
+#
+#    - name: Extract versions
+#      run: |
+#        echo "Do it"
+#
+#  scan:
+#    name: Scan container images
+#    needs:
+#    - build
+#    strategy:
+#      fail-fast: false
+#      matrix:
+#        tool_with_version: ${{ fromJSON(needs.collect_versions.outputs.tools_with_version) }}
+#    uses: ./.github/workflows/scan.yml
+#    with:
+#      name: ${{ matrix.tool_with_version }}
