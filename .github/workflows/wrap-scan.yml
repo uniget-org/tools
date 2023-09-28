@@ -73,7 +73,7 @@ jobs:
     - collect
     runs-on: ubuntu-22.04
     outputs:
-      tools_with_version: ${{ steps.collect_versions.outputs.tools_with_version }}
+      tools_with_version: ${{ steps.extract_versions.outputs.tools_with_version }}
     env:
       tools: ${{ needs.collect.outputs.tools }}
     steps:
@@ -88,6 +88,7 @@ jobs:
         tools: yq gojq
 
     - name: Extract versions
+      id: extract_versions
       run: |
         echo "Processing tools: ${tools}."
 
@@ -111,6 +112,7 @@ jobs:
             | helper/usr/local/bin/jq --raw-input '.' \
             | helper/usr/local/bin/jq --slurp --compact-output '.'
         )"
+        echo "JSON: ${tools_with_version_json}"
         echo "tools_with_version=${tools_with_version_json}" >>"${GITHUB_OUTPUT}"
 
   scan:
