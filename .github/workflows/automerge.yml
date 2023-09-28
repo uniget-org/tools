@@ -50,6 +50,13 @@ jobs:
             exit
         fi
 
+        
+        RUN_URL="$(
+            curl --silent --show-error --location --fail \
+                --url "${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" \
+            | jq --raw-output '.html_url'
+        )"
+
         MERGEABLE_STATE="$( jq --raw-output '.mergeable_state' <<<"${PR_JSON}" )"
         while test "${MERGEABLE_STATE}" == "unknown" || test "${MERGEABLE_STATE}" == "null"; do
             echo "Got mergeable state: ${MERGEABLE_STATE}"
@@ -67,12 +74,17 @@ jobs:
                     --request POST \
                     --header "Authorization: token ${GITHUB_TOKEN}" \
                     --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/${PR}/comments" \
-                    --data '{"body": "PR is blocked and can not be merged"}'
+                    --data '{"body": "PR is blocked and can not be merged. See "'"${RUN_URL}"'.}'
                 echo "Aborting workflow"
                 exit 1
                 ;;
             clean)
                 echo "PR ${PR} is clean and can be merged"
+                curl --silent --show-error --fail \
+                    --request POST \
+                    --header "Authorization: token ${GITHUB_TOKEN}" \
+                    --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/${PR}/comments" \
+                    --data '{"body": "PR is clean and can be merged. See "'"${RUN_URL}"'.}'
                 ;;
             *)
                 echo "ERROR: Unknown mergeable_state ${MERGEABLE_STATE} for PR ${PR}"
@@ -80,7 +92,7 @@ jobs:
                     --request POST \
                     --header "Authorization: token ${GITHUB_TOKEN}" \
                     --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/${PR}/comments" \
-                    --data '{"body": "PR has unknown mergeable_state ('"${MERGEABLE_STATE}"') and can not be merged"}'
+                    --data '{"body": "PR has unknown mergeable_state ('"${MERGEABLE_STATE}"') and can not be merged. See "'"${RUN_URL}"'."}'
                 echo "Aborting workflow"
                 exit 1
                 ;;
