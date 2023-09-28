@@ -36,7 +36,7 @@ jobs:
         set -o errexit
 
         echo "### This is PR ${PR}"
-        curl --silent --show-error --fail \
+        curl --silent --verbose --show-error --fail \
                 --header "Accept: application/vnd.github.v3+json" \
                 --header 'Authorization: Bearer ${GITHUB_TOKEN}' \
                 --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${PR}/files" \
