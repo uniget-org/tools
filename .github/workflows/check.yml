@@ -13,11 +13,12 @@ jobs:
 
   collect:
     name: Collect tools
-    permissions: read-all
     runs-on: ubuntu-22.04
     outputs:
       tools: ${{ steps.collect.outputs.tools }}
     steps:
+
+    - uses: GitHubSecurityLab/actions-permissions@v1
 
     - name: Install uniget
       uses: uniget-org/uniget-action@main
