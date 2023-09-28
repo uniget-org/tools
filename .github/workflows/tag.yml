@@ -190,20 +190,6 @@ jobs:
 
   pages:
     name: tools.uniget.dev
-    runs-on: ubuntu-22.04
     needs:
     - metadata
-    steps:
-
-    - name: Trigger
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        curl \
-            --url https://api.github.com/repos/uniget-org/tools.uniget.dev/dispatches \
-            --silent \
-            --fail \
-            --request POST \
-            --header "Authorization: token ${GITHUB_TOKEN}" \
-            --header "Accept: application/vnd.github.v3+json" \
-            --data '{"event_type": "pages"}'
+    uses: ./.github/workflows/trigger-pages.yml
