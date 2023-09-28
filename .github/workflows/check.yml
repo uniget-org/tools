@@ -18,8 +18,6 @@ jobs:
       tools: ${{ steps.collect.outputs.tools }}
     steps:
 
-    - uses: GitHubSecurityLab/actions-permissions/monitor@v1
-
     - name: Install uniget
       uses: uniget-org/uniget-action@main
       with:
@@ -37,13 +35,13 @@ jobs:
         echo "### This is PR ${PR}"
         curl --silent --show-error --fail \
                 --header "Accept: application/vnd.github.v3+json" \
-                --header 'Authorization: Bearer ${GITHUB_TOKEN}' \
+                --header "Authorization: Bearer ${GITHUB_TOKEN}" \
                 --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${PR}/files" \
         | jq
         TOOLS="$(
             curl --silent --show-error --fail \
                 --header "Accept: application/vnd.github.v3+json" \
-                --header 'Authorization: Bearer ${GITHUB_TOKEN}' \
+                --header "Authorization: Bearer ${GITHUB_TOKEN}" \
                 --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${PR}/files" \
             | jq --raw-output '.[] | select(.status != "removed") | .filename' \
             | grep -E '^tools/[^/]+/' \
