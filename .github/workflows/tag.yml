@@ -194,3 +194,5 @@ jobs:
     needs:
     - metadata
     uses: ./.github/workflows/trigger-pages.yml
+    secrets:
+      BOT_GITHUB_TOKEN: ${{ secrets.BOT_GITHUB_TOKEN }}
