@@ -62,21 +62,6 @@ jobs:
       fail-fast: false
       matrix:
         tool: ${{ fromJSON(needs.collect.outputs.tools) }}
-    #uses: ./.github/workflows/check-visibility.yml
-    #with:
-    #  name: ${{ matrix.tool }}
-    runs-on: ubuntu-22.04
-    env:
-      GITHUB_TOKEN: ${{ secrets.BOT_GITHUB_TOKEN }}
-    #permissions:
-    #  actions: write
-    steps:
-    - name: Trigger
-      run: |
-        echo "### Triggering check-visibility for ${{ matrix.tool }}"
-        curl --silent --show-error --fail \
-            --request POST \
-            --header "Authorization: token ${GITHUB_TOKEN}" \
-            --header "Accept: application/vnd.github.v3+json" \
-            --url https://api.github.com/repos/uniget-org/tools/dispatches \
-            --data '{"event_type": "check-visibility", "client_payload": {"name": "${{ matrix.tool }}"}}'
+    uses: ./.github/workflows/check-visibility.yml
+    with:
+      name: ${{ matrix.tool }}
