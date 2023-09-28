@@ -14,6 +14,8 @@ jobs:
 
   test:
     name: GHCR cleanup
+    permissions:
+      packages: write
     runs-on: ubuntu-22.04
     steps:
 
@@ -29,6 +31,6 @@ jobs:
 
     - name: Cleanup
       env:
-        GH_TOKEN: ${{ secrets.BOT_PACKAGES }}
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         make clean-registry-untagged

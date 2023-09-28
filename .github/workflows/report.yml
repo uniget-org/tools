@@ -15,6 +15,11 @@ jobs:
 
   prepare:
     name: Report
+    permissions:
+      issues: read
+      pull-requests: read
+      packages: read
+      actions: read
     runs-on: ubuntu-22.04
     steps:
 
@@ -25,7 +30,7 @@ jobs:
 
     - name: Create report
       env:
-        GITHUB_TOKEN: ${{ secrets.BOT_PACKAGES }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         bash scripts/report.sh >report.txt
 

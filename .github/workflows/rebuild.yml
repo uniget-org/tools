@@ -34,6 +34,9 @@ jobs:
     runs-on: ubuntu-22.04
     needs:
     - prepare
+    permissions:
+      contents: read
+      packages: write
     strategy:
       fail-fast: false
       matrix:
@@ -60,7 +63,7 @@ jobs:
       with:
         registry: ghcr.io
         username: uniget-bot
-        password: ${{ secrets.BOT_PACKAGES }}
+        password: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Rebuild
       env:
