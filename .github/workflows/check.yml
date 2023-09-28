@@ -116,7 +116,7 @@ jobs:
     - build
     uses: ./.github/workflows/scan.yml
     with:
-      name: "dummy:0.0.1"
+      name_and_version: "dummy:0.0.1"
 
 #  collect_versions:
 #    name: Collect versions for tools
