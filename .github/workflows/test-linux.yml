@@ -1,4 +1,4 @@
-name: Test-Linux
+name: Check
 
 on:
   pull_request:
@@ -10,58 +10,6 @@ on:
     - .github/workflows/*
 
 jobs:
-
-  collect:
-    name: Collect tools
-    permissions:
-      contents: read
-      issues: read
-      pull-requests: read
-    runs-on: ubuntu-22.04
-    outputs:
-      tools: ${{ steps.collect.outputs.tools }}
-    steps:
-
-    - name: Install uniget
-      uses: uniget-org/uniget-action@main
-      with:
-        prefix: helper
-        tools: gojq regclient
-
-    - name: Collect
-      id: collect
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        PR: ${{ github.event.pull_request.number }}
-      run: |
-        set -o errexit
-
-        echo "### This is PR ${PR}"
-        curl --silent --show-error --fail \
-                --header "Accept: application/vnd.github.v3+json" \
-                --header 'Authorization: Bearer ${GITHUB_TOKEN}' \
-                --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${PR}/files" \
-        | jq
-        TOOLS="$(
-            curl --silent --show-error --fail \
-                --header "Accept: application/vnd.github.v3+json" \
-                --header 'Authorization: Bearer ${GITHUB_TOKEN}' \
-                --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${PR}/files" \
-            | jq --raw-output '.[] | select(.status != "removed") | .filename' \
-            | grep -E '^tools/[^/]+/' \
-            | cut -d/ -f2 \
-            | uniq \
-            | xargs echo
-        )"
-        echo "### Got TOOLS=${TOOLS}."
-        
-        TOOLS_JSON="$(
-            echo -n "${TOOLS}" \
-            | tr ' ' '\n' \
-            | helper/usr/local/bin/jq --raw-input '.' | jq --slurp --compact-output '.'
-        )"
-        echo "    JSON: ${TOOLS_JSON}"
-        echo "tools=${TOOLS_JSON}" >>"${GITHUB_OUTPUT}"
 
   build:
     name: Build new version
@@ -161,15 +109,3 @@ jobs:
       issues: write
       pull-requests: write
     uses: ./.github/workflows/automerge.yml
-
-  visibility:
-    name: Check visibility
-    needs:
-    - collect
-    strategy:
-      fail-fast: false
-      matrix:
-        tool: ${{ fromJSON(needs.collect.outputs.tools) }}
-    uses: ./.github/workflows/check-visibility.yml
-    with:
-      name: ${{ matrix.tool }}
