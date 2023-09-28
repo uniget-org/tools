@@ -3,10 +3,7 @@ name: Approve
 on:
   pull_request:
     types:
-    - opened
-    - synchronize
     - labeled
-    - reopened
   workflow_dispatch:
 
 concurrency:
