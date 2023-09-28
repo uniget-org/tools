@@ -154,7 +154,7 @@ jobs:
   automerge:
     name: Automerge
     needs:
-    - test
+    - build
     permissions:
       contents: write
       issues: write
