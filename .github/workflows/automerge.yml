@@ -20,12 +20,17 @@ jobs:
         prefix: helper
         tools: gojq
 
-    - name: Test
+    - name: Automerge renovate PRs
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PR: ${{ github.event.pull_request.number }}
       run: |
         set -o errexit -o pipefail
+
+        if test -z "${PR}"; then
+            echo "ERROR: Missing PR number"
+            exit 1
+        fi
         
         echo "Running on PR ${PR}"
         PR_JSON="$(
