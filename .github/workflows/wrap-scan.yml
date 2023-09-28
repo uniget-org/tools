@@ -66,36 +66,61 @@ jobs:
       DOCKERHUB_USER: ${{ secrets.DOCKERHUB_USER }}
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
 
-#  collect_versions:
-#    name: Collect versions for tools
-#    needs:
-#    - collect
-#    runs-on: ubuntu-22.04
-#    outputs:
-#      tools_with_version: ${{ steps.collect_versions.outputs.tools_with_version }}
-#    steps:
-#
-#    - name: Checkout code
-#      uses: actions/checkout@v3
-#
-#    - name: Install uniget
-#      uses: uniget-org/uniget-action@main
-#      with:
-#        prefix: helper
-#        tools: yq
-#
-#    - name: Extract versions
-#      run: |
-#        echo "Do it"
-#
-#  scan:
-#    name: Scan container images
-#    needs:
-#    - build
-#    strategy:
-#      fail-fast: false
-#      matrix:
-#        tool_with_version: ${{ fromJSON(needs.collect_versions.outputs.tools_with_version) }}
-#    uses: ./.github/workflows/scan.yml
-#    with:
-#      name: ${{ matrix.tool_with_version }}
+  collect_versions:
+    name: Collect versions for tools
+    needs:
+    - collect
+    runs-on: ubuntu-22.04
+    outputs:
+      tools_with_version: ${{ steps.collect_versions.outputs.tools_with_version }}
+    env:
+      tools: ${{ needs.collect.outputs.tools }}
+    steps:
+
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install uniget
+      uses: uniget-org/uniget-action@main
+      with:
+        prefix: helper
+        tools: yq
+
+    - name: Extract versions
+      run: |
+        echo "Processing tools: ${tools}."
+
+        tools_with_version=""
+        echo "${tools}" \
+        | jq --raw-output '.[]' \
+        | while read -r TOOL; do
+            echo ${TOOL}
+            VERSION="$( yq '.version' "tools/${TOOL}/manifest.yaml" )"
+            tools_with_version="${tools_with_version}${TOOL}:${VERSION} "
+        done
+        echo "tools_with_version=${tools_with_version}."
+
+        tools_with_version_json="$(
+            echo -n "${tools_with_version}" \
+            | tr ' ' '\n' \
+            | helper/usr/local/bin/jq --raw-input '.' | jq --slurp --compact-output '.'
+        )"
+        echo "tools_with_version=${tools_with_version_json}" >>"${GITHUB_OUTPUT}
+
+  scan:
+    name: Scan container images
+    needs:
+    - build
+    permissions:
+      security-events: write
+      pull-requests: write
+    strategy:
+      fail-fast: false
+      matrix:
+        tool_with_version: ${{ fromJSON(needs.collect_versions.outputs.tools_with_version) }}
+    uses: ./.github/workflows/scan.yml
+    with:
+      name: ${{ matrix.tool_with_version }}
+    secrets:
+      DOCKERHUB_USER: ${{ secrets.DOCKERHUB_USER }}
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
