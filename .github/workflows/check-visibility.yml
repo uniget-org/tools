@@ -39,7 +39,7 @@ jobs:
                 --url https://api.github.com/orgs/${GITHUB_REPOSITORY_OWNER}/packages/container/tools%2f${TOOL} \
             | jq --raw-output '.visibility'
         )"
-        ech o"Got visibility ${VISIBILITY} for ${TOOL}"
+        echo "Got visibility ${VISIBILITY} for ${TOOL}"
         if test "${VISIBILITY}" == "private"; then
             echo "Package visibility is private for ${TOOL}"
             exit 1
