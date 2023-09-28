@@ -3,7 +3,7 @@ name: Visibility
 on:
   workflow_dispatch:
     inputs:
-      TOOL:
+      name:
         description: 'Tool name'
         required: true
 
@@ -28,15 +28,18 @@ jobs:
 
     - name: Check
       env:
-        GITHU_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        TOOL: ${{ inputs.name }}
       run: |
         set -o errexit -o pipefail
 
         # Check package with name $TOOL for private visibility
         VISIBILITY="$(
-            curl -sSLfH "Authorization: Bearer ${GITHUB_TOKEN}" https://api.github.com/orgs/uniget-org/packages/container/tools%2fyq \
+            curl --silent --show-error --location --fail --header "Authorization: Bearer ${GITHUB_TOKEN}" \
+                --url https://api.github.com/orgs/${GITHUB_REPOSITORY_OWNER}/packages/container/tools%2f${TOOL} \
             | jq --raw-output '.visibility'
         )"
+        ech o"Got visibility ${VISIBILITY} for ${TOOL}"
         if test "${VISIBILITY}" == "private"; then
             echo "Package visibility is private for ${TOOL}"
             exit 1
