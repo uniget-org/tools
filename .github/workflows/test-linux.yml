@@ -167,4 +167,4 @@ jobs:
         tool: ${{ fromJSON(needs.collect.outputs.tools) }}
     uses: ./.github/workflows/check-visibility.yml
     with:
-      TOOL: ${{ matrix.tool }}
+      name: ${{ matrix.tool }}
