@@ -39,6 +39,12 @@ jobs:
       run: |
         set -o errexit -o pipefail
 
+        if ! curl --silent --show-error --location --fail --header "Authorization: Bearer ${GITHUB_TOKEN}" \
+                --url https://api.github.com/orgs/${GITHUB_REPOSITORY_OWNER}/packages/container/tools%2f${TOOL}; then
+            echo "ERROR: Package not found for ${TOOL}"
+            exit 1
+        fi
+
         # Check package with name $TOOL for private visibility
         VISIBILITY="$(
             curl --silent --show-error --location --fail --header "Authorization: Bearer ${GITHUB_TOKEN}" \
