@@ -13,10 +13,7 @@ jobs:
 
   collect:
     name: Collect tools
-    permissions:
-      contents: read
-      issues: read
-      pull-requests: read
+    permissions: read-all
     runs-on: ubuntu-22.04
     outputs:
       tools: ${{ steps.collect.outputs.tools }}
@@ -34,7 +31,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PR: ${{ github.event.pull_request.number }}
       run: |
-        set -o errexit
+        set -o errexit -o pipefail
 
         echo "### This is PR ${PR}"
         curl --silent --show-error --fail \
