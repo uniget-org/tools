@@ -3,6 +3,9 @@ name: Trigger pages
 on:
   workflow_dispatch:
   workflow_call:
+    secrets:
+      BOT_GITHUB_TOKEN:
+        required: true
 
 jobs:
 
