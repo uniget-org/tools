@@ -7,6 +7,13 @@ on:
         description: 'Name and version of tool to scan, e.g. foo:0.1.0'
         type: string
         required: true
+    secrets:
+      DOCKERHUB_USER:
+        description: 'Docker Hub username'
+        required: true
+      DOCKERHUB_TOKEN:
+        description: 'Docker Hub token'
+        required: true
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
