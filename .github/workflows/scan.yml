@@ -16,8 +16,7 @@ jobs:
   scout:
     name: Scout
     permissions:
-      issues: write
-      pull-requests: write
+      security-events: write
     runs-on: ubuntu-22.04
     steps:
 
