@@ -61,7 +61,8 @@ jobs:
         while test "${MERGEABLE_STATE}" == "unknown" || test "${MERGEABLE_STATE}" == "null"; do
             echo "Got mergeable state: ${MERGEABLE_STATE}"
             PR_JSON="$(
-                curl --silent --show-error --fail --header "Authorization: token ${GITHUB_TOKEN}" \
+                curl --silent --show-error --fail \
+                    --header "Authorization: token ${GITHUB_TOKEN}" \
                     --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${PR}" \
                 | jq --compact-output '.'
             )"
@@ -72,9 +73,9 @@ jobs:
                 echo "PR ${PR} is blocked and can not be merged"
                 curl --silent --show-error --fail \
                     --request POST \
-                    --header "Authorization: token ${GITHUB_TOKEN}" \
+                    --header "Authorization: Bearer ${GITHUB_TOKEN}" \
                     --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/${PR}/comments" \
-                    --data '{"body": "PR is blocked and can not be merged.}'
+                    --data '{"body": "PR is blocked and can not be merged. See '"${RUN_URL}"'."}'
                 echo "Aborting workflow"
                 exit 1
                 ;;
@@ -82,17 +83,17 @@ jobs:
                 echo "PR ${PR} is clean and can be merged"
                 curl --silent --show-error --fail \
                     --request POST \
-                    --header "Authorization: token ${GITHUB_TOKEN}" \
+                    --header "Authorization: Bearer ${GITHUB_TOKEN}" \
                     --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/${PR}/comments" \
-                    --data '{"body": "PR is clean and can be merged.}'
+                    --data '{"body": "PR is clean and can be merged. See '"${RUN_URL}"'."}'
                 ;;
             *)
                 echo "ERROR: Unknown mergeable_state ${MERGEABLE_STATE} for PR ${PR}"
                 curl --silent --show-error --fail \
                     --request POST \
-                    --header "Authorization: token ${GITHUB_TOKEN}" \
+                    --header "Authorization: Bearer ${GITHUB_TOKEN}" \
                     --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/${PR}/comments" \
-                    --data '{"body": "PR has unknown mergeable_state ('"${MERGEABLE_STATE}"') and can not be merged."}'
+                    --data '{"body": "PR has unknown mergeable_state ('"${MERGEABLE_STATE}"') and can not be merged. See '"${RUN_URL}"'."}'
                 echo "Aborting workflow"
                 exit 1
                 ;;
