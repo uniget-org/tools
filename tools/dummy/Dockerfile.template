@@ -7,6 +7,5 @@ ARG name
 ARG version
 RUN <<EOF
 touch \
-    "${prefix}${target}/foo" \
-    "${prefix}${target}/bar"
+    "${prefix}${target}/foo"
 EOF
