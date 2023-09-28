@@ -12,7 +12,7 @@ jobs:
 
     - name: Trigger
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.BOT_GITHUB_TOKEN }}
       run: |
         curl --silent --show-error --fail \
             --request POST \
