@@ -155,7 +155,7 @@ jobs:
     name: Metadata
     runs-on: ubuntu-22.04
     needs:
-    - push
+    - tag
     steps:
 
     - name: Checkout code
