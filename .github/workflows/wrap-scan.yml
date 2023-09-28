@@ -95,8 +95,9 @@ jobs:
         echo "${tools}" \
         | helper/usr/local/bin/jq --raw-output '.[]' \
         | while read -r TOOL; do
-            echo ${TOOL}
+            echo "${TOOL}"
             VERSION="$( helper/usr/local/bin/yq '.version' "tools/${TOOL}/manifest.yaml" )"
+            echo "${VERSION}"
             tools_with_version="${tools_with_version}${TOOL}:${VERSION} "
         done
         echo "tools_with_version=${tools_with_version}."
