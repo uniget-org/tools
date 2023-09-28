@@ -67,9 +67,9 @@ jobs:
     #  name: ${{ matrix.tool }}
     runs-on: ubuntu-22.04
     env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    permissions:
-      actions: write
+      GITHUB_TOKEN: ${{ secrets.BOT_GITHUB_TOKEN }}
+    #permissions:
+    #  actions: write
     steps:
     - name: Trigger
       run: |
