@@ -15,9 +15,9 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.BOT_GITHUB_TOKEN }}
       run: |
-        curl --silent --show-error --fail \
+        curl --silent --verbose --show-error --fail \
             --request POST \
+            --url https://api.github.com/repos/uniget-org/tools.uniget.dev/dispatches \
             --header "Authorization: token ${GITHUB_TOKEN}" \
             --header "Accept: application/vnd.github.v3+json" \
-            --url https://api.github.com/repos/uniget-org/tools.uniget.dev/dispatches \
             --data '{"event_type": "pages"}'
