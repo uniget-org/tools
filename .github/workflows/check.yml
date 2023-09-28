@@ -1,4 +1,4 @@
-name: Check NextGen
+name: Check
 
 on:
   pull_request:
@@ -118,6 +118,7 @@ jobs:
     name: Automerge
     needs:
     - build
+    - visibility
     permissions:
       contents: write
       issues: write
