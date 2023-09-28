@@ -17,6 +17,8 @@ jobs:
         curl \
             --url https://api.github.com/repos/uniget-org/tools.uniget.dev/dispatches \
             --silent \
+            --verbose \
+            --show-error \
             --fail \
             --request POST \
             --header "Authorization: token ${GITHUB_TOKEN}" \
