@@ -73,10 +73,10 @@ jobs:
     steps:
     - name: Trigger
       run: |
-        echo "### Triggering check-visibility for ${{ inputs.tool }}"
+        echo "### Triggering check-visibility for ${{ matrix.tool }}"
         curl --silent --show-error --fail \
             --request POST \
             --header "Authorization: token ${GITHUB_TOKEN}" \
             --header "Accept: application/vnd.github.v3+json" \
             --url https://api.github.com/repos/uniget-org/tools/dispatches \
-            --data '{"event_type": "check-visibility", "client_payload": {"name": "${{ inputs.tool }}"}}'
+            --data '{"event_type": "check-visibility", "client_payload": {"name": "${{ matrix.tool }}"}}'
