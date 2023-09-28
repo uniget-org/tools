@@ -6,7 +6,7 @@ on:
     - "main"
     paths:
     - "tools/**"
-    - ".github/workflows/push.yml"
+    - ".github/workflows/tag.yml"
   workflow_dispatch:
     inputs:
       tools:
