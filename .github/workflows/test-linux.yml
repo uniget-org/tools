@@ -165,9 +165,6 @@ jobs:
       fail-fast: false
       matrix:
         tool: ${{ fromJSON(needs.collect.outputs.tools) }}
-    runs-on: ubuntu-22.04
-    steps:
-    - name: Trigger
-      uses: check-visibility.yml@main
-      with:
-        TOOL: ${{ matrix.tool }}
+    uses: ./.github/workflows/check-visibility.yml@main
+    with:
+      TOOL: ${{ matrix.tool }}
