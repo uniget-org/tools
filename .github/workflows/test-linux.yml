@@ -13,6 +13,53 @@ on:
 
 jobs:
 
+  collect:
+    name: Collect tools
+    runs-on: ubuntu-22.04
+    outputs:
+      tools: ${{ steps.collect.outputs.tools }}
+    env:
+      IS_PR: ${{ github.event_name == 'pull_request' }}
+    steps:
+
+    - name: Install uniget
+      uses: uniget-org/uniget-action@main
+      with:
+        prefix: helper
+        tools: gojq regclient
+
+    - name: Collect
+      id: collect
+      run: |
+        set -o errexit
+
+        if ! ${IS_PR}; then
+            echo "ERROR: Why is this not a PR?"
+            exit 1
+        fi
+
+        echo "### This is PR ${PR}"
+        TOOLS="$(
+            curl --silent --fail \
+                --header "Accept: application/vnd.github.v3+json" \
+                --header 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+                --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${PR}/files" \
+            | jq --raw-output '.[] | select(.status != "removed") | .filename' \
+            | grep -E '^tools/[^/]+/' \
+            | cut -d/ -f2 \
+            | uniq \
+            | xargs echo
+        )"
+        echo "### Got TOOLS=${TOOLS}."
+        
+        TOOLS_JSON="$(
+            echo -n "${TOOLS}" \
+            | tr ' ' '\n' \
+            | helper/usr/local/bin/jq --raw-input '.' | jq --slurp --compact-output '.'
+        )"
+        echo "    JSON: ${TOOLS_JSON}"
+        echo "tools=${TOOLS_JSON}" >>"${GITHUB_OUTPUT}"
+
   test:
     name: Test
     runs-on: ubuntu-22.04
@@ -109,3 +156,18 @@ jobs:
       issues: write
       pull-requests: write
     uses: ./.github/workflows/automerge.yml
+
+  visibility:
+    name: Check visibility
+    needs:
+    - collect
+    strategy:
+      fail-fast: false
+      matrix:
+        tool: ${{ fromJSON(needs.collect.outputs.tools) }}
+    runs-on: ubuntu-22.04
+    steps:
+    - name: Trigger
+      uses: check-visibility.yml@main
+      with:
+        TOOL: ${{ matrix.tool }}

@@ -6,6 +6,12 @@ on:
       name:
         description: 'Tool name'
         required: true
+  workflow_call:
+    inputs:
+      name:
+        description: 'Tool name'
+        type: string
+        required: true
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
