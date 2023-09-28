@@ -110,7 +110,7 @@ jobs:
   scan:
     name: Scan container images
     needs:
-    - build
+    - collect_versions
     permissions:
       security-events: write
       pull-requests: write
