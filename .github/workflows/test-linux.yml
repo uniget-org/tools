@@ -39,8 +39,13 @@ jobs:
         fi
 
         echo "### This is PR ${PR}"
+        curl --silent --show-error --fail \
+                --header "Accept: application/vnd.github.v3+json" \
+                --header 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+                --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${PR}/files" \
+        | jq
         TOOLS="$(
-            curl --silent --fail \
+            curl --silent --show-error --fail \
                 --header "Accept: application/vnd.github.v3+json" \
                 --header 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
                 --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${PR}/files" \
