@@ -120,7 +120,7 @@ jobs:
         tool_with_version: ${{ fromJSON(needs.collect_versions.outputs.tools_with_version) }}
     uses: ./.github/workflows/scan.yml
     with:
-      name: ${{ matrix.tool_with_version }}
+      name_and_version: ${{ matrix.tool_with_version }}
     secrets:
       DOCKERHUB_USER: ${{ secrets.DOCKERHUB_USER }}
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
