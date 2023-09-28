@@ -6,5 +6,7 @@ FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
 ARG name
 ARG version
 RUN <<EOF
-touch "${prefix}${target}/foo"
+touch \
+    "${prefix}${target}/foo" \
+    "${prefix}${target}/bar"
 EOF
