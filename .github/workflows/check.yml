@@ -38,7 +38,7 @@ jobs:
                 --header "Accept: application/vnd.github.v3+json" \
                 --header "Authorization: Bearer ${GITHUB_TOKEN}" \
                 --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${PR}/files" \
-            | jq --raw-output '.[] | select(.status != "removed") | .filename' \
+            | helper/usr/local/bin/jq --raw-output '.[] | select(.status != "removed") | .filename' \
             | grep -E '^tools/[^/]+/' \
             | cut -d/ -f2 \
             | uniq \
@@ -49,7 +49,8 @@ jobs:
         TOOLS_JSON="$(
             echo -n "${TOOLS}" \
             | tr ' ' '\n' \
-            | helper/usr/local/bin/jq --raw-input '.' | jq --slurp --compact-output '.'
+            | helper/usr/local/bin/jq --raw-input '.' \
+            | helper/usr/local/bin/jq --slurp --compact-output '.'
         )"
         echo "    JSON: ${TOOLS_JSON}"
         echo "tools=${TOOLS_JSON}" >>"${GITHUB_OUTPUT}"
