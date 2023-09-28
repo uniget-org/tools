@@ -1,4 +1,4 @@
-name: Build and push
+name: Tag latest
 
 on:
   push:
@@ -75,8 +75,13 @@ jobs:
         echo "    JSON: ${CHANGED_TOOLS_JSON}"
         echo "tools=${CHANGED_TOOLS_JSON}" >>"${GITHUB_OUTPUT}"
 
-  push:
-    name: Build and push
+  tag:
+    name: Tag latest
+    permissions:
+      contents: read
+      packages: write
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     runs-on: ubuntu-22.04
     needs:
     - collect
@@ -109,12 +114,9 @@ jobs:
       with:
         registry: ghcr.io
         username: uniget-bot
-        password: ${{ secrets.BOT_PACKAGES }}
+        password: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Push
-      env:
-        GH_TOKEN: ${{ secrets.BOT_PACKAGES }}
-        DOCKER_BUILDKIT: 1
+    - name: Tag latest
       run: |
         echo "### Processing ${{ matrix.tool }}"
         sha_main="$(
@@ -123,7 +125,7 @@ jobs:
         sha_test="$(
             helper/usr/local/bin/regctl manifest head ghcr.io/uniget-org/tools/${{ matrix.tool }}:test || true
         )"
-        tool_version="$( yq eval .version tools/${{ matrix.tool }}/manifest.yaml )"
+        tool_version="$( helper/usr/local/bin/yq eval .version tools/${{ matrix.tool }}/manifest.yaml )"
         sha_version="$(
             helper/usr/local/bin/regctl manifest head ghcr.io/uniget-org/tools/${{ matrix.tool }}:${tool_version} || true
         )"
