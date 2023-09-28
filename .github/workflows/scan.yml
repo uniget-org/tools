@@ -34,8 +34,8 @@ jobs:
       with:
         command: cves
         image: ghcr.io/${{ github.repository }}/${{ inputs.name}}:latest
-        #dockerhub-user: ${{ secrets.DOCKERHUB_USER }}
-        #dockerhub-password: ${{ secrets.DOCKERHUB_TOKEN }}
+        dockerhub-user: ${{ secrets.DOCKERHUB_USER }}
+        dockerhub-password: ${{ secrets.DOCKERHUB_TOKEN }}
         sarif-file: sarif.output.json
         summary: true
       
