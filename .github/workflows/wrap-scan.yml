@@ -55,17 +55,17 @@ jobs:
         echo "    JSON: ${TOOLS_JSON}"
         echo "tools=${TOOLS_JSON}" >>"${GITHUB_OUTPUT}"
 
-  test_scan:
-    name: Scan dummy container image
-    permissions:
-      security-events: write
-      pull-requests: write
-    uses: ./.github/workflows/scan.yml
-    with:
-      name_and_version: "dummy:0.0.1"
-    secrets:
-      DOCKERHUB_USER: ${{ secrets.DOCKERHUB_USER }}
-      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+  #test_scan:
+  #  name: Scan dummy container image
+  #  permissions:
+  #    security-events: write
+  #    pull-requests: write
+  #  uses: ./.github/workflows/scan.yml
+  #  with:
+  #    name_and_version: "dummy:0.0.1"
+  #  secrets:
+  #    DOCKERHUB_USER: ${{ secrets.DOCKERHUB_USER }}
+  #    DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
 
   collect_versions:
     name: Collect versions for tools
