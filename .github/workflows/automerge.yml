@@ -50,12 +50,12 @@ jobs:
             exit
         fi
 
-        
         RUN_URL="$(
             curl --silent --show-error --location --fail \
                 --url "${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" \
             | jq --raw-output '.html_url'
         )"
+        echo "Extracted HTML URL for this run: ${RUN_URL}."
 
         MERGEABLE_STATE="$( jq --raw-output '.mergeable_state' <<<"${PR_JSON}" )"
         while test "${MERGEABLE_STATE}" == "unknown" || test "${MERGEABLE_STATE}" == "null"; do
