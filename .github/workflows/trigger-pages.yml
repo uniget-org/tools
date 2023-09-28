@@ -1,0 +1,22 @@
+name: Trigger pages
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  pages:
+    name: tools.uniget.dev
+    runs-on: ubuntu-22.04
+    steps:
+
+    - name: Trigger
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        curl --silent --show-error --fail \
+            --request POST \
+            --header "Authorization: token ${GITHUB_TOKEN}" \
+            --header "Accept: application/vnd.github.v3+json" \
+            --url https://api.github.com/repos/uniget-org/tools.uniget.dev/dispatches \
+            --data '{"event_type": "pages"}'
