@@ -57,6 +57,12 @@ jobs:
         )"
         echo "Extracted HTML URL for this run: ${RUN_URL}."
 
+        curl --silent --show-error --fail \
+                    --request POST \
+                    --header "Authorization: Bearer ${GITHUB_TOKEN}" \
+                    --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/${PR}/comments" \
+                    --data '{"body": "Attempting automerge. See '"${RUN_URL}"'."}'
+
         MERGEABLE_STATE="$( jq --raw-output '.mergeable_state' <<<"${PR_JSON}" )"
         while test "${MERGEABLE_STATE}" == "unknown" || test "${MERGEABLE_STATE}" == "null"; do
             echo "Got mergeable state: ${MERGEABLE_STATE}"
