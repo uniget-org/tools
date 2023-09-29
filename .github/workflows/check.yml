@@ -123,3 +123,70 @@ jobs:
     uses: ./.github/workflows/check-visibility.yml
     with:
       name: ${{ matrix.tool }}
+
+  collect_versions:
+    name: Collect versions for tools
+    needs:
+    - collect
+    - success
+    runs-on: ubuntu-22.04
+    outputs:
+      tools_with_version: ${{ steps.extract_versions.outputs.tools_with_version }}
+    env:
+      tools: ${{ needs.collect.outputs.tools }}
+    steps:
+
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install uniget
+      uses: uniget-org/uniget-action@main
+      with:
+        prefix: helper
+        tools: yq gojq
+
+    - name: Extract versions
+      id: extract_versions
+      run: |
+        echo "Processing tools: ${tools}."
+
+        tools_with_version=""
+        TOOLS_RAW="$(
+            echo "${tools}" \
+            | helper/usr/local/bin/jq --raw-output '.[]'
+        )"
+
+        for TOOL in ${TOOLS_RAW}; do
+            echo "${TOOL}"
+            VERSION="$( helper/usr/local/bin/yq '.version' "tools/${TOOL}/manifest.yaml" )"
+            echo "${VERSION}"
+            tools_with_version="${tools_with_version}${TOOL}:${VERSION} "
+        done
+        echo "tools_with_version=${tools_with_version}."
+
+        tools_with_version_json="$(
+            echo -n "${tools_with_version}" \
+            | tr ' ' '\n' \
+            | helper/usr/local/bin/jq --raw-input '.' \
+            | helper/usr/local/bin/jq --slurp --compact-output '.'
+        )"
+        echo "JSON: ${tools_with_version_json}"
+        echo "tools_with_version=${tools_with_version_json}" >>"${GITHUB_OUTPUT}"
+
+  scan:
+    name: Scan container images
+    needs:
+    - collect_versions
+    permissions:
+      security-events: write
+      pull-requests: write
+    strategy:
+      fail-fast: false
+      matrix:
+        tool_with_version: ${{ fromJSON(needs.collect_versions.outputs.tools_with_version) }}
+    uses: ./.github/workflows/scan.yml
+    with:
+      name_and_version: ${{ matrix.tool_with_version }}
+    secrets:
+      DOCKERHUB_USER: ${{ secrets.DOCKERHUB_USER }}
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
