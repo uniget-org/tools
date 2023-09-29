@@ -10,6 +10,7 @@ MAJOR_VERSION="$(
     curl --silent --location --fail https://github.com/nodejs/Release/raw/main/schedule.json \
     | jq -r '
             to_entries[] |
+            select(.value.start < (now | todate)) |
             select(.value.maintenance > (now | todate)) |
             select(.value.lts != null) | select(.value.lts > (now | todate)) |
             .key
