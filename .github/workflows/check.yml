@@ -180,6 +180,7 @@ jobs:
     permissions:
       security-events: write
       pull-requests: write
+      packages: read
     strategy:
       fail-fast: false
       matrix:
