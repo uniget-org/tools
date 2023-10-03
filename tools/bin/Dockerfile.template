@@ -6,25 +6,10 @@ FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
 ARG name
 ARG version
 RUN <<EOF
-echo "### Setting architecture string for ${TARGETPLATFORM}"
-case "${arch}" in
-    x86_64)
-        export arch_suffix="${arch}"
-        ;;
-    aarch64)
-        export arch_suffix="${alt_arch}"
-        ;;
-    *)
-        echo "ERROR: Unsupported architecture ${arch}."
-        exit 1
-        ;;
-esac
-echo "    Using ${arch_suffix}"
-
-check-github-release-asset "marcosnils/bin" "v${version}" "bin_${version}_Linux_${arch_suffix}"
+check-github-release-asset "marcosnils/bin" "v${version}" "bin_${version}_linux_${alt_arch}"
 
 echo "### Downloading bin ${version}"
 curl --silent --location --fail --output "${prefix}${target}/bin/bin" \
-    "https://github.com/marcosnils/bin/releases/download/v${version}/bin_${version}_Linux_${arch_suffix}"
+    "https://github.com/marcosnils/bin/releases/download/v${version}/bin_${version}_linux_${alt_arch}"
 chmod +x "${prefix}${target}/bin/bin"
 EOF
