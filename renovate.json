@@ -4676,7 +4676,8 @@
     },
     {
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "indygreg/python-build-standalone",
+      "depNameTemplate": "uniget-org/renovate-custom",
+      "extractVersionTemplate": "^python/(?<version>.+?)$",
       "fileMatch": [
         "^tools/python/manifest.yaml$"
       ],
@@ -4686,7 +4687,8 @@
     },
     {
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "indygreg/python-build-standalone",
+      "depNameTemplate": "uniget-org/renovate-custom",
+      "extractVersionTemplate": "^python/(?<version>.+?)$",
       "fileMatch": [
         "^tools/python-build-standalone/manifest.yaml$"
       ],

@@ -5,14 +5,15 @@ ARG ref=main
 FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
 ARG name
 ARG version
-ARG PYTHON_VERSION=3.11.6
 RUN <<EOF
+PYTHON_VERSION="$( echo "${version}" | cut -d+ -f1 )"
+RELEASE_TAG="$( echo "${version}" | cut -d+ -f2 )"
+
 check-github-release-asset \
     "indygreg/python-build-standalone" \
-    "${version}" \
-    "cpython-${PYTHON_VERSION}+${version}-${arch}-unknown-linux-musl-install_only.tar.gz"
-EOF
-RUN <<EOF
-curl --silent --location --fail "https://github.com/indygreg/python-build-standalone/releases/download/${version}/cpython-${PYTHON_VERSION}+${version}-${arch}-unknown-linux-musl-install_only.tar.gz" \
+    "${RELEASE_TAG}" \
+    "cpython-${PYTHON_VERSION}+${RELEASE_TAG}-${arch}-unknown-linux-musl-install_only.tar.gz"
+
+curl --silent --location --fail "https://github.com/indygreg/python-build-standalone/releases/download/${RELEASE_TAG}/cpython-${PYTHON_VERSION}+${RELEASE_TAG}-${arch}-unknown-linux-musl-install_only.tar.gz" \
 | tar --extract --gzip --directory="${prefix}${target}/" --strip-components=1 --no-same-owner
 EOF

@@ -9,5 +9,6 @@ homepage: https://github.com/indygreg/python-build-standalone
 description: Redistributable builds of Python
 renovate:
   datasource: github-releases
-  package: indygreg/python-build-standalone
+  package: uniget-org/renovate-custom
+  extractVersion: ^python/(?<version>.+?)$
   priority: low
