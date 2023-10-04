@@ -4683,7 +4683,8 @@
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
-      ]
+      ],
+      "versioningTemplate": "loose"
     },
     {
       "datasourceTemplate": "github-releases",
@@ -4694,7 +4695,8 @@
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
-      ]
+      ],
+      "versioningTemplate": "loose"
     },
     {
       "datasourceTemplate": "github-tags",
