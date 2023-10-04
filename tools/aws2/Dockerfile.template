@@ -9,6 +9,8 @@ COPY <<EOF ${prefix}${target}/etc/profile.d/aws
 complete -C '/usr/local/bin/aws_completer' aws
 EOF
 RUN <<EOF
+check-download "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-${version}.zip"
+
 curl --silent --location --fail --remote-name \
     "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-${version}.zip"
 unzip "awscli-exe-linux-x86_64-${version}.zip"

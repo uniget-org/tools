@@ -10,6 +10,7 @@ ARG name
 ARG version
 WORKDIR ${prefix}${target}/opt/gcloud
 RUN <<EOF
+check-download "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-${version}-linux-${arch}.tar.gz"
 curl --silent --location --fail "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-${version}-linux-${arch}.tar.gz" \
 | tar --extract --gzip --strip-components=1 --no-same-owner
 ln --symbolic --relative --force "${prefix}${target}/opt/gcloud/bin/gcloud" "${prefix}${target}/bin/gcloud"

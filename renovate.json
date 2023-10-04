@@ -49,6 +49,15 @@
     {
       "ignoreUnstable": true,
       "matchFiles": [
+        "^tools/apko/manifest.yaml$"
+      ],
+      "matchPackageNames": [
+        "chainguard-dev/apko"
+      ]
+    },
+    {
+      "ignoreUnstable": true,
+      "matchFiles": [
         "^tools/docker-preview/manifest.yaml$"
       ],
       "matchPackageNames": [

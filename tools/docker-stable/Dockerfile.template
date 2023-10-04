@@ -15,11 +15,14 @@ mkdir -p \
 EOF
 
 RUN <<EOF
+check-download "https://download.docker.com/linux/static/stable/${arch}/docker-${version}.tgz"
 curl --silent --location --fail "https://download.docker.com/linux/static/stable/${arch}/docker-${version}.tgz" \
 | tar --extract --gzip --directory="${prefix}${target}/libexec/${name}/bin" --no-same-owner --strip-components=1
 mv "${prefix}${target}/libexec/${name}/bin/dockerd"      "${prefix}${target}/bin/"
 mv "${prefix}${target}/libexec/${name}/bin/docker"       "${prefix}${target}/bin/"
 mv "${prefix}${target}/libexec/${name}/bin/docker-proxy" "${prefix}${target}/bin/"
+
+check-download "https://download.docker.com/linux/static/stable/${arch}/docker-rootless-extras-${version}.tgz"
 curl --silent --location --fail "https://download.docker.com/linux/static/stable/${arch}/docker-rootless-extras-${version}.tgz" \
 | tar --extract --gzip --directory="${prefix}${target}/libexec/${name}/bin" --no-same-owner --strip-components=1
 mv "${prefix}${target}/libexec/${name}/bin/dockerd-rootless.sh"           "${prefix}${target}/bin/"

@@ -7,6 +7,8 @@ ARG name
 ARG version
 
 RUN <<EOF
+check-download "https://github.com/fidian/ansi/raw/${version}/ansi"
+
 curl --silent --location --fail --output "${prefix}${target}/bin/ansi" \
     "https://github.com/fidian/ansi/raw/${version}/ansi"
 chmod +x "${prefix}${target}/bin/ansi"

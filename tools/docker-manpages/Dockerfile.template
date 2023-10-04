@@ -16,7 +16,10 @@ EOF
 WORKDIR /go/src/github.com/docker/cli
 ARG name
 ARG version
-RUN git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/docker/cli .
+RUN <<EOF
+check-clone "https://github.com/docker/cli" "v${version}"
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/docker/cli .
+EOF
 ENV GO111MODULE=auto \
     DISABLE_WARN_OUTSIDE_CONTAINER=1 \
     GOPATH=/go

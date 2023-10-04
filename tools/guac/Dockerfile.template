@@ -18,6 +18,7 @@ ARG name
 ARG version
 ENV CGO_ENABLED=0
 RUN <<EOF
+check-clone https://github.com/guacsec/guac "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/guacsec/guac .
 make build
 cp bin/guac* "${prefix}${target}/bin/"

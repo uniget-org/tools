@@ -16,6 +16,7 @@ WORKDIR /tmp/socat
 ARG name
 ARG version
 RUN <<EOF
+check-download "http://www.dest-unreach.org/socat/download/socat-${version}.tar.gz"
 curl --silent --location --fail "http://www.dest-unreach.org/socat/download/socat-${version}.tar.gz" \
 | tar --extract --gzip --strip-components=1
 autoconf

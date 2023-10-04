@@ -22,6 +22,7 @@ WORKDIR /tmp/util-linux
 ARG name
 ARG version
 RUN <<EOF
+check-clone https://github.com/util-linux/util-linux "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/util-linux/util-linux .
 ./autogen.sh
 ./configure --disable-shared

@@ -15,6 +15,7 @@ apt-get -y install --no-install-recommends \
 EOF
 WORKDIR /go/src/git.zx2c4.com/wireguard-go
 RUN <<EOF
+check-clone https://git.zx2c4.com/wireguard-go "${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" https://git.zx2c4.com/wireguard-go .
 make
 mv wireguard-go "${prefix}${target}/bin/"

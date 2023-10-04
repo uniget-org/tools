@@ -6,6 +6,7 @@ FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
 ARG name
 ARG version
 RUN <<EOF
+check-download "https://dist.neo4j.org/neo4j-community-${version}-unix.tar.gz"
 mkdir -p "${prefix}${target}/opt/neo4j"
 curl --silent --location --fail "https://dist.neo4j.org/neo4j-community-${version}-unix.tar.gz" \
 | tar --extract --gzip --directory="${prefix}${target}/opt/neo4j" --strip-components=1 --no-same-owner
