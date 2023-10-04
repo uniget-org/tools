@@ -23,7 +23,7 @@ on:
         default: ''
 
 concurrency:
-  group: push
+  group: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
 
