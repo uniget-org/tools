@@ -15,11 +15,14 @@ mkdir -p \
 EOF
 
 RUN <<EOF
+check-download "https://download.docker.com/linux/static/stable/${arch}/docker-${version}.tgz"
 curl --silent --location --fail "https://download.docker.com/linux/static/stable/${arch}/docker-${version}.tgz" \
 | tar --extract --gzip --directory="${prefix}${target}/libexec/${name}/bin" --no-same-owner --strip-components=1
 mv "${prefix}${target}/libexec/${name}/bin/dockerd"      "${prefix}${target}/bin/"
 mv "${prefix}${target}/libexec/${name}/bin/docker"       "${prefix}${target}/bin/"
 mv "${prefix}${target}/libexec/${name}/bin/docker-proxy" "${prefix}${target}/bin/"
+
+check-download "https://download.docker.com/linux/static/stable/${arch}/docker-rootless-extras-${version}.tgz"
 curl --silent --location --fail "https://download.docker.com/linux/static/stable/${arch}/docker-rootless-extras-${version}.tgz" \
 | tar --extract --gzip --directory="${prefix}${target}/libexec/${name}/bin" --no-same-owner --strip-components=1
 mv "${prefix}${target}/libexec/${name}/bin/dockerd-rootless.sh"           "${prefix}${target}/bin/"
@@ -33,6 +36,7 @@ RUN <<EOF
 EOF
 
 RUN <<EOF
+check-download "https://github.com/moby/moby/raw/v${version}/contrib/init/systemd/docker.service"
 curl --silent --location --fail --output "${prefix}${target}/etc/systemd/system/docker.service" \
     "https://github.com/moby/moby/raw/v${version}/contrib/init/systemd/docker.service"
 sed -i "/^\[Service\]/a Environment=PATH=${target}/libexec/${name}/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin" "${prefix}${target}/etc/systemd/system/docker.service"

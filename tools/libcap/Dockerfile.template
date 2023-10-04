@@ -14,6 +14,7 @@ WORKDIR /tmp/libcap
 ARG name
 ARG version
 RUN <<EOF
+check-clone https://git.kernel.org/pub/scm/libs/libcap/libcap.git "libcap-${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "libcap-${version}" https://git.kernel.org/pub/scm/libs/libcap/libcap.git .
 make -C progs
 make -C progs install FAKEROOT=/usr/local

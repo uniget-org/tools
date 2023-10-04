@@ -15,6 +15,7 @@ WORKDIR /go/src/github.com/in-toto/in-toto-golang
 ARG name
 ARG version
 RUN <<EOF
+check-clone https://github.com/in-toto/in-toto-golang "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/in-toto/in-toto-golang .
 make build
 cp bin/in-toto "${prefix}${target}/bin/"

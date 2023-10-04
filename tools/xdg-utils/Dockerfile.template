@@ -15,6 +15,7 @@ WORKDIR /tmp/xdg-utils
 ARG name
 ARG version
 RUN <<EOF
+check-download "https://gitlab.freedesktop.org/xdg/xdg-utils/-/archive/v${version}/xdg-utils-v${version}.tar.gz"
 curl --silent --location --fail "https://gitlab.freedesktop.org/xdg/xdg-utils/-/archive/v${version}/xdg-utils-v${version}.tar.gz" \
 | tar --extract --gzip --strip-components=1
 ./configure --prefix="${prefix}${target}"
