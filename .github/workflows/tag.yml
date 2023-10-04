@@ -8,6 +8,13 @@ on:
     - "tools/**"
     - ".github/workflows/tag.yml"
     - ".github/workflows/trigger-pages.yml"
+  schedule:
+  - cron: "18 * * * *"
+  workflow_run:
+    workflows:
+    - Automerge
+    types:
+    - completed
   workflow_dispatch:
     inputs:
       tools:
@@ -22,6 +29,7 @@ jobs:
 
   collect:
     name: Collect changed tools
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-22.04
     outputs:
       tools: ${{ steps.collect.outputs.tools }}
