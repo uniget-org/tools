@@ -5175,6 +5175,17 @@
     },
     {
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "adobe-fonts/source-sans",
+      "extractVersionTemplate": "^(?<version>.+?)R$",
+      "fileMatch": [
+        "^tools/source-sans/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "opensbom-generator/spdx-sbom-generator",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
