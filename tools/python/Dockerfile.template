@@ -7,7 +7,7 @@ ARG name
 ARG version
 RUN <<EOF
 PYTHON_VERSION="$( echo "${version}" | cut -d. -f1-3 )"
-RELEASE_TAG="$( echo "${version}" | cut -d. -4 )"
+RELEASE_TAG="$( echo "${version}" | cut -d. -f4 )"
 
 check-github-release-asset \
     "indygreg/python-build-standalone" \
