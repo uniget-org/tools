@@ -58,6 +58,13 @@ builders: \
 	docker container run --privileged --rm tonistiigi/binfmt --install all >/dev/null
 
 .PHONY:
+clean-builders: \
+		; $(info $(M) Pruning builders...)
+	@\
+	docker buildx ls | grep -q "^uniget " \
+	&& docker builder prune --builder uniget --all --force
+
+.PHONY:
 base: \
 		info \
 		metadata.json \
