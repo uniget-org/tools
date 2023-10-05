@@ -3,9 +3,9 @@
 ARG ref=main
 
 #FROM ghcr.io/uniget-org/tools/python:${ref} AS python
+FROM ghcr.io/uniget-org/tools/shiv:${ref} AS shiv
 
 FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
-#COPY --link --from=python / /
 RUN <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
@@ -13,20 +13,13 @@ apt-get -y install --no-install-recommends \
     python3-venv \
     python-is-python3
 EOF
+#COPY --link --from=python / /
+COPY --link --from=shiv / /
 ARG name
 ARG version
 COPY <<EOF ${prefix}${target}/etc/profile.d/aws
 complete -C '/usr/local/bin/aws_completer' aws
 EOF
 RUN <<EOF
-check-download "https://s3.amazonaws.com/aws-cli/awscli-bundle-${version}.zip"
-
-curl --silent --location --fail --remote-name \
-    "https://s3.amazonaws.com/aws-cli/awscli-bundle-${version}.zip"
-unzip "awscli-bundle-${version}.zip"
-./awscli-bundle/install --install-dir "${prefix}${target}/aws" --bin-location "${prefix}${target}/bin/aws"
-grep -r -l "${prefix}" "${prefix}${target}/aws/bin/" | xargs -I{} sed -i "s|${prefix}||" {}
-
-ln --symbolic --relative --force "${prefix}${target}/aws/bin/aws" "${prefix}${target}/bin/aws"
-sed -i "s|#\!${prefix}/|#\!/|" "${prefix}${target}/aws/bin/aws"
+shiv --output-file "${prefix}${target}/bin/aws" --console-script aws "awscli==${version}"
 EOF

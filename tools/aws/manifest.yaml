@@ -1,8 +1,9 @@
 name: aws
 version: "1.29.60"
 check: ${binary} --version | cut -d' ' -f1 | cut -d/ -f2
-#build_dependencies:
+build_dependencies:
 #- python
+- shiv
 #runtime_dependencies:
 #- python
 conflicts_with:
