@@ -13,5 +13,5 @@ description: Disk usage analyzer with an ncurses interface
 renovate:
   datasource: git-tags
   package: git://g.blicky.net/ncdu.git
-  extractVersion: ^v(?<version>\\d+\.\\d+\.\\d+?)$
+  extractVersion: ^v(?<version>\d+\.\d+\.\d+?)$
   priority: low

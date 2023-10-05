@@ -18,5 +18,5 @@ description: Define and run multi-container applications with Docker (v1)
 renovate:
   datasource: github-releases
   package: docker/compose
-  extractVersion: regex:^(?<version>1\\.\\d+\\.\\d+)$
+  extractVersion: regex:^(?<version>1\.\d+\.\d+)$
   priority: low

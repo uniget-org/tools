@@ -956,7 +956,7 @@
     {
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "containers/crun",
-      "extractVersionTemplate": "regex:^\\\\d+\\\\.\\\\d+(\\\\.\\\\d+)?$",
+      "extractVersionTemplate": "^(?<version>\\\\d+\\\\.\\\\d+(\\\\.\\\\d+)??)$",
       "fileMatch": [
         "^tools/crun/manifest.yaml$"
       ],
@@ -1307,7 +1307,7 @@
     {
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "docker/compose",
-      "extractVersionTemplate": "regex:^(?<version>1\\\\.\\\\d+\\\\.\\\\d+)$",
+      "extractVersionTemplate": "regex:^(?<version>1\\.\\d+\\.\\d+)$",
       "fileMatch": [
         "^tools/docker-compose-v1/manifest.yaml$"
       ],
@@ -1844,7 +1844,7 @@
     {
       "datasourceTemplate": "git-tags",
       "depNameTemplate": "forgejo/forgejo",
-      "extractVersionTemplate": "^v(?<version>\\\\d+\\.\\\\d+\\.\\\\d+(-\\\\d+)?)$",
+      "extractVersionTemplate": "^v(?<version>\\d+\\.\\d+\\.\\d+(-\\d+)?)$",
       "fileMatch": [
         "^tools/forgejo/manifest.yaml$"
       ],
@@ -4048,8 +4048,8 @@
       ]
     },
     {
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "fabioz/mu-repo/",
+      "datasourceTemplate": "github-tags",
+      "depNameTemplate": "fabioz/mu-repo",
       "extractVersionTemplate": "^mu_repo_(?<version>.+?)$",
       "fileMatch": [
         "^tools/mu-repo/manifest.yaml$"
@@ -4057,7 +4057,7 @@
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
       ],
-      "versioningTemplate": "regex:^(?<major>\\\\d+)_(?<minor>\\\\d+)_(?<patch>\\\\d+)$"
+      "versioningTemplate": "regex:^(?<major>\\d+?)_(?<minor>\\d+?)_(?<patch>\\d+?)$"
     },
     {
       "datasourceTemplate": "github-releases",
@@ -4106,7 +4106,7 @@
     {
       "datasourceTemplate": "git-tags",
       "depNameTemplate": "git://g.blicky.net/ncdu.git",
-      "extractVersionTemplate": "^v(?<version>\\\\d+\\.\\\\d+\\.\\\\d+?)$",
+      "extractVersionTemplate": "^v(?<version>\\d+\\.\\d+\\.\\d+?)$",
       "fileMatch": [
         "^tools/ncdu/manifest.yaml$"
       ],

@@ -12,6 +12,6 @@ description: Fast and lightweight fully featured OCI runtime
 renovate:
   datasource: github-releases
   package: containers/crun
-  extractVersion: regex:^\\d+\\.\\d+(\\.\\d+)?$
+  extractVersion: ^(?<version>\\d+\\.\\d+(\\.\\d+)??)$
   versioning: loose
   priority: high
