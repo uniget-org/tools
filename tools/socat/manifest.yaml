@@ -10,6 +10,6 @@ description: Multipurpose relay
 renovate:
   datasource: git-tags
   package: git://repo.or.cz/socat.git
-  extractVersion: ^tag-(<version>\d+\.\d+\.\d+(\.\d+)?)$
+  extractVersion: ^tag-(?<version>\d+\.\d+\.\d+(\.\d+)??)$
   versioning: loose
   priority: low
