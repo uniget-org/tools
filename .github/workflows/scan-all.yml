@@ -1,0 +1,69 @@
+name: Scan all
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}
+
+jobs:
+
+  collect_versions:
+    name: Collect all tools with version
+    runs-on: ubuntu-22.04
+    outputs:
+      tools_with_version: ${{ steps.collect.outputs.tools_with_version }}
+    steps:
+
+    - name: Checkout code
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Install uniget
+      uses: uniget-org/uniget-action@main
+      with:
+        prefix: helper
+        tools: gojq regclient
+
+    - name: Collect
+      id: collect
+      env:
+        DOCKER_BUILDKIT: 1
+      run: |
+        TOOLS="$(
+            helper/usr/local/bin/regctl manifest get ghcr.io/uniget-org/tools/metadata:main --format raw-body \
+            | helper/usr/local/bin/jq --raw-output '.layers[0].digest' \
+            | xargs -I{} \
+                helper/usr/local/bin/regctl blob get ghcr.io/uniget-org/tools/metadata:main {} \
+            | tar --extract --gzip --to-stdout \
+            | helper/usr/local/bin/jq --raw-output '.tools[] | "\(.name):\(.version)"'
+        )"
+
+        echo "### Tools to process: ${TOOLS}."
+        TOOLS_JSON="$(
+            echo -n "${TOOLS}" \
+            | tr ' ' '\n' \
+            | helper/usr/local/bin/jq --raw-input '.' | jq --slurp --compact-output '.'
+        )"
+        echo "    JSON: ${TOOLS_JSON}"
+        echo "tools_with_version=${TOOLS_JSON}" >>"${GITHUB_OUTPUT}"
+
+  scan:
+    name: Scan container images
+    needs:
+    - collect_versions
+    permissions:
+      security-events: write
+      pull-requests: write
+      packages: read
+    strategy:
+      fail-fast: false
+      matrix:
+        tool_with_version: ${{ fromJSON(needs.collect_versions.outputs.tools_with_version) }}
+    uses: ./.github/workflows/scan.yml
+    with:
+      name_and_version: ${{ matrix.tool_with_version }}
+    secrets:
+      DOCKERHUB_USER: ${{ secrets.DOCKERHUB_USER }}
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
