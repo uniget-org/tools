@@ -210,6 +210,7 @@ jobs:
 
   scan:
     name: Scan container images
+    if: ${{ needs.collect_versions.outputs.tools_with_version != '[]' && needs.collect_versions.outputs.tools_with_version != '' }}
     needs:
     - collect_versions
     permissions:
