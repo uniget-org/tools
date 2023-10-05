@@ -16,6 +16,7 @@ jobs:
       issues: write
       pull-requests: write
       contents: write
+      actions: write
     runs-on: ubuntu-22.04
     steps:
 
@@ -46,8 +47,10 @@ jobs:
         echo "PR ${PR} uses branch ${REF}"
         
         if ! jq --raw-output '.labels[].name' <<<"${PR_JSON}" | grep -q "^type/renovate$"; then
-            echo "PR ${PR} does not have label type/renovate. Skipping"
-            exit
+            echo "PR ${PR} does not have label type/renovate. Canceling"
+            curl --silent --show-error --fail --header "Authorization: token ${GITHUB_TOKEN}" \
+                --request POST \
+                --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}/cancel"
         fi
 
         RUN_URL="$(
