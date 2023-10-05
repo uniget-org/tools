@@ -18,4 +18,5 @@ description: Little word cloud generator in Python
 renovate:
   datasource: pypi
   package: wordcloud
+  versioning: loose
   priority: low

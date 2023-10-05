@@ -1,5 +1,21 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "customDatasources": {
+    "curl": {
+      "defaultRegistryUrlTemplate": "https://api.github.com/repos/curl/curl/releases",
+      "format": "json",
+      "transformTemplates": [
+        "{ \"releases\": [ $[].{ \"version\": $replace( $substring( tag_name, 5 ), '_', '.' ) } ] }"
+      ]
+    },
+    "mu-repo": {
+      "defaultRegistryUrlTemplate": "https://api.github.com/repos/fabioz/mu-repo/git/matching-refs/tags/mu_repo_",
+      "format": "json",
+      "transformTemplates": [
+        "{ \"releases\": [ $[].{ \"version\": $replace( $substring( ref, 18 ), '_', '.') } ] }"
+      ]
+    }
+  },
   "digest": {
     "labels": [
       "bump/digest",
@@ -1010,16 +1026,14 @@
       ]
     },
     {
-      "datasourceTemplate": "github-releases",
+      "datasourceTemplate": "custom.curl",
       "depNameTemplate": "curl/curl",
-      "extractVersionTemplate": "^curl-(?<version>\\d+_\\d+_\\d+?)$",
       "fileMatch": [
         "^tools/curl/manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
-      ],
-      "versioningTemplate": "regex:^(?<major>\\d+?)_(?<minor>\\d+?)_(?<patch>\\d+?)$"
+      ]
     },
     {
       "datasourceTemplate": "github-releases",
@@ -4048,16 +4062,14 @@
       ]
     },
     {
-      "datasourceTemplate": "github-tags",
+      "datasourceTemplate": "custom.mu-repo",
       "depNameTemplate": "fabioz/mu-repo",
-      "extractVersionTemplate": "^mu_repo_(?<version>.+?)$",
       "fileMatch": [
         "^tools/mu-repo/manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
-      ],
-      "versioningTemplate": "regex:^(?<major>\\d+?)_(?<minor>\\d+?)_(?<patch>\\d+?)$"
+      ]
     },
     {
       "datasourceTemplate": "github-releases",
@@ -5979,7 +5991,8 @@
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
-      ]
+      ],
+      "versioningTemplate": "loose"
     },
     {
       "datasourceTemplate": "github-tags",
