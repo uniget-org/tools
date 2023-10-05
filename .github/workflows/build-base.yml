@@ -45,8 +45,6 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Build base image
-      env:
-        DOCKER_BUILDKIT: 1
       run: |
         make base
 

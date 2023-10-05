@@ -28,8 +28,6 @@ jobs:
 
     - name: Collect
       id: collect
-      env:
-        DOCKER_BUILDKIT: 1
       run: |
         TOOLS="$(
             helper/usr/local/bin/regctl manifest get ghcr.io/uniget-org/tools/metadata:main --format raw-body \

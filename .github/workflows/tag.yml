@@ -48,8 +48,6 @@ jobs:
 
     - name: Collect
       id: collect
-      env:
-        DOCKER_BUILDKIT: 1
       run: |
         CHANGED_TOOLS="${{ inputs.tools }}"
 

@@ -66,8 +66,6 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Rebuild
-      env:
-        DOCKER_BUILDKIT: 1
       run: |
         set -o errexit
         make ${{ matrix.tool }}--push
