@@ -13,5 +13,6 @@ description: Tool and library for transferring data with URL syntax
 renovate:
   datasource: github-releases
   package: curl/curl
-  versioning: regex:^curl-(?<major>\d+?)_(?<minor>\d+?)_(?<patch>\d+?)$
+  extractVersion: ^curl-(?<version>\d+_\d+_\d+?)$
+  versioning: regex:^(?<major>\d+?)_(?<minor>\d+?)_(?<patch>\d+?)$
   priority: low

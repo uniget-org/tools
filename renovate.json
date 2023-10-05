@@ -1012,13 +1012,14 @@
     {
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "curl/curl",
+      "extractVersionTemplate": "^curl-(?<version>\\d+_\\d+_\\d+?)$",
       "fileMatch": [
         "^tools/curl/manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
       ],
-      "versioningTemplate": "regex:^curl-(?<major>\\d+?)_(?<minor>\\d+?)_(?<patch>\\d+?)$"
+      "versioningTemplate": "regex:^(?<major>\\d+?)_(?<minor>\\d+?)_(?<patch>\\d+?)$"
     },
     {
       "datasourceTemplate": "github-releases",
