@@ -2,6 +2,11 @@ name: Scan all
 
 on:
   workflow_dispatch:
+    inputs:
+      prefix:
+        description: "Name prefix to include"
+        type: string
+        required: true
 
 concurrency:
   group: ${{ github.workflow }}
@@ -15,11 +20,6 @@ jobs:
       tools_with_version: ${{ steps.collect.outputs.tools_with_version }}
     steps:
 
-    - name: Checkout code
-      uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
-
     - name: Install uniget
       uses: uniget-org/uniget-action@main
       with:
@@ -28,6 +28,8 @@ jobs:
 
     - name: Collect
       id: collect
+      env:
+        prefix: ${{ inputs.prefix }}
       run: |
         TOOLS="$(
             helper/usr/local/bin/regctl manifest get ghcr.io/uniget-org/tools/metadata:main --format raw-body \
@@ -35,7 +37,7 @@ jobs:
             | xargs -I{} \
                 helper/usr/local/bin/regctl blob get ghcr.io/uniget-org/tools/metadata:main {} \
             | tar --extract --gzip --to-stdout \
-            | helper/usr/local/bin/jq --raw-output '.tools[] | "\(.name):\(.version)"'
+            | helper/usr/local/bin/jq --raw-output --arg prefix "${prefix}" '.tools[] | select(.name | startswith($prefix)) | "\(.name):\(.version)"'
         )"
 
         echo "### Tools to process: ${TOOLS}."
