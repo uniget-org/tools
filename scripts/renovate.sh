@@ -12,6 +12,7 @@ jq '
                     "depNameTemplate": .renovate.package,
                     "datasourceTemplate": .renovate.datasource,
                     "packageNameTemplate": .renovate.url,
+                    "registryUrlTemplate": .renovate.api,
                     "extractVersionTemplate": .renovate.extractVersion,
                     "versioningTemplate": .renovate.versioning
                 }
@@ -30,6 +31,12 @@ jq '
                 |
                 if .versioningTemplate == null then
                     del(.versioningTemplate)
+                else
+                    .
+                end
+                |
+                if .registryUrlTemplate == null then
+                    del(.registryUrlTemplate)
                 else
                     .
                 end

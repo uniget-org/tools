@@ -6017,15 +6017,16 @@
       ]
     },
     {
-      "datasourceTemplate": "git-tags",
-      "depNameTemplate": "https://gitlab.freedesktop.org/xdg/xdg-utils",
-      "extractVersionTemplate": "^v(?<version>\\d+\\.\\d+\\.\\d+?)$",
+      "datasourceTemplate": "gitlab-tags",
+      "depNameTemplate": "xdg/xdg-utils",
+      "extractVersionTemplate": "^v(?<version>\\d+\\.\\d+(\\.\\d+)??)$",
       "fileMatch": [
         "^tools/xdg-utils/manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
-      ]
+      ],
+      "registryUrlTemplate": "https://gitlab.freedesktop.org/api/v4/projects/xdg%2fxdg-utils/repository/tags?per_page=100"
     },
     {
       "datasourceTemplate": "github-releases",
