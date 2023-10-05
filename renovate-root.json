@@ -32,22 +32,6 @@
   "patch":  { "labels": [ "bump/patch", "type/renovate" ] },
   "pin":    { "labels": [ "bump/pin",   "type/renovate" ] },
   "digest": { "labels": [ "bump/digest", "type/renovate" ] },
-  "customDatasources": {
-    "curl": {
-      "defaultRegistryUrlTemplate": "https://api.github.com/repos/curl/curl/releases",
-      "format": "json",
-      "transformTemplates": [
-        "{ \"releases\": [ $[].{ \"version\": $replace( $substring( tag_name, 5 ), '_', '.' ) } ] }"
-      ]
-    },
-    "mu-repo": {
-      "defaultRegistryUrlTemplate": "https://api.github.com/repos/fabioz/mu-repo/git/matching-refs/tags/mu_repo_",
-      "format": "json",
-      "transformTemplates": [
-        "{ \"releases\": [ $[].{ \"version\": $replace( $substring( ref, 18 ), '_', '.') } ] }"
-      ]
-    }
-  },
   "packageRules": [
     {
       "matchDatasources":     [ "docker" ],

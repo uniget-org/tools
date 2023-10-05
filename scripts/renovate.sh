@@ -1,6 +1,8 @@
 #!/bin/bash
 set -o errexit
 
+# jq 'reduce (.tools[] | select(.renovate != null) | select(.renovate.datasource | startswith("custom.")) | { "key": .renovate.datasource, "url": .renovate.datasourceUrl, "transform": .renovate.datasourceTransformJsonata }) as $hash ([]; . + [$hash]) | [.[]] | map( { (.key): {"transform": .transform, "url": .url} } ) | add | { "customDatasources": . }' metadata.json
+
 jq '
     {
         "regexManagers": [
@@ -58,5 +60,5 @@ jq '
         ]
     }
 ' metadata.json \
-| jq --slurp '.[0].regexManagers += .[1].regexManagers | .[0].packageRules += .[1].packageRules | .[0]' renovate-root.json - \
+| jq --slurp '.[0].regexManagers += .[1].regexManagers | .[0].packageRules += .[1].packageRules | .[0].customDatasources += .[1].customDatasources | .[0]' renovate-root.json - \
 >renovate.json
