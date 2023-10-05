@@ -1,5 +1,5 @@
 name: curl
-version: "7.87.0"
+version: "7.88.1"
 check: ${binary} --version | grep ^curl | cut -d' ' -f2
 platforms:
 - linux/amd64
