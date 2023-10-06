@@ -2903,6 +2903,16 @@
     },
     {
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "portainer/k2d",
+      "fileMatch": [
+        "^tools/k2d/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "k3d-io/k3d",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
