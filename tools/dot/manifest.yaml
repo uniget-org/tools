@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: dot
+version: "0.1.1"
+check: ""
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/cli
+homepage: https://github.com/goccy/go-graphviz
+description: Go bindings for Graphviz
+renovate:
+  datasource: github-releases
+  package: goccy/go-graphviz
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
