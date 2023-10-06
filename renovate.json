@@ -3897,6 +3897,17 @@
       ]
     },
     {
+      "datasourceTemplate": "git-tags",
+      "depNameTemplate": "https://git.savannah.gnu.org/cgit/make.git",
+      "fileMatch": [
+        "^tools/make/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ],
+      "versioningTemplate": "regex:^(?<major>\\d+?)\\.(?<minor>\\d+?)\\.(?<patch>\\d+?)(\\.(?<build>\\d+?))?$"
+    },
+    {
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "alajmo/mani",
       "extractVersionTemplate": "^v(?<version>.+?)$",

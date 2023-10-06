@@ -1,0 +1,24 @@
+#syntax=docker/dockerfile:1.6.0
+
+ARG ref=main
+
+FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+ARG name
+ARG version
+RUN <<EOF
+apt-get update
+apt-get -y install --no-install-recommends \
+    autogen \
+    autoconf \
+    automake \
+    libtool \
+    build-essential
+EOF
+WORKDIR /tmp/make
+RUN <<EOF
+curl --silent --location --fail "https://ftp.gnu.org/gnu/make/make-${version}.tar.gz" \
+| tar --extract --gzip --strip-components=1
+./configure --prefix="${prefix}${target}"
+make LDFLAGS=-static
+make install
+EOF
