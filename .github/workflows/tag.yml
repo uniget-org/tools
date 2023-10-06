@@ -211,6 +211,7 @@ jobs:
     if: ${{ needs.collect_versions.outputs.tools_with_version != '[]' && needs.collect_versions.outputs.tools_with_version != '' }}
     needs:
     - collect_versions
+    - tag
     permissions:
       security-events: write
       pull-requests: write
