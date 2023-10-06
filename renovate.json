@@ -3110,6 +3110,17 @@
     },
     {
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "iximiuz/kexp",
+      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/kexp/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "keybase/client",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
