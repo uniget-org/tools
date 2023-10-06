@@ -3,9 +3,12 @@ $schema: https://tools.uniget.dev/schema.yaml
 name: k2d
 version: "1.0.0-beta"
 check: "" # No version parameter
+build_dependencies:
+- go
+- make
 platforms:
 - linux/amd64
-- linux/arm64
+#- linux/arm64
 tags:
 - org/portainer
 - category/operations
