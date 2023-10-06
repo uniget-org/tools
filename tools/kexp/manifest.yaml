@@ -3,6 +3,12 @@ $schema: https://tools.uniget.dev/schema.yaml
 name: kexp
 version: "0.0.1"
 check: ${binary} --version | cut -d' ' -f3
+build_dependencies:
+- go
+- make
+- goreleaser
+- nodejs
+- npm
 platforms:
 - linux/amd64
 - linux/arm64
