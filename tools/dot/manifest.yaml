@@ -3,6 +3,9 @@ $schema: https://tools.uniget.dev/schema.yaml
 name: dot
 version: "0.1.1"
 check: ""
+build_dependencies:
+- go
+- make
 platforms:
 - linux/amd64
 #- linux/arm64
