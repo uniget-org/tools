@@ -1537,6 +1537,17 @@
     },
     {
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "goccy/go-graphviz",
+      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/dot/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "dotnet/sdk",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
