@@ -1,12 +1,31 @@
 #!/bin/bash
 set -o errexit
 
-# jq 'reduce (.tools[] | select(.renovate != null) | select(.renovate.datasource | startswith("custom.")) | { "key": .renovate.datasource, "url": .renovate.datasourceUrl, "transform": .renovate.datasourceTransformJsonata }) as $hash ([]; . + [$hash]) | [.[]] | map( { (.key): {"transform": .transform, "url": .url} } ) | add | { "customDatasources": . }' metadata.json
+jq  '
+        .tools as $tools |
+        reduce (
+            $tools[] | 
+            select(.renovate != null) |
+            select(.renovate.datasource | startswith("custom.")) |
+            {
+                "key":                        .renovate.datasource[7:],
+                "defaultRegistryUrlTemplate": .renovate.datasourceUrl,
+                "format":                     "json",
+                "transformTemplates":         [ .renovate.datasourceTramsformJsonata ]
+            }
+        ) as $hash ([]; . + [$hash]) |
+        [ .[] ] | map( 
+            {
+                (.key): {
+                    "defaultRegistryUrlTemplate": .defaultRegistryUrlTemplate,
+                    "format": .format,
+                    "transformTemplates": .transformTemplates
+                }
+            }
+        ) | add as $customDatasources |
 
-jq '
-    {
-        "regexManagers": [
-            .tools[] |
+        [
+            $tools[] |
             if .renovate != null then
                 {
                     "fileMatch": [ "^tools/" + .name + "/manifest.yaml$" ],
@@ -39,9 +58,10 @@ jq '
             else
                 empty
             end
-        ],
-        "packageRules": [
-            .tools[] |
+        ] as $regexManagers |
+
+        [
+            $tools[] |
             if .renovate != null then
                 if .renovate.allowPrereleases == true then
                     {
@@ -57,8 +77,14 @@ jq '
             else
                 empty
             end
-        ]
-    }
-' metadata.json \
+        ] as $packageRules |
+
+        {
+            "customDatasources": $customDatasources,
+            "packageRules": $packageRules,
+            "regexManagers": $regexManagers
+        }
+    ' \
+metadata.json \
 | jq --slurp '.[0].regexManagers += .[1].regexManagers | .[0].packageRules += .[1].packageRules | .[0].customDatasources += .[1].customDatasources | .[0]' renovate-root.json - \
 >renovate.json
