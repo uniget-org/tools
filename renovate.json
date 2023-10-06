@@ -883,6 +883,17 @@
     },
     {
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "project-copacetic/copacetic",
+      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/copa/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "sigstore/cosign",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
