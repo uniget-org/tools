@@ -1,5 +1,5 @@
 name: minio
-version: "2023-09-30T07-02-29Z"
+version: "2023-10-07T15-07-38Z"
 check: ${binary} --version | head -1 | cut -d' ' -f3 | cut -d. -f2
 platforms:
 - linux/amd64
