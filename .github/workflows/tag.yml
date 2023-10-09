@@ -86,6 +86,7 @@ jobs:
     name: Collect versions for tools
     needs:
     - collect
+    if: ${{ needs.collect.outputs.tools != '[]' && needs.collect.outputs.tools != '' }}
     runs-on: ubuntu-22.04
     outputs:
       tools_with_version: ${{ steps.extract_versions.outputs.tools_with_version }}
