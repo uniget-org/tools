@@ -23,7 +23,7 @@ jobs:
     steps:
 
     - name: Install uniget
-      uses: uniget-org/uniget-action@main
+      uses: uniget-org/uniget-action@v1
       with:
         prefix: helper
         tools: gojq
