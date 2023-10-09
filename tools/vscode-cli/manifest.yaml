@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: vscode-cli
+version: "1.83.0"
+binary: code
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/microsoft
+- category/development
+- lang/rust
+- type/cli
+homepage: https://github.com/microsoft/vscode
+description: Some description
+renovate:
+  datasource: github-releases
+  package: microsoft/vscode
+  priority: low
