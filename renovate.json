@@ -5821,6 +5821,16 @@
     },
     {
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "microsoft/vscode",
+      "fileMatch": [
+        "^tools/vscode-cli/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "ckotzbauer/vulnerability-operator",
       "fileMatch": [
         "^tools/vulnerability-operator/manifest.yaml$"
