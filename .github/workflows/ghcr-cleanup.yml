@@ -25,7 +25,7 @@ jobs:
         fetch-depth: 0
 
     - name: Install uniget
-      uses: uniget-org/uniget-action@1
+      uses: uniget-org/uniget-action@v1
       with:
         prefix: helper
 
