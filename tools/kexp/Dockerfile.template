@@ -2,39 +2,39 @@
 
 ARG ref=main
 
-FROM ghcr.io/uniget-org/tools/go:${ref} AS go
-FROM ghcr.io/uniget-org/tools/make:${ref} AS make
-FROM ghcr.io/uniget-org/tools/goreleaser:${ref} AS goreleaser
-FROM ghcr.io/uniget-org/tools/nodejs:${ref} AS nodejs
-FROM ghcr.io/uniget-org/tools/npm:${ref} AS npm
+#FROM ghcr.io/uniget-org/tools/go:${ref} AS go
+#FROM ghcr.io/uniget-org/tools/make:${ref} AS make
+#FROM ghcr.io/uniget-org/tools/goreleaser:${ref} AS goreleaser
+#FROM ghcr.io/uniget-org/tools/nodejs:${ref} AS nodejs
+#FROM ghcr.io/uniget-org/tools/npm:${ref} AS npm
 
-#FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
-#ARG name
-#ARG version
-#RUN <<EOF
-#check-github-release-asset "iximiuz/kexp" "v${version}" "kexp_linux_${alt_arch}.tar.gz"
-#curl --silent --location --fail "https://github.com/iximiuz/kexp/releases/download/v${version}/kexp_linux_${alt_arch}.tar.gz" \
-#| tar --extract --gzip --directory="${prefix}${target}/bin/" --no-same-owner \
-#    kexp
-#EOF
-
-COPY --link --from=go / /
-COPY --link --from=make / /
-COPY --link --from=goreleaser / /
-COPY --link --from=nodejs / /
-COPY --link --from=npm / /
-WORKDIR ${target}/libexec/vite
-RUN <<EOF
-npm install \
-    --omit=dev \
-    "vite"
-ln --symbolic --relative --force "${target}/libexec/vite/node_modules/.bin/vite" "${target}/bin/"
-EOF
-WORKDIR /go/src/github.com/iximiuz/kexp
+FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
 ARG name
 ARG version
 RUN <<EOF
-git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/iximiuz/kexp .
-goreleaser build
-cp kexp "${prefix}${target}/bin/"
+check-github-release-asset "iximiuz/kexp" "v${version}" "kexp_linux_${alt_arch}.tar.gz"
+curl --silent --location --fail "https://github.com/iximiuz/kexp/releases/download/v${version}/kexp_linux_${alt_arch}.tar.gz" \
+| tar --extract --gzip --directory="${prefix}${target}/bin/" --no-same-owner \
+    kexp
 EOF
+
+#COPY --link --from=go / /
+#COPY --link --from=make / /
+#COPY --link --from=goreleaser / /
+#COPY --link --from=nodejs / /
+#COPY --link --from=npm / /
+#WORKDIR ${target}/libexec/vite
+#RUN <<EOF
+#npm install \
+#    --omit=dev \
+#    "vite"
+#ln --symbolic --relative --force "${target}/libexec/vite/node_modules/.bin/vite" "${target}/bin/"
+#EOF
+#WORKDIR /go/src/github.com/iximiuz/kexp
+#ARG name
+#ARG version
+#RUN <<EOF
+#git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/iximiuz/kexp .
+#goreleaser build
+#cp kexp "${prefix}${target}/bin/"
+#EOF
