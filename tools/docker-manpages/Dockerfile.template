@@ -3,16 +3,13 @@
 ARG ref=main
 
 FROM ghcr.io/uniget-org/tools/go:${ref} AS go
+FROM ghcr.io/uniget-org/tools/make:${ref} AS make
 FROM ghcr.io/uniget-org/tools/go-md2man:${ref} AS go-md2man
 
 FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
 COPY --link --from=go / /
+COPY --link --from=make / /
 COPY --link --from=go-md2man / /
-RUN <<EOF
-apt-get update
-apt-get -y install --no-install-recommends \
-    make
-EOF
 WORKDIR /go/src/github.com/docker/cli
 ARG name
 ARG version
