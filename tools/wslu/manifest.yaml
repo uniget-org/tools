@@ -1,10 +1,12 @@
 name: wslu
 version: "4.1.1"
 check: "" # Wrong version
+build_dependencies:
+- make
 tags:
-  - type/cli
-  - wsl
-  - lang/shell
+- type/cli
+- wsl
+- lang/shell
 homepage: https://github.com/wslutilities/wslu
 description: Collection of utilities for Windows Subsystem for Linux
 renovate:

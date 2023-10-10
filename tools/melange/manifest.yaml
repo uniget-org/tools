@@ -2,14 +2,15 @@ name: melange
 version: "0.5.0"
 check: ${binary} version 2>&1 | grep ^GitVersion | tr -s ' ' | cut -d' ' -f2 | tr -d v
 build_dependencies:
-  - go
+- go
+- make
 runtime_dependencies:
-  - apk
+- apk
 tags:
-  - type/cli
-  - package
-  - management
-  - lang/go
+- type/cli
+- package
+- management
+- lang/go
 homepage: https://github.com/chainguard-dev/melange
 description: Build APKs from source code
 renovate:

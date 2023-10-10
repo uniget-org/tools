@@ -5,6 +5,7 @@ check: "" # No binary
 build_dependencies:
 - go
 - go-md2man
+- make
 platforms:
 - linux/amd64
 - linux/arm64

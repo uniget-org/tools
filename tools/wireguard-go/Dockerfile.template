@@ -3,17 +3,14 @@
 ARG ref=main
 
 FROM ghcr.io/uniget-org/tools/go:${ref} AS go
+FROM ghcr.io/uniget-org/tools/make:${ref} AS make
 
 FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
 COPY --link --from=go / /
+COPY --link --from=make / /
+WORKDIR /go/src/git.zx2c4.com/wireguard-go
 ARG name
 ARG version
-RUN <<EOF
-apt-get update
-apt-get -y install --no-install-recommends \
-    make
-EOF
-WORKDIR /go/src/git.zx2c4.com/wireguard-go
 RUN <<EOF
 check-clone https://git.zx2c4.com/wireguard-go "${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" https://git.zx2c4.com/wireguard-go .
