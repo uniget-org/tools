@@ -1,0 +1,29 @@
+#syntax=docker/dockerfile:1.6.0
+
+ARG ref=main
+
+FROM ghcr.io/uniget-org/tools/make:${ref} AS make
+
+FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+COPY --link --from=make / /
+RUN <<EOF
+apt-get update
+apt-get -y install --no-install-recommends \
+    autogen \
+    autoconf \
+    automake \
+    libtool \
+    build-essential
+EOF
+WORKDIR /tmp/lz4
+ARG name
+ARG version
+RUN <<EOF
+check-github-release-asset "lz4/lz4" "v${version}" "lz4-${version}.tar.gz"
+curl --silent --show-error --location --fail "https://github.com/lz4/lz4/releases/download/v${version}/lz4-${version}.tar.gz" \
+| tar --extract --gzip --strip-components=1
+
+make -C lib
+make -C programs LDFLAGS=-static
+make install DESTDIR="${prefix}" prefix="${target}"
+EOF
