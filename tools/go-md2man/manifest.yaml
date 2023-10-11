@@ -1,5 +1,5 @@
 name: go-md2man
-version: "2.0.2"
+version: "2.0.3"
 check: "" # No version parameter
 build_dependencies:
   - go
