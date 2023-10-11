@@ -3919,6 +3919,17 @@
     },
     {
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "lz4/lz4",
+      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/lz4/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "magefile/mage",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
