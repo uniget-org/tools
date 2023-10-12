@@ -1,0 +1,13 @@
+#syntax=docker/dockerfile:1.6.0
+
+ARG ref=main
+
+FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+ARG name
+ARG version
+RUN <<EOF
+check-github-release-asset "dominikh/go-tools" "${version}" "staticcheck_linux_${alt_arch}.tar.gz"
+curl --silent --location --fail "https://github.com/dominikh/go-tools/releases/download/${version}/staticcheck_linux_${alt_arch}.tar.gz" \
+| tar --extract --gzip --directory="${prefix}${target}/bin/" --strip-components=1 --no-same-owner \
+    staticcheck/staticcheck
+EOF
