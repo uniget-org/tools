@@ -1,5 +1,5 @@
 name: dyff
-version: "1.5.8"
+version: "1.6.0"
 check: ${binary} version | cut -d' ' -f3
 tags:
   - category/development
