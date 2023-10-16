@@ -2547,7 +2547,7 @@
     },
     {
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "GrantBirki/hub",
+      "depNameTemplate": "mislav/hub",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
         "^tools/hub/manifest.yaml$"
