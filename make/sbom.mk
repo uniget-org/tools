@@ -42,7 +42,7 @@ $(addsuffix /sbom.json,$(ALL_TOOLS)):$(TOOLS_DIR)/%/sbom.json: \
 		$(TOOLS_DIR)/%/manifest.json \
 		$(TOOLS_DIR)/%/Dockerfile \
 		; $(info $(M) Creating sbom for $*...)
-	@syft packages $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(DOCKER_TAG) --output cyclonedx-json=$(TOOLS_DIR)/$*/sbom.json
+	@syft packages $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(DOCKER_TAG) --quiet --output cyclonedx-json=$(TOOLS_DIR)/$*/sbom.json
 
 .PHONY:
 bov: \
@@ -56,7 +56,7 @@ $(addsuffix /bov.json,$(ALL_TOOLS)):$(TOOLS_DIR)/%/bov.json: \
 		$(HELPER)/var/lib/uniget/manifests/grype.json \
 		$(TOOLS_DIR)/%/sbom.json \
 		; $(info $(M) Creating bov for $*...)
-	@grype sbom:$(TOOLS_DIR)/$*/sbom.json --file $(TOOLS_DIR)/$*/bov.json --output cyclonedx-json
+	@grype sbom:$(TOOLS_DIR)/$*/sbom.json --quiet --file $(TOOLS_DIR)/$*/bov.json --output cyclonedx-json
 
 .PHONY:
 sarif: \
@@ -70,7 +70,7 @@ $(addsuffix /sarif.json,$(ALL_TOOLS)):$(TOOLS_DIR)/%/sarif.json: \
 		$(HELPER)/var/lib/uniget/manifests/grype.json \
 		$(TOOLS_DIR)/%/bov.json \
 		; $(info $(M) Creating sarif for $*...)
-	@grype sbom:$(TOOLS_DIR)/$*/bov.json --file $(TOOLS_DIR)/$*/sarif.json --output sarif
+	@grype sbom:$(TOOLS_DIR)/$*/bov.json --quiet --file $(TOOLS_DIR)/$*/sarif.json --output sarif
 
 # make report | column --separator ';' --table --table-columns Tool,ID,purl,Score
 .PHONY:
@@ -92,7 +92,7 @@ $(addsuffix --scan,$(ALL_TOOLS_RAW)):%--scan: \
 		$(TOOLS_DIR)/%/sbom.json \
 		; $(info $(M) Scanning sbom for $*...)
 	@set -o errexit; \
-	grype sbom:$(TOOLS_DIR)/$*/sbom.json --add-cpes-if-none --output table
+	grype sbom:$(TOOLS_DIR)/$*/sbom.json --quiet --add-cpes-if-none --output table
 
 .PHONY:
 $(addsuffix --attest,$(ALL_TOOLS_RAW)):%--attest: \
