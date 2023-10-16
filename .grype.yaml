@@ -1,0 +1,4 @@
+check-for-app-update: false
+add-cpes-if-none: true
+db:
+  auto-update: false
