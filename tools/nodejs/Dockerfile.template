@@ -6,25 +6,6 @@ FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
 ARG name
 ARG version
 RUN <<EOF
-MAJOR_VERSION="$(
-    curl --silent --location --fail https://github.com/nodejs/Release/raw/main/schedule.json \
-    | jq -r '
-            to_entries[] |
-            select(.value.start < (now | todate)) |
-            select(.value.maintenance > (now | todate)) |
-            select(.value.lts != null) | select(.value.lts > (now | todate)) |
-            .key
-        ' \
-    | tr -d v
-)"
-if test "${version%%.*}" == "${MAJOR_VERSION}"; then
-    echo "### Version ${version} matches current ${MAJOR_VERSION}"
-else
-    echo "### Version ${version} does not match current ${MAJOR_VERSION}"
-    exit 1
-fi
-EOF
-RUN <<EOF
 case "${alt_arch}" in
     amd64)
         export arch_suffix=x64
