@@ -10,7 +10,7 @@ name: nodejs
 #    | grep -v '\^{}' \
 #    | cut -f2 | cut -d/ -f3 | tr -d v \
 #    | sort -Vr | head -1
-version: "20.8.1"
+version: "21.0.0"
 binary: node
 check: ${binary} --version | tr -d v
 platforms:
