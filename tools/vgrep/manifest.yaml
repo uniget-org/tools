@@ -1,5 +1,5 @@
 name: vgrep
-version: "2.6.1"
+version: "2.7.0"
 check: ${binary} --version
 platforms:
   - linux/amd64
