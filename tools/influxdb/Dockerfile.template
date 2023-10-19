@@ -6,7 +6,8 @@ FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
 ARG name
 ARG version
 RUN <<EOF
-curl --silent --location --fail "https://dl.influxdata.com/influxdb/releases/influxdb2-${version}-linux-${alt_arch}.tar.gz" \
+check-download "https://dl.influxdata.com/influxdb/releases/influxdb2-${version}_linux_${alt_arch}.tar.gz"
+curl --silent --location --fail "https://dl.influxdata.com/influxdb/releases/influxdb2-${version}_linux_${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}${target}/bin/" --strip-components=1 --no-same-owner \
     "influxdb2_linux_${alt_arch}/influxd"
 EOF
