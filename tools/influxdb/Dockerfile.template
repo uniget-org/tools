@@ -9,5 +9,5 @@ RUN <<EOF
 check-download "https://dl.influxdata.com/influxdb/releases/influxdb2-${version}_linux_${alt_arch}.tar.gz"
 curl --silent --location --fail "https://dl.influxdata.com/influxdb/releases/influxdb2-${version}_linux_${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}${target}/bin/" --strip-components=1 --no-same-owner \
-    "influxdb2_linux_${alt_arch}/influxd"
+    "influxdb2-${version}/usr/bin/influxd"
 EOF
