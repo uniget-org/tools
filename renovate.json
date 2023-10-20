@@ -4184,13 +4184,14 @@
     {
       "datasourceTemplate": "git-tags",
       "depNameTemplate": "git://g.blicky.net/ncdu.git",
-      "extractVersionTemplate": "^v(?<version>\\d+\\.\\d+\\.\\d+?)$",
+      "extractVersionTemplate": "^v(?<version>\\d+\\.\\d+(\\.\\d+)?)$",
       "fileMatch": [
         "^tools/ncdu/manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
-      ]
+      ],
+      "versioningTemplate": "loose"
     },
     {
       "datasourceTemplate": "github-tags",

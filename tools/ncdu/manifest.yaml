@@ -1,5 +1,5 @@
 name: ncdu
-version: "2.2.2"
+version: "2.3"
 check: ${binary} --version | cut -d' ' -f2
 platforms:
   - linux/amd64
@@ -13,5 +13,6 @@ description: Disk usage analyzer with an ncurses interface
 renovate:
   datasource: git-tags
   package: git://g.blicky.net/ncdu.git
-  extractVersion: ^v(?<version>\d+\.\d+\.\d+?)$
+  extractVersion: ^v(?<version>\d+\.\d+(\.\d+)?)$
+  versioning: loose
   priority: low
