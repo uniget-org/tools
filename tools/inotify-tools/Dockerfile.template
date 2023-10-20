@@ -8,6 +8,7 @@ apt-get update
 apt-get -y install --no-install-recommends \
     git \
     ca-certificates \
+    build-essential \
     autoconf \
     automake \
     gettext \
