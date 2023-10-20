@@ -16,7 +16,9 @@ apt-get -y install --no-install-recommends \
     libglib2.0-dev \
     libfdt-dev \
     libpixman-1-dev \
-    zlib1g-dev
+    zlib1g-dev \
+    python3-pip \
+    python-is-python3
 EOF
 WORKDIR /tmp/qemu
 ARG TARGETS="aarch64-softmmu x86_64-softmmu"
