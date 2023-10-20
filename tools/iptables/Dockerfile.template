@@ -2,11 +2,32 @@
 
 ARG ref=main
 
+FROM ghcr.io/uniget-org/tools/make:${ref} AS make
+
 FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+RUN <<EOF
+apt-get update
+apt-get -y install --no-install-recommends \
+    build-essential \
+    autoconf \
+    automake \
+    libtool \
+    git \
+    libnfnetlink-dev \
+    libmnl-dev \
+    libnftnl-dev
+EOF
+COPY --from=make / /
+WORKDIR /tmp/iptables
 ARG name
 ARG version
 RUN <<EOF
-check-github-release-asset "nicholasdille/centos-iptables-legacy" "v${version}" "iptables-rockylinux8-${alt_arch}.tar.gz"
-curl --silent --location --fail "https://github.com/nicholasdille/centos-iptables-legacy/releases/download/v${version}/iptables-rockylinux8-${alt_arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}" --no-same-owner
+check-clone "https://git.netfilter.org/iptables/" "v${version}"
+git clone --config advice.detachedHead=false --depth 1 --branch "v${version}" git://git.netfilter.org/iptables .
+EOF
+RUN <<EOF
+./autogen.sh
+./configure --prefix="${prefix}${target}"
+make
+make install
 EOF
