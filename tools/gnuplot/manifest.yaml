@@ -15,4 +15,5 @@ description: Command-driven, interactive function plotting
 renovate:
   datasource: git-tags
   package: https://git.code.sf.net/p/gnuplot/gnuplot-main.git
+  extractVersion: ^\d+\.\d*[02468]\.\d+$
   priority: low

@@ -2187,6 +2187,7 @@
     {
       "datasourceTemplate": "git-tags",
       "depNameTemplate": "https://git.code.sf.net/p/gnuplot/gnuplot-main.git",
+      "extractVersionTemplate": "^\\d+\\.\\d*[02468]\\.\\d+$",
       "fileMatch": [
         "^tools/gnuplot/manifest.yaml$"
       ],
