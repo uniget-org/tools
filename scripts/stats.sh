@@ -53,4 +53,4 @@ cat reduced-prs.json \
 
 echo "Analyzing duration of PRs"
 cat reduced-prs.json \
-| mlr --j2x stats1 -a min,median,mean,max,p98 -f openMilliseconds
+| mlr --j2x stats1 -a min,median,mean,max,p90,p98 -f openMilliseconds
