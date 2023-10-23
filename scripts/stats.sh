@@ -27,7 +27,14 @@ fi
 if ! test -f prs-old.json; then
     echo "Fetching PRs from nicholasdille/docker-setup"
     gh api --paginate "repos/nicholasdille/docker-setup/pulls?state=closed" \
-    jq '.[] | select(.number >= 3234)' \
+    jq '
+        .[] |
+        select(
+            ( .number <= 603 ) or
+            ( .number >= 3234 ) or
+            ( .title | endswith(" (main)") )
+        )
+    ' \
     >prs-old.json
 fi
 echo "Compiling reduced-prs.json"
