@@ -1,0 +1,24 @@
+name: nftables
+version: "1.0.9"
+binary: ${target}/sbin/nftables
+check: ${binary} -V | cut -d' ' -f2 | tr -d v
+build_dependencies:
+- make
+- libmnl
+- libnftnl
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- org/netfilter
+- component/network
+- category/operations
+- type/cli
+- lang/c
+homepage: https://www.netfilter.org/projects/nftables/index.html
+description: nftables replaces the popular iptables, arptables, ebtables
+renovate:
+  datasource: git-tags
+  package: https://git.netfilter.org/nftables/
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
