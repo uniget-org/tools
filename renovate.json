@@ -3822,6 +3822,17 @@
       ]
     },
     {
+      "datasourceTemplate": "git-tags",
+      "depNameTemplate": "https://git.netfilter.org/libnftnl/",
+      "extractVersionTemplate": "^libnftnl-(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/libnftnl/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "lima-vm/lima",
       "extractVersionTemplate": "^v(?<version>.+?)$",
