@@ -4280,6 +4280,17 @@
       ]
     },
     {
+      "datasourceTemplate": "git-tags",
+      "depNameTemplate": "https://git.netfilter.org/nftables/",
+      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/nftables/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "nodejs/node",
       "extractVersionTemplate": "^v(?<version>.+?)$",
