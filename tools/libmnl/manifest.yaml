@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: libmnl
+version: "1.0.5"
+binary: "false"
+check: ""
+build_dependencies:
+- make
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- org/netfilter
+- component/network
+- category/operations
+- lang/c
+- type/library
+homepage: https://www.netfilter.org/projects/libmnl/index.html
+description: Minimalistic user-space library oriented to Netlink developers
+renovate:
+  datasource: git-tags
+  package: https://git.netfilter.org/libmnl/
+  extractVersion: ^libmnl-(?<version>.+?)$
+  priority: low

@@ -3811,6 +3811,17 @@
       ]
     },
     {
+      "datasourceTemplate": "git-tags",
+      "depNameTemplate": "https://git.netfilter.org/libmnl/",
+      "extractVersionTemplate": "^libmnl-(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/libmnl/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "lima-vm/lima",
       "extractVersionTemplate": "^v(?<version>.+?)$",
