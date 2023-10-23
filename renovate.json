@@ -4041,6 +4041,17 @@
     },
     {
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "johnkerl/miller",
+      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/miller/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "dirien/minectl",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
