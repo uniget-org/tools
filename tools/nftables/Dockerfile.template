@@ -15,7 +15,14 @@ apt-get -y install --no-install-recommends \
     automake \
     libtool \
     git \
-    libnfnetlink-dev
+    bison \
+    flex \
+    asciidoc-base \
+    libnfnetlink-dev \
+    libgmp-dev \
+    libreadline-dev \
+    libjansson-dev \
+    pkg-config
 EOF
 COPY --from=make / /
 COPY --from=libmnl / /
@@ -28,8 +35,9 @@ check-clone "https://git.netfilter.org/nftables/" "v${version}"
 git clone --config advice.detachedHead=false --depth 1 --branch "v${version}" git://git.netfilter.org/nftables .
 EOF
 RUN <<EOF
+export PKG_CONFIG_PATH="${target}/lib/pkgconfig:${PKG_CONFIG_PATH}"
 ./autogen.sh
-./configure --prefix="${prefix}${target}"
-make LDFLAGS=static
+./configure --prefix="${prefix}${target}" --enable-static=yes --with-json --with-cli=readline
+make
 make install
 EOF
