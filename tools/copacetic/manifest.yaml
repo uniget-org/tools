@@ -8,9 +8,11 @@ platforms:
 - linux/amd64
 - linux/arm64
 tags:
-- category/operations
+- category/security
 - lang/go
 - type/cli
+- standard/oci
+- container/image
 homepage: https://github.com/project-copacetic/copacetic
 description: CLI tool for directly patching container images using reports from vulnerability scanners
 renovate:

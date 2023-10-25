@@ -12,6 +12,7 @@ tags:
 - category/development
 - lang/python
 - cloud/azure
+- type/cli
 homepage: https://github.com/Azure/azure-cli
 description: Azure CLI
 renovate:

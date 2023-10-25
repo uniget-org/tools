@@ -13,6 +13,9 @@ tags:
 - category/development
 - lang/go
 - type/cli
+- graph
+- plot
+- standard/dot
 homepage: https://github.com/goccy/go-graphviz
 description: Go bindings for Graphviz
 renovate:

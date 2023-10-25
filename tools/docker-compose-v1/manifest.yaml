@@ -10,6 +10,7 @@ tags:
 - org/docker
 - standard/docker
 - container/compose
+- standard/compose
 - type/cli
 - lang/python
 - state/deprecated

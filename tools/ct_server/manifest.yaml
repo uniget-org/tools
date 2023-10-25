@@ -2,15 +2,16 @@ name: ct_server
 version: "1.1.6"
 check: "" # No version parameter
 build_dependencies:
-  - go
+- go
 platforms:
-  - linux/amd64
-  - linux/arm64
+- linux/amd64
+- linux/arm64
 tags:
-  - org/google
-  - category/security
-  - lang/go
-  - type/daemon
+- org/google
+- category/security
+- lang/go
+- type/daemon
+- certificate
 homepage: https://github.com/google/certificate-transparency-go
 description: Auditing for TLS certificates
 renovate:

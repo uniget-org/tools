@@ -2,13 +2,13 @@ name: dotnet
 version: "7.0.403"
 check: ${binary} --version
 platforms:
-  - linux/amd64
-  - linux/arm64
+- linux/amd64
+- linux/arm64
 tags:
-  - org/microsoft
-  - category/development
-  - lang/c
-  - type/cli
+- org/microsoft
+- category/development
+- lang/c
+- type/cli
 homepage: https://github.com/dotnet/sdk
 description: Core functionality needed to create .NET Core projects
 renovate:

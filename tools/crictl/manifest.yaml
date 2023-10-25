@@ -10,6 +10,7 @@ tags:
 - container/runtime
 - type/cli
 - kubernetes
+- k8s
 - lang/go
 homepage: https://github.com/kubernetes-sigs/cri-tools
 description: CLI and validation tools for Kubelet Container Runtime Interface

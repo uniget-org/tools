@@ -2,12 +2,12 @@ name: duf
 version: "0.8.1"
 check: ${binary} --version | cut -d' ' -f2
 platforms:
-  - linux/amd64
-  - linux/arm64
+- linux/amd64
+- linux/arm64
 tags:
-  - category/operations
-  - type/cli
-  - lang/go
+- category/operations
+- type/cli
+- lang/go
 homepage: https://github.com/muesli/duf
 description: Disk Usage/Free Utility - a better 'df' alternative
 renovate:

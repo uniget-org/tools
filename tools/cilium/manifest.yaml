@@ -8,6 +8,7 @@ tags:
 - type/cli
 - component/network
 - kubernetes
+- k8s
 - standard/cni
 - lang/go
 homepage: https://github.com/cilium/cilium-cli

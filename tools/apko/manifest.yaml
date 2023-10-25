@@ -10,10 +10,14 @@ platforms:
 - linux/amd64
 - linux/arm64
 tags:
+- org/chainguard
 - type/cli
 - package
 - management
 - lang/go
+- alpine
+- container/image
+- standard/oci
 homepage: https://github.com/chainguard-dev/apko
 description: Build OCI images using APK directly without Dockerfile
 renovate:

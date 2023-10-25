@@ -2,13 +2,14 @@ name: gitea
 version: "1.20.5"
 check: ${binary} --version | cut -d' ' -f3
 platforms:
-  - linux/amd64
-  - linux/arm64
+- linux/amd64
+- linux/arm64
 tags:
-  - category/development
-  - lang/go
-  - type/daemon
-  - type/cli
+- category/development
+- lang/go
+- type/daemon
+- type/cli
+- standard/git
 homepage: https://github.com/go-gitea/gitea
 description: Git with a cup of tea, painless self-hosted git service
 renovate:

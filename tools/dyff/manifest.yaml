@@ -2,9 +2,10 @@ name: dyff
 version: "1.6.0"
 check: ${binary} version | cut -d' ' -f3
 tags:
-  - category/development
-  - type/cli
-  - lang/go
+- category/development
+- type/cli
+- lang/go
+- yaml
 homepage: https://github.com/homeport/dyff
 description: Diff tool for YAML files
 renovate:

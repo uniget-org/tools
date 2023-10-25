@@ -11,6 +11,7 @@ tags:
 - standard/docker
 - category/default
 - container/compose
+- standard/compose
 - type/cli
 - lang/go
 homepage: https://github.com/docker/compose-switch

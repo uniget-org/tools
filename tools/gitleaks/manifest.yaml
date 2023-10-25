@@ -2,9 +2,10 @@ name: gitleaks
 version: "8.18.0"
 check: ${binary} version
 tags:
-  - type/cli
-  - category/security
-  - lang/go
+- type/cli
+- category/security
+- lang/go
+- standard/git
 homepage: https://github.com/gitleaks/gitleaks
 description: Protect and discover secrets using Gitleaks
 renovate:

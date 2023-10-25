@@ -2,10 +2,11 @@ name: git-igitt
 version: "0.1.18"
 check: ${binary} --version | cut -d' ' -f2
 tags:
-  - category/development
-  - type/cli
-  - lang/rust
-  - state/onemanshow
+- category/development
+- type/cli
+- lang/rust
+- state/onemanshow
+- standard/git
 homepage: https://github.com/mlange-42/git-igitt
 description: Interactive, cross-platform Git terminal application with clear git graphs arranged for your branching model
 renovate:

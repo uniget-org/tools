@@ -3,11 +3,13 @@ version: "1.6.0"
 binary: cr
 check: ${binary} version | grep ^GitVersion | tr -s ' ' | cut -d' ' -f2 | tr -d v
 tags:
-  - category/operations
-  - type/cli
-  - lang/go
-  - package
-  - manager
+- category/operations
+- type/cli
+- lang/go
+- package
+- manager
+- cloud/github
+- helm
 homepage: https://github.com/helm/chart-releaser
 description: Hosting Helm Charts via GitHub Pages and Releases
 renovate:

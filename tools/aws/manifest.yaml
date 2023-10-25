@@ -13,6 +13,7 @@ tags:
 - category/development
 - lang/python
 - cloud/aws
+- type/cli
 homepage: https://github.com/aws/aws-cli
 description: Universal CLI for Amazon Web Services
 renovate:

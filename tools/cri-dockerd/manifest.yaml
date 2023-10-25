@@ -2,16 +2,17 @@ name: cri-dockerd
 version: "0.3.6"
 check: ${binary} --version 2>&1 | cut -d' ' -f2
 runtime_dependencies:
-  - docker
-  - crictl
+- docker
+- crictl
 tags:
-  - org/mirantis
-  - standard/docker
-  - standard/cri
-  - container/runtime
-  - type/daemon
-  - kubernetes
-  - lang/go
+- org/mirantis
+- standard/docker
+- standard/cri
+- container/runtime
+- type/daemon
+- kubernetes
+- k8s
+- lang/go
 homepage: https://github.com/Mirantis/cri-dockerd
 description: Shim for Docker Engine that lets you control Docker via the Kubernetes Container Runtime Interface
 renovate:

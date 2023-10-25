@@ -5,11 +5,12 @@ platforms:
   - linux/amd64
   - linux/arm64
 tags:
-  - type/cli
-  - kubernetes
-  - package
-  - management
-  - lang/go
+- type/cli
+- kubernetes
+- k8s
+- package
+- management
+- lang/go
 homepage: https://github.com/alexellis/arkade
 description: Open Source Marketplace For Kubernetes
 renovate:

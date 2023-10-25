@@ -2,10 +2,10 @@ name: concourse
 version: "7.10.0"
 check: ${binary} --version
 tags:
-  - type/cli
-  - type/daemon
-  - cicd
-  - lang/go
+- type/cli
+- type/daemon
+- cicd
+- lang/go
 homepage: https://github.com/concourse/concourse
 description: Container-based continuous thing-doer
 renovate:

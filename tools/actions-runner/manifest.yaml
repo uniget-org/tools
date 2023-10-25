@@ -2,10 +2,12 @@ name: actions-runner
 version: "2.311.0"
 check: ""
 tags:
-  - org/github
-  - category/development
-  - lang/csharp
-  - type/daemon
+- org/github
+- category/development
+- lang/csharp
+- type/daemon
+- cicd
+- cloud/azure
 homepage: https://github.com/actions/runner
 description: Runner for GitHub Actions
 renovate:

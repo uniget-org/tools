@@ -2,13 +2,15 @@ name: cyclonedx-gomod
 version: "1.4.1"
 check: ${binary} version | grep ^Version | cut -dv -f2
 platforms:
-  - linux/amd64
-  - linux/arm64
+- linux/amd64
+- linux/arm64
 tags:
-  - category/security
-  - lang/go
-  - type/cli
-  - sbom
+- category/security
+- lang/go
+- type/cli
+- sbom
+- cyclonedx
+- org/cyclonedx
 homepage: https://github.com/CycloneDX/cyclonedx-gomod
 description: Creates CycloneDX Software Bill of Materials (SBOM) from Go modules
 renovate:

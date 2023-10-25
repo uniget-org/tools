@@ -3,11 +3,12 @@ version: "23.09.0"
 binary: "false"
 check: "" # No binary
 runtime_dependencies:
-  - fzf
+- fzf
 tags:
-  - type/cli
-  - category/development
-  - lang/shell
+- type/cli
+- category/development
+- lang/shell
+- terminal
 homepage: https://github.com/wfxr/forgit
 description: Utility tool powered by fzf for using git interactively
 renovate:

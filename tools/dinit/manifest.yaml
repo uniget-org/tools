@@ -9,6 +9,7 @@ tags:
 - category/operations
 - lang/go
 - type/cli
+- container/init
 homepage: https://gitlab.com/tozd/dinit
 description: Specialized init for Docker containers
 renovate:

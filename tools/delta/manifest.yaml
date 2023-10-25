@@ -2,11 +2,12 @@ name: delta
 version: "0.16.5"
 check: ${binary} --version | cut -d' ' -f2
 build_dependencies:
-  - rust
+- rust
 tags:
-  - category/operations
-  - lang/rust
-  - type/cli
+- category/operations
+- lang/rust
+- type/cli
+- terminal
 homepage: https://github.com/dandavison/delta
 description: Syntax-highlighting pager for git, diff, and grep output
 renovate:

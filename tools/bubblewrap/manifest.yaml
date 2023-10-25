@@ -3,9 +3,10 @@ version: "0.8.0"
 binary: bwrap
 check: ${binary} --version | cut -d' ' -f2
 tags:
-  - org/redhat
-  - kernel/namespaces
-  - lang/c
+- org/redhat
+- kernel/namespaces
+- lang/c
+- type/cli
 homepage: https://github.com/containers/bubblewrap
 description: Unprivileged sandboxing tool
 renovate:

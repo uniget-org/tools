@@ -2,11 +2,13 @@ name: gh
 version: "2.37.0"
 check: ${binary} --version | head -n 1 | cut -d' ' -f3
 tags:
-  - org/github
-  - category/development
-  - type/cli
-  - cicd
-  - lang/go
+- org/github
+- category/development
+- type/cli
+- cicd
+- lang/go
+- cloud/github
+- standard/github
 homepage: https://github.com/cli/cli
 description: GitHub's official command line tool
 renovate:

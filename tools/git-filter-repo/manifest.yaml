@@ -12,6 +12,7 @@ tags:
 - category/development
 - lang/python
 - type/cli
+- standard/git
 homepage: https://github.com/newren/git-filter-repo
 description: Quickly rewrite git repository history
 renovate:

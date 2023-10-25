@@ -8,6 +8,8 @@ tags:
 - category/development
 - lang/go
 - type/cli
+- gitlab
+- standard/prometheus
 homepage: https://github.com/mvisonneau/gitlab-ci-pipelines-exporter
 description: Prometheus / OpenMetrics exporter for GitLab CI pipelines insights
 renovate:

@@ -3,13 +3,13 @@ version: "0.56.0"
 binary: "false"
 check: "" # No binary
 build_dependencies:
-  - go-md2man
+- go-md2man
 platforms:
-  - linux/amd64
-  - linux/arm64
+- linux/amd64
+- linux/arm64
 tags:
-  - org/redhat
-  - type/configuration
+- org/redhat
+- type/configuration
 homepage: https://github.com/containers/common
 description: Location for shared common files in github.com/containers repos
 renovate:

@@ -10,6 +10,8 @@ tags:
 - category/development
 - lang/c
 - type/cli
+- graph
+- plot
 homepage: http://www.gnuplot.info
 description: Command-driven, interactive function plotting
 renovate:

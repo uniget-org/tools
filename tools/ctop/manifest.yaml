@@ -2,12 +2,13 @@ name: ctop
 version: "0.7.7"
 check: ${binary} -v | cut -d, -f1 | cut -d' ' -f3
 tags:
-  - standard/docker
-  - type/tui
-  - troubleshooting
-  - management
-  - lang/go
-  - state/stale
+- standard/docker
+- type/tui
+- troubleshooting
+- management
+- lang/go
+- state/stale
+- monitoring
 homepage: https://github.com/bcicen/ctop
 description: Top-like interface for container metrics
 renovate:

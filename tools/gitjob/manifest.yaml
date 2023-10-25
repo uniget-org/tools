@@ -7,7 +7,9 @@ tags:
 - type/daemon
 - category/development
 - kubernetes
+- k8s
 - lang/go
+- standard/git
 homepage: https://github.com/rancher/gitjob
 description: Job controller to launch kubernetes jobs based on git event
 renovate:

@@ -2,15 +2,15 @@ name: docuum
 version: "0.23.1"
 check: ${binary} --version | cut -d' ' -f2
 build_dependencies:
-  - rust
+- rust
 runtime_dependencies:
-  - docker
+- docker
 tags:
-  - standard/docker
-  - container/runtime
-  - type/daemon
-  - management
-  - lang/rust
+- standard/docker
+- container/runtime
+- type/daemon
+- management
+- lang/rust
 homepage: https://github.com/stepchowfun/docuum
 description: Performs least recently used eviction of Docker images
 renovate:

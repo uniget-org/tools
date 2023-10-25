@@ -7,9 +7,11 @@ platforms:
 - linux/arm64
 tags:
 - kubernetes
+- k8s
 - component/network
 - type/plugin
 - lang/go
+- standard/cni
 homepage: https://github.com/containernetworking/plugins
 description: Some reference and example networking plugins
 renovate:

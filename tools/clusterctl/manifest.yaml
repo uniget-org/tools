@@ -9,6 +9,9 @@ tags:
 - org/kubernetes
 - type/cli
 - lang/go
+- capi
+- kubernetes
+- k8s
 homepage: https://github.com/kubernetes-sigs/cluster-api
 description: Home for Cluster API
 renovate:

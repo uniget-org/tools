@@ -11,6 +11,9 @@ tags:
 - category/security
 - lang/go
 - type/cli
+- sbom
+- spdx
+- cyclonedx
 homepage: https://github.com/chainguard-dev/bomshell
 description: SBOM query language and associated utilities
 renovate:

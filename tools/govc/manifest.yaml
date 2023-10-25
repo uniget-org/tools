@@ -2,11 +2,11 @@ name: govc
 version: "0.32.0"
 check: ${binary} version | cut -d' ' -f2
 tags:
-  - org/vmware
-  - type/cli
-  - vm
-  - infrastructure
-  - lang/go
+- org/vmware
+- type/cli
+- vm
+- infrastructure
+- lang/go
 homepage: https://github.com/vmware/govmomi/
 description: vSphere CLI built on top of govmomi
 renovate:

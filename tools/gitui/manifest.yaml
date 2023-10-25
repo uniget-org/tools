@@ -2,12 +2,13 @@ name: gitui
 version: "0.24.3"
 check: ${binary} --version | cut -d' ' -f2
 platforms:
-  - linux/amd64
-  - linux/arm64
+- linux/amd64
+- linux/arm64
 tags:
-  - category/development
-  - lang/rust
-  - type/cli
+- category/development
+- lang/rust
+- type/cli
+- standard/git
 homepage: https://github.com/extrawurst/gitui
 description: Blazing fast terminal-ui for git written in rust
 renovate:

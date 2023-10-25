@@ -10,6 +10,7 @@ tags:
 - type/daemon
 - cicd
 - lang/go
+- gitlab
 homepage: https://gitlab.com/gitlab-org/gitlab-runner
 description: open source project to run your CI/CD jobs and send the results back to GitLab
 renovate:

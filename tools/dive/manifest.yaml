@@ -9,6 +9,7 @@ tags:
 - standard/oci
 - standard/docker
 - container/build
+- container/image
 - type/tui
 - troubleshooting
 - lang/go

@@ -2,12 +2,13 @@ name: bin
 version: "0.17.2"
 check: ${binary} --version | grep ^bin | cut -d' ' -f3
 platforms:
-  - linux/amd64
-  - linux/arm64
+- linux/amd64
+- linux/arm64
 tags:
-  - type/cli
-  - management
-  - lang/go
+- type/cli
+- package
+- management
+- lang/go
 homepage: https://github.com/marcosnils/bin
 description: Effortless binary manager
 renovate:

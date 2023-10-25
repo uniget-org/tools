@@ -9,8 +9,9 @@ tags:
 - lang/c
 - type/cli
 - state/stale
+- json
 homepage: https://github.com/tomnomnom/gron
-description: Some description
+description: Make JSON greppable
 renovate:
   datasource: github-releases
   package: tomnomnom/gron

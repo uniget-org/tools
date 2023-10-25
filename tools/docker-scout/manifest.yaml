@@ -9,6 +9,7 @@ tags:
 - category/security
 - lang/go
 - type/cli
+- scan
 homepage: https://github.com/docker/scout-cli
 description: Secure your supply chain at every layer
 renovate:

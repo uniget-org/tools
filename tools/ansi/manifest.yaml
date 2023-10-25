@@ -2,10 +2,11 @@ name: ansi
 version: "3.0.1"
 check: "" # No version parameter
 tags:
-  - type/cli
-  - terminal
-  - lang/shell
-  - state/stale
+- type/cli
+- terminal
+- lang/shell
+- state/stale
+- bash
 homepage: https://github.com/fidian/ansi
 description: ANSI escape codes in pure bash
 renovate:

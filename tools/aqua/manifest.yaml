@@ -2,10 +2,12 @@ name: aqua
 version: "2.16.0"
 check: ${binary} --version | cut -d' ' -f3
 tags:
-  - package
-  - manager
-  - type/cli
-  - lang/go
+- package
+- manager
+- type/cli
+- lang/go
+- package
+- manager
 homepage: https://github.com/aquaproj/aqua
 description: Declarative CLI Version manager written in Go. Support Lazy Install, Registry, and continuous update with Renovate. CLI version is switched seamlessly
 renovate:

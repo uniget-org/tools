@@ -10,6 +10,7 @@ tags:
 - category/development
 - lang/go
 - type/cli
+- container/image
 homepage: https://github.com/tetratelabs/car
 description: Like tar, but for containers
 renovate:

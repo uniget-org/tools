@@ -12,6 +12,8 @@ tags:
 - type/cli
 - type/daemon
 - lang/go
+- sbom
+- spdx
 homepage: https://github.com/moby/buildkit
 description: Concurrent, cache-efficient, and Dockerfile-agnostic builder toolkit
 renovate:

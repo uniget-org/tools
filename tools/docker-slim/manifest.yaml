@@ -8,6 +8,8 @@ tags:
 - category/development
 - lang/go
 - type/cli
+- container/image
+- stnadard/oci
 homepage: https://github.com/slimtoolkit/slim
 description: Don't change anything in your container image and minify it by up to 30x
 renovate:

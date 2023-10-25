@@ -2,9 +2,10 @@ name: bat
 version: "0.24.0"
 check: ${binary} --version | cut -d' ' -f2
 tags:
-  - type/cli
-  - terminal
-  - lang/rust
+- type/cli
+- terminal
+- lang/rust
+- terminal
 homepage: https://github.com/sharkdp/bat
 description: cat(1) clone with wings
 renovate:

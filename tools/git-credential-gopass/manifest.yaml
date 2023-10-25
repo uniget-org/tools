@@ -8,6 +8,7 @@ tags:
 - category/operations
 - lang/go
 - type/cli
+- standard/git
 homepage: https://github.com/gopasspw/git-credential-gopass
 description: Gopass git-credentials helper
 renovate:

@@ -10,6 +10,8 @@ tags:
 - category/operations
 - lang/go
 - type/cli
+- kubernetes
+- k8s
 homepage: https://github.com/acorn-io/runtime
 description: Simple application deployment framework built on Kubernetes
 renovate:

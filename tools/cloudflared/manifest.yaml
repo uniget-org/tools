@@ -2,10 +2,11 @@ name: cloudflared
 version: "2023.8.2"
 check: ${binary} --version | cut -d' ' -f3
 tags:
-  - type/cli
-  - category/development
-  - tunneling
-  - lang/go
+- type/cli
+- category/development
+- tunneling
+- lang/go
+- org/cloudflare
 homepage: https://github.com/cloudflare/cloudflared
 description: Cloudflare Tunnel client (formerly Argo Tunnel)
 renovate:

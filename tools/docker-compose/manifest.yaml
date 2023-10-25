@@ -13,6 +13,7 @@ tags:
 - standard/docker
 - category/default
 - container/compose
+- standard/compose
 - type/cli
 - type/plugin
 - lang/go

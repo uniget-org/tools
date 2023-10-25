@@ -3,10 +3,11 @@ version: "3.13.3"
 binary: gator
 check: ${binary} --version | grep "^Gator version" | cut -d' ' -f3 | tr -d v
 tags:
-  - type/daemon
-  - category/security
-  - kubernetes
-  - lang/go
+- type/daemon
+- category/security
+- kubernetes
+- k8s
+- lang/go
 homepage: https://github.com/open-policy-agent/gatekeeper
 description: Policy Controller for Kubernetes
 renovate:

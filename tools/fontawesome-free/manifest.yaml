@@ -3,8 +3,9 @@ version: "6.4.2"
 binary: "false"
 check: "" # No binary
 tags:
-  - slides
-  - presentation
+- slides
+- presentation
+- font
 homepage: https://github.com/FortAwesome/Font-Awesome
 description: The iconic SVG, font, and CSS toolkit
 renovate:

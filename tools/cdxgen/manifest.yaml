@@ -2,19 +2,20 @@ name: cdxgen
 version: "9.9.0"
 check: ${binary} --version
 build_dependencies:
-  - nodejs-lts
-  - npm
+- nodejs-lts
+- npm
 runtime_dependencies:
-  - nodejs-lts
+- nodejs-lts
 platforms:
-  - linux/amd64
-  - linux/arm64
+- linux/amd64
+- linux/arm64
 tags:
-  - org/owasp
-  - category/security
-  - lang/javascript
-  - type/cli
-  - sbom
+- org/owasp
+- category/security
+- lang/javascript
+- type/cli
+- sbom
+- cyclonedx
 homepage: https://github.com/CycloneDX/cdxgen
 description: Creates CycloneDX Software Bill-of-Materials (SBOM) for your projects from source and container images
 renovate:

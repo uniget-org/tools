@@ -2,9 +2,11 @@ name: dockle
 version: "0.4.13"
 check: ${binary} --version | cut -d' ' -f3
 tags:
-  - type/cli
-  - category/security
-  - lang/go
+- type/cli
+- category/development
+- lang/go
+- standard/docker
+- cicd
 homepage: https://github.com/goodwithtech/dockle
 description: Container Image Linter for Security, Helping build the Best-Practice Docker Image, Easy to start
 renovate:
