@@ -1,5 +1,5 @@
 name: jenkins-remoting
-version: "3181.v78543a_987053"
+version: "3186.vc3b_7249b_87eb_"
 binary: "false"
 check: "" # Requires Java to run
 runtime_dependencies:
