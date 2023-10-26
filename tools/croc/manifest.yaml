@@ -3,7 +3,7 @@ version: "9.6.5"
 check: ${binary} --version | cut -d' ' -f3 | cut -d- -f1 | tr -d v
 platforms:
 - linux/amd64
-  - linux/arm64
+- linux/arm64
 tags:
 - category/security
 - lang/go
