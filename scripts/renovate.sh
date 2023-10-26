@@ -28,6 +28,7 @@ jq  '
             $tools[] |
             if .renovate != null then
                 {
+                    "customType": "regex",
                     "fileMatch": [ "^tools/" + .name + "/manifest.yaml$" ],
                     "matchStrings": [ "version: \"?(?<currentValue>.*?)\"?\\n" ],
                     "depNameTemplate": .renovate.package,
@@ -65,7 +66,7 @@ jq  '
             else
                 empty
             end
-        ] as $regexManagers |
+        ] as $customManagers |
 
         [
             $tools[] |
@@ -89,9 +90,9 @@ jq  '
         {
             "customDatasources": $customDatasources,
             "packageRules": $packageRules,
-            "regexManagers": $regexManagers
+            "customManagers": $customManagers
         }
     ' \
 metadata.json \
-| jq --slurp '.[0].regexManagers += .[1].regexManagers | .[0].packageRules += .[1].packageRules | .[0].customDatasources += .[1].customDatasources | .[0]' renovate-root.json - \
+| jq --slurp '.[0].customManagers += .[1].customManagers | .[0].packageRules += .[1].packageRules | .[0].customDatasources += .[1].customDatasources | .[0]' renovate-root.json - \
 >renovate.json
