@@ -1,5 +1,5 @@
 name: upx
-version: "4.1.0"
+version: "4.2.0"
 check: ${binary} --version | grep ^upx | cut -d' ' -f2
 platforms:
   - linux/amd64
