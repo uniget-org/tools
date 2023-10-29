@@ -1,0 +1,17 @@
+#syntax=docker/dockerfile:1.6.0
+
+ARG ref=main
+
+FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+ARG name
+ARG version
+RUN <<EOF
+check-github-release-asset "reproducible-containers/diffoci" "v${version}" "diffoci-v${version}.linux-${alt_arch}"
+curl --silent --location --fail --output "${prefix}${target}/bin/diffoci" \
+    "https://github.com/reproducible-containers/diffoci/releases/download/v${version}/diffoci-v${version}.linux-${alt_arch}"
+chmod +x "${prefix}${target}/bin/diffoci"
+
+"${prefix}${target}/bin/diffoci" completion bash >"${prefix}${target}/share/bash-completion/completions/diffoci"
+"${prefix}${target}/bin/diffoci" completion fish >"${prefix}${target}/share/fish/vendor_completions.d/diffoci.fish"
+"${prefix}${target}/bin/diffoci" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_diffoci"
+EOF
