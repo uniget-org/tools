@@ -2,7 +2,7 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: promtool
 version: "2.47.2"
-check: ""
+check: "" # No version parameter
 build_dependencies:
 - go
 platforms:
