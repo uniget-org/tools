@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: gitlabci-local
+version: "8.1.0"
+check: ${binary} --version | cut -d' ' -f2
+build_dependencies:
+#- python
+- shiv
+#runtime_dependencies:
+#- python
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/python
+- type/cli
+- cicd
+- gitlab
+homepage: https://gitlab.com/AdrianDC/gitlabci-local
+description: Launch .gitlab-ci.yml jobs locally
+renovate:
+  datasource: pypi
+  package: gitlabci-local
+  priority: low

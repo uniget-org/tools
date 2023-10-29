@@ -2247,6 +2247,17 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "pypi",
+      "depNameTemplate": "gitlabci-local",
+      "fileMatch": [
+        "^tools/gitlabci-local/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "gitleaks/gitleaks",
       "extractVersionTemplate": "^v(?<version>.+?)$",
