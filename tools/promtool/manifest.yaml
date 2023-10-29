@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: promtool
+version: "2.47.2"
+check: ""
+build_dependencies:
+- go
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/prometheus
+- category/operations
+- lang/go
+- type/cli
+homepage: https://github.com/prometheus/prometheus/tree/main/cmd%2Fpromtool
+description: Tooling for the Prometheus monitoring system
+renovate:
+  datasource: github-releases
+  package: prometheus/prometheus
+  extractVersion: ^v(?<version>.+?)$
+  priority: low

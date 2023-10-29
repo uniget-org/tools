@@ -1,0 +1,28 @@
+#syntax=docker/dockerfile:1.6.0
+
+ARG ref=main
+
+FROM ghcr.io/uniget-org/tools/go:${ref} AS go
+
+FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+COPY --link --from=go / /
+RUN <<EOF
+apt-get update
+apt-get -y install --no-install-recommends \
+    make
+EOF
+WORKDIR /go/src/github.com/prometheus/prometheus
+ARG name
+ARG version
+RUN <<EOF
+check-clone "https://github.com/prometheus/prometheus" "v${version}"
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/prometheus/prometheus .
+go build -o "${prefix}${target}/bin/promtool" ./cmd/promtool
+EOF
+
+# completion
+#RUN <<EOF
+#"${prefix}${target}/bin/foo" completion bash >"${prefix}${target}/share/bash-completion/completions/foo"
+#"${prefix}${target}/bin/foo" completion fish >"${prefix}${target}/share/fish/vendor_completions.d/foo.fish"
+#"${prefix}${target}/bin/foo" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_foo"
+#EOF
