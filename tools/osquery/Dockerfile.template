@@ -9,12 +9,6 @@ RUN <<EOF
 set -x
 #check-github-release-asset "osquery/osquery" "${version}" "osquery-${version}_1.linux_${arch}.tar.gz"
 curl --silent --location --fail "https://github.com/osquery/osquery/releases/download/${version}/osquery-${version}_1.linux_${arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin/" --no-same-owner
+| tar --extract --gzip --directory="${prefix}${target}/" --strip-components=2 --no-same-owner \
+    opt/osquery
 EOF
-
-# completion
-#RUN <<EOF
-#"${prefix}${target}/bin/foo" completion bash >"${prefix}${target}/share/bash-completion/completions/foo"
-#"${prefix}${target}/bin/foo" completion fish >"${prefix}${target}/share/fish/vendor_completions.d/foo.fish"
-#"${prefix}${target}/bin/foo" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_foo"
-#EOF
