@@ -6803,6 +6803,17 @@
     {
       "customType": "regex",
       "datasourceTemplate": "pypi",
+      "depNameTemplate": "yamale",
+      "fileMatch": [
+        "^tools/yamale/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "pypi",
       "depNameTemplate": "yamllint",
       "fileMatch": [
         "^tools/yamllint/manifest.yaml$"
