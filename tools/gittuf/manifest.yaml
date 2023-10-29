@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: gittuf
+version: "0.1.0"
+check: ${binary} version | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/security
+- lang/go
+- type/cli
+- git
+homepage: https://github.com/gittuf/gittuf
+description: Security layer for Git repositories
+renovate:
+  datasource: github-releases
+  package: gittuf/gittuf
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
