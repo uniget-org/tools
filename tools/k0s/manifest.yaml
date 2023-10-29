@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: k0s
+version: "1.28.2+k0s.0"
+check: ${binary} version
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/go
+- type/daemon
+homepage: https://github.com/k0sproject/k0s
+description: Zero Friction Kubernetes
+renovate:
+  datasource: github-releases
+  package: k0sproject/k0s
+  extractVersion: ^v(?<version>.+?)$
+  versioning: loose
+  priority: low
