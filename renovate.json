@@ -4825,6 +4825,17 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "osquery/osquery",
+      "fileMatch": [
+        "^tools/osquery/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "google/osv-scanner",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
