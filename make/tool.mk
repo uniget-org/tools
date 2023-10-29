@@ -195,11 +195,13 @@ $(addsuffix --debug,$(ALL_TOOLS_RAW)):%--debug: \
 		; $(info $(M) Debugging image for $*...)
 	@set -o errexit; \
 	TOOL_VERSION="$$(jq --raw-output '.tools[].version' $(TOOLS_DIR)/$*/manifest.json)"; \
+	VERSION_TAG="$$( echo "$${TOOL_VERSION}" | tr '+' '-' )"; \
 	DEPS="$$(jq --raw-output '.tools[] | select(.build_dependencies != null) |.build_dependencies[]' tools/$*/manifest.json | paste -sd,)"; \
 	TAGS="$$(jq --raw-output '.tools[] | select(.tags != null) |.tags[]' tools/$*/manifest.json | paste -sd,)"; \
 	test -n "$${ARCHS}" || ARCHS="linux/$(ALT_ARCH)"; \
 	echo "Name:         $*"; \
 	echo "Version:      $${TOOL_VERSION}"; \
+	echo "Version tag:  $${VERSION_TAG}"; \
 	echo "Build deps:   $${DEPS}"; \
 	docker buildx build $(TOOLS_DIR)/$* \
 		--builder uniget \
@@ -211,7 +213,7 @@ $(addsuffix --debug,$(ALL_TOOLS_RAW)):%--debug: \
 		--build-arg tags=$${TAGS} \
 		--cache-from $(REGISTRY)/$(REPOSITORY_PREFIX)$*:latest \
 		--platform linux/amd64 \
-		--tag $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION} \
+		--tag $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${VERSION_TAG} \
 		--target prepare \
 		--load \
 		--progress plain && \
@@ -222,7 +224,7 @@ $(addsuffix --debug,$(ALL_TOOLS_RAW)):%--debug: \
 		--env name=$* \
 		--env version=$${TOOL_VERSION} \
 		--rm \
-		$(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION} \
+		$(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${VERSION_TAG} \
 			bash
 
 .PHONY:
