@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: tejolote
+version: "0.2.1"
+check: ${binary} version | grep ^GitVersion | cut -dv -f2
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/kubernetes
+- category/security
+- lang/go
+- type/cli
+- cicd
+homepage: https://github.com/kubernetes-sigs/tejolote
+description: Some description
+renovate:
+  datasource: github-releases
+  package: kubernetes-sigs/tejolote
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
