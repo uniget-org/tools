@@ -42,7 +42,10 @@ $(addsuffix /sbom.json,$(ALL_TOOLS)):$(TOOLS_DIR)/%/sbom.json: \
 		$(TOOLS_DIR)/%/manifest.json \
 		$(TOOLS_DIR)/%/Dockerfile \
 		; $(info $(M) Creating sbom for $*...)
-	@syft packages $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(DOCKER_TAG) --quiet --output cyclonedx-json=$(TOOLS_DIR)/$*/sbom.json
+	@set -o errexit; \
+	TOOL_VERSION="$$(jq --raw-output '.tools[].version' tools/$*/manifest.json)"; \
+	VERSION_TAG="$$( echo "$${TOOL_VERSION}" | tr '+' '-' )"; \
+	@./helper/usr/local/bin/syft packages $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(VERSION_TAG) --quiet --output cyclonedx-json=$(TOOLS_DIR)/$*/sbom.json
 
 .PHONY:
 bov: \
@@ -56,7 +59,7 @@ $(addsuffix /bov.json,$(ALL_TOOLS)):$(TOOLS_DIR)/%/bov.json: \
 		$(HELPER)/var/lib/uniget/manifests/grype.json \
 		$(TOOLS_DIR)/%/sbom.json \
 		; $(info $(M) Creating bov for $*...)
-	@grype sbom:$(TOOLS_DIR)/$*/sbom.json --quiet --file $(TOOLS_DIR)/$*/bov.json --output cyclonedx-json
+	@./helper/usr/local/bin/grype sbom:$(TOOLS_DIR)/$*/sbom.json --quiet --file $(TOOLS_DIR)/$*/bov.json --output cyclonedx-json
 
 .PHONY:
 sarif: \
