@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: ingress2gateway
+version: "0.1.0"
+check: ""
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/kubernetes
+- category/operations
+- lang/go
+- type/cli
+- kubernetes
+- k8s
+homepage: https://github.com/kubernetes-sigs/ingress2gateway
+description: Some description
+renovate:
+  datasource: github-releases
+  package: kubernetes-sigs/ingress2gateway
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
