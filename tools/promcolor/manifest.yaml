@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: promcolor
+version: "1.0.3"
+check: ${binary} --version | grep ^promcolor | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/go
+- type/cli
+- prometheus
+homepage: https://github.com/fhemberger/promcolor
+description: Colorize piped Prometheus metrics in the terminal 
+renovate:
+  datasource: github-releases
+  package: fhemberger/promcolor
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
