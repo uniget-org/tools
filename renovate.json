@@ -2235,6 +2235,17 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "pypi",
+      "depNameTemplate": "gitlab-release",
+      "fileMatch": [
+        "^tools/gitlab-release/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "gitlab-releases",
       "depNameTemplate": "gitlab-org/gitlab-runner",
       "extractVersionTemplate": "^v(?<version>.+?)$",
