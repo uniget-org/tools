@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: marvin
+version: "0.2.0"
+check: ${binary} version
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/security
+- lang/go
+- type/cli
+homepage: https://github.com/undistro/marvin
+description: CLI tool that scans a k8s cluster by performing CEL expressions to report potential issues, misconfigurations and vulnerabilities
+renovate:
+  datasource: github-releases
+  package: undistro/marvin
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
