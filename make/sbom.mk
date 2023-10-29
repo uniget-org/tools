@@ -38,6 +38,7 @@ $(addsuffix --sbom,$(ALL_TOOLS_RAW)):%--sbom: \
 		$(TOOLS_DIR)/%/sbom.json
 
 $(addsuffix /sbom.json,$(ALL_TOOLS)):$(TOOLS_DIR)/%/sbom.json: \
+		$(HELPER)/var/lib/uniget/manifests/gojq.json \
 		$(HELPER)/var/lib/uniget/manifests/syft.json \
 		$(TOOLS_DIR)/%/manifest.json \
 		$(TOOLS_DIR)/%/Dockerfile \
@@ -45,7 +46,8 @@ $(addsuffix /sbom.json,$(ALL_TOOLS)):$(TOOLS_DIR)/%/sbom.json: \
 	@set -o errexit; \
 	TOOL_VERSION="$$(jq --raw-output '.tools[].version' tools/$*/manifest.json)"; \
 	VERSION_TAG="$$( echo "$${TOOL_VERSION}" | tr '+' '-' )"; \
-	./helper/usr/local/bin/syft packages $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(VERSION_TAG) --quiet --output cyclonedx-json=$(TOOLS_DIR)/$*/sbom.json
+	echo "Scanning image for $* v$${TOOL_VERSION} with tag $${VERSION_TAG}"; \
+	./helper/usr/local/bin/syft packages $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${VERSION_TAG} --quiet --output cyclonedx-json=$(TOOLS_DIR)/$*/sbom.json
 
 .PHONY:
 bov: \
