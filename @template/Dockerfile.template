@@ -16,6 +16,21 @@ ARG version
 # check
 # check-github-release-asset "foo/bar" "${version}" "foo-${version}-linux-amd64.tar.gz"
 
+#echo "### Setting architecture string for ${TARGETPLATFORM}"
+#case "${arch}" in
+#    x86_64)
+#        export arch_suffix=64bit
+#        ;;
+#    aarch64)
+#        export arch_suffix=ARM64
+#        ;;
+#    *)
+#        echo "ERROR: Unsupported architecture ${arch}."
+#        exit 1
+#        ;;
+#esac
+#echo "    Using ${arch_suffix}"
+
 # tarball
 #RUN <<EOF
 #curl --silent --location --fail "" \
