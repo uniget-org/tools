@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: vale
+version: "2.29.6"
+check: ""
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/helper
+- lang/go
+- type/cli
+homepage: https://github.com/errata-ai/vale
+description: Markup-aware linter for prose built with speed and extensibility in mind
+renovate:
+  datasource: github-releases
+  package: errata-ai/vale
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
