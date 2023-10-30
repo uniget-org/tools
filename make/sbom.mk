@@ -50,7 +50,15 @@ $(addsuffix /sbom.json,$(ALL_TOOLS)):$(TOOLS_DIR)/%/sbom.json: \
 	./helper/usr/local/bin/syft packages $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${VERSION_TAG} --quiet --output cyclonedx-json=$(TOOLS_DIR)/$*/sbom.json
 
 .PHONY:
+grype-db-update: \
+		$(HELPER)/var/lib/uniget/manifests/grype.json \
+		; $(info $(M) Updating grype database...)
+	@set -o errexit; \
+	grype db update
+
+.PHONY:
 bov: \
+		grype-db-update \
 		$(addsuffix /bov.json,$(TOOLS))
 
 .PHONY:
@@ -65,6 +73,7 @@ $(addsuffix /bov.json,$(ALL_TOOLS)):$(TOOLS_DIR)/%/bov.json: \
 
 .PHONY:
 sarif: \
+		grype-db-update \
 		$(addsuffix /sarif.json,$(TOOLS))
 
 .PHONY:
@@ -77,15 +86,31 @@ $(addsuffix /sarif.json,$(ALL_TOOLS)):$(TOOLS_DIR)/%/sarif.json: \
 		; $(info $(M) Creating sarif for $*...)
 	@grype sbom:$(TOOLS_DIR)/$*/bov.json --quiet --file $(TOOLS_DIR)/$*/sarif.json --output sarif
 
-# make report | column --separator ';' --table --table-columns Tool,ID,purl,Score
 .PHONY:
 report: \
+		grype-db-update \
 		$(addsuffix --report,$(TOOLS_RAW))
 
 .PHONY:
 $(addsuffix --report,$(ALL_TOOLS_RAW)):%--report: \
+		$(HELPER)/var/lib/uniget/manifests/gojq.json \
+		$(TOOLS_DIR)/%/report.csv
+
+$(addsuffix /report.csv,$(ALL_TOOLS)):$(TOOLS_DIR)/%/report.csv: \
 		$(TOOLS_DIR)/%/bov.json
-	@jq --raw-output --arg tool "$*" '[ .vulnerabilities[] | "\($$tool);\(.id);\(.affects[].ref | split("?")[0]);\(.ratings[] | select(.method == "CVSSv31" and .score  >= 7.0) | .score)" ] | unique[]' $(TOOLS_DIR)/$*/bov.json
+	@jq --raw-output --arg tool "$*" \
+		'[ .vulnerabilities[] | "\($$tool);\(.id);\(.affects[].ref | split("?")[0]);\(.ratings[] | select(.method == "CVSSv31" and .score  >= 7.0) | .score)" ] | unique[]' $(TOOLS_DIR)/$*/bov.json \
+		>$(TOOLS_DIR)/$*/report.csv
+
+.PHONY:
+table: \
+		$(addsuffix /report.csv,$(ALL_TOOLS))
+	@column --separator ';' --table --table-columns Tool,ID,purl,Score */*/report.csv
+
+.PHONY:
+$(addsuffix --table,$(ALL_TOOLS_RAW)):%--table: \
+		$(TOOLS_DIR)/%/report.csv
+	@column --separator ';' --table --table-columns Tool,ID,purl,Score $(TOOLS_DIR)/$*/report.csv
 
 .PHONY:
 attest: \
