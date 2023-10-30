@@ -175,13 +175,24 @@ jobs:
     - name: Tag latest
       run: |
         echo "### Processing ${{ matrix.tool }}"
+
         tool_version="$( helper/usr/local/bin/yq eval .version tools/${{ matrix.tool }}/manifest.yaml )"
         version_tag="$( echo "${tool_version}" | tr '+' '-' )"
 
-        if helper/usr/local/bin/regctl manifest head ghcr.io/uniget-org/tools/${{ matrix.tool }}:${version_tag}; then
-            echo "### Version SHA found -> no rebuild"
-
-        else
+        rebuild=false
+        if ! latest_sha="$( helper/usr/local/bin/regctl manifest head ghcr.io/uniget-org/tools/${{ matrix.tool }}:latest )"; then
+            echo "No latest tag found"
+        fi
+        if ! version_sha="$( helper/usr/local/bin/regctl manifest head ghcr.io/uniget-org/tools/${{ matrix.tool }}:${version_tag} )"; then
+            echo "No version tag found"
+            rebuild=true
+        fi
+        if ! ${rebuild} && test "${latest_sha}" != "${version_sha}"; then
+            echo "Latest tag is not equal to version tag"
+            rebuild=true
+        fi
+        
+        if ${rebuild}; then
             echo "### Building ${{ matrix.tool }}"
             make "${{ matrix.tool }}--push"
         fi
