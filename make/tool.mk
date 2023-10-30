@@ -84,7 +84,7 @@ base: \
 			--cache-from $(REGISTRY)/$(REPOSITORY_PREFIX)base:$(DOCKER_TAG) \
 			--tag $(REGISTRY)/$(REPOSITORY_PREFIX)base:$(DOCKER_TAG) \
 			--provenance=false \
-			--push \
+			--output type=registry,oci-mediatypes=true,push=true \
 			--progress plain \
 			>@base/build.log 2>&1; then \
 		cat @base/build.log; \
@@ -127,7 +127,7 @@ $(ALL_TOOLS_RAW):%: \
 			--tag $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${VERSION_TAG} \
 			--provenance=false \
 			--metadata-file $(TOOLS_DIR)/$@/build-metadata.json \
-			--push="$${PUSH}" \
+			--output type=registry,oci-mediatypes=true,push=$${PUSH} \
 			--progress plain \
 			>$(TOOLS_DIR)/$@/build.log 2>&1; then \
 		cat $(TOOLS_DIR)/$@/build.log; \
@@ -220,7 +220,7 @@ $(addsuffix --debug,$(ALL_TOOLS_RAW)):%--debug: \
 		--platform linux/amd64 \
 		--tag $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${VERSION_TAG} \
 		--target prepare \
-		--load \
+		--output type=docker,oci-mediatypes=true \
 		--progress plain && \
 	docker container run \
 		--interactive \
