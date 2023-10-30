@@ -183,14 +183,17 @@ jobs:
         if ! latest_sha="$( helper/usr/local/bin/regctl manifest head ghcr.io/uniget-org/tools/${{ matrix.tool }}:latest )"; then
             echo "No latest tag found"
         fi
+        echo "Got latest tag: ${latest_sha}."
         if ! version_sha="$( helper/usr/local/bin/regctl manifest head ghcr.io/uniget-org/tools/${{ matrix.tool }}:${version_tag} )"; then
             echo "No version tag found"
             rebuild=true
         fi
+        echo "Got version tag: ${version_sha}."
         if ! ${rebuild} && test "${latest_sha}" != "${version_sha}"; then
             echo "Latest tag is not equal to version tag"
             rebuild=true
         fi
+        echo "Rebuild: ${rebuild}."
         
         if ${rebuild}; then
             echo "### Building ${{ matrix.tool }}"
