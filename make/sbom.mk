@@ -85,7 +85,7 @@ report: \
 .PHONY:
 $(addsuffix --report,$(ALL_TOOLS_RAW)):%--report: \
 		$(TOOLS_DIR)/%/bov.json
-	@jq --raw-output --arg tool "$*" '.vulnerabilities[] | "\($$tool);\(.id);\(.affects[].ref);\(.ratings[] | select(.method == "CVSSv31") | .score)"' $(TOOLS_DIR)/$*/bov.json
+	@jq --raw-output --arg tool "$*" '[ .vulnerabilities[] | "\($$tool);\(.id);\(.affects[].ref | split("?")[0]);\(.ratings[] | select(.method == "CVSSv31" and .score  >= 7.0) | .score)" ] | unique[]' $(TOOLS_DIR)/$*/bov.json
 
 .PHONY:
 attest: \
