@@ -1,3 +1,5 @@
+SOURCE_DATE_EPOCH ?= $(shell git log -1 --pretty=%ct)
+
 $(addsuffix --vim,$(ALL_TOOLS_RAW)):%--vim:
 	@vim -o2 $(TOOLS_DIR)/$*/manifest.yaml  $(TOOLS_DIR)/$*/Dockerfile.template
 
@@ -73,6 +75,7 @@ base: \
 	@set -o errexit; \
 	ARCHS="$$(jq --raw-output '[ .tools[] | select(.platforms != null) | .platforms[] ] | unique[]' metadata.json | paste -sd,)"; \
 	echo "Platforms: $${ARCHS}"; \
+	export SOURCE_DATE_EPOCH="$(SOURCE_DATE_EPOCH)"; \
 	if ! docker buildx build @base \
 			--builder uniget \
 			--build-arg prefix_override=$(PREFIX) \
@@ -104,6 +107,7 @@ $(ALL_TOOLS_RAW):%: \
 	TAGS="$$(jq --raw-output '.tools[] | select(.tags != null) | .tags[]' tools/$*/manifest.json | paste -sd,)"; \
 	ARCHS="$$(jq --raw-output '.tools[] | select(.platforms != null) | .platforms[]' tools/$*/manifest.json | paste -sd,)"; \
 	test -n "$${ARCHS}" || ARCHS="linux/$(ALT_ARCH)"; \
+	export SOURCE_DATE_EPOCH="$(SOURCE_DATE_EPOCH)"; \
 	echo "Name:         $*"; \
 	echo "Version:      $${TOOL_VERSION}"; \
 	echo "Version tag:  $${VERSION_TAG}"; \
@@ -199,6 +203,7 @@ $(addsuffix --debug,$(ALL_TOOLS_RAW)):%--debug: \
 	DEPS="$$(jq --raw-output '.tools[] | select(.build_dependencies != null) |.build_dependencies[]' tools/$*/manifest.json | paste -sd,)"; \
 	TAGS="$$(jq --raw-output '.tools[] | select(.tags != null) |.tags[]' tools/$*/manifest.json | paste -sd,)"; \
 	test -n "$${ARCHS}" || ARCHS="linux/$(ALT_ARCH)"; \
+	export SOURCE_DATE_EPOCH="$(SOURCE_DATE_EPOCH)"; \
 	echo "Name:         $*"; \
 	echo "Version:      $${TOOL_VERSION}"; \
 	echo "Version tag:  $${VERSION_TAG}"; \
