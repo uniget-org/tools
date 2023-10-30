@@ -175,21 +175,10 @@ jobs:
     - name: Tag latest
       run: |
         echo "### Processing ${{ matrix.tool }}"
-        sha_main="$(
-            helper/usr/local/bin/regctl manifest head ghcr.io/uniget-org/tools/${{ matrix.tool }}:main || true
-        )"
-        sha_test="$(
-            helper/usr/local/bin/regctl manifest head ghcr.io/uniget-org/tools/${{ matrix.tool }}:test || true
-        )"
         tool_version="$( helper/usr/local/bin/yq eval .version tools/${{ matrix.tool }}/manifest.yaml )"
-        sha_version="$(
-            helper/usr/local/bin/regctl manifest head ghcr.io/uniget-org/tools/${{ matrix.tool }}:${tool_version} || true
-        )"
-        echo "    SHA of tag main: ${sha_main}."
-        echo "    SHA of tag test: ${sha_test}."
-        echo "    SHA of tag ${tool_version}: ${sha_version}."
+        version_tag="$( echo "${tool_version}" | tr '+' '-' )"
 
-        if test "{sha_version:0:3}" == "sha"; then
+        if helper/usr/local/bin/regctl manifest head ghcr.io/uniget-org/tools/${{ matrix.tool }}:${version_tag}; then
             echo "### Version SHA found -> no rebuild"
 
         else
