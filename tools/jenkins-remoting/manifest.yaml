@@ -3,14 +3,15 @@ version: "3192.v713e3b_039fb_e"
 binary: "false"
 check: "" # Requires Java to run
 runtime_dependencies:
-  - openjdk-jre
+- openjdk-jre
 platforms:
-  - linux/amd64
+- linux/amd64
 tags:
-  - org/jenkins
-  - category/operations
-  - lang/java
-  - type/daemon
+- org/jenkins
+- category/operations
+- lang/java
+- type/daemon
+- cicd
 homepage: https://github.com/jenkinsci/remoting
 description: Jenkins Remoting module
 renovate:

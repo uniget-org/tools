@@ -11,6 +11,8 @@ tags:
 - lang/go
 - type/cli
 - prometheus
+- observability/metrics
+- o11y
 homepage: https://github.com/fhemberger/promcolor
 description: Colorize piped Prometheus metrics in the terminal 
 renovate:

@@ -14,8 +14,11 @@ tags:
 - category/operations
 - lang/go
 - type/daemon
+- standard/docker
+- kubernetes
+- k8s
 homepage: https://github.com/portainer/k2d
-description: Some description
+description: Kubernetes to Docker translator
 renovate:
   datasource: github-releases
   package: portainer/k2d

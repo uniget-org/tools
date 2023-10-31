@@ -3,7 +3,8 @@ version: "1.9.6"
 binary: "false"
 check: "" # No binary
 tags:
-  - lang/javascript
+- lang/javascript
+- type/library
 homepage: https://github.com/bigskysoftware/htmx
 description: High power tools for HTML
 renovate:

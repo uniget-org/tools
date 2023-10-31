@@ -2,8 +2,11 @@ name: jb
 version: "0.5.1"
 check: ${binary} --version 2>&1 | tr -d v
 tags:
-  - templating
-  - lang/go
+- templating
+- lang/go
+- package
+- management
+- format/json
 homepage: https://github.com/jsonnet-bundler/jsonnet-bundler
 description: Jsonnet package manager
 renovate:

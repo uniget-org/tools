@@ -2,12 +2,13 @@ name: hexyl
 version: "0.13.1"
 check: ${binary} --version | cut -d' ' -f2
 platforms:
-  - linux/amd64
-  - linux/arm64
+- linux/amd64
+- linux/arm64
 tags:
-  - category/operations
-  - lang/rust
-  - type/cli
+- category/operations
+- lang/rust
+- type/cli
+- console
 homepage: https://github.com/sharkdp/hexyl
 description: Command-line hex viewer
 renovate:

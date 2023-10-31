@@ -5,10 +5,11 @@ platforms:
 - linux/amd64
 - linux/arm64
 tags:
-  - category/terminal
-  - component/storage
-  - lang/go
-  - type/cli
+- category/terminal
+- component/storage
+- lang/go
+- type/cli
+- standard/s3
 homepage: https://github.com/minio/mc
 description: Simple | Fast tool to manage MinIO clusters ☁️
 renovate:

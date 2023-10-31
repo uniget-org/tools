@@ -15,6 +15,7 @@ tags:
 - category/development
 - lang/python
 - type/cli
+- format/yaml
 homepage: https://github.com/23andMe/Yamale
 description: Schema and validator for YAML
 renovate:

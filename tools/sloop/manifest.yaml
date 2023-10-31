@@ -7,9 +7,11 @@ build_dependencies:
 tags:
 - type/cli
 - kubernetes
+- k8s
 - management
 - troubleshooting
 - lang/go
+- category/operations
 homepage: https://github.com/salesforce/sloop
 description: Kubernetes History Visualization
 renovate:

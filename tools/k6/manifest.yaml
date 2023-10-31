@@ -2,15 +2,15 @@ name: k6
 version: "0.47.0"
 check: ${binary} version | cut -d' ' -f2 | tr -d v
 platforms:
-  - linux/amd64
-  - linux/arm64
+- linux/amd64
+- linux/arm64
 tags:
-  - org/grafana
-  - category/operations
-  - lang/go
-  - type/cli
+- org/grafana
+- category/operations
+- lang/go
+- type/cli
 homepage: https://github.com/grafana/k6
-description: Some description
+description: Modern load testing tool, using Go and JavaScript
 renovate:
   datasource: github-releases
   package: grafana/k6

@@ -2,16 +2,18 @@ name: kuttl
 version: "0.15.0"
 check: ${binary} --version | cut -d' ' -f3
 platforms:
-  - linux/amd64
-  - linux/arm64
+- linux/amd64
+- linux/arm64
 tags:
-  - org/kubernetes
-  - org/cncf
-  - category/development
-  - lang/go
-  - type/cli
+- org/kubernetes
+- org/cncf
+- category/development
+- lang/go
+- type/cli
+- kubernetes
+- k8s
 homepage: https://github.com/kudobuilder/kuttl
-description: KUbernetes Test TooL
+description: Kubernetes Test TooL
 renovate:
   datasource: github-releases
   package: kudobuilder/kuttl

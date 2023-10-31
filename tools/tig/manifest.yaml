@@ -2,9 +2,10 @@ name: tig
 version: "2.5.8"
 check: ${binary} --version | grep ^tig | cut -d' ' -f3
 tags:
-  - type/cli
-  - category/development
-  - lang/c
+- type/tui
+- category/development
+- lang/c
+- git
 homepage: https://github.com/jonas/tig
 description: Text-mode interface for git
 renovate:

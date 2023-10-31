@@ -5,11 +5,11 @@ platforms:
 - linux/amd64
 - linux/arm64
 tags:
-  - org/mozilla
-  - category/security
-  - type/cli
-  - cicd
-  - lang/go
+- org/mozilla
+- category/security
+- type/cli
+- cicd
+- lang/go
 homepage: https://github.com/mozilla/sops
 description: Simple and flexible tool for managing secrets
 renovate:

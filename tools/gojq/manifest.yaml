@@ -12,7 +12,8 @@ tags:
 - lang/go
 - type/cli
 - format
-- jq
+- standard/jq
+- format/json
 homepage: https://github.com/itchyny/gojq
 description: Pure Go implementation of jq
 messages:

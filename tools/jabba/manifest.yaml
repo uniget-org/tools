@@ -2,9 +2,11 @@ name: jabba
 version: "0.13.0"
 check: ${binary} --version
 tags:
-  - type/cli
-  - category/development
-  - lang/go
+- type/cli
+- category/development
+- lang/go
+- version
+- management
 homepage: https://github.com/Jabba-Team/jabba
 description: Java Version Manager
 renovate:

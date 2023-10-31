@@ -12,7 +12,9 @@ tags:
 - org/hashicorp
 - category/operations
 - lang/go
-- type/cli
+- type/plugin
+- component/storage
+- management
 homepage: https://github.com/plumber-cd/terraform-backend-git
 description: Terraform HTTP Backend implementation that uses Git repository as storage
 renovate:

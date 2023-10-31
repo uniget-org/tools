@@ -2,10 +2,11 @@ name: kubesec
 version: "2.13.0"
 check: "" # Empty version
 tags:
-  - category/security
-  - type/cli
-  - kubernetes
-  - lang/go
+- category/security
+- type/cli
+- kubernetes
+- k8s
+- lang/go
 homepage: https://github.com/controlplaneio/kubesec
 description: Security risk analysis for Kubernetes resources
 renovate:

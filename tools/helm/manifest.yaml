@@ -7,10 +7,12 @@ platforms:
 tags:
 - type/cli
 - kubernetes
+- k8s
 - templating
 - package
 - management
 - lang/go
+- helm
 homepage: https://github.com/helm/helm
 description: The Kubernetes Package Manager
 renovate:

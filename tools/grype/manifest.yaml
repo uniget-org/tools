@@ -11,6 +11,9 @@ tags:
 - cicd
 - lang/go
 - scan
+- standard/spdx
+- standard/cyclonedx
+- standard/vex
 homepage: https://github.com/anchore/grype
 description: Vulnerability scanner for container images and filesystems
 renovate:

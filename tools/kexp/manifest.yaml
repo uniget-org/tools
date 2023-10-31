@@ -3,12 +3,6 @@ $schema: https://tools.uniget.dev/schema.yaml
 name: kexp
 version: "0.0.4"
 check: ${binary} --version | cut -d' ' -f3
-build_dependencies:
-- go
-- make
-- goreleaser
-- nodejs
-- npm
 platforms:
 - linux/amd64
 - linux/arm64
@@ -16,6 +10,8 @@ tags:
 - category/development
 - lang/go
 - type/daemon
+- kubernetes
+- k8s
 homepage: https://github.com/iximiuz/kexp
 description: Kubernetes Explorer
 renovate:

@@ -12,6 +12,7 @@ tags:
 - category/development
 - lang/shell
 - type/cli
+- management
 homepage: https://github.com/parke/vland
 description: Virtual userland manager for lxroot
 renovate:

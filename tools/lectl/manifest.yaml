@@ -2,12 +2,12 @@ name: lectl
 version: "0.22.1"
 check: ${binary} --version | grep ^lectl | cut -d' ' -f2
 tags:
-  - type/cli
-  - category/security
-  - management
-  - certificate
-  - lang/shell
-  - state/stale
+- type/cli
+- category/security
+- management
+- certificate
+- lang/shell
+- state/stale
 homepage: https://github.com/sahsanu/lectl
 description: Check issued certificates by Let's Encrypt on CTL (Certificate Transparency Log) using https://crt.sh
 renovate:

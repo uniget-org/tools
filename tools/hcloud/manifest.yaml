@@ -11,7 +11,7 @@ tags:
 - management
 - lang/go
 homepage: https://github.com/hetznercloud/cli
-description: command-line interface for Hetzner Cloud
+description: Command-line interface for Hetzner Cloud
 renovate:
   datasource: github-releases
   package: hetznercloud/cli

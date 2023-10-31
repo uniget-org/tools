@@ -2,13 +2,15 @@ name: ksort
 version: "0.4.4"
 check: "" # Version field empty
 platforms:
-  - linux/amd64
-  - linux/arm64
+- linux/amd64
+- linux/arm64
 tags:
-  - category/operations
-  - lang/go
-  - type/cli
-  - state/onemanshow
+- category/operations
+- lang/go
+- type/cli
+- state/onemanshow
+- kubernetes
+- k8s
 homepage: https://github.com/superbrothers/ksort
 description: Sort manfest files in a proper order by Kind
 renovate:

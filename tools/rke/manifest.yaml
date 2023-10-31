@@ -2,13 +2,16 @@ name: rke
 version: "1.4.10"
 check: ${binary} --version | cut -d' ' -f3 | tr -d v
 platforms:
-  - linux/amd64
-  - linux/arm64
+- linux/amd64
+- linux/arm64
 tags:
-  - org/rancher
-  - category/operations
-  - lang/go
-  - type/cli
+- org/rancher
+- category/operations
+- lang/go
+- type/cli
+- kubernetes
+- k8s
+- management
 homepage: https://github.com/rancher/rke
 description: Rancher Kubernetes Engine (RKE), an extremely simple, lightning fast Kubernetes distribution
 renovate:

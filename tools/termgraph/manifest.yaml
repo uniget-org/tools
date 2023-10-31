@@ -15,6 +15,9 @@ tags:
 - category/operations
 - lang/python
 - type/cli
+- terminal
+- graph
+- plot
 homepage: https://github.com/mkaz/termgraph
 description: Command-line tool which draws basic graphs in the terminal
 renovate:

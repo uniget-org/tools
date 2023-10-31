@@ -2,9 +2,11 @@ name: kube-linter
 version: "v0.6.4"
 check: ${binary} version | cut -d- -f1
 tags:
-  - type/cli
-  - kubernetes
-  - lang/go
+- type/cli
+- kubernetes
+- lang/go
+- k8s
+- helm
 homepage: https://github.com/stackrox/kube-linter
 description: static analysis tool that checks Kubernetes YAML files and Helm charts
 renovate:

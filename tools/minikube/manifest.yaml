@@ -9,6 +9,7 @@ tags:
 - org/kubernetes
 - type/cli
 - kubernetes
+- k8s
 - management
 - lang/go
 homepage: https://github.com/kubernetes/minikube

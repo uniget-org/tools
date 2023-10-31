@@ -2,9 +2,10 @@ name: linuxkit
 version: "1.0.1"
 check: "" # Wrong version
 tags:
-  - type/cli
-  - org/moby
-  - lang/go
+- type/cli
+- org/moby
+- lang/go
+- category/security
 homepage: https://github.com/linuxkit/linuxkit
 description: Toolkit for building secure, portable and lean operating systems for containers
 renovate:

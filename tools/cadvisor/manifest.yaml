@@ -9,6 +9,7 @@ tags:
 - category/monitoring
 - lang/go
 - type/daemon
+- observability/metrics
 homepage: https://github.com/google/cadvisor
 description: Analyzes resource usage and performance characteristics of running containers
 renovate:

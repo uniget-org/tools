@@ -10,7 +10,9 @@ runtime_dependencies:
 tags:
 - category/security
 - lang/python
-- type/cli
+- type/plugin
+- password
+- management
 homepage: https://github.com/languitar/pass-git-helper
 description: Git credential helper interfacing with pass, the standard unix password manager
 renovate:

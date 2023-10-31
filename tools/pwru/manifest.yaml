@@ -2,10 +2,10 @@ name: pwru
 version: "1.0.3"
 check: ${binary} --version | cut -d' ' -f2 | tr -d v
 tags:
-  - type/cli
-  - component/network
-  - ebpf
-  - lang/c
+- type/cli
+- component/network
+- ebpf
+- lang/c
 homepage: https://github.com/cilium/pwru
 description: eBPF-based Linux kernel networking debugger
 renovate:

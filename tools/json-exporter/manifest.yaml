@@ -10,6 +10,8 @@ tags:
 - category/operations
 - lang/go
 - type/cli
+- format/json
+- standard/jsonpath
 homepage: https://github.com/prometheus-community/json_exporter
 description: Prometheus exporter which scrapes remote JSON by JSONPath
 renovate:

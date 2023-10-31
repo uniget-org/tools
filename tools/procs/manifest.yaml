@@ -2,11 +2,11 @@ name: procs
 version: "0.14.3"
 check: ${binary} --version | cut -d' ' -f2 | tr -d '"'
 platforms:
-  - linux/amd64
+- linux/amd64
 tags:
-  - category/operations
-  - type/cli
-  - lang/rust
+- category/operations
+- type/cli
+- lang/rust
 homepage: https://github.com/dalance/procs
 description: Modern replacement for ps written in Rust
 renovate:

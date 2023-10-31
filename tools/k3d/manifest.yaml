@@ -9,6 +9,7 @@ tags:
 - kubernetes
 - management
 - lang/go
+- k8s
 homepage: https://github.com/k3d-io/k3d
 description: Little helper to run CNCF's k3s in Docker
 renovate:

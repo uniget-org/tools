@@ -7,9 +7,11 @@ runtime_dependencies:
 - pass
 #- python
 tags:
-  - category/security
-  - lang/python
-  - type/cli
+- category/security
+- lang/python
+- type/plugin
+- password
+- management
 homepage: https://github.com/roddhjav/pass-audit
 description: Pass extension for importing data from most existing password managers
 renovate:

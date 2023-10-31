@@ -8,6 +8,7 @@ tags:
 - kubernetes
 - management
 - lang/go
+- category/operations
 homepage: https://github.com/cyberark/kubeletctl
 description: Client for kubelet
 renovate:

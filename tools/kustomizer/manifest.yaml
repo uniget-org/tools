@@ -2,12 +2,15 @@ name: kustomizer
 version: "2.2.1"
 check: ${binary} --version | cut -d' ' -f3
 tags:
-  - type/cli
-  - kubernetes
-  - templating
-  - package
-  - management
-  - lang/go
+- type/cli
+- kubernetes
+- k8s
+- templating
+- package
+- management
+- lang/go
+- standard/oci
+- category/operations
 homepage: https://github.com/stefanprodan/kustomizer
 description: Experimental package manager for distributing Kubernetes configuration as OCI artifacts
 renovate:

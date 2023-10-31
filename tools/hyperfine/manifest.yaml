@@ -2,12 +2,13 @@ name: hyperfine
 version: "1.18.0"
 check: ${binary} --version | cut -d' ' -f2
 platforms:
-  - linux/amd64
-  - linux/arm64
+- linux/amd64
+- linux/arm64
 tags:
-  - category/development
-  - lang/rust
-  - type/cli
+- category/development
+- lang/rust
+- type/cli
+- console
 homepage: https://github.com/sharkdp/hyperfine
 description: Command-line benchmarking tool
 renovate:

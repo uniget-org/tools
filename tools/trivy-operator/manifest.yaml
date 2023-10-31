@@ -8,6 +8,8 @@ tags:
 - type/daemon
 - category/security
 - lang/go
+- kubernetes
+- k8s
 homepage: https://github.com/aquasecurity/trivy-operator
 description: Kubernetes-native security toolkit
 renovate:

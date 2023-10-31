@@ -5,9 +5,10 @@ platforms:
   - linux/amd64
 #- linux/arm64
 tags:
-  - category/operations
-  - lang/go
-  - type/cli
+- category/operations
+- lang/go
+- type/cli
+- terminal
 homepage: https://github.com/vrothberg/vgrep
 description: User-friendly pager for grep
 renovate:

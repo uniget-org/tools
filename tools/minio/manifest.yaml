@@ -5,9 +5,10 @@ platforms:
 - linux/amd64
 - linux/arm64
 tags:
-  - component/storage
-  - lang/go
-  - type/daemon
+- component/storage
+- lang/go
+- type/daemon
+- standard/s3
 homepage: https://github.com/minio/minio
 description: Multi-Cloud ☁️ Object Storage
 renovate:

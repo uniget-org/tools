@@ -2,9 +2,11 @@ name: vcluster
 version: "0.16.4"
 check: ${binary} --version | cut -d' ' -f3
 tags:
-  - type/cli
-  - kubernetes
-  - lang/go
+- type/cli
+- kubernetes
+- k8s
+- management
+- lang/go
 homepage: https://github.com/loft-sh/vcluster
 description: Create fully functional virtual Kubernetes clusters
 renovate:

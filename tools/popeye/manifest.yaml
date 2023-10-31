@@ -2,9 +2,11 @@ name: popeye
 version: "0.11.1"
 check: ${binary} version | sed 's/\x1B\[[0-9;]\{1,\}[A-Za-z]//g' | grep ^Version | tr -s ' ' | cut -d' ' -f2
 tags:
-  - type/cli
-  - kubernetes
-  - lang/go
+- type/cli
+- kubernetes
+- k8s
+- lang/go
+- category/operations
 homepage: https://github.com/derailed/popeye
 description: Kubernetes cluster resource sanitizer
 renovate:

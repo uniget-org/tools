@@ -11,6 +11,8 @@ tags:
 - format
 - lang/c
 - state/stale
+- standard/jq
+- format/json
 homepage: https://github.com/jqlang/jq
 description: Command-line JSON processor
 renovate:

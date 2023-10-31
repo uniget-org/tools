@@ -10,6 +10,7 @@ tags:
 - category/operations
 - lang/rust
 - type/cli
+- docker
 homepage: https://github.com/segersniels/supdock
 description: Slightly more visual way to interact with the docker daemon
 usage: |

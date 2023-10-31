@@ -2,10 +2,11 @@ name: task
 version: "3.31.0"
 check: ${binary} --version | cut -d' ' -f3 | tr -d v
 tags:
-  - category/development
-  - type/cli
-  - cicd
-  - lang/go
+- category/development
+- type/cli
+- cicd
+- lang/go
+- make
 homepage: https://github.com/go-task/task
 description: Task runner and simpler Make alternative written in Go
 renovate:

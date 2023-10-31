@@ -2,11 +2,11 @@ name: sbom-tool
 version: "1.8.1"
 check: "" # No version parameter
 tags:
-  - category/security
-  - sbom
-  - cicd
-  - lang/c
-  - lang/csharp
+- category/security
+- sbom
+- cicd
+- lang/csharp
+- type/cli
 homepage: https://github.com/microsoft/sbom-tool
 description: Highly scalable and enterprise ready tool to create SPDX 2.2 compatible SBOMs
 renovate:

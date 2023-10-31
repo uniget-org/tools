@@ -5,6 +5,10 @@ tags:
 - type/cli
 - category/security
 - lang/go
+- kubernetes
+- k8s
+- policy
+- management
 homepage: https://github.com/kyverno/kyverno
 description: Kubernetes Native Policy Management
 renovate:

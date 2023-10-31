@@ -11,6 +11,7 @@ tags:
 - category/development
 - lang/go
 - type/cli
+- vm
 homepage: https://github.com/hashicorp/packer
 description: Tool for creating identical machine images for multiple platforms from a single source configuration
 renovate:

@@ -9,6 +9,8 @@ tags:
 - category/operations
 - lang/go
 - type/cli
+- container/image
+- container/registry
 homepage: https://github.com/ivanilves/lstags
 description: Explore Docker registries and manipulate Docker images
 renovate:

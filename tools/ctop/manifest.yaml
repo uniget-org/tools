@@ -8,7 +8,8 @@ tags:
 - management
 - lang/go
 - state/stale
-- monitoring
+- component/monitoring
+- observability/metrics
 homepage: https://github.com/bcicen/ctop
 description: Top-like interface for container metrics
 renovate:

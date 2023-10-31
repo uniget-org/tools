@@ -8,6 +8,7 @@ tags:
 - management
 - infrastructure
 - lang/go
+- category/operations
 homepage: https://github.com/hashicorp/terraform
 description: Safely and predictably create, change, and improve infrastructure
 renovate:

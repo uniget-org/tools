@@ -10,6 +10,7 @@ tags:
 - category/security
 - lang/c
 - type/cli
+- wireguard
 homepage: https://git.zx2c4.com/wireguard-tools
 description: Tools for configuring WireGuard
 renovate:

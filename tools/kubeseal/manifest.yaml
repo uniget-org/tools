@@ -2,9 +2,11 @@ name: kubeseal
 version: "0.24.2"
 check: ${binary} --version | cut -d' ' -f3
 tags:
-  - type/cli
-  - category/security
-  - lang/go
+- type/cli
+- category/security
+- lang/go
+- kubernetes
+- k8s
 homepage: https://github.com/bitnami-labs/sealed-secrets
 description: Kubernetes controller and tool for one-way encrypted Secrets
 renovate:

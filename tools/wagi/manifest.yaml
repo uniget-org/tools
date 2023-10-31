@@ -8,12 +8,12 @@ platforms:
 #- libssl.so.1.1
 #- libcrypto.so.1.1
 tags:
-  - category/development
-  - lang/rust
-  - type/cli
-  - webassembly
-  - wasm
-  - state/stale
+- category/development
+- lang/rust
+- type/cli
+- webassembly
+- wasm
+- state/stale
 homepage: https://github.com/deislabs/wagi
 description: Write HTTP handlers in WebAssembly with a minimal amount of work
 renovate:

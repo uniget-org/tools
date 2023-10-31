@@ -2,13 +2,16 @@ name: lima
 version: "0.18.0"
 check: limactl --version | cut -d' ' -f3
 build_dependencies:
-  - yasu
+- yasu
 runtime_dependencies:
-  - yasu
+- yasu
 tags:
-  - type/cli
-  - category/development
-  - lang/go
+- type/cli
+- category/development
+- lang/go
+- vm
+- management
+- containerd
 homepage: https://github.com/lima-vm/lima
 description: Linux virtual machines, typically on macOS, for running containerd
 renovate:

@@ -9,6 +9,7 @@ tags:
 - category/security
 - sbom
 - lang/go
+- standard/vex
 homepage: https://github.com/openvex/vexctl
 description: Create, transform and attest VEX metadata
 renovate:

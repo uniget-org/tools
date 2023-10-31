@@ -2,12 +2,13 @@ name: telegraf
 version: "1.28.3"
 check: ${binary} --version | cut -d' ' -f2
 tags:
-  - org/influxdata
-  - observability/metrics
-  - o11y
-  - category/monitoring
-  - lang/go
-  - type/cli
+- org/influxdata
+- observability/metrics
+- observability/logs
+- o11y
+- category/monitoring
+- lang/go
+- type/cli
 homepage: https://github.com/influxdata/telegraf
 description: Plugin-driven server agent for collecting & reporting metrics
 renovate:

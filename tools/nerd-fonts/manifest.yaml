@@ -3,8 +3,9 @@ version: "3.0.2"
 binary: "false"
 check: "" # No binary
 tags:
-  - slides
-  - presentation
+- slides
+- presentation
+- fonts
 homepage: https://github.com/ryanoasis/nerd-fonts
 description: Iconic font aggregator, collection, and patcher
 renovate:

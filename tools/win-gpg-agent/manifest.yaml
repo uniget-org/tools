@@ -4,11 +4,14 @@ binary: sorelay.exe
 #check: ${binary} --version 2>&1 | tail -n 1 | cut -d' ' -f1
 check: "" # Hangs for a long time
 tags:
-  - type/cli
-  - wsl
-  - lang/go
-  - state/stale
-  - state/deprecated
+- type/cli
+- wsl
+- lang/go
+- state/stale
+- state/deprecated
+- gpg
+- gnupg
+- pgp
 homepage: https://github.com/rupor-github/win-gpg-agent
 description: Windows helpers for GnuPG tools suite
 renovate:

@@ -2,11 +2,11 @@ name: spiffe-vault
 version: "0.5.1"
 check: ${binary} version | grep ^GitVersion | tr -s ' ' | cut -d' ' -f2 | tr -d v
 runtime_dependencies:
-  - vault
+- vault
 tags:
-  - type/cli
-  - category/security
-  - lang/go
+- type/cli
+- category/security
+- lang/go
 homepage: https://github.com/philips-labs/spiffe-vault
 description: Integrates Spiffe and Vault to have secretless authentication
 renovate:

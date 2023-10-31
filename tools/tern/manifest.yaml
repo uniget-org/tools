@@ -15,6 +15,10 @@ tags:
 - lang/python
 - type/cli
 - sbom
+- standard/spdx
+- standard/cyclonedx
+- container/image
+- standard/docker
 homepage: https://github.com/tern-tools/tern
 description: SCA tool that generates a Software Bill of Materials for container images and Dockerfiles
 renovate:

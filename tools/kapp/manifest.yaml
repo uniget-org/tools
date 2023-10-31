@@ -2,13 +2,14 @@ name: kapp
 version: "0.59.1"
 check: ${binary} version | head -n 1 | cut -d' ' -f3
 tags:
-  - org/vmware
-  - type/cli
-  - kubernetes
-  - templating
-  - package
-  - management
-  - lang/go
+- org/vmware
+- type/cli
+- kubernetes
+- k8s
+- templating
+- package
+- management
+- lang/go
 homepage: https://github.com/carvel-dev/kapp
 description: Simple deployment tool focused on the concept of "Kubernetes application" — a set of resources with the same label
 renovate:

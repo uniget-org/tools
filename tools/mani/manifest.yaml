@@ -10,6 +10,7 @@ tags:
 - category/development
 - lang/go
 - type/cli
+- management
 homepage: https://github.com/alajmo/mani
 description: CLI tool to help you manage repositories
 renovate:

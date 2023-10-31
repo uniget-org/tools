@@ -4,6 +4,7 @@ check: "" # No version parameter
 tags:
 - type/cli
 - kubernetes
+- k8s
 - management
 - lang/go
 homepage: https://github.com/danielb42/kubeswitch

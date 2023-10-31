@@ -2,14 +2,16 @@ name: kwok
 version: "0.4.0"
 check: ${binary} --version | cut -d' ' -f3 | tr -d v
 platforms:
-  - linux/amd64
-  - linux/arm64
+- linux/amd64
+- linux/arm64
 tags:
-  - org/kubernetes
-  - org/cncf
-  - category/operations
-  - lang/go
-  - type/cli
+- org/kubernetes
+- org/cncf
+- category/operations
+- lang/go
+- type/cli
+- kubernetes
+- k8s
 homepage: https://github.com/kubernetes-sigs/kwok
 description: Kubernetes WithOut Kubelet simulates thousands of nodes and clusters
 renovate:

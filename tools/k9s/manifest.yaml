@@ -7,6 +7,7 @@ platforms:
 tags:
 - type/tui
 - kubernetes
+- k8s
 - management
 - lang/go
 homepage: https://github.com/derailed/k9s

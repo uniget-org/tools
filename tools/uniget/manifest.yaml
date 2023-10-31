@@ -8,8 +8,11 @@ tags:
 - category/operations
 - lang/go
 - type/cli
+- package
+- management
+- standard/oci
 homepage: https://github.com/uniget-org/cli
-description: Install, configure and update container tools
+description: Universal installer and updater for (container) tools 
 renovate:
   datasource: github-releases
   package: uniget-org/cli

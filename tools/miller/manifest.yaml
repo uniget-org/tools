@@ -11,8 +11,13 @@ tags:
 - category/operations
 - lang/go
 - type/cli
+- format/json
+- format/xml
+- format/csv
+- format/yaml
+- format/toml
 homepage: https://github.com/johnkerl/miller
-description: Some description
+description: Like awk, sed, cut, join, and sort for name-indexed data such as CSV, TSV, and tabular JSON
 renovate:
   datasource: github-releases
   package: johnkerl/miller

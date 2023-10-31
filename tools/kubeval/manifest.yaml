@@ -4,11 +4,12 @@ check: ${binary} --version | grep ^Version | cut -d' ' -f2
 runtime_dependencies:
 - kubernetes-json-schema
 tags:
-  - type/cli
-  - category/security
-  - kubernetes
-  - lang/go
-  - state/stale
+- type/cli
+- category/operations
+- kubernetes
+- k8s
+- lang/go
+- state/stale
 homepage: https://github.com/instrumenta/kubeval
 description: Validate your Kubernetes configuration files
 renovate:

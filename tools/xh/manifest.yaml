@@ -10,6 +10,7 @@ tags:
 - category/development
 - lang/rust
 - type/cli
+- component/network
 homepage: https://github.com/ducaale/xh
 description: Friendly and fast tool for sending HTTP requests
 renovate:

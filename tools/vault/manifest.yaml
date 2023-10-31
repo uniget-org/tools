@@ -2,10 +2,12 @@ name: vault
 version: "1.15.1"
 check: ${binary} --version | cut -d' ' -f2 | tr -d v
 tags:
-  - type/cli
-  - category/security
-  - org/hashicorp
-  - lang/go
+- type/cli
+- type/daemon
+- category/security
+- org/hashicorp
+- lang/go
+- management
 homepage: https://github.com/hashicorp/vault
 description: Secrets management, encryption as a service, and privileged access management
 renovate:

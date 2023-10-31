@@ -11,6 +11,8 @@ tags:
 - category/security
 - lang/shell
 - type/cli
+- password
+- management
 homepage: https://www.passwordstore.org/
 description: The standard unix password manager
 renovate:

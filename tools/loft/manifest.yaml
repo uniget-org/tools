@@ -2,9 +2,11 @@ name: loft
 version: "3.3.1"
 check: ${binary} --version | cut -d' ' -f3
 tags:
-  - type/cli
-  - kubernetes
-  - lang/go
+- type/cli
+- kubernetes
+- k8s
+- management
+- lang/go
 homepage: https://github.com/loft-sh/loft
 description: Namespace & Virtual Cluster Manager for Kubernetes
 renovate:

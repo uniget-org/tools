@@ -2,16 +2,16 @@ name: youki
 version: 0.3.0
 check: ${binary} --version | grep ^youki | cut -d' ' -f3
 build_dependencies:
-  - rust
+- rust
 runtime_dependencies:
-  - docker
+- docker
 platforms:
-  - linux/amd64
+- linux/amd64
 #- linux/arm64
 tags:
-  - org/redhat
-  - container/runtime
-  - lang/rust
+- org/redhat
+- container/runtime
+- lang/rust
 homepage: https://github.com/containers/youki
 description: Container runtime written in rust
 renovate:

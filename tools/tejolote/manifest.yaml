@@ -12,8 +12,9 @@ tags:
 - lang/go
 - type/cli
 - cicd
+- slsa
 homepage: https://github.com/kubernetes-sigs/tejolote
-description: Some description
+description: Highly configurable build executor and observer designed to generate signed SLSA provenance attestations about build runs
 renovate:
   datasource: github-releases
   package: kubernetes-sigs/tejolote

@@ -11,6 +11,8 @@ tags:
 - lang/go
 - type/cli
 - sbom
+- kubernetes
+- k8s
 homepage: https://github.com/ksoclabs/kbom
 description: Kubernetes Bill of Materials
 renovate:

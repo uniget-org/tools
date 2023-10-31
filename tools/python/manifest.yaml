@@ -2,9 +2,9 @@ name: python
 version: "3.12.0.20231002"
 check: ""
 tags:
-  - category/development
-  - lang/python
-  - type/cli
+- category/development
+- lang/python
+- type/cli
 homepage: https://github.com/indygreg/python-build-standalone
 description: Redistributable builds of Python
 renovate:

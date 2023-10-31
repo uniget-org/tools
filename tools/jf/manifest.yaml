@@ -2,10 +2,12 @@ name: jf
 version: "2.50.4"
 check: ${binary} --version | cut -d' ' -f3
 tags:
-  - type/cli
-  - package
-  - management
-  - lang/go
+- org/jfrog
+- type/cli
+- package
+- management
+- lang/go
+- cicd
 homepage: https://github.com/jfrog/jfrog-cli
 description: Client that provides a simple interface that automates access to the JFrog products
 renovate:

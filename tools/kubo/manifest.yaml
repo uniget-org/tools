@@ -3,14 +3,15 @@ version: "0.23.0"
 binary: ipfs
 check: ${binary} version --number
 runtime_dependencies:
-  - containerd
+- containerd
 tags:
-  - component/storage
-  - component/network
-  - container/registry
-  - type/cli
-  - containerd
-  - lang/go
+- component/storage
+- component/network
+- container/registry
+- type/cli
+- containerd
+- lang/go
+- category/operations
 homepage: https://github.com/ipfs/kubo
 description: IPFS implementation in Go
 renovate:

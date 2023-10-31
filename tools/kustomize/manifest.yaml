@@ -9,6 +9,7 @@ tags:
 - org/kubernetes
 - type/cli
 - kubernetes
+- k8s
 - templating
 - management
 - lang/go

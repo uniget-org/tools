@@ -9,7 +9,9 @@ runtime_dependencies:
 tags:
 - category/security
 - lang/python
-- type/cli
+- type/plugin
+- password
+- management
 homepage: https://github.com/roddhjav/pass-import
 description: Pass extension for importing data from most existing password managers
 renovate:

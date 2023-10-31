@@ -14,6 +14,7 @@ tags:
 - type/plugin
 - kubernetes
 - management
+- k8s
 messages:
   internals: |
     - Plugins are installed to ${prefix}${target}/libexec/krew

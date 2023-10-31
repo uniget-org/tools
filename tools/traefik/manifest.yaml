@@ -8,6 +8,10 @@ tags:
 - category/operations
 - lang/go
 - type/cli
+- component/network
+- kubernetes
+- k8s
+- management
 homepage: https://github.com/traefik/traefik
 description: Cloud Native Application Proxy
 renovate:

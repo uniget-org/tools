@@ -7,10 +7,12 @@ build_dependencies:
 runtime_dependencies:
 - apk
 tags:
+- org/chainguard
 - type/cli
 - package
 - management
 - lang/go
+- alpine
 homepage: https://github.com/chainguard-dev/melange
 description: Build APKs from source code
 renovate:

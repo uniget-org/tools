@@ -2,12 +2,14 @@ name: opa
 version: "0.58.0"
 check: ${binary} version | grep ^Version | cut -d' ' -f2
 platforms:
-  - linux/amd64
-  - linux/arm64
+- linux/amd64
+- linux/arm64
 tags:
-  - type/cli
-  - category/security
-  - lang/go
+- type/cli
+- category/security
+- lang/go
+- policy
+- management
 homepage: https://github.com/open-policy-agent/opa
 description: Open source, general-purpose policy engine
 renovate:

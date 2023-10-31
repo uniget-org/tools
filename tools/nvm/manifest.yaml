@@ -2,12 +2,13 @@ name: nvm
 version: "0.39.5"
 check: "" # No version parameter
 platforms:
-  - linux/amd64
-  - linux/arm64
+- linux/amd64
+- linux/arm64
 tags:
-  - category/development
-  - lang/shell
-  - type/cli
+- category/development
+- lang/shell
+- type/cli
+- management
 homepage: https://github.com/nvm-sh/nvm
 description: Node Version Manager
 renovate:

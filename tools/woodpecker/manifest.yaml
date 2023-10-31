@@ -3,10 +3,10 @@ version: "1.0.3"
 binary: woodpecker-server
 check: ${binary} --version | cut -d' ' -f3
 tags:
-  - type/cli
-  - type/daemon
-  - cicd
-  - lang/go
+- type/cli
+- type/daemon
+- cicd
+- lang/go
 homepage: https://github.com/woodpecker-ci/woodpecker
 description: Community fork of the Drone CI system
 renovate:

@@ -11,6 +11,7 @@ tags:
 - lang/python
 - type/cli
 - sbom
+- visualization
 homepage: https://github.com/anthonyharrison/sbom2dot
 description: Create a dependency graph of the components within a SBOM
 renovate:

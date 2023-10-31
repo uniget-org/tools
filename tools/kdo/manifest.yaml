@@ -2,9 +2,11 @@ name: kdo
 version: "0.8.0"
 check: ${binary} --version | cut -d' ' -f3
 tags:
-  - type/cli
-  - kubernetes
-  - lang/go
+- type/cli
+- kubernetes
+- k8s
+- lang/go
+- cicd
 homepage: https://github.com/stepro/kdo
 description: Deployless Development on Kubernetes
 renovate:

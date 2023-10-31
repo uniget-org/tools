@@ -12,6 +12,7 @@ tags:
 - category/development
 - lang/rust
 - type/cli
+- ide
 homepage: https://github.com/microsoft/vscode
 description: Some description
 renovate:

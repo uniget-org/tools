@@ -9,5 +9,7 @@ tags:
 - category/security
 - lang/shell
 - type/cli
+- password
+- management
 homepage: https://github.com/FiloSottile/passage
 description: Fork of password-store that uses age as backend

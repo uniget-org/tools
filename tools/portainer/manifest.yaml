@@ -6,9 +6,11 @@ build_dependencies:
 runtime_dependencies:
 - docker
 tags:
+- org/portainer
 - standard/docker
 - type/daemon
 - kubernetes
+- k8s
 - management
 - lang/go
 homepage: https://github.com/portainer/portainer

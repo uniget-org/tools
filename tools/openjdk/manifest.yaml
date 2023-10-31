@@ -3,11 +3,11 @@ version: "21"
 binary: javac
 check: ${binary} -version | cut -d' ' -f2
 build_dependencies:
-  - jabba
+- jabba
 tags:
-  - type/cli
-  - category/development
-  - lang/java
+- type/cli
+- category/development
+- lang/java
 homepage: https://github.com/openjdk
 description: OpenJDK
 renovate:

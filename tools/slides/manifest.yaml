@@ -2,11 +2,12 @@ name: slides
 version: "0.9.0"
 check: "" # No version parameter
 tags:
-  - type/cli
-  - markdown
-  - slides
-  - presentation
-  - lang/go
+- type/cli
+- markdown
+- slides
+- presentation
+- lang/go
+- category/visualization
 homepage: https://github.com/maaslalani/slides
 description: Terminal based presentation tool
 renovate:

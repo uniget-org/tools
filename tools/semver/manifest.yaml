@@ -2,10 +2,10 @@ name: semver
 version: "3.4.0"
 check: ${binary} --version | cut -d' ' -f2
 tags:
-  - category/development
-  - type/cli
-  - cicd
-  - lang/shell
+- category/development
+- type/cli
+- cicd
+- lang/shell
 homepage: https://github.com/fsaintjacques/semver-tool
 description: Semver bash implementation
 renovate:

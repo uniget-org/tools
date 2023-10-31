@@ -2,10 +2,11 @@ name: kube-bench
 version: "0.6.19"
 check: ${binary} version
 tags:
-  - type/cli
-  - category/security
-  - kubernetes
-  - lang/go
+- type/cli
+- category/security
+- kubernetes
+- k8s
+- lang/go
 homepage: https://github.com/aquasecurity/kube-bench
 description: Checks whether Kubernetes is deployed according to security best practices
 renovate:

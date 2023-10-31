@@ -2,17 +2,17 @@ name: newman
 version: "6.0.0"
 check: ${binary} --version
 build_dependencies:
-  - nodejs-lts
-  - npm
+- nodejs-lts
+- npm
 runtime_dependencies:
-  - nodejs-lts
+- nodejs-lts
 platforms:
-  - linux/amd64
-  - linux/arm64
+- linux/amd64
+- linux/arm64
 tags:
-  - category/development
-  - lang/javascript
-  - type/cli
+- category/development
+- lang/javascript
+- type/cli
 homepage: https://github.com/postmanlabs/newman
 description: The JavaScript Task Runner
 renovate:

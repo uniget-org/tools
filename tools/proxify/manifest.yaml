@@ -2,9 +2,10 @@ name: proxify
 version: "0.0.12"
 check: ${binary} --version 2>&1 | cut -d' ' -f4
 tags:
-  - category/security
-  - type/cli
-  - lang/go
+- category/security
+- type/cli
+- lang/go
+- component/network
 homepage: https://github.com/projectdiscovery/proxify
 description: Swiss Army knife Proxy tool for HTTP/HTTPS traffic capture, manipulation, and replay on the go.
 renovate:

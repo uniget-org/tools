@@ -13,5 +13,6 @@ tags:
 - container/runtime
 - standard/oci
 - lang/go
+- category/security
 homepage: https://github.com/gotoz/runq
 description: Run regular Docker images in KVM/Qemu

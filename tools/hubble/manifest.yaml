@@ -4,9 +4,10 @@ check: ${binary} version | cut -d' ' -f2
 tags:
 - type/cli
 - category/security
-- network
+- component/network
 - ebpf
 - lang/go
+- cilium
 homepage: https://github.com/cilium/hubble
 description: Network, Service & Security Observability for Kubernetes using eBPF
 renovate:

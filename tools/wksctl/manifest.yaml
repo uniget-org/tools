@@ -2,12 +2,13 @@ name: wksctl
 version: "0.10.1"
 check: ${binary} version
 tags:
-  - type/cli
-  - kubernetes
-  - management
-  - lang/go
-  - state/stale
-  - state/deprecated
+- type/cli
+- kubernetes
+- k8s
+- management
+- lang/go
+- state/stale
+- state/deprecated
 homepage: https://github.com/weaveworks/wksctl
 description: Open Source Weaveworks Kubernetes System
 renovate:

@@ -13,6 +13,9 @@ tags:
 - category/operations
 - lang/go
 - type/cli
+- o11y
+- category/monitoring
+- observability/metrics
 homepage: https://github.com/prometheus/prometheus/tree/main/cmd%2Fpromtool
 description: Tooling for the Prometheus monitoring system
 renovate:

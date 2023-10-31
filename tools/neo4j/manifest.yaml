@@ -2,13 +2,13 @@ name: neo4j
 version: "5.13.0"
 check: ${binary} --version
 runtime_dependencies:
-  - openjdk-jre
+- openjdk-jre
 conflicts_with:
-  - cypher-shell
+- cypher-shell
 tags:
-  - category/development
-  - lang/java
-  - type/daemon
+- category/development
+- lang/java
+- type/daemon
 homepage: https://github.com/neo4j/neo4j
 description: Graphs for Everyone
 renovate:

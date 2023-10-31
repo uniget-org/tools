@@ -2,11 +2,12 @@ name: kompose
 version: "1.31.2"
 check: ${binary} version | cut -d' ' -f1
 tags:
-  - org/kubernetes
-  - container/compose
-  - type/cli
-  - kubernetes
-  - lang/go
+- org/kubernetes
+- container/compose
+- type/cli
+- kubernetes
+- lang/go
+- standard/compose
 homepage: https://github.com/kubernetes/kompose
 description: Go from Docker Compose to Kubernetes
 renovate:

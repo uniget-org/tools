@@ -10,6 +10,7 @@ tags:
 - category/helper
 - lang/go
 - type/cli
+- ai
 homepage: https://github.com/errata-ai/vale
 description: Markup-aware linter for prose built with speed and extensibility in mind
 renovate:

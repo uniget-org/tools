@@ -2,12 +2,14 @@ name: kpt
 version: "1.0.0-beta.35"
 check: ${binary} version
 platforms:
-  - linux/amd64
+- linux/amd64
 tags:
-  - org/google
-  - category/development
-  - lang/go
-  - type/cli
+- org/google
+- category/development
+- lang/go
+- type/cli
+- kubernetes
+- k8s
 homepage: https://github.com/GoogleContainerTools/kpt
 description: Automate Kubernetes Configuration Editing
 renovate:

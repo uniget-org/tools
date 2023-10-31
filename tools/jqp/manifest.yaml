@@ -8,6 +8,8 @@ tags:
 - category/development
 - lang/go
 - type/tui
+- standard/jq
+- format/json
 homepage: https://github.com/noahgorstein/jqp
 description: TUI playground to experiment with jq
 renovate:

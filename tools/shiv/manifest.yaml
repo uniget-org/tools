@@ -10,6 +10,7 @@ tags:
 - category/operations
 - lang/python
 - type/cli
+- management
 homepage: https://github.com/linkedin/shiv
 description: Command line utility for building fully self contained Python zipapps as outlined in PEP 441
 renovate:

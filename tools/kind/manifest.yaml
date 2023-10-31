@@ -11,7 +11,9 @@ tags:
 - standard/docker
 - type/cli
 - kubernetes
+- k8s
 - lang/go
+- management
 homepage: https://github.com/kubernetes-sigs/kind
 description: Kubernetes IN Docker - local clusters for testing Kubernetes
 renovate:
