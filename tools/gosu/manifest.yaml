@@ -1,5 +1,5 @@
 name: gosu
-version: "1.16"
+version: "1.17"
 check: ${binary} --version | cut -d' ' -f1
 tags:
 - container/su
