@@ -1,5 +1,5 @@
 name: woodpecker
-version: "1.0.3"
+version: "1.0.4"
 binary: woodpecker-server
 check: ${binary} --version | cut -d' ' -f3
 tags:
