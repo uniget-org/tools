@@ -31,8 +31,7 @@ COSIGN_EXPERIMENTAL=1 cosign verify-blob \
 
 echo "### Installing cri-o ${version}"
 tar --file "cri-o.${alt_arch}.v${version}.tar.gz" --extract --gzip --directory="${prefix}${target}" --strip-components=1 --no-same-owner \
-    cri-o/bin/crio \
-    cri-o/bin/crio-status
+    cri-o/bin/crio
 EOF
 RUN <<EOF
 curl --silent --location --fail --output "${prefix}${target}/share/bash-completion/completions/crio" \
