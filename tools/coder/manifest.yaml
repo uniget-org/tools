@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: coder
+version: "2.3.3"
+check: ${binary} version | grep ^Coder | cut -d' ' -f2 | cut -d+ -f1 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/go
+- type/cli
+homepage: https://github.com/coder/coder
+description: Provision remote development environments via Terraform
+renovate:
+  datasource: github-releases
+  package: coder/coder
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
