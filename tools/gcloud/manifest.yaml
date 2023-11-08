@@ -1,5 +1,5 @@
 name: gcloud
-version: "453.0.0"
+version: "454.0.0"
 check: ${binary} --version | head -n 1 | cut -d' ' -f4
 build_dependencies:
 - python
