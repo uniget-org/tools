@@ -27,23 +27,12 @@ jobs:
               "datasourceTemplate": "github-tags",
               "depNameTemplate": "moby/moby",
               "extractVersionTemplate": "^v(?<version>.+?)$",
-              "fileMatch": [
-                "^tools/docker/manifest.yaml$"
-              ],
-              "matchStrings": [
-                "version: \"?(?<currentValue>.*?)\"?\\n"
-              ]
+              "fileMatch": ["^tools/docker/manifest.yaml$"],
+              "matchStrings": ["version: \"?(?<currentValue>.*?)\"?\\n"]
             }
           ],
-          "digest": {
-            "labels": [
-              "bump/digest",
-              "type/renovate"
-            ]
-          },
-          "enabledManagers": [
-            "regex"
-          ],
+          "digest": {"labels": ["bump/digest", "type/renovate"]},
+          "enabledManagers": ["custom.regex"],
           "extends": [
             ":dependencyDashboard",
             ":semanticPrefixFixDepsChoreOthers",
@@ -57,65 +46,22 @@ jobs:
             ":separatePatchReleases",
             ":semanticCommits"
           ],
-          "major": {
-            "labels": [
-              "bump/major",
-              "type/renovate"
-            ]
-          },
-          "minor": {
-            "labels": [
-              "bump/minor",
-              "type/renovate"
-            ]
-          },
+          "major": {"labels": ["bump/major", "type/renovate"]},
+          "minor": {"labels": ["bump/minor", "type/renovate"]},
           "packageRules": [
             {
               "enabled": false,
-              "matchDatasources": [
-                "docker"
-              ],
-              "matchPackagePrefixes": [
-                "ghcr.io/uniget-org/tools/"
-              ]
-            },
-            {
-              "ignoreUnstable": true,
-              "matchFiles": [
-                "^tools/apko/manifest.yaml$"
-              ],
-              "matchPackageNames": [
-                "chainguard-dev/apko"
-              ]
-            },
-            {
-              "ignoreUnstable": true,
-              "matchFiles": [
-                "^tools/docker-preview/manifest.yaml$"
-              ],
-              "matchPackageNames": [
-                "moby/moby"
-              ]
+              "matchDatasources": ["docker"],
+              "matchPackagePrefixes": ["ghcr.io/uniget-org/tools/"]
             }
           ],
-          "patch": {
-            "labels": [
-              "bump/patch",
-              "type/renovate"
-            ]
-          },
-          "pin": {
-            "labels": [
-              "bump/pin",
-              "type/renovate"
-            ]
-          },
-          "platformAutomerge": true,
+          "patch": {"labels": ["bump/patch", "type/renovate"]},
+          "pin": {"labels": ["bump/pin", "type/renovate"]},
           "prConcurrentLimit": 0,
           "prHourlyLimit": 0,
           "rebaseLabel": "renovate/rebase",
           "rebaseWhen": "conflicted",
-          "recreateClosed": false,
+          "recreateWhen": "auto",
           "stopUpdatingLabel": "renovate/stop-updating",
           "timezone": "Europe/Berlin",
           "useBaseBranchConfig": "merge"
