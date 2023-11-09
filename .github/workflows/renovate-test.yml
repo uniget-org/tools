@@ -1,0 +1,138 @@
+name: Renovate-Test
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: renovate-test
+
+jobs:
+
+  renovate:
+    runs-on: ubuntu-22.04
+    permissions: write-all
+    steps:
+
+    #- name: Checkout code
+    #  uses: actions/checkout@v3
+
+    - name: Inject custom config
+      run: |
+        mkdir -p config
+        cat <<EOF >config/renovate-small.json
+        {
+          "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+          "customManagers": [
+            {
+              "customType": "regex",
+              "datasourceTemplate": "docker",
+              "depNameTemplate": "docker/dockerfile",
+              "fileMatch": [
+                "(^|/|\\.)Dockerfile[^/]*$"
+              ],
+              "matchStrings": [
+                "#syntax=(?<depName>.*?):(?<currentValue>.*?)\\n"
+              ]
+            }
+          ],
+          "digest": {
+            "labels": [
+              "bump/digest",
+              "type/renovate"
+            ]
+          },
+          "enabledManagers": [
+            "dockerfile",
+            "github-actions",
+            "regex"
+          ],
+          "extends": [
+            ":dependencyDashboard",
+            ":semanticPrefixFixDepsChoreOthers",
+            ":ignoreModulesAndTests",
+            ":docker",
+            "docker:enableMajor",
+            "docker:pinDigests",
+            ":ignoreUnstable",
+            ":pinVersions",
+            ":separateMajorReleases",
+            ":separatePatchReleases",
+            ":semanticCommits"
+          ],
+          "major": {
+            "labels": [
+              "bump/major",
+              "type/renovate"
+            ]
+          },
+          "minor": {
+            "labels": [
+              "bump/minor",
+              "type/renovate"
+            ]
+          },
+          "packageRules": [
+            {
+              "enabled": false,
+              "matchDatasources": [
+                "docker"
+              ],
+              "matchPackagePrefixes": [
+                "ghcr.io/uniget-org/tools/"
+              ]
+            },
+            {
+              "ignoreUnstable": true,
+              "matchFiles": [
+                "^tools/apko/manifest.yaml$"
+              ],
+              "matchPackageNames": [
+                "chainguard-dev/apko"
+              ]
+            },
+            {
+              "ignoreUnstable": true,
+              "matchFiles": [
+                "^tools/docker-preview/manifest.yaml$"
+              ],
+              "matchPackageNames": [
+                "moby/moby"
+              ]
+            }
+          ],
+          "patch": {
+            "labels": [
+              "bump/patch",
+              "type/renovate"
+            ]
+          },
+          "pin": {
+            "labels": [
+              "bump/pin",
+              "type/renovate"
+            ]
+          },
+          "platformAutomerge": true,
+          "prConcurrentLimit": 0,
+          "prHourlyLimit": 0,
+          "rebaseLabel": "renovate/rebase",
+          "rebaseWhen": "conflicted",
+          "recreateClosed": false,
+          "stopUpdatingLabel": "renovate/stop-updating",
+          "timezone": "Europe/Berlin",
+          "useBaseBranchConfig": "merge"
+        }
+        EOF
+
+    - name: Self-hosted Renovate
+      env:
+        LOG_LEVEL: debug
+        RENOVATE_TOKEN: ${{ secrets.BOT_RENOVATE }}
+      run: |
+        docker run --interactive --rm \
+            --env LOG_LEVEL \
+            --env RENOVATE_TOKEN="${RENOVATE_TOKEN}" \
+            --env RENOVATE_CONFIG_FILE=/renovate_config/renovate-small.json \
+            --volume $PWD/config:/renovate_config \
+            renovate/renovate:slim \
+                --dry-run=full \
+                "${GITHUB_REPOSITORY}"
