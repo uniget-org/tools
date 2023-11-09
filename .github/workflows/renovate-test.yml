@@ -32,7 +32,7 @@ jobs:
             }
           ],
           "digest": {"labels": ["bump/digest", "type/renovate"]},
-          "enabledManagers": ["custom.regex", "docker"],
+          "enabledManagers": ["custom.regex", "dockerfile"],
           "extends": [
             ":dependencyDashboard",
             ":semanticPrefixFixDepsChoreOthers",
