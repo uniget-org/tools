@@ -50,7 +50,6 @@ jobs:
           "minor": {"labels": ["bump/minor", "type/renovate"]},
           "packageRules": [
             {
-              "matchDatasources": ["docker"],
               "matchPackageNames": ["ghcr.io/uniget-org/tools/base"],
               "enabled": false
             }
