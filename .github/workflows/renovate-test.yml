@@ -18,19 +18,20 @@ jobs:
     - name: Inject custom config
       run: |
         mkdir -p config
-        cat <<EOF >config/renovate-small.json
+        cat <<"EOF" >config/renovate-small.json
         {
           "$schema": "https://docs.renovatebot.com/renovate-schema.json",
           "customManagers": [
             {
               "customType": "regex",
-              "datasourceTemplate": "docker",
-              "depNameTemplate": "docker/dockerfile",
+              "datasourceTemplate": "github-tags",
+              "depNameTemplate": "moby/moby",
+              "extractVersionTemplate": "^v(?<version>.+?)$",
               "fileMatch": [
-                "(^|/|\\.)Dockerfile[^/]*$"
+                "^tools/docker/manifest.yaml$"
               ],
               "matchStrings": [
-                "#syntax=(?<depName>.*?):(?<currentValue>.*?)\\n"
+                "version: \"?(?<currentValue>.*?)\"?\\n"
               ]
             }
           ],
