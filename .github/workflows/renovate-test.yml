@@ -131,6 +131,7 @@ jobs:
         docker run --interactive --rm \
             --env LOG_LEVEL \
             --env RENOVATE_TOKEN="${RENOVATE_TOKEN}" \
+            --env RENOVATE_REQUIRE_CONFIG=ignored \
             --env RENOVATE_CONFIG_FILE=/renovate_config/renovate-small.json \
             --volume $PWD/config:/renovate_config \
             renovate/renovate:slim \
