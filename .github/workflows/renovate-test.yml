@@ -32,7 +32,7 @@ jobs:
             }
           ],
           "digest": {"labels": ["bump/digest", "type/renovate"]},
-          "enabledManagers": ["custom.regex"],
+          "enabledManagers": ["custom.regex", "docker"],
           "extends": [
             ":dependencyDashboard",
             ":semanticPrefixFixDepsChoreOthers",
@@ -50,9 +50,9 @@ jobs:
           "minor": {"labels": ["bump/minor", "type/renovate"]},
           "packageRules": [
             {
-              "enabled": false,
               "matchDatasources": ["docker"],
-              "matchPackagePrefixes": ["ghcr.io/uniget-org/tools/"]
+              "matchPackageNames": ["ghcr.io/uniget-org/tools/base"],
+              "enabled": false
             }
           ],
           "patch": {"labels": ["bump/patch", "type/renovate"]},
