@@ -1,5 +1,5 @@
 name: jx
-version: "3.10.120"
+version: "3.10.121"
 check: ${binary} version --short
 platforms:
 - linux/amd64
