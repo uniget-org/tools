@@ -38,9 +38,8 @@ if ! test -f prs-old.json; then
     >prs-old.json
 fi
 echo "Compiling reduced-prs.json"
-cat prs-old.json prs.json \
+cat prs-old.json prs-plain.json \
 | jq --slurp '
-    .[0] + .[1] |
     [
         .[] as $pr |
             $pr.labels[] | select(.name == "type/renovate") | $pr
