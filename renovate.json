@@ -3473,6 +3473,17 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "npm",
+      "depNameTemplate": "@microsoft/inshellisense",
+      "fileMatch": [
+        "^tools/inshellisense/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "git-tags",
       "depNameTemplate": "https://git.netfilter.org/iptables/",
       "extractVersionTemplate": "^v(?<version>.+?)$",

@@ -1,0 +1,21 @@
+#syntax=docker/dockerfile:1.6.0
+
+ARG ref=main
+
+FROM ghcr.io/uniget-org/tools/nodejs:${ref} AS nodejs
+FROM ghcr.io/uniget-org/tools/npm:${ref} AS npm
+
+FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+ARG name
+ARG version
+COPY --link --from=nodejs / /
+COPY --link --from=npm / /
+WORKDIR ${prefix}${target}/libexec/inshellisense
+ARG name
+ARG version
+RUN <<EOF
+npm install \
+    --omit=dev \
+    "@microsoft/inshellisense@${version}"
+ln --symbolic --relative --force "${prefix}${target}/libexec/inshellisense/node_modules/.bin/inshellisense" "${prefix}${target}/bin/"
+EOF
