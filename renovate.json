@@ -5529,6 +5529,17 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "petrgazarov/salami",
+      "fileMatch": [
+        "^tools/salami/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "ckotzbauer/sbom-operator",
       "fileMatch": [
         "^tools/sbom-operator/manifest.yaml$"

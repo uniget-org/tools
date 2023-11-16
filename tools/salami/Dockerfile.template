@@ -1,0 +1,28 @@
+#syntax=docker/dockerfile:1.6.0
+
+ARG ref=main
+
+FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+ARG name
+ARG version
+RUN <<EOF
+echo "### Setting architecture string for ${TARGETPLATFORM}"
+case "${arch}" in
+    x86_64)
+        export arch_suffix=x64
+        ;;
+    aarch64)
+        export arch_suffix="${alt_arch}"
+        ;;
+    *)
+        echo "ERROR: Unsupported architecture ${arch}."
+        exit 1
+        ;;
+esac
+echo "    Using ${arch_suffix}"
+
+check-github-release-asset "petrgazarov/salami" "${version}" "salami-${version}-linux-${arch_suffix}"
+curl --silent --location --fail --output "${prefix}${target}/bin/salami" \
+    "https://github.com/petrgazarov/salami/releases/download/${version}/salami-${version}-linux-${arch_suffix}"
+chmod +x "${prefix}${target}/bin/salami"
+EOF
