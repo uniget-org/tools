@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: tailspin
+version: "2.1.0"
+check: ""
+build_dependencies:
+- rust
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- category/operations
+- lang/rust
+- type/cli
+homepage: https://github.com/bensadeh/tailspin
+description: Log file highlighter
+renovate:
+  datasource: github-releases
+  package: bensadeh/tailspin
+  priority: low
