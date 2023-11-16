@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: overlaybd
+version: "1.0.4"
+check: ""
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- org/containerd
+- category/operations
+- lang/c
+- type/daemon
+homepage: https://github.com/containerd/overlaybd
+description: Block based remote image format
+renovate:
+  datasource: github-releases
+  package: containerd/overlaybd
+  extractVersion: ^v(?<version>.+?)$
+  priority: low

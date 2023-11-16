@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: overlaybd-snapshotter
+version: "1.0.1"
+check: ""
+build_dependencies:
+- go
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- org/containerd
+- category/operations
+- lang/go
+- type/daemon
+homepage: https://github.com/containerd/accelerated-container-image
+description: Production-ready remote container image format
+renovate:
+  datasource: github-releases
+  package: containerd/accelerated-container-image
+  extractVersion: ^v(?<version>.+?)$
+  priority: low

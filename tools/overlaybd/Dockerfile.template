@@ -1,0 +1,34 @@
+#syntax=docker/dockerfile:1.6.0
+
+ARG ref=main
+
+FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+ARG name
+ARG version
+RUN <<EOF
+apt-get update
+apt-get -y install --no-install-recommends \
+    autogen \
+    autoconf \
+    automake \
+    libtool \
+    build-essential \
+    libcurl4-openssl-dev \
+    libssl-dev \
+    libaio-dev \
+    libnl-3-dev \
+    libnl-genl-3-dev \
+    libgflags-dev \
+    libzstd-dev \
+    libext2fs-dev
+EOF
+WORKDIR /tmp/overlaybd
+RUN <<EOF
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" github.com/containerd/overlaybd .
+git submodule update --init
+mkdir build
+cd build
+cmake ..
+make -j
+make install
+EOF
