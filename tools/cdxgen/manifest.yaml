@@ -1,5 +1,5 @@
 name: cdxgen
-version: "9.9.3"
+version: "9.9.4"
 check: ${binary} --version
 build_dependencies:
 - nodejs-lts
