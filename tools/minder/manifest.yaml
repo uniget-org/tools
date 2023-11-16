@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: minder
+version: "0.0.15"
+check: ""
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- category/security
+- lang/go
+- type/cli
+homepage: https://github.com/stacklok/minder
+description: Secure Software Supply Chain Platform 
+renovate:
+  datasource: github-releases
+  package: stacklok/minder
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
