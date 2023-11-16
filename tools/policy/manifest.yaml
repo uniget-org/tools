@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: policy
+version: "0.2.4"
+check: ""
+build_dependencies:
+- bar
+runtime_dependencies:
+- baz
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- category/operations
+- lang/go
+- type/cli
+homepage: https://github.com/opcr-io/policy
+description: CLI for building OPA policies into OCI images 
+renovate:
+  datasource: github-releases
+  package: opcr-io/policy
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
