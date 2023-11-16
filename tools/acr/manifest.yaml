@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: acr
+version: "0.9"
+check: ""
+build_dependencies:
+- go
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- org/microsoft
+- category/operations
+- lang/go
+- type/cli
+homepage: https://github.com/Azure/acr-cli
+description: CLI for interacting with Azure Container Registry Images 
+renovate:
+  datasource: github-releases
+  package: Azure/acr-cli
+  extractVersion: ^v(?<version>.+?)$
+  versioning: loose
+  priority: low
