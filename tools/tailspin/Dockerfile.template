@@ -21,11 +21,11 @@ git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" 
 export RUSTFLAGS='-C target-feature=+crt-static'
 cargo build --release --target "${arch}-unknown-linux-gnu"
 cp "target/${arch}-unknown-linux-gnu/release/tspin" "${prefix}${target}/bin/"
-EOF
 
-# completion
-#RUN <<EOF
-#"${prefix}${target}/bin/foo" completion bash >"${prefix}${target}/share/bash-completion/completions/foo"
-#"${prefix}${target}/bin/foo" completion fish >"${prefix}${target}/share/fish/vendor_completions.d/foo.fish"
-#"${prefix}${target}/bin/foo" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_foo"
-#EOF
+curl --silent --show-error --location --fail --output "${prefix}${target}/share/bash-completion/completions/tspin" \
+    --url "https://github.com/bensadeh/tailspin/raw/2.1.0/completions/tspin.bash"
+curl --silent --show-error --location --fail --output "${prefix}${target}/share/fish/vendor_completions.d/tspin.fish" \
+    --url "https://github.com/bensadeh/tailspin/raw/2.1.0/completions/tspin.fish"
+curl --silent --show-error --location --fail --output "${prefix}${target}/share/zsh/vendor-completions/_tspin" \
+    --url "https://github.com/bensadeh/tailspin/raw/2.1.0/completions/tspin.zsh"
+EOF
