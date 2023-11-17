@@ -2,14 +2,10 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: policy
 version: "0.2.4"
-check: ""
-build_dependencies:
-- bar
-runtime_dependencies:
-- baz
+check: ${binary} version | grep ^version | cut -d' ' -f2
 platforms:
 - linux/amd64
-#- linux/arm64
+- linux/arm64
 tags:
 - category/operations
 - lang/go
