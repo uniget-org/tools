@@ -2,6 +2,7 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: tailspin
 version: "2.1.0"
+binary: tspin
 check: ""
 build_dependencies:
 - rust
