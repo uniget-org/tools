@@ -20,6 +20,7 @@ source "${target}/etc/profile.d/cargo.sh"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" https://github.com/bensadeh/tailspin .
 export RUSTFLAGS='-C target-feature=+crt-static'
 cargo build --release --target "${arch}-unknown-linux-gnu"
+find target -type f
 cp "target/${arch}-unknown-linux-gnu/release/tailspin" "${prefix}${target}/bin/"
 EOF
 
