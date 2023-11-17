@@ -13,6 +13,8 @@ apt-get -y install --no-install-recommends \
     automake \
     libtool \
     build-essential \
+    cmake \
+    pkg-config \
     libcurl4-openssl-dev \
     libssl-dev \
     libaio-dev \
@@ -20,7 +22,9 @@ apt-get -y install --no-install-recommends \
     libnl-genl-3-dev \
     libgflags-dev \
     libzstd-dev \
-    libext2fs-dev
+    libext2fs-dev \
+    zlib1g-dev \
+    sudo
 EOF
 WORKDIR /tmp/overlaybd
 RUN <<EOF
