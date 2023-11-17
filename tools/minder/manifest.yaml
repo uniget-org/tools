@@ -5,7 +5,7 @@ version: "0.0.17"
 check: ""
 platforms:
 - linux/amd64
-#- linux/arm64
+- linux/arm64
 tags:
 - category/security
 - lang/go
