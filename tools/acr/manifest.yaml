@@ -2,12 +2,12 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: acr
 version: "0.9"
-check: ""
+check: "" # No usable version output
 build_dependencies:
 - go
 platforms:
 - linux/amd64
-#- linux/arm64
+- linux/arm64
 tags:
 - org/microsoft
 - category/operations
