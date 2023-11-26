@@ -14,6 +14,9 @@ tags:
 - type/cli
 homepage: https://github.com/kovidgoyal/kitty
 description: Cross-platform, fast, feature-rich, GPU based terminal
+messages:
+  internals: |
+    Make sure you have libegl and libwayland-egl installed.
 renovate:
   datasource: github-releases
   package: kovidgoyal/kitty
