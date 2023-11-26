@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: kitty
+version: "0.31.0"
+check: ""
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/python
+- lang/c
+- lang/go
+- type/cli
+homepage: https://github.com/kovidgoyal/kitty
+description: Cross-platform, fast, feature-rich, GPU based terminal
+renovate:
+  datasource: github-releases
+  package: kovidgoyal/kitty
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
