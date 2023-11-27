@@ -1,5 +1,5 @@
 name: ripgrep
-version: "13.0.0"
+version: "14.0.1"
 binary: rg
 check: ${binary} --version | head -1 | cut -d' ' -f2
 tags:
