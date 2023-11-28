@@ -27,7 +27,7 @@ COSIGN_EXPERIMENTAL=1 cosign verify-blob \
     --cert "autocert_linux_${version}_amd64.tar.gz.pem" \
     --signature "autocert_linux_${version}_amd64.tar.gz.sig" \
     --certificate-oidc-issuer https://token.actions.githubusercontent.com \
-    --certificate-identity "https://github.com/smallstep/autocert/.github/workflows/release.yml@refs/tags/v${version}" \
+    --certificate-identity "https://github.com/smallstep/workflows/.github/workflows/goreleaser.yml@refs/heads/main" \
     --certificate-github-workflow-name "Create Release & Upload Assets" \
     --certificate-github-workflow-ref "refs/tags/v${version}" \
     --certificate-github-workflow-repository "smallstep/autocert" \
