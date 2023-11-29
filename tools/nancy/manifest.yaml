@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: nancy
+version: "1.0.45"
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/sonatype
+- category/development
+- lang/go
+- type/cli
+homepage: https://github.com/sonatype-nexus-community/nancy
+description: Check for vulnerabilities in your Golang dependencies
+renovate:
+  datasource: github-releases
+  package: sonatype-nexus-community/nancy
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
