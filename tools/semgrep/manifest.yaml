@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: semgrep
+version: "1.50.0"
+check: ${binary} --version
+#build_dependencies:
+#- python
+#- shiv
+#runtime_dependencies:
+#- python
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/python
+- type/cli
+homepage: https://github.com/semgrep/semgrep
+description: Lightweight static analysis for many languages
+renovate:
+  datasource: pypi
+  package: semgrep
+  priority: low
