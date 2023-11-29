@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: gotestsum
+version: "1.11.0"
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/cli
+homepage: https://github.com/gotestyourself/gotestsum
+description: go test runner with output optimized for humans, JUnit XML for CI integration, and a summary of the test results
+renovate:
+  datasource: github-releases
+  package: gotestyourself/gotestsum
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
