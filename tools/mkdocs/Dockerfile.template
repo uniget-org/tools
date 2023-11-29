@@ -42,5 +42,7 @@ pip install --no-cache-dir \
     mkdocs-redirects \
     regex
 deactivate
+sed -i -E "s/${prefix}//" "${prefix}/libexec/mkdocs/bin/mkdocs"
+sed -i -E "s/${prefix}//" "${prefix}/libexec/mkdocs/bin/activate"
 ln --symbolic --relative --force "${prefix}/libexec/mkdocs/bin/mkdocs" "${prefix}/bin/"
 EOF
