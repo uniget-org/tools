@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: golangci-lint
+version: "1.55.2"
+check: ${binary} version | cut -d ' ' -f4
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/cli
+homepage: https://github.com/golangci/golangci-lint
+description: Fast linters Runner for Go 
+renovate:
+  datasource: github-releases
+  package: golangci/golangci-lint
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
