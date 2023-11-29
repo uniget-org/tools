@@ -24,4 +24,6 @@ python -m venv "${prefix}${target}/libexec/semgrep"
 source "${prefix}${target}/libexec/semgrep/bin/activate"
 pip install "semgrep==${version}"
 deactivate
+ln --symbolic --relative --force "${prefix}${target}/libexec/semgrep/bin/semgrep" "${prefix}${target}/bin/"
+ln --symbolic --relative --force "${prefix}${target}/libexec/semgrep/bin/pysemgrep" "${prefix}${target}/bin/"
 EOF
