@@ -13,9 +13,8 @@ FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
 ARG name
 ARG version
 
-# check
-# check-github-release-asset "foo/bar" "${version}" "foo-${version}-linux-amd64.tar.gz"
-
+# tarball
+#RUN <<EOF
 #echo "### Setting architecture string for ${TARGETPLATFORM}"
 #case "${arch}" in
 #    x86_64)
@@ -30,15 +29,32 @@ ARG version
 #        ;;
 #esac
 #echo "    Using ${arch_suffix}"
-
-# tarball
-#RUN <<EOF
+#
+#check-github-release-asset "foo/bar" "${version}" "foo-${version}-linux-amd64.tar.gz"
+#check-download ""
 #curl --silent --location --fail "" \
 #| tar --extract --gzip --directory="${prefix}${target}/bin/" --no-same-owner
 #EOF
 
 # executable
 #RUN <<EOF
+#echo "### Setting architecture string for ${TARGETPLATFORM}"
+#case "${arch}" in
+#    x86_64)
+#        export arch_suffix=64bit
+#        ;;
+#    aarch64)
+#        export arch_suffix=ARM64
+#        ;;
+#    *)
+#        echo "ERROR: Unsupported architecture ${arch}."
+#        exit 1
+#        ;;
+#esac
+#echo "    Using ${arch_suffix}"
+#
+#check-github-release-asset "foo/bar" "${version}" "foo-${version}-linux-amd64.tar.gz"
+#check-download ""
 #curl --silent --location --fail --output "${prefix}${target}/bin/foo" \
 #    ""
 #chmod +x "${prefix}${target}/bin/foo"
@@ -46,6 +62,23 @@ ARG version
 
 # zip
 #RUN <<EOF
+#echo "### Setting architecture string for ${TARGETPLATFORM}"
+#case "${arch}" in
+#    x86_64)
+#        export arch_suffix=64bit
+#        ;;
+#    aarch64)
+#        export arch_suffix=ARM64
+#        ;;
+#    *)
+#        echo "ERROR: Unsupported architecture ${arch}."
+#        exit 1
+#        ;;
+#esac
+#echo "    Using ${arch_suffix}"
+#
+#check-github-release-asset "foo/bar" "${version}" "foo-${version}-linux-amd64.tar.gz"
+#check-download ""
 #url=""
 #filename="$(basename "${url}")"
 #curl --silent --location --fail --remote-name "${url}"
@@ -61,6 +94,7 @@ ARG version
 #EOF
 #WORKDIR /go/src/github.com/foo/bar
 #RUN <<EOF
+#check-clone "https://github.com/foo/bar" "v${version}"
 #git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/foo/bar .
 #make
 #cp foo "${prefix}${target}/bin/"
