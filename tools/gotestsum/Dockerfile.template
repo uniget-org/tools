@@ -1,0 +1,13 @@
+#syntax=docker/dockerfile:1.6.0
+
+ARG ref=main
+
+FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+ARG name
+ARG version
+RUN <<EOF
+check-github-release-asset "gotestyourself/gotestsum" "v${version}" "gotestsum_${version}_linux_${alt_arch}.tar.gz"
+curl --silent --location --fail "https://github.com/gotestyourself/gotestsum/releases/download/v${version}/gotestsum_${version}_linux_${alt_arch}.tar.gz" \
+| tar --extract --gzip --directory="${prefix}${target}/bin/" --no-same-owner \
+    gotestsum
+EOF
