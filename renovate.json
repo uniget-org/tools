@@ -4427,6 +4427,17 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "npm",
+      "depNameTemplate": "markdownlint-cli",
+      "fileMatch": [
+        "^tools/markdownlint/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "undistro/marvin",
       "extractVersionTemplate": "^v(?<version>.+?)$",
