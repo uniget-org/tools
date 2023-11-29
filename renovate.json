@@ -5335,6 +5335,17 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "pypi",
+      "depNameTemplate": "pre-commit",
+      "fileMatch": [
+        "^tools/pre-commit/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "dalance/procs",
       "extractVersionTemplate": "^v(?<version>.+?)$",
