@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: pre-commit
+version: "3.5.0"
+check: ${binary} --version | cut -d' ' -f2
+build_dependencies:
+#- python
+- shiv
+#runtime_dependencies:
+#- python
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/python
+- type/cli
+homepage: https://github.com/pre-commit/pre-commit
+description: Framework for managing and maintaining multi-language pre-commit hooks
+renovate:
+  datasource: pypi
+  package: pre-commit
+  priority: low
