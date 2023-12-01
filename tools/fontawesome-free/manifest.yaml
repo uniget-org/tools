@@ -1,5 +1,5 @@
 name: fontawesome-free
-version: "6.5.0"
+version: "6.5.1"
 binary: "false"
 check: "" # No binary
 tags:
