@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: whalesay
+version: "0.0.1"
+check: ""
+runtime_dependencies:
+- cowsay
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/go
+- type/cli
+homepage: https://github.com/docker/whalesay
+description: Docker's official whalesay

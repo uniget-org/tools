@@ -1,0 +1,16 @@
+##
+## Docker Cow, https://github.com/docker/whalesay/blob/master/docker.cow
+##
+$the_cow = <<EOC;
+    $thoughts
+     $thoughts
+      $thoughts
+                    ##         .
+              ## ## ##        ==
+           ## ## ## ## ##    ===
+       /"""""""""""""""""\___/ ===
+      {                       /  ===-
+       \______ O           __/
+         \    \         __/
+          \____\_______/
+EOC
