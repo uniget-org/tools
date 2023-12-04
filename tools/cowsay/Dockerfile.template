@@ -14,4 +14,7 @@ curl --silent --location --fail "https://github.com/Code-Hex/Neo-cowsay/releases
     cowthink
 curl --silent --location --fail --output "${prefix}${target}/share/man/man1/cowsay.1" \
     "https://github.com/Code-Hex/Neo-cowsay/raw/v${version}/doc/cowsay.1"
+curl --silent --location --fail "https://github.com/Code-Hex/Neo-cowsay/archive/refs/tags/v${version}.tar.gz" \
+| tar --extract --gzip --directory="${prefix}${target}/share" --strip-components=1 --no-same-owner \
+    "Neo-cowsay-${version}/cows"
 EOF
