@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: cockroach
+version: "23.1.12"
+check: ${binary} version --build-tag | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/go
+- type/daemon
+homepage: https://github.com/cockroachdb/cockroach
+description: open source, cloud-native distributed SQL database
+renovate:
+  datasource: github-tags
+  package: cockroachdb/cockroach
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
