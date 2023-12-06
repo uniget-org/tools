@@ -1,0 +1,16 @@
+#syntax=docker/dockerfile:1.6.0
+
+ARG ref=main
+
+FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+ARG name
+ARG version
+RUN <<EOF
+check-download "https://binaries.cockroachdb.com/cockroach-v${version}.linux-${alt_arch}.tgz"
+curl --silent --location --fail "https://binaries.cockroachdb.com/cockroach-v${version}.linux-${alt_arch}.tgz" \
+| tar --extract --gzip --directory="${prefix}${target}/bin/" --strip-components=1 --no-same-owner
+mkdir -p "${prefix}${target}/lib/cockroach"
+mv "${prefix}${target}/bin/lib/libgeos.so" "${prefix}${target}/lib/cockroach/"
+mv "${prefix}${target}/bin/lib/libgeos_c.so" "${prefix}${target}/lib/cockroach/"
+rmdir "${prefix}${target}/bin/lib"
+EOF
