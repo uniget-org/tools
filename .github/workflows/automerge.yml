@@ -116,7 +116,7 @@ jobs:
         while test "${http_code}" -eq 405 && test "${attempt}" -le "${max_attempts}"; do
             echo "  Attempt ${attempt}"
             http_code="$(
-                curl --silent --show-error --fail --request PUT --header "Authorization: token ${GITHUB_TOKEN}" \
+                curl --silent --request PUT --header "Authorization: token ${GITHUB_TOKEN}" \
                     --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${PR}/merge" \
                     --data '{"merge_method": "rebase"}' \
                     --output /dev/null \
