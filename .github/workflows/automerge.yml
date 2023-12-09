@@ -110,9 +110,26 @@ jobs:
         echo "PR ${PR} is ready for auto-merge"
 
         echo "Merging PR ${PR}..."
-        if ! curl --silent --show-error --fail --request PUT --header "Authorization: token ${GITHUB_TOKEN}" \
-                --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${PR}/merge" \
-                --data '{"merge_method": "rebase"}'; then
+        http_code="405"
+        max_attempts=3
+        attempt=1
+        while test "${http_code}" -eq 405 && test "${attempt}" -le "${max_attempts}"; do
+            echo "  Attempt ${attempt}"
+            http_code="$(
+                curl --silent --show-error --fail --request PUT --header "Authorization: token ${GITHUB_TOKEN}" \
+                    --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${PR}/merge" \
+                    --data '{"merge_method": "rebase"}' \
+                    --output /dev/null \
+                    --write-out "${http_code}"
+            )"
+            echo "    Got HTTP code ${http_code}"
+            if test "${http_code}" -eq 405; then
+                echo "    Sleeping"
+                sleep 5
+            fi
+            attempt=$(( attempt + 1 ))
+        done
+        if test "${http_code}" -eq 405; then
             echo "ERROR: Unable to merge PR ${PR}"
             exit 1
         fi
