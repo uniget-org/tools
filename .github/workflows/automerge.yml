@@ -123,14 +123,14 @@ jobs:
                     --write-out "${http_code}"
             )"
             echo "    Got HTTP code ${http_code}"
-            if test "${http_code}" -eq 405; then
+            if test "${attempt}" -eq "${max_attempts}"; then
+                echo "    Max attempt reached"
+                break
+
+            elif test "${http_code}" -eq 405; then
                 echo "    Sleeping"
                 cat merge.json
                 sleep 5
-
-            elif test "${attempt}" -eq "${max_attempts}"; then
-                echo "    Max attempt reached"
-                break
 
             else
                 echo "    Non-405 code"
