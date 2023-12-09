@@ -128,7 +128,7 @@ jobs:
                 cat merge.json
                 sleep 5
 
-            elif test "${attempt}" -eq "${max_attempts}"
+            elif test "${attempt}" -eq "${max_attempts}"; then
                 echo "    Max attempt reached"
                 break
 
