@@ -113,19 +113,28 @@ jobs:
         http_code="405"
         max_attempts=3
         attempt=1
-        while test "${http_code}" -eq 405 && test "${attempt}" -le "${max_attempts}"; do
+        while true; do
             echo "  Attempt ${attempt}"
             http_code="$(
                 curl --silent --request PUT --header "Authorization: token ${GITHUB_TOKEN}" \
                     --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${PR}/merge" \
                     --data '{"merge_method": "rebase"}' \
-                    --output /dev/null \
+                    --output merge.json \
                     --write-out "${http_code}"
             )"
             echo "    Got HTTP code ${http_code}"
             if test "${http_code}" -eq 405; then
                 echo "    Sleeping"
+                cat merge.json
                 sleep 5
+
+            elif test "${attempt}" -eq "${max_attempts}"
+                echo "    Max attempt reached"
+                break
+
+            else
+                echo "    Non-405 code"
+                break
             fi
             attempt=$(( attempt + 1 ))
         done
