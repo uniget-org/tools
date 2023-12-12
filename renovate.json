@@ -1753,6 +1753,17 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "npm",
+      "depNameTemplate": "emoj",
+      "fileMatch": [
+        "^tools/emoj/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "emojisum/emojisum",
       "extractVersionTemplate": "^draft\\+(?<version>.+?)$",
