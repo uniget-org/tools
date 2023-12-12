@@ -45,18 +45,27 @@ jobs:
         registry: ghcr.io
         username: uniget-bot
         password: ${{ secrets.GITHUB_TOKEN }}
-        
+
+    - name: Fix versions with special characters
+      id: fix
+      run: |
+        name_and_version="$(
+            echo "${{ inputs.name_and_version }}" \
+            | sed 's/+/-/g'
+        )"
+        echo "name_and_version=${name_and_version}" >"${GITHUB_OUTPUT}"
+
     - name: Analyze for critical and high CVEs
       id: docker-scout-cves
       uses: docker/scout-action@v0.23.4
       with:
         command: cves
-        image: ghcr.io/${{ github.repository }}/${{ inputs.name_and_version }}
+        image: ghcr.io/${{ github.repository }}/${{ steps.fix.outputs.name_and_version }}
         dockerhub-user: ${{ secrets.DOCKERHUB_USER }}
         dockerhub-password: ${{ secrets.DOCKERHUB_TOKEN }}
         sarif-file: sarif.output.json
         summary: true
-      
+
     - name: Upload SARIF result
       id: upload-sarif
       uses: github/codeql-action/upload-sarif@v2
