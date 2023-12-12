@@ -1,0 +1,24 @@
+#syntax=docker/dockerfile:1.6.0
+
+ARG ref=main
+
+FROM ghcr.io/uniget-org/tools/make:${ref} AS make
+FROM ghcr.io/uniget-org/tools/pandoc:${ref} AS pandoc
+
+FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+COPY --from=make / /
+COPY --from=pandoc / /
+ARG name
+ARG version
+WORKDIR /tmp/walk
+RUN <<EOF
+check-download "https://github.com/binpash/try/archive/refs/tags/v${version}.tar.gz"
+curl --silent --location --fail "https://github.com/binpash/try/archive/refs/tags/v${version}.tar.gz" \
+| tar --extract --gzip --strip-components=1 --no-same-owner
+
+cp try "${prefix}${target}/bin/"
+cp completions/try.bash "${prefix}${target}/share/bash-completion/completions/walk"
+
+make -C man try.1
+cp man/try.1 "${prefix}${target}/share/man/man1/"
+EOF
