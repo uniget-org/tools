@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: emoj
+version: "4.0.1"
+check: ${binary} --version
+build_dependencies:
+- nodejs
+- npm
+runtime_dependencies:
+- nodejs
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- lang/javascript
+- type/cli
+homepage: https://github.com/sindresorhus/emoj
+description: Find relevant emoji from text on the command-line
+renovate:
+  datasource: npm
+  package: emoj
+  priority: low
