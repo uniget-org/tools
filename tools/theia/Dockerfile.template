@@ -57,8 +57,23 @@ COPY <<EOF package.json
 }
 EOF
 RUN <<EOF
-curl --silent --show-error --location --fail --remote-name https://nodejs.org/download/release/v20.7.0/node-v20.7.0-headers.tar.gz
-npm_config_tarball=node-v20.7.0-headers.tar.gz yarn install
+apt-get update
+apt-get -y install --no-install-recommends \
+    make \
+    build-essential \
+    pkg-config \
+    libx11-dev \
+    libxkbfile-dev \
+    libsecret-1-dev \
+    python3-pip \
+    python3-venv \
+    python-is-python3
+EOF
+RUN <<EOF
+NODE_VERSION="$( node --version )"
+curl --silent --show-error --location --fail --remote-name \
+    "https://nodejs.org/download/release/${NODE_VERSION}/node-${NODE_VERSION}-headers.tar.gz"
+npm_config_tarball="node-${NODE_VERSION}-headers.tar.gz" yarn install
 yarn theia build
 touch "${prefix}${target}/foo"
 EOF
