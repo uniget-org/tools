@@ -1,5 +1,5 @@
 name: buildah
-version: "1.33.2"
+version: "1.34.0"
 check: ${binary} --version | cut -d' ' -f3
 runtime_dependencies:
 - runc
