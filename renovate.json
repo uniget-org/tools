@@ -314,6 +314,17 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "github-tags",
+      "depNameTemplate": "ublue-os/blincus",
+      "fileMatch": [
+        "^tools/blincus/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "pypi",
       "depNameTemplate": "bogrod",
       "fileMatch": [

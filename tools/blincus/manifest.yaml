@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: blincus
+version: "0.1.3"
+check: ""
+runtime_dependencies:
+- incus
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/shell
+- type/cli
+homepage: https://github.com/ublue-os/blincus
+description: Rapid Development Environments With Incus
+renovate:
+  datasource: github-tags
+  package: ublue-os/blincus
+  priority: high
