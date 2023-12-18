@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: incus
+version: "0.3.0"
+check: ""
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/lxc
+- category/operations
+- lang/go
+- type/cli
+homepage: https://github.com/lxc/incus
+description: Powerful system container and virtual machine manager
+renovate:
+  datasource: github-releases
+  package: lxc/incus
+  extractVersion: ^v(?<version>.+?)$
+  priority: high
