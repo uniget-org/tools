@@ -2,7 +2,7 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: incus
 version: "0.3.0"
-check: ""
+check: "" # Prints truncated version
 platforms:
 - linux/amd64
 - linux/arm64
