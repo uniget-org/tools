@@ -1,0 +1,16 @@
+#syntax=docker/dockerfile:1.6.0
+
+ARG ref=main
+
+FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+ARG name
+ARG version
+RUN <<EOF
+check-github-release-asset "F1bonacc1/process-compose" "v${version}" "process-compose_linux_${alt_arch}.tar.gz"
+curl --silent --location --fail "https://github.com/F1bonacc1/process-compose/releases/download/v${version}/process-compose_linux_${alt_arch}.tar.gz" \
+| tar --extract --gzip --directory="${prefix}${target}/bin/" --no-same-owner
+
+"${prefix}${target}/bin/process-compose" completion bash >"${prefix}${target}/share/bash-completion/completions/process-compose"
+"${prefix}${target}/bin/process-compose" completion fish >"${prefix}${target}/share/fish/vendor_completions.d/process-compose.fish"
+"${prefix}${target}/bin/process-compose" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_process-compose"
+EOF
