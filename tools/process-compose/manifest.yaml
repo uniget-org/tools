@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: process-compose
+version: "0.77.6"
+check: ${binary} version | grep ^Version | cut -dv -f2
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/go
+- type/cli
+homepage: https://github.com/F1bonacc1/process-compose
+description: Simple and flexible scheduler and orchestrator to manage non-containerized applications
+renovate:
+  datasource: github-releases
+  package: F1bonacc1/process-compose
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
