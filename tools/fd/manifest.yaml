@@ -1,5 +1,5 @@
 name: fd
-version: "8.7.1"
+version: "9.0.0"
 check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
