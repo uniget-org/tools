@@ -1,0 +1,9 @@
+#syntax=docker/dockerfile:1.6.0
+
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --chmod=0755 \
+    init.sh \
+    check-download.sh \
+    check-github-release-asset.sh \
+    check-clone.sh \
+    /uniget_bootstrap/etc/profile.d/
