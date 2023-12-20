@@ -97,7 +97,6 @@ $(ALL_TOOLS_RAW):%: \
 		$(TOOLS_DIR)/%/manifest.json \
 		$(TOOLS_DIR)/%/Dockerfile \
 		builders \
-		base \
 		; $(info $(M) Building image $(REGISTRY)/$(REPOSITORY_PREFIX)$*...)
 	@set -o errexit; \
 	PUSH=$(or $(PUSH), false); \
@@ -230,7 +229,7 @@ $(addsuffix --debug,$(ALL_TOOLS_RAW)):%--debug: \
 		--env version=$${TOOL_VERSION} \
 		--rm \
 		$(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${VERSION_TAG} \
-			bash
+			bash --login
 
 .PHONY:
 $(addsuffix --buildg,$(ALL_TOOLS_RAW)):%--buildg: \
@@ -272,15 +271,3 @@ $(addsuffix --test,$(ALL_TOOLS_RAW)):%--test: \
 .PHONY:
 debug: \
 		debug-$(ALT_ARCH)
-
-.PHONY:
-debug-%: \
-		; $(info $(M) Debugging on platform $*...)
-	@docker container run \
-		--interactive \
-		--tty \
-		--privileged \
-		--rm \
-		--platform linux/$* \
-		$(REGISTRY)/$(REPOSITORY_PREFIX)base:$(DOCKER_TAG) \
-			bash
