@@ -1,7 +1,5 @@
 #syntax=docker/dockerfile:1.6.0
 
-ARG ref=main
-
 FROM nixos/nix:2.19.2@sha256:935cdafedba76f86c45d01f30f243474c958e1099029b292e5f2fbeac5f8805e AS build
 ARG name
 ARG version
@@ -14,6 +12,10 @@ cp -rfp ./result/bin/crun /usr/local/bin/
 cp *.1 /usr/local/share/man/man1/
 EOF
 
-FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=build /usr/local/bin/ ${prefix}${target}/bin/
 COPY --link --from=build /usr/local/share/man/man1/ ${prefix}${target}/share/man/man1/
