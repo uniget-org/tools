@@ -15,9 +15,7 @@ ARG name
 ARG version
 ARG deps
 ARG tags
-ARG prefix_override=/uniget_bootstrap
-ENV prefix=${prefix_override}
-COPY --from=prepare ${prefix} /
+COPY --from=prepare /uniget_bootstrap /
 LABEL org.opencontainers.image.source="https://github.com/uniget-org/tools" \
       org.opencontainers.image.ref.name="${ref}" \
       org.opencontainers.image.title="${name}" \
