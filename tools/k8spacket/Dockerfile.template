@@ -1,7 +1,5 @@
 #syntax=docker/dockerfile:1.6.0
 
-ARG ref=main
-
 FROM golang:1.21.5@sha256:672a2286da3ee7a854c3e0a56e0838918d0dbb1c18652992930293312de898a6 AS build
 RUN <<EOF
 apt-get update
@@ -20,7 +18,11 @@ git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}"
 go build -o /usr/local/bin/k8spacket .
 EOF
 
-FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 COPY --from=build /usr/local/bin/k8spacket ${prefix}${target}/bin/

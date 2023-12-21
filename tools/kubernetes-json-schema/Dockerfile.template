@@ -1,8 +1,10 @@
 #syntax=docker/dockerfile:1.6.0
 
-ARG ref=main
-
-FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 RUN <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \

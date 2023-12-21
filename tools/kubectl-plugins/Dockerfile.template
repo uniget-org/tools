@@ -1,7 +1,5 @@
 #syntax=docker/dockerfile:1.6.0
 
-ARG ref=main
-
 # krew internals:
 # - KREW_ROOT defaults to ~/.krew
 # - Add KREW_ROOT/bin to PATH
@@ -9,9 +7,13 @@ ARG ref=main
 # - KREW_ROOT/store/<name>/<version>/<binary>
 # - KREW_ROOT/bin/<binary> links to binary in store
 
-FROM ghcr.io/uniget-org/tools/krew:${ref} AS krew
+FROM ghcr.io/uniget-org/tools/krew:latest AS krew
 
-FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 COPY --from=krew / /
 ARG name
 ARG version
