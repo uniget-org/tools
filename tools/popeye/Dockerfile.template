@@ -6,8 +6,8 @@ FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
 ARG name
 ARG version
 RUN <<EOF
-check-github-release-asset "derailed/popeye" "v${version}" "popeye_Linux_x86_64.tar.gz"
-curl --silent --location --fail "https://github.com/derailed/popeye/releases/download/v${version}/popeye_Linux_x86_64.tar.gz" \
+check-github-release-asset "derailed/popeye" "v${version}" "popeye_Linux_${alt_arch}.tar.gz"
+curl --silent --location --fail "https://github.com/derailed/popeye/releases/download/v${version}/popeye_Linux_${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}${target}/bin/" --no-same-owner \
     popeye
 "${prefix}${target}/bin/popeye" completion bash >"${prefix}${target}/share/bash-completion/completions/popeye"
