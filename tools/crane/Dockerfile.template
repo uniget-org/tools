@@ -1,8 +1,6 @@
 #syntax=docker/dockerfile:1.6.0
 
-ARG ref=main
-
-FROM ghcr.io/uniget-org/tools/base:${ref} AS download
+FROM ghcr.io/uniget-org/tools/base:latest AS download
 ARG name
 ARG version
 RUN <<EOF
