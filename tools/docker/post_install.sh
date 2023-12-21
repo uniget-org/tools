@@ -86,7 +86,7 @@ if ! test -f "/etc/docker/daemon.json"; then
 fi
 
 if test -f "/etc/fstab"; then
-    root_fs="$(cat "/etc/fstab" | tr -s ' ' | grep " / " | cut -d' ' -f3)"
+    root_fs="$(cat "/etc/fstab" | grep -v "^#" | tr -s ' ' | grep " / " | cut -d' ' -f3)"
     if test -z "${root_fs}"; then
         root_fs="$(mount | grep " on / " | cut -d' ' -f5)"
     fi
@@ -140,7 +140,7 @@ if ! test "$(jq --raw-output '.features."containerd-snapshotter" // false' "/etc
 fi
 echo "Check if daemon.json is valid JSON (@ ${SECONDS} seconds)"
 if ! jq --exit-status '.' "/etc/docker/daemon.json" >/dev/null 2>&1; then
-    error "/etc/docker/daemon.json is not valid JSON."
+    echo "ERROR: /etc/docker/daemon.json is not valid JSON."
     exit 1
 fi
 
