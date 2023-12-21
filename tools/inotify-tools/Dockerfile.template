@@ -1,7 +1,5 @@
 #syntax=docker/dockerfile:1.6.0
 
-ARG ref=main
-
 FROM ubuntu:22.04 AS build
 RUN <<EOF
 apt-get update
@@ -28,7 +26,11 @@ make LDFLAGS=--static
 make install
 EOF
 
-FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 COPY --from=build /opt/inotify-tools/ ${prefix}${target}/
