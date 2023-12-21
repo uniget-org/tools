@@ -1,11 +1,13 @@
 #syntax=docker/dockerfile:1.6.0
 
-ARG ref=main
+#FROM ghcr.io/uniget-org/tools/python:latest AS python
+#FROM ghcr.io/uniget-org/tools/shiv:latest AS shiv
 
-#FROM ghcr.io/uniget-org/tools/python:${ref} AS python
-#FROM ghcr.io/uniget-org/tools/shiv:${ref} AS shiv
-
-FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 #COPY --link --from=python / /usr/local/

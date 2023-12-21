@@ -1,10 +1,12 @@
 #syntax=docker/dockerfile:1.6.0
 
-ARG ref=main
+FROM ghcr.io/uniget-org/tools/go-md2man:latest AS go-md2man
 
-FROM ghcr.io/uniget-org/tools/go-md2man:${ref} AS go-md2man
-
-FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 COPY --from=go-md2man / /
 ARG name
 ARG version

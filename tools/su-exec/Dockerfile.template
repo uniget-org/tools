@@ -1,7 +1,5 @@
 #syntax=docker/dockerfile:1.6.0
 
-ARG ref=main
-
 FROM ubuntu:22.04@sha256:6042500cf4b44023ea1894effe7890666b0c5c7871ed83a97c36c76ae560bb9b AS build
 RUN <<EOF
 apt-get update
@@ -20,7 +18,11 @@ make su-exec-static
 cp su-exec-static /usr/local/bin/su-exec
 EOF
 
-FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 COPY --from=build /usr/local/bin/su-exec ${prefix}${target}/bin/
