@@ -24,6 +24,7 @@ apt-get -y install --no-install-recommends \
     libzstd-dev \
     libext2fs-dev \
     zlib1g-dev \
+    libgtest-dev \
     sudo
 EOF
 WORKDIR /tmp/overlaybd
