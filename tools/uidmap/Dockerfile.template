@@ -1,6 +1,10 @@
 #syntax=docker/dockerfile:1.6.0
 
-FROM ubuntu:22.04@sha256:6042500cf4b44023ea1894effe7890666b0c5c7871ed83a97c36c76ae560bb9b AS build
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 RUN <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
@@ -15,26 +19,12 @@ ARG version
 RUN <<EOF
 curl -sL https://github.com/shadow-maint/shadow/releases/download/v${version}/shadow-${version}.tar.xz \
 | tar -xJ --strip-components 1
-./configure --prefix=/opt/uidmap --enable-static --disable-shared
+./configure --prefix="${prefix}" --enable-static --disable-shared
 make LDFLAGS=--static
-mkdir -p \
-    /opt/uidmap/bin \
-    /opt/uidmap/share/man/man1
-cp src/newuidmap /opt/uidmap/bin
-cp src/newgidmap /opt/uidmap/bin
-cp man/man1/newuidmap.1 /opt/uidmap/share/man/man1
-cp man/man1/newgidmap.1 /opt/uidmap/share/man/man1
-EOF
-
-FROM nicholasdille/ubuntu:22.04 AS prepare
-COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
-    /etc/profile.d/ \
-    /etc/profile.d/
-SHELL [ "bash", "-clo", "errexit" ]
-ARG name
-ARG version
-COPY --from=build /opt/uidmap/ ${prefix}/
-RUN <<EOF
+cp src/newuidmap "${prefix}/bin"
+cp src/newgidmap "${prefix}/bin"
+cp man/man1/newuidmap.1 "${prefix}/share/man/man1"
+cp man/man1/newgidmap.1 "${prefix}/share/man/man1"
 chmod u+s "${prefix}/bin/newuidmap"
 chmod u+s "${prefix}/bin/newgidmap"
 EOF
