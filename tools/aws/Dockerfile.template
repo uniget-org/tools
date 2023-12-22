@@ -19,9 +19,9 @@ EOF
 COPY --link --from=shiv / /
 ARG name
 ARG version
-COPY <<EOF ${prefix}${target}/etc/profile.d/aws
+COPY <<EOF ${prefix}/etc/profile.d/aws
 complete -C '/usr/local/bin/aws_completer' aws
 EOF
 RUN <<EOF
-shiv --output-file "${prefix}${target}/bin/aws" --console-script aws "awscli==${version}"
+shiv --output-file "${prefix}/bin/aws" --console-script aws "awscli==${version}"
 EOF

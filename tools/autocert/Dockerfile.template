@@ -37,7 +37,7 @@ COSIGN_EXPERIMENTAL=1 cosign verify-blob \
     --certificate-github-workflow-trigger push \
     "autocert_linux_${version}_amd64.tar.gz"
 
-tar --extract --gzip --directory="${prefix}${target}/bin/" --file "autocert_linux_${version}_amd64.tar.gz" --strip-components=1 --no-same-owner \
+tar --extract --gzip --directory="${prefix}/bin/" --file "autocert_linux_${version}_amd64.tar.gz" --strip-components=1 --no-same-owner \
     "autocert_${version}/autocert"
 #rm "autocert_linux_${version}_amd64.tar.gz"
 EOF
