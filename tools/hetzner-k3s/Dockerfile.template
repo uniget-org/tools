@@ -9,14 +9,14 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "vitobotta/hetzner-k3s" "v${version}" "hetzner-k3s-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}${target}/bin/hetzner-k3s" \
+curl --silent --location --fail --output "${prefix}/bin/hetzner-k3s" \
     "https://github.com/vitobotta/hetzner-k3s/releases/download/v${version}/hetzner-k3s-linux-${alt_arch}"
-chmod +x "${prefix}${target}/bin/hetzner-k3s"
+chmod +x "${prefix}/bin/hetzner-k3s"
 EOF
 
 # completion
 #RUN <<EOF
-#"${prefix}${target}/bin/foo" completion bash >"${prefix}${target}/share/bash-completion/completions/foo"
-#"${prefix}${target}/bin/foo" completion fish >"${prefix}${target}/share/fish/vendor_completions.d/foo.fish"
-#"${prefix}${target}/bin/foo" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_foo"
+#"${prefix}/bin/foo" completion bash >"${prefix}/share/bash-completion/completions/foo"
+#"${prefix}/bin/foo" completion fish >"${prefix}/share/fish/vendor_completions.d/foo.fish"
+#"${prefix}/bin/foo" completion zsh >"${prefix}/share/zsh/vendor-completions/_foo"
 #EOF
