@@ -17,9 +17,9 @@ curl --silent --location --fail "https://git.zx2c4.com/password-store/snapshot/p
 | tar --extract --xz --strip-components=1 --no-same-owner
 make install \
     DESTDIR="${prefix}" \
-    PREFIX="${target}" \
+    PREFIX="" \
     WITH_ALLCOMP="yes" \
-    BASHCOMPDIR="${target}/share/bash-completion/completions" \
-    FISHCOMPDIR="${target}/share/fish/vendor_completions.d" \
-    ZSHCOMPDIR="${target}/share/zsh/vendor-completions"
+    BASHCOMPDIR="/share/bash-completion/completions" \
+    FISHCOMPDIR="/share/fish/vendor_completions.d" \
+    ZSHCOMPDIR="/share/zsh/vendor-completions"
 EOF

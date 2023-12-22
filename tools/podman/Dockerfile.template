@@ -44,20 +44,20 @@ EOF
 RUN git clone --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/containers/podman .
 RUN make EXTRA_LDFLAGS="-s -w -extldflags=-static"
 RUN <<EOF
-make install DESTDIR="${prefix}" PREFIX="${target}"
+make install DESTDIR="${prefix}" PREFIX=""
 mkdir -p \
-    "${prefix}${target}/share/bash-completion/completions" \
-    "${prefix}${target}/share/fish/vendor_completions.d" \
-    "${prefix}${target}/share/zsh/vendor-completions"
+    "${prefix}/share/bash-completion/completions" \
+    "${prefix}/share/fish/vendor_completions.d" \
+    "${prefix}/share/zsh/vendor-completions"
 EOF
 RUN <<EOF
-cp completions/bash/podman "${prefix}${target}/share/bash-completion/completions/podman"
-cp completions/fish/podman.fish "${prefix}${target}/share/fish/vendor_completions.d/podman.fish"
-cp completions/zsh/_podman "${prefix}${target}/share/zsh/vendor-completions/_podman"
-cp "${prefix}${target}/lib/systemd/system/podman.service" "${prefix}${target}/etc/systemd/system/"
-cp "${prefix}${target}/lib/systemd/system/podman.socket" "${prefix}${target}/etc/systemd/system/"
+cp completions/bash/podman "${prefix}/share/bash-completion/completions/podman"
+cp completions/fish/podman.fish "${prefix}/share/fish/vendor_completions.d/podman.fish"
+cp completions/zsh/_podman "${prefix}/share/zsh/vendor-completions/_podman"
+cp "${prefix}/lib/systemd/system/podman.service" "${prefix}/etc/systemd/system/"
+cp "${prefix}/lib/systemd/system/podman.socket" "${prefix}/etc/systemd/system/"
 
-mkdir -p "${prefix}${target}/lib/tmpfiles.d"
-curl --silent --location --fail --output "${prefix}${target}/lib/tmpfiles.d/podman-docker.conf" \
+mkdir -p "${prefix}/lib/tmpfiles.d"
+curl --silent --location --fail --output "${prefix}/lib/tmpfiles.d/podman-docker.conf" \
     "https://github.com/containers/podman/raw/v${version}/contrib/systemd/system/podman-docker.conf"
 EOF
