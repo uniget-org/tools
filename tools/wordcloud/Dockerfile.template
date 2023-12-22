@@ -20,13 +20,13 @@ EOF
 ARG name
 ARG version
 RUN <<EOF
-shiv --output-file "${prefix}${target}/bin/wordcloud_cli" --console-script wordcloud_cli "wordcloud==${version}"
+shiv --output-file "${prefix}/bin/wordcloud_cli" --console-script wordcloud_cli "wordcloud==${version}"
 EOF
 
 # Alternative
 #RUN <<EOF
-#python -m venv "${prefix}${target}/usr/libexec/${name}"
-#source "${prefix}${target}/libexec/${name}/bin/activate"
+#python -m venv "${prefix}/usr/libexec/${name}"
+#source "${prefix}/libexec/${name}/bin/activate"
 #pip install "wordcloud==${version}"
 #deactivate
 #EOF
