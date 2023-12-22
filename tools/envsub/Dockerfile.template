@@ -7,7 +7,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --from=rust / /
+COPY --from=rust / /usr/local/
 ARG DEBIAN_FRONTEND=noninteractive
 RUN <<EOF
 apt-get update
@@ -18,7 +18,7 @@ WORKDIR /tmp/github.com/stephenc/envsub
 ARG name
 ARG version
 RUN <<EOF
-source "${target}/etc/profile.d/cargo.sh"
+source "/usr/local/etc/profile.d/cargo.sh"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" https://github.com/stephenc/envsub .
 cargo build --release --target x86_64-unknown-linux-gnu
 cp target/x86_64-unknown-linux-gnu/release/envsub "${prefix}${target}/bin/"
