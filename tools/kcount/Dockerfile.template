@@ -10,6 +10,6 @@ ARG version
 RUN <<EOF
 check-github-release-asset "pan-net-security/kcount" "v${version}" "kcount_${version}_Linux_x86_64.tar.gz"
 curl --silent --location --fail "https://github.com/pan-net-security/kcount/releases/download/v${version}/kcount_${version}_Linux_x86_64.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin/" --no-same-owner \
+| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     kcount
 EOF

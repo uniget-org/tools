@@ -13,5 +13,5 @@ url="https://github.com/superbrothers/ksort/releases/download/v${version}/ksort-
 filename="$(basename "${url}")"
 curl --silent --location --fail --remote-name "${url}"
 unzip -q -o -d /tmp "${filename}"
-mv /tmp/ksort "${prefix}${target}/bin/"
+mv /tmp/ksort "${prefix}/bin/"
 EOF

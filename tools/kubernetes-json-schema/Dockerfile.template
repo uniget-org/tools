@@ -23,8 +23,8 @@ ARG name
 ARG version
 RUN <<EOF
 echo "${name} ${version}"
-mkdir -p "${prefix}${target}/share/kubernetes/${version}"
+mkdir -p "${prefix}/share/kubernetes/${version}"
 mkdir -p "/tmp/openapi2jsonschema/${prefix}/usr/local/share/kubernetes/${version}"
-python /tmp/openapi2jsonschema/openapi2jsonschema/command.py -o "${prefix}${target}/share/kubernetes/${version}" --expanded --kubernetes --stand-alone --strict "https://github.com/kubernetes/kubernetes/raw/v${version}/api/openapi-spec/swagger.json"
-python /tmp/openapi2jsonschema/openapi2jsonschema/command.py -o "${prefix}${target}/share/kubernetes/${version}"            --kubernetes --stand-alone --strict "https://github.com/kubernetes/kubernetes/raw/v${version}/api/openapi-spec/swagger.json"
+python /tmp/openapi2jsonschema/openapi2jsonschema/command.py -o "${prefix}/share/kubernetes/${version}" --expanded --kubernetes --stand-alone --strict "https://github.com/kubernetes/kubernetes/raw/v${version}/api/openapi-spec/swagger.json"
+python /tmp/openapi2jsonschema/openapi2jsonschema/command.py -o "${prefix}/share/kubernetes/${version}"            --kubernetes --stand-alone --strict "https://github.com/kubernetes/kubernetes/raw/v${version}/api/openapi-spec/swagger.json"
 EOF

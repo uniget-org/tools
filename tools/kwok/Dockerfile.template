@@ -9,16 +9,16 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "kubernetes-sigs/kwok" "v${version}" "kwok-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}${target}/bin/kwok" \
+curl --silent --location --fail --output "${prefix}/bin/kwok" \
     "https://github.com/kubernetes-sigs/kwok/releases/download/v${version}/kwok-linux-${alt_arch}"
-chmod +x "${prefix}${target}/bin/kwok"
+chmod +x "${prefix}/bin/kwok"
 
 check-github-release-asset "kubernetes-sigs/kwok" "v${version}" "kwokctl-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}${target}/bin/kwokctl" \
+curl --silent --location --fail --output "${prefix}/bin/kwokctl" \
     "https://github.com/kubernetes-sigs/kwok/releases/download/v${version}/kwokctl-linux-${alt_arch}"
-chmod +x "${prefix}${target}/bin/kwokctl"
+chmod +x "${prefix}/bin/kwokctl"
 
-"${prefix}${target}/bin/kwokctl" completion bash >"${prefix}${target}/share/bash-completion/completions/kwokctl"
-"${prefix}${target}/bin/kwokctl" completion fish >"${prefix}${target}/share/fish/vendor_completions.d/kwokctl.fish"
-"${prefix}${target}/bin/kwokctl" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_kwokctl"
+"${prefix}/bin/kwokctl" completion bash >"${prefix}/share/bash-completion/completions/kwokctl"
+"${prefix}/bin/kwokctl" completion fish >"${prefix}/share/fish/vendor_completions.d/kwokctl.fish"
+"${prefix}/bin/kwokctl" completion zsh >"${prefix}/share/zsh/vendor-completions/_kwokctl"
 EOF

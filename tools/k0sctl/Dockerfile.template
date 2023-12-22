@@ -23,11 +23,11 @@ case "${arch}" in
 esac
 echo "    Using ${arch_suffix}"
 check-github-release-asset "k0sproject/k0sctl" "v${version}" "k0sctl-linux-${arch_suffix}"
-curl --silent --location --fail --output "${prefix}${target}/bin/k0sctl" \
+curl --silent --location --fail --output "${prefix}/bin/k0sctl" \
     "https://github.com/k0sproject/k0sctl/releases/download/v${version}/k0sctl-linux-${arch_suffix}"
-chmod +x "${prefix}${target}/bin/k0sctl"
+chmod +x "${prefix}/bin/k0sctl"
 
-"${prefix}${target}/bin/k0sctl" completion bash >"${prefix}${target}/share/bash-completion/completions/k0sctl"
-"${prefix}${target}/bin/k0sctl" completion fish >"${prefix}${target}/share/fish/vendor_completions.d/k0sctl.fish"
-"${prefix}${target}/bin/k0sctl" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_k0sctl"
+"${prefix}/bin/k0sctl" completion bash >"${prefix}/share/bash-completion/completions/k0sctl"
+"${prefix}/bin/k0sctl" completion fish >"${prefix}/share/fish/vendor_completions.d/k0sctl.fish"
+"${prefix}/bin/k0sctl" completion zsh >"${prefix}/share/zsh/vendor-completions/_k0sctl"
 EOF

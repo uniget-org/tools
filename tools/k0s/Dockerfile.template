@@ -9,11 +9,11 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "k0sproject/k0s" "v${version}" "k0s-v${version}-${alt_arch}"
-curl --silent --location --fail --output "${prefix}${target}/bin/k0s" \
+curl --silent --location --fail --output "${prefix}/bin/k0s" \
     "https://github.com/k0sproject/k0s/releases/download/v${version}/k0s-v${version}-${alt_arch}"
-chmod +x "${prefix}${target}/bin/k0s"
+chmod +x "${prefix}/bin/k0s"
 
-"${prefix}${target}/bin/k0s" completion bash >"${prefix}${target}/share/bash-completion/completions/k0s"
-"${prefix}${target}/bin/k0s" completion fish >"${prefix}${target}/share/fish/vendor_completions.d/k0s.fish"
-"${prefix}${target}/bin/k0s" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_k0s"
+"${prefix}/bin/k0s" completion bash >"${prefix}/share/bash-completion/completions/k0s"
+"${prefix}/bin/k0s" completion fish >"${prefix}/share/fish/vendor_completions.d/k0s.fish"
+"${prefix}/bin/k0s" completion zsh >"${prefix}/share/zsh/vendor-completions/_k0s"
 EOF

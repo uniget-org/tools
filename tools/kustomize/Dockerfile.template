@@ -10,8 +10,8 @@ ARG version
 RUN <<EOF
 check-github-release-asset "kubernetes-sigs/kustomize" "kustomize%2Fv${version}" "kustomize_v${version}_linux_${alt_arch}.tar.gz"
 curl --silent --location --fail "https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv${version}/kustomize_v${version}_linux_${alt_arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin" --no-same-owner
-"${prefix}${target}/bin/kustomize" completion bash >"${prefix}${target}/share/bash-completion/completions/kustomize"
-"${prefix}${target}/bin/kustomize" completion fish >"${prefix}${target}/share/fish/vendor_completions.d/kustomize.fish"
-"${prefix}${target}/bin/kustomize" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_kustomize"
+| tar --extract --gzip --directory="${prefix}/bin" --no-same-owner
+"${prefix}/bin/kustomize" completion bash >"${prefix}/share/bash-completion/completions/kustomize"
+"${prefix}/bin/kustomize" completion fish >"${prefix}/share/fish/vendor_completions.d/kustomize.fish"
+"${prefix}/bin/kustomize" completion zsh >"${prefix}/share/zsh/vendor-completions/_kustomize"
 EOF

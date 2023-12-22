@@ -10,11 +10,11 @@ SHELL [ "bash", "-clo", "errexit" ]
 COPY --from=cosign / /
 ARG name
 ARG version
-COPY kubelet.service ${prefix}${target}/etc/systemd/system/
+COPY kubelet.service ${prefix}/etc/systemd/system/
 RUN <<EOF
-curl --silent --location --fail --output "${prefix}${target}/bin/kubeadm" \
+curl --silent --location --fail --output "${prefix}/bin/kubeadm" \
     "https://storage.googleapis.com/kubernetes-release/release/v${version}/bin/linux/${alt_arch}/kubeadm"
-chmod +x "${prefix}${target}/bin/kubeadm"
+chmod +x "${prefix}/bin/kubeadm"
 
 if test "$(echo -e "1.26.0-beta.0\n${version}" | sort -V | head -n 1)" == "1.26.0-beta.0"; then
     echo "Verifying keyless signature for kubeadm"
@@ -22,7 +22,7 @@ if test "$(echo -e "1.26.0-beta.0\n${version}" | sort -V | head -n 1)" == "1.26.
         "https://dl.k8s.io/release/v${version}/bin/linux/${alt_arch}/kubeadm.sig"
     curl --silent --location --fail --output "/tmp/kubeadm.cert" \
         "https://dl.k8s.io/release/v${version}/bin/linux/${alt_arch}/kubeadm.cert"
-    COSIGN_EXPERIMENTAL=1 cosign verify-blob "${prefix}${target}/bin/kubeadm" \
+    COSIGN_EXPERIMENTAL=1 cosign verify-blob "${prefix}/bin/kubeadm" \
         --signature "/tmp/kubeadm.sig" \
         --certificate "/tmp/kubeadm.cert" \
         --certificate-oidc-issuer https://accounts.google.com \
@@ -32,6 +32,6 @@ if test "$(echo -e "1.26.0-beta.0\n${version}" | sort -V | head -n 1)" == "1.26.
         "/tmp/kubeadm.cert"
 fi
 
-"${prefix}${target}/bin/kubeadm" completion bash >"${prefix}${target}/share/bash-completion/completions/kubeadm"
-"${prefix}${target}/bin/kubeadm" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_kubeadm"
+"${prefix}/bin/kubeadm" completion bash >"${prefix}/share/bash-completion/completions/kubeadm"
+"${prefix}/bin/kubeadm" completion zsh >"${prefix}/share/zsh/vendor-completions/_kubeadm"
 EOF

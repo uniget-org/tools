@@ -10,5 +10,5 @@ ARG version
 RUN <<EOF
 check-github-release-asset "doitintl/kube-no-trouble" "${version}" "kubent-${version}-linux-${alt_arch}.tar.gz"
 curl --silent --location --fail "https://github.com/doitintl/kube-no-trouble/releases/download/${version}/kubent-${version}-linux-${alt_arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin" --no-same-owner
+| tar --extract --gzip --directory="${prefix}/bin" --no-same-owner
 EOF

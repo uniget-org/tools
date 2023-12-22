@@ -10,12 +10,12 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=nodejs / /
 COPY --link --from=npm / /
-WORKDIR ${prefix}${target}/libexec/keyoxide
+WORKDIR ${prefix}/libexec/keyoxide
 ARG name
 ARG version
 RUN <<EOF
 npm install \
     --omit=dev \
     "keyoxide@${version}"
-ln --symbolic --relative --force "${prefix}${target}/libexec/keyoxide/node_modules/.bin/keyoxide" "${prefix}${target}/bin/"
+ln --symbolic --relative --force "${prefix}/libexec/keyoxide/node_modules/.bin/keyoxide" "${prefix}/bin/"
 EOF

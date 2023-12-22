@@ -10,9 +10,9 @@ ARG version
 RUN <<EOF
 check-github-release-asset "Trendyol/kink" "v${version}" "kink_${version}_Linux-${arch}.tar.gz"
 curl --silent --location --fail "https://github.com/Trendyol/kink/releases/download/v${version}/kink_${version}_Linux-${arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin" --no-same-owner \
+| tar --extract --gzip --directory="${prefix}/bin" --no-same-owner \
     kink
-"${prefix}${target}/bin/kink" completion bash >"${prefix}${target}/share/bash-completion/completions/kink"
-"${prefix}${target}/bin/kink" completion fish >"${prefix}${target}/share/fish/vendor_completions.d/kink.fish"
-"${prefix}${target}/bin/kink" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_kink"
+"${prefix}/bin/kink" completion bash >"${prefix}/share/bash-completion/completions/kink"
+"${prefix}/bin/kink" completion fish >"${prefix}/share/fish/vendor_completions.d/kink.fish"
+"${prefix}/bin/kink" completion zsh >"${prefix}/share/zsh/vendor-completions/_kink"
 EOF

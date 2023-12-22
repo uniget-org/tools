@@ -9,10 +9,10 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "carvel-dev/kapp" "v${version}" "kapp-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}${target}/bin/kapp" \
+curl --silent --location --fail --output "${prefix}/bin/kapp" \
     "https://github.com/carvel-dev/kapp/releases/download/v${version}/kapp-linux-${alt_arch}"
-chmod +x "${prefix}${target}/bin/kapp"
-"${prefix}${target}/bin/kapp" completion bash >"${prefix}${target}/share/bash-completion/completions/kapp"
-"${prefix}${target}/bin/kapp" completion fish >"${prefix}${target}/share/fish/vendor_completions.d/kapp.fish"
-"${prefix}${target}/bin/kapp" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_kapp"
+chmod +x "${prefix}/bin/kapp"
+"${prefix}/bin/kapp" completion bash >"${prefix}/share/bash-completion/completions/kapp"
+"${prefix}/bin/kapp" completion fish >"${prefix}/share/fish/vendor_completions.d/kapp.fish"
+"${prefix}/bin/kapp" completion zsh >"${prefix}/share/zsh/vendor-completions/_kapp"
 EOF
