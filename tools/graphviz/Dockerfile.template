@@ -31,7 +31,7 @@ curl --silent --location --fail "https://gitlab.com/graphviz/graphviz/-/archive/
 | tar --extract --gzip --strip-components=1
 ./autogen.sh
 ./configure \
-    --prefix="${prefix}${target}" \
+    --prefix="${prefix}" \
     --enable-static=yes \
     --enable-shared=no \
     --enable-ltdl=no \
@@ -64,5 +64,5 @@ curl --silent --location --fail "https://gitlab.com/graphviz/graphviz/-/archive/
     --with-x=nomake
 make -j 4
 make install
-mv "${prefix}${target}/bin/dot_static" "${prefix}${target}/bin/dot"
+mv "${prefix}/bin/dot_static" "${prefix}/bin/dot"
 EOF

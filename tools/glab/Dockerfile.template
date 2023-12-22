@@ -11,9 +11,9 @@ ARG version
 
 RUN <<EOF
 curl --silent --location --fail "https://gitlab.com/gitlab-org/cli/-/releases/v${version}/downloads/glab_${version}_Linux_x86_64.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin" --strip-components=1 --no-same-owner \
+| tar --extract --gzip --directory="${prefix}/bin" --strip-components=1 --no-same-owner \
     bin/glab
-"${prefix}${target}/bin/glab" completion -s bash >"${prefix}${target}/share/bash-completion/completions/glab"
-"${prefix}${target}/bin/glab" completion -s fish >"${prefix}${target}/share/fish/vendor_completions.d/glab.fish"
-"${prefix}${target}/bin/glab" completion -s zsh >"${prefix}${target}/share/zsh/vendor-completions/_glab"
+"${prefix}/bin/glab" completion -s bash >"${prefix}/share/bash-completion/completions/glab"
+"${prefix}/bin/glab" completion -s fish >"${prefix}/share/fish/vendor_completions.d/glab.fish"
+"${prefix}/bin/glab" completion -s zsh >"${prefix}/share/zsh/vendor-completions/_glab"
 EOF

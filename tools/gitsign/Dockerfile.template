@@ -10,14 +10,14 @@ SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=cosign / /
 ARG name
 ARG version
-COPY gitsign-credential-cache.sh ${prefix}${target}/etc/profile.d/
+COPY gitsign-credential-cache.sh ${prefix}/etc/profile.d/
 RUN <<EOF
 check-github-release-asset "sigstore/gitsign" "v${version}" "gitsign_${version}_linux_${alt_arch}"
 
 echo "### Installing gitsign ${version}"
-curl --silent --location --fail --output "${prefix}${target}/bin/gitsign" \
+curl --silent --location --fail --output "${prefix}/bin/gitsign" \
     "https://github.com/sigstore/gitsign/releases/download/v${version}/gitsign_${version}_linux_${alt_arch}"
-chmod +x "${prefix}${target}/bin/gitsign"
+chmod +x "${prefix}/bin/gitsign"
 
 echo "### Checking keyless signature for gitsign ${version}"
 curl --silent --location --fail --output "gitsign_${version}_linux_${alt_arch}.pem" \
@@ -38,16 +38,16 @@ COSIGN_EXPERIMENTAL=1 cosign verify-blob \
     --certificate-github-workflow-repository "sigstore/gitsign" \
     --certificate-github-workflow-sha "${SHA}" \
     --certificate-github-workflow-trigger push \
-    "${prefix}${target}/bin/gitsign"
+    "${prefix}/bin/gitsign"
 rm -f "gitsign_${version}_linux_${alt_arch}.pem" "gitsign_${version}_linux_${alt_arch}.sig"
 EOF
 RUN <<EOF
 check-github-release-asset "sigstore/gitsign" "v${version}" "gitsign-credential-cache_${version}_linux_${alt_arch}"
 
 echo "### Installing gitsign-credential-cache ${version}"
-curl --silent --location --fail --output "${prefix}${target}/bin/gitsign-credential-cache" \
+curl --silent --location --fail --output "${prefix}/bin/gitsign-credential-cache" \
     "https://github.com/sigstore/gitsign/releases/download/v${version}/gitsign-credential-cache_${version}_linux_${alt_arch}"
-chmod +x "${prefix}${target}/bin/gitsign-credential-cache"
+chmod +x "${prefix}/bin/gitsign-credential-cache"
 
 echo "### Checking keyless signature for gitsign-credential-cache ${version}"
 curl --silent --location --fail --output "gitsign-credential-cache_${version}_linux_${alt_arch}.pem" \
@@ -64,13 +64,13 @@ COSIGN_EXPERIMENTAL=1 cosign verify-blob \
     --certificate-github-workflow-repository "sigstore/gitsign" \
     --certificate-github-workflow-sha "${SHA}" \
     --certificate-github-workflow-trigger push \
-    "${prefix}${target}/bin/gitsign-credential-cache"
+    "${prefix}/bin/gitsign-credential-cache"
 rm -f "gitsign-credential-cache_${version}_linux_${alt_arch}.pem" "gitsign-credential-cache_${version}_linux_${alt_arch}.sig"
 EOF
 RUN <<EOF
-"${prefix}${target}/bin/gitsign" completion bash >"${prefix}${target}/share/bash-completion/completions/gitsign"
-"${prefix}${target}/bin/gitsign" completion fish >"${prefix}${target}/share/fish/vendor_completions.d/gitsign.fish"
-"${prefix}${target}/bin/gitsign" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_gitsign"
+"${prefix}/bin/gitsign" completion bash >"${prefix}/share/bash-completion/completions/gitsign"
+"${prefix}/bin/gitsign" completion fish >"${prefix}/share/fish/vendor_completions.d/gitsign.fish"
+"${prefix}/bin/gitsign" completion zsh >"${prefix}/share/zsh/vendor-completions/_gitsign"
 EOF
 RUN <<EOF
 mkdir -p "${prefix}/etc/systemd/user"
@@ -78,5 +78,5 @@ curl --silent --verbose --location --fail --output "${prefix}/etc/systemd/user/g
     "https://github.com/sigstore/gitsign/raw/v${version}/contrib/systemd/gitsign-credential-cache.service"
 curl --silent --location --fail --output "${prefix}/etc/systemd/user/gitsign-credential-cache.socket" \
     "https://github.com/sigstore/gitsign/raw/v${version}/contrib/systemd/gitsign-credential-cache.socket"
-sed -i "s|ExecStart=%h/.local/bin/gitsign-credential-cache|ExecStart=${target}/bin/gitsign-credential-cache|" "${prefix}/etc/systemd/user/gitsign-credential-cache.service"
+sed -i "s|ExecStart=%h/.local/bin/gitsign-credential-cache|ExecStart=/bin/gitsign-credential-cache|" "${prefix}/etc/systemd/user/gitsign-credential-cache.service"
 EOF

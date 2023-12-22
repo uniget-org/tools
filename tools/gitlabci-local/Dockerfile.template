@@ -20,5 +20,5 @@ EOF
 ARG name
 ARG version
 RUN <<EOF
-shiv --output-file "${prefix}${target}/bin/gitlabci-local" --console-script gitlabci-local "gitlabci-local==${version}"
+shiv --output-file "${prefix}/bin/gitlabci-local" --console-script gitlabci-local "gitlabci-local==${version}"
 EOF

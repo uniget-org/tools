@@ -20,5 +20,5 @@ EOF
 ARG name
 ARG version
 RUN <<EOF
-shiv --output-file "${prefix}${target}/bin/gitlab-release" --console-script gitlab-release "gitlab-release==${version}"
+shiv --output-file "${prefix}/bin/gitlab-release" --console-script gitlab-release "gitlab-release==${version}"
 EOF

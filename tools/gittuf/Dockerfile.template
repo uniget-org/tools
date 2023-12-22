@@ -9,11 +9,11 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "gittuf/gittuf" "v${version}" "gittuf_${version}_linux_${alt_arch}"
-curl --silent --location --fail --output "${prefix}${target}/bin/gittuf" \
+curl --silent --location --fail --output "${prefix}/bin/gittuf" \
     "https://github.com/gittuf/gittuf/releases/download/v${version}/gittuf_${version}_linux_${alt_arch}"
-chmod +x "${prefix}${target}/bin/gittuf"
+chmod +x "${prefix}/bin/gittuf"
 
-"${prefix}${target}/bin/gittuf" completion bash >"${prefix}${target}/share/bash-completion/completions/gittuf"
-"${prefix}${target}/bin/gittuf" completion fish >"${prefix}${target}/share/fish/vendor_completions.d/gittuf.fish"
-"${prefix}${target}/bin/gittuf" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_gittuf"
+"${prefix}/bin/gittuf" completion bash >"${prefix}/share/bash-completion/completions/gittuf"
+"${prefix}/bin/gittuf" completion fish >"${prefix}/share/fish/vendor_completions.d/gittuf.fish"
+"${prefix}/bin/gittuf" completion zsh >"${prefix}/share/zsh/vendor-completions/_gittuf"
 EOF

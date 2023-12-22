@@ -7,15 +7,15 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-WORKDIR ${prefix}${target}/opt/gcloud
+WORKDIR ${prefix}/opt/gcloud
 RUN <<EOF
 check-download "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-${version}-linux-${arch}.tar.gz"
 curl --silent --location --fail "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-${version}-linux-${arch}.tar.gz" \
 | tar --extract --gzip --strip-components=1 --no-same-owner
-ln --symbolic --relative --force "${prefix}${target}/opt/gcloud/bin/gcloud" "${prefix}${target}/bin/gcloud"
-ln --symbolic --relative --force "${prefix}${target}/opt/gcloud/bin/bq" "${prefix}${target}/bin/bq"
+ln --symbolic --relative --force "${prefix}/opt/gcloud/bin/gcloud" "${prefix}/bin/gcloud"
+ln --symbolic --relative --force "${prefix}/opt/gcloud/bin/bq" "${prefix}/bin/bq"
 
-cp "${prefix}${target}/opt/gcloud/path.bash.inc" "${prefix}${target}/share/bash-completion/completions/foo"
-cp "${prefix}${target}/opt/gcloud/path.fish.inc" "${prefix}${target}/share/fish/vendor_completions.d/foo.fish"
-cp "${prefix}${target}/opt/gcloud/path.zsh.inc"  "${prefix}${target}/share/zsh/vendor-completions/_foo"
+cp "${prefix}/opt/gcloud/path.bash.inc" "${prefix}/share/bash-completion/completions/foo"
+cp "${prefix}/opt/gcloud/path.fish.inc" "${prefix}/share/fish/vendor_completions.d/foo.fish"
+cp "${prefix}/opt/gcloud/path.zsh.inc"  "${prefix}/share/zsh/vendor-completions/_foo"
 EOF

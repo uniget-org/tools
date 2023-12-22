@@ -23,14 +23,14 @@ RUN <<EOF
 check-clone https://github.com/guacsec/guac "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/guacsec/guac .
 make build
-cp bin/guac* "${prefix}${target}/bin/"
+cp bin/guac* "${prefix}/bin/"
 EOF
 RUN <<EOF
-"${prefix}${target}/bin/guaccollect" completion bash >"${prefix}${target}/share/bash-completion/completions/guaccollect"
-"${prefix}${target}/bin/guaccollect" completion fish >"${prefix}${target}/share/fish/vendor_completions.d/guaccollect.fish"
-"${prefix}${target}/bin/guaccollect" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_guaccollect"
+"${prefix}/bin/guaccollect" completion bash >"${prefix}/share/bash-completion/completions/guaccollect"
+"${prefix}/bin/guaccollect" completion fish >"${prefix}/share/fish/vendor_completions.d/guaccollect.fish"
+"${prefix}/bin/guaccollect" completion zsh >"${prefix}/share/zsh/vendor-completions/_guaccollect"
 
-"${prefix}${target}/bin/guacone" completion bash >"${prefix}${target}/share/bash-completion/completions/guacone"
-"${prefix}${target}/bin/guacone" completion fish >"${prefix}${target}/share/fish/vendor_completions.d/guacone.fish"
-"${prefix}${target}/bin/guacone" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_guacone"
+"${prefix}/bin/guacone" completion bash >"${prefix}/share/bash-completion/completions/guacone"
+"${prefix}/bin/guacone" completion fish >"${prefix}/share/fish/vendor_completions.d/guacone.fish"
+"${prefix}/bin/guacone" completion zsh >"${prefix}/share/zsh/vendor-completions/_guacone"
 EOF

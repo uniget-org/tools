@@ -20,5 +20,5 @@ apt-get -y install --no-install-recommends \
     python-is-python3
 EOF
 RUN <<EOF
-shiv --output-file "${prefix}${target}/bin/gita" --console-script gita "gita==${version}"
+shiv --output-file "${prefix}/bin/gita" --console-script gita "gita==${version}"
 EOF

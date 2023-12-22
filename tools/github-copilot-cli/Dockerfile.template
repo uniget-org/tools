@@ -12,15 +12,15 @@ ARG name
 ARG version
 COPY --link --from=nodejs / /
 COPY --link --from=npm / /
-WORKDIR ${prefix}${target}/libexec/github-copilot-cli
+WORKDIR ${prefix}/libexec/github-copilot-cli
 ARG name
 ARG version
 RUN <<EOF
 npm install \
     --omit=dev \
     "@githubnext/github-copilot-cli@${version}"
-ln --symbolic --relative --force "${prefix}${target}/libexec/github-copilot-cli/node_modules/.bin/github-copilot-cli" "${prefix}${target}/bin/"
+ln --symbolic --relative --force "${prefix}/libexec/github-copilot-cli/node_modules/.bin/github-copilot-cli" "${prefix}/bin/"
 EOF
-COPY <<EOF ${prefix}${target}/etc/profile.d/github-copilot-cli.sh
+COPY <<EOF ${prefix}/etc/profile.d/github-copilot-cli.sh
 eval "$(github-copilot-cli alias -- "$0")"
 EOF

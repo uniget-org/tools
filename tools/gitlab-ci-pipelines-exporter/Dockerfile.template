@@ -10,12 +10,12 @@ ARG version
 RUN <<EOF
 check-github-release-asset "mvisonneau/gitlab-ci-pipelines-exporter" "v${version}" "gitlab-ci-pipelines-exporter_v${version}_linux_${alt_arch}.tar.gz"
 curl --silent --location --fail "https://github.com/mvisonneau/gitlab-ci-pipelines-exporter/releases/download/v${version}/gitlab-ci-pipelines-exporter_v${version}_linux_${alt_arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin/" --no-same-owner \
+| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     gitlab-ci-pipelines-exporter \
     helpers
 
-mv "${prefix}${target}/bin/helpers/autocomplete/bash" "${prefix}${target}/share/bash-completion/completions/gitlab-ci-pipelines-exporter"
-mv "${prefix}${target}/bin/helpers/autocomplete/zsh" "${prefix}${target}/share/zsh/vendor-completions/_gitlab-ci-pipelines-exporter"
-mv "${prefix}${target}/bin/helpers/manpages/gitlab-ci-pipelines-exporter.1.gz" "${prefix}${target}/share/man/man1/"
-rm -rf "${prefix}${target}/bin/helpers"
+mv "${prefix}/bin/helpers/autocomplete/bash" "${prefix}/share/bash-completion/completions/gitlab-ci-pipelines-exporter"
+mv "${prefix}/bin/helpers/autocomplete/zsh" "${prefix}/share/zsh/vendor-completions/_gitlab-ci-pipelines-exporter"
+mv "${prefix}/bin/helpers/manpages/gitlab-ci-pipelines-exporter.1.gz" "${prefix}/share/man/man1/"
+rm -rf "${prefix}/bin/helpers"
 EOF

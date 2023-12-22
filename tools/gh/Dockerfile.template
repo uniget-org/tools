@@ -10,9 +10,9 @@ ARG version
 RUN <<EOF
 check-github-release-asset "cli/cli" "v${version}" "gh_${version}_linux_${alt_arch}.tar.gz"
 curl --silent --location --fail "https://github.com/cli/cli/releases/download/v${version}/gh_${version}_linux_${alt_arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}" --strip-components=1 --no-same-owner
-rm "${prefix}${target}/LICENSE"
-"${prefix}${target}/bin/gh" completion -s bash >"${prefix}${target}/share/bash-completion/completions/gh"
-"${prefix}${target}/bin/gh" completion -s fish >"${prefix}${target}/share/fish/vendor_completions.d/gh.fish"
-"${prefix}${target}/bin/gh" completion -s zsh >"${prefix}${target}/share/zsh/vendor-completions/_gh"
+| tar --extract --gzip --directory="${prefix}" --strip-components=1 --no-same-owner
+rm "${prefix}/LICENSE"
+"${prefix}/bin/gh" completion -s bash >"${prefix}/share/bash-completion/completions/gh"
+"${prefix}/bin/gh" completion -s fish >"${prefix}/share/fish/vendor_completions.d/gh.fish"
+"${prefix}/bin/gh" completion -s zsh >"${prefix}/share/zsh/vendor-completions/_gh"
 EOF

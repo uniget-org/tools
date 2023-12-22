@@ -56,21 +56,21 @@ COSIGN_EXPERIMENTAL=1 cosign verify-blob checksums.txt \
     --certificate-github-workflow-sha "${SHA}"
 
 echo "### Unpacking"
-tar --extract --gzip --file="goreleaser_Linux_${arch_suffix}.tar.gz" --directory="${prefix}${target}/bin/" --no-same-owner \
+tar --extract --gzip --file="goreleaser_Linux_${arch_suffix}.tar.gz" --directory="${prefix}/bin/" --no-same-owner \
     goreleaser \
     manpages \
     completions
 
 echo "### Moving manpages"
-mv "${prefix}${target}/bin/manpages/goreleaser.1.gz" "${prefix}${target}/share/man/man1/"
+mv "${prefix}/bin/manpages/goreleaser.1.gz" "${prefix}/share/man/man1/"
 
 echo "### Moving completions"
-mv "${prefix}${target}/bin/completions/goreleaser.bash" "${prefix}${target}/share/bash-completion/completions/goreleaser"
-mv "${prefix}${target}/bin/completions/goreleaser.fish" "${prefix}${target}/share/fish/vendor_completions.d/goreleaser.fish"
-mv "${prefix}${target}/bin/completions/goreleaser.zsh" "${prefix}${target}/share/zsh/vendor-completions/_goreleaser"
+mv "${prefix}/bin/completions/goreleaser.bash" "${prefix}/share/bash-completion/completions/goreleaser"
+mv "${prefix}/bin/completions/goreleaser.fish" "${prefix}/share/fish/vendor_completions.d/goreleaser.fish"
+mv "${prefix}/bin/completions/goreleaser.zsh" "${prefix}/share/zsh/vendor-completions/_goreleaser"
 
 echo "### Cleaning up"
 rmdir \
-    "${prefix}${target}/bin/manpages" \
-    "${prefix}${target}/bin/completions"
+    "${prefix}/bin/manpages" \
+    "${prefix}/bin/completions"
 EOF

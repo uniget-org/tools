@@ -15,8 +15,8 @@ curl --silent --location --fail "https://github.com/newren/git-filter-repo/relea
     "git-filter-repo-${version}/Documentation/man1/git-filter-repo.1" \
     "git-filter-repo-${version}/Documentation/html/git-filter-repo.html"
 
-mkdir -p "${prefix}${target}/share/doc/git/html/"
-mv /tmp/git-filter-repo "${prefix}${target}/bin/"
-mv /tmp/Documentation/man1/git-filter-repo.1 "${prefix}${target}/share/man/man1/"
-mv /tmp/Documentation/html/git-filter-repo.html "${prefix}${target}/share/doc/git/html/"
+mkdir -p "${prefix}/share/doc/git/html/"
+mv /tmp/git-filter-repo "${prefix}/bin/"
+mv /tmp/Documentation/man1/git-filter-repo.1 "${prefix}/share/man/man1/"
+mv /tmp/Documentation/html/git-filter-repo.html "${prefix}/share/doc/git/html/"
 EOF
