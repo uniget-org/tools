@@ -17,8 +17,8 @@ RUN <<EOF
 check-clone https://github.com/in-toto/in-toto-golang "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/in-toto/in-toto-golang .
 make build
-cp bin/in-toto "${prefix}${target}/bin/"
-"${prefix}${target}/bin/in-toto" completion bash >"${prefix}${target}/share/bash-completion/completions/in-toto"
-"${prefix}${target}/bin/in-toto" completion fish >"${prefix}${target}/share/fish/vendor_completions.d/in-toto.fish"
-"${prefix}${target}/bin/in-toto" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_in-toto"
+cp bin/in-toto "${prefix}/bin/"
+"${prefix}/bin/in-toto" completion bash >"${prefix}/share/bash-completion/completions/in-toto"
+"${prefix}/bin/in-toto" completion fish >"${prefix}/share/fish/vendor_completions.d/in-toto.fish"
+"${prefix}/bin/in-toto" completion zsh >"${prefix}/share/zsh/vendor-completions/_in-toto"
 EOF
