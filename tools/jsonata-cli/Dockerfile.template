@@ -12,12 +12,12 @@ COPY --link --from=nodejs / /
 COPY --link --from=npm / /
 ARG name
 ARG version
-WORKDIR ${prefix}${target}/libexec/jsonata-cli
+WORKDIR ${prefix}/libexec/jsonata-cli
 ARG name
 ARG version
 RUN <<EOF
 npm install \
     --omit=dev \
     "jsonata-cli@${version}"
-ln --symbolic --relative --force "${prefix}${target}/libexec/jsonata-cli/node_modules/.bin/jsonata-cli" "${prefix}${target}/bin/"
+ln --symbolic --relative --force "${prefix}/libexec/jsonata-cli/node_modules/.bin/jsonata-cli" "${prefix}/bin/"
 EOF
