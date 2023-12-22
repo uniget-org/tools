@@ -21,5 +21,5 @@ check-clone https://git.zx2c4.com/wireguard-tools "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://git.zx2c4.com/wireguard-tools .
 cd src
 make LDFLAGS=-static
-make install DESTDIR="${prefix}" PREFIX="${target}"
+make install DESTDIR="${prefix}" PREFIX=""
 EOF

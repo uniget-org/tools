@@ -12,10 +12,10 @@ ARG version
 RUN <<EOF
 check-github-release-asset "containrrr/watchtower" "v${version}" "watchtower_linux_amd64.tar.gz"
 curl --silent --location --fail "https://github.com/containrrr/watchtower/releases/download/v${version}/watchtower_linux_amd64.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin" --no-same-owner \
+| tar --extract --gzip --directory="${prefix}/bin" --no-same-owner \
     watchtower
 
-"${prefix}${target}/bin/watchtower" completion bash >"${prefix}${target}/share/bash-completion/completions/watchtower"
-"${prefix}${target}/bin/watchtower" completion fish >"${prefix}${target}/share/fish/vendor_completions.d/watchtower.fish"
-"${prefix}${target}/bin/watchtower" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_watchtower"
+"${prefix}/bin/watchtower" completion bash >"${prefix}/share/bash-completion/completions/watchtower"
+"${prefix}/bin/watchtower" completion fish >"${prefix}/share/fish/vendor_completions.d/watchtower.fish"
+"${prefix}/bin/watchtower" completion zsh >"${prefix}/share/zsh/vendor-completions/_watchtower"
 EOF
