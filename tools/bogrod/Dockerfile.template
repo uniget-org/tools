@@ -20,5 +20,5 @@ EOF
 ARG name
 ARG version
 RUN <<EOF
-shiv --output-file "${prefix}${target}/bin/bogrod" --console-script bogrod "bogrod==${version}" pyyaml tabulate
+shiv --output-file "${prefix}/bin/bogrod" --console-script bogrod "bogrod==${version}" pyyaml tabulate
 EOF
