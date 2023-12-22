@@ -16,9 +16,9 @@ WORKDIR /go/src/github.com/Azure/acr-cli
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/Azure/acr-cli .
 make binaries
-cp bin/acr "${prefix}${target}/bin/"
+cp bin/acr "${prefix}/bin/"
 
-"${prefix}${target}/bin/acr" completion bash >"${prefix}${target}/share/bash-completion/completions/acr"
-"${prefix}${target}/bin/acr" completion fish >"${prefix}${target}/share/fish/vendor_completions.d/acr.fish"
-"${prefix}${target}/bin/acr" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_acr"
+"${prefix}/bin/acr" completion bash >"${prefix}/share/bash-completion/completions/acr"
+"${prefix}/bin/acr" completion fish >"${prefix}/share/fish/vendor_completions.d/acr.fish"
+"${prefix}/bin/acr" completion zsh >"${prefix}/share/zsh/vendor-completions/_acr"
 EOF

@@ -7,7 +7,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-COPY <<EOF ${prefix}${target}/etc/profile.d/aws
+COPY <<EOF ${prefix}/etc/profile.d/aws
 complete -C '/usr/local/bin/aws_completer' aws
 EOF
 RUN <<EOF
@@ -16,11 +16,11 @@ check-download "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-${version}.
 curl --silent --location --fail --remote-name \
     "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-${version}.zip"
 unzip "awscli-exe-linux-x86_64-${version}.zip"
-mkdir -p "${prefix}${target}/aws-cli/v2/${version}/bin"
-mv aws/dist "${prefix}${target}/aws-cli/v2/${version}"
-ln --symbolic --relative --force "${prefix}${target}/aws-cli/v2/${version}" "${prefix}${target}/aws-cli/v2/current"
-ln --symbolic --relative --force "${prefix}${target}/aws-cli/v2/current/dist/aws" "${prefix}${target}/aws-cli/v2/current/bin/aws"
-ln --symbolic --relative --force "${prefix}${target}/aws-cli/v2/current/dist/aws_completer" "${prefix}${target}/aws-cli/v2/current/bin/aws_completer"
-ln --symbolic --relative --force "${prefix}${target}/aws-cli/v2/current/bin/aws" "${prefix}${target}/bin/aws"
-ln --symbolic --relative --force "${prefix}${target}/aws-cli/v2/current/bin/aws_completer" "${prefix}${target}/bin/aws_completer"
+mkdir -p "${prefix}/aws-cli/v2/${version}/bin"
+mv aws/dist "${prefix}/aws-cli/v2/${version}"
+ln --symbolic --relative --force "${prefix}/aws-cli/v2/${version}" "${prefix}/aws-cli/v2/current"
+ln --symbolic --relative --force "${prefix}/aws-cli/v2/current/dist/aws" "${prefix}/aws-cli/v2/current/bin/aws"
+ln --symbolic --relative --force "${prefix}/aws-cli/v2/current/dist/aws_completer" "${prefix}/aws-cli/v2/current/bin/aws_completer"
+ln --symbolic --relative --force "${prefix}/aws-cli/v2/current/bin/aws" "${prefix}/bin/aws"
+ln --symbolic --relative --force "${prefix}/aws-cli/v2/current/bin/aws_completer" "${prefix}/bin/aws_completer"
 EOF
