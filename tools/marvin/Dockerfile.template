@@ -25,10 +25,10 @@ echo "    Using ${arch_suffix}"
 
 check-github-release-asset "undistro/marvin" "v${version}" "marvin_Linux_${arch_suffix}.tar.gz"
 curl --silent --location --fail "https://github.com/undistro/marvin/releases/download/v${version}/marvin_Linux_${arch_suffix}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin/" --no-same-owner \
+| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     marvin
 
-"${prefix}${target}/bin/marvin" completion bash >"${prefix}${target}/share/bash-completion/completions/marvin"
-"${prefix}${target}/bin/marvin" completion fish >"${prefix}${target}/share/fish/vendor_completions.d/marvin.fish"
-"${prefix}${target}/bin/marvin" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_marvin"
+"${prefix}/bin/marvin" completion bash >"${prefix}/share/bash-completion/completions/marvin"
+"${prefix}/bin/marvin" completion fish >"${prefix}/share/fish/vendor_completions.d/marvin.fish"
+"${prefix}/bin/marvin" completion zsh >"${prefix}/share/zsh/vendor-completions/_marvin"
 EOF

@@ -10,9 +10,9 @@ ARG version
 RUN <<EOF
 check-github-release-asset "micro/micro" "v${version}" "micro-v${version}-linux-${alt_arch}.tar.gz"
 curl --silent --location --fail "https://github.com/micro/micro/releases/download/v${version}/micro-v${version}-linux-${alt_arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin/" --no-same-owner \
+| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     micro
 
-curl --silent --fail --show-error --location --output "${prefix}${target}/etc/systemd/system/micro.service" \
+curl --silent --fail --show-error --location --output "${prefix}/etc/systemd/system/micro.service" \
     "https://github.com/micro/micro/raw/v${version}/scripts/systemd/micro.service"
 EOF

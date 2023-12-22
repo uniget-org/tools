@@ -21,7 +21,7 @@ ARG name
 ARG version
 WORKDIR /uniget_bootstrap/libexec/mkdocs
 RUN <<EOF
-#shiv --output-file "${prefix}${target}/bin/mkdocs" --console-script mkdocs \
+#shiv --output-file "${prefix}/bin/mkdocs" --console-script mkdocs \
 #    "mkdocs==${version}" \
 #    mkdocs-material \
 #    mkdocs-material-extensions \
@@ -42,5 +42,5 @@ pip install --no-cache-dir \
     mkdocs-redirects \
     regex
 deactivate
-ln --symbolic --relative --force "${prefix}${target}/libexec/mkdocs/bin/mkdocs" "${prefix}${target}/bin/"
+ln --symbolic --relative --force "${prefix}/libexec/mkdocs/bin/mkdocs" "${prefix}/bin/"
 EOF

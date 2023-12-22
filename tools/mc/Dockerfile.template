@@ -9,21 +9,21 @@ ARG name
 ARG version
 
 RUN <<EOF
-curl --silent --location --fail --output "${prefix}${target}/bin/mc" \
+curl --silent --location --fail --output "${prefix}/bin/mc" \
     "https://dl.min.io/client/mc/release/linux-${alt_arch}/mc.RELEASE.${version}"
-chmod +x "${prefix}${target}/bin/mc"
+chmod +x "${prefix}/bin/mc"
 EOF
 
-COPY <<EOF ${prefix}${target}/share/bash-completion/completions/mc
-complete -C ${target}/bin/mc mc
+COPY <<EOF ${prefix}/share/bash-completion/completions/mc
+complete -C /bin/mc mc
 EOF
 
-COPY <<EOF ${prefix}${target}/share/fish/vendor_completions.d/mc.fish
+COPY <<EOF ${prefix}/share/fish/vendor_completions.d/mc.fish
 function __complete_mc
     set -lx COMP_LINE (commandline -cp)
     test -z (commandline -ct)
     and set COMP_LINE "$COMP_LINE "
-    ${target}/bin/mc
+    /bin/mc
 end
 complete -f -c mc -a "(__complete_mc)"
 EOF

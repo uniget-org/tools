@@ -11,7 +11,7 @@ ARG version
 
 RUN <<EOF
 curl --silent --location --fail "https://snapshots.mitmproxy.org/${version}/mitmproxy-${version}-linux.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin" --no-same-owner \
+| tar --extract --gzip --directory="${prefix}/bin" --no-same-owner \
     mitmproxy \
     mitmdump \
     mitmweb

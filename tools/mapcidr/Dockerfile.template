@@ -16,5 +16,5 @@ ARG version
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/projectdiscovery/mapcidr .
 make
-cp mapcidr "${prefix}${target}/bin/"
+cp mapcidr "${prefix}/bin/"
 EOF

@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "FiloSottile/mkcert" "v${version}" "mkcert-v${version}-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}${target}/bin/mkcert" \
+curl --silent --location --fail --output "${prefix}/bin/mkcert" \
     "https://github.com/FiloSottile/mkcert/releases/download/v${version}/mkcert-v${version}-linux-${alt_arch}"
-chmod +x "${prefix}${target}/bin/mkcert"
+chmod +x "${prefix}/bin/mkcert"
 EOF

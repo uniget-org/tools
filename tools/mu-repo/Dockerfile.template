@@ -20,5 +20,5 @@ apt-get -y install --no-install-recommends \
     python-is-python3
 EOF
 RUN <<EOF
-shiv --output-file "${prefix}${target}/bin/mu" --console-script mu "mu-repo==${version}"
+shiv --output-file "${prefix}/bin/mu" --console-script mu "mu-repo==${version}"
 EOF

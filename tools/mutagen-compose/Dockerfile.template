@@ -12,6 +12,6 @@ check-github-release-asset "mutagen-io/mutagen-compose" "v${version}" "mutagen-c
 curl --silent --location --fail \
     "https://github.com/mutagen-io/mutagen-compose/releases/download/v${version}/mutagen-compose_linux_${alt_arch}_v${version%-*}.tar.gz" \
 | tar --extract --gzip \
-    --directory "${prefix}${target}/bin" \
+    --directory "${prefix}/bin" \
     --no-same-owner
 EOF
