@@ -13,5 +13,5 @@ COPY --link --from=go / /
 WORKDIR /go/src/github.com/liamg/tml
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/liamg/tml .
-go build -o "${prefix}${target}/bin/tml"  -ldflags "-X github.com/liamg/tml/version.Version=${version}" ./tml
+go build -o "${prefix}/bin/tml"  -ldflags "-X github.com/liamg/tml/version.Version=${version}" ./tml
 EOF

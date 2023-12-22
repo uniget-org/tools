@@ -18,9 +18,9 @@ check-download "https://github.com/binpash/try/archive/refs/tags/v${version}.tar
 curl --silent --location --fail "https://github.com/binpash/try/archive/refs/tags/v${version}.tar.gz" \
 | tar --extract --gzip --strip-components=1 --no-same-owner
 
-cp try "${prefix}${target}/bin/"
-cp completions/try.bash "${prefix}${target}/share/bash-completion/completions/walk"
+cp try "${prefix}/bin/"
+cp completions/try.bash "${prefix}/share/bash-completion/completions/walk"
 
 make -C man try.1
-cp man/try.1 "${prefix}${target}/share/man/man1/"
+cp man/try.1 "${prefix}/share/man/man1/"
 EOF

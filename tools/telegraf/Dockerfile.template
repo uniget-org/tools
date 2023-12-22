@@ -8,12 +8,12 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
-mkdir -p "${prefix}${target}/share/telegraf"
+mkdir -p "${prefix}/share/telegraf"
 curl --silent --location --fail "https://dl.influxdata.com/telegraf/releases/telegraf-${version}_linux_${alt_arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/share/telegraf" --strip-components=2 --no-same-owner
-mv "${prefix}${target}/share/telegraf/usr/bin/telegraf" "${prefix}${target}/bin/telegraf"
-mv "${prefix}${target}/share/telegraf/usr/lib/telegraf/scripts" "${prefix}${target}/share/telegraf/"
+| tar --extract --gzip --directory="${prefix}/share/telegraf" --strip-components=2 --no-same-owner
+mv "${prefix}/share/telegraf/usr/bin/telegraf" "${prefix}/bin/telegraf"
+mv "${prefix}/share/telegraf/usr/lib/telegraf/scripts" "${prefix}/share/telegraf/"
 rm -rf \
-    "${prefix}${target}/share/telegraf/usr" \
-    "${prefix}${target}/share/telegraf/var"
+    "${prefix}/share/telegraf/usr" \
+    "${prefix}/share/telegraf/var"
 EOF

@@ -10,10 +10,10 @@ ARG version
 RUN <<EOF
 check-github-release-asset "stefanprodan/timoni" "v${version}" "timoni_${version}_linux_${alt_arch}.tar.gz"
 curl --silent --location --fail "https://github.com/stefanprodan/timoni/releases/download/v${version}/timoni_${version}_linux_${alt_arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin/" --no-same-owner \
+| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     timoni
 
-"${prefix}${target}/bin/timoni" completion bash >"${prefix}${target}/share/bash-completion/completions/timoni"
-"${prefix}${target}/bin/timoni" completion fish >"${prefix}${target}/share/fish/vendor_completions.d/timoni.fish"
-"${prefix}${target}/bin/timoni" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_timoni"
+"${prefix}/bin/timoni" completion bash >"${prefix}/share/bash-completion/completions/timoni"
+"${prefix}/bin/timoni" completion fish >"${prefix}/share/fish/vendor_completions.d/timoni.fish"
+"${prefix}/bin/timoni" completion zsh >"${prefix}/share/zsh/vendor-completions/_timoni"
 EOF

@@ -26,6 +26,6 @@ echo "    Using ${arch_suffix}"
 check-github-release-asset "aquasecurity/trivy-operator" "v${version}" "trivy-operator_linux_${arch_suffix}.tar.gz"
 
 curl --silent --location --fail "https://github.com/aquasecurity/trivy-operator/releases/download/v${version}/trivy-operator_linux_${arch_suffix}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin/" --no-same-owner \
+| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     trivy-operator
 EOF
