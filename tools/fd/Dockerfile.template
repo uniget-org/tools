@@ -26,15 +26,15 @@ check-github-release-asset "sharkdp/fd" "v${version}" "fd-v${version}-${arch}-un
 
 echo "### Downloading fd ${version}"
 curl --silent --location --fail "https://github.com/sharkdp/fd/releases/download/v${version}/fd-v${version}-${arch}-unknown-linux-${arch_suffix}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin/" --strip-components=1 --no-same-owner \
+| tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
     "fd-v${version}-${arch}-unknown-linux-${arch_suffix}/fd" \
     "fd-v${version}-${arch}-unknown-linux-${arch_suffix}/fd.1" \
     "fd-v${version}-${arch}-unknown-linux-${arch_suffix}/autocomplete"
 
-mv "${prefix}${target}/bin/fd.1" "${prefix}${target}/share/man/man1/"
+mv "${prefix}/bin/fd.1" "${prefix}/share/man/man1/"
 
-mv "${prefix}${target}/bin/autocomplete/fd.bash" "${prefix}${target}/share/bash-completion/completions/fd"
-mv "${prefix}${target}/bin/autocomplete/fd.fish" "${prefix}${target}/share/fish/vendor_completions.d/fd.fish"
-mv "${prefix}${target}/bin/autocomplete/_fd"     "${prefix}${target}/share/zsh/vendor-completions/_fd"
-rm -rf "${prefix}${target}/bin/autocomplete"
+mv "${prefix}/bin/autocomplete/fd.bash" "${prefix}/share/bash-completion/completions/fd"
+mv "${prefix}/bin/autocomplete/fd.fish" "${prefix}/share/fish/vendor_completions.d/fd.fish"
+mv "${prefix}/bin/autocomplete/_fd"     "${prefix}/share/zsh/vendor-completions/_fd"
+rm -rf "${prefix}/bin/autocomplete"
 EOF

@@ -17,7 +17,7 @@ RUN <<EOF
 check-download "http://ftp.figlet.org/pub/figlet/program/unix/figlet-${version}.tar.gz"
 curl --silent --location --fail "http://ftp.figlet.org/pub/figlet/program/unix/figlet-${version}.tar.gz" \
 | tar --extract --gzip --strip-components=1
-make figlet LDFLAGS=-static DEFAULTFONTDIR=${target}/share/figlet
+make figlet LDFLAGS=-static DEFAULTFONTDIR=/share/figlet
 make install prefix=/opt/figlet
 EOF
 
@@ -28,4 +28,4 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-COPY --from=build /opt/figlet/ ${prefix}${target}/
+COPY --from=build /opt/figlet/ ${prefix}/
