@@ -39,9 +39,9 @@ WORKDIR $GOPATH/src/github.com/containers/skopeo
 RUN git clone --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/containers/skopeo.git .
 ENV CGO_ENABLED=0
 RUN <<EOF
-mkdir -p "${prefix}${target}/share/man/man1"
+mkdir -p "${prefix}/share/man/man1"
 make bin/skopeo EXTRA_LDFLAGS="-s -w -extldflags '-static'" BUILDTAGS=containers_image_openpgp GO_DYN_FLAGS=
 make docs GOMD2MAN=go-md2man
-mv bin/skopeo "${prefix}${target}/bin/"
-mv docs/*.1 "${prefix}${target}/share/man/man1/"
+mv bin/skopeo "${prefix}/bin/"
+mv docs/*.1 "${prefix}/share/man/man1/"
 EOF

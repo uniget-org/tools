@@ -15,12 +15,12 @@ ar x "sysbox-ce_${version}-0.linux_${alt_arch}.deb"
 tar --extract --xz --file data.tar.xz
 
 for type in fs runc mgr; do
-    mv "usr/bin/sysbox-${type}" "${prefix}${target}/bin/"
+    mv "usr/bin/sysbox-${type}" "${prefix}/bin/"
     test -f "lib/systemd/system/sysbox-${type}.service" \
-    && mv "lib/systemd/system/sysbox-${type}.service" "${prefix}${target}/etc/systemd/system/"
+    && mv "lib/systemd/system/sysbox-${type}.service" "${prefix}/etc/systemd/system/"
 done
-mv "lib/systemd/system/sysbox.service" "${prefix}${target}/etc/systemd/system/"
+mv "lib/systemd/system/sysbox.service" "${prefix}/etc/systemd/system/"
 
-mkdir -p "${prefix}${target}/etc/sysctl.d"
-mv "lib/sysctl.d/99-sysbox-sysctl.conf" "${prefix}${target}/etc/sysctl.d/"
+mkdir -p "${prefix}/etc/sysctl.d"
+mv "lib/sysctl.d/99-sysbox-sysctl.conf" "${prefix}/etc/sysctl.d/"
 EOF

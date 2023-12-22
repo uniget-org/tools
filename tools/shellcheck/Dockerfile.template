@@ -13,12 +13,12 @@ ARG version
 RUN <<EOF
 check-github-release-asset "koalaman/shellcheck" "v${version}" "shellcheck-v${version}.linux.${arch}.tar.xz"
 curl --silent --location --fail "https://github.com/koalaman/shellcheck/releases/download/v${version}/shellcheck-v${version}.linux.${arch}.tar.xz" \
-| tar --extract --xz --directory="${prefix}${target}/bin/" --strip-components=1 --no-same-owner \
+| tar --extract --xz --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
     shellcheck-v${version}/shellcheck
-curl --silent --location --fail --output "${prefix}${target}/share/man/man1/shellcheck.1.md" \
+curl --silent --location --fail --output "${prefix}/share/man/man1/shellcheck.1.md" \
     "https://github.com/koalaman/shellcheck/raw/v${version}/shellcheck.1.md"
 go-md2man \
-    -in "${prefix}${target}/share/man/man1/shellcheck.1.md" \
-    -out "${prefix}${target}/share/man/man1/shellcheck.1"
-rm "${prefix}${target}/share/man/man1/shellcheck.1.md"
+    -in "${prefix}/share/man/man1/shellcheck.1.md" \
+    -out "${prefix}/share/man/man1/shellcheck.1"
+rm "${prefix}/share/man/man1/shellcheck.1.md"
 EOF

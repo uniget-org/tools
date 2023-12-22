@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "mozilla/sops" "v${version}" "sops-v${version}.linux.${alt_arch}"
-curl --silent --location --fail --output "${prefix}${target}/bin/sops" \
+curl --silent --location --fail --output "${prefix}/bin/sops" \
     "https://github.com/mozilla/sops/releases/download/v${version}/sops-v${version}.linux.${alt_arch}"
-chmod +x "${prefix}${target}/bin/sops"
+chmod +x "${prefix}/bin/sops"
 EOF

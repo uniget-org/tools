@@ -19,13 +19,13 @@ apt-get -y install --no-install-recommends \
     python3-venv \
     python-is-python3
 EOF
-WORKDIR ${prefix}${target}/libexec/semgrep
+WORKDIR ${prefix}/libexec/semgrep
 RUN <<EOF
-#shiv --output-file "${prefix}${target}/bin/semgrep" --console-script semgrep "semgrep==${version}"
-python -m venv "${prefix}${target}/libexec/semgrep"
-source "${prefix}${target}/libexec/semgrep/bin/activate"
+#shiv --output-file "${prefix}/bin/semgrep" --console-script semgrep "semgrep==${version}"
+python -m venv "${prefix}/libexec/semgrep"
+source "${prefix}/libexec/semgrep/bin/activate"
 pip install "semgrep==${version}"
 deactivate
-ln --symbolic --relative --force "${prefix}${target}/libexec/semgrep/bin/semgrep" "${prefix}${target}/bin/"
-ln --symbolic --relative --force "${prefix}${target}/libexec/semgrep/bin/pysemgrep" "${prefix}${target}/bin/"
+ln --symbolic --relative --force "${prefix}/libexec/semgrep/bin/semgrep" "${prefix}/bin/"
+ln --symbolic --relative --force "${prefix}/libexec/semgrep/bin/pysemgrep" "${prefix}/bin/"
 EOF

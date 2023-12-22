@@ -15,5 +15,5 @@ ENV GOPATH=/go \
     GO111MODULE=auto
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" https://github.com/sgreben/stdin-spinner .
-go build -ldflags "-X main.version=${version}" -o "${prefix}${target}/bin/stdin-spinner" .
+go build -ldflags "-X main.version=${version}" -o "${prefix}/bin/stdin-spinner" .
 EOF
