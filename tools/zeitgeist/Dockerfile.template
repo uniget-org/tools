@@ -9,17 +9,17 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "kubernetes-sigs/zeitgeist" "v${version}" "zeitgeist-${alt_arch}-linux"
-curl --silent --location --fail --output "${prefix}${target}/bin/zeitgeist" \
+curl --silent --location --fail --output "${prefix}/bin/zeitgeist" \
     "https://github.com/kubernetes-sigs/zeitgeist/releases/download/v${version}/zeitgeist-${alt_arch}-linux"
-chmod +x "${prefix}${target}/bin/zeitgeist"
+chmod +x "${prefix}/bin/zeitgeist"
 # TODO: cosign
-"${prefix}${target}/bin/zeitgeist" completion bash >"${prefix}${target}/share/bash-completion/completions/zeitgeist"
-"${prefix}${target}/bin/zeitgeist" completion fish >"${prefix}${target}/share/fish/vendor_completions.d/zeitgeist.fish"
-"${prefix}${target}/bin/zeitgeist" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_zeitgeist"
+"${prefix}/bin/zeitgeist" completion bash >"${prefix}/share/bash-completion/completions/zeitgeist"
+"${prefix}/bin/zeitgeist" completion fish >"${prefix}/share/fish/vendor_completions.d/zeitgeist.fish"
+"${prefix}/bin/zeitgeist" completion zsh >"${prefix}/share/zsh/vendor-completions/_zeitgeist"
 
 check-github-release-asset "kubernetes-sigs/zeitgeist" "v${version}" "buoy-${alt_arch}-linux"
-curl --silent --location --fail --output "${prefix}${target}/bin/buoy" \
+curl --silent --location --fail --output "${prefix}/bin/buoy" \
     "https://github.com/kubernetes-sigs/zeitgeist/releases/download/v${version}/buoy-${alt_arch}-linux"
-chmod +x "${prefix}${target}/bin/buoy"
+chmod +x "${prefix}/bin/buoy"
 # TODO: cosign
 EOF

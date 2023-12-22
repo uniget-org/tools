@@ -9,10 +9,10 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "mikefarah/yq" "v${version}" "yq_linux_${alt_arch}"
-curl --silent --location --fail --output "${prefix}${target}/bin/yq" \
+curl --silent --location --fail --output "${prefix}/bin/yq" \
     "https://github.com/mikefarah/yq/releases/download/v${version}/yq_linux_${alt_arch}"
-chmod +x "${prefix}${target}/bin/yq"
-"${prefix}${target}/bin/yq" shell-completion bash >"${prefix}${target}/share/bash-completion/completions/yq"
-"${prefix}${target}/bin/yq" shell-completion fish >"${prefix}${target}/share/fish/vendor_completions.d/yq.fish"
-"${prefix}${target}/bin/yq" shell-completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_yq"
+chmod +x "${prefix}/bin/yq"
+"${prefix}/bin/yq" shell-completion bash >"${prefix}/share/bash-completion/completions/yq"
+"${prefix}/bin/yq" shell-completion fish >"${prefix}/share/fish/vendor_completions.d/yq.fish"
+"${prefix}/bin/yq" shell-completion zsh >"${prefix}/share/zsh/vendor-completions/_yq"
 EOF
