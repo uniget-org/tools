@@ -19,5 +19,5 @@ export CGO_ENABLED=0
 export GO111MODULE=auto
 go mod tidy
 go build -ldflags "-w -s" -o "/usr/local/bin/emojisum" .
-cp /usr/local/bin/emojisum "${prefix}${target}/bin/"
+cp /usr/local/bin/emojisum "${prefix}/bin/"
 EOF
