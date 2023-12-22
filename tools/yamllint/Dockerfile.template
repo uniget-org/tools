@@ -20,5 +20,5 @@ EOF
 ARG name
 ARG version
 RUN <<EOF
-shiv --output-file "${prefix}${target}/bin/yamllint" --console-script yamllint "yamllint==${version}"
+shiv --output-file "${prefix}/bin/yamllint" --console-script yamllint "yamllint==${version}"
 EOF

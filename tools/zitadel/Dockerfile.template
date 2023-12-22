@@ -10,10 +10,10 @@ ARG version
 RUN <<EOF
 check-github-release-asset "zitadel/zitadel" "v${version}" "zitadel-linux-${alt_arch}.tar.gz"
 curl --silent --location --fail "https://github.com/zitadel/zitadel/releases/download/v${version}/zitadel-linux-${alt_arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin/" --strip-components=1 --no-same-owner \
+| tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
     zitadel-linux-${alt_arch}/zitadel
 
-"${prefix}${target}/bin/zitadel" completion bash >"${prefix}${target}/share/bash-completion/completions/zitadel"
-"${prefix}${target}/bin/zitadel" completion fish >"${prefix}${target}/share/fish/vendor_completions.d/zitadel.fish"
-"${prefix}${target}/bin/zitadel" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_zitadel"
+"${prefix}/bin/zitadel" completion bash >"${prefix}/share/bash-completion/completions/zitadel"
+"${prefix}/bin/zitadel" completion fish >"${prefix}/share/fish/vendor_completions.d/zitadel.fish"
+"${prefix}/bin/zitadel" completion zsh >"${prefix}/share/zsh/vendor-completions/_zitadel"
 EOF
