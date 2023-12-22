@@ -10,8 +10,8 @@ ARG version
 RUN <<EOF
 check-github-release-asset "upx/upx" "v${version}" "upx-${version}-${alt_arch}_linux.tar.xz"
 curl --silent --location --fail "https://github.com/upx/upx/releases/download/v${version}/upx-${version}-${alt_arch}_linux.tar.xz" \
-| tar --extract --xz --directory="${prefix}${target}/bin/" --strip-components=1 --no-same-owner \
+| tar --extract --xz --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
     "upx-${version}-${alt_arch}_linux/upx" \
     "upx-${version}-${alt_arch}_linux/upx.1"
-mv "${prefix}${target}/bin/upx.1" "${prefix}${target}/share/man/man1/"
+mv "${prefix}/bin/upx.1" "${prefix}/share/man/man1/"
 EOF

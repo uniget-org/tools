@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "opencontainers/umoci" "v${version}" "umoci.${alt_arch}"
-curl --silent --location --fail --output "${prefix}${target}/bin/umoci" \
+curl --silent --location --fail --output "${prefix}/bin/umoci" \
     "https://github.com/opencontainers/umoci/releases/download/v${version}/umoci.${alt_arch}"
-chmod +x "${prefix}${target}/bin/umoci"
+chmod +x "${prefix}/bin/umoci"
 EOF

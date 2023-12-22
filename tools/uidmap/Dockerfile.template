@@ -33,8 +33,8 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-COPY --from=build /opt/uidmap/ ${prefix}${target}/
+COPY --from=build /opt/uidmap/ ${prefix}/
 RUN <<EOF
-chmod u+s "${prefix}${target}/bin/newuidmap"
-chmod u+s "${prefix}${target}/bin/newgidmap"
+chmod u+s "${prefix}/bin/newuidmap"
+chmod u+s "${prefix}/bin/newgidmap"
 EOF

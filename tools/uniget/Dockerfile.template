@@ -11,11 +11,11 @@ RUN <<EOF
 check-github-release-asset "uniget-org/cli" "v${version}" "uniget_Linux_${arch}.tar.gz"
 curl --silent --location --fail \
     "https://github.com/uniget-org/cli/releases/download/v${version}/uniget_Linux_${arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin" --no-same-owner \
+| tar --extract --gzip --directory="${prefix}/bin" --no-same-owner \
     uniget
-chmod +x "${prefix}${target}/bin/uniget"
+chmod +x "${prefix}/bin/uniget"
 
-"${prefix}${target}/bin/uniget" completion bash >"${prefix}${target}/share/bash-completion/completions/uniget"
-"${prefix}${target}/bin/uniget" completion fish >"${prefix}${target}/share/fish/vendor_completions.d/uniget.fish"
-"${prefix}${target}/bin/uniget" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_uniget"
+"${prefix}/bin/uniget" completion bash >"${prefix}/share/bash-completion/completions/uniget"
+"${prefix}/bin/uniget" completion fish >"${prefix}/share/fish/vendor_completions.d/uniget.fish"
+"${prefix}/bin/uniget" completion zsh >"${prefix}/share/zsh/vendor-completions/_uniget"
 EOF
