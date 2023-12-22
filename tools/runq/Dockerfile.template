@@ -33,6 +33,6 @@ make -C cmd/proxy install
 make -C cmd/runq install
 make -C cmd/runq-exec install
 install -m 0444 -D version /var/lib/runq/version
-mkdir -p "${prefix}${target}/var/lib/runq"
-cp -r /var/lib/runq/ "${prefix}${target}/var/lib/"
+mkdir -p "${prefix}/var/lib/runq"
+cp -r /var/lib/runq/ "${prefix}/var/lib/"
 EOF

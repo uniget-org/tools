@@ -20,5 +20,5 @@ EOF
 ARG name
 ARG version
 RUN <<EOF
-shiv --output-file "${prefix}${target}/bin/runlike" --console-script runlike "runlike==${version}"
+shiv --output-file "${prefix}/bin/runlike" --console-script runlike "runlike==${version}"
 EOF
