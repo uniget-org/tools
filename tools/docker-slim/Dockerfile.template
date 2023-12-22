@@ -21,5 +21,5 @@ case "${alt_arch}" in
         ;;
 esac
 curl --silent --location --fail "https://downloads.dockerslim.com/releases/1.40.0/dist_linux${arch_suffix}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin/" --strip-components=1 --no-same-owner
+| tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner
 EOF

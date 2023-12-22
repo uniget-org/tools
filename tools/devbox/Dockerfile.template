@@ -10,9 +10,9 @@ ARG version
 RUN <<EOF
 check-github-release-asset "jetpack-io/devbox" "${version}" "devbox_${version}_linux_${alt_arch}.tar.gz"
 curl --silent --location --fail "https://github.com/jetpack-io/devbox/releases/download/${version}/devbox_${version}_linux_${alt_arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin/" --no-same-owner
+| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner
 
-"${prefix}${target}/bin/devbox" completion bash >"${prefix}${target}/share/bash-completion/completions/devbox"
-"${prefix}${target}/bin/devbox" completion fish >"${prefix}${target}/share/fish/vendor_completions.d/devbox.fish"
-"${prefix}${target}/bin/devbox" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_devbox"
+"${prefix}/bin/devbox" completion bash >"${prefix}/share/bash-completion/completions/devbox"
+"${prefix}/bin/devbox" completion fish >"${prefix}/share/fish/vendor_completions.d/devbox.fish"
+"${prefix}/bin/devbox" completion zsh >"${prefix}/share/zsh/vendor-completions/_devbox"
 EOF

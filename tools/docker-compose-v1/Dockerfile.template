@@ -1,12 +1,15 @@
 #syntax=docker/dockerfile:1.6.0
 
-FROM --platform=amd64 ghcr.io/uniget-org/tools/base:latest AS prepare
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-COPY docker-compose-cli-plugin ${prefix}${target}/libexec/docker/cli-plugins/docker-compose
 RUN <<EOF
 check-github-release-asset "docker/compose" "${version}" "docker-compose-Linux-${arch}"
-curl --silent --location --fail --output "${prefix}${target}/bin/docker-compose" \
+curl --silent --location --fail --output "${prefix}/bin/docker-compose" \
     "https://github.com/docker/compose/releases/download/${version}/docker-compose-Linux-${arch}"
-chmod +x "${prefix}${target}/bin/docker-compose"
+chmod +x "${prefix}/bin/docker-compose"
 EOF

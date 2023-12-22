@@ -27,6 +27,6 @@ check-github-release-asset "muesli/duf" "v${version}" "duf_${version}_linux_${ar
 
 echo "### Downloading duf ${version}"
 curl --silent --verbose --location --fail "https://github.com/muesli/duf/releases/download/v${version}/duf_${version}_linux_${arch_suffix}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin/" --no-same-owner \
+| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     duf
 EOF
