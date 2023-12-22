@@ -24,7 +24,7 @@ echo "    Using ${arch_suffix}"
 
 echo "### Downloading node.js ${version}"
 curl --silent --location --fail "https://nodejs.org/dist/v${version}/node-v${version}-linux-${arch_suffix}.tar.xz" \
-| tar --extract --xz --directory="${prefix}${target}" --strip-components=1 --no-same-owner \
+| tar --extract --xz --directory="${prefix}" --strip-components=1 --no-same-owner \
     "node-v${version}-linux-${arch_suffix}/bin" \
     "node-v${version}-linux-${arch_suffix}/include" \
     "node-v${version}-linux-${arch_suffix}/lib" \
