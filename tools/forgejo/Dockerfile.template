@@ -21,6 +21,6 @@ url="$(
 test -n "${url}"
 check-download "${url}"
 curl --silent --location --fail "${url}" \
-| xz --decompress >"${prefix}${target}/bin/forgejo"
-chmod +x "${prefix}${target}/bin/forgejo"
+| xz --decompress >"${prefix}/bin/forgejo"
+chmod +x "${prefix}/bin/forgejo"
 EOF
