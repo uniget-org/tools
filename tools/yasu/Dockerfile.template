@@ -9,5 +9,5 @@ RUN <<EOF
 check-github-release-asset "crazy-max/yasu" "v${version}" "yasu_${version}_linux_${alt_arch}.tar.gz"
 curl --silent --location --fail "https://github.com/crazy-max/yasu/releases/download/v${version}/yasu_${version}_linux_${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}${target}/bin" --no-same-owner \
-    yasu
+    ./yasu
 EOF
