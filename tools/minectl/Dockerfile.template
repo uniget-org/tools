@@ -10,9 +10,9 @@ ARG version
 RUN <<EOF
 check-github-release-asset "dirien/minectl" "v${version}" "minectl_${version}_linux_${alt_arch}.tar.gz"
 curl --silent --location --fail "https://github.com/dirien/minectl/releases/download/v${version}/minectl_${version}_linux_${alt_arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin" --no-same-owner \
+| tar --extract --gzip --directory="${prefix}/bin" --no-same-owner \
     minectl
-"${prefix}${target}/bin/minectl" completion bash >"${prefix}${target}/share/bash-completion/completions/minectl"
-"${prefix}${target}/bin/minectl" completion fish >"${prefix}${target}/share/fish/vendor_completions.d/minectl.fish"
-"${prefix}${target}/bin/minectl" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_minectl"
+"${prefix}/bin/minectl" completion bash >"${prefix}/share/bash-completion/completions/minectl"
+"${prefix}/bin/minectl" completion fish >"${prefix}/share/fish/vendor_completions.d/minectl.fish"
+"${prefix}/bin/minectl" completion zsh >"${prefix}/share/zsh/vendor-completions/_minectl"
 EOF

@@ -10,15 +10,15 @@ ARG version
 RUN <<EOF
 check-github-release-asset "mutagen-io/mutagen" "v${version}" "mutagen_linux_${alt_arch}_v${version}.tar.gz"
 curl --silent --location --fail "https://github.com/mutagen-io/mutagen/releases/download/v${version}/mutagen_linux_${alt_arch}_v${version}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin" --no-same-owner
-${prefix}${target}/bin/mutagen generate \
-    "--bash-completion-script=${prefix}${target}/share/bash-completion/completions/${name}" \
-    "--fish-completion-script=${prefix}${target}/share/fish/vendor_completions.d/${name}.fish" \
-    "--zsh-completion-script=${prefix}${target}/share/zsh/vendor-completions/_${name}"
+| tar --extract --gzip --directory="${prefix}/bin" --no-same-owner
+${prefix}/bin/mutagen generate \
+    "--bash-completion-script=${prefix}/share/bash-completion/completions/${name}" \
+    "--fish-completion-script=${prefix}/share/fish/vendor_completions.d/${name}.fish" \
+    "--zsh-completion-script=${prefix}/share/zsh/vendor-completions/_${name}"
 
-mkdir -p "${prefix}${target}/libexec/mutagen"
+mkdir -p "${prefix}/libexec/mutagen"
 tar --extract --gzip \
-    --file "${prefix}${target}/bin/mutagen-agents.tar.gz" \
-    --directory "${prefix}${target}/libexec/mutagen"
-rm "${prefix}${target}/bin/mutagen-agents.tar.gz"
+    --file "${prefix}/bin/mutagen-agents.tar.gz" \
+    --directory "${prefix}/libexec/mutagen"
+rm "${prefix}/bin/mutagen-agents.tar.gz"
 EOF

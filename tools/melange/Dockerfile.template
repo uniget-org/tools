@@ -17,5 +17,5 @@ RUN <<EOF
 check-clone https://github.com/chainguard-dev/melange "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/chainguard-dev/melange .
 make melange
-cp melange "${prefix}${target}/bin/"
+cp melange "${prefix}/bin/"
 EOF

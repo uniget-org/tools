@@ -12,12 +12,12 @@ ARG name
 ARG version
 COPY --link --from=nodejs / /
 COPY --link --from=npm / /
-WORKDIR ${prefix}${target}/libexec/markdownlint
+WORKDIR ${prefix}/libexec/markdownlint
 ARG name
 ARG version
 RUN <<EOF
 npm install \
     --omit=dev \
     "markdownlint-cli@${version}"
-ln --symbolic --relative --force "${prefix}${target}/libexec/markdownlint/node_modules/.bin/markdownlint" "${prefix}${target}/bin/"
+ln --symbolic --relative --force "${prefix}/libexec/markdownlint/node_modules/.bin/markdownlint" "${prefix}/bin/"
 EOF

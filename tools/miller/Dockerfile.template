@@ -10,9 +10,9 @@ ARG version
 RUN <<EOF
 check-github-release-asset "johnkerl/miller" "v${version}" "miller-${version}-linux-${alt_arch}.tar.gz"
 curl --silent --location --fail "https://github.com/johnkerl/miller/releases/download/v${version}/miller-${version}-linux-${alt_arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin/" --strip-components=1 --no-same-owner \
+| tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
     "miller-${version}-linux-${alt_arch}/mlr"
 
-curl --silent --location --fail --output "${prefix}${target}/share/man/man1/mlr.1" \
+curl --silent --location --fail --output "${prefix}/share/man/man1/mlr.1" \
     "https://github.com/johnkerl/miller/raw/v${version}/man/mlr.1"
 EOF

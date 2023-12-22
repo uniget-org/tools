@@ -26,6 +26,6 @@ check-github-release-asset "magefile/mage" "v${version}" "mage_${version}_Linux-
 
 echo "### Downloading mage ${version}"
 curl --silent --location --fail "https://github.com/magefile/mage/releases/download/v${version}/mage_${version}_Linux-${arch_suffix}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin/" --no-same-owner \
+| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     mage
 EOF
