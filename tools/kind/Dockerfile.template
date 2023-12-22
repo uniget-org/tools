@@ -9,10 +9,10 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "kubernetes-sigs/kind" "v${version}" "kind-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}${target}/bin/kind" \
+curl --silent --location --fail --output "${prefix}/bin/kind" \
     "https://github.com/kubernetes-sigs/kind/releases/download/v${version}/kind-linux-${alt_arch}"
-chmod +x "${prefix}${target}/bin/kind"
-"${prefix}${target}/bin/kind" completion bash >"${prefix}${target}/share/bash-completion/completions/kind"
-"${prefix}${target}/bin/kind" completion fish >"${prefix}${target}/share/fish/vendor_completions.d/kind.fish"
-"${prefix}${target}/bin/kind" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_kind"
+chmod +x "${prefix}/bin/kind"
+"${prefix}/bin/kind" completion bash >"${prefix}/share/bash-completion/completions/kind"
+"${prefix}/bin/kind" completion fish >"${prefix}/share/fish/vendor_completions.d/kind.fish"
+"${prefix}/bin/kind" completion zsh >"${prefix}/share/zsh/vendor-completions/_kind"
 EOF

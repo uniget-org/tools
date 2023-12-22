@@ -12,6 +12,6 @@ check-github-release-asset "projectdiscovery/katana" "v${version}" "katana_${ver
 url="https://github.com/projectdiscovery/katana/releases/download/v${version}/katana_${version}_linux_${alt_arch}.zip"
 filename="$(basename "${url}")"
 curl --silent --location --fail --remote-name "${url}"
-unzip -q -o -d "${prefix}${target}/bin" "${filename}" \
+unzip -q -o -d "${prefix}/bin" "${filename}" \
     katana
 EOF

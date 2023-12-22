@@ -17,18 +17,18 @@ SHELL [ "bash", "-clo", "errexit" ]
 COPY --from=krew / /
 ARG name
 ARG version
-COPY --chmod=755 <<EOF ${prefix}${target}/bin/krew-uniget
+COPY --chmod=755 <<EOF ${prefix}/bin/krew-uniget
 #!/bin/bash
 set -o errexit
 
-export KREW_ROOT="${target}/libexec/krew"
+export KREW_ROOT="/libexec/krew"
 krew "\$@"
 EOF
-COPY <<EOF ${prefix}${target}/etc/profile.d/krew.sh
-export PATH="${target}/libexec/krew/bin:${PATH}"
+COPY <<EOF ${prefix}/etc/profile.d/krew.sh
+export PATH="/libexec/krew/bin:${PATH}"
 EOF
 RUN <<EOF
-export KREW_ROOT="${prefix}${target}/libexec/krew"
+export KREW_ROOT="${prefix}/libexec/krew"
 mkdir -p "${KREW_ROOT}"
 krew update
 krew install krew
@@ -115,5 +115,5 @@ for plugin in "${plugins[@]}"; do
     echo "Processing ${plugin}"
     krew install "${plugin}"
 done
-find "${KREW_ROOT}/bin" -type l -exec ln --symbolic --relative --force {} "${prefix}${target}/bin/" \;
+find "${KREW_ROOT}/bin" -type l -exec ln --symbolic --relative --force {} "${prefix}/bin/" \;
 EOF

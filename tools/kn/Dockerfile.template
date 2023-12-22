@@ -9,9 +9,9 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "knative/client" "knative-v${version}" "kn-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}${target}/bin/kn" \
+curl --silent --location --fail --output "${prefix}/bin/kn" \
     "https://github.com/knative/client/releases/download/knative-v${version}/kn-linux-${alt_arch}"
-chmod +x "${prefix}${target}/bin/kn"
-"${prefix}${target}/bin/kn" completion bash >"${prefix}${target}/share/bash-completion/completions/kn"
-"${prefix}${target}/bin/kn" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_kn"
+chmod +x "${prefix}/bin/kn"
+"${prefix}/bin/kn" completion bash >"${prefix}/share/bash-completion/completions/kn"
+"${prefix}/bin/kn" completion zsh >"${prefix}/share/zsh/vendor-completions/_kn"
 EOF

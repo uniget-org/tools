@@ -12,9 +12,9 @@ check-github-release-asset "orhun/kmon" "v${version}" "kmon-${version}-x86_64-un
 curl --silent --location --fail "https://github.com/orhun/kmon/releases/download/v${version}/kmon-${version}-x86_64-unknown-linux-gnu.tar.gz" \
 | tar --extract --gzip --directory="/tmp" --no-same-owner
 find /tmp
-mv "/tmp/kmon-${version}/kmon" "${prefix}${target}/bin/"
-mv "/tmp/kmon-${version}/man/kmon.8" "${prefix}${target}/share/man/man8/"
-mv "/tmp/kmon-${version}/completions/kmon.bash" "${prefix}${target}/share/bash-completion/completions/kmon"
-mv "/tmp/kmon-${version}/completions/kmon.fish" "${prefix}${target}/share/fish/vendor_completions.d/kmon.fish"
-mv "/tmp/kmon-${version}/completions/_kmon" "${prefix}${target}/share/zsh/vendor-completions/_kmon"
+mv "/tmp/kmon-${version}/kmon" "${prefix}/bin/"
+mv "/tmp/kmon-${version}/man/kmon.8" "${prefix}/share/man/man8/"
+mv "/tmp/kmon-${version}/completions/kmon.bash" "${prefix}/share/bash-completion/completions/kmon"
+mv "/tmp/kmon-${version}/completions/kmon.fish" "${prefix}/share/fish/vendor_completions.d/kmon.fish"
+mv "/tmp/kmon-${version}/completions/_kmon" "${prefix}/share/zsh/vendor-completions/_kmon"
 EOF

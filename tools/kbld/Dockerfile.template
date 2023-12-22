@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "carvel-dev/kbld" "v${version}" "kbld-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}${target}/bin/kbld" \
+curl --silent --location --fail --output "${prefix}/bin/kbld" \
     "https://github.com/carvel-dev/kbld/releases/download/v${version}/kbld-linux-${alt_arch}"
-chmod +x "${prefix}${target}/bin/kbld"
+chmod +x "${prefix}/bin/kbld"
 EOF

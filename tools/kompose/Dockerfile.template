@@ -9,10 +9,10 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "kubernetes/kompose" "v${version}" "kompose-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}${target}/bin/kompose" \
+curl --silent --location --fail --output "${prefix}/bin/kompose" \
     "https://github.com/kubernetes/kompose/releases/download/v${version}/kompose-linux-${alt_arch}"
-chmod +x "${prefix}${target}/bin/kompose"
-"${prefix}${target}/bin/kompose" completion bash >"${prefix}${target}/share/bash-completion/completions/kompose"
-"${prefix}${target}/bin/kompose" completion fish >"${prefix}${target}/share/fish/vendor_completions.d/kompose.fish"
-"${prefix}${target}/bin/kompose" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_kompose"
+chmod +x "${prefix}/bin/kompose"
+"${prefix}/bin/kompose" completion bash >"${prefix}/share/bash-completion/completions/kompose"
+"${prefix}/bin/kompose" completion fish >"${prefix}/share/fish/vendor_completions.d/kompose.fish"
+"${prefix}/bin/kompose" completion zsh >"${prefix}/share/zsh/vendor-completions/_kompose"
 EOF

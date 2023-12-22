@@ -10,5 +10,5 @@ ARG version
 RUN <<EOF
 check-github-release-asset "stepro/kdo" "v${version}" "kdo-v${version}-linux-amd64.tar.gz"
 curl --silent --location --fail "https://github.com/stepro/kdo/releases/download/v${version}/kdo-v${version}-linux-amd64.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin/" --no-same-owner
+| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner
 EOF

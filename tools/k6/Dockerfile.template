@@ -10,8 +10,8 @@ ARG version
 RUN <<EOF
 check-github-release-asset "grafana/k6" "v${version}" "k6-v${version}-linux-${alt_arch}.tar.gz"
 curl --silent --location --fail "https://github.com/grafana/k6/releases/download/v${version}/k6-v${version}-linux-${alt_arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin/" --strip-components=1 --no-same-owner
-"${prefix}${target}/bin/k6" completion bash >"${prefix}${target}/share/bash-completion/completions/k6"
-"${prefix}${target}/bin/k6" completion fish >"${prefix}${target}/share/fish/vendor_completions.d/k6.fish"
-"${prefix}${target}/bin/k6" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_k6"
+| tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner
+"${prefix}/bin/k6" completion bash >"${prefix}/share/bash-completion/completions/k6"
+"${prefix}/bin/k6" completion fish >"${prefix}/share/fish/vendor_completions.d/k6.fish"
+"${prefix}/bin/k6" completion zsh >"${prefix}/share/zsh/vendor-completions/_k6"
 EOF

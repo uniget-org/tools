@@ -22,5 +22,5 @@ ARG version
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/keybase/client .
 cd go
-go build -tags production -o "${prefix}${target}/bin/keybase" github.com/keybase/client/go/keybase
+go build -tags production -o "${prefix}/bin/keybase" github.com/keybase/client/go/keybase
 EOF
