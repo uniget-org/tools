@@ -9,9 +9,9 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "docker/compose-switch" "v${version}" "docker-compose-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}${target}/bin/docker-compose-switch" \
+curl --silent --location --fail --output "${prefix}/bin/docker-compose-switch" \
     "https://github.com/docker/compose-switch/releases/download/v${version}/docker-compose-linux-${alt_arch}"
-chmod +x "${prefix}${target}/bin/docker-compose-switch"
+chmod +x "${prefix}/bin/docker-compose-switch"
 
-ln --symbolic --relative --force "${prefix}${target}/bin/docker-compose-switch" "${prefix}${target}/bin/docker-compose"
+ln --symbolic --relative --force "${prefix}/bin/docker-compose-switch" "${prefix}/bin/docker-compose"
 EOF

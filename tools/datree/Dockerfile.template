@@ -12,11 +12,11 @@ check-github-release-asset "datreeio/datree" "${version}" "datree-cli_${version}
 curl --silent --location --fail --remote-name "https://github.com/datreeio/datree/releases/download/${version}/datree-cli_${version}_Linux_${arch}.zip"
 unzip -q -o -d "/tmp" "datree-cli_${version}_Linux_${arch}.zip"
 rm "datree-cli_${version}_Linux_${arch}.zip"
-mv "/tmp/datree" "${prefix}${target}/bin"
-"${prefix}${target}/bin/datree" completion bash >"${prefix}${target}/share/bash-completion/completions/datree"
-"${prefix}${target}/bin/datree" completion fish >"${prefix}${target}/share/fish/vendor_completions.d/datree.fish"
-"${prefix}${target}/bin/datree" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_datree"
+mv "/tmp/datree" "${prefix}/bin"
+"${prefix}/bin/datree" completion bash >"${prefix}/share/bash-completion/completions/datree"
+"${prefix}/bin/datree" completion fish >"${prefix}/share/fish/vendor_completions.d/datree.fish"
+"${prefix}/bin/datree" completion zsh >"${prefix}/share/zsh/vendor-completions/_datree"
 EOF
 RUN <<EOF
-"${prefix}${target}/bin/datree" config set offline local
+"${prefix}/bin/datree" config set offline local
 EOF

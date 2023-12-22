@@ -21,12 +21,12 @@ apt-get update
 apt-get -y install --no-install-recommends \
     build-essential
 EOF
-WORKDIR ${prefix}${target}/libexec/devcontainer
+WORKDIR ${prefix}/libexec/devcontainer
 ARG name
 ARG version
 RUN <<EOF
 npm install \
     --omit=dev \
     "@devcontainers/cli@${version}"
-ln --symbolic --relative --force "${prefix}${target}/libexec/devcontainer/node_modules/.bin/devcontainer" "${prefix}${target}/bin/"
+ln --symbolic --relative --force "${prefix}/libexec/devcontainer/node_modules/.bin/devcontainer" "${prefix}/bin/"
 EOF

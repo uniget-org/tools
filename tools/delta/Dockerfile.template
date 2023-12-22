@@ -7,7 +7,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --from=rust / /
+COPY --from=rust / /usr/local
 ARG DEBIAN_FRONTEND=noninteractive
 RUN <<EOF
 apt-get update
@@ -18,9 +18,10 @@ WORKDIR /tmp/github.com/dandavison/delta
 ARG name
 ARG version
 RUN <<EOF
-source "${target}/etc/profile.d/cargo.sh"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" https://github.com/dandavison/delta .
+export CARGO_HOME=/usr/local/cargo
+export RUSTUP_HOME=/usr/local/rustup
 export RUSTFLAGS='-C target-feature=+crt-static'
 cargo build --release --target "${arch}-unknown-linux-gnu"
-cp "target/${arch}-unknown-linux-gnu/release/delta" "${prefix}${target}/bin/"
+cp "target/${arch}-unknown-linux-gnu/release/delta" "${prefix}/bin/"
 EOF

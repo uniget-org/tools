@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "moncho/dry" "v${version}" "dry-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}${target}/bin/dry" \
+curl --silent --location --fail --output "${prefix}/bin/dry" \
     "https://github.com/moncho/dry/releases/download/v${version}/dry-linux-${alt_arch}"
-chmod +x "${prefix}${target}/bin/dry"
+chmod +x "${prefix}/bin/dry"
 EOF
