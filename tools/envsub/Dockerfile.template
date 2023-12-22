@@ -22,5 +22,5 @@ git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" 
 export CARGO_HOME=/usr/local/cargo
 export RUSTUP_HOME=/usr/local/rustup
 cargo build --release --target x86_64-unknown-linux-gnu
-cp target/x86_64-unknown-linux-gnu/release/envsub "${prefix}${target}/bin/"
+cp target/x86_64-unknown-linux-gnu/release/envsub "${prefix}/bin/"
 EOF
