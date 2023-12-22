@@ -29,8 +29,8 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-COPY --from=build /opt/reptyr/ ${prefix}${target}/
+COPY --from=build /opt/reptyr/ ${prefix}/
 RUN <<EOF
-curl --silent --location --fail --output "${prefix}${target}/share/bash-completion/completions/reptyr" \
+curl --silent --location --fail --output "${prefix}/share/bash-completion/completions/reptyr" \
     "https://github.com/nelhage/reptyr/raw/reptyr-${version}/reptyr.bash"
 EOF

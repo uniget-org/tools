@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "rancher/rke" "v${version}" "rke_linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}${target}/bin/rke" \
+curl --silent --location --fail --output "${prefix}/bin/rke" \
     "https://github.com/rancher/rke/releases/download/v${version}/rke_linux-${alt_arch}"
-chmod +x "${prefix}${target}/bin/rke"
+chmod +x "${prefix}/bin/rke"
 EOF
