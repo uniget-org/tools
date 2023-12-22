@@ -9,10 +9,10 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "solo-io/bumblebee" "v${version}" "bee-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}${target}/bin/bee" \
+curl --silent --location --fail --output "${prefix}/bin/bee" \
     "https://github.com/solo-io/bumblebee/releases/download/v${version}/bee-linux-${alt_arch}"
-chmod +x "${prefix}${target}/bin/bee"
-"${prefix}${target}/bin/bee" completion bash >"${prefix}${target}/share/bash-completion/completions/bee"
-"${prefix}${target}/bin/bee" completion fish >"${prefix}${target}/share/fish/vendor_completions.d/bee.fish"
-"${prefix}${target}/bin/bee" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_bee"
+chmod +x "${prefix}/bin/bee"
+"${prefix}/bin/bee" completion bash >"${prefix}/share/bash-completion/completions/bee"
+"${prefix}/bin/bee" completion fish >"${prefix}/share/fish/vendor_completions.d/bee.fish"
+"${prefix}/bin/bee" completion zsh >"${prefix}/share/zsh/vendor-completions/_bee"
 EOF
