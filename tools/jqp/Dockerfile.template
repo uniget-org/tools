@@ -27,6 +27,6 @@ check-github-release-asset "noahgorstein/jqp" "v${version}" "jqp_Linux_${arch_su
 
 echo "### Downloading jqp ${version}"
 curl --silent --location --fail "https://github.com/noahgorstein/jqp/releases/download/v${version}/jqp_Linux_${arch_suffix}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin/" --no-same-owner \
+| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     jqp
 EOF

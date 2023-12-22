@@ -19,5 +19,5 @@ rm -rf vendor
 go mod init github.com/sgreben/jp
 go get -u ./...
 go mod tidy
-go build -ldflags "-X main.version=${version}" -o "${prefix}${target}/bin/jp" ./cmd/jp
+go build -ldflags "-X main.version=${version}" -o "${prefix}/bin/jp" ./cmd/jp
 EOF
