@@ -27,5 +27,5 @@ curl --silent --show-error --location --fail "https://github.com/lz4/lz4/release
 
 make -C lib
 make -C programs LDFLAGS=-static
-make install DESTDIR="${prefix}" prefix="${target}"
+make install DESTDIR="${prefix}" prefix=""
 EOF

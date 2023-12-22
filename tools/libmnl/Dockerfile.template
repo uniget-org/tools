@@ -26,7 +26,7 @@ git clone --config advice.detachedHead=false --depth 1 --branch "libmnl-${versio
 EOF
 RUN <<EOF
 ./autogen.sh
-./configure --prefix="${prefix}${target}"
+./configure --prefix="${prefix}"
 make
 make install
 EOF

@@ -28,9 +28,9 @@ check-clone "https://git.netfilter.org/libnftnl" "libnftnl-${version}"
 git clone --config advice.detachedHead=false --depth 1 --branch "libnftnl-${version}" git://git.netfilter.org/libnftnl .
 EOF
 RUN <<EOF
-export PKG_CONFIG_PATH="${target}/lib/pkgconfig:${PKG_CONFIG_PATH}"
+export PKG_CONFIG_PATH="/lib/pkgconfig:${PKG_CONFIG_PATH}"
 ./autogen.sh
-./configure --prefix="${prefix}${target}" --enable-static=yes --enable-shared=yes
+./configure --prefix="${prefix}" --enable-static=yes --enable-shared=yes
 make
 make install
 EOF
