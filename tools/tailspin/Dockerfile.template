@@ -18,16 +18,16 @@ apt-get -y install --no-install-recommends \
 EOF
 WORKDIR /tmp/github.com/bensadeh/tailspin
 RUN <<EOF
-source "${target}/etc/profile.d/cargo.sh"
+source "/etc/profile.d/cargo.sh"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" https://github.com/bensadeh/tailspin .
 export RUSTFLAGS='-C target-feature=+crt-static'
 cargo build --release --target "${arch}-unknown-linux-gnu"
-cp "target/${arch}-unknown-linux-gnu/release/tspin" "${prefix}${target}/bin/"
+cp "target/${arch}-unknown-linux-gnu/release/tspin" "${prefix}/bin/"
 
-curl --silent --show-error --location --fail --output "${prefix}${target}/share/bash-completion/completions/tspin" \
+curl --silent --show-error --location --fail --output "${prefix}/share/bash-completion/completions/tspin" \
     --url "https://github.com/bensadeh/tailspin/raw/2.1.0/completions/tspin.bash"
-curl --silent --show-error --location --fail --output "${prefix}${target}/share/fish/vendor_completions.d/tspin.fish" \
+curl --silent --show-error --location --fail --output "${prefix}/share/fish/vendor_completions.d/tspin.fish" \
     --url "https://github.com/bensadeh/tailspin/raw/2.1.0/completions/tspin.fish"
-curl --silent --show-error --location --fail --output "${prefix}${target}/share/zsh/vendor-completions/_tspin" \
+curl --silent --show-error --location --fail --output "${prefix}/share/zsh/vendor-completions/_tspin" \
     --url "https://github.com/bensadeh/tailspin/raw/2.1.0/completions/tspin.zsh"
 EOF

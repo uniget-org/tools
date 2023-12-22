@@ -19,5 +19,5 @@ EOF
 ARG name
 ARG version
 RUN <<EOF
-shiv --output-file "${prefix}${target}/bin/tern" --console-script tern "tern==${version}"
+shiv --output-file "${prefix}/bin/tern" --console-script tern "tern==${version}"
 EOF

@@ -55,23 +55,23 @@ COSIGN_EXPERIMENTAL=1 cosign verify-blob \
     "trivy_${version}_Linux-${arch_suffix}.tar.gz"
 
 echo "### Installing trivy ${version}"
-tar --extract --gzip --directory="${prefix}${target}/bin" --file "trivy_${version}_Linux-${arch_suffix}.tar.gz" \
+tar --extract --gzip --directory="${prefix}/bin" --file "trivy_${version}_Linux-${arch_suffix}.tar.gz" \
     trivy \
     contrib
 rm -f "trivy_${version}_Linux-${arch_suffix}.tar.gz"
 
 echo "### Installing trivy ${version} completion"
-"${prefix}${target}/bin/trivy" completion bash >"${prefix}${target}/share/bash-completion/completions/trivy"
-"${prefix}${target}/bin/trivy" completion fish >"${prefix}${target}/share/fish/vendor_completions.d/trivy.fish"
-"${prefix}${target}/bin/trivy" completion zsh  >"${prefix}${target}/share/zsh/vendor-completions/_trivy"
+"${prefix}/bin/trivy" completion bash >"${prefix}/share/bash-completion/completions/trivy"
+"${prefix}/bin/trivy" completion fish >"${prefix}/share/fish/vendor_completions.d/trivy.fish"
+"${prefix}/bin/trivy" completion zsh  >"${prefix}/share/zsh/vendor-completions/_trivy"
 
 echo "### Moving templates for trivy ${version}"
-mkdir -p "${prefix}${target}/share/trivy"
-mv "${prefix}${target}/bin/contrib" "${prefix}${target}/share/trivy/"
+mkdir -p "${prefix}/share/trivy"
+mv "${prefix}/bin/contrib" "${prefix}/share/trivy/"
 EOF
 
 RUN <<EOF
 echo "### Installing SonarQube template for trivy ${version}"
-curl --silent --location --fail --output "${prefix}${target}/share/trivy/contrib/sonarqube.tpl" \
+curl --silent --location --fail --output "${prefix}/share/trivy/contrib/sonarqube.tpl" \
       https://github.com/mendhak/trivy-template-output-to-sonarqube/raw/master/sonarqube.tpl
 EOF

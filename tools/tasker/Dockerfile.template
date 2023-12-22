@@ -29,4 +29,4 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-COPY --from=build /opt/tasker/ ${prefix}${target}/
+COPY --from=build /opt/tasker/ ${prefix}/
