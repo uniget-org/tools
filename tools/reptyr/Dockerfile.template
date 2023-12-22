@@ -1,6 +1,12 @@
 #syntax=docker/dockerfile:1.6.0
 
-FROM ubuntu:22.04@sha256:6042500cf4b44023ea1894effe7890666b0c5c7871ed83a97c36c76ae560bb9b AS build
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
 RUN <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
@@ -18,19 +24,9 @@ sed -E -i "s/#define REPTYR_VERSION \".+\"/#define REPTYR_VERSION \"${version}\"
 export LDFLAGS=-static
 make reptyr
 mkdir -p /opt/reptyr/bin /opt/reptyr/share/man/man1
-cp reptyr /opt/reptyr/bin/
-cp reptyr.1 /opt/reptyr/share/man/man1/
-EOF
+cp reptyr "${prefix}/bin/"
+cp reptyr.1 "${prefix}/share/man/man1/"
 
-FROM nicholasdille/ubuntu:22.04 AS prepare
-COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
-    /etc/profile.d/ \
-    /etc/profile.d/
-SHELL [ "bash", "-clo", "errexit" ]
-ARG name
-ARG version
-COPY --from=build /opt/reptyr/ ${prefix}/
-RUN <<EOF
 curl --silent --location --fail --output "${prefix}/share/bash-completion/completions/reptyr" \
     "https://github.com/nelhage/reptyr/raw/reptyr-${version}/reptyr.bash"
 EOF
