@@ -12,6 +12,6 @@ url="https://github.com/opentofu/opentofu/releases/download/v${version}/tofu_${v
 check-github-release-asset "opentofu/opentofu" "v${version}" "tofu_${version}_linux_${alt_arch}.zip"
 filename="$(basename "${url}")"
 curl --silent --location --fail --remote-name "${url}"
-unzip -q -o -d "${prefix}${target}/bin" "${filename}" \
+unzip -q -o -d "${prefix}/bin" "${filename}" \
     tofu
 EOF
