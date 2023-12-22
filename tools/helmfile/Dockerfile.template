@@ -11,11 +11,11 @@ ARG version
 
 RUN <<EOF
 check-github-release-asset "roboll/helmfile" "v${version}" "helmfile_linux_${alt_arch}"
-curl --silent --location --fail --output "${prefix}${target}/bin/helmfile" \
+curl --silent --location --fail --output "${prefix}/bin/helmfile" \
     "https://github.com/roboll/helmfile/releases/download/v${version}/helmfile_linux_${alt_arch}"
-chmod +x "${prefix}${target}/bin/helmfile"
-curl --silent --location --fail --output "${prefix}${target}/share/bash-completion/completions/helmfile" \
+chmod +x "${prefix}/bin/helmfile"
+curl --silent --location --fail --output "${prefix}/share/bash-completion/completions/helmfile" \
     "https://github.com/roboll/helmfile/raw/v${version}/autocomplete/helmfile_bash_autocomplete"
-curl --silent --location --fail --output "${prefix}${target}/share/zsh/vendor-completions/_helmfile" \
+curl --silent --location --fail --output "${prefix}/share/zsh/vendor-completions/_helmfile" \
     "https://github.com/roboll/helmfile/raw/v${version}/autocomplete/helmfile_zsh_autocomplete"
 EOF

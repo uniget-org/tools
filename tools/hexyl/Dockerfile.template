@@ -25,9 +25,9 @@ check-github-release-asset "sharkdp/hexyl" "v${version}" "hexyl-v${version}-${ar
 
 echo "### Downloading hexyl ${version}"
 curl --silent --location --fail "https://github.com/sharkdp/hexyl/releases/download/v${version}/hexyl-v${version}-${arch}-unknown-linux-${suffix}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin/" --strip-components=1 --no-same-owner \
+| tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
     "hexyl-v${version}-${arch}-unknown-linux-${suffix}/hexyl" \
     "hexyl-v${version}-${arch}-unknown-linux-${suffix}/hexyl.1"
 
-mv "${prefix}${target}/bin/hexyl.1" "${prefix}${target}/share/man/man1/"
+mv "${prefix}/bin/hexyl.1" "${prefix}/share/man/man1/"
 EOF

@@ -20,10 +20,10 @@ EOF
 ARG name
 ARG version
 RUN <<EOF
-shiv --output-file "${prefix}${target}/bin/http" --console-script http "httpie==${version}"
+shiv --output-file "${prefix}/bin/http" --console-script http "httpie==${version}"
 
-curl --silent --location --fail --output "${prefix}${target}/share/bash-completion/completions/http" \
+curl --silent --location --fail --output "${prefix}/share/bash-completion/completions/http" \
     "https://github.com/httpie/cli/raw/${version}/extras/httpie-completion.bash"
-curl --silent --location --fail --output "${prefix}${target}/share/fish/vendor_completions.d/http.fish" \
+curl --silent --location --fail --output "${prefix}/share/fish/vendor_completions.d/http.fish" \
     "https://github.com/httpie/cli/raw/${version}/extras/httpie-completion.fish"
 EOF
