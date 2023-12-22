@@ -16,6 +16,6 @@ WORKDIR /go/src/github.com/containerd/accelerated-container-image
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/containerd/accelerated-container-image .
 make binaries
-cp bin/overlaybd-snapshotter bin/ctr bin/convertor "${prefix}${target}/bin/"
-cp script/overlaybd-snapshotter.service "${prefix}${target}/etc/systemd/system/"
+cp bin/overlaybd-snapshotter bin/ctr bin/convertor "${prefix}/bin/"
+cp script/overlaybd-snapshotter.service "${prefix}/etc/systemd/system/"
 EOF

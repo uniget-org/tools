@@ -10,7 +10,7 @@ ARG version
 RUN <<EOF
 check-github-release-asset "osquery/osquery" "${version}" "osquery-${version}_1.linux_${arch}.tar.gz"
 curl --silent --location --fail "https://github.com/osquery/osquery/releases/download/${version}/osquery-${version}_1.linux_${arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/" --strip-components=2 --no-same-owner \
+| tar --extract --gzip --directory="${prefix}/" --strip-components=2 --no-same-owner \
     opt/osquery
-ln --symbolic --relative --force "${prefix}${target}/bin/osqueryd" "${prefix}${target}/bin/osqueryi"
+ln --symbolic --relative --force "${prefix}/bin/osqueryd" "${prefix}/bin/osqueryi"
 EOF

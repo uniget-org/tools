@@ -11,9 +11,9 @@ ARG commit_sha=0cbc58b
 RUN <<EOF
 check-github-release-asset "openshift/origin" "v${version}" "openshift-origin-client-tools-v${version}-${commit_sha}-linux-64bit.tar.gz"
 curl --silent --location --fail "https://github.com/openshift/origin/releases/download/v${version}/openshift-origin-client-tools-v${version}-${commit_sha}-linux-64bit.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin" --strip-components=1 --wildcards \
+| tar --extract --gzip --directory="${prefix}/bin" --strip-components=1 --wildcards \
     */oc
 
-"${prefix}${target}/bin/oc" completion bash >"${prefix}${target}/share/bash-completion/completions/oc"
-"${prefix}${target}/bin/oc" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_oc"
+"${prefix}/bin/oc" completion bash >"${prefix}/share/bash-completion/completions/oc"
+"${prefix}/bin/oc" completion zsh >"${prefix}/share/zsh/vendor-completions/_oc"
 EOF

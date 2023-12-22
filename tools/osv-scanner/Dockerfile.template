@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "google/osv-scanner" "v${version}" "osv-scanner_${version}_linux_${alt_arch}"
-curl --silent --location --fail --output "${prefix}${target}/bin/osv-scanner" \
+curl --silent --location --fail --output "${prefix}/bin/osv-scanner" \
     "https://github.com/google/osv-scanner/releases/download/v${version}/osv-scanner_${version}_linux_${alt_arch}"
-chmod +x "${prefix}${target}/bin/osv-scanner"
+chmod +x "${prefix}/bin/osv-scanner"
 EOF
