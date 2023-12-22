@@ -29,10 +29,7 @@ echo "### Downloading arkade ${version}"
 curl --silent --location --fail --output "${prefix}/bin/arkade" \
     "https://github.com/alexellis/arkade/releases/download/${version}/arkade${arch_suffix}"
 chmod +x "${prefix}/bin/arkade"
-EOF
 
-FROM download AS prepare
-RUN <<EOF
 "${prefix}/bin/arkade" completion bash >"${prefix}/share/bash-completion/completions/arkade"
 "${prefix}/bin/arkade" completion fish >"${prefix}/share/fish/vendor_completions.d/arkade.fish"
 "${prefix}/bin/arkade" completion zsh >"${prefix}/share/zsh/vendor-completions/_arkade"
