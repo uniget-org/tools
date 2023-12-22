@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "lima-vm/sshocker" "v${version}" "sshocker-Linux-${arch}"
-curl --silent --location --fail --output "${prefix}${target}/bin/sshocker" \
+curl --silent --location --fail --output "${prefix}/bin/sshocker" \
     "https://github.com/lima-vm/sshocker/releases/download/v${version}/sshocker-Linux-${arch}"
-chmod +x "${prefix}${target}/bin/sshocker"
+chmod +x "${prefix}/bin/sshocker"
 EOF

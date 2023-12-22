@@ -10,9 +10,9 @@ ARG version
 RUN <<EOF
 check-github-release-asset "anchore/syft" "v${version}" "syft_${version}_linux_${alt_arch}.tar.gz"
 curl --silent --location --fail "https://github.com/anchore/syft/releases/download/v${version}/syft_${version}_linux_${alt_arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin" --no-same-owner \
+| tar --extract --gzip --directory="${prefix}/bin" --no-same-owner \
     syft
-"${prefix}${target}/bin/syft" completion bash | sed -E 's/^(\s*complete.*)/\1 syft/'            >"${prefix}${target}/share/bash-completion/completions/syft"
-"${prefix}${target}/bin/syft" completion fish | sed -E 's/complete -c  -e/complete -c syft -e/' >"${prefix}${target}/share/fish/vendor_completions.d/syft.fish"
-"${prefix}${target}/bin/syft" completion zsh                                                    >"${prefix}${target}/share/zsh/vendor-completions/_syft"
+"${prefix}/bin/syft" completion bash | sed -E 's/^(\s*complete.*)/\1 syft/'            >"${prefix}/share/bash-completion/completions/syft"
+"${prefix}/bin/syft" completion fish | sed -E 's/complete -c  -e/complete -c syft -e/' >"${prefix}/share/fish/vendor_completions.d/syft.fish"
+"${prefix}/bin/syft" completion zsh                                                    >"${prefix}/share/zsh/vendor-completions/_syft"
 EOF

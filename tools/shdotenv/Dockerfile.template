@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "ko1nksm/shdotenv" "v${version}" "shdotenv"
-curl --silent --location --fail --output "${prefix}${target}/bin/shdotenv" \
+curl --silent --location --fail --output "${prefix}/bin/shdotenv" \
     "https://github.com/ko1nksm/shdotenv/releases/download/v${version}/shdotenv"
-chmod +x "${prefix}${target}/bin/shdotenv"
+chmod +x "${prefix}/bin/shdotenv"
 EOF

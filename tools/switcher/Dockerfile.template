@@ -11,16 +11,16 @@ ARG version
 
 RUN <<EOF
 check-github-release-asset "danielfoehrKn/kubeswitch" "${version}" "switcher_linux_${alt_arch}"
-curl --silent --location --fail --output "${prefix}${target}/bin/switcher" \
+curl --silent --location --fail --output "${prefix}/bin/switcher" \
     "https://github.com/danielfoehrKn/kubeswitch/releases/download/${version}/switcher_linux_${alt_arch}"
-chmod +x "${prefix}${target}/bin/switcher"
+chmod +x "${prefix}/bin/switcher"
 
-curl --silent --location --fail --output "${prefix}${target}/bin/switch.sh" \
+curl --silent --location --fail --output "${prefix}/bin/switch.sh" \
     "https://github.com/danielfoehrKn/kubeswitch/releases/download/${version}/switch.sh"
-chmod +x "${prefix}${target}/bin/switch.sh"
+chmod +x "${prefix}/bin/switch.sh"
 
-curl --silent --location --fail --output "${prefix}${target}/share/bash-completion/completions/${name}" \
+curl --silent --location --fail --output "${prefix}/share/bash-completion/completions/${name}" \
     "https://github.com/danielfoehrKn/kubeswitch/raw/${version}/hack/switch/switch.sh"
-curl --silent --location --fail --output "${prefix}${target}/share/fish/vendor_completions.d/${name}.fish" \
+curl --silent --location --fail --output "${prefix}/share/fish/vendor_completions.d/${name}.fish" \
     "https://github.com/danielfoehrKn/kubeswitch/raw/${version}/hack/switch/switch.fish"
 EOF

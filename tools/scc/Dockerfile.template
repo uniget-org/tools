@@ -27,6 +27,6 @@ check-github-release-asset "boyter/scc" "v${version}" "scc_Linux_${arch_suffix}.
 
 echo "### Downloading scc ${version}"
 curl --silent --location --fail "https://github.com/boyter/scc/releases/download/v${version}/scc_Linux_${arch_suffix}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin/" --no-same-owner \
+| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     scc
 EOF

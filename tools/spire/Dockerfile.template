@@ -10,16 +10,16 @@ ARG name
 ARG version
 
 RUN <<EOF
-mkdir "${prefix}${target}/share/spire/"
+mkdir "${prefix}/share/spire/"
 
 check-github-release-asset "spiffe/spire" "v${version}" "spire-${version}-linux-${alt_arch}-musl.tar.gz"
 curl --silent --location --fail "https://github.com/spiffe/spire/releases/download/v${version}/spire-${version}-linux-${alt_arch}-musl.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/share/spire/" --strip-components=1 --no-same-owner
+| tar --extract --gzip --directory="${prefix}/share/spire/" --strip-components=1 --no-same-owner
 
 check-github-release-asset "spiffe/spire" "v${version}" "spire-extras-${version}-linux-${alt_arch}-musl.tar.gz"
 curl --silent --location --fail "https://github.com/spiffe/spire/releases/download/v${version}/spire-extras-${version}-linux-${alt_arch}-musl.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/share/spire/" --strip-components=1 --no-same-owner
+| tar --extract --gzip --directory="${prefix}/share/spire/" --strip-components=1 --no-same-owner
 
-find "${prefix}${target}/share/spire/bin" -type f -executable -exec mv {} "${prefix}${target}/bin/" \;
-rmdir "${prefix}${target}/share/spire/bin"
+find "${prefix}/share/spire/bin" -type f -executable -exec mv {} "${prefix}/bin/" \;
+rmdir "${prefix}/share/spire/bin"
 EOF

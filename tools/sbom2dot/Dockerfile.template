@@ -20,5 +20,5 @@ apt-get -y install --no-install-recommends \
     python-is-python3
 EOF
 RUN <<EOF
-shiv --output-file "${prefix}${target}/bin/sbom2dot" --console-script sbom2dot "sbom2dot==${version}"
+shiv --output-file "${prefix}/bin/sbom2dot" --console-script sbom2dot "sbom2dot==${version}"
 EOF

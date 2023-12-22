@@ -32,6 +32,6 @@ COSIGN_EXPERIMENTAL=1 cosign verify-blob "sbom-operator_${version}_linux_${alt_a
     --certificate-github-workflow-ref refs/heads/main \
     --certificate-github-workflow-trigger workflow_dispatch
 
-tar --extract --gzip --file "sbom-operator_${version}_linux_${alt_arch}.tar.gz" --directory="${prefix}${target}/bin/" --no-same-owner \
+tar --extract --gzip --file "sbom-operator_${version}_linux_${alt_arch}.tar.gz" --directory="${prefix}/bin/" --no-same-owner \
     sbom-operator
 EOF

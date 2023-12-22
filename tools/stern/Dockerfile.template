@@ -10,9 +10,9 @@ ARG version
 RUN <<EOF
 check-github-release-asset "stern/stern" "v${version}" "stern_${version}_linux_${alt_arch}.tar.gz"
 curl --silent --location --fail "https://github.com/stern/stern/releases/download/v${version}/stern_${version}_linux_${alt_arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin" --no-same-owner \
+| tar --extract --gzip --directory="${prefix}/bin" --no-same-owner \
     stern
-"${prefix}${target}/bin/stern" --completion bash >"${prefix}${target}/share/bash-completion/completions/stern"
-"${prefix}${target}/bin/stern" --completion fish >"${prefix}${target}/share/fish/vendor_completions.d/stern.fish"
-"${prefix}${target}/bin/stern" --completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_stern"
+"${prefix}/bin/stern" --completion bash >"${prefix}/share/bash-completion/completions/stern"
+"${prefix}/bin/stern" --completion fish >"${prefix}/share/fish/vendor_completions.d/stern.fish"
+"${prefix}/bin/stern" --completion zsh >"${prefix}/share/zsh/vendor-completions/_stern"
 EOF

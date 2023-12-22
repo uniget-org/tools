@@ -8,23 +8,23 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
-mkdir -p "${prefix}${target}/share/source-sans"
+mkdir -p "${prefix}/share/source-sans"
 
 url="https://github.com/adobe-fonts/source-sans/releases/download/${version}R/WOFF-source-sans-${version}R.zip"
 check-github-release-asset "adobe-fonts/source-sans" "${version}R" "WOFF-source-sans-${version}R.zip"
 filename="$(basename "${url}")"
 curl --silent --location --fail --remote-name "${url}"
-unzip -q -o -d "${prefix}${target}/share/source-sans" "${filename}"
+unzip -q -o -d "${prefix}/share/source-sans" "${filename}"
 
 url="https://github.com/adobe-fonts/source-sans/releases/download/${version}R/WOFF2-source-sans-${version}R.zip"
 check-github-release-asset "adobe-fonts/source-sans" "${version}R" "WOFF2-source-sans-${version}R.zip"
 filename="$(basename "${url}")"
 curl --silent --location --fail --remote-name "${url}"
-unzip -q -o -d "${prefix}${target}/share/source-sans" "${filename}"
+unzip -q -o -d "${prefix}/share/source-sans" "${filename}"
 
-rm -rf "${prefix}${target}/share/source-sans/__MACOSX"
-find "${prefix}${target}/share/source-sans" -type f -name \.DS_Store -delete
+rm -rf "${prefix}/share/source-sans/__MACOSX"
+find "${prefix}/share/source-sans" -type f -name \.DS_Store -delete
 
-curl --silent --location --fail --output "${prefix}${target}/share/source-sans/source-sans-3.css" \
+curl --silent --location --fail --output "${prefix}/share/source-sans/source-sans-3.css" \
     "https://github.com/adobe-fonts/source-sans/raw/${version}R/source-sans-3.css"
 EOF

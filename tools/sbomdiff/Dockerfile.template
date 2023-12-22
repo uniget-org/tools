@@ -19,5 +19,5 @@ EOF
 ARG name
 ARG version
 RUN <<EOF
-shiv --output-file "${prefix}${target}/bin/sbomdiff" --console-script sbomdiff "sbomdiff==${version}"
+shiv --output-file "${prefix}/bin/sbomdiff" --console-script sbomdiff "sbomdiff==${version}"
 EOF
