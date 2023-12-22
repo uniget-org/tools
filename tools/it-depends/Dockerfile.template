@@ -20,5 +20,5 @@ EOF
 ARG name
 ARG version
 RUN <<EOF
-shiv --output-file "${prefix}${target}/bin/it-depends" --console-script it-depends "it-depends==${version}"
+shiv --output-file "${prefix}/bin/it-depends" --console-script it-depends "it-depends==${version}"
 EOF

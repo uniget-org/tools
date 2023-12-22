@@ -9,15 +9,15 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "weaveworks/ignite" "v${version}" "ignite-${alt_arch}"
-curl --silent --location --fail --output "${prefix}${target}/bin/ignite" \
+curl --silent --location --fail --output "${prefix}/bin/ignite" \
     "https://github.com/weaveworks/ignite/releases/download/v${version}/ignite-${alt_arch}"
-chmod +x "${prefix}${target}/bin/ignite"
+chmod +x "${prefix}/bin/ignite"
 
 check-github-release-asset "weaveworks/ignite" "v${version}" "ignited-${alt_arch}"
-curl --silent --location --fail --output "${prefix}${target}/bin/ignited" \
+curl --silent --location --fail --output "${prefix}/bin/ignited" \
     "https://github.com/weaveworks/ignite/releases/download/v${version}/ignited-${alt_arch}"
-chmod +x "${prefix}${target}/bin/ignited"
+chmod +x "${prefix}/bin/ignited"
 
-"${prefix}${target}/bin/ignite"  completion >"${prefix}${target}/share/bash-completion/completions/ignite"
-"${prefix}${target}/bin/ignited" completion >"${prefix}${target}/share/bash-completion/completions/ignited" || true
+"${prefix}/bin/ignite"  completion >"${prefix}/share/bash-completion/completions/ignite"
+"${prefix}/bin/ignited" completion >"${prefix}/share/bash-completion/completions/ignited" || true
 EOF
