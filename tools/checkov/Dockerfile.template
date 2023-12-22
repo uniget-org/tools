@@ -19,5 +19,5 @@ EOF
 ARG name
 ARG version
 RUN <<EOF
-shiv --output-file "${prefix}${target}/bin/checkov" --console-script checkov "checkov==${version}"
+shiv --output-file "${prefix}/bin/checkov" --console-script checkov "checkov==${version}"
 EOF

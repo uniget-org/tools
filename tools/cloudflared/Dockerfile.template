@@ -11,7 +11,7 @@ ARG version
 
 RUN <<EOF
 check-github-release-asset "cloudflare/cloudflared" "${version}" "cloudflared-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}${target}/bin/cloudflared" \
+curl --silent --location --fail --output "${prefix}/bin/cloudflared" \
     "https://github.com/cloudflare/cloudflared/releases/download/${version}/cloudflared-linux-${alt_arch}"
-chmod +x "${prefix}${target}/bin/cloudflared"
+chmod +x "${prefix}/bin/cloudflared"
 EOF

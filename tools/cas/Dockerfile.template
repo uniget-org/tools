@@ -9,10 +9,10 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "codenotary/cas" "v${version}" "cas-v${version}-linux-${alt_arch}-static"
-curl --silent --location --fail --output "${prefix}${target}/bin/cas" \
+curl --silent --location --fail --output "${prefix}/bin/cas" \
     "https://github.com/codenotary/cas/releases/download/v${version}/cas-v${version}-linux-${alt_arch}-static"
-chmod +x "${prefix}${target}/bin/cas"
-"${prefix}${target}/bin/cas" completion bash >"${prefix}${target}/share/bash-completion/completions/cas"
-"${prefix}${target}/bin/cas" completion fish >"${prefix}${target}/share/fish/vendor_completions.d/cas.fish"
-"${prefix}${target}/bin/cas" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_cas"
+chmod +x "${prefix}/bin/cas"
+"${prefix}/bin/cas" completion bash >"${prefix}/share/bash-completion/completions/cas"
+"${prefix}/bin/cas" completion fish >"${prefix}/share/fish/vendor_completions.d/cas.fish"
+"${prefix}/bin/cas" completion zsh >"${prefix}/share/zsh/vendor-completions/_cas"
 EOF

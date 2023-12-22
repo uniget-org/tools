@@ -8,11 +8,11 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
-mkdir -p "${prefix}${target}/opt"
+mkdir -p "${prefix}/opt"
 url="https://dist.neo4j.org/cypher-shell/cypher-shell-${version}.zip"
 filename="$(basename "${url}")"
 curl --silent --location --fail --remote-name "${url}"
-unzip -q -o -d "${prefix}${target}/opt/" "${filename}"
-mv "${prefix}${target}/opt/cypher-shell-${version}" "${prefix}${target}/opt/cypher-shell"
-ln --symbolic --relative --force "${target}/opt/cypher-shell/bin/cypher-shell" "${prefix}${target}/bin/"
+unzip -q -o -d "${prefix}/opt/" "${filename}"
+mv "${prefix}/opt/cypher-shell-${version}" "${prefix}/opt/cypher-shell"
+ln --symbolic --relative --force "/opt/cypher-shell/bin/cypher-shell" "${prefix}/bin/"
 EOF

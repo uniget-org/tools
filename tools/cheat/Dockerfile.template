@@ -11,9 +11,9 @@ RUN <<EOF
 check-github-release-asset "cheat/cheat" "${version}" "cheat-linux-${alt_arch}.gz"
 curl --silent --location --fail "https://github.com/cheat/cheat/releases/download/${version}/cheat-linux-${alt_arch}.gz" \
 | gunzip \
->"${prefix}${target}/bin/cheat"
-chmod +x "${prefix}${target}/bin/cheat"
+>"${prefix}/bin/cheat"
+chmod +x "${prefix}/bin/cheat"
 
-curl --silent --location --fail --output "${prefix}${target}/share/man/man1/cheat.1" \
+curl --silent --location --fail --output "${prefix}/share/man/man1/cheat.1" \
     "https://github.com/cheat/cheat/raw/${version}/doc/cheat.1"
 EOF

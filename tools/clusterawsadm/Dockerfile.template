@@ -11,10 +11,10 @@ ARG version
 
 RUN <<EOF
 check-github-release-asset "kubernetes-sigs/cluster-api-provider-aws" "v${version}" "clusterawsadm-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}${target}/bin/clusterawsadm" \
+curl --silent --location --fail --output "${prefix}/bin/clusterawsadm" \
     "https://github.com/kubernetes-sigs/cluster-api-provider-aws/releases/download/v${version}/clusterawsadm-linux-${alt_arch}"
-chmod +x "${prefix}${target}/bin/clusterawsadm"
-"${prefix}${target}/bin/clusterawsadm" completion bash >"${prefix}${target}/share/bash-completion/completions/clusterawsadm"
-"${prefix}${target}/bin/clusterawsadm" completion fish >"${prefix}${target}/share/fish/vendor_completions.d/clusterawsadm.fish"
-"${prefix}${target}/bin/clusterawsadm" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_clusterawsadm"
+chmod +x "${prefix}/bin/clusterawsadm"
+"${prefix}/bin/clusterawsadm" completion bash >"${prefix}/share/bash-completion/completions/clusterawsadm"
+"${prefix}/bin/clusterawsadm" completion fish >"${prefix}/share/fish/vendor_completions.d/clusterawsadm.fish"
+"${prefix}/bin/clusterawsadm" completion zsh >"${prefix}/share/zsh/vendor-completions/_clusterawsadm"
 EOF

@@ -17,5 +17,5 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --link --from=build /usr/local/bin/ ${prefix}${target}/bin/
-COPY --link --from=build /usr/local/share/man/man1/ ${prefix}${target}/share/man/man1/
+COPY --link --from=build /usr/local/bin/ ${prefix}/bin/
+COPY --link --from=build /usr/local/share/man/man1/ ${prefix}/share/man/man1/
