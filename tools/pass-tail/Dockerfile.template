@@ -18,6 +18,6 @@ curl --silent --location --fail "https://github.com/palortoff/pass-extension-tai
 | tar --extract --gzip --strip-components=1 --no-same-owner
 make install \
     DESTDIR="${prefix}" \
-    PREFIX="${target}" \
-    BASHCOMPDIR="${target}/share/bash-completion/completions"
+    PREFIX="" \
+    BASHCOMPDIR="/share/bash-completion/completions"
 EOF

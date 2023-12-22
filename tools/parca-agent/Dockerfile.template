@@ -12,6 +12,6 @@ check-github-release-asset "parca-dev/parca-agent" "v${version}" "parca-agent_${
 
 echo "### Downloading parca-agent ${version}"
 curl --silent --location --fail "https://github.com/parca-dev/parca-agent/releases/download/v${version}/parca-agent_${version}_Linux_${arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin/" --no-same-owner \
+| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     parca-agent
 EOF

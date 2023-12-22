@@ -19,7 +19,7 @@ curl --silent --location --fail "https://github.com/roddhjav/pass-update/release
 | tar --extract --gzip --strip-components=1 --no-same-owner
 make install \
     DESTDIR="${prefix}" \
-    PREFIX="${target}" \
-    BASHCOMPDIR="${target}/share/bash-completion/completions" \
-    ZSHCOMPDIR="${target}/share/zsh/vendor-completions"
+    PREFIX="" \
+    BASHCOMPDIR="/share/bash-completion/completions" \
+    ZSHCOMPDIR="/share/zsh/vendor-completions"
 EOF
