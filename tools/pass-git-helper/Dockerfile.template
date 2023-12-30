@@ -9,7 +9,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
 #COPY --link --from=python / /
-COPY --link --from=pipx / /
+COPY --link --from=pipx / /usr/local/
 RUN <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
@@ -17,14 +17,15 @@ apt-get -y install --no-install-recommends \
     python3-venv \
     python-is-python3
 EOF
-ENV PIPX_HOME=${prefix}/libexec/pipx \
-    PIPX_BIN_DIR=${prefix}/bin
 WORKDIR /tmp/pass-git-helper
 ARG name
 ARG version
 RUN <<EOF
 curl --silent --location --fail "https://github.com/languitar/pass-git-helper/archive/refs/tags/v${version}.tar.gz" \
 | tar --extract --gzip --strip-components=1 --no-same-owner
+printenv | sort
+export PIPX_HOME="${prefix}/libexec/pipx"
+export PIPX_BIN_DIR="${prefix}/bin"
 pipx install .
 ln --symbolic --relative --force "${prefix}/libexec/pipx/venvs/pass-git-helper/bin/pass-git-helper" "${prefix}/bin/pass-git-helper"
 sed -i "s|#\!${prefix}/|#\!/|" "${prefix}/libexec/pipx/venvs/pass-git-helper/bin/pass-git-helper"
