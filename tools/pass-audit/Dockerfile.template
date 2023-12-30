@@ -9,7 +9,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
 #COPY --link --from=python / /
-COPY --link --from=pipx / /
+COPY --link --from=pipx / /usr/local/
 RUN <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
@@ -17,8 +17,6 @@ apt-get -y install --no-install-recommends \
     python3-venv \
     python-is-python3
 EOF
-ENV PIPX_HOME=${prefix}/libexec/pipx \
-    PIPX_BIN_DIR=${prefix}/bin
 RUN <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
@@ -34,6 +32,8 @@ check-github-release-asset "roddhjav/pass-audit" "v${version}" "pass-audit-${ver
 curl --silent --location --fail "https://github.com/roddhjav/pass-audit/releases/download/v${version}/pass-audit-${version}.tar.gz" \
 | tar --extract --gzip --strip-components=1 --no-same-owner
 patch </tmp/setup.cfg.patch
+export PIPX_HOME="${prefix}/libexec/pipx"
+export PIPX_BIN_DIR="${prefix}/bin"
 pipx install .
 ln --symbolic --relative --force "${prefix}/libexec/pipx/venvs/pass-audit/bin/paudit" "${prefix}/bin/paudit"
 sed -i "s|#\!${prefix}/|#\!/|" "${prefix}/libexec/pipx/venvs/pass-audit/bin/paudit"
