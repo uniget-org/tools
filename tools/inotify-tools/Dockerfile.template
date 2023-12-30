@@ -25,7 +25,7 @@ ARG version
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" https://github.com/inotify-tools/inotify-tools .
 ./autogen.sh
-./configure --prefix="${prefix}${target}" --enable-static-binary --enable-fanotify
+./configure --prefix="${prefix}" --enable-static-binary --enable-fanotify
 make LDFLAGS=--static
 make install
 EOF
