@@ -1,16 +1,18 @@
 #syntax=docker/dockerfile:1.6.0
 
-ARG ref=main
-
-FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "getporter/porter" "v${version}" "porter-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}${target}/bin/porter" \
+curl --silent --location --fail --output "${prefix}/bin/porter" \
     "https://github.com/getporter/porter/releases/download/v${version}/porter-linux-${alt_arch}"
-chmod +x "${prefix}${target}/bin/porter"
-"${prefix}${target}/bin/porter" completion bash >"${prefix}${target}/share/bash-completion/completions/porter"
-"${prefix}${target}/bin/porter" completion fish >"${prefix}${target}/share/fish/vendor_completions.d/porter.fish"
-"${prefix}${target}/bin/porter" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_porter"
+chmod +x "${prefix}/bin/porter"
+"${prefix}/bin/porter" completion bash >"${prefix}/share/bash-completion/completions/porter"
+"${prefix}/bin/porter" completion fish >"${prefix}/share/fish/vendor_completions.d/porter.fish"
+"${prefix}/bin/porter" completion zsh >"${prefix}/share/zsh/vendor-completions/_porter"
 EOF

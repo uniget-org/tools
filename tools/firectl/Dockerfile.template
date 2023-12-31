@@ -1,14 +1,17 @@
 #syntax=docker/dockerfile:1.6.0
 
-ARG ref=main
-FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 
 ARG name
 ARG version
 
 RUN <<EOF
 check-github-release-asset "firecracker-microvm/firectl" "v${version}" "firectl-v${version}"
-curl --silent --location --fail --output "${prefix}${target}/bin/firectl" \
+curl --silent --location --fail --output "${prefix}/bin/firectl" \
     "https://github.com/firecracker-microvm/firectl/releases/download/v${version}/firectl-v${version}"
-chmod +x "${prefix}${target}/bin/firectl"
+chmod +x "${prefix}/bin/firectl"
 EOF

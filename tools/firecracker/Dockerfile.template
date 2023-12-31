@@ -1,7 +1,10 @@
 #syntax=docker/dockerfile:1.6.0
 
-ARG ref=main
-FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 
 ARG name
 ARG version
@@ -9,11 +12,11 @@ ARG version
 RUN <<EOF
 check-github-release-asset "firecracker-microvm/firecracker" "v${version}" "firecracker-v${version}-${arch}.tgz"
 curl --silent --location --fail "https://github.com/firecracker-microvm/firecracker/releases/download/v${version}/firecracker-v${version}-${arch}.tgz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin" --strip-components=1 --no-same-owner \
+| tar --extract --gzip --directory="${prefix}/bin" --strip-components=1 --no-same-owner \
     release-v${version}-${arch}/firecracker-v${version}-${arch} \
     release-v${version}-${arch}/jailer-v${version}-${arch} \
     release-v${version}-${arch}/seccompiler-bin-v${version}-${arch}
-mv "${prefix}${target}/bin/firecracker-v${version}-${arch}"     "${prefix}${target}/bin/firecracker"
-mv "${prefix}${target}/bin/jailer-v${version}-${arch}"          "${prefix}${target}/bin/jailer"
-mv "${prefix}${target}/bin/seccompiler-bin-v${version}-${arch}" "${prefix}${target}/bin/seccompiler-bin"
+mv "${prefix}/bin/firecracker-v${version}-${arch}"     "${prefix}/bin/firecracker"
+mv "${prefix}/bin/jailer-v${version}-${arch}"          "${prefix}/bin/jailer"
+mv "${prefix}/bin/seccompiler-bin-v${version}-${arch}" "${prefix}/bin/seccompiler-bin"
 EOF

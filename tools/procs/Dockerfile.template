@@ -1,8 +1,10 @@
 #syntax=docker/dockerfile:1.6.0
 
-ARG ref=main
-
-FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
@@ -10,8 +12,8 @@ check-github-release-asset "dalance/procs" "v${version}" "procs-v${version}-${ar
 url="https://github.com/dalance/procs/releases/download/v${version}/procs-v${version}-${arch}-linux.zip"
 filename="$(basename "${url}")"
 curl --silent --location --fail --remote-name "${url}"
-unzip -q -o -d "${prefix}${target}/bin" "${filename}"
-"${prefix}${target}/bin/procs" --gen-completion-out bash >"${prefix}${target}/share/bash-completion/completions/procs"
-"${prefix}${target}/bin/procs" --gen-completion-out fish >"${prefix}${target}/share/fish/vendor_completions.d/procs.fish"
-"${prefix}${target}/bin/procs" --gen-completion-out zsh >"${prefix}${target}/share/zsh/vendor-completions/_procs"
+unzip -q -o -d "${prefix}/bin" "${filename}"
+"${prefix}/bin/procs" --gen-completion-out bash >"${prefix}/share/bash-completion/completions/procs"
+"${prefix}/bin/procs" --gen-completion-out fish >"${prefix}/share/fish/vendor_completions.d/procs.fish"
+"${prefix}/bin/procs" --gen-completion-out zsh >"${prefix}/share/zsh/vendor-completions/_procs"
 EOF

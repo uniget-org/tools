@@ -1,13 +1,15 @@
 #syntax=docker/dockerfile:1.6.0
 
-ARG ref=main
-
-FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "weaveworks/footloose" "${version}" "footloose-${version}-linux-${arch}"
-curl --silent --location --fail --output "${prefix}${target}/bin/footloose" \
+curl --silent --location --fail --output "${prefix}/bin/footloose" \
     "https://github.com/weaveworks/footloose/releases/download/${version}/footloose-${version}-linux-${arch}"
-chmod +x "${prefix}${target}/bin/footloose"
+chmod +x "${prefix}/bin/footloose"
 EOF
