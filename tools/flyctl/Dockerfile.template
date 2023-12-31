@@ -1,6 +1,10 @@
 #syntax=docker/dockerfile:1.6.0
 
-FROM ghcr.io/uniget-org/tools/base:latest AS download
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
@@ -24,10 +28,7 @@ check-github-release-asset "superfly/flyctl" "v${version}" "flyctl_${version}_Li
 echo "### Downloading flyctl ${version}"
 curl --silent --location --fail "https://github.com/superfly/flyctl/releases/download/v${version}/flyctl_${version}_Linux_${arch_suffix}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner
-EOF
 
-FROM download AS prepare
-RUN <<EOF
 "${prefix}/bin/flyctl" completion bash >"${prefix}/share/bash-completion/completions/flyctl"
 "${prefix}/bin/flyctl" completion fish >"${prefix}/share/fish/vendor_completions.d/flyctl.fish"
 "${prefix}/bin/flyctl" completion zsh >"${prefix}/share/zsh/vendor-completions/_flyctl"

@@ -1,6 +1,10 @@
 #syntax=docker/dockerfile:1.6.0
 
-FROM ubuntu:22.04 AS build
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 RUN <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
@@ -18,14 +22,5 @@ check-download "http://ftp.figlet.org/pub/figlet/program/unix/figlet-${version}.
 curl --silent --location --fail "http://ftp.figlet.org/pub/figlet/program/unix/figlet-${version}.tar.gz" \
 | tar --extract --gzip --strip-components=1
 make figlet LDFLAGS=-static DEFAULTFONTDIR=/share/figlet
-make install prefix=/opt/figlet
+make install prefix="${prefix}"
 EOF
-
-FROM nicholasdille/ubuntu:22.04 AS prepare
-COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
-    /etc/profile.d/ \
-    /etc/profile.d/
-SHELL [ "bash", "-clo", "errexit" ]
-ARG name
-ARG version
-COPY --from=build /opt/figlet/ ${prefix}/
