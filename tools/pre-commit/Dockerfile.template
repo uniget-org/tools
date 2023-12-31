@@ -10,8 +10,8 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-#COPY --link --from=python / /
-COPY --link --from=shiv / /
+#COPY --link --from=python / /usr/local/
+COPY --link --from=shiv / /usr/local/
 RUN <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
