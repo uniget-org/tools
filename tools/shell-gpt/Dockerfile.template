@@ -14,7 +14,7 @@ apt-get -y install --no-install-recommends \
 EOF
 ARG name
 ARG version
-#COPY --link --from=python / /
+#COPY --link --from=python / /usr/local/
 COPY --link --from=shiv / /
 RUN <<EOF
 shiv --output-file "${prefix}${target}/bin/sgpt" --console-script sgpt "shell-gpt==${version}"

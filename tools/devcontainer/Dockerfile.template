@@ -12,7 +12,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-COPY --link --from=python / /
+COPY --link --from=python / /usr/local/
 COPY --link --from=nodejs / /
 COPY --link --from=npm / /
 COPY --link --from=make / /
