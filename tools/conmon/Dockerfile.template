@@ -1,10 +1,12 @@
 #syntax=docker/dockerfile:1.6.0
 
-ARG ref=main
+FROM ghcr.io/uniget-org/tools/go-md2man:latest AS go-md2man
 
-FROM ghcr.io/uniget-org/tools/go-md2man:${ref} AS go-md2man
-
-FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
@@ -34,17 +36,17 @@ EOF
 WORKDIR /tmp/conmon
 RUN git clone --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/containers/conmon.git .
 RUN <<EOF
-mkdir -p "${prefix}${target}/share/man/man8"
+mkdir -p "${prefix}/share/man/man8"
 make git-vars bin/conmon \
     PKG_CONFIG='pkg-config --static' \
     CFLAGS='-std=c99 -Os -Wall -Wextra -Werror -static' \
     LDFLAGS='-s -w -static'
 make -C docs GOMD2MAN=go-md2man
-mv bin/conmon "${prefix}${target}/bin/conmon"
-mv docs/conmon.8 "${prefix}${target}/share/man/man8"
+mv bin/conmon "${prefix}/bin/conmon"
+mv docs/conmon.8 "${prefix}/share/man/man8"
 EOF
-COPY default.yaml ${prefix}${target}/etc/containers/registries.d/default.yaml
-COPY policy.json ${prefix}${target}/etc/containers/policy.json
-COPY policy.conf ${prefix}${target}/etc/containers/policy.conf
-COPY registry.json ${prefix}${target}/etc/containers/registries.json
-COPY storage.conf ${prefix}${target}/etc/containers/storage.conf
+COPY default.yaml ${prefix}/etc/containers/registries.d/default.yaml
+COPY policy.json ${prefix}/etc/containers/policy.json
+COPY policy.conf ${prefix}/etc/containers/policy.conf
+COPY registry.json ${prefix}/etc/containers/registries.json
+COPY storage.conf ${prefix}/etc/containers/storage.conf

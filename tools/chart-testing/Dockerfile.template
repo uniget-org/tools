@@ -1,22 +1,24 @@
 #syntax=docker/dockerfile:1.6.0
 
-ARG ref=main
-
-FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "helm/chart-testing" "v${version}" "chart-testing_${version}_linux_${alt_arch}.tar.gz"
 curl --silent --location --fail "https://github.com/helm/chart-testing/releases/download/v${version}/chart-testing_${version}_linux_${alt_arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin/" --no-same-owner \
+| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     ct \
     etc
 mkdir -p "${prefix}/etc/ct"
-mv "${prefix}${target}/bin/etc/chart_schema.yaml" "${prefix}/etc/ct/"
-mv "${prefix}${target}/bin/etc/lintconf.yaml" "${prefix}/etc/ct/"
-rmdir "${prefix}${target}/bin/etc"
+mv "${prefix}/bin/etc/chart_schema.yaml" "${prefix}/etc/ct/"
+mv "${prefix}/bin/etc/lintconf.yaml" "${prefix}/etc/ct/"
+rmdir "${prefix}/bin/etc"
 
-"${prefix}${target}/bin/ct" completion bash >"${prefix}${target}/share/bash-completion/completions/ct"
-"${prefix}${target}/bin/ct" completion fish >"${prefix}${target}/share/fish/vendor_completions.d/ct.fish"
-"${prefix}${target}/bin/ct" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_ct"
+"${prefix}/bin/ct" completion bash >"${prefix}/share/bash-completion/completions/ct"
+"${prefix}/bin/ct" completion fish >"${prefix}/share/fish/vendor_completions.d/ct.fish"
+"${prefix}/bin/ct" completion zsh >"${prefix}/share/zsh/vendor-completions/_ct"
 EOF

@@ -1,10 +1,12 @@
 #syntax=docker/dockerfile:1.6.0
 
-ARG ref=main
+FROM ghcr.io/uniget-org/tools/make:latest AS make
 
-FROM ghcr.io/uniget-org/tools/make:${ref} AS make
-
-FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=make / /
 WORKDIR /tmp/pass
 ARG name
@@ -15,9 +17,9 @@ unzip main.zip
 cd passage-main
 make install \
     DESTDIR="${prefix}" \
-    PREFIX="${target}" \
+    PREFIX="" \
     WITH_ALLCOMP="yes" \
-    BASHCOMPDIR="${target}/share/bash-completion/completions" \
-    FISHCOMPDIR="${target}/share/fish/vendor_completions.d" \
-    ZSHCOMPDIR="${target}/share/zsh/vendor-completions"
+    BASHCOMPDIR="/share/bash-completion/completions" \
+    FISHCOMPDIR="/share/fish/vendor_completions.d" \
+    ZSHCOMPDIR="/share/zsh/vendor-completions"
 EOF

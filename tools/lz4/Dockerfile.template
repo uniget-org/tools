@@ -1,10 +1,12 @@
 #syntax=docker/dockerfile:1.6.0
 
-ARG ref=main
+FROM ghcr.io/uniget-org/tools/make:latest AS make
 
-FROM ghcr.io/uniget-org/tools/make:${ref} AS make
-
-FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=make / /
 RUN <<EOF
 apt-get update
@@ -25,5 +27,5 @@ curl --silent --show-error --location --fail "https://github.com/lz4/lz4/release
 
 make -C lib
 make -C programs LDFLAGS=-static
-make install DESTDIR="${prefix}" prefix="${target}"
+make install DESTDIR="${prefix}" prefix=""
 EOF

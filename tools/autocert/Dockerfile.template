@@ -1,10 +1,12 @@
 #syntax=docker/dockerfile:1.6.0
 
-ARG ref=main
+FROM ghcr.io/uniget-org/tools/cosign:latest AS cosign
 
-FROM ghcr.io/uniget-org/tools/cosign:${ref} AS cosign
-
-FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=cosign / /
 ARG name
 ARG version
@@ -35,7 +37,7 @@ COSIGN_EXPERIMENTAL=1 cosign verify-blob \
     --certificate-github-workflow-trigger push \
     "autocert_linux_${version}_amd64.tar.gz"
 
-tar --extract --gzip --directory="${prefix}${target}/bin/" --file "autocert_linux_${version}_amd64.tar.gz" --strip-components=1 --no-same-owner \
+tar --extract --gzip --directory="${prefix}/bin/" --file "autocert_linux_${version}_amd64.tar.gz" --strip-components=1 --no-same-owner \
     "autocert_${version}/autocert"
 #rm "autocert_linux_${version}_amd64.tar.gz"
 EOF

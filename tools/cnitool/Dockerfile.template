@@ -1,10 +1,12 @@
 #syntax=docker/dockerfile:1.6.0
 
-ARG ref=main
+FROM ghcr.io/uniget-org/tools/go:latest AS go
 
-FROM ghcr.io/uniget-org/tools/go:${ref} AS go
-
-FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=go / /
 WORKDIR /go/src/github.com/containernetworking/cni
 ARG name
@@ -13,5 +15,5 @@ RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/containernetworking/cni .
 cd cnitool
 CGO_ENABLED=0 go build -ldflags '-s -w' -o cnitool .
-cp cnitool "${prefix}${target}/bin/"
+cp cnitool "${prefix}/bin/"
 EOF

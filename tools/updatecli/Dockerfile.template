@@ -1,8 +1,10 @@
 #syntax=docker/dockerfile:1.6.0
 
-ARG ref=main
-
-FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
@@ -24,24 +26,24 @@ echo "    Using ${arch_suffix}"
 check-github-release-asset "updatecli/updatecli" "v${version}" "updatecli_Linux_${arch_suffix}.tar.gz"
 
 curl --silent --location --fail "https://github.com/updatecli/updatecli/releases/download/v${version}/updatecli_Linux_${arch_suffix}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin/" --no-same-owner \
+| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     updatecli \
     manpages \
     completions
 
-mv "${prefix}${target}/bin/manpages/updatecli.1.gz" "${prefix}${target}/share/man/man1/"
-mv "${prefix}${target}/bin/completions/updatecli.bash" "${prefix}${target}/share/bash-completion/completions/updatecli"
-mv "${prefix}${target}/bin/completions/updatecli.fish" "${prefix}${target}/share/fish/vendor_completions.d/updatecli.fish"
-mv "${prefix}${target}/bin/completions/updatecli.zsh"  "${prefix}${target}/share/zsh/vendor-completions/_updatecli"
+mv "${prefix}/bin/manpages/updatecli.1.gz" "${prefix}/share/man/man1/"
+mv "${prefix}/bin/completions/updatecli.bash" "${prefix}/share/bash-completion/completions/updatecli"
+mv "${prefix}/bin/completions/updatecli.fish" "${prefix}/share/fish/vendor_completions.d/updatecli.fish"
+mv "${prefix}/bin/completions/updatecli.zsh"  "${prefix}/share/zsh/vendor-completions/_updatecli"
 
 rmdir \
-    "${prefix}${target}/bin/manpages" \
-    "${prefix}${target}/bin/completions"
+    "${prefix}/bin/manpages" \
+    "${prefix}/bin/completions"
 EOF
 
 # completion
 #RUN <<EOF
-#"${prefix}${target}/bin/updatecli" completion bash >"${prefix}${target}/share/bash-completion/completions/updatecli"
-#"${prefix}${target}/bin/updatecli" completion fish >"${prefix}${target}/share/fish/vendor_completions.d/updatecli.fish"
-#"${prefix}${target}/bin/updatecli" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_updatecli"
+#"${prefix}/bin/updatecli" completion bash >"${prefix}/share/bash-completion/completions/updatecli"
+#"${prefix}/bin/updatecli" completion fish >"${prefix}/share/fish/vendor_completions.d/updatecli.fish"
+#"${prefix}/bin/updatecli" completion zsh >"${prefix}/share/zsh/vendor-completions/_updatecli"
 #EOF

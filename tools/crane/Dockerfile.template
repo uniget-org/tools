@@ -1,8 +1,6 @@
 #syntax=docker/dockerfile:1.6.0
 
-ARG ref=main
-
-FROM ghcr.io/uniget-org/tools/base:${ref} AS download
+FROM ghcr.io/uniget-org/tools/base:latest AS download
 ARG name
 ARG version
 RUN <<EOF
@@ -25,13 +23,13 @@ check-github-release-asset "google/go-containerregistry" "v${version}" "go-conta
 
 echo "### Downloading crane ${version}"
 curl --silent --location --fail "https://github.com/google/go-containerregistry/releases/download/v${version}/go-containerregistry_Linux_${arch_suffix}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin" --no-same-owner \
+| tar --extract --gzip --directory="${prefix}/bin" --no-same-owner \
     crane
 EOF
 
 FROM download AS prepare
 RUN <<EOF
-"${prefix}${target}/bin/crane" completion bash >"${prefix}${target}/share/bash-completion/completions/crane"
-"${prefix}${target}/bin/crane" completion fish >"${prefix}${target}/share/fish/vendor_completions.d/crane.fish"
-"${prefix}${target}/bin/crane" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_crane"
+"${prefix}/bin/crane" completion bash >"${prefix}/share/bash-completion/completions/crane"
+"${prefix}/bin/crane" completion fish >"${prefix}/share/fish/vendor_completions.d/crane.fish"
+"${prefix}/bin/crane" completion zsh >"${prefix}/share/zsh/vendor-completions/_crane"
 EOF

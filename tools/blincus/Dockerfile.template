@@ -1,16 +1,18 @@
 #syntax=docker/dockerfile:1.6.0
 
-ARG ref=main
-
-FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
 check-download "https://github.com/ublue-os/blincus/raw/${version}/blincus"
-curl --silent --location --fail --output "${prefix}${target}/bin/blincus" \
+curl --silent --location --fail --output "${prefix}/bin/blincus" \
     "https://github.com/ublue-os/blincus/raw/${version}/blincus"
-chmod +x "${prefix}${target}/bin/blincus"
+chmod +x "${prefix}/bin/blincus"
 
-curl --silent --location --fail --output "${prefix}${target}/share/bash-completion/completions/blincus" \
+curl --silent --location --fail --output "${prefix}/share/bash-completion/completions/blincus" \
     "https://github.com/ublue-os/blincus/raw/${version}/completions/blincus"
 EOF

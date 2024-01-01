@@ -1,8 +1,10 @@
 #syntax=docker/dockerfile:1.6.0
 
-ARG ref=main
-
-FROM ubuntu:22.04 AS build
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 RUN <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
@@ -23,12 +25,7 @@ ARG version
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" https://github.com/inotify-tools/inotify-tools .
 ./autogen.sh
-./configure --prefix=/opt/inotify-tools --enable-static-binary --enable-fanotify
+./configure --prefix="${prefix}" --enable-static-binary --enable-fanotify
 make LDFLAGS=--static
 make install
 EOF
-
-FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
-ARG name
-ARG version
-COPY --from=build /opt/inotify-tools/ ${prefix}${target}/

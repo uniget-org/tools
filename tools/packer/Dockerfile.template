@@ -1,14 +1,16 @@
 #syntax=docker/dockerfile:1.6.0
 
-ARG ref=main
-
-FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
 url="https://releases.hashicorp.com/packer/${version}/packer_${version}_linux_${alt_arch}.zip"
 filename="$(basename "${url}")"
 curl --silent --location --fail --remote-name "${url}"
-unzip -q -o -d "${prefix}${target}/bin" "${filename}"
-echo "complete -C ${target}/bin/packer packer" >"${prefix}${target}/etc/profile.d/packer.sh"
+unzip -q -o -d "${prefix}/bin" "${filename}"
+echo "complete -C /bin/packer packer" >"${prefix}/etc/profile.d/packer.sh"
 EOF

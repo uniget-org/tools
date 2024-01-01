@@ -1,14 +1,16 @@
 #syntax=docker/dockerfile:1.6.0
 
-ARG ref=main
-
-FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
 check-download "https://gitlab.alpinelinux.org/api/v4/projects/5/packages/generic//v${version}/${arch}/apk.static"
 
-curl --silent --location --fail --output "${prefix}${target}/bin/apk" \
+curl --silent --location --fail --output "${prefix}/bin/apk" \
     "https://gitlab.alpinelinux.org/api/v4/projects/5/packages/generic//v${version}/${arch}/apk.static"
-chmod +x "${prefix}${target}/bin/apk"
+chmod +x "${prefix}/bin/apk"
 EOF

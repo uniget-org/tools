@@ -1,11 +1,13 @@
 #syntax=docker/dockerfile:1.6.0
 
-ARG ref=main
+#FROM ghcr.io/uniget-org/tools/python:latest AS python
+FROM ghcr.io/uniget-org/tools/shiv:latest AS shiv
 
-#FROM ghcr.io/uniget-org/tools/python:${ref} AS python
-FROM ghcr.io/uniget-org/tools/shiv:${ref} AS shiv
-
-FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 RUN <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
@@ -13,13 +15,13 @@ apt-get -y install --no-install-recommends \
     python3-venv \
     python-is-python3
 EOF
-#COPY --link --from=python / /
+#COPY --link --from=python / /usr/local/
 COPY --link --from=shiv / /
 ARG name
 ARG version
-COPY <<EOF ${prefix}${target}/etc/profile.d/aws
+COPY <<EOF ${prefix}/etc/profile.d/aws
 complete -C '/usr/local/bin/aws_completer' aws
 EOF
 RUN <<EOF
-shiv --output-file "${prefix}${target}/bin/aws" --console-script aws "awscli==${version}"
+shiv --output-file "${prefix}/bin/aws" --console-script aws "awscli==${version}"
 EOF

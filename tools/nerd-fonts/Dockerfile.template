@@ -1,18 +1,20 @@
 #syntax=docker/dockerfile:1.6.0
 
-ARG ref=main
-
-FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 WORKDIR /tmp/nerd-fonts
 ARG name
 ARG version
 RUN <<EOF
-mkdir -p "${prefix}${target}/share/fonts/NerdFonts"
+mkdir -p "${prefix}/share/fonts/NerdFonts"
 
 for font in CascadiaCode; do
     check-github-release-asset "ryanoasis/nerd-fonts" "v${version}" "${font}.zip"
     curl --silent --location --fail --remote-name "https://github.com/ryanoasis/nerd-fonts/releases/download/v${version}/${font}.zip"
     unzip -q -o "${font}.zip"
-    mv *.ttf "${prefix}${target}/share/fonts/NerdFonts"
+    mv *.ttf "${prefix}/share/fonts/NerdFonts"
 done
 EOF

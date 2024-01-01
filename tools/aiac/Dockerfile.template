@@ -1,8 +1,10 @@
 #syntax=docker/dockerfile:1.6.0
 
-ARG ref=main
-
-FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 ARG TARGETPLATFORM
 ARG name
 ARG version
@@ -25,5 +27,5 @@ echo "    Using ${arch_suffix}"
 echo "### Downloading aiac ${version}"
 check-github-release-asset "gofireflyio/aiac" "v${version}" "aiac_${version}_Linux-${arch_suffix}.tar.gz"
 curl --silent --location --fail "https://github.com/gofireflyio/aiac/releases/download/v${version}/aiac_${version}_Linux-${arch_suffix}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin/" --no-same-owner
+| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner
 EOF

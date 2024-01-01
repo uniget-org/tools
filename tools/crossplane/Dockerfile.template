@@ -1,12 +1,14 @@
 #syntax=docker/dockerfile:1.6.0
 
-ARG ref=main
-
-FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
-curl --silent --location --fail --output "${prefix}${target}/bin/kubectl-crossplane" \
+curl --silent --location --fail --output "${prefix}/bin/kubectl-crossplane" \
     "https://releases.crossplane.io/stable/v${version}/bin/linux_${alt_arch}/crank"
-chmod +x "${prefix}${target}/bin/kubectl-crossplane"
+chmod +x "${prefix}/bin/kubectl-crossplane"
 EOF

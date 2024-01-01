@@ -1,7 +1,10 @@
 #syntax=docker/dockerfile:1.6.0
 
-ARG ref=main
-FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 
 ARG name
 ARG version
@@ -9,13 +12,13 @@ ARG version
 RUN <<EOF
 check-github-release-asset "concourse/concourse" "v${version}" "fly-${version}-linux-amd64.tgz"
 curl --silent --location --fail "https://github.com/concourse/concourse/releases/download/v${version}/fly-${version}-linux-amd64.tgz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin/" --no-same-owner
+| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner
 
 check-github-release-asset "concourse/concourse" "v${version}" "concourse-${version}-linux-amd64.tgz"
 curl --silent --location --fail "https://github.com/concourse/concourse/releases/download/v${version}/concourse-${version}-linux-amd64.tgz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin/" --strip-components=2 --no-same-owner \
+| tar --extract --gzip --directory="${prefix}/bin/" --strip-components=2 --no-same-owner \
     concourse/bin/concourse
 
-"${prefix}${target}/bin/fly" completion --shell=bash >"${prefix}${target}/share/bash-completion/completions/fly"
-"${prefix}${target}/bin/fly" completion --shell=zsh >"${prefix}${target}/share/zsh/vendor-completions/_fly"
+"${prefix}/bin/fly" completion --shell=bash >"${prefix}/share/bash-completion/completions/fly"
+"${prefix}/bin/fly" completion --shell=zsh >"${prefix}/share/zsh/vendor-completions/_fly"
 EOF

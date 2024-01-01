@@ -1,13 +1,15 @@
 #syntax=docker/dockerfile:1.6.0
 
-ARG ref=main
-
-FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "opencontainers/umoci" "v${version}" "umoci.${alt_arch}"
-curl --silent --location --fail --output "${prefix}${target}/bin/umoci" \
+curl --silent --location --fail --output "${prefix}/bin/umoci" \
     "https://github.com/opencontainers/umoci/releases/download/v${version}/umoci.${alt_arch}"
-chmod +x "${prefix}${target}/bin/umoci"
+chmod +x "${prefix}/bin/umoci"
 EOF

@@ -8,7 +8,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-#COPY --link --from=python / /
+#COPY --link --from=python / /usr/local/
 COPY --link --from=shiv / /
 RUN <<EOF
 apt-get update

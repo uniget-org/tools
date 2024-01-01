@@ -1,16 +1,18 @@
 #syntax=docker/dockerfile:1.6.0
 
-ARG ref=main
-
-FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "kubernetes-sigs/bom" "v${version}" "bom-amd64-linux"
-curl --silent --location --fail --output "${prefix}${target}/bin/bom" \
+curl --silent --location --fail --output "${prefix}/bin/bom" \
     "https://github.com/kubernetes-sigs/bom/releases/download/v${version}/bom-amd64-linux"
-chmod +x "${prefix}${target}/bin/bom"
-"${prefix}${target}/bin/bom" completion bash >"${prefix}${target}/share/bash-completion/completions/bom"
-"${prefix}${target}/bin/bom" completion fish >"${prefix}${target}/share/fish/vendor_completions.d/bom.fish"
-"${prefix}${target}/bin/bom" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_bom"
+chmod +x "${prefix}/bin/bom"
+"${prefix}/bin/bom" completion bash >"${prefix}/share/bash-completion/completions/bom"
+"${prefix}/bin/bom" completion fish >"${prefix}/share/fish/vendor_completions.d/bom.fish"
+"${prefix}/bin/bom" completion zsh >"${prefix}/share/zsh/vendor-completions/_bom"
 EOF

@@ -1,7 +1,5 @@
 #syntax=docker/dockerfile:1.6.0
 
-ARG ref=main
-
 FROM alpine:3.19@sha256:51b67269f354137895d43f3b3d810bfacd3945438e94dc5ac55fdac340352f48 AS build
 WORKDIR /tmp/curl
 ARG name
@@ -43,7 +41,11 @@ mkdir -p /usr/local/share/man/man1/
 cp docs/curl.1 /usr/local/share/man/man1/
 EOF
 
-FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-COPY --from=build /usr/local/ ${prefix}${target}/
+COPY --from=build /usr/local/ ${prefix}/

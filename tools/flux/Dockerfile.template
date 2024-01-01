@@ -1,13 +1,15 @@
 #syntax=docker/dockerfile:1.6.0
 
-ARG ref=main
-
-FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "influxdata/flux" "v${version}" "flux_${version}_linux_amd64.tar.gz"
 curl --silent --location --fail "https://github.com/influxdata/flux/releases/download/v${version}/flux_${version}_linux_amd64.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin/" --strip-component=1 --no-same-owner \
+| tar --extract --gzip --directory="${prefix}/bin/" --strip-component=1 --no-same-owner \
     "flux_${version}_linux_amd64/flux"
 EOF

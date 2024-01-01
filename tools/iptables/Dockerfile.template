@@ -1,12 +1,14 @@
 #syntax=docker/dockerfile:1.6.0
 
-ARG ref=main
+FROM ghcr.io/uniget-org/tools/make:latest AS make
+FROM ghcr.io/uniget-org/tools/libmnl:latest AS libmnl
+FROM ghcr.io/uniget-org/tools/libnftnl:latest AS libnftnl
 
-FROM ghcr.io/uniget-org/tools/make:${ref} AS make
-FROM ghcr.io/uniget-org/tools/libmnl:${ref} AS libmnl
-FROM ghcr.io/uniget-org/tools/libnftnl:${ref} AS libnftnl
-
-FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 RUN <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
@@ -29,7 +31,7 @@ git clone --config advice.detachedHead=false --depth 1 --branch "v${version}" gi
 EOF
 RUN <<EOF
 ./autogen.sh
-./configure --prefix="${prefix}${target}"
+./configure --prefix="${prefix}"
 make
 make install
 EOF

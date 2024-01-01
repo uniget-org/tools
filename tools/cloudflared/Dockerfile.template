@@ -1,14 +1,17 @@
 #syntax=docker/dockerfile:1.6.0
 
-ARG ref=main
-FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 
 ARG name
 ARG version
 
 RUN <<EOF
 check-github-release-asset "cloudflare/cloudflared" "${version}" "cloudflared-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}${target}/bin/cloudflared" \
+curl --silent --location --fail --output "${prefix}/bin/cloudflared" \
     "https://github.com/cloudflare/cloudflared/releases/download/${version}/cloudflared-linux-${alt_arch}"
-chmod +x "${prefix}${target}/bin/cloudflared"
+chmod +x "${prefix}/bin/cloudflared"
 EOF

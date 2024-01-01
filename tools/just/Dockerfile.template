@@ -1,15 +1,17 @@
 #syntax=docker/dockerfile:1.6.0
 
-ARG ref=main
-
-FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "casey/just" "${version}" "just-${version}-x86_64-unknown-linux-musl.tar.gz"
 curl --silent --location --fail "https://github.com/casey/just/releases/download/${version}/just-${version}-x86_64-unknown-linux-musl.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin/" --no-same-owner \
+| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     just \
     just.1
-mv "${prefix}${target}/bin/just.1" "${prefix}${target}/share/man/man1/"
+mv "${prefix}/bin/just.1" "${prefix}/share/man/man1/"
 EOF

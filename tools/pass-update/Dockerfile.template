@@ -1,8 +1,10 @@
 #syntax=docker/dockerfile:1.6.0
 
-ARG ref=main
-
-FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 RUN <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
@@ -17,7 +19,7 @@ curl --silent --location --fail "https://github.com/roddhjav/pass-update/release
 | tar --extract --gzip --strip-components=1 --no-same-owner
 make install \
     DESTDIR="${prefix}" \
-    PREFIX="${target}" \
-    BASHCOMPDIR="${target}/share/bash-completion/completions" \
-    ZSHCOMPDIR="${target}/share/zsh/vendor-completions"
+    PREFIX="" \
+    BASHCOMPDIR="/share/bash-completion/completions" \
+    ZSHCOMPDIR="/share/zsh/vendor-completions"
 EOF

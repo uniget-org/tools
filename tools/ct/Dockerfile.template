@@ -1,11 +1,13 @@
 #syntax=docker/dockerfile:1.6.0
 
-ARG ref=main
+FROM ghcr.io/uniget-org/tools/go:latest AS go
+FROM ghcr.io/uniget-org/tools/make:latest AS make
 
-FROM ghcr.io/uniget-org/tools/go:${ref} AS go
-FROM ghcr.io/uniget-org/tools/make:${ref} AS make
-
-FROM ghcr.io/uniget-org/tools/base:${ref} AS prepare
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=go / /
 COPY --link --from=make / /
 WORKDIR /go/src/github.com/flatcar/container-linux-config-transpiler
@@ -14,5 +16,5 @@ ARG version
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/flatcar/container-linux-config-transpiler .
 make
-cp bin/ct "${prefix}${target}/bin/"
+cp bin/ct "${prefix}/bin/"
 EOF
