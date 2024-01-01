@@ -14,7 +14,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --from=krew / /
+COPY --from=krew / /usr/local/
 ARG name
 ARG version
 COPY --chmod=755 <<EOF ${prefix}/bin/krew-uniget
