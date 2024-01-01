@@ -11,6 +11,11 @@ tags:
 - management
 homepage: https://github.com/innobead/huber
 description: Package Manager for GitHub repos
+messages:
+  usage: |
+    Install the following packages:
+    - libarchive-dev
+    - http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.20_amd64.deb
 renovate:
   datasource: github-releases
   package: innobead/huber
