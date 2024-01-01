@@ -19,6 +19,8 @@ apt-get -y install --no-install-recommends \
     pkg-config
 EOF
 WORKDIR /tmp/github.com/innobead/huber
+ARG name
+ARG version
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/innobead/huber .
 export CARGO_HOME=/usr/local/cargo
