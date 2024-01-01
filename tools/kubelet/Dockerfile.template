@@ -7,7 +7,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --from=cosign / /
+COPY --from=cosign / /usr/local/
 ARG name
 ARG version
 COPY kubelet.service ${prefix}/etc/systemd/system/

@@ -9,7 +9,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-COPY --from=cosign / /
+COPY --from=cosign / /usr/local/
 COPY kubectl.sh ${prefix}/etc/profile.d/
 RUN <<EOF
 curl --silent --location --fail --output "${prefix}/bin/kubectl" \
