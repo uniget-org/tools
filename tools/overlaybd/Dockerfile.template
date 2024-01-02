@@ -5,8 +5,6 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-ARG name
-ARG version
 RUN <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
@@ -30,6 +28,8 @@ apt-get -y install --no-install-recommends \
     sudo
 EOF
 WORKDIR /tmp/overlaybd
+ARG name
+ARG version
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/containerd/overlaybd .
 git submodule update --init
