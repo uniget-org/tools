@@ -19,7 +19,7 @@ apt-get -y install --no-install-recommends \
     python3-venv \
     python-is-python3
 EOF
-WORKDIR ${prefix}/libexec/semgrep
+WORKDIR /uniget_bootstrap/libexec/semgrep
 RUN <<EOF
 #shiv --output-file "${prefix}/bin/semgrep" --console-script semgrep "semgrep==${version}"
 python -m venv "${prefix}/libexec/semgrep"

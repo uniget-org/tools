@@ -17,7 +17,7 @@ EOF
 ARG name
 ARG version
 #COPY --link --from=python / /usr/local/
-COPY --link --from=shiv / /
+COPY --link --from=shiv / /usr/local/
 RUN <<EOF
 shiv --output-file "${prefix}/bin/sgpt" --console-script sgpt "shell-gpt==${version}"
 EOF
