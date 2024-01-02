@@ -1,9 +1,10 @@
 #syntax=docker/dockerfile:1.6.0
 
-FROM ubuntu:22.04 AS build
-WORKDIR /tmp/tig
-ARG name
-ARG version
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 RUN <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
@@ -13,26 +14,15 @@ apt-get -y install --no-install-recommends \
     ncurses-dev \
     make
 EOF
+WORKDIR /tmp/tig
+ARG name
+ARG version
 RUN <<EOF
 curl --silent --location --fail "https://github.com/jonas/tig/releases/download/tig-${version}/tig-${version}.tar.gz" \
 | tar --extract --gzip --strip-components=1
 ./configure
-make prefix=/usr/local
-make install install-doc-man prefix=/usr/local
-mkdir -p \
-    /usr/local/share/bash-completion/completions \
-    /usr/local/share/zsh/vendor-completions
-cp contrib/tig-completion.bash "/usr/local/share/bash-completion/completions/tig"
-cp contrib/tig-completion.zsh "/usr/local/share/zsh/vendor-completions/_tig"
-rm /usr/local/man
-rm /usr/local/sbin/unminimize
+make prefix="${prefix}"
+make install install-doc-man prefix="${prefix}"
+cp contrib/tig-completion.bash "${prefix}/share/bash-completion/completions/tig"
+cp contrib/tig-completion.zsh "${prefix}/share/zsh/vendor-completions/_tig"
 EOF
-
-FROM nicholasdille/ubuntu:22.04 AS prepare
-COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
-    /etc/profile.d/ \
-    /etc/profile.d/
-SHELL [ "bash", "-clo", "errexit" ]
-ARG name
-ARG version
-COPY --from=build /usr/local/ ${prefix}/
