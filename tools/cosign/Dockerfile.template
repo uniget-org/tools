@@ -1,6 +1,10 @@
 #syntax=docker/dockerfile:1.6.0
 
-FROM ghcr.io/uniget-org/tools/base:latest AS cosign-bootstrap
+FROM nicholasdille/ubuntu:22.04 AS cosign-bootstrap
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 ARG TARGETPLATFORM
 # renovate: datasource=github-releases depName=sigstore/cosign
 ARG COSIGN_VERSION=2.1.1
