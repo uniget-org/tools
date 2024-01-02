@@ -1,6 +1,10 @@
 #syntax=docker/dockerfile:1.6.0
 
-FROM ubuntu:22.04@sha256:6042500cf4b44023ea1894effe7890666b0c5c7871ed83a97c36c76ae560bb9b AS build
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 RUN <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
@@ -20,18 +24,6 @@ curl --silent --location --fail "http://www.dest-unreach.org/socat/download/soca
 autoconf
 ./configure
 make
-mkdir -p /usr/local/share/man/man1
-cp socat /usr/local/bin/
-cp doc/socat.1 /usr/local/share/man/man1/
-rm -f /usr/local/man
-rm /usr/local/sbin/unminimize
+cp socat "${prefix}/bin/"
+cp doc/socat.1 "${prefix}/share/man/man1/"
 EOF
-
-FROM nicholasdille/ubuntu:22.04 AS prepare
-COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
-    /etc/profile.d/ \
-    /etc/profile.d/
-SHELL [ "bash", "-clo", "errexit" ]
-ARG name
-ARG version
-COPY --from=build /usr/local ${prefix}/
