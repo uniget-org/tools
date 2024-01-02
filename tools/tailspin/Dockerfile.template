@@ -9,7 +9,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-COPY --from=rust / /
+COPY --from=rust / /usr/local/
 ARG DEBIAN_FRONTEND=noninteractive
 RUN <<EOF
 apt-get update
