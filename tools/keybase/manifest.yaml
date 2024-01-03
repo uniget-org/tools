@@ -1,5 +1,5 @@
 name: keybase
-version: "6.2.3"
+version: "6.2.4"
 check: ${binary} version | tr -s ' ' | cut -d' ' -f2
 build_dependencies:
 - go
