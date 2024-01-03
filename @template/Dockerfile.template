@@ -35,7 +35,7 @@ ARG version
 #check-github-release-asset "foo/bar" "${version}" "foo-${version}-linux-amd64.tar.gz"
 #check-download ""
 #curl --silent --location --fail "" \
-#| tar --extract --gzip --directory="${prefix}${target}/bin/" --no-same-owner
+#| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner
 #EOF
 
 # executable
@@ -57,9 +57,9 @@ ARG version
 #
 #check-github-release-asset "foo/bar" "${version}" "foo-${version}-linux-amd64.tar.gz"
 #check-download ""
-#curl --silent --location --fail --output "${prefix}${target}/bin/foo" \
+#curl --silent --location --fail --output "${prefix}/bin/foo" \
 #    ""
-#chmod +x "${prefix}${target}/bin/foo"
+#chmod +x "${prefix}/bin/foo"
 #EOF
 
 # zip
@@ -84,7 +84,7 @@ ARG version
 #url=""
 #filename="$(basename "${url}")"
 #curl --silent --location --fail --remote-name "${url}"
-#unzip -q -o -d "${prefix}${target}/bin" "${filename}"
+#unzip -q -o -d "${prefix}/bin" "${filename}"
 #EOF
 
 # go
@@ -99,7 +99,7 @@ ARG version
 #check-clone "https://github.com/foo/bar" "v${version}"
 #git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/foo/bar .
 #make
-#cp foo "${prefix}${target}/bin/"
+#cp foo "${prefix}/bin/"
 #EOF
 
 # rust
@@ -112,11 +112,11 @@ ARG version
 #EOF
 #WORKDIR /tmp/github.com/foo/bar
 #RUN <<EOF
-#source "${target}/etc/profile.d/cargo.sh"
+#source "/etc/profile.d/cargo.sh"
 #git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" https://github.com/foo/bar .
 #export RUSTFLAGS='-C target-feature=+crt-static'
 #cargo build --release --target "${arch}-unknown-linux-gnu"
-#cp "target/${arch}-unknown-linux-gnu/release/foo" "${prefix}${target}/bin/"
+#cp "target/${arch}-unknown-linux-gnu/release/foo" "${prefix}/bin/"
 #EOF
 
 # python
@@ -130,20 +130,20 @@ ARG version
 #    python-is-python3
 #EOF
 #RUN <<EOF
-#shiv --output-file "${prefix}${target}/bin/foo" --console-script foo "foo==${version}"
+#shiv --output-file "${prefix}/bin/foo" --console-script foo "foo==${version}"
 #EOF
 
 # node
 #COPY --link --from=nodejs / /
 #COPY --link --from=npm / /
-#WORKDIR ${prefix}${target}/libexec/foo
+#WORKDIR ${prefix}/libexec/foo
 #ARG name
 #ARG version
 #RUN <<EOF
 #npm install \
 #    --omit=dev \
 #    "foo@${version}"
-#ln --symbolic --relative --force "${prefix}${target}/libexec/foo/node_modules/.bin/foo" "${prefix}${target}/bin/"
+#ln --symbolic --relative --force "${prefix}/libexec/foo/node_modules/.bin/foo" "${prefix}/bin/"
 #EOF
 
 # c
@@ -159,20 +159,20 @@ ARG version
 #WORKDIR /tmp/foo
 #RUN <<EOF
 ##git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" https://github.com/foo/bar .
-#./configure --prefix="${prefix}${target}"
+#./configure --prefix="${prefix}"
 #make LDFLAGS=-static
 #make install
-#rm -f "${prefix}${target}/man"
+#rm -f "${prefix}/man"
 #EOF
 
 # foo
 #RUN <<EOF
-#touch "${prefix}${target}/foo"
+#touch "${prefix}/foo"
 #EOF
 
 # completion
 #RUN <<EOF
-#"${prefix}${target}/bin/foo" completion bash >"${prefix}${target}/share/bash-completion/completions/foo"
-#"${prefix}${target}/bin/foo" completion fish >"${prefix}${target}/share/fish/vendor_completions.d/foo.fish"
-#"${prefix}${target}/bin/foo" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_foo"
+#"${prefix}/bin/foo" completion bash >"${prefix}/share/bash-completion/completions/foo"
+#"${prefix}/bin/foo" completion fish >"${prefix}/share/fish/vendor_completions.d/foo.fish"
+#"${prefix}/bin/foo" completion zsh >"${prefix}/share/zsh/vendor-completions/_foo"
 #EOF

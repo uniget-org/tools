@@ -37,7 +37,7 @@ ARG version
 #EOF
 RUN <<EOF
 check-github-release-asset "innobead/huber" "v${version}" "huber-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}${target}/bin/huber" \
+curl --silent --location --fail --output "${prefix}/bin/huber" \
     "https://github.com/innobead/huber/releases/download/v${version}/huber-linux-${alt_arch}"
-chmod +x "${prefix}${target}/bin/huber"
+chmod +x "${prefix}/bin/huber"
 EOF

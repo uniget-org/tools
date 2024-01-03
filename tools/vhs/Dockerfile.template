@@ -27,15 +27,15 @@ check-github-release-asset "charmbracelet/vhs" "v${version}" "vhs_${version}_Lin
 
 echo "### Downloading and installing vhs ${version}"
 curl --silent --location --fail "https://github.com/charmbracelet/vhs/releases/download/v${version}/vhs_${version}_Linux_${arch_suffix}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin/" --no-same-owner \
+| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     vhs \
     manpages \
     completions
-mv "${prefix}${target}/bin/manpages/vhs.1.gz" "${prefix}${target}/share/man/man1/"
-mv "${prefix}${target}/bin/completions/vhs.bash" "${prefix}${target}/share/bash-completion/completions/vhs"
-mv "${prefix}${target}/bin/completions/vhs.fish" "${prefix}${target}/share/fish/vendor_completions.d/vhs.fish"
-mv "${prefix}${target}/bin/completions/vhs.zsh" "${prefix}${target}/share/zsh/vendor-completions/_vhs"
+mv "${prefix}/bin/manpages/vhs.1.gz" "${prefix}/share/man/man1/"
+mv "${prefix}/bin/completions/vhs.bash" "${prefix}/share/bash-completion/completions/vhs"
+mv "${prefix}/bin/completions/vhs.fish" "${prefix}/share/fish/vendor_completions.d/vhs.fish"
+mv "${prefix}/bin/completions/vhs.zsh" "${prefix}/share/zsh/vendor-completions/_vhs"
 rmdir \
-    "${prefix}${target}/bin/manpages" \
-    "${prefix}${target}/bin/completions"
+    "${prefix}/bin/manpages" \
+    "${prefix}/bin/completions"
 EOF

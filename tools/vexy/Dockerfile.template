@@ -20,5 +20,5 @@ apt-get -y install --no-install-recommends \
     python-is-python3
 EOF
 RUN <<EOF
-shiv --output-file "${prefix}${target}/bin/vexy" --console-script vexy "vexy==${version}"
+shiv --output-file "${prefix}/bin/vexy" --console-script vexy "vexy==${version}"
 EOF
