@@ -40,10 +40,7 @@ jobs:
 
         echo "### This is PR ${PR}"
         TOOLS="$(
-            curl --silent --show-error --fail \
-                --header "Accept: application/vnd.github.v3+json" \
-                --header "Authorization: Bearer ${GITHUB_TOKEN}" \
-                --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${PR}/files" \
+            gh api --paginate "repos/${GITHUB_REPOSITORY}/pulls/${PR}/files" \
             | helper/usr/local/bin/jq --raw-output '.[] | select(.status != "removed") | .filename' \
             | grep -E '^tools/[^/]+/' \
             | cut -d/ -f2 \
