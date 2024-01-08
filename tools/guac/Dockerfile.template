@@ -1,6 +1,7 @@
 #syntax=docker/dockerfile:1.6.0
 
 FROM ghcr.io/uniget-org/tools/go:latest AS go
+FROM ghcr.io/uniget-org/tools/make:latest AS make
 FROM ghcr.io/uniget-org/tools/goreleaser:latest AS goreleaser
 
 FROM nicholasdille/ubuntu:22.04 AS prepare
@@ -9,19 +10,15 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=go / /usr/local/
+COPY --link --from=make / /usr/local/
 COPY --link --from=goreleaser / /usr/local/
-RUN <<EOF
-apt-get update
-apt-get -y install --no-install-recommends \
-    make
-EOF
 WORKDIR /go/src/github.com/guacsec/guac
 ARG name
 ARG version
-ENV CGO_ENABLED=0
 RUN <<EOF
 check-clone https://github.com/guacsec/guac "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/guacsec/guac .
+export CGO_ENABLED=0
 make build
 cp bin/guac* "${prefix}/bin/"
 EOF
