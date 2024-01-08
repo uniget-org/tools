@@ -7,7 +7,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --link --from=go / /
+COPY --link --from=go / /usr/local/
 ARG name
 ARG version
 COPY ct_server.service ${prefix}/etc/systemd/system/ct_server.service

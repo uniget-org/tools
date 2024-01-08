@@ -10,10 +10,10 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --link --from=go / /
-COPY --link --from=make / /
-COPY --link --from=go-md2man / /
-COPY --link --from=cni / /
+COPY --link --from=go / /usr/local/
+COPY --link --from=make / /usr/local/
+COPY --link --from=go-md2man / /usr/local/
+COPY --link --from=cni / /usr/local/
 WORKDIR /tmp/podman
 ARG name
 ARG version

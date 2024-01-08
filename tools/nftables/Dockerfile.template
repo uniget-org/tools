@@ -26,9 +26,9 @@ apt-get -y install --no-install-recommends \
     libjansson-dev \
     pkg-config
 EOF
-COPY --from=make / /
-COPY --from=libmnl / /
-COPY --from=libnftnl / /
+COPY --from=make / /usr/local/
+COPY --from=libmnl / /usr/local/
+COPY --from=libnftnl / /usr/local/
 WORKDIR /tmp/nftables
 ARG name
 ARG version

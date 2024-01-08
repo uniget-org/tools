@@ -10,8 +10,8 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-COPY --link --from=nodejs / /
-COPY --link --from=npm / /
+COPY --link --from=nodejs / /usr/local/
+COPY --link --from=npm / /usr/local/
 WORKDIR ${prefix}/libexec/yarn
 ARG name
 ARG version

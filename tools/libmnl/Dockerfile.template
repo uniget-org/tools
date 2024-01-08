@@ -16,7 +16,7 @@ apt-get -y install --no-install-recommends \
     libtool \
     build-essential
 EOF
-COPY --from=make / /
+COPY --from=make / /usr/local/
 WORKDIR /tmp/libmnl
 ARG name
 ARG version

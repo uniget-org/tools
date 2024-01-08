@@ -8,8 +8,8 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --link --from=nodejs / /
-COPY --link --from=npm / /
+COPY --link --from=nodejs / /usr/local/
+COPY --link --from=npm / /usr/local/
 ARG name
 ARG version
 WORKDIR ${prefix}/libexec/jsonata-cli

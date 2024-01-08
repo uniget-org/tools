@@ -9,7 +9,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-COPY --link --from=go-md2man / /
+COPY --link --from=go-md2man / /usr/local/
 RUN <<EOF
 check-github-release-asset "opencontainers/runc" "v${version}" "runc.${alt_arch}"
 curl --silent --location --fail --output "${prefix}/bin/runc" \

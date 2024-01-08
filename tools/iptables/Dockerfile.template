@@ -19,9 +19,9 @@ apt-get -y install --no-install-recommends \
     git \
     libnfnetlink-dev
 EOF
-COPY --from=make / /
-COPY --from=libmnl / /
-COPY --from=libnftnl / /
+COPY --from=make / /usr/local/
+COPY --from=libmnl / /usr/local/
+COPY --from=libnftnl / /usr/local/
 WORKDIR /tmp/iptables
 ARG name
 ARG version
