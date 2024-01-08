@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: mgo
+version: "0.2.12"
+check: ""
+build_dependencies:
+- go
+platforms:
+- linux/amd64
+tags:
+- category/development
+- lang/go
+- type/cli
+homepage: https://github.com/CAFxX/mgo
+description: Build and bundle multiple GOAMD64 variants in a single executable
+renovate:
+  datasource: github-releases
+  package: CAFxX/mgo
+  extractVersion: ^v(?<version>.+?)$
+  priority: medium
