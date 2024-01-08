@@ -30,19 +30,4 @@ shiv --output-file "${prefix}/bin/mkdocs" --console-script mkdocs \
     mkdocs-macros-plugin \
     mkdocs-redirects \
     regex
-#python -m venv .
-#source bin/activate
-#pip install --no-cache-dir \
-#    "mkdocs==${version}" \
-#    mkdocs-material \
-#    mkdocs-material-extensions \
-#    pymdown-extensions \
-#    mkdocs-minify-plugin \
-#    mkdocs-macros-plugin \
-#    mkdocs-redirects \
-#    regex
-#deactivate
-#sed -i -E "s/${prefix}//" "${prefix}/libexec/mkdocs/bin/mkdocs"
-#sed -i -E "s/${prefix}//" "${prefix}/libexec/mkdocs/bin/activate"
-#ln --symbolic --relative --force "${prefix}/libexec/mkdocs/bin/mkdocs" "${prefix}/bin/"
 EOF
