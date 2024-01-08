@@ -23,5 +23,5 @@ description: The Docker CLI
 renovate:
   datasource: github-tags
   package: moby/moby
-  extractVersion: ^v(?<version>23\..+?)$
+  extractVersion: ^v(?<version>24\..+?)$
   priority: high
