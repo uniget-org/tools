@@ -18,8 +18,9 @@ WORKDIR /tmp/github.com/stepchowfun/docuum
 ARG name
 ARG version
 RUN <<EOF
-source "/etc/profile.d/cargo.sh"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/stepchowfun/docuum .
+export CARGO_HOME=/usr/local/cargo
+export RUSTUP_HOME=/usr/local/rustup
 export RUSTFLAGS='-C target-feature=+crt-static'
 cargo build --release --target x86_64-unknown-linux-gnu
 cp target/x86_64-unknown-linux-gnu/release/docuum "${prefix}/bin/"
