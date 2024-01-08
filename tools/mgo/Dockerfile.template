@@ -1,0 +1,18 @@
+#syntax=docker/dockerfile:1.6.0
+
+FROM ghcr.io/uniget-org/tools/go:latest AS go
+
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+COPY --link --from=go / /usr/local/
+WORKDIR /go/src/github.com/CAFxX/mgo
+ARG name
+ARG version
+RUN <<EOF
+check-clone "https://github.com/CAFxX/mgo" "v${version}"
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/CAFxX/mgo .
+go build -o "${prefix}/bin/mgo" .
+EOF
