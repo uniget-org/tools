@@ -255,6 +255,18 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "axel-download-accelerator/axel",
+      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/axel/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "pypi",
       "depNameTemplate": "azure-cli",
       "fileMatch": [

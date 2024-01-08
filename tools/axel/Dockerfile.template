@@ -1,0 +1,29 @@
+#syntax=docker/dockerfile:1.6.0
+
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+RUN <<EOF
+apt-get update
+apt-get -y install --no-install-recommends \
+    autogen \
+    autoconf \
+    automake \
+    libtool \
+    build-essential \
+    make \
+    pkg-config \
+    libssl-dev
+EOF
+WORKDIR /tmp/axel
+ARG name
+ARG version
+RUN <<EOF
+curl --silent --show-error --location --fail https://github.com/axel-download-accelerator/axel/releases/download/v2.17.11/axel-2.17.11.tar.gz \
+| tar --extract --gzip --strip-components=1
+./configure --prefix="${prefix}"
+make LDFLAGS=-static
+make install
+EOF
