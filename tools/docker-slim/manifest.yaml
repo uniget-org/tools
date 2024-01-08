@@ -1,5 +1,5 @@
 name: docker-slim
-version: "1.40.7"
+version: "1.40.8"
 check: ${binary} --version | cut -d' ' -f3 | cut -d\| -f3
 platforms:
 - linux/amd64
