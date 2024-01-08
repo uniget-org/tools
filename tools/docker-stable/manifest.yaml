@@ -1,5 +1,5 @@
 name: docker-stable
-version: "23.0.6"
+version: "24.0.7"
 binary: dockerd
 check: "" # Empty because of parallel install with "docker"
 runtime_dependencies:
