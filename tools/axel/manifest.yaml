@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: axel
+version: "2.17.11"
+check: ${binary} --version | grep ^Axel | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/c
+- type/cli
+homepage: https://github.com/axel-download-accelerator/axel
+description: Lightweight CLI download accelerator
+renovate:
+  datasource: github-releases
+  package: axel-download-accelerator/axel
+  extractVersion: ^v(?<version>.+?)$
+  priority: medium
