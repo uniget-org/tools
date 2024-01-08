@@ -13,9 +13,9 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 COPY --link --from=python / /usr/local/
-COPY --link --from=nodejs / /
-COPY --link --from=npm / /
-COPY --link --from=make / /
+COPY --link --from=nodejs / /usr/local/
+COPY --link --from=npm / /usr/local/
+COPY --link --from=make / /usr/local/
 RUN <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \

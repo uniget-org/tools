@@ -9,9 +9,9 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --from=go / /
-COPY --from=make / /
-COPY --from=go-md2man / /
+COPY --from=go / /usr/local/
+COPY --from=make / /usr/local/
+COPY --from=go-md2man / /usr/local/
 ARG name
 ARG version
 RUN <<EOF

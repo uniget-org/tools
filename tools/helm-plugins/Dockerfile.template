@@ -9,7 +9,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-COPY --link --from=helm / /
+COPY --link --from=helm / /usr/local/
 RUN <<EOF
 echo "export HELM_PLUGINS=/share/helm/plugins" >"${prefix}/etc/profile.d/helm-plugins.sh"
 

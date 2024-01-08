@@ -9,7 +9,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
 #COPY --link --from=python / /usr/local/
-COPY --link --from=shiv / /
+COPY --link --from=shiv / /usr/local/
 ARG name
 ARG version
 RUN <<EOF

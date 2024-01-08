@@ -7,7 +7,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --link --from=go-md2man / /
+COPY --link --from=go-md2man / /usr/local/
 ARG name
 ARG version
 COPY 10-containerd-net.conflist "${prefix}/etc/cni/net.d/"

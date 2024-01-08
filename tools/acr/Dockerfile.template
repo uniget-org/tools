@@ -10,8 +10,8 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-COPY --link --from=go / /
-COPY --link --from=make / /
+COPY --link --from=go / /usr/local/
+COPY --link --from=make / /usr/local/
 WORKDIR /go/src/github.com/Azure/acr-cli
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/Azure/acr-cli .

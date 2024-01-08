@@ -16,7 +16,7 @@ apt-get -y install --no-install-recommends \
     python-is-python3
 EOF
 #COPY --link --from=python / /usr/local/
-COPY --link --from=shiv / /
+COPY --link --from=shiv / /usr/local/
 ARG name
 ARG version
 COPY <<EOF ${prefix}/etc/profile.d/aws

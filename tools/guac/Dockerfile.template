@@ -8,8 +8,8 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --link --from=go / /
-COPY --link --from=goreleaser / /
+COPY --link --from=go / /usr/local/
+COPY --link --from=goreleaser / /usr/local/
 RUN <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \

@@ -7,7 +7,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --link --from=make / /
+COPY --link --from=make / /usr/local/
 WORKDIR /tmp/wslu
 ARG name
 ARG version
