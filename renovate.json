@@ -384,6 +384,18 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "github-tags",
+      "depNameTemplate": "xyproto/botsay",
+      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/botsay/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "containers/bubblewrap",
       "extractVersionTemplate": "^v(?<version>.+?)$",
