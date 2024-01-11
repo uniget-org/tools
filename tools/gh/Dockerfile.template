@@ -12,7 +12,12 @@ check-github-release-asset "cli/cli" "v${version}" "gh_${version}_linux_${alt_ar
 curl --silent --location --fail "https://github.com/cli/cli/releases/download/v${version}/gh_${version}_linux_${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}" --strip-components=1 --no-same-owner
 rm "${prefix}/LICENSE"
+
 "${prefix}/bin/gh" completion -s bash >"${prefix}/share/bash-completion/completions/gh"
 "${prefix}/bin/gh" completion -s fish >"${prefix}/share/fish/vendor_completions.d/gh.fish"
 "${prefix}/bin/gh" completion -s zsh >"${prefix}/share/zsh/vendor-completions/_gh"
+
+gh extension install github/gh-copilot
+gh extension install advanced-security/gh-sbom
+gh extension install dlvhdr/gh-dash
 EOF
