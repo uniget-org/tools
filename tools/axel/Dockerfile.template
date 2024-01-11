@@ -1,6 +1,8 @@
 #syntax=docker/dockerfile:1.6.0
 
-FROM nicholasdille/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/tools/make:latest AS make
+
+FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -8,15 +10,9 @@ SHELL [ "bash", "-clo", "errexit" ]
 RUN <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
-    autogen \
-    autoconf \
-    automake \
-    libtool \
-    build-essential \
-    make \
-    pkg-config \
     libssl-dev
 EOF
+COPY --link --from=make / /usr/local/
 WORKDIR /tmp/axel
 ARG name
 ARG version

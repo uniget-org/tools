@@ -3,13 +3,11 @@
 #FROM ghcr.io/uniget-org/tools/python:latest AS python
 FROM ghcr.io/uniget-org/tools/shiv:latest AS shiv
 
-FROM nicholasdille/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-#COPY --link --from=python / /usr/local/
-COPY --link --from=shiv / /usr/local/
 RUN <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
@@ -17,13 +15,10 @@ apt-get -y install --no-install-recommends \
     python3-venv \
     python-is-python3
 EOF
+#COPY --link --from=python / /usr/local/
+COPY --link --from=shiv / /usr/local/
 ARG name
 ARG version
-RUN <<EOF
-apt-get update
-apt-get -y install --no-install-recommends \
-    build-essential
-EOF
 RUN <<EOF
 shiv --output-file "${prefix}/bin/az" --console-script az "azure-cli==${version}"
 EOF

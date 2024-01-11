@@ -1,22 +1,13 @@
 #syntax=docker/dockerfile:1.6.0
 
-FROM nicholasdille/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
+WORKDIR /tmp/make
 ARG name
 ARG version
-RUN <<EOF
-apt-get update
-apt-get -y install --no-install-recommends \
-    autogen \
-    autoconf \
-    automake \
-    libtool \
-    build-essential
-EOF
-WORKDIR /tmp/make
 RUN <<EOF
 curl --silent --location --fail "https://ftp.gnu.org/gnu/make/make-${version}.tar.gz" \
 | tar --extract --gzip --strip-components=1

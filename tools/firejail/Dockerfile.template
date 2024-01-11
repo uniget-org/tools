@@ -1,6 +1,6 @@
 #syntax=docker/dockerfile:1.6.0
 
-FROM nicholasdille/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -8,10 +8,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 RUN <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
-        build-essential \
-        gawk \
-        git \
-        ca-certificates
+    gawk
 EOF
 WORKDIR /tmp/github.com/netblue30/firejail
 ARG name
