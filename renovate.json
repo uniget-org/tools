@@ -1962,6 +1962,17 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "flatpak/flatpak",
+      "fileMatch": [
+        "^tools/flatpak/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "rancher/fleet",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [

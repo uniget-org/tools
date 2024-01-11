@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: flatpak
+version: "1.14.5"
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- category/operations
+- lang/c
+- type/cli
+homepage: https://github.com/flatpak/flatpak
+description: Linux application sandboxing and distribution framework
+renovate:
+  datasource: github-releases
+  package: flatpak/flatpak
+  priority: low

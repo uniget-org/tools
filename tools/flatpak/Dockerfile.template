@@ -1,0 +1,57 @@
+#syntax=docker/dockerfile:1.6.0
+
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN <<EOF
+apt-get update
+apt-get -y install --no-install-recommends \
+    autogen \
+    autoconf \
+    automake \
+    libtool \
+    build-essential
+EOF
+WORKDIR /tmp/flatpak
+RUN <<EOF
+sed -Ei 's/^# deb-src /deb-src /' /etc/apt/sources.list
+apt-get update
+apt-get -y build-dep flatpak
+apt-get -y install --no-install-recommends \
+    libcurl4-openssl-dev \
+    libappstream-dev \
+    meson
+EOF
+RUN <<EOF
+check-clone "https://github.com/flatpak/flatpak" "${version}"
+git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" https://github.com/flatpak/flatpak .
+git submodule update --init
+
+NOCONFIGURE=1 ./autogen.sh
+./configure \
+    --prefix="${prefix}" \
+    --enable-static \
+    --disable-shared \
+    --disable-auto-sideloading \
+    --disable-selinux-module \
+    --enable-gdm-env-file \
+    --enable-docbook-docs \
+    --enable-documentation \
+    --disable-gtk-doc
+make LDFLAGS=-static
+#make check
+make install
+EOF
+
+RUN <<EOF
+curl --silent --show-error --location --fail --output "${prefix}/share/bash-completion/completions/flatpak" \
+    "https://github.com/flatpak/flatpak/raw/${version}/completion/flatpak"
+curl --silent --show-error --location --fail --output "${prefix}/share/fish/vendor_completions.d/flatpak.fish" \
+    "https://github.com/flatpak/flatpak/raw/${version}/completion/flatpak.fish"
+curl --silent --show-error --location --fail --output "${prefix}/share/zsh/vendor-completions/_flatpak" \
+    "https://github.com/flatpak/flatpak/raw/${version}/completion/_flatpak"
+EOF
