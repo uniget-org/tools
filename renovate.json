@@ -5132,6 +5132,17 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "pacstall/pacstall",
+      "fileMatch": [
+        "^tools/pacstall/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "jgm/pandoc",
       "fileMatch": [
         "^tools/pandoc/manifest.yaml$"
