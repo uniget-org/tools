@@ -17,7 +17,7 @@ rm "${prefix}/LICENSE"
 "${prefix}/bin/gh" completion -s fish >"${prefix}/share/fish/vendor_completions.d/gh.fish"
 "${prefix}/bin/gh" completion -s zsh >"${prefix}/share/zsh/vendor-completions/_gh"
 
-gh extension install github/gh-copilot
-gh extension install advanced-security/gh-sbom
-gh extension install dlvhdr/gh-dash
+"${prefix}/bin/gh" extension install github/gh-copilot
+"${prefix}/bin/gh" extension install advanced-security/gh-sbom
+"${prefix}/bin/gh" extension install dlvhdr/gh-dash
 EOF
