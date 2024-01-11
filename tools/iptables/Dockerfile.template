@@ -4,7 +4,7 @@ FROM ghcr.io/uniget-org/tools/make:latest AS make
 FROM ghcr.io/uniget-org/tools/libmnl:latest AS libmnl
 FROM ghcr.io/uniget-org/tools/libnftnl:latest AS libnftnl
 
-FROM nicholasdille/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -12,16 +12,11 @@ SHELL [ "bash", "-clo", "errexit" ]
 RUN <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
-    build-essential \
-    autoconf \
-    automake \
-    libtool \
-    git \
     libnfnetlink-dev
 EOF
-COPY --from=make / /usr/local/
-COPY --from=libmnl / /usr/local/
-COPY --from=libnftnl / /usr/local/
+COPY --link --from=make / /usr/local/
+COPY --link --from=libmnl / /usr/local/
+COPY --link --from=libnftnl / /usr/local/
 WORKDIR /tmp/iptables
 ARG name
 ARG version

@@ -2,18 +2,12 @@
 
 FROM ghcr.io/uniget-org/tools/rust:latest AS rust
 
-FROM nicholasdille/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --from=rust / /usr/local
-ARG DEBIAN_FRONTEND=noninteractive
-RUN <<EOF
-apt-get update
-apt-get -y install --no-install-recommends \
-    build-essential
-EOF
+COPY --link --from=rust / /usr/local
 WORKDIR /tmp/github.com/paritytech/wasmi
 ARG name
 ARG version
