@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: github-copilot-cli
-version: "0.1.35"
+version: "0.1.36"
 check: ${binary} --version
 build_dependencies:
 - nodejs
