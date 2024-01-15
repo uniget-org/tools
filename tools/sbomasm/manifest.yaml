@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: sbomasm
+version: "0.0.13"
+check: ${binary} version | grep ^GitVersion | tr -s ' ' | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/interlynk
+- category/security
+- lang/go
+- type/cli
+- sbom
+homepage: https://github.com/interlynk-io/sbomasm
+description: SBOM Assembler - A tool to compose your various sboms into a single sbom
+renovate:
+  datasource: github-releases
+  package: interlynk-io/sbomasm
+  extractVersion: ^v(?<version>.+?)$
+  priority: low

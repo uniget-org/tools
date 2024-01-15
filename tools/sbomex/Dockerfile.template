@@ -1,0 +1,19 @@
+#syntax=docker/dockerfile:1.6.0
+
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN <<EOF
+check-github-release-asset "interlynk-io/sbomex" "v${version}" "sbomex-linux-${alt_arch}"
+curl --silent --location --fail --output "${prefix}/bin/sbomex" \
+    "https://github.com/interlynk-io/sbomex/releases/download/v${version}/sbomex-linux-${alt_arch}"
+chmod +x "${prefix}/bin/sbomex"
+
+"${prefix}/bin/sbomex" completion bash >"${prefix}/share/bash-completion/completions/sbomex"
+"${prefix}/bin/sbomex" completion fish >"${prefix}/share/fish/vendor_completions.d/sbomex.fish"
+"${prefix}/bin/sbomex" completion zsh >"${prefix}/share/zsh/vendor-completions/_sbomex"
+EOF

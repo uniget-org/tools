@@ -1,0 +1,19 @@
+#syntax=docker/dockerfile:1.6.0
+
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN <<EOF
+check-github-release-asset "interlynk-io/sbomasm" "v${version}" "sbomasm-linux-${alt_arch}"
+curl --silent --location --fail --output "${prefix}/bin/sbomasm" \
+    "https://github.com/interlynk-io/sbomasm/releases/download/v${version}/sbomasm-linux-${alt_arch}"
+chmod +x "${prefix}/bin/sbomasm"
+
+"${prefix}/bin/sbomasm" completion bash >"${prefix}/share/bash-completion/completions/sbomasm"
+"${prefix}/bin/sbomasm" completion fish >"${prefix}/share/fish/vendor_completions.d/sbomasm.fish"
+"${prefix}/bin/sbomasm" completion zsh >"${prefix}/share/zsh/vendor-completions/_sbomasm"
+EOF
