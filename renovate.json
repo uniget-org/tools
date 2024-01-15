@@ -5297,6 +5297,18 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "git-tags",
+      "depNameTemplate": "https://passt.top/passt/",
+      "extractVersionTemplate": "^(?<version>\\d+_\\d+_\\d+?)\\.\\w+$",
+      "fileMatch": [
+        "^tools/passt/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "jaspervdj/patat",
       "extractVersionTemplate": "^v(?<version>.+?)$",
