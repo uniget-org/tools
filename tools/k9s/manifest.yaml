@@ -1,5 +1,5 @@
 name: k9s
-version: "0.31.5"
+version: "0.31.6"
 check: ${binary} version --short | grep "^Version" | cut -dv -f2
 platforms:
 - linux/amd64
