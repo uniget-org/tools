@@ -1,5 +1,5 @@
 name: terraform
-version: "1.6.6"
+version: "1.7.0"
 check: ${binary} -version | grep ^Terraform | cut -d' ' -f2 | tr -d v
 tags:
 - type/cli
