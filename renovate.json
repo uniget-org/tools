@@ -4331,6 +4331,18 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "git-tags",
+      "depNameTemplate": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/linux-kernel/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "microsoft/WSL2-Linux-Kernel",
       "extractVersionTemplate": "^linux-msft-wsl-(?<version>.+?)$",
