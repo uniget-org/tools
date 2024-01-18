@@ -4332,6 +4332,19 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "microsoft/WSL2-Linux-Kernel",
+      "extractVersionTemplate": "^linux-msft-wsl-(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/linux-kernel-wsl/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ],
+      "versioningTemplate": "loose"
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "linuxkit/linuxkit",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
