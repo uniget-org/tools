@@ -1,6 +1,10 @@
 #syntax=docker/dockerfile:1.6.0
 
-FROM ghcr.io/uniget-org/tools/base:latest AS download
+FROM nicholasdille/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
@@ -25,10 +29,7 @@ echo "### Downloading crane ${version}"
 curl --silent --location --fail "https://github.com/google/go-containerregistry/releases/download/v${version}/go-containerregistry_Linux_${arch_suffix}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin" --no-same-owner \
     crane
-EOF
-
-FROM download AS prepare
-RUN <<EOF
+    
 "${prefix}/bin/crane" completion bash >"${prefix}/share/bash-completion/completions/crane"
 "${prefix}/bin/crane" completion fish >"${prefix}/share/fish/vendor_completions.d/crane.fish"
 "${prefix}/bin/crane" completion zsh >"${prefix}/share/zsh/vendor-completions/_crane"
