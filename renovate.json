@@ -5647,6 +5647,17 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "jqnatividad/qsv",
+      "fileMatch": [
+        "^tools/qsv/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "regclient/regclient",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
