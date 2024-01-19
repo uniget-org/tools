@@ -1,0 +1,19 @@
+#syntax=docker/dockerfile:1.6.0
+
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN <<EOF
+check-github-release-asset "yuzutech/kroki-cli" "v${version}" "kroki-cli_${version}_linux_amd64.tar.gz"
+curl --silent --location --fail "https://github.com/yuzutech/kroki-cli/releases/download/v${version}/kroki-cli_${version}_linux_amd64.tar.gz" \
+| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
+    kroki
+
+"${prefix}/bin/kroki-cli" completion bash >"${prefix}/share/bash-completion/completions/kroki-cli"
+"${prefix}/bin/kroki-cli" completion fish >"${prefix}/share/fish/vendor_completions.d/kroki-cli.fish"
+"${prefix}/bin/kroki-cli" completion zsh >"${prefix}/share/zsh/vendor-completions/_kroki-cli"
+EOF
