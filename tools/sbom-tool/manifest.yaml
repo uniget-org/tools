@@ -1,5 +1,5 @@
 name: sbom-tool
-version: "2.2.2"
+version: "2.2.3"
 check: "" # No version parameter
 tags:
 - category/security
