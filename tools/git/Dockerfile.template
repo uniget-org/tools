@@ -31,6 +31,6 @@ export NO_CURL=1
 export CFLAGS="${CFLAGS} -static"
 make configure
 ./configure --prefix="${prefix}"
-make all doc info
+make all doc
 make install install-doc install-html
 EOF
