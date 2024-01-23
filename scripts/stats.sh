@@ -20,43 +20,48 @@ function process_prs() {
     '
 }
 
-if ! test -f prs.json; then
+if ! test -f data/prs.json; then
     echo "Fetching PRs from uniget-org/tools"
-    gh api --paginate "repos/uniget-org/tools/pulls?state=closed" >prs.json
+    gh api --paginate "repos/uniget-org/tools/pulls?state=closed" >data/prs.json
 fi
-if ! test -f prs-old.json; then
+if ! test -f data/prs-old.json.gz; then
     echo "Fetching PRs from nicholasdille/docker-setup"
     gh api --paginate "repos/nicholasdille/docker-setup/pulls?state=closed" \
-    jq '
-        .[] |
-        select(
-            ( .number <= 603 ) or
-            ( .number >= 3234 ) or
-            ( .title | endswith(" (main)") )
-        )
+    | jq '
+        [
+            .[] |
+            select(
+                ( .number <= 603 ) or
+                ( .number >= 3234 ) or
+                ( .title | endswith(" (main)") )
+            )
+        ]
     ' \
-    >prs-old.json
+    >data/prs-old.json
+else
+    gunzip data/prs-old.json.gz
 fi
 echo "Compiling reduced-prs.json"
-cat prs-old.json prs-plain.json \
+cat data/prs-old.json data/prs.json \
 | jq --slurp '
     [
-        .[] as $pr |
+        .[][] as $pr |
             $pr.labels[] | select(.name == "type/renovate") | $pr
     ]
 ' \
 | process_prs \
->reduced-prs.json
+>data/reduced-prs.json
+gzip data/prs-old.json
 
 echo "Total PRs"
-cat reduced-prs.json \
+cat data/reduced-prs.json \
 | jq 'length'
 echo "Analyzing PRs by day"
-cat reduced-prs.json \
+cat data/reduced-prs.json \
 | jq 'group_by(.createdAtDay)' \
 | jq ' [ .[] | { "date": .[0].createdAtDay, "count": (. | length) } ]' \
 | mlr --j2x stats1 -a min,mean,max -f count
 
 echo "Analyzing duration of PRs"
-cat reduced-prs.json \
-| mlr --j2x stats1 -a min,median,mean,max,p90,p98 -f openMilliseconds
+cat data/reduced-prs.json \
+| mlr --j2x stats1 -a min,median,mean,max,p90,p95,p98 -f openMilliseconds
