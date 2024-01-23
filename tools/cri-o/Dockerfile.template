@@ -38,16 +38,10 @@ EOF
 RUN <<EOF
 curl --silent --location --fail --output "${prefix}/share/bash-completion/completions/crio" \
     "https://github.com/cri-o/cri-o/raw/v${version}/completions/bash/crio"
-curl --silent --location --fail --output "${prefix}/share/bash-completion/completions/crio-status" \
-    "https://github.com/cri-o/cri-o/raw/v${version}/completions/bash/crio-status"
 curl --silent --location --fail --output "${prefix}/share/fish/vendor_completions.d/crio.fish" \
     "https://github.com/cri-o/cri-o/raw/v${version}/completions/fish/crio.fish"
-curl --silent --location --fail --output "${prefix}/share/fish/vendor_completions.d/crio-status.fish" \
-    "https://github.com/cri-o/cri-o/raw/v${version}/completions/fish/crio-status.fish"
 curl --silent --location --fail --output "${prefix}/share/zsh/vendor-completions/_crio" \
     "https://github.com/cri-o/cri-o/raw/v${version}/completions/zsh/_crio"
-curl --silent --location --fail --output "${prefix}/share/zsh/vendor-completions/_crio-status" \
-    "https://github.com/cri-o/cri-o/raw/v${version}/completions/zsh/_crio-status"
 EOF
 RUN <<EOF
 mkdir -p \
@@ -72,19 +66,15 @@ EOF
 RUN <<EOF
 curl --silent --location --fail --output "${prefix}/share/man/man8/crio.8.md" \
     "https://github.com/cri-o/cri-o/raw/v${version}/docs/crio.8.md"
-curl --silent --location --fail --output "${prefix}/share/man/man8/crio-status.8.md" \
-    "https://github.com/cri-o/cri-o/raw/v${version}/docs/crio-status.8.md"
 curl --silent --location --fail --output "${prefix}/share/man/man5/crio.conf.5.md" \
     "https://github.com/cri-o/cri-o/raw/v${version}/docs/crio.conf.5.md"
 curl --silent --location --fail --output "${prefix}/share/man/man5/crio.conf.d.5.md" \
     "https://github.com/cri-o/cri-o/raw/v${version}/docs/crio.conf.d.5.md"
 go-md2man -in "${prefix}/share/man/man8/crio.8.md"        -out "${prefix}/share/man/man8/crio.8"
-go-md2man -in "${prefix}/share/man/man8/crio-status.8.md" -out "${prefix}/share/man/man8/crio-status.8"
 go-md2man -in "${prefix}/share/man/man5/crio.conf.5.md"   -out "${prefix}/share/man/man5/crio.conf.5"
 go-md2man -in "${prefix}/share/man/man5/crio.conf.d.5.md" -out "${prefix}/share/man/man5/crio.conf.d.5"
 rm \
     "${prefix}/share/man/man8/crio.8.md" \
-    "${prefix}/share/man/man8/crio-status.8.md" \
     "${prefix}/share/man/man5/crio.conf.5.md" \
     "${prefix}/share/man/man5/crio.conf.d.5.md"
 EOF
