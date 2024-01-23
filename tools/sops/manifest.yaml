@@ -10,10 +10,10 @@ tags:
 - type/cli
 - cicd
 - lang/go
-homepage: https://github.com/mozilla/sops
+homepage: https://github.com/getsops/sops
 description: Simple and flexible tool for managing secrets
 renovate:
   datasource: github-releases
-  package: mozilla/sops
+  package: getsops/sops
   extractVersion: ^v(?<version>.+?)$
   priority: low

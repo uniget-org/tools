@@ -16,10 +16,10 @@ tags:
 - lang/javascript
 - type/cli
 - standard/compose
-homepage: https://github.com/magicmark/composerize
+homepage: https://github.com/composerize/composerize
 description: Turns docker run commands into docker-compose files
 renovate:
   datasource: github-releases
-  package: magicmark/composerize
+  package: composerize/composerize
   extractVersion: ^v(?<version>.+?)$
   priority: medium

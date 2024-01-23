@@ -849,7 +849,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "magicmark/composerize",
+      "depNameTemplate": "composerize/composerize",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
         "^tools/composerize/manifest.yaml$"
@@ -3684,7 +3684,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "vmware-tanzu/kpack-cli",
+      "depNameTemplate": "buildpacks-community/kpack-cli",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
         "^tools/kp/manifest.yaml$"
@@ -3696,7 +3696,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "GoogleContainerTools/kpt",
+      "depNameTemplate": "kptdev/kpt",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
         "^tools/kpt/manifest.yaml$"
@@ -3946,7 +3946,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "vmware-tanzu/buildkit-cli-for-kubectl",
+      "depNameTemplate": "vmware-archive/buildkit-cli-for-kubectl",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
         "^tools/kubectl-build/manifest.yaml$"
@@ -6236,7 +6236,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "mozilla/sops",
+      "depNameTemplate": "getsops/sops",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
         "^tools/sops/manifest.yaml$"
@@ -7187,7 +7187,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "testifysec/witness",
+      "depNameTemplate": "in-toto/witness",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
         "^tools/witness/manifest.yaml$"
