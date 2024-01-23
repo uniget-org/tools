@@ -8,8 +8,8 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
-check-github-release-asset "GoogleContainerTools/kpt" "v${version}" "kpt_linux_${alt_arch}-${version}.tar.gz"
-curl --silent --location --fail "https://github.com/GoogleContainerTools/kpt/releases/download/v${version}/kpt_linux_${alt_arch}-${version}.tar.gz" \
+check-github-release-asset "kptdev/kpt" "v${version}" "kpt_linux_${alt_arch}-${version}.tar.gz"
+curl --silent --location --fail "https://github.com/kptdev/kpt/releases/download/v${version}/kpt_linux_${alt_arch}-${version}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     kpt
 EOF
