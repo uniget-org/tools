@@ -2199,6 +2199,18 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "github-tags",
+      "depNameTemplate": "git/git",
+      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/git/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "gopasspw/git-credential-gopass",
       "extractVersionTemplate": "^v(?<version>.+?)$",
@@ -2250,6 +2262,18 @@
       "depNameTemplate": "mlange-42/git-igitt",
       "fileMatch": [
         "^tools/git-igitt/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "git-lfs/git-lfs",
+      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/git-lfs/manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"

@@ -1,0 +1,36 @@
+#syntax=docker/dockerfile:1.6.0
+
+FROM ghcr.io/uniget-org/tools/make:latest AS make
+
+FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+COPY --link --from=make / /usr/local/
+RUN <<EOF
+apt-get update
+apt-get -y install --no-install-recommends \
+    dh-autoreconf \
+    libcurl4-gnutls-dev \
+    libexpat1-dev \
+    gettext \
+    zlib1g-dev \
+    libssl-dev \
+    libncurses5-dev \
+    asciidoc \
+    xmlto
+EOF
+WORKDIR /tmp/git
+ARG name
+ARG version
+RUN <<EOF
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/git/git .
+export NO_OPENSSL=1
+export NO_CURL=1
+export CFLAGS="${CFLAGS} -static"
+make configure
+./configure --prefix="${prefix}"
+make all doc info
+make install install-doc install-html
+EOF
