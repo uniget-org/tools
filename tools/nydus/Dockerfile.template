@@ -1,0 +1,17 @@
+#syntax=docker/dockerfile:1.6.0
+
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN <<EOF
+check-github-release-asset "dragonflyoss/nydus" "v${version}" "nydus-static-v${version}-linux-${alt_arch}.tgz"
+curl --silent --location --fail "https://github.com/dragonflyoss/nydus/releases/download/v${version}/nydus-static-v${version}-linux-${alt_arch}.tgz" \
+| tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner
+EOF
+
+# SystemD coming in 2.3.0
+# See https://github.com/dragonflyoss/nydus/blob/v2.3.0-alpha.1/misc/performance/prepare.sh

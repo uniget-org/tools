@@ -1,0 +1,21 @@
+#syntax=docker/dockerfile:1.6.0
+
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN <<EOF
+check-github-release-asset "containerd/nydus-snapshotter" "v${version}" "nydus-snapshotter-v${version}-${arch}.tgz"
+curl --silent --location --fail "https://github.com/containerd/nydus-snapshotter/releases/download/v${version}/nydus-snapshotter-v${version}-${arch}.tgz" \
+| tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner
+EOF
+
+# https://github.com/containerd/nydus-snapshotter/raw/v0.13.4/misc/snapshotter/nydus-snapshotter.fusedev.service
+# https://github.com/containerd/nydus-snapshotter/raw/v0.13.4/misc/snapshotter/nydus-snapshotter.fscache.service
+# https://github.com/containerd/nydus-snapshotter/raw/v0.13.4/misc/snapshotter/config.toml
+# https://github.com/containerd/nydus-snapshotter/raw/v0.13.4/misc/snapshotter/nydusd-config.fscache.json
+# https://github.com/containerd/nydus-snapshotter/raw/v0.13.4/misc/snapshotter/nydusd-config.fusedev.json
+# https://github.com/containerd/nydus-snapshotter/raw/v0.13.4/misc/snapshotter/nydusd-config-localfs.json
