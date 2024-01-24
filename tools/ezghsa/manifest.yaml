@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: ezghsa
+version: "0.2.2"
+check: "" # No useful output
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/security
+- lang/go
+- type/cli
+homepage: https://github.com/csdev/ezghsa
+description: Command-line tool for summarizing and filtering vulnerability alerts on Github repositories
+renovate:
+  datasource: github-releases
+  package: csdev/ezghsa
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
