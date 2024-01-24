@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: kube-trigger
+version: "0.1.1"
+check: "" # No version parameter
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/go
+- type/daemon
+homepage: https://github.com/kubevela/kube-trigger
+description: Watches Kubernetes events and triggers actions in a programmable way
+renovate:
+  datasource: github-releases
+  package: kubevela/kube-trigger
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
