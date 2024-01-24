@@ -11,6 +11,6 @@ RUN <<EOF
 check-github-release-asset "awslabs/soci-snapshotter" "v${version}" "soci-snapshotter-${version}-linux-${alt_arch}-static.tar.gz"
 curl --silent --location --fail "https://github.com/awslabs/soci-snapshotter/releases/download/v${version}/soci-snapshotter-${version}-linux-${alt_arch}-static.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
-    soci \
-    soci-snapshotter-grpc
+    ./soci \
+    ./soci-snapshotter-grpc
 EOF
