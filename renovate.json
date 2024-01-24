@@ -1872,6 +1872,18 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "csdev/ezghsa",
+      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/ezghsa/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "openfaas/faas-cli",
       "fileMatch": [
         "^tools/faas-cli/manifest.yaml$"
