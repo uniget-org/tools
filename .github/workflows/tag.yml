@@ -190,7 +190,7 @@ jobs:
             rebuild=true
         fi
         echo "Got version tag: ${version_sha}."
-        if ! ${rebuild} && test "${latest_sha}" != "${version_sha}"; then
+        if ! ${rebuild} && test -n "${latest_sha}" && test "${latest_sha}" != "${version_sha}"; then
             echo "Latest tag is not equal to version tag"
             rebuild=true
         fi
