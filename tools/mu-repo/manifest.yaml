@@ -19,8 +19,7 @@ tags:
 homepage: http://fabioz.github.io/mu-repo
 description: Help in dealing with multiple git repositories
 renovate:
-  datasource: custom.mu-repo
-  datasourceUrl: https://api.github.com/repos/fabioz/mu-repo/git/matching-refs/tags/mu_repo_
-  datasourceTramsformJsonata: "{ \"releases\": [ $[].{ \"version\": $replace( $substring( ref, 18 ), '_', '.') } ] }"
-  package: fabioz/mu-repo
+  datasource: github-releases
+  package: uniget-org/renovate-custom
+  extractVersion: ^mu-repo/(?<version>.+?)$
   priority: low
