@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: csvlens
+version: "0.6.0"
+check: ${binary} --version | cut -d' ' -f2
+build_dependencies:
+- rust
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/rust
+- type/tui
+homepage: https://github.com/YS-L/csvlens
+description: Command line csv viewer 
+renovate:
+  datasource: github-releases
+  package: YS-L/csvlens
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
