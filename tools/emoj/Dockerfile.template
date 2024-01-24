@@ -3,7 +3,7 @@
 FROM ghcr.io/uniget-org/tools/nodejs:latest AS nodejs
 FROM ghcr.io/uniget-org/tools/npm:latest AS npm
 
-FROM nicholasdille/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/

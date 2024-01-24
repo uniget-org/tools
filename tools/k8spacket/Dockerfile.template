@@ -18,7 +18,7 @@ git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}"
 go build -o /usr/local/bin/k8spacket .
 EOF
 
-FROM nicholasdille/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/

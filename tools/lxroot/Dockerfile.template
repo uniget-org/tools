@@ -16,7 +16,7 @@ git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" 
 g++ lxroot.cpp -o lxroot-static -s -Os -fomit-frame-pointer -fno-stack-protector -ffunction-sections -fdata-sections -Wl,--gc-sections -fno-unroll-loops -fmerge-all-constants -fno-ident -Wl,-z,norelro -Wl,--build-id=none -fno-exceptions -fno-rtti -static
 EOF
 
-FROM nicholasdille/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
