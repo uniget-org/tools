@@ -3,6 +3,8 @@ $schema: https://tools.uniget.dev/schema.yaml
 name: nuclei
 version: "3.1.7"
 check: ${binary} --version 2>&1 | grep "Nuclei Engine Version" | cut -dv -f2
+runtime_dependencies:
+- nuclei-templates
 platforms:
 - linux/amd64
 - linux/arm64
