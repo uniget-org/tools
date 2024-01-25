@@ -1,0 +1,18 @@
+#syntax=docker/dockerfile:1.6.0
+
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN <<EOF
+check-github-release-asset "projectdiscovery/cvemap" "v${version}" "cvemap_${version}_linux_${alt_arch}.zip"
+
+url="https://github.com/projectdiscovery/cvemap/releases/download/v${version}/cvemap_${version}_linux_${alt_arch}.zip"
+filename="$(basename "${url}")"
+curl --silent --location --fail --remote-name "${url}"
+unzip -q -o -d "${prefix}/bin" "${filename}" \
+    cvemap
+EOF
