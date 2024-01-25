@@ -1,0 +1,16 @@
+#syntax=docker/dockerfile:1.6.0
+
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN <<EOF
+check-download "https://github.com/projectdiscovery/nuclei-templates/archive/refs/tags/v${version}.tar.gz"
+
+mkdir -p "${prefix}/share/nuclei-templates/"
+curl --silent --location --fail "https://github.com/projectdiscovery/nuclei-templates/archive/refs/tags/v${version}.tar.gz" \
+| tar --extract --gzip --directory="${prefix}/share/nuclei-templates/" --strip-components=1 --no-same-owner
+EOF
