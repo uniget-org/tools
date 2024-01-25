@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: nuclei
+version: "3.1.7"
+check: ${binary} --version 2>&1 | grep "Nuclei Engine Version" | cut -dv -f2
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/security
+- lang/go
+- type/cli
+homepage: https://github.com/projectdiscovery/nuclei
+description: Fast and customizable vulnerability scanner based on simple YAML based DSL
+renovate:
+  datasource: github-releases
+  package: projectdiscovery/nuclei
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
