@@ -8,6 +8,7 @@ runtime_dependencies:
 - containerd
 platforms:
 - linux/amd64
+- linux/arm64
 tags:
 - org/containerd
 - category/operations
