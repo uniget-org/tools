@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: nydus-snapshotter
-version: "0.13.4"
+version: "0.13.5"
 binary: containerd-nydus-grpc
 check: ${binary} --version | grep ^Version | cut -dv -f2
 runtime_dependencies:
