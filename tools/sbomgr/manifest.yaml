@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: sbomgr
-version: "0.0.15"
+version: "0.0.16"
 check: ${binary} version | grep ^GitVersion | tr -s ' ' | cut -d' ' -f2 | tr -d v
 platforms:
 - linux/amd64
