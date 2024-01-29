@@ -48,4 +48,4 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-COPY --from=build /usr/local/ ${prefix}/
+COPY --from=build /usr/local/ /uniget_bootstrap/
