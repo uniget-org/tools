@@ -1,5 +1,5 @@
 name: mc
-version: "2024-01-18T07-03-39Z"
+version: "2024-01-28T16-23-14Z"
 check: ${binary} --version | head -1 | cut -d' ' -f3 | cut -d. -f2
 platforms:
 - linux/amd64
