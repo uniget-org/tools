@@ -10,6 +10,6 @@ ARG version
 RUN <<EOF
 check-github-release-asset "lxc/incus" "v${version}" "bin.linux.incus.${arch}"
 curl --silent --location --fail --output "${prefix}/bin/incus" \
-    "https://github.com/lxc/incus/releases/download/v${version}/bin.linux.incus.${arch}"
+    "https://github.com/lxc/incus/releases/download/v${version}/linux.incus.${arch}"
 chmod +x "${prefix}/bin/incus"
 EOF
