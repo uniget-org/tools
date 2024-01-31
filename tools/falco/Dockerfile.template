@@ -13,7 +13,6 @@ curl --silent --location --fail "https://download.falco.org/packages/bin/${arch}
 
 mv "${prefix}/usr/bin/" "${prefix}/"
 mv "${prefix}/usr/src/" "${prefix}/"
-mv "${prefix}/usr/share/falco/" "${prefix}/share/"
 
 "${prefix}/bin/falcoctl" completion bash >"${prefix}/share/bash-completion/completions/falcoctl"
 "${prefix}/bin/falcoctl" completion fish >"${prefix}/share/fish/vendor_completions.d/falcoctl.fish"
