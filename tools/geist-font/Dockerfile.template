@@ -1,0 +1,30 @@
+#syntax=docker/dockerfile:1.6.0
+
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+WORKDIR /tmp/geist-font
+ARG name
+ARG version
+RUN <<EOF
+check-github-release-asset "vercel/geist-font" "${version}" "Geist.zip"
+url="https://github.com/vercel/geist-font/releases/download/${version}/Geist.zip"
+filename="$(basename "${url}")"
+curl --silent --location --fail --remote-name "${url}"
+unzip -q -o "${filename}"
+
+check-github-release-asset "vercel/geist-font" "${version}" "Geist.Mono.zip"
+url="https://github.com/vercel/geist-font/releases/download/${version}/Geist.Mono.zip"
+filename="$(basename "${url}")"
+curl --silent --location --fail --remote-name "${url}"
+unzip -q -o "${filename}"
+
+mkdir -p \
+    "${prefix}/share/geist-font" \
+    "${prefix}/share/fonts/geist-font"
+find Geist Geist.Mono -type f -name \*.woff2 -exec cp {} "${prefix}/share/geist-font/" \;
+find Geist Geist.Mono -type f -name \*.otf   -exec cp {} "${prefix}/share/geist-font/" \;
+find Geist Geist.Mono -type f -name \*.ttf   -exec cp {} "${prefix}/share/geist-font/" \;
+EOF

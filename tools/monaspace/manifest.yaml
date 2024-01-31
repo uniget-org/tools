@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: monaspace
+version: "1.000"
+check: ""
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/github
+- slides
+- presentation
+- font
+homepage: https://github.com/githubnext/monaspace
+description: Innovative superfamily of fonts for code
+renovate:
+  datasource: github-releases
+  package: githubnext/monaspace
+  extractVersion: ^v(?<version>.+?)$
+  versioning: loose
+  priority: low

@@ -1,0 +1,25 @@
+#syntax=docker/dockerfile:1.6.0
+
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+WORKDIR /tmp/monaspace
+ARG name
+ARG version
+RUN <<EOF
+check-github-release-asset "githubnext/monaspace" "v${version}" "monaspace-v${version}.zip"
+url="https://github.com/githubnext/monaspace/releases/download/v${version}/monaspace-v${version}.zip"
+filename="$(basename "${url}")"
+curl --silent --location --fail --remote-name "${url}"
+unzip -q -o "${filename}"
+
+mkdir -p \
+    "${prefix}/share/monaspace" \
+    "${prefix}/share/fonts/monaspace"
+find "monaspace-v${version}" -type f -name \*.woff  -exec cp {} "${prefix}/share/monaspace/" \;
+find "monaspace-v${version}" -type f -name \*.woff2 -exec cp {} "${prefix}/share/monaspace/" \;
+find "monaspace-v${version}" -type f -name \*.otf   -exec cp {} "${prefix}/share/monaspace/" \;
+find "monaspace-v${version}" -type f -name \*.ttf   -exec cp {} "${prefix}/share/monaspace/" \;
+EOF
