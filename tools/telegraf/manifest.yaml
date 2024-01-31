@@ -1,5 +1,5 @@
 name: telegraf
-version: "1.29.3"
+version: "1.29.4"
 check: ${binary} --version | cut -d' ' -f2
 tags:
 - org/influxdata
