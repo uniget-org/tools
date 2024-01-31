@@ -3,6 +3,7 @@ version: "2111.01"
 binary: "false"
 check: "" # No binary
 tags:
+- org/microsoft
 - slides
 - presentation
 - state/stale

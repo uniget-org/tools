@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: jetbrainsmono
+version: "2.304"
+check: ""
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/jetbrains
+- slides
+- presentation
+- font
+homepage: https://github.com/JetBrains/JetBrainsMono
+description: Free and open-source typeface for developers
+renovate:
+  datasource: github-releases
+  package: JetBrains/JetBrainsMono
+  extractVersion: ^v(?<version>.+?)$
+  versioning: loose
+  priority: low
