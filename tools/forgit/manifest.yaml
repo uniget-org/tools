@@ -1,5 +1,5 @@
 name: forgit
-version: "24.01.0"
+version: "24.02.0"
 binary: "false"
 check: "" # No binary
 runtime_dependencies:
