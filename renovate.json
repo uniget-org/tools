@@ -5217,6 +5217,18 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "open-telemetry/opentelemetry-collector",
+      "extractVersionTemplate": "^cmd/builder/v(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/ocb/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "opencontainers/image-tools",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
