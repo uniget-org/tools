@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: cvemap
-version: "0.0.2"
+version: "0.0.3"
 check: ${binary} --version 2>&1 | grep Version | cut -dv -f2
 platforms:
 - linux/amd64
