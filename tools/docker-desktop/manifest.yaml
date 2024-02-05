@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: docker-desktop
+version: "4.27.1"
+binary: ${target}/libexec/docker/cli-plugins/docker-debug
+check: "" # No version parameter
+platforms:
+- linux/amd64
+tags:
+- org/docker
+- category/development
+- lang/go
+- type/cli
+homepage: https://docs.docker.com/desktop/
+description: Docker Desktop
+message:
+  update: |
+    This package only installs a script called install-docker-desktop.sh that you
+    can use to install Docker Desktop.
