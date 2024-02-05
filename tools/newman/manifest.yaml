@@ -1,5 +1,5 @@
 name: newman
-version: "6.1.0"
+version: "6.1.1"
 check: ${binary} --version
 build_dependencies:
 - nodejs-lts
