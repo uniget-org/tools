@@ -4739,6 +4739,17 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "trapexit/mergerfs",
+      "fileMatch": [
+        "^tools/mergerfs/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "mermaid-js/mermaid-cli",
       "fileMatch": [
         "^tools/mermaid-cli/manifest.yaml$"
