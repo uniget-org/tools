@@ -1,5 +1,24 @@
 #syntax=docker/dockerfile:1.6.0
 
+FROM ghcr.io/uniget-org/tools/go:latest AS go
+FROM ghcr.io/uniget-org/tools/make:latest AS make
+
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS build
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+COPY --from=go / /usr/local/
+COPY --from=make / /usr/local/
+WORKDIR /go/src/github.com/ktock/container2wasm
+ARG name
+ARG version
+RUN <<EOF
+check-clone "https://github.com/ktock/container2wasm" "v${version}"
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/ktock/container2wasm .
+make c2w-net-proxy.wasm imagemounter.wasm
+EOF
+
 FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
@@ -11,4 +30,9 @@ RUN <<EOF
 check-github-release-asset "ktock/container2wasm" "v${version}" "container2wasm-v${version}-linux-${alt_arch}.tar.gz"
 curl --silent --location --fail "https://github.com/ktock/container2wasm/releases/download/v${version}/container2wasm-v${version}-linux-${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner
+mkdir -p "${prefix}/libexec/container2wasm"
 EOF
+COPY --from=build \
+    /go/src/github.com/ktock/container2wasm/out/c2w-net-proxy.wasm \
+    /go/src/github.com/ktock/container2wasm/out/imagemounter.wasm \
+    /uniget_bootstrap/libexec/container2wasm/
