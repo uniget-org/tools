@@ -17,3 +17,5 @@ message:
   update: |
     This package only installs a script called install-docker-desktop.sh that you
     can use to install Docker Desktop.
+
+    XXX license
