@@ -1,0 +1,18 @@
+#syntax=docker/dockerfile:1.6.0
+
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN <<EOF
+check-github-release-asset "open-component-model/ocm" "v${version}" "ocm-${version}-linux-${alt_arch}.tar.gz"
+curl --silent --location --fail "https://github.com/open-component-model/ocm/releases/download/v${version}/ocm-${version}-linux-${alt_arch}.tar.gz" \
+| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner
+
+"${prefix}/bin/ocm" completion bash >"${prefix}/share/bash-completion/completions/ocm"
+"${prefix}/bin/ocm" completion fish >"${prefix}/share/fish/vendor_completions.d/ocm.fish"
+"${prefix}/bin/ocm" completion zsh >"${prefix}/share/zsh/vendor-completions/_ocm"
+EOF
