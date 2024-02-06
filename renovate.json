@@ -6121,6 +6121,17 @@
     {
       "customType": "regex",
       "datasourceTemplate": "pypi",
+      "depNameTemplate": "sbom2doc",
+      "fileMatch": [
+        "^tools/sbom2doc/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "pypi",
       "depNameTemplate": "sbom2dot",
       "fileMatch": [
         "^tools/sbom2dot/manifest.yaml$"
