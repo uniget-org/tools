@@ -18,4 +18,5 @@ message:
     This package only installs a script called install-docker-debug.sh that you
     can use to install the docker-debug plugin.
 
-    XXX license
+    You must honor the licensing terms of Docker Desktop even when running the
+    bundled CLI tools.

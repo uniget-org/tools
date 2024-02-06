@@ -18,4 +18,5 @@ message:
     This package only installs a script called install-docker-init.sh that you
     can use to install the docker-init plugin.
 
-    XXX license
+    You must honor the licensing terms of Docker Desktop even when running the
+    bundled CLI tools.
