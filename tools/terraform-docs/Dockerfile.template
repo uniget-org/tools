@@ -8,8 +8,8 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
-check-github-release-asset "terraform-docs/terraform-docs" "v${version}" "terraform-docs-v0.17.0-linux-amd64.tar.gz"
-curl --silent --location --fail "https://github.com/terraform-docs/terraform-docs/releases/download/v0.17.0/terraform-docs-v0.17.0-linux-amd64.tar.gz" \
+check-github-release-asset "terraform-docs/terraform-docs" "v${version}" "terraform-docs-v${version}-linux-${alt_arch}.tar.gz"
+curl --silent --location --fail "https://github.com/terraform-docs/terraform-docs/releases/download/v${version}/terraform-docs-v${version}-linux-${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     terraform-docs
 
