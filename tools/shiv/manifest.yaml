@@ -1,5 +1,5 @@
 name: shiv
-version: "1.0.4"
+version: "1.0.5"
 check: "" # Need python to run binary
 #runtime_dependencies:
 #- python
