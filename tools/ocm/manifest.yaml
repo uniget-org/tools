@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: ocm
+version: "0.6.0"
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/security
+- lang/go
+- type/cli
+homepage: https://github.com/open-component-model/ocm
+description: Open Component Model (Software Bill of Delivery Toolset) 
+renovate:
+  datasource: github-releases
+  package: open-component-model/ocm
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
