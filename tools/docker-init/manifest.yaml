@@ -17,3 +17,5 @@ message:
   update: |
     This package only installs a script called install-docker-init.sh that you
     can use to install the docker-init plugin.
+
+    XXX license

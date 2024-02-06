@@ -17,3 +17,5 @@ message:
   update: |
     This package only installs a script called install-docker-debug.sh that you
     can use to install the docker-debug plugin.
+
+    XXX license
