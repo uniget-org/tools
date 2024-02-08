@@ -28,10 +28,5 @@ check-github-release-asset "schollz/croc" "v${version}" "croc_v${version}_Linux-
 echo "### Downloading croc ${version}"
 curl --silent --location --fail "https://github.com/schollz/croc/releases/download/v${version}/croc_v${version}_Linux-${arch_suffix}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
-    croc \
-    bash_autocomplete \
-    zsh_autocomplete
-
-mv "${prefix}/bin/bash_autocomplete" "${prefix}/share/bash-completion/completions/croc"
-mv "${prefix}/bin/zsh_autocomplete"  "${prefix}/share/zsh/vendor-completions/_croc"
+    croc
 EOF
