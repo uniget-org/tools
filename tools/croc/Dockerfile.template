@@ -23,10 +23,10 @@ case "${arch}" in
 esac
 echo "    Using ${arch_suffix}"
 
-check-github-release-asset "schollz/croc" "v${version}" "croc_${version}_Linux-${arch_suffix}.tar.gz"
+check-github-release-asset "schollz/croc" "v${version}" "croc_v${version}_Linux-${arch_suffix}.tar.gz"
 
 echo "### Downloading croc ${version}"
-curl --silent --location --fail "https://github.com/schollz/croc/releases/download/v${version}/croc_${version}_Linux-${arch_suffix}.tar.gz" \
+curl --silent --location --fail "https://github.com/schollz/croc/releases/download/v${version}/croc_v${version}_Linux-${arch_suffix}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     croc \
     bash_autocomplete \
