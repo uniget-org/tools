@@ -19,7 +19,7 @@ ARG version
 RUN <<EOF
 check-clone https://github.com/madler/pigz "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/madler/pigz .
-make pigz LDFLAGS=-static
+make -j$(nproc) pigz LDFLAGS=-static
 cp pigz "${prefix}/bin/"
 cp pigz.1 "${prefix}/share/man/man1/"
 EOF

@@ -17,7 +17,7 @@ ENV CGO_ENABLED=0
 RUN <<EOF
 check-clone https://github.com/openvex/vexctl "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/openvex/vexctl .
-make vex
+make -j$(nproc) vex
 cp vexctl "${prefix}/bin/"
 
 "${prefix}/bin/vexctl" completion bash >"${prefix}/share/bash-completion/completions/vexctl"

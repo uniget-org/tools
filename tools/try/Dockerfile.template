@@ -21,6 +21,6 @@ curl --silent --location --fail "https://github.com/binpash/try/archive/refs/tag
 cp try "${prefix}/bin/"
 cp completions/try.bash "${prefix}/share/bash-completion/completions/walk"
 
-make -C man try.1
+make -C man -j$(nproc) try.1
 cp man/try.1 "${prefix}/share/man/man1/"
 EOF

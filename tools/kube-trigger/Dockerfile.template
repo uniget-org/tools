@@ -17,6 +17,6 @@ WORKDIR /go/src/github.com/kubevela/kube-trigger
 RUN <<EOF
 check-clone "https://github.com/kubevela/kube-trigger" "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/kubevela/kube-trigger .
-make all
+make -j$(nproc) all
 cp bin/kube-trigger "${prefix}/bin/"
 EOF

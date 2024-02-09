@@ -12,6 +12,6 @@ RUN <<EOF
 curl --silent --location --fail "https://ftp.gnu.org/gnu/make/make-${version}.tar.gz" \
 | tar --extract --gzip --strip-components=1
 ./configure --prefix="${prefix}"
-make LDFLAGS=-static
+make -j$(nproc) LDFLAGS=-static
 make install
 EOF

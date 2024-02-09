@@ -55,7 +55,7 @@ curl --silent --location --fail "https://gitlab.com/graphviz/graphviz/-/archive/
     --with-glade=no \
     --with-qt=no \
     --with-x=nomake
-make -j 4
+make -j$(nproc)
 make install
 mv "${prefix}/bin/dot_static" "${prefix}/bin/dot"
 EOF

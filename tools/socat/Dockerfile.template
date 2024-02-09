@@ -22,7 +22,7 @@ curl --silent --location --fail "http://www.dest-unreach.org/socat/download/soca
 | tar --extract --gzip --strip-components=1
 autoconf
 ./configure
-make
+make -j$(nproc)
 cp socat "${prefix}/bin/"
 cp doc/socat.1 "${prefix}/share/man/man1/"
 EOF

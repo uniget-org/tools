@@ -18,6 +18,6 @@ RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/containerd/imgcrypt .
 sed -i -E 's/ -v / /' Makefile
 sed -i -E "s/ --dirty='.m' / /" Makefile
-make
+make -j$(nproc)
 make install DESTDIR="${prefix}/"
 EOF

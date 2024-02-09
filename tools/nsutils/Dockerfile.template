@@ -23,6 +23,6 @@ check-clone https://github.com/rd235/nsutils "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/rd235/nsutils .
 autoreconf -if
 ./configure --prefix="${prefix}"
-make LDFLAGS=--static
+make -j$(nproc) LDFLAGS=--static
 make install
 EOF

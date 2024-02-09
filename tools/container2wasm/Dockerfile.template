@@ -16,7 +16,7 @@ ARG version
 RUN <<EOF
 check-clone "https://github.com/ktock/container2wasm" "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/ktock/container2wasm .
-make c2w-net-proxy.wasm imagemounter.wasm
+make -j$(nproc) c2w-net-proxy.wasm imagemounter.wasm
 EOF
 
 FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare

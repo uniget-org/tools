@@ -22,7 +22,7 @@ EOF
 ENV GO111MODULE=auto \
     DISABLE_WARN_OUTSIDE_CONTAINER=1 \
     GOPATH=/go
-RUN make manpages
+RUN make -j$(nproc) manpages
 RUN cp -r man/man1 "${prefix}/share/man/" \
  && cp -r man/man5 "${prefix}/share/man/" \
  && cp -r man/man8 "${prefix}/share/man/"

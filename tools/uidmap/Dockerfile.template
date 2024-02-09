@@ -20,7 +20,7 @@ RUN <<EOF
 curl -sL https://github.com/shadow-maint/shadow/releases/download/v${version}/shadow-${version}.tar.xz \
 | tar -xJ --strip-components 1
 ./configure --prefix="${prefix}" --enable-static --disable-shared
-make LDFLAGS=--static
+make -j$(nproc) LDFLAGS=--static
 cp src/newuidmap "${prefix}/bin"
 cp src/newgidmap "${prefix}/bin"
 cp man/man1/newuidmap.1 "${prefix}/share/man/man1"

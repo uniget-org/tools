@@ -14,6 +14,6 @@ ARG version
 RUN <<EOF
 check-clone https://github.com/clarkwang/passh "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/clarkwang/passh .
-make LDFLAGS=-static
+make -j$(nproc) LDFLAGS=-static
 cp passh "${prefix}/bin/"
 EOF

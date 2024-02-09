@@ -22,15 +22,15 @@ ARG name
 ARG version
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" --recurse-submodules https://github.com/gotoz/runq .
-make
+make -j$(nproc)
 EOF
 RUN <<EOF
 mkdir -p /var/lib/runq/qemu
 mv /usr/local/bin/tini /usr/bin/docker-init
-make version
-make -C cmd/proxy install
-make -C cmd/runq install
-make -C cmd/runq-exec install
+make -j$(nproc) version
+make -j$(nproc) -C cmd/proxy install
+make -j$(nproc) -C cmd/runq install
+make -j$(nproc) -C cmd/runq-exec install
 install -m 0444 -D version /var/lib/runq/version
 mkdir -p "${prefix}/var/lib/runq"
 cp -r /var/lib/runq/ "${prefix}/var/lib/"

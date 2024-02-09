@@ -16,7 +16,7 @@ ARG version
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" https://github.com/netblue30/firejail .
 ./configure --prefix="${prefix}"
-make
+make -j$(nproc)
 make install-strip
 mv "${prefix}/share/zsh/site-functions" "${prefix}/share/zsh/vendor-completions"
 EOF

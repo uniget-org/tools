@@ -20,6 +20,6 @@ RUN <<EOF
 curl --silent --show-error --location --fail https://github.com/axel-download-accelerator/axel/releases/download/v2.17.11/axel-2.17.11.tar.gz \
 | tar --extract --gzip --strip-components=1
 ./configure --prefix="${prefix}"
-make LDFLAGS=-static
+make LDFLAGS=-static -j$(nproc)
 make install
 EOF

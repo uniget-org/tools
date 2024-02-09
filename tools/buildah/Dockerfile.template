@@ -39,8 +39,8 @@ ENV CFLAGS='-static -pthread' \
     BUILDTAGS='static netgo osusergo exclude_graphdriver_btrfs exclude_graphdriver_devicemapper seccomp apparmor selinux' \
     CGO_ENABLED=1
 RUN <<EOF
-make bin/buildah
-make -C docs GOMD2MAN=go-md2man
+make -j$(nproc) bin/buildah
+make -C docs -j$(nproc) GOMD2MAN=go-md2man
 mkdir -p /usr/local/share/bash-completion/completions
 cp contrib/completions/bash/buildah /usr/local/share/bash-completion/completions/
 make install DESTDIR="${prefix}" PREFIX=""

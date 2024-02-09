@@ -18,5 +18,5 @@ ENV CGO_ENABLED=0 \
     GOBIN=${prefix}/bin
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/salesforce/sloop .
-make
+make -j$(nproc)
 EOF

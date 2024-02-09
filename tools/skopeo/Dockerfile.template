@@ -40,8 +40,8 @@ RUN git clone --config advice.detachedHead=false --depth 1 --branch "v${version}
 ENV CGO_ENABLED=0
 RUN <<EOF
 mkdir -p "${prefix}/share/man/man1"
-make bin/skopeo EXTRA_LDFLAGS="-s -w -extldflags '-static'" BUILDTAGS=containers_image_openpgp GO_DYN_FLAGS=
-make docs GOMD2MAN=go-md2man
+make -j$(nproc) bin/skopeo EXTRA_LDFLAGS="-s -w -extldflags '-static'" BUILDTAGS=containers_image_openpgp GO_DYN_FLAGS=
+make -j$(nproc) docs GOMD2MAN=go-md2man
 mv bin/skopeo "${prefix}/bin/"
 mv docs/*.1 "${prefix}/share/man/man1/"
 EOF

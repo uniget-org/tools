@@ -42,7 +42,7 @@ apt-get -y install --no-install-recommends \
 cp -r /usr/local/libexec/cni/ /usr/lib/
 EOF
 RUN git clone --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/containers/podman .
-RUN make EXTRA_LDFLAGS="-s -w -extldflags=-static"
+RUN make -j$(nproc) EXTRA_LDFLAGS="-s -w -extldflags=-static"
 RUN <<EOF
 make install DESTDIR="${prefix}" PREFIX=""
 mkdir -p \

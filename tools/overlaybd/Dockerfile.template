@@ -33,6 +33,6 @@ git submodule update --init
 mkdir build
 cd build
 cmake ..
-make -j
+make -j$(nproc)
 make install
 EOF

@@ -23,6 +23,6 @@ check-download "https://gitlab.freedesktop.org/xdg/xdg-utils/-/archive/v${versio
 curl --silent --location --fail "https://gitlab.freedesktop.org/xdg/xdg-utils/-/archive/v${version}/xdg-utils-v${version}.tar.gz" \
 | tar --extract --gzip --strip-components=1
 ./configure --prefix="${prefix}"
-make
+make -j$(nproc)
 make install
 EOF

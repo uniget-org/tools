@@ -17,7 +17,7 @@ RUN <<EOF
 check-clone "https://github.com/chainguard-dev/apko" "v${version}"
 
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/chainguard-dev/apko .
-make apko
+make -j$(nproc) apko
 cp apko "${prefix}/bin/"
 
 "${prefix}/bin/apko" completion bash >"${prefix}/share/bash-completion/completions/apko"
