@@ -14,3 +14,7 @@ cd "${prefix}/src/linux-${version}-wsl2"
 curl --silent --location --fail "https://github.com/microsoft/WSL2-Linux-Kernel/archive/refs/tags/linux-msft-wsl-${version}.tar.gz" \
 | tar --extract --gzip --strip-components=1 --no-same-owner
 EOF
+COPY --chmod=0755 \
+    install-deps-ubuntu.sh \
+    assert-config.sh \
+    /uniget_bootstrap/src/linux-${version}-wsl2/
