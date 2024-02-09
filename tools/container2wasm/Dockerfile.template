@@ -1,19 +1,21 @@
 #syntax=docker/dockerfile:1.6.0
 
-FROM ghcr.io/uniget-org/tools/go:latest AS go
-FROM ghcr.io/uniget-org/tools/make:latest AS make
+#FROM ghcr.io/uniget-org/tools/go:latest AS go
+#FROM ghcr.io/uniget-org/tools/make:latest AS make
 
-FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS build
+#FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS build
+FROM golang:1.21.7 AS build
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --from=go / /usr/local/
-COPY --from=make / /usr/local/
+#COPY --from=go / /usr/local/
+#COPY --from=make / /usr/local/
 WORKDIR /go/src/github.com/ktock/container2wasm
 ARG name
 ARG version
 RUN <<EOF
+export PATH="${PATH}:/usr/local/go/bin"
 check-clone "https://github.com/ktock/container2wasm" "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/ktock/container2wasm .
 make -j$(nproc) c2w-net-proxy.wasm imagemounter.wasm
