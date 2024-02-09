@@ -1,8 +1,8 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: linux-kernel-wsl-stable
-version: "6.1.21.2"
-check: ""
+version: "5.15.146.1"
+check: make kernelversion
 platforms:
 - linux/amd64
 tags:
@@ -18,14 +18,27 @@ homepage: https://github.com/microsoft/WSL2-Linux-Kernel
 description: Source for the Linux kernel used in Windows Subsystem for Linux 2 (WSL2)
 messages:
   internals: |
-    XXX packages, e.g. apt install build-essential pkg-config libncurses-dev flex bison
-    XXX flex bison build-essential libelf-dev libncurses-dev  libssl-dev
-    XXX dwarves
-    XXX zcat /proc/config.gz >running.config
-    XXX bash assert-config.sh running.config
-    XXX make KCONFIG_CONFIG=running.config bzImage
-    XXX copy arch/x86_64/boot/bzImage to /mnt/c/Users/username
-    XXX config kernel=bzImage in %UserProfile%/.wslconfig (https://learn.microsoft.com/en-us/windows/wsl/wsl-config#wslconfig)
+    Install packages required to build the kernel:
+    - Ubuntu: install-deps-ubuntu.sh
+    - Other distributions are currently not supported
+
+    Start from your running configuration:
+    $ zcat /proc/config.gz >running.config
+
+    (Optional) Make sure to have ebpf enabled:
+    $ assert-config.sh running.config
+
+    Build the kernel:
+    $ make KCONFIG_CONFIG=running.config bzImage
+
+    Install the kernel:
+    $ copy arch/x86_64/boot/bzImage to "/mnt/c/$(wslvar -s HOMEPATH | tr '\\' '/')/"
+    
+    Configure new kernel in %UserProfile%/.wslconfig
+    (https://learn.microsoft.com/en-us/windows/wsl/wsl-config#wslconfig):
+    kernel=c://users/USERNAME//bzImage
+
+    If the new kernel fails to load, remove the kernel from the config file and restart WSL.
 renovate:
   datasource: github-releases
   package: microsoft/WSL2-Linux-Kernel
