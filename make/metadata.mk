@@ -1,18 +1,18 @@
 metadata.json: \
 		$(HELPER)/var/lib/uniget/manifests/gojq.json \
 		$(addsuffix /manifest.json,$(ALL_TOOLS)) \
-		; $(info $(M) Creating $@...)
+		; $(info $(M) Creating $@...) ## Generate inventory from tools/*/manifest.json
 	@jq --slurp --arg revision "$(GIT_COMMIT_SHA)" '{"revision": $$revision, "tools": map(.tools[])}' $(addsuffix /manifest.json,$(ALL_TOOLS)) >metadata.json
 
 .PHONY:
-metadata.json--show:%--show:
+metadata.json--show:%--show: ## Push metadata image
 	@less $*
 
 .PHONY:
 metadata.json--build: \
 		metadata.json \
 		@metadata/Dockerfile builders \
-		; $(info $(M) Building metadata image for $(GIT_COMMIT_SHA)...)
+		; $(info $(M) Building metadata image for $(GIT_COMMIT_SHA)...) ## Build metadata image from @metadata/ and metadata.json
 	@set -o errexit; \
 	if ! docker buildx build . \
 			--builder uniget \
@@ -32,13 +32,13 @@ metadata.json--push: \
 		PUSH=true
 metadata.json--push: \
 		metadata.json--build \
-		; $(info $(M) Pushing metadata image...)
+		; $(info $(M) Pushing metadata image...) ## Push metadata image
 
 .PHONY:
 metadata.json--sign: \
 		$(HELPER)/var/lib/uniget/manifests/cosign.json \
 		cosign.key \
-		; $(info $(M) Signing metadata image...)
+		; $(info $(M) Signing metadata image...) ## ???
 	@set -o errexit; \
 	source .env; \
 	cosign sign --key cosign.key $(REGISTRY)/$(REPOSITORY_PREFIX)metadata:$(DOCKER_TAG)
@@ -46,6 +46,6 @@ metadata.json--sign: \
 .PHONY:
 metadata.json--keyless-sign: \
 		$(HELPER)/var/lib/uniget/manifests/cosign.json \
-		; $(info $(M) Keyless signing metadata image...)
+		; $(info $(M) Keyless signing metadata image...) ## ???
 	@set -o errexit; \
 	COSIGN_EXPERIMENTAL=1 cosign sign $(REGISTRY)/$(REPOSITORY_PREFIX)metadata:$(DOCKER_TAG)

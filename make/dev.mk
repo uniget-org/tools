@@ -2,11 +2,11 @@ renovate.json: \
 		scripts/renovate.sh \
 		renovate-root.json \
 		metadata.json \
-		; $(info $(M) Updating $@...)
+		; $(info $(M) Updating $@...) ## Update renovate configuration
 	@bash scripts/renovate.sh
 
 .PHONY:
-size:
+size: ## Display storage usage
 	@set -o errexit; \
 	export VERSION=$(VERSION); \
 	bash scripts/usage.sh $(TOOLS_RAW)
@@ -16,7 +16,7 @@ recent: \
 		recent-days--3
 
 .PHONY:
-recent-days--%:
+recent-days--%: ## Show tools changed in the last N days
 	@set -o errexit; \
 	CHANGED_TOOLS="$$( \
 		git log --pretty=format: --name-only --since="$* days ago" \

@@ -69,73 +69,7 @@ info: ; $(info $(M) Runtime info...)
 
 .PHONY:
 help:
-	@echo
-	@echo "General targets:"
-	@echo "    all (default)                Build all tools"
-	@echo "    help                         Display help for targets"
-	@echo "    clean                        Remove all temporary files"
-	@echo "    metadata.json                Generate inventory from tools/*/manifest.json"
-	@echo "    metadata.json--build         Build metadata image from @metadata/ and metadata.json"
-	@echo "    metadata.json--push          Push metadata image"
-	@echo "    metadata.json--show          Push metadata image"
-	@echo
-	@echo "Dependency management:"
-	@echo "    renovate.json                Generate from tools/*/manifest.json"
-	@echo "    tools/<tool>/manifest.json   Generate from tools/*/manifest.yaml"
-	@echo
-	@echo "Reflection:"
-	@echo "    info                         Display configuration data"
-	@echo "    list                         List available tools"
-	@echo "    size                         Display storage usage"
-	@echo "    <tool>--show                 Display directory contents"
-	@echo
-	@echo "Building:"
-	@echo "    tools/<tool>/Dockerfile      Generate from tools/*/Dockerfile.template"
-	@echo "    base                         Build base container image for all tool installations"
-	@echo "    <tool>                       Build container image for specific tool"
-	@echo "    <tool>--debug                Build container image specific tool and enter shell"
-	@echo "    <tool>--test                 Test a tool in a container image"
-	@echo "    <tool>--deep                 Build container image including all dependencies"
-	@echo "    debug                        Enter shell in base image"
-	@echo "    push                         Push all container images"
-	@echo "    <tool>--push                 Push container image for specific tool"
-	@echo "    <tool>--inspect              Inspect pushed container image for specific tool"
-	@echo "    tag-usage                    Show how many times the tag is used"
-	@echo "    assert-no-hardcoded-version  Display tools with hardcoded versions"
-	@echo
-	@echo "Security:"
-	@echo "    cosign.key                   Create cosign key pair"
-	@echo "    metadata.json--sign          Sign metadata container image"
-	@echo "    sign                         Sign all container images"
-	@echo "    <tool>--sign                 Sign container image for specific tool"
-	@echo "    sbom                         Create SBoM for all tools"
-	@echo "    <tool>--sbom                 Create SBoM for a specific tool"
-	@echo "    tools/<tool>/sbom.json       Create SBoM for specific tool"
-	@echo "    <tool>--scan                 Scan SBoM for vulnerabilities"
-	@echo "    attest                       Attest SBoM for all tools"
-	@echo "    <tool>--attest               Attest SBoM for specific tool"
-	@echo "    install                      Push, sign and attest all container images"
-	@echo "    <tool>--install              Push, sign and attest container image for specific tool"
-	@echo
-	@echo "Git operations:"
-	@echo "    recent                       Show tools changed in the last 3 days"
-	@echo "    recent-days--<N>             Show tools changed in the last <N> days"
-	@echo
-	@echo "Helper tools:"
-	@echo "    $(HELPER)/var/lib/uniget/manifests/<tool>.json"
-	@echo "                                 Install specified tool to helper/"
-	@echo
-	@echo "GHCR:"
-	@echo "    clean-registry-untagged      Remove all untagged container images"
-	@echo "    clean-ghcr-unused--<tool>    Remove a tag on all container images"
-	@echo "    ghcr-orphaned                List container image without a tools/<tool>/manifest.yaml"
-	@echo "    ghcr-exists--<tool>          Check is a container image exists"
-	@echo "    ghcr-exists                  Check if all container images exist"
-	@echo "    ghcr-inspect                 List tags for all container images"
-	@echo "    <tool>--ghcr-tags            Display tags for a container image"
-	@echo "    <tool>--ghcr-inspect         Display API object for a container image"
-	@echo "    delete-ghcr--<tool>          Delete container image"
-	@echo "    ghcr-private                 List all private container images"
+	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 	@echo
 	@echo "Reminder: foo-% => \$$@=foo-bar \$$*=bar"
 	@echo
@@ -143,7 +77,7 @@ help:
 	@echo
 
 .PHONY:
-clean:
+clean: ## Remove all temporary files
 	@set -o errexit; \
 	rm -f metadata.json; \
 	rm -rf helper; \
@@ -156,11 +90,11 @@ clean:
 	done
 
 .PHONY:
-list:
+list: ## List available tools
 	@echo "$(ALL_TOOLS_RAW)"
 
 .PHONY:
-$(addsuffix --show,$(ALL_TOOLS_RAW)):%--show: $(TOOLS_DIR)/$*
+$(addsuffix --show,$(ALL_TOOLS_RAW)):%--show: $(TOOLS_DIR)/$* ## Display directory contents
 	@ls -l $(TOOLS_DIR)/$*
 
 -include .env.mk

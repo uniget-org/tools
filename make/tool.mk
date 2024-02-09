@@ -1,15 +1,15 @@
 SOURCE_DATE_EPOCH ?= $(shell git log -1 --pretty=%ct)
 
-$(addsuffix --vim,$(ALL_TOOLS_RAW)):%--vim:
+$(addsuffix --vim,$(ALL_TOOLS_RAW)):%--vim: ## ???
 	@vim -o2 $(TOOLS_DIR)/$*/manifest.yaml  $(TOOLS_DIR)/$*/Dockerfile.template
 
-$(addsuffix --vscode,$(ALL_TOOLS_RAW)):%--vscode:
+$(addsuffix --vscode,$(ALL_TOOLS_RAW)):%--vscode: ## ???
 	@code --add $(TOOLS_DIR)/$*
 
-$(addsuffix --logs,$(ALL_TOOLS_RAW)):%--logs:
+$(addsuffix --logs,$(ALL_TOOLS_RAW)):%--logs: ## ???
 	@less $(TOOLS_DIR)/$*/build.log
 
-$(addsuffix --pr,$(ALL_TOOLS_RAW)):%--pr:
+$(addsuffix --pr,$(ALL_TOOLS_RAW)):%--pr: ## ???
 	@set -o errexit; \
 	REPO="$$(jq --raw-output '.tools[].renovate.package' $(TOOLS_DIR)/$*/manifest.json)"; \
 	REPO_SLUG="$${REPO////-}"; \
@@ -28,14 +28,14 @@ $(addsuffix /manifest.json,$(ALL_TOOLS)):$(TOOLS_DIR)/%/manifest.json: \
 		$(HELPER)/var/lib/uniget/manifests/gojq.json \
 		$(HELPER)/var/lib/uniget/manifests/yq.json \
 		$(TOOLS_DIR)/%/manifest.yaml \
-		; $(info $(M) Creating manifest for $*...)
+		; $(info $(M) Creating manifest for $*...) ## Generate from tools/*/manifest.yaml
 	@set -o errexit; \
 	yq --output-format json eval '{"tools":[.]}' $(TOOLS_DIR)/$*/manifest.yaml >$(TOOLS_DIR)/$*/manifest.json
 
 $(addsuffix /Dockerfile,$(ALL_TOOLS)):$(TOOLS_DIR)/%/Dockerfile: \
 		$(TOOLS_DIR)/%/Dockerfile.template \
 		$(TOOLS_DIR)/Dockerfile.tail \
-		; $(info $(M) Creating $@...)
+		; $(info $(M) Creating $@...) ## Generate from tools/*/Dockerfile.template
 	@set -o errexit; \
 	cat $@.template >$@; \
 	echo >>$@; \
@@ -47,11 +47,11 @@ $(addsuffix /Dockerfile,$(ALL_TOOLS)):$(TOOLS_DIR)/%/Dockerfile: \
 install: \
 		push \
 		sign \
-		attest
+		attest ## ???
 
 .PHONY:
 builders: \
-		; $(info $(M) Starting builders...)
+		; $(info $(M) Starting builders...) ## ???
 	@\
 	docker buildx ls | grep -q "^uniget " \
 	|| docker buildx create --name uniget \
@@ -61,7 +61,7 @@ builders: \
 
 .PHONY:
 clean-builders: \
-		; $(info $(M) Pruning builders...)
+		; $(info $(M) Pruning builders...) ## ???
 	@\
 	docker buildx ls | grep -q "^uniget " \
 	&& docker builder prune --builder uniget --all --force
@@ -72,7 +72,7 @@ $(ALL_TOOLS_RAW):%: \
 		$(TOOLS_DIR)/%/manifest.json \
 		$(TOOLS_DIR)/%/Dockerfile \
 		builders \
-		; $(info $(M) Building image $(REGISTRY)/$(REPOSITORY_PREFIX)$*...)
+		; $(info $(M) Building image $(REGISTRY)/$(REPOSITORY_PREFIX)$*...) ## Build container image for all tools
 	@set -o errexit; \
 	PUSH=$(or $(PUSH), false); \
 	TOOL_VERSION="$$(jq --raw-output '.tools[].version' tools/$*/manifest.json)"; \
@@ -110,7 +110,7 @@ $(ALL_TOOLS_RAW):%: \
 
 $(addsuffix --deep,$(ALL_TOOLS_RAW)):%--deep: \
 		info \
-		metadata.json
+		metadata.json ## Build container image including all dependencies
 	@set -o errexit; \
 	DEPS="$$(jq --raw-output '.tools[] | select(.build_dependencies != null) | .build_dependencies[]' tools/$*/manifest.json | paste -sd' ')"; \
 	if test -z "$${DEPS}"; then \
@@ -128,24 +128,24 @@ push: \
 		PUSH=true
 push: \
 		$(TOOLS_RAW) \
-		metadata.json--push
+		metadata.json--push ## Push all container images
 
 .PHONY:
 $(addsuffix --push,$(ALL_TOOLS_RAW)): \
 		PUSH=true
 $(addsuffix --push,$(ALL_TOOLS_RAW)):%--push: \
 		% \
-		; $(info $(M) Pushing image for $*...)
+		; $(info $(M) Pushing image for $*...) ## Push container image for specific tool
 
 .PHONY:
 promote: \
-		$(addsuffix --promote,$(TOOLS_RAW))
+		$(addsuffix --promote,$(TOOLS_RAW)) ## Promote all container images
 
 .PHONY:
 $(addsuffix --promote,$(ALL_TOOLS_RAW)):%--promote: \
 		$(HELPER)/var/lib/uniget/manifests/regclient.json \
 		$(TOOLS_DIR)/%/manifest.json \
-		; $(info $(M) Promoting image for $*...)
+		; $(info $(M) Promoting image for $*...) ## ???
 	@TOOL_VERSION="$$(jq --raw-output '.tools[].version' tools/$*/manifest.json)"; \
 	VERSION_TAG="$$( echo "$${TOOL_VERSION}" | tr '+' '-' )"; \
 	regctl image copy $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${VERSION_TAG} $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(DOCKER_TAG); \
@@ -154,7 +154,7 @@ $(addsuffix --promote,$(ALL_TOOLS_RAW)):%--promote: \
 .PHONY:
 $(addsuffix --inspect,$(ALL_TOOLS_RAW)):%--inspect: \
 		$(HELPER)/var/lib/uniget/manifests/regclient.json \
-		; $(info $(M) Inspecting image for $*...)
+		; $(info $(M) Inspecting image for $*...) ## ???
 	@TOOL_VERSION="$$(jq --raw-output '.tools[].version' tools/$*/manifest.json)"; \
 	VERSION_TAG="$$( echo "$${TOOL_VERSION}" | tr '+' '-' )"; \
 	regctl manifest get $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${VERSION_TAG}
@@ -163,14 +163,14 @@ $(addsuffix --inspect,$(ALL_TOOLS_RAW)):%--inspect: \
 $(addsuffix --install,$(ALL_TOOLS_RAW)):%--install: \
 		%--push \
 		%--sign \
-		%--attest
+		%--attest ## ???
 
 .PHONY:
 $(addsuffix --debug,$(ALL_TOOLS_RAW)):%--debug: \
 		$(HELPER)/var/lib/uniget/manifests/gojq.json \
 		$(TOOLS_DIR)/%/manifest.json \
 		$(TOOLS_DIR)/%/Dockerfile \
-		; $(info $(M) Debugging image for $*...)
+		; $(info $(M) Debugging image for $*...) ## Build container image specific tool and enter shell
 	@set -o errexit; \
 	TOOL_VERSION="$$(jq --raw-output '.tools[].version' $(TOOLS_DIR)/$*/manifest.json)"; \
 	VERSION_TAG="$$( echo "$${TOOL_VERSION}" | tr '+' '-' )"; \
@@ -212,7 +212,7 @@ $(addsuffix --buildg,$(ALL_TOOLS_RAW)):%--buildg: \
 		$(HELPER)/var/lib/uniget/manifests/buildg.json \
 		$(TOOLS_DIR)/%/manifest.json \
 		$(TOOLS_DIR)/%/Dockerfile \
-		; $(info $(M) Interactively debugging image for $*...)
+		; $(info $(M) Interactively debugging image for $*...) ## ???
 	@set -o errexit; \
 	TOOL_VERSION="$$(jq --raw-output '.tools[].version' $(TOOLS_DIR)/$*/manifest.json)"; \
 	DEPS="$$(jq --raw-output '.tools[] | select(.build_dependencies != null) |.build_dependencies[]' tools/$*/manifest.json | paste -sd,)"; \
@@ -233,7 +233,7 @@ $(addsuffix --buildg,$(ALL_TOOLS_RAW)):%--buildg: \
 .PHONY:
 $(addsuffix --test,$(ALL_TOOLS_RAW)):%--test: \
 		% \
-		; $(info $(M) Testing $*...)
+		; $(info $(M) Testing $*...) ## Test a tool in a container image
 	@set -o errexit; \
 	if ! test -f "$(TOOLS_DIR)/$*/test.sh"; then \
 		echo "Nothing to test."; \
@@ -245,4 +245,4 @@ $(addsuffix --test,$(ALL_TOOLS_RAW)):%--test: \
 
 .PHONY:
 debug: \
-		debug-$(ALT_ARCH)
+		debug-$(ALT_ARCH) ## Enter shell in base image
