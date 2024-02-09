@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: linux-kernel-wsl-stable
+version: "6.1.21.2"
+check: ""
+platforms:
+- linux/amd64
+tags:
+- org/microsoft
+- category/development
+- lang/c
+- type/kernel
+- linux
+- kernel
+- source
+- wsl
+homepage: https://github.com/microsoft/WSL2-Linux-Kernel
+description: Source for the Linux kernel used in Windows Subsystem for Linux 2 (WSL2)
+messages:
+  internals: |
+    XXX packages, e.g. apt install build-essential pkg-config libncurses-dev flex bison
+    XXX flex bison build-essential libelf-dev libncurses-dev  libssl-dev
+    XXX dwarves
+    XXX zcat /proc/config.gz >running.config
+    XXX bash assert-config.sh running.config
+    XXX make KCONFIG_CONFIG=running.config bzImage
+    XXX copy arch/x86_64/boot/bzImage to /mnt/c/Users/username
+    XXX config kernel=bzImage in %UserProfile%/.wslconfig (https://learn.microsoft.com/en-us/windows/wsl/wsl-config#wslconfig)
+renovate:
+  datasource: github-releases
+  package: microsoft/WSL2-Linux-Kernel
+  extractVersion: ^linux-msft-wsl-(?<version>5\..+?)$
+  versioning: loose
+  priority: low
