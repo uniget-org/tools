@@ -1826,6 +1826,18 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "gojue/ecapture",
+      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/ecapture/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "eksctl-io/eksctl",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [

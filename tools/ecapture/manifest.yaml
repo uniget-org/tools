@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: ecapture
+version: "0.7.3"
+check: |
+  ${binary} --version | grep "^ecapture version" | cut -d: -f3 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/security
+- lang/c
+- type/cli
+homepage: https://github.com/gojue/ecapture
+description: Capture SSL/TLS text content without a CA certificate using eBPF
+renovate:
+  datasource: github-releases
+  package: gojue/ecapture
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
