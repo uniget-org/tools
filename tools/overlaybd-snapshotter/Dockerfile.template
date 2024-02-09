@@ -15,7 +15,7 @@ ARG name
 ARG version
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/containerd/accelerated-container-image .
-make binaries
+make -j$(nproc) binaries
 cp bin/overlaybd-snapshotter bin/ctr bin/convertor "${prefix}/bin/"
 cp script/overlaybd-snapshotter.service "${prefix}/etc/systemd/system/"
 EOF

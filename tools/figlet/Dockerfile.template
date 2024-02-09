@@ -20,6 +20,6 @@ RUN <<EOF
 check-download "http://ftp.figlet.org/pub/figlet/program/unix/figlet-${version}.tar.gz"
 curl --silent --location --fail "http://ftp.figlet.org/pub/figlet/program/unix/figlet-${version}.tar.gz" \
 | tar --extract --gzip --strip-components=1
-make figlet LDFLAGS=-static DEFAULTFONTDIR=/share/figlet
+make -j$(nproc) figlet LDFLAGS=-static DEFAULTFONTDIR=/share/figlet
 make install prefix="${prefix}"
 EOF

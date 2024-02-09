@@ -16,7 +16,7 @@ ARG version
 RUN <<EOF
 check-clone https://github.com/in-toto/in-toto-golang "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/in-toto/in-toto-golang .
-make build
+make -j$(nproc) build
 cp bin/in-toto "${prefix}/bin/"
 "${prefix}/bin/in-toto" completion bash >"${prefix}/share/bash-completion/completions/in-toto"
 "${prefix}/bin/in-toto" completion fish >"${prefix}/share/fish/vendor_completions.d/in-toto.fish"

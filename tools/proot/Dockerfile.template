@@ -18,6 +18,6 @@ COPY --link --from=make / /usr/local/
 WORKDIR /tmp/proot
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/proot-me/proot .
-make -C src
+make -C src -j$(nproc)
 cp src/proot "${prefix}/bin/"
 EOF

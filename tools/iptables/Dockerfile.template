@@ -27,6 +27,6 @@ EOF
 RUN <<EOF
 ./autogen.sh
 ./configure --prefix="${prefix}"
-make
+make -j$(nproc)
 make install
 EOF

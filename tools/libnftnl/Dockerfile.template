@@ -21,6 +21,6 @@ RUN <<EOF
 export PKG_CONFIG_PATH="/lib/pkgconfig:${PKG_CONFIG_PATH}"
 ./autogen.sh
 ./configure --prefix="${prefix}" --enable-static=yes --enable-shared=yes
-make
+make -j$(nproc)
 make install
 EOF

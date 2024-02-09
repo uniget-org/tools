@@ -14,5 +14,5 @@ ARG version
 RUN <<EOF
 curl --silent --location --fail "https://github.com/wslutilities/wslu/archive/refs/tags/v${version}.tar.gz" \
 | tar --extract --gzip --strip-components=1
-make all install "DESTDIR=${prefix}" "PREFIX="
+make -j$(nproc) all install "DESTDIR=${prefix}" "PREFIX="
 EOF

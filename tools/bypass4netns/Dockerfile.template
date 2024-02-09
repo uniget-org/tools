@@ -20,7 +20,7 @@ RUN <<EOF
 check-clone "https://github.com/rootless-containers/bypass4netns" "v${version}"
 
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/rootless-containers/bypass4netns .
-make static
+make -j$(nproc) static
 cp bypass4netns "${prefix}/bin/"
 cp bypass4netnsd "${prefix}/bin/"
 EOF

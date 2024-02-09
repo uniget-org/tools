@@ -14,6 +14,6 @@ ARG version
 RUN <<EOF
 check-clone https://github.com/ncopa/su-exec "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/ncopa/su-exec .
-make su-exec-static
+make -j$(nproc) su-exec-static
 cp su-exec-static /usr/local/bin/su-exec
 EOF

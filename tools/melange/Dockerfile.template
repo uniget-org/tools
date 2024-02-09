@@ -16,6 +16,6 @@ ARG version
 RUN <<EOF
 check-clone https://github.com/chainguard-dev/melange "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/chainguard-dev/melange .
-make melange
+make -j$(nproc) melange
 cp melange "${prefix}/bin/"
 EOF

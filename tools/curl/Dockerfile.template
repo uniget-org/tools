@@ -44,7 +44,7 @@ PKG_CONFIG="pkg-config --static" \
         --with-ssl \
         --with-libssh2 \
         --without-libpsl
-make -j4 V=1 LDFLAGS="-static -all-static"
+make -j$(nproc) V=1 LDFLAGS="-static -all-static"
 cp src/curl /usr/local/bin/
 mkdir -p /usr/local/share/man/man1/
 cp docs/curl.1 /usr/local/share/man/man1/

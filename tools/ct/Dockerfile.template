@@ -15,6 +15,6 @@ ARG name
 ARG version
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/flatcar/container-linux-config-transpiler .
-make
+make -j$(nproc)
 cp bin/ct "${prefix}/bin/"
 EOF

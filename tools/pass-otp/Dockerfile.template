@@ -17,7 +17,7 @@ RUN <<EOF
 check-github-release-asset "tadfisher/pass-otp" "v${version}" "pass-otp-${version}.tar.gz"
 curl --silent --location --fail "https://github.com/tadfisher/pass-otp/releases/download/v${version}/pass-otp-${version}.tar.gz" \
 | tar --extract --gzip --strip-components=1 --no-same-owner
-make install \
+make -j$(nproc) install \
     DESTDIR="${prefix}" \
     PREFIX="" \
     BASHCOMPDIR="/share/bash-completion/completions"

@@ -19,7 +19,7 @@ check-github-release-asset "containers/bubblewrap" "v${version}" "bubblewrap-${v
 curl --silent --location --fail "https://github.com/containers/bubblewrap/releases/download/v${version}/bubblewrap-${version}.tar.xz" \
 | tar --extract --xz --strip-components=1
 ./configure --prefix="${prefix}"
-make LDFLAGS=-static
+make LDFLAGS=-static -j$(nproc)
 make install
 mv "${prefix}/share/zsh/site-functions" "${prefix}/share/zsh/vendor-completions"
 rm -f "${prefix}/man"

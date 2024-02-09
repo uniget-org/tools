@@ -15,7 +15,7 @@ COPY --link --from=make / /usr/local/
 WORKDIR /go/src/github.com/Azure/acr-cli
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/Azure/acr-cli .
-make binaries
+make -j$(nproc) binaries
 cp bin/acr "${prefix}/bin/"
 
 "${prefix}/bin/acr" completion bash >"${prefix}/share/bash-completion/completions/acr"
