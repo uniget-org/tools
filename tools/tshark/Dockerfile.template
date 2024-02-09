@@ -18,12 +18,8 @@ apt-get -y install \
     bison \
     byacc \
     libpcap-dev \
-    qtbase5-dev \
     libssh-dev \
     libsystemd-dev \
-    qtmultimedia5-dev \
-    libqt5svg5-dev \
-    qttools5-dev \
     libc-ares-dev \
     libspeexdsp-dev
 EOF
