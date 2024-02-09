@@ -4513,6 +4513,19 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "microsoft/WSL2-Linux-Kernel",
+      "extractVersionTemplate": "^linux-msft-wsl-(?<version>5\\..+?)$",
+      "fileMatch": [
+        "^tools/linux-kernel-wsl-stable/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ],
+      "versioningTemplate": "loose"
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "linuxkit/linuxkit",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
