@@ -7047,6 +7047,18 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "gitlab-tags",
+      "depNameTemplate": "wireshark/wiresharkar",
+      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/tshark/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "tsl0922/ttyd",
       "fileMatch": [

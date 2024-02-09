@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: tshark
+version: "4.2.2"
+check: ""
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- org/wireshark
+- category/operations
+- lang/c
+- type/cli
+homepage: https://gitlab.com/wireshark/wireshark
+description: Traffic analyzer or sniffer
+messages:
+  internals: |
+    tshark is dynamically link. You need to install the following dependencies:
+
+    Ubuntu:
+    - libglib2.0-dev
+    - libgcrypt20-dev
+    - libpcap-dev
+    - libsystemd-dev
+    - libc-ares-dev
+renovate:
+  datasource: gitlab-tags
+  package: wireshark/wiresharkar
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
