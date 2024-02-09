@@ -1,8 +1,8 @@
 .PHONY:
 $(addprefix helper--,$(ALL_TOOLS_RAW)):helper--%: \
-		$(HELPER)/var/lib/uniget/manifests/%.json
+		$(HELPER)/var/lib/uniget/manifests/%.json ## ???
 
-$(HELPER)/var/lib/uniget/manifests/%.json:
+$(HELPER)/var/lib/uniget/manifests/%.json: ## Install specified tool to helper/
 	@if ! type uniget >/dev/null 2>&1; then \
 		echo "Please install uniget"; \
 		exit 1; \

@@ -1,7 +1,7 @@
 .PHONY:
 clean-registry-untagged: \
 		$(HELPER)/var/lib/uniget/manifests/gh.json \
-		$(HELPER)/var/lib/uniget/manifests/gojq.json
+		$(HELPER)/var/lib/uniget/manifests/gojq.json ## Remove all untagged container images
 	@set -o errexit; \
 	if test -z "$${GH_TOKEN}" && ! test -f "$${HOME}/.config/gh/hosts.yml"; then \
 		echo "### Error: Need GH_TOKEN or configured gh."; \
@@ -21,7 +21,7 @@ clean-registry-untagged: \
 .PHONY:
 clean-registry-untagged--%: \
 		$(HELPER)/var/lib/uniget/manifests/gh.json \
-		$(HELPER)/var/lib/uniget/manifests/gojq.json
+		$(HELPER)/var/lib/uniget/manifests/gojq.json ## Remove a tag on all container images
 	@set -o errexit; \
 	if test -z "$${GH_TOKEN}" && ! test -f "$${HOME}/.config/gh/hosts.yml"; then \
 		echo "### Error: Need GH_TOKEN or configured gh."; \
@@ -38,7 +38,7 @@ clean-registry-untagged--%: \
 .PHONY:
 clean-ghcr-unused--%: \
 		$(HELPER)/var/lib/uniget/manifests/gh.json \
-		$(HELPER)/var/lib/uniget/manifests/gojq.json
+		$(HELPER)/var/lib/uniget/manifests/gojq.json ## ???
 	@set -o errexit; \
 	if test -z "$${GH_TOKEN}" && ! test -f "$${HOME}/.config/gh/hosts.yml"; then \
 		echo "### Error: Need GH_TOKEN or configured gh."; \
@@ -58,7 +58,7 @@ clean-ghcr-unused--%: \
 .PHONY:
 ghcr-orphaned: \
 		$(HELPER)/var/lib/uniget/manifests/gh.json \
-		$(HELPER)/var/lib/uniget/manifests/gojq.json
+		$(HELPER)/var/lib/uniget/manifests/gojq.json ## List container image without a tools/<tool>/manifest.yaml
 	@set -o errexit; \
 	gh api --paginate /users/$(OWNER)/packages?package_type=container | jq --raw-output '.[].name' \
 	| cut -d/ -f2 \
@@ -73,17 +73,17 @@ ghcr-orphaned: \
 
 .PHONY:
 ghcr-exists--%: \
-		$(HELPER)/var/lib/uniget/manifests/gh.json
+		$(HELPER)/var/lib/uniget/manifests/gh.json ## Check if a container image exists
 	@gh api --paginate "users/$(OWNER)/packages/container/uniget%2F$*" >/dev/null 2>&1
 
 .PHONY:
 ghcr-exists: \
-		$(addprefix ghcr-exists--,$(TOOLS_RAW))
+		$(addprefix ghcr-exists--,$(TOOLS_RAW)) ## Check if all container images exist
 
 .PHONY:
 ghcr-inspect: \
 		$(HELPER)/var/lib/uniget/manifests/gh.json \
-		$(HELPER)/var/lib/uniget/manifests/gojq.json
+		$(HELPER)/var/lib/uniget/manifests/gojq.json ## List tags for all container images
 	@set -o errexit; \
 	gh api --paginate /users/$(OWNER)/packages?package_type=container | jq --raw-output '.[].name' \
 	| while read NAME; do \
@@ -95,7 +95,7 @@ ghcr-inspect: \
 .PHONY:
 $(addsuffix --ghcr-tags,$(ALL_TOOLS_RAW)):%--ghcr-tags: \
 		$(HELPER)/var/lib/uniget/manifests/gh.json \
-		$(HELPER)/var/lib/uniget/manifests/gojq.json
+		$(HELPER)/var/lib/uniget/manifests/gojq.json ## Display tags for a container image
 	@set -o errexit; \
 	gh api --paginate "users/$(OWNER)/packages/container/uniget%2F$*/versions" \
 	| jq --raw-output '.[] | "\(.metadata.container.tags[]);\(.name);\(.id)"' \
@@ -104,7 +104,7 @@ $(addsuffix --ghcr-tags,$(ALL_TOOLS_RAW)):%--ghcr-tags: \
 .PHONY:
 $(addsuffix --ghcr-inspect,$(ALL_TOOLS_RAW)):%--ghcr-inspect: \
 		$(HELPER)/var/lib/uniget/manifests/gh.json \
-		$(HELPER)/var/lib/uniget/manifests/yq.json
+		$(HELPER)/var/lib/uniget/manifests/yq.json ## Display API object for a container image
 	@set -o errexit; \
 	gh api --paginate "users/$(OWNER)/packages/container/uniget%2F$*" \
 	| yq --prettyPrint
@@ -113,7 +113,7 @@ $(addsuffix --ghcr-inspect,$(ALL_TOOLS_RAW)):%--ghcr-inspect: \
 $(addsuffix --ghcr-delete-test,$(ALL_TOOLS_RAW)):%--ghcr-delete-test: \
 		$(HELPER)/var/lib/uniget/manifests/gh.json \
 		$(HELPER)/var/lib/uniget/manifests/yq.json \
-		; $(info $(M) Removing tag test from tool $*...)
+		; $(info $(M) Removing tag test from tool $*...) ## ???
 	@\
 	helper/usr/local/bin/gh api --paginate "users/$(OWNER)/packages/container/uniget%2F$*/versions" \
 	| jq --raw-output '.[] | select(.metadata.container.tags[] | contains("test")) | .id' \
@@ -123,7 +123,7 @@ $(addsuffix --ghcr-delete-test,$(ALL_TOOLS_RAW)):%--ghcr-delete-test: \
 .PHONY:
 delete-ghcr--%: \
 		$(HELPER)/var/lib/uniget/manifests/gh.json \
-		$(HELPER)/var/lib/uniget/manifests/gojq.json
+		$(HELPER)/var/lib/uniget/manifests/gojq.json ## Delete container image
 	@set -o errexit; \
 	if test -z "$${GH_TOKEN}" && ! test -f "$${HOME}/.config/gh/hosts.yml"; then \
 		echo "### Error: Need GH_TOKEN or configured gh."; \
@@ -141,7 +141,7 @@ delete-ghcr--%: \
 .PHONY:
 ghcr-private: \
 		$(HELPER)/var/lib/uniget/manifests/gh.json \
-		$(HELPER)/var/lib/uniget/manifests/gojq.json
+		$(HELPER)/var/lib/uniget/manifests/gojq.json ## List all private container images
 	@set -o errexit; \
 	gh api --paginate "users/$(OWNER)/packages?package_type=container&visibility=private" \
 	| jq '.[] | "\(.name);\(.html_url)"' \
@@ -151,6 +151,6 @@ ghcr-private: \
 $(addsuffix --ghcr-private,$(ALL_TOOLS_RAW)): \
 		$(HELPER)/var/lib/uniget/manifests/gh.json \
 		$(HELPER)/var/lib/uniget/manifests/gojq.json \
-		; $(info $(M) Testing that $* is publicly visible...)
+		; $(info $(M) Testing that $* is publicly visible...) ## ???
 	@gh api "users/$(OWNER)/packages/container/uniget%2F$*" \
 	| jq --exit-status 'select(.visibility == "public")' >/dev/null 2>&1
