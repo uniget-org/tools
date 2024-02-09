@@ -30,9 +30,11 @@ messages:
 
     Build the kernel:
     $ make KCONFIG_CONFIG=running.config bzImage
+    $ make KCONFIG_CONFIG=running.config modules
 
     Install the kernel:
     $ copy arch/x86_64/boot/bzImage to "/mnt/c/$(wslvar -s HOMEPATH | tr '\\' '/')/"
+    $ make KCONFIG_CONFIG=running.config modules_install
     
     Configure new kernel in %UserProfile%/.wslconfig
     (https://learn.microsoft.com/en-us/windows/wsl/wsl-config#wslconfig):
