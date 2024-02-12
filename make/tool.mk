@@ -182,7 +182,8 @@ $(addsuffix --debug,$(ALL_TOOLS_RAW)):%--debug: \
 	echo "Version:      $${TOOL_VERSION}"; \
 	echo "Version tag:  $${VERSION_TAG}"; \
 	echo "Build deps:   $${DEPS}"; \
-	docker buildx build $(TOOLS_DIR)/$* \
+	export BUILDX_EXPERIMENTAL=1; \
+	docker buildx debug --on=error --invoke=/bin/bash build $(TOOLS_DIR)/$* \
 		--builder uniget \
 		--build-arg branch=$(DOCKER_TAG) \
 		--build-arg ref=$(DOCKER_TAG) \
