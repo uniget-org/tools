@@ -26,11 +26,26 @@ ARG name
 ARG version
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/git/git .
-export NO_OPENSSL=1
+if test "${version}" == "2.43.1"; then
+    cat <<EOP | patch -p0
+--- imap-send.c.orig
++++ imap-send.c
+@@ -28,6 +28,7 @@
+ #include "run-command.h"
+ #include "parse-options.h"
+ #include "setup.h"
++#include "strbuf.h"
+ #if defined(NO_OPENSSL) && !defined(HAVE_OPENSSL_CSPRNG)
+ typedef void *SSL;
+ #endif
+EOP
+fi
+    export NO_OPENSSL=1
 export NO_CURL=1
 export CFLAGS="${CFLAGS} -static"
 make configure
 ./configure --prefix="${prefix}"
-make -j$(nproc) all doc
+make -j$(nproc) all
+make -j$(nproc) doc
 make install install-doc install-html
 EOF
