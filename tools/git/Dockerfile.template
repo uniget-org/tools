@@ -1,23 +1,35 @@
 #syntax=docker/dockerfile:1.6.0
 
-FROM ghcr.io/uniget-org/tools/make:latest AS make
-
-FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
+FROM alpine:3.19 AS alpine
+RUN <<EOF
+apk update
+apk add --no-cache \
+    bash \
+    curl \
+    ca-certificates \
+    git \
+    build-base \
+    autoconf \
+    automake \
+    libtool \
+    perl \
+    pkgconf
+EOF
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --link --from=make / /usr/local/
 RUN <<EOF
-apt-get update
-apt-get -y install --no-install-recommends \
-    dh-autoreconf \
-    libcurl4-gnutls-dev \
-    libexpat1-dev \
-    gettext \
-    zlib1g-dev \
-    libssl-dev \
-    libncurses5-dev \
+apk add \
+    curl-static \
+    expat-static \
+    gettext-static \
+    zlib-static \
+    zlib-dev \
+    openssl-libs-static \
+    openssl-dev \
+    ncurses-dev \
+    tcl \
     asciidoc \
     xmlto
 EOF
@@ -40,8 +52,6 @@ if test "${version}" == "2.43.1"; then
  #endif
 EOP
 fi
-    export NO_OPENSSL=1
-export NO_CURL=1
 export CFLAGS="${CFLAGS} -static"
 make configure
 ./configure --prefix="${prefix}"
@@ -49,3 +59,6 @@ make -j$(nproc) all
 make -j$(nproc) doc
 make install install-doc install-html
 EOF
+
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+COPY --from=alpine /uniget_bootstrap /uniget_bootstrap
