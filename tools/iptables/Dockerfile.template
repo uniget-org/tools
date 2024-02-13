@@ -4,7 +4,7 @@ FROM ghcr.io/uniget-org/tools/make:latest AS make
 FROM ghcr.io/uniget-org/tools/libmnl:latest AS libmnl
 FROM ghcr.io/uniget-org/tools/libnftnl:latest AS libnftnl
 
-FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/build-essential:24.04@sha256:bd3a87c360027e0a71b6ca265f44e3ffc993bad9d89b1a5a848afbb37a65ed59 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
