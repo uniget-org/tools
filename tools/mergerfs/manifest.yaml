@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: mergerfs
+version: "2.39.0"
+check: ${binary} --version | grep ^mergerfs | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/c
+- type/daemon
+homepage: https://github.com/trapexit/mergerfs
+description: Featureful union filesystem
+renovate:
+  datasource: github-releases
+  package: trapexit/mergerfs
+  priority: low

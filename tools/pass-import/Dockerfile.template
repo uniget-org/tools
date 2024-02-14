@@ -3,7 +3,7 @@
 #FROM ghcr.io/uniget-org/tools/python:latest AS python
 FROM ghcr.io/uniget-org/tools/pipx:latest AS pipx
 
-FROM nicholasdille/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/

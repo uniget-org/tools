@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: linux-kernel
+version: "6.7"
+check: ""
+platforms:
+- linux/amd64
+tags:
+- org/linus
+- category/development
+- lang/c
+- type/kernel
+- linux
+- kernel
+- source
+homepage: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+description: Linux kernel source tree
+renovate:
+  datasource: git-tags
+  package: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+  extractVersion: ^v(?<version>.+?)$
+  priority: low

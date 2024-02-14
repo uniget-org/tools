@@ -1,0 +1,23 @@
+#syntax=docker/dockerfile:1.6.0
+
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+WORKDIR /tmp/jetbrainsmono
+ARG name
+ARG version
+RUN <<EOF
+check-github-release-asset "JetBrains/JetBrainsMono" "v${version}" "JetBrainsMono-2.304.zip"
+url="https://github.com/JetBrains/JetBrainsMono/releases/download/v2.304/JetBrainsMono-2.304.zip"
+filename="$(basename "${url}")"
+curl --silent --location --fail --remote-name "${url}"
+unzip -q -o "${filename}"
+
+mkdir -p \
+    "${prefix}/share/jetbrainsmono" \
+    "${prefix}/share/fonts/jetbrainsmono"
+find fonts -type f -name \*.woff2 -exec cp {} "${prefix}/share/jetbrainsmono/" \;
+find fonts -type f -name \*.ttf   -exec cp {} "${prefix}/share/jetbrainsmono/" \;
+EOF

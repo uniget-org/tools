@@ -4,7 +4,7 @@ FROM ghcr.io/uniget-org/tools/go:latest AS go
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 FROM ghcr.io/uniget-org/tools/go-md2man:latest AS go-md2man
 
-FROM nicholasdille/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -39,8 +39,8 @@ ENV CFLAGS='-static -pthread' \
     BUILDTAGS='static netgo osusergo exclude_graphdriver_btrfs exclude_graphdriver_devicemapper seccomp apparmor selinux' \
     CGO_ENABLED=1
 RUN <<EOF
-make bin/buildah
-make -C docs GOMD2MAN=go-md2man
+make -j$(nproc) bin/buildah
+make -C docs -j$(nproc) GOMD2MAN=go-md2man
 mkdir -p /usr/local/share/bash-completion/completions
 cp contrib/completions/bash/buildah /usr/local/share/bash-completion/completions/
 make install DESTDIR="${prefix}" PREFIX=""

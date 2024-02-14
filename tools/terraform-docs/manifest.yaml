@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: terraform-docs
+version: "0.17.0"
+check: ${binary} --version | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/cli
+homepage: https://github.com/terraform-docs/terraform-docs
+description: Generate documentation from Terraform modules in various output formats
+renovate:
+  datasource: github-releases
+  package: terraform-docs/terraform-docs
+  extractVersion: ^v(?<version>.+?)$
+  priority: low

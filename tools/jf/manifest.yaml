@@ -1,5 +1,5 @@
 name: jf
-version: "2.52.9"
+version: "2.52.10"
 check: ${binary} --version | cut -d' ' -f3
 tags:
 - org/jfrog

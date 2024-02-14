@@ -1,6 +1,6 @@
 #syntax=docker/dockerfile:1.6.0
 
-FROM nicholasdille/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -8,8 +8,8 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
-check-github-release-asset "testifysec/witness" "v${version}" "witness_${version}_linux_${alt_arch}.tar.gz"
-curl --silent --location --fail "https://github.com/testifysec/witness/releases/download/v${version}/witness_${version}_linux_${alt_arch}.tar.gz" \
+check-github-release-asset "in-toto/witness" "v${version}" "witness_${version}_linux_${alt_arch}.tar.gz"
+curl --silent --location --fail "https://github.com/in-toto/witness/releases/download/v${version}/witness_${version}_linux_${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     witness
 

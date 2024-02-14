@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: kroki-cli
+version: "0.5.0"
+check: ${binary} version | cut -d' ' -f2
+platforms:
+- linux/amd64
+tags:
+- category/development
+- lang/go
+- type/cli
+- graph
+- diagram
+- markdown
+homepage: https://github.com/yuzutech/kroki-cli
+description: Kroki CLI 
+renovate:
+  datasource: github-releases
+  package: yuzutech/kroki-cli
+  extractVersion: ^v(?<version>.+?)$
+  priority: low

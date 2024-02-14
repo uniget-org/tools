@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: eksctl
+version: "0.171.0"
+check: ${binary} version
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- category/operations
+- lang/go
+- type/cli
+- cloud/aws
+- kubernetes
+- k8s
+homepage: https://github.com/eksctl-io/eksctl
+description: Official CLI for Amazon EKS 
+renovate:
+  datasource: github-releases
+  package: eksctl-io/eksctl
+  extractVersion: ^v(?<version>.+?)$
+  priority: low

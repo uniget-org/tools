@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: tailspin
-version: "2.3.0"
+version: "3.0.0"
 binary: tspin
 check: ${binary} --version | cut -d' ' -f2
 build_dependencies:

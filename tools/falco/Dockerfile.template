@@ -1,6 +1,6 @@
 #syntax=docker/dockerfile:1.6.0
 
-FROM nicholasdille/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -13,7 +13,6 @@ curl --silent --location --fail "https://download.falco.org/packages/bin/${arch}
 
 mv "${prefix}/usr/bin/" "${prefix}/"
 mv "${prefix}/usr/src/" "${prefix}/"
-mv "${prefix}/usr/share/falco/" "${prefix}/share/"
 
 "${prefix}/bin/falcoctl" completion bash >"${prefix}/share/bash-completion/completions/falcoctl"
 "${prefix}/bin/falcoctl" completion fish >"${prefix}/share/fish/vendor_completions.d/falcoctl.fish"

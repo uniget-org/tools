@@ -1,6 +1,8 @@
 #syntax=docker/dockerfile:1.6.0
 
-FROM nicholasdille/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/tools/make:latest AS make
+
+FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -8,17 +10,11 @@ SHELL [ "bash", "-clo", "errexit" ]
 RUN <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
-    git \
-    ca-certificates \
-    build-essential \
-    autoconf \
-    automake \
     gettext \
     bison \
-    libtool \
-    pkg-config \
     make
 EOF
+COPY --link --from=make / /usr/local/
 WORKDIR /tmp/inotify-tools
 ARG name
 ARG version
@@ -26,6 +22,6 @@ RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" https://github.com/inotify-tools/inotify-tools .
 ./autogen.sh
 ./configure --prefix="${prefix}" --enable-static-binary --enable-fanotify
-make LDFLAGS=--static
+make -j$(nproc) LDFLAGS=--static
 make install
 EOF

@@ -1,22 +1,13 @@
 #syntax=docker/dockerfile:1.6.0
 
-FROM nicholasdille/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
+WORKDIR /tmp/gnuplot
 ARG name
 ARG version
-RUN <<EOF
-apt-get update
-apt-get -y install --no-install-recommends \
-    autogen \
-    autoconf \
-    automake \
-    libtool \
-    build-essential
-EOF
-WORKDIR /tmp/gnuplot
 RUN <<EOF
 check-download "https://downloads.sourceforge.net/project/gnuplot/gnuplot/${version}/gnuplot-${version}.tar.gz"
 curl --silent --location --fail "https://downloads.sourceforge.net/project/gnuplot/gnuplot/${version}/gnuplot-${version}.tar.gz" \
@@ -30,6 +21,6 @@ curl --silent --location --fail "https://downloads.sourceforge.net/project/gnupl
     --without-x \
     --without-latex \
     --disable-plugins
-make LDFLAGS=-static
+make LDFLAGS=-static -j$(nproc)
 make install
 EOF

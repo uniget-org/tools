@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: git-lfs
+version: "3.4.1"
+check: ${binary} --version | cut -d' ' -f1 | cut -d/ -f2
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/cli
+homepage: https://github.com/git-lfs/git-lfs
+description: Git extension for versioning large files
+renovate:
+  datasource: github-releases
+  package: git-lfs/git-lfs
+  extractVersion: ^v(?<version>.+?)$
+  priority: medium

@@ -1,6 +1,8 @@
 #syntax=docker/dockerfile:1.6.0
 
-FROM nicholasdille/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/tools/make:latest AS make
+
+FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -8,13 +10,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 RUN <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
-    autogen \
-    autoconf \
-    automake \
-    libtool \
-    build-essential \
     cmake \
-    pkg-config \
     libcurl4-openssl-dev \
     libssl-dev \
     libaio-dev \
@@ -27,6 +23,7 @@ apt-get -y install --no-install-recommends \
     libgtest-dev \
     sudo
 EOF
+COPY --link --from=make / /usr/local/
 WORKDIR /tmp/overlaybd
 ARG name
 ARG version
@@ -36,6 +33,6 @@ git submodule update --init
 mkdir build
 cd build
 cmake ..
-make -j
+make -j$(nproc)
 make install
 EOF

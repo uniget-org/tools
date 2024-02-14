@@ -3,7 +3,7 @@
 FROM ghcr.io/uniget-org/tools/go:latest AS go
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 
-FROM nicholasdille/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -16,7 +16,7 @@ ARG version
 RUN <<EOF
 check-clone https://github.com/in-toto/in-toto-golang "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/in-toto/in-toto-golang .
-make build
+make -j$(nproc) build
 cp bin/in-toto "${prefix}/bin/"
 "${prefix}/bin/in-toto" completion bash >"${prefix}/share/bash-completion/completions/in-toto"
 "${prefix}/bin/in-toto" completion fish >"${prefix}/share/fish/vendor_completions.d/in-toto.fish"

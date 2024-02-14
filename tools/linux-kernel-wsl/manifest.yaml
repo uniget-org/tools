@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: linux-kernel-wsl
+version: "6.1.21.2"
+check: ""
+platforms:
+- linux/amd64
+tags:
+- org/microsoft
+- category/development
+- lang/c
+- type/kernel
+- linux
+- kernel
+- source
+- wsl
+homepage: https://github.com/microsoft/WSL2-Linux-Kernel
+description: Source for the Linux kernel used in Windows Subsystem for Linux 2 (WSL2)
+renovate:
+  datasource: github-releases
+  package: microsoft/WSL2-Linux-Kernel
+  extractVersion: ^linux-msft-wsl-(?<version>.+?)$
+  versioning: loose
+  priority: low

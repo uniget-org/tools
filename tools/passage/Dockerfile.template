@@ -2,7 +2,7 @@
 
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 
-FROM nicholasdille/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -15,7 +15,7 @@ RUN <<EOF
 curl --silent --location --fail --remote-name https://github.com/FiloSottile/passage/archive/refs/heads/main.zip
 unzip main.zip
 cd passage-main
-make install \
+make -j$(nproc) install \
     DESTDIR="${prefix}" \
     PREFIX="" \
     WITH_ALLCOMP="yes" \

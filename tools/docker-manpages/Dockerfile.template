@@ -4,7 +4,7 @@ FROM ghcr.io/uniget-org/tools/go:latest AS go
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 FROM ghcr.io/uniget-org/tools/go-md2man:latest AS go-md2man
 
-FROM nicholasdille/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -22,7 +22,7 @@ EOF
 ENV GO111MODULE=auto \
     DISABLE_WARN_OUTSIDE_CONTAINER=1 \
     GOPATH=/go
-RUN make manpages
+RUN make -j$(nproc) manpages
 RUN cp -r man/man1 "${prefix}/share/man/" \
  && cp -r man/man5 "${prefix}/share/man/" \
  && cp -r man/man8 "${prefix}/share/man/"

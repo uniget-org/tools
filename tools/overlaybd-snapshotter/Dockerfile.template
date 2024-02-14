@@ -3,7 +3,7 @@
 FROM ghcr.io/uniget-org/tools/go:latest AS go
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 
-FROM nicholasdille/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -15,7 +15,7 @@ ARG name
 ARG version
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/containerd/accelerated-container-image .
-make binaries
+make -j$(nproc) binaries
 cp bin/overlaybd-snapshotter bin/ctr bin/convertor "${prefix}/bin/"
 cp script/overlaybd-snapshotter.service "${prefix}/etc/systemd/system/"
 EOF

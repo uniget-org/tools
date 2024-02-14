@@ -8,10 +8,10 @@ tags:
 - kubernetes
 - k8s
 - org/vmware
-homepage: https://github.com/vmware-tanzu/kpack-cli
+homepage: https://github.com/buildpacks-community/kpack-cli
 description: Command line interface for interacting with kpack
 renovate:
   datasource: github-releases
-  package: vmware-tanzu/kpack-cli
+  package: buildpacks-community/kpack-cli
   extractVersion: ^v(?<version>.+?)$
   priority: low

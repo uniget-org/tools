@@ -67,31 +67,6 @@ clean-builders: \
 	&& docker builder prune --builder uniget --all --force
 
 .PHONY:
-base: \
-		info \
-		metadata.json \
-		builders \
-		; $(info $(M) Building base image $(REGISTRY)/$(REPOSITORY_PREFIX)base:$(DOCKER_TAG)...)
-	@set -o errexit; \
-	ARCHS="$$(jq --raw-output '[ .tools[] | select(.platforms != null) | .platforms[] ] | unique[]' metadata.json | paste -sd,)"; \
-	echo "Platforms: $${ARCHS}"; \
-	export SOURCE_DATE_EPOCH="$(SOURCE_DATE_EPOCH)"; \
-	if ! docker buildx build @base \
-			--builder uniget \
-			--build-arg prefix_override=$(PREFIX) \
-			--build-arg target_override=$(TARGET) \
-			--platform $${ARCHS} \
-			--cache-from $(REGISTRY)/$(REPOSITORY_PREFIX)base:$(DOCKER_TAG) \
-			--tag $(REGISTRY)/$(REPOSITORY_PREFIX)base:$(DOCKER_TAG) \
-			--provenance=false \
-			--output type=registry,oci-mediatypes=true,push=true \
-			--progress plain \
-			>@base/build.log 2>&1; then \
-		cat @base/build.log; \
-		exit 1; \
-	fi
-
-.PHONY:
 $(ALL_TOOLS_RAW):%: \
 		$(HELPER)/var/lib/uniget/manifests/gojq.json \
 		$(TOOLS_DIR)/%/manifest.json \
@@ -207,7 +182,8 @@ $(addsuffix --debug,$(ALL_TOOLS_RAW)):%--debug: \
 	echo "Version:      $${TOOL_VERSION}"; \
 	echo "Version tag:  $${VERSION_TAG}"; \
 	echo "Build deps:   $${DEPS}"; \
-	docker buildx build $(TOOLS_DIR)/$* \
+	export BUILDX_EXPERIMENTAL=1; \
+	docker buildx debug --on=error --invoke=/bin/bash build $(TOOLS_DIR)/$* \
 		--builder uniget \
 		--build-arg branch=$(DOCKER_TAG) \
 		--build-arg ref=$(DOCKER_TAG) \

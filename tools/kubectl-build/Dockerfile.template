@@ -1,6 +1,6 @@
 #syntax=docker/dockerfile:1.6.0
 
-FROM nicholasdille/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -8,7 +8,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
-check-github-release-asset "vmware-tanzu/buildkit-cli-for-kubectl" "v${version}" "linux-v${version}.tgz"
-curl --silent --location --fail "https://github.com/vmware-tanzu/buildkit-cli-for-kubectl/releases/download/v${version}/linux-v${version}.tgz" \
+check-github-release-asset "vmware-archive/buildkit-cli-for-kubectl" "v${version}" "linux-v${version}.tgz"
+curl --silent --location --fail "https://github.com/vmware-archive/buildkit-cli-for-kubectl/releases/download/v${version}/linux-v${version}.tgz" \
 | tar --extract --gzip --directory="${prefix}/bin" --no-same-owner 
 EOF

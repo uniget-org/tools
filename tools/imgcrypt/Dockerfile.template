@@ -3,7 +3,7 @@
 FROM ghcr.io/uniget-org/tools/go:latest AS go
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 
-FROM nicholasdille/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -18,6 +18,6 @@ RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/containerd/imgcrypt .
 sed -i -E 's/ -v / /' Makefile
 sed -i -E "s/ --dirty='.m' / /" Makefile
-make
+make -j$(nproc)
 make install DESTDIR="${prefix}/"
 EOF

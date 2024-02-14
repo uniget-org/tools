@@ -1,5 +1,5 @@
 name: zot
-version: "2.0.0"
+version: "2.0.1"
 check: ${binary} --version 2>&1 | jq --raw-output '.commit' | cut -d- -f1 | tr -d v
 tags:
 - standard/oci

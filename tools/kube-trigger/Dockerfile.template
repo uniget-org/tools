@@ -1,0 +1,22 @@
+#syntax=docker/dockerfile:1.6.0
+
+FROM ghcr.io/uniget-org/tools/make:latest AS make
+FROM ghcr.io/uniget-org/tools/go:latest AS go
+
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+#FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+COPY --link --from=go / /usr/local/
+COPY --link --from=make / /usr/local/
+WORKDIR /go/src/github.com/kubevela/kube-trigger
+RUN <<EOF
+check-clone "https://github.com/kubevela/kube-trigger" "v${version}"
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/kubevela/kube-trigger .
+make -j$(nproc) all
+cp bin/kube-trigger "${prefix}/bin/"
+EOF

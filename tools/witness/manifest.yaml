@@ -5,10 +5,10 @@ tags:
 - type/cli
 - category/security
 - lang/go
-homepage: https://github.com/testifysec/witness
+homepage: https://github.com/in-toto/witness
 description: Pluggable framework for software supply chain risk management
 renovate:
   datasource: github-releases
-  package: testifysec/witness
+  package: in-toto/witness
   extractVersion: ^v(?<version>.+?)$
   priority: low

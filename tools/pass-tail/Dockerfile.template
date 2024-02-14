@@ -1,6 +1,6 @@
 #syntax=docker/dockerfile:1.6.0
 
-FROM nicholasdille/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -16,7 +16,7 @@ ARG version
 RUN <<EOF
 curl --silent --location --fail "https://github.com/palortoff/pass-extension-tail/archive/refs/tags/v${version}.tar.gz" \
 | tar --extract --gzip --strip-components=1 --no-same-owner
-make install \
+make -j$(nproc) install \
     DESTDIR="${prefix}" \
     PREFIX="" \
     BASHCOMPDIR="/share/bash-completion/completions"

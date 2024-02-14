@@ -1,0 +1,64 @@
+#syntax=docker/dockerfile:1.6.0
+
+FROM alpine:3.19 AS alpine
+RUN <<EOF
+apk update
+apk add --no-cache \
+    bash \
+    curl \
+    ca-certificates \
+    git \
+    build-base \
+    autoconf \
+    automake \
+    libtool \
+    perl \
+    pkgconf
+EOF
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+RUN <<EOF
+apk add \
+    curl-static \
+    expat-static \
+    gettext-static \
+    zlib-static \
+    zlib-dev \
+    openssl-libs-static \
+    openssl-dev \
+    ncurses-dev \
+    tcl \
+    asciidoc \
+    xmlto
+EOF
+WORKDIR /tmp/git
+ARG name
+ARG version
+RUN <<EOF
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/git/git .
+if test "${version}" == "2.43.1"; then
+    cat <<EOP | patch -p0
+--- imap-send.c.orig
++++ imap-send.c
+@@ -28,6 +28,7 @@
+ #include "run-command.h"
+ #include "parse-options.h"
+ #include "setup.h"
++#include "strbuf.h"
+ #if defined(NO_OPENSSL) && !defined(HAVE_OPENSSL_CSPRNG)
+ typedef void *SSL;
+ #endif
+EOP
+fi
+export CFLAGS="${CFLAGS} -static"
+make configure
+./configure --prefix="${prefix}"
+make -j$(nproc) all
+make -j$(nproc) doc
+make install install-doc install-html
+EOF
+
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+COPY --from=alpine /uniget_bootstrap /uniget_bootstrap

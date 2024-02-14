@@ -1,9 +1,9 @@
 #syntax=docker/dockerfile:1.6.0
 
-FROM alpine:3.19@sha256:51b67269f354137895d43f3b3d810bfacd3945438e94dc5ac55fdac340352f48 AS build
-WORKDIR /tmp/curl
-ARG name
-ARG version
+FROM alpine:3.19@sha256:c5b1261d6d3e43071626931fc004f70149baeba2c8ec672bd4f27761f8e1ad6b AS build
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
 ENV CC=clang
 RUN <<EOF
 apk update
@@ -17,10 +17,18 @@ apk add \
     libssh2-static \
     openssl-libs-static \
     zlib-static \
+    libpsl-dev \
+    libpsl-static \
     curl \
     ca-certificates \
-    bash
+    bash \
+    findutils \
+    perl
 EOF
+SHELL [ "bash", "-clo", "errexit" ]
+WORKDIR /tmp/curl
+ARG name
+ARG version
 RUN <<EOF
 check-github-release-asset "curl/curl" "curl-${version//./_}" "curl-${version}.tar.gz"
 curl --silent --location --fail "https://github.com/curl/curl/releases/download/curl-${version//./_}/curl-${version}.tar.gz" \
@@ -34,18 +42,19 @@ PKG_CONFIG="pkg-config --static" \
         --enable-ipv6 \
         --enable-unix-sockets \
         --with-ssl \
-        --with-libssh2
-make -j4 V=1 LDFLAGS="-static -all-static"
+        --with-libssh2 \
+        --without-libpsl
+make -j$(nproc) V=1 LDFLAGS="-static -all-static"
 cp src/curl /usr/local/bin/
 mkdir -p /usr/local/share/man/man1/
 cp docs/curl.1 /usr/local/share/man/man1/
 EOF
 
-FROM nicholasdille/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-COPY --from=build /usr/local/ ${prefix}/
+COPY --from=build /usr/local/ /uniget_bootstrap/

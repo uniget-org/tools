@@ -1,21 +1,20 @@
 #syntax=docker/dockerfile:1.6.0
 
 FROM ghcr.io/uniget-org/tools/go:latest AS go
+FROM ghcr.io/uniget-org/tools/make:latest AS make
 FROM ghcr.io/uniget-org/tools/tini:main AS tini
 
-FROM nicholasdille/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=go / /usr/local/
+COPY --link --from=make / /usr/local/
 COPY --link --from=tini / /usr/local/
 RUN <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
-    build-essential \
-    make \
-    pkg-config \
     libseccomp-dev
 EOF
 WORKDIR /go/src/github.com/gotoz/runq
@@ -23,15 +22,15 @@ ARG name
 ARG version
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" --recurse-submodules https://github.com/gotoz/runq .
-make
+make -j$(nproc)
 EOF
 RUN <<EOF
 mkdir -p /var/lib/runq/qemu
 mv /usr/local/bin/tini /usr/bin/docker-init
-make version
-make -C cmd/proxy install
-make -C cmd/runq install
-make -C cmd/runq-exec install
+make -j$(nproc) version
+make -j$(nproc) -C cmd/proxy install
+make -j$(nproc) -C cmd/runq install
+make -j$(nproc) -C cmd/runq-exec install
 install -m 0444 -D version /var/lib/runq/version
 mkdir -p "${prefix}/var/lib/runq"
 cp -r /var/lib/runq/ "${prefix}/var/lib/"

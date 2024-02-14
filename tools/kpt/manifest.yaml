@@ -10,10 +10,10 @@ tags:
 - type/cli
 - kubernetes
 - k8s
-homepage: https://github.com/GoogleContainerTools/kpt
+homepage: https://github.com/kptdev/kpt
 description: Automate Kubernetes Configuration Editing
 renovate:
   datasource: github-releases
-  package: GoogleContainerTools/kpt
+  package: kptdev/kpt
   extractVersion: ^v(?<version>.+?)$
   priority: low

@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: ssh3
+version: "0.1.7"
+check: ${binary} --version | cut -d' ' -f4
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/go
+- type/cli
+- type/daemon
+homepage: https://github.com/francoismichel/ssh3
+description: SSH3 - faster and rich secure shell using HTTP/3
+renovate:
+  datasource: github-releases
+  package: francoismichel/ssh3
+  extractVersion: ^v(?<version>.+?)$
+  priority: low

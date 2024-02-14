@@ -2,19 +2,17 @@
 
 FROM ghcr.io/uniget-org/tools/go:latest AS go
 
-FROM nicholasdille/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --link --from=go / /usr/local/
 RUN <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
-    build-essential \
-    pkg-config \
     libseccomp-dev
 EOF
+COPY --link --from=go / /usr/local/
 WORKDIR /go/src/github.com/rootless-containers/bypass4netns
 ARG name
 ARG version
@@ -22,7 +20,7 @@ RUN <<EOF
 check-clone "https://github.com/rootless-containers/bypass4netns" "v${version}"
 
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/rootless-containers/bypass4netns .
-make static
+make -j$(nproc) static
 cp bypass4netns "${prefix}/bin/"
 cp bypass4netnsd "${prefix}/bin/"
 EOF

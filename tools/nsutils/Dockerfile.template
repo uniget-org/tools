@@ -1,6 +1,8 @@
 #syntax=docker/dockerfile:1.6.0
 
-FROM nicholasdille/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/tools/make:latest AS make
+
+FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -8,15 +10,11 @@ SHELL [ "bash", "-clo", "errexit" ]
 RUN <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
-    git \
-    ca-certificates \
-    autoconf \
-    automake \
-    build-essential \
     libcap-dev \
     libbsd-dev \
     libcap2-bin
 EOF
+COPY --link --from=make / /usr/local/
 WORKDIR /tmp/nsutils
 ARG name
 ARG version
@@ -25,6 +23,6 @@ check-clone https://github.com/rd235/nsutils "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/rd235/nsutils .
 autoreconf -if
 ./configure --prefix="${prefix}"
-make LDFLAGS=--static
+make -j$(nproc) LDFLAGS=--static
 make install
 EOF

@@ -1,0 +1,19 @@
+#syntax=docker/dockerfile:1.6.0
+
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN <<EOF
+check-github-release-asset "interlynk-io/sbomgr" "v${version}" "sbomgr-linux-${alt_arch}"
+curl --silent --location --fail --output "${prefix}/bin/sbomgr" \
+    "https://github.com/interlynk-io/sbomgr/releases/download/v${version}/sbomgr-linux-${alt_arch}"
+chmod +x "${prefix}/bin/sbomgr"
+
+"${prefix}/bin/sbomgr" completion bash >"${prefix}/share/bash-completion/completions/sbomgr"
+"${prefix}/bin/sbomgr" completion fish >"${prefix}/share/fish/vendor_completions.d/sbomgr.fish"
+"${prefix}/bin/sbomgr" completion zsh >"${prefix}/share/zsh/vendor-completions/_sbomgr"
+EOF

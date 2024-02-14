@@ -1,0 +1,20 @@
+#syntax=docker/dockerfile:1.6.0
+
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN <<EOF
+check-download "https://github.com/microsoft/WSL2-Linux-Kernel/archive/refs/tags/linux-msft-wsl-${version}.tar.gz"
+mkdir -p "${prefix}/src/linux-${version}-wsl2"
+cd "${prefix}/src/linux-${version}-wsl2"
+curl --silent --location --fail "https://github.com/microsoft/WSL2-Linux-Kernel/archive/refs/tags/linux-msft-wsl-${version}.tar.gz" \
+| tar --extract --gzip --strip-components=1 --no-same-owner
+EOF
+COPY --chmod=0755 \
+    install-deps-ubuntu.sh \
+    assert-config.sh \
+    /uniget_bootstrap/src/linux-${version}-wsl2/

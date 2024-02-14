@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: soci-snapshotter
+version: "0.5.0"
+binary: soci-snapshotter-grpc
+check: ${binary} --version | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/amazon
+- category/operations
+- lang/go
+- type/plugin
+homepage: https://github.com/awslabs/soci-snapshotter
+description: Some description
+renovate:
+  datasource: github-releases
+  package: awslabs/soci-snapshotter
+  extractVersion: ^v(?<version>.+?)$
+  priority: low

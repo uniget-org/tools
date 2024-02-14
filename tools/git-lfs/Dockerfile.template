@@ -1,0 +1,21 @@
+#syntax=docker/dockerfile:1.6.0
+
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN <<EOF
+check-github-release-asset "git-lfs/git-lfs" "v${version}" "git-lfs-linux-${alt_arch}-v${version}.tar.gz"
+curl --silent --location --fail "https://github.com/git-lfs/git-lfs/releases/download/v${version}/git-lfs-linux-${alt_arch}-v${version}.tar.gz" \
+| tar --extract --gzip --directory="${prefix}/share/" --strip-components=1 --no-same-owner \
+    git-lfs-${version}/git-lfs \
+    git-lfs-${version}/man
+mv "${prefix}/share/git-lfs" "${prefix}/bin/"
+
+"${prefix}/bin/git-lfs" completion bash >"${prefix}/share/bash-completion/completions/git-lfs"
+"${prefix}/bin/git-lfs" completion fish >"${prefix}/share/fish/vendor_completions.d/git-lfs.fish"
+"${prefix}/bin/git-lfs" completion zsh >"${prefix}/share/zsh/vendor-completions/_git-lfs"
+EOF

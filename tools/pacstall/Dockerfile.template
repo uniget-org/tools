@@ -1,0 +1,32 @@
+#syntax=docker/dockerfile:1.6.0
+
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN <<EOF
+curl --silent --location --fail --output "${prefix}/bin/pacstall" \
+    "https://github.com/pacstall/pacstall/raw/${version}/pacstall"
+chmod +x "${prefix}/bin/pacstall"
+
+curl --silent --location --fail --output "${prefix}/share/man/man8/pacstall.8.gz" \
+    "https://github.com/pacstall/pacstall/raw/${version}/misc/pacstall.8.gz"
+
+mkdir -p "${prefix}/share/pacstall/scripts"
+for script in add-repo checks dep-tree download error_log install-local query-info remove search update upgrade; do
+    curl --silent --location --fail --output "${prefix}/share/pacstall/scripts/${script}.sh" \
+        "https://github.com/pacstall/pacstall/raw/${version}/misc/scripts/${script}.sh"
+    chmod +x "${prefix}/share/pacstall/scripts/${script}.sh"
+done
+
+curl --silent --location --fail --output "${prefix}/share/bash-completion/completions/pacstall" \
+    "https://github.com/pacstall/pacstall/raw/${version}/misc/completion/bash"
+curl --silent --location --fail --output "${prefix}/share/fish/vendor_completions.d/pacstall.fish" \
+    "https://github.com/pacstall/pacstall/raw/${version}/misc/completion/fish"
+
+mkdir -p "${prefix}/share/pacstall/repo"
+echo "https://raw.githubusercontent.com/pacstall/pacstall-programs/master" >"${prefix}/share/pacstall/repo/pacstallrepo"
+EOF

@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: nuclei-templates
+version: "9.7.5"
+binary: "false"
+check: "" # No binary and no version file
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/security
+homepage: https://github.com/projectdiscovery/nuclei-templates
+description: Community curated list of templates for the nuclei engine to find security vulnerabilities
+renovate:
+  datasource: github-releases
+  package: projectdiscovery/nuclei-templates
+  extractVersion: ^v(?<version>.+?)$
+  priority: high

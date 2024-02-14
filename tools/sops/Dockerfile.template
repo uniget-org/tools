@@ -1,6 +1,6 @@
 #syntax=docker/dockerfile:1.6.0
 
-FROM nicholasdille/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -8,8 +8,8 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
-check-github-release-asset "mozilla/sops" "v${version}" "sops-v${version}.linux.${alt_arch}"
+check-github-release-asset "getsops/sops" "v${version}" "sops-v${version}.linux.${alt_arch}"
 curl --silent --location --fail --output "${prefix}/bin/sops" \
-    "https://github.com/mozilla/sops/releases/download/v${version}/sops-v${version}.linux.${alt_arch}"
+    "https://github.com/getsops/sops/releases/download/v${version}/sops-v${version}.linux.${alt_arch}"
 chmod +x "${prefix}/bin/sops"
 EOF

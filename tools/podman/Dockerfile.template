@@ -5,7 +5,7 @@ FROM ghcr.io/uniget-org/tools/make:latest AS make
 FROM ghcr.io/uniget-org/tools/go-md2man:latest AS go-md2man
 FROM ghcr.io/uniget-org/tools/cni:latest AS cni
 
-FROM nicholasdille/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -42,7 +42,7 @@ apt-get -y install --no-install-recommends \
 cp -r /usr/local/libexec/cni/ /usr/lib/
 EOF
 RUN git clone --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/containers/podman .
-RUN make EXTRA_LDFLAGS="-s -w -extldflags=-static"
+RUN make -j$(nproc) EXTRA_LDFLAGS="-s -w -extldflags=-static"
 RUN <<EOF
 make install DESTDIR="${prefix}" PREFIX=""
 mkdir -p \

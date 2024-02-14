@@ -1,5 +1,5 @@
 name: falco
-version: "0.36.2"
+version: "0.37.1"
 check: ${binary} --version | grep ^Falco | cut -d' ' -f3
 platforms:
 - linux/amd64

@@ -4,7 +4,7 @@ FROM ghcr.io/uniget-org/tools/go:latest AS go
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 FROM ghcr.io/uniget-org/tools/goreleaser:latest AS goreleaser
 
-FROM nicholasdille/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -19,7 +19,7 @@ RUN <<EOF
 check-clone https://github.com/guacsec/guac "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/guacsec/guac .
 export CGO_ENABLED=0
-make build
+make -j$(nproc) build
 cp bin/guac* "${prefix}/bin/"
 EOF
 RUN <<EOF

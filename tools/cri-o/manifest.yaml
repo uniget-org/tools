@@ -1,5 +1,5 @@
 name: cri-o
-version: "1.28.2"
+version: "1.29.1"
 binary: crio
 check: ${binary} --version | grep ^crio | cut -d' ' -f3
 build_dependencies:

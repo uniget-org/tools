@@ -1,6 +1,6 @@
 #syntax=docker/dockerfile:1.6.0
 
-FROM nicholasdille/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -23,15 +23,10 @@ case "${arch}" in
 esac
 echo "    Using ${arch_suffix}"
 
-check-github-release-asset "schollz/croc" "v${version}" "croc_${version}_Linux-${arch_suffix}.tar.gz"
+check-github-release-asset "schollz/croc" "v${version}" "croc_v${version}_Linux-${arch_suffix}.tar.gz"
 
 echo "### Downloading croc ${version}"
-curl --silent --location --fail "https://github.com/schollz/croc/releases/download/v${version}/croc_${version}_Linux-${arch_suffix}.tar.gz" \
+curl --silent --location --fail "https://github.com/schollz/croc/releases/download/v${version}/croc_v${version}_Linux-${arch_suffix}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
-    croc \
-    bash_autocomplete \
-    zsh_autocomplete
-
-mv "${prefix}/bin/bash_autocomplete" "${prefix}/share/bash-completion/completions/croc"
-mv "${prefix}/bin/zsh_autocomplete"  "${prefix}/share/zsh/vendor-completions/_croc"
+    croc
 EOF

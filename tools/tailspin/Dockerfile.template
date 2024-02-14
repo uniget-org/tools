@@ -2,21 +2,15 @@
 
 FROM ghcr.io/uniget-org/tools/rust:latest AS rust
 
-FROM nicholasdille/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
+COPY --link --from=rust / /usr/local/
+WORKDIR /tmp/github.com/bensadeh/tailspin
 ARG name
 ARG version
-COPY --from=rust / /usr/local/
-ARG DEBIAN_FRONTEND=noninteractive
-RUN <<EOF
-apt-get update
-apt-get -y install --no-install-recommends \
-    build-essential
-EOF
-WORKDIR /tmp/github.com/bensadeh/tailspin
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" https://github.com/bensadeh/tailspin .
 export CARGO_HOME=/usr/local/cargo

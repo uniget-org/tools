@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: pack
+version: "0.33.1"
+check: ${binary} --version | cut -d+ -f1
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/cli
+homepage: https://github.com/buildpacks/pack
+description: CLI for building apps using Cloud Native Buildpacks
+renovate:
+  datasource: github-releases
+  package: buildpacks/pack
+  extractVersion: ^v(?<version>.+?)$
+  priority: low

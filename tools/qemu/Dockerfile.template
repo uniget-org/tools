@@ -1,20 +1,17 @@
 #syntax=docker/dockerfile:1.6.0
 
-FROM nicholasdille/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/tools/make:latest AS make
+
+FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-ARG name
-ARG version
 ENV DEBIAN_FRONTEND=non-interactive
 RUN <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
-    build-essential \
     ninja-build \
-    git \
-    ca-certificates \
     libglib2.0-dev \
     libfdt-dev \
     libpixman-1-dev \
@@ -22,7 +19,10 @@ apt-get -y install --no-install-recommends \
     python3-pip \
     python-is-python3
 EOF
+COPY --link --from=make / /usr/local/
 WORKDIR /tmp/qemu
+ARG name
+ARG version
 ARG TARGETS="aarch64-softmmu x86_64-softmmu"
 RUN <<EOF
 check-clone https://github.com/qemu/qemu "v${version}"
@@ -31,6 +31,6 @@ EOF
 WORKDIR /tmp/qemu/build
 RUN <<EOF
 ../configure --prefix="${prefix}" --static --enable-tools --disable-user --disable-gio --target-list="${TARGETS}"
-make
+make -j$(nproc)
 EOF
 RUN make install

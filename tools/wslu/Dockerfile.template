@@ -2,7 +2,7 @@
 
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 
-FROM nicholasdille/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -14,5 +14,6 @@ ARG version
 RUN <<EOF
 curl --silent --location --fail "https://github.com/wslutilities/wslu/archive/refs/tags/v${version}.tar.gz" \
 | tar --extract --gzip --strip-components=1
-make all install "DESTDIR=${prefix}" "PREFIX="
+make -j$(nproc) all
+make install "DESTDIR=${prefix}" "PREFIX="
 EOF

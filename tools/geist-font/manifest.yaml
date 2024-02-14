@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: geist-font
+version: "1.1.0"
+check: ""
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/vercel
+- slides
+- presentation
+- font
+homepage: https://github.com/vercel/geist-font
+description: Typeface specifically designed for developers and designers
+renovate:
+  datasource: github-releases
+  package: vercel/geist-font
+  priority: low

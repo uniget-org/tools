@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: dragonfly
+version: "2.1.30"
+binary: manager
+check: ${binary} version | grep ^GitVersion | cut -dv -f2
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/go
+- type/daemon
+# https://d7y.io
+homepage: https://github.com/dragonflyoss/Dragonfly2
+description: Open source P2P-based file distribution and image acceleration system
+renovate:
+  datasource: github-releases
+  package: dragonflyoss/Dragonfly2
+  extractVersion: ^v(?<version>.+?)$
+  priority: low

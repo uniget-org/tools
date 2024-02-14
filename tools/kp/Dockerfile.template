@@ -1,6 +1,6 @@
 #syntax=docker/dockerfile:1.6.0
 
-FROM nicholasdille/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -8,9 +8,9 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
-check-github-release-asset "vmware-tanzu/kpack-cli" "v${version}" "kp-linux-amd64-${version}"
+check-github-release-asset "buildpacks-community/kpack-cli" "v${version}" "kp-linux-amd64-${version}"
 curl --silent --location --fail --output "${prefix}/bin/kp" \
-    "https://github.com/vmware-tanzu/kpack-cli/releases/download/v${version}/kp-linux-amd64-${version}"
+    "https://github.com/buildpacks-community/kpack-cli/releases/download/v${version}/kp-linux-amd64-${version}"
 chmod +x "${prefix}/bin/kp"
 "${prefix}/bin/kp" completion bash >"${prefix}/share/bash-completion/completions/kp"
 "${prefix}/bin/kp" completion fish >"${prefix}/share/fish/vendor_completions.d/kp.fish"

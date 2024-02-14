@@ -1,0 +1,24 @@
+#syntax=docker/dockerfile:1.6.0
+
+#FROM ghcr.io/uniget-org/tools/python:latest AS python
+FROM ghcr.io/uniget-org/tools/shiv:latest AS shiv
+
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+#COPY --link --from=python / /usr/local/
+COPY --link --from=shiv / /usr/local/
+RUN <<EOF
+apt-get update
+apt-get -y install --no-install-recommends \
+    python3-pip \
+    python3-venv \
+    python-is-python3
+EOF
+RUN <<EOF
+shiv --output-file "${prefix}/bin/sbom2doc" --console-script sbom2doc "sbom2doc==${version}"
+EOF

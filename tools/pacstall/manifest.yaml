@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: pacstall
+version: "4.3.2"
+check: ""
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/shell
+- type/cli
+homepage: https://github.com/pacstall/pacstall
+description: An AUR-inspired package manager for Ubuntu
+messages:
+  usage: |
+    Please install the prerequisites:
+    
+        apt-get install curl wget build-essential unzip git zstd iputils-ping lsb-release
+renovate:
+  datasource: github-releases
+  package: pacstall/pacstall
+  priority: low

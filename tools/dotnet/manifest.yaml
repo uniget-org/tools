@@ -1,5 +1,5 @@
 name: dotnet
-version: "8.0.101"
+version: "8.0.200"
 check: ${binary} --version
 platforms:
 - linux/amd64

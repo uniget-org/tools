@@ -2,7 +2,7 @@
 
 FROM ghcr.io/uniget-org/tools/docker-compose-v1:latest AS docker-compose-v1
 
-FROM nicholasdille/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/

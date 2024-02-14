@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: civo
+version: "1.0.75"
+check: ${binary} --version | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/civo
+- category/operations
+- lang/go
+- type/cli
+- cloud/civo
+homepage: https://github.com/civo/cli
+description: Command Line Interface (CLI) for interacting with your Civo resources 
+renovate:
+  datasource: github-releases
+  package: civo/cli
+  extractVersion: ^v(?<version>.+?)$
+  priority: low

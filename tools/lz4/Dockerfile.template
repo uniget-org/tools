@@ -2,21 +2,12 @@
 
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 
-FROM nicholasdille/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=make / /usr/local/
-RUN <<EOF
-apt-get update
-apt-get -y install --no-install-recommends \
-    autogen \
-    autoconf \
-    automake \
-    libtool \
-    build-essential
-EOF
 WORKDIR /tmp/lz4
 ARG name
 ARG version
@@ -25,7 +16,7 @@ check-github-release-asset "lz4/lz4" "v${version}" "lz4-${version}.tar.gz"
 curl --silent --show-error --location --fail "https://github.com/lz4/lz4/releases/download/v${version}/lz4-${version}.tar.gz" \
 | tar --extract --gzip --strip-components=1
 
-make -C lib
-make -C programs LDFLAGS=-static
+make -C lib -j$(nproc)
+make -C programs -j$(nproc) LDFLAGS=-static
 make install DESTDIR="${prefix}" prefix=""
 EOF

@@ -1,5 +1,5 @@
 name: kubo
-version: "0.25.0"
+version: "0.26.0"
 binary: ipfs
 check: ${binary} version --number
 runtime_dependencies:

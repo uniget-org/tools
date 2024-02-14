@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: sbom2doc
+version: "0.4.4"
+check: ${binary} --version
+build_dependencies:
+#- python
+- shiv
+#runtime_dependencies:
+#- python
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/security
+- lang/python
+- type/cli
+homepage: https://github.com/anthonyharrison/sbom2doc
+description: Transform SBOM contents into a formatted document including markdown and PDF formats
+renovate:
+  datasource: pypi
+  package: sbom2doc
+  priority: medium

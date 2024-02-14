@@ -1,0 +1,19 @@
+#syntax=docker/dockerfile:1.6.0
+
+FROM ghcr.io/uniget-org/tools/make:latest AS make
+
+FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+COPY --link --from=make / /usr/local/
+WORKDIR /tmp/passt
+RUN <<EOF
+tag="$(git ls-remote --tags https://passt.top/passt/ "refs/tags/${version}.*" | cut -d/ -f3)"
+git clone -q --config advice.detachedHead=false --branch "${tag}" https://passt.top/passt/ .
+make -j$(nproc) static
+make install DESTDIR="${prefix}" prefix=""
+EOF

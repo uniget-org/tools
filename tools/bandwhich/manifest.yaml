@@ -1,5 +1,5 @@
 name: bandwhich
-version: "0.21.1"
+version: "0.22.2"
 check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64

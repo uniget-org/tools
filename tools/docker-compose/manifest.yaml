@@ -1,5 +1,5 @@
 name: docker-compose
-version: "2.23.3"
+version: "2.24.5"
 binary: ${target}/libexec/docker/cli-plugins/docker-compose
 check: ${binary} version --short
 runtime_dependencies:

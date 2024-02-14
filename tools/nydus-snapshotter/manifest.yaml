@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: nydus-snapshotter
+version: "0.13.7"
+binary: containerd-nydus-grpc
+check: ${binary} --version | grep ^Version | cut -dv -f2
+runtime_dependencies:
+- containerd
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/containerd
+- category/operations
+- lang/go
+- type/plugin
+# https://nydus.dev
+homepage: https://github.com/containerd/nydus-snapshotter
+description: containerd snapshotter with data deduplication and lazy loading in P2P fashion
+renovate:
+  datasource: github-releases
+  package: containerd/nydus-snapshotter
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
