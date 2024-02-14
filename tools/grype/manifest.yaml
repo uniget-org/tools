@@ -1,6 +1,6 @@
 name: grype
 version: "0.74.5"
-check: ${binary} version | grep "^Version:" | tr -s ' ' | cut -d' ' -f2
+check: ${binary} version 2>&1 | grep "^Version:" | tr -s ' ' | cut -d' ' -f2
 platforms:
 - linux/amd64
 - linux/arm64

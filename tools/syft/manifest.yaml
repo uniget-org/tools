@@ -1,6 +1,6 @@
 name: syft
 version: "0.104.0"
-check: ${binary} --version | cut -d' ' -f2
+check: ${binary} version 2>&1 | grep ^Version | tr -s ' ' | cut -d' ' -f2
 platforms:
 - linux/amd64
 - linux/arm64
