@@ -1,5 +1,5 @@
 name: flarectl
-version: "0.87.0"
+version: "0.88.0"
 check: ${binary} --version | cut -d' ' -f3
 platforms:
 - linux/amd64
