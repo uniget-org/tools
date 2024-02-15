@@ -35,7 +35,7 @@ sbom: \
 
 .PHONY:
 $(addsuffix --sbom,$(ALL_TOOLS_RAW)):%--sbom: \
-		$(TOOLS_DIR)/%/sbom.json
+		$(TOOLS_DIR)/%/sbom.json ## ???
 
 $(addsuffix /sbom.json,$(ALL_TOOLS)):$(TOOLS_DIR)/%/sbom.json: \
 		$(HELPER)/var/lib/uniget/manifests/gojq.json \
@@ -120,7 +120,7 @@ attest: \
 $(addsuffix --scan,$(ALL_TOOLS_RAW)):%--scan: \
 		$(HELPER)/var/lib/uniget/manifests/grype.json \
 		$(TOOLS_DIR)/%/sbom.json \
-		; $(info $(M) Scanning sbom for $*...)
+		; $(info $(M) Scanning sbom for $*...) ## ???
 	@set -o errexit; \
 	grype sbom:$(TOOLS_DIR)/$*/sbom.json --quiet --add-cpes-if-none --output table
 

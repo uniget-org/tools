@@ -68,8 +68,8 @@ info: ; $(info $(M) Runtime info...)
 	@echo "ALT_ARCH:           $(ALT_ARCH)"
 
 .PHONY:
-help:
-	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
+help: ## Display this help
+	@perl -lne 'if (/^([\$$a-z][^:]+):(([^:]+):)?/) { if ($$3) {$$name = $$3} else {$$name = $$1} }; if ($$name && / ## (.+)$$/) { printf "%s: \033[36m%-30s\033[0m%s\n", $$name, $$1; $$name = "" }' $(MAKEFILE_LIST)
 	@echo
 	@echo "Reminder: foo-% => \$$@=foo-bar \$$*=bar"
 	@echo
