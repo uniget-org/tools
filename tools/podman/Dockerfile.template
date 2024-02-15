@@ -5,7 +5,7 @@ FROM ghcr.io/uniget-org/tools/make:latest AS make
 FROM ghcr.io/uniget-org/tools/go-md2man:latest AS go-md2man
 FROM ghcr.io/uniget-org/tools/cni:latest AS cni
 
-FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/build-base:3.19 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -14,35 +14,43 @@ COPY --link --from=go / /usr/local/
 COPY --link --from=make / /usr/local/
 COPY --link --from=go-md2man / /usr/local/
 COPY --link --from=cni / /usr/local/
+RUN <<EOF
+apk add --update-cache --no-cache \
+    gcc \
+    pkgconf \
+    musl-dev \
+	btrfs-progs \
+    btrfs-progs-dev \
+    libassuan-dev \
+    lvm2-dev \
+    device-mapper \
+	glib-static \
+    libc-dev \
+    gpgme-dev \
+    protobuf-dev \
+    protobuf-c-dev \
+	libseccomp-dev \
+    libseccomp-static \
+    libselinux-dev \
+    ostree-dev \
+    openssl \
+    iptables \
+	bash \
+    grep
+cp -r /usr/local/libexec/cni/ /usr/lib/
+EOF
 WORKDIR /tmp/podman
 ARG name
 ARG version
 RUN <<EOF
-apt-get update
-apt-get -y install --no-install-recommends \
-    git \
-    ca-certificates \
-    gcc \
-    btrfs-progs \
-    iptables \
-    libassuan-dev \
-    libbtrfs-dev \
-    libc6-dev \
-    libdevmapper-dev \
-    libglib2.0-dev \
-    libgpgme-dev \
-    libgpg-error-dev \
-    libprotobuf-dev \
-    libprotobuf-c-dev \
-    libseccomp-dev \
-    libselinux1-dev \
-    libsystemd-dev \
-    pkg-config \
-    uidmap
-cp -r /usr/local/libexec/cni/ /usr/lib/
+git clone --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/containers/podman .
+go get -u github.com/mattn/go-sqlite3
+go mod vendor
 EOF
-RUN git clone --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/containers/podman .
-RUN make -j$(nproc) EXTRA_LDFLAGS="-s -w -extldflags=-static"
+RUN <<EOF
+export CGO_ENABLED=1
+make -j$(nproc) LDFLAGS_PODMAN="-s -w -extldflags '-static'" BUILDTAGS='seccomp selinux apparmor exclude_graphdriver_devicemapper containers_image_openpgp systemd'
+EOF
 RUN <<EOF
 make install DESTDIR="${prefix}" PREFIX=""
 mkdir -p \
