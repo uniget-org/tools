@@ -14,6 +14,6 @@ homepage: https://github.com/gptscript-ai/gptscript
 description: Natural Language Programming
 renovate:
   datasource: github-releases
-  package: foo/bar
+  package: gptscript-ai/gptscript
   extractVersion: ^v(?<version>.+?)$
   priority: low
