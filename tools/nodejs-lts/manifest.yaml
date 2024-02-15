@@ -1,5 +1,5 @@
 name: nodejs-lts
-version: "20.11.0"
+version: "20.11.1"
 binary: node
 check: ${binary} --version | tr -d v
 platforms:
