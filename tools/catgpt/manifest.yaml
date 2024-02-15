@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: catgpt
+version: "0.0.1"
+check: "" # No version parameter
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/cli
+homepage: https://github.com/ibuildthecloud/catgpt
+description: Command-line tool that uses the OpenAI model to generate text based on user input 
+renovate:
+  datasource: github-releases
+  package: ibuildthecloud/catgpt
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
