@@ -148,7 +148,7 @@ ghcr-private: \
 	| column --separator ";" --table --table-columns Name,Url
 
 .PHONY:
-$(addsuffix --ghcr-private,$(ALL_TOOLS_RAW)): \
+$(addsuffix --ghcr-private,$(ALL_TOOLS_RAW)):%--ghcr-private: \
 		$(HELPER)/var/lib/uniget/manifests/gh.json \
 		$(HELPER)/var/lib/uniget/manifests/gojq.json \
 		; $(info $(M) Testing that $* is publicly visible...) ## ???
