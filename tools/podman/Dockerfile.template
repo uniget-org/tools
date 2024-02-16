@@ -53,20 +53,9 @@ export CGO_ENABLED=1
 make -j$(nproc) LDFLAGS_PODMAN="-s -w -extldflags '-static'" BUILDTAGS='seccomp selinux apparmor exclude_graphdriver_devicemapper containers_image_openpgp'
 EOF
 RUN <<EOF
-make install DESTDIR="${prefix}" PREFIX=""
-mkdir -p \
-    "${prefix}/share/bash-completion/completions" \
-    "${prefix}/share/fish/vendor_completions.d" \
-    "${prefix}/share/zsh/vendor-completions"
-EOF
-RUN <<EOF
-cp completions/bash/podman "${prefix}/share/bash-completion/completions/podman"
-cp completions/fish/podman.fish "${prefix}/share/fish/vendor_completions.d/podman.fish"
-cp completions/zsh/_podman "${prefix}/share/zsh/vendor-completions/_podman"
-cp "${prefix}/lib/systemd/system/podman.service" "${prefix}/etc/systemd/system/"
-cp "${prefix}/lib/systemd/system/podman.socket" "${prefix}/etc/systemd/system/"
-
-mkdir -p "${prefix}/lib/tmpfiles.d"
-curl --silent --location --fail --output "${prefix}/lib/tmpfiles.d/podman-docker.conf" \
-    "https://github.com/containers/podman/raw/v${version}/contrib/systemd/system/podman-docker.conf"
+make install             DESTDIR="${prefix}" PREFIX=""
+make install.completions DESTDIR="${prefix}" PREFIX=""
+make install.man         DESTDIR="${prefix}" PREFIX=""
+make install.systemd     DESTDIR="${prefix}" PREFIX=""
+mv "${prefix}/share/zsh/vendor-completions" "${prefix}/share/zsh/site-functions"
 EOF
