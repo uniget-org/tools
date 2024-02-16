@@ -1,5 +1,5 @@
 name: helmify
-version: "0.4.10"
+version: "0.4.11"
 check: ${binary} --version | grep ^Version | tr -s ' ' | cut -d' ' -f2
 platforms:
 - linux/amd64
