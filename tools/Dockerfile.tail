@@ -1,6 +1,7 @@
 WORKDIR /uniget_bootstrap
+ARG name
 RUN <<EOF
-find . -type f,l -printf '%P\n' \
+find .  \( -type f -or -type l \) -printf '%P\n' \
 | grep -v "/var/lib/uniget/manifests/${name}.txt" \
 >"/uniget_bootstrap/var/lib/uniget/manifests/${name}.txt"
 EOF
