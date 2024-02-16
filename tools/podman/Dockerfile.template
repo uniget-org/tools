@@ -50,7 +50,7 @@ go mod vendor
 EOF
 RUN <<EOF
 export CGO_ENABLED=1
-make -j$(nproc) LDFLAGS_PODMAN="-s -w -extldflags '-static'" BUILDTAGS='seccomp selinux apparmor exclude_graphdriver_devicemapper containers_image_openpgp systemd'
+make -j$(nproc) LDFLAGS_PODMAN="-s -w -extldflags '-static'" BUILDTAGS='seccomp selinux apparmor exclude_graphdriver_devicemapper containers_image_openpgp'
 EOF
 RUN <<EOF
 make install DESTDIR="${prefix}" PREFIX=""
