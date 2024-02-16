@@ -36,7 +36,8 @@ apk add --update-cache --no-cache \
     openssl \
     iptables \
 	bash \
-    grep
+    grep \
+    mandoc
 cp -r /usr/local/libexec/cni/ /usr/lib/
 EOF
 WORKDIR /tmp/podman
