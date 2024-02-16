@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: wolfictl
+version: "0.14.16"
+check: ${version} version | grep ^GitVersion | cut -dv -f2
+build_dependencies:
+- go
+- make
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/chainguard
+- category/operations
+- lang/go
+- type/cli
+homepage: https://github.com/wolfi-dev/wolfictl
+description: Some description
+renovate:
+  datasource: github-tags
+  package: wolfi-dev/wolfictl
+  extractVersion: ^v(?<version>.+?)$
+  priority: low

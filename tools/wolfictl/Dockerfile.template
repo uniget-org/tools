@@ -1,0 +1,26 @@
+#syntax=docker/dockerfile:1.6.0
+
+FROM ghcr.io/uniget-org/tools/make:latest AS make
+FROM ghcr.io/uniget-org/tools/go:latest AS go
+
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+COPY --link --from=go / /usr/local/
+COPY --link --from=make / /usr/local/
+WORKDIR /go/src/github.com/wolfi-dev/wolfictl
+RUN <<EOF
+check-clone "https://github.com/wolfi-dev/wolfictl" "v${version}"
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/wolfi-dev/wolfictl .
+go install golang.org/x/tools/cmd/goimports@latest
+make wolfictl
+make install DESTDIR="${prefix}" PREFIX=""
+
+"${prefix}/bin/wolfictl" completion bash >"${prefix}/share/bash-completion/completions/wolfictl"
+"${prefix}/bin/wolfictl" completion fish >"${prefix}/share/fish/vendor_completions.d/wolfictl.fish"
+"${prefix}/bin/wolfictl" completion zsh >"${prefix}/share/zsh/vendor-completions/_wolfictl"
+EOF
