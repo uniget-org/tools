@@ -1,20 +1,6 @@
 #syntax=docker/dockerfile:1.6.0
 
-FROM alpine:3.19 AS alpine
-RUN <<EOF
-apk update
-apk add --no-cache \
-    bash \
-    curl \
-    ca-certificates \
-    git \
-    build-base \
-    autoconf \
-    automake \
-    libtool \
-    perl \
-    pkgconf
-EOF
+FROM ghcr.io/uniget-org/images/build-base:3.19 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -60,5 +46,5 @@ make -j$(nproc) doc
 make install install-doc install-html
 EOF
 
-FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
-COPY --from=alpine /uniget_bootstrap /uniget_bootstrap
+#FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+#COPY --from=alpine /uniget_bootstrap /uniget_bootstrap
