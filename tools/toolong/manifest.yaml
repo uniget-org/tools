@@ -3,6 +3,11 @@ $schema: https://tools.uniget.dev/schema.yaml
 name: toolong
 version: "1.2.1"
 check: ${binary} --version | cut -d' ' -f3
+build_dependencies:
+#- python
+- shiv
+#runtime_dependencies:
+#- python
 platforms:
 - linux/amd64
 - linux/arm64

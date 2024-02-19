@@ -3,6 +3,8 @@ $schema: https://tools.uniget.dev/schema.yaml
 name: lz4
 version: "1.9.4"
 check: ""
+build_dependencies:
+- make
 platforms:
 - linux/amd64
 #- linux/arm64

@@ -3,6 +3,8 @@ $schema: https://tools.uniget.dev/schema.yaml
 name: axel
 version: "2.17.13"
 check: ${binary} --version | grep ^Axel | cut -d' ' -f2
+build_dependencies:
+- make
 platforms:
 - linux/amd64
 - linux/arm64

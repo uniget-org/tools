@@ -3,6 +3,8 @@ version: "0.4.0"
 check: "" # No version parameter
 build_dependencies:
 - go
+- make
+- goreleaser
 tags:
 - category/security
 - type/cli

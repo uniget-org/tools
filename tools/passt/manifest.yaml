@@ -4,9 +4,7 @@ name: passt
 version: "2023_12_30"
 check: ""
 build_dependencies:
-- bar
-runtime_dependencies:
-- baz
+- make
 platforms:
 - linux/amd64
 - linux/arm64

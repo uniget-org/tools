@@ -4,6 +4,7 @@ check: "" # No tag/release
 build_dependencies:
 - go
 - tini
+- make
 runtime_dependencies:
 - docker
 platforms:

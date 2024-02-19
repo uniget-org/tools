@@ -3,6 +3,8 @@ $schema: https://tools.uniget.dev/schema.yaml
 name: proot
 version: "5.4.0"
 check: "" # Too complicated to parse ASCII art
+build_dependencies:
+- make
 platforms:
 - linux/amd64
 - linux/arm64

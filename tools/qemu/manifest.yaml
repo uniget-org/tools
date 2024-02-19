@@ -2,6 +2,8 @@ name: qemu
 version: "8.2.1"
 binary: qemu-img
 check: ${binary} --version | grep qemu-img | cut -d' ' -f3
+build_dependencies:
+- make
 tags:
 - type/cli
 - type/daemon

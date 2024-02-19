@@ -2,6 +2,8 @@ name: podman
 version: "4.9.3"
 check: ${binary} --version | cut -d' ' -f3
 build_dependencies:
+- go
+- make
 - conmon
 - runc
 runtime_dependencies:

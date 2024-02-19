@@ -1,6 +1,8 @@
 name: pigz
 version: "2.8"
 check: ${binary} --version | cut -d' ' -f2
+build_dependencies:
+- make
 tags:
 - type/cli
 - compression

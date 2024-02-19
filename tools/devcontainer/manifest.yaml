@@ -2,7 +2,12 @@ name: devcontainer
 version: "0.56.2"
 check: ${binary} --version
 build_dependencies:
+- python
+- nodejs-lts
+- npm
 - make
+runtime_dependencies:
+- nodejs-lts
 platforms:
 - linux/amd64
 #- linux/arm64

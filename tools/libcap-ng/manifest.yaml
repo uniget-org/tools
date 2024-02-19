@@ -2,6 +2,11 @@ name: libcap-ng
 version: "0.8.4"
 binary: captest
 check: "" # No version parameter
+build_dependencies:
+- make
+platforms:
+- linux/amd64
+#-linux/arm64
 tags:
 - kernel/capabilities
 - type/cli

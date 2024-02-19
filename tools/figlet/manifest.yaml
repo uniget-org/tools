@@ -1,6 +1,8 @@
 name: figlet
 version: "2.2.5"
 check: ${binary} -v | grep Version | cut -d' ' -f4 | tr -d ,
+build_dependencies:
+- make
 tags:
 - type/cli
 - fun

@@ -1,6 +1,8 @@
 name: tasker
 version: "0.9"
 check: ${binary} --version
+build_dependencies:
+- make
 tags:
   - type/cli
   - management

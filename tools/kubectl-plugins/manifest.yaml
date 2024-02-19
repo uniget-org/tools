@@ -1,13 +1,13 @@
 name: kubectl-plugins
 version: "0.2.0"
 check: "" # No version
-platforms:
-- linux/amd64
 build_dependencies:
 - krew
 runtime_dependencies:
 - kubectl
 - krew
+platforms:
+- linux/amd64
 tags:
 - org/cncf
 - org/kubernetes

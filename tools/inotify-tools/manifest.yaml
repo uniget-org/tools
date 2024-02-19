@@ -2,6 +2,8 @@ name: inotify-tools
 version: "4.23.9.0"
 binary: inotifywait
 check: ${binary} --help | head -1 | cut -d' ' -f2
+build_dependencies:
+- make
 tags:
 - component/kernel
 - lang/c

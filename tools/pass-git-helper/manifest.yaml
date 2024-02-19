@@ -1,8 +1,9 @@
 name: pass-git-helper
 version: "1.4.0"
 check: "" # TODO
-#build_dependencies:
+build_dependencies:
 #- python
+- pipx
 runtime_dependencies:
 - pass
 #- python

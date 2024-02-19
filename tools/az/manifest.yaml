@@ -1,8 +1,9 @@
 name: az
 version: "2.57.0"
 check: ${binary} version | jq --raw-output '."azure-cli"'
-#build_dependencies:
+build_dependencies:
 #- python
+- shiv
 #runtime_dependencies:
 #- python
 platforms:

@@ -1,6 +1,8 @@
 name: reptyr
 version: "0.10.0"
 check: ${binary} -v | head -n 1 | cut -d' ' -f5 | cut -d. -f1-3
+build_dependencies:
+- make
 tags:
 - category/operations
 - type/cli

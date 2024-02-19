@@ -1,6 +1,8 @@
 name: su-exec
 version: "0.2"
 check: "" # No version parameter
+build_dependencies:
+- make
 tags:
 - container/su
 - type/cli

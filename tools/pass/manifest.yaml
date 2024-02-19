@@ -1,10 +1,6 @@
 name: pass
 version: "1.7.4"
 check: ${binary} version | tr -s ' ' | grep '= v' | cut -d' ' -f2 | tr -d v
-#dependencies:
-#- gpg
-#- git
-#- bash
 build_dependencies:
 - make
 tags:
@@ -15,6 +11,9 @@ tags:
 - management
 homepage: https://www.passwordstore.org/
 description: The standard unix password manager
+messages:
+  internals: |
+    Requires bash, git and gpg.
 renovate:
   datasource: git-tags
   package: pass

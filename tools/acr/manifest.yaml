@@ -5,6 +5,7 @@ version: "0.9"
 check: "" # No usable version output
 build_dependencies:
 - go
+- make
 platforms:
 - linux/amd64
 - linux/arm64

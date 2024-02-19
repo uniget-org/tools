@@ -3,6 +3,9 @@ $schema: https://tools.uniget.dev/schema.yaml
 name: try
 version: "0.2.0"
 check: ""
+build_dependencies:
+- make
+- pandoc
 platforms:
 - linux/amd64
 - linux/arm64

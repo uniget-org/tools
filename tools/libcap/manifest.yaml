@@ -2,6 +2,8 @@ name: libcap
 version: "2.69"
 binary: ${target}/sbin/setcap
 check: "" # No version parameter
+build_dependencies:
+- make
 tags:
 - kernel/capabilities
 - type/cli

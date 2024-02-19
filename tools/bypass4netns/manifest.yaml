@@ -3,6 +3,7 @@ version: "0.4.0"
 check: XDG_RUNTIME_DIR=foo ${binary} --version | grep ^bypass4netns | cut -d' ' -f3
 build_dependencies:
 - go
+- make
 runtime_dependencies:
 - slirp4netns
 platforms:

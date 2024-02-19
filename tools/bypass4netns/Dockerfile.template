@@ -1,6 +1,7 @@
 #syntax=docker/dockerfile:1.6.0
 
 FROM ghcr.io/uniget-org/tools/go:latest AS go
+FROM ghcr.io/uniget-org/tools/make:latest AS make
 
 FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
@@ -13,6 +14,7 @@ apt-get -y install --no-install-recommends \
     libseccomp-dev
 EOF
 COPY --link --from=go / /usr/local/
+COPY --link --from=make / /usr/local/
 WORKDIR /go/src/github.com/rootless-containers/bypass4netns
 ARG name
 ARG version

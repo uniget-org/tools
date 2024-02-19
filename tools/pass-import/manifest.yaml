@@ -1,8 +1,9 @@
 name: pass-import
 version: "3.4"
 check: "" # TODO
-#build_dependencies:
+build_dependencies:
 #- python
+- pipx
 runtime_dependencies:
 - pass
 #- python

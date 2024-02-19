@@ -1,6 +1,8 @@
 name: passh
 version: "1.0.2"
 check: ${binary} --version | cut -d' ' -f2
+build_dependencies:
+- make
 tags:
 - type/cli
 - category/security

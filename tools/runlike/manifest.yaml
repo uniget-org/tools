@@ -6,7 +6,7 @@ check: "" # No version parameter
 build_dependencies:
 #- python
 - shiv
-runtime_dependencies:
+#runtime_dependencies:
 #- python
 platforms:
 - linux/amd64

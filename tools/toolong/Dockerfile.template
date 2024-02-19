@@ -1,6 +1,6 @@
 #syntax=docker/dockerfile:1.6.0
 
-FROM ghcr.io/uniget-org/tools/python:latest AS python
+#FROM ghcr.io/uniget-org/tools/python:latest AS python
 FROM ghcr.io/uniget-org/tools/shiv:latest AS shiv
 
 FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare

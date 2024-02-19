@@ -1,6 +1,8 @@
 name: socat
 version: "1.8.0.0"
 check: ${binary} -V | grep "^socat version" | cut -d' ' -f3
+build_dependencies:
+- make
 tags:
 - type/cli
 - component/network

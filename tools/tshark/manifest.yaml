@@ -3,6 +3,8 @@ $schema: https://tools.uniget.dev/schema.yaml
 name: tshark
 version: "4.2.2"
 check: ""
+build_dependencies:
+- make
 platforms:
 - linux/amd64
 #- linux/arm64

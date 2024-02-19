@@ -1,6 +1,8 @@
 name: pv
 version: "1.7.24"
 check: ${binary} --version | grep ^pv | cut -d' ' -f2
+build_dependencies:
+- make
 platforms:
 - linux/amd64
 - linux/arm64

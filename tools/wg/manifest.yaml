@@ -3,6 +3,8 @@ $schema: https://tools.uniget.dev/schema.yaml
 name: wg
 version: "1.0.20210914"
 check: ${binary} --version | cut -d' ' -f2 | cut -d- -f1 | tr -d v
+build_dependencies:
+- make
 platforms:
 - linux/amd64
 - linux/arm64

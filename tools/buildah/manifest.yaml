@@ -1,6 +1,10 @@
 name: buildah
 version: "1.34.0"
 check: ${binary} --version | cut -d' ' -f3
+build_dependencies:
+- go
+- make
+- go-md2man
 runtime_dependencies:
 - runc
 - cni
