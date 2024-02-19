@@ -133,7 +133,7 @@ jobs:
         prefix: helper
     - name: Test version extraction
       run: |
-        uniget generate uniget "${TOOL}" | docker build --tag foo --load -
+        uniget --prefix=helper generate uniget "${TOOL}" | docker build --tag foo --load -
         docker run --rm foo uniget list --installed
         docker run --rm foo uniget version "${TOOL}"
 
