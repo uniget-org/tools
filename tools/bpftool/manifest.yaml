@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: bpftool
+version: "7.3.0"
+check: ${binary} --version | grep ^bpftool | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/c
+- type/cli
+homepage: https://github.com/libbpf/bpftool
+description: bpftool
+renovate:
+  datasource: github-releases
+  package: libbpf/bpftool
+  extractVersion: ^v(?<version>.+?)$
+  priority: low

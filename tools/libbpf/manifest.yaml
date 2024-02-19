@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: libbpf
+version: "1.3.0"
+binary: "false"
+check: "" # No binary
+build_dependencies:
+- make
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/c
+- type/library
+homepage: https://github.com/libbpf/libbpf
+description: libbpf
+renovate:
+  datasource: github-releases
+  package: libbpf/libbpf
+  extractVersion: ^v(?<version>.+?)$
+  priority: low

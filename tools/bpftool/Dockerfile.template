@@ -1,0 +1,33 @@
+#syntax=docker/dockerfile:1.6.0
+
+FROM ghcr.io/uniget-org/tools/make:latest AS make
+
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+COPY --from=make / /usr/local/
+ARG name
+ARG version
+RUN <<EOF
+check-github-release-asset "libbpf/bpftool" "v${version}" "bpftool-v${version}-${alt_arch}.tar.gz"
+curl --silent --location --fail "https://github.com/libbpf/bpftool/releases/download/v${version}/bpftool-v${version}-${alt_arch}.tar.gz" \
+| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner
+chmod +x "${prefix}/bin/bpftool"
+EOF
+WORKDIR /tmp/bpftool
+RUN <<EOF
+apt-get update
+apt-get -y install --no-install-recommends \
+    python3-docutils
+EOF
+RUN <<EOF
+curl --silent --location --fail "https://github.com/libbpf/bpftool/releases/download/v${version}/bpftool-libbpf-v${version}-sources.tar.gz" \
+| tar --extract --gzip --strip-components=1 --no-same-owner
+make -C docs man
+find docs -name "*.8" -exec cp {} "${prefix}/share/man/man8/" \;
+EOF
+RUN <<EOF
+cp bash-completion/bpftool "${prefix}/share/bash-completion/completions/bpftool"
+EOF

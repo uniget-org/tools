@@ -1,28 +1,48 @@
 #syntax=docker/dockerfile:1.6.0
 
-FROM golang:1.22.0@sha256:ef61a20960397f4d44b0e729298bf02327ca94f1519239ddc6d91689615b1367 AS build
-RUN <<EOF
-apt-get update
-apt-get -y install \
-    libpcap-dev \
-    libcap-dev \
-    net-tools \
-    iproute2
-EOF
-WORKDIR /go/src/github.com/k8spacket/k8spacket
-ARG name
-ARG version
-ENV GOPROXY=direct
-RUN <<EOF
-git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/k8spacket/k8spacket .
-go build -o /usr/local/bin/k8spacket .
-EOF
+FROM ghcr.io/uniget-org/tools/go:latest AS go
+FROM ghcr.io/uniget-org/tools/bpftool:latest AS bpftool
+FROM ghcr.io/uniget-org/tools/libbpf:latest AS libbpf
 
-FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS headers
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
+COPY --link --from=bpftool / /usr/local/
+COPY --link --from=libbpf / /usr/local/
+WORKDIR /go/src/github.com/k8spacket/k8spacket
 ARG name
 ARG version
-COPY --from=build /usr/local/bin/k8spacket /uniget_bootstrap/bin/
+RUN <<EOF
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/k8spacket/k8spacket .
+./libbpf.sh
+cp *.h ebpf/inet/bpf
+cp *.h ebpf/tc/bpf
+EOF
+
+FROM headers AS prepare
+RUN <<EOF
+apt-get update
+apt-get -y install --no-install-recommends \
+    clang \
+    llvm
+EOF
+COPY --link --from=go / /usr/local/
+ARG name
+ARG version
+ENV GOPROXY=direct
+RUN <<EOF
+cd ebpf/inet
+go generate -ldflags "-w -s"
+EOF
+RUN <<EOF
+cd ebpf/tc
+go generate -ldflags "-w -s"
+EOF
+RUN <<EOF
+#./init.sh
+export GO111MODULE=on
+export CGO_ENABLED=0
+go build -ldflags '-w -s' -o "${prefix}/bin/k8spacket" .
+EOF
