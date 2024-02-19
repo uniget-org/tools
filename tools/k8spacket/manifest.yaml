@@ -3,7 +3,7 @@ version: "2.0.0"
 check: "" # No version parameter
 platforms:
 - linux/amd64
-- linux/arm64
+#- linux/arm64
 tags:
 - troubleshooting
 - component/network
@@ -12,6 +12,7 @@ tags:
 - state/onemanshow
 - kubernetes
 - k8s
+- ebpf
 homepage: https://github.com/k8spacket/k8spacket
 description: Traffic visualization for kubernetes
 renovate:
