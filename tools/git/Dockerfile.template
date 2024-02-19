@@ -45,6 +45,3 @@ make -j$(nproc) all
 make -j$(nproc) doc
 make install install-doc install-html
 EOF
-
-#FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
-#COPY --from=alpine /uniget_bootstrap /uniget_bootstrap

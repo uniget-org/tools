@@ -4,7 +4,6 @@ FROM ghcr.io/uniget-org/tools/make:latest AS make
 FROM ghcr.io/uniget-org/tools/go:latest AS go
 
 FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
-#FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
