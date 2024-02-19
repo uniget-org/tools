@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: shortnames
 version: "2023.02.20"
 binary: "false"

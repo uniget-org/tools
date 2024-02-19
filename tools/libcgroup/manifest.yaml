@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: libcgroup
 version: "3.1.0"
 binary: ${target}/bin/lscgroup

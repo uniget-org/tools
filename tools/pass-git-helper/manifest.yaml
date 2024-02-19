@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: pass-git-helper
 version: "1.4.0"
 check: "" # TODO

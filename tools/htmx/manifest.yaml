@@ -1,4 +1,5 @@
-name: htmx
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+ame: htmx
 version: "1.9.10"
 binary: "false"
 check: "" # No binary

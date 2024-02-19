@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kubesec
 version: "2.14.0"
 check: "" # Empty version

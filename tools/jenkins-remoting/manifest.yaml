@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: jenkins-remoting
 version: "3206.vb_15dcf73f6a_9"
 binary: "false"

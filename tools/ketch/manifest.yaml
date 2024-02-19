@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: ketch
 version: "0.7.0"
 check: "" # No version parameter
