@@ -114,6 +114,29 @@ jobs:
     - run: |
         true
 
+  test:
+    name: Test version extraction
+    needs:
+    - collect
+    - success
+    runs-on: ubuntu-22.04
+    strategy:
+      fail-fast: false
+      matrix:
+        tool: ${{ fromJSON(needs.collect.outputs.tools) }}
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Install uniget
+      uses: uniget-org/uniget-action@v1
+      with:
+        prefix: helper
+    - name: Test version extraction
+      run: |
+        uniget generate uniget "${TOOL}" | docker build --tag foo --load -
+        docker run --rm foo uniget list --installed
+        docker run --rm foo uniget version "${TOOL}"
+
   visibility:
     name: Check visibility
     needs:
