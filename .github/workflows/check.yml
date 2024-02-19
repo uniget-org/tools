@@ -134,8 +134,8 @@ jobs:
     - name: Test version extraction
       run: |
         uniget --prefix=helper generate uniget "${{ matrix.tool }}" | docker build --tag foo --load -
-        docker run --rm foo --volume "${PWD}/helper/var/cache/uniget/metadata.json:/var/cache/uniget/metadata.json" uniget list --installed
-        docker run --rm foo --volume "${PWD}/helper/var/cache/uniget/metadata.json:/var/cache/uniget/metadata.json" uniget version "${{ matrix.tool }}"
+        docker run --rm --volume "${PWD}/helper/var/cache/uniget/metadata.json:/var/cache/uniget/metadata.json" foo uniget list --installed
+        docker run --rm --volume "${PWD}/helper/var/cache/uniget/metadata.json:/var/cache/uniget/metadata.json" foo uniget version "${{ matrix.tool }}"
 
   visibility:
     name: Check visibility
