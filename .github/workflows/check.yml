@@ -180,6 +180,7 @@ jobs:
     name: Scan container images
     needs:
     - collect_versions
+    - success
     permissions:
       security-events: write
       pull-requests: write
@@ -199,6 +200,7 @@ jobs:
     name: Test version extraction
     needs:
     - collect_versions
+    - success
     runs-on: ubuntu-22.04
     strategy:
       fail-fast: false
