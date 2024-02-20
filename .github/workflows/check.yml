@@ -131,7 +131,6 @@ jobs:
     name: Collect versions for tools
     needs:
     - collect
-    - success
     runs-on: ubuntu-22.04
     outputs:
       tools_with_version: ${{ steps.extract_versions.outputs.tools_with_version }}
@@ -214,8 +213,8 @@ jobs:
     - name: Test version extraction
       run: |
         TOOL_WITH_VERSION="${{ matrix.tool_with_version }}"
-        TOOL="$( echo "${TOOL_WITH_VERSION}" | cut -d= -f1 )"
-        VERSION="$( echo "${TOOL_WITH_VERSION}" | cut -d= -f2 )"
+        TOOL="$( echo "${TOOL_WITH_VERSION}" | cut -d: -f1 )"
+        VERSION="$( echo "${TOOL_WITH_VERSION}" | cut -d: -f2 )"
         uniget --prefix=helper generate uniget "${TOOL}@${VERSION}" | docker build --tag foo --load -
         docker run --rm --volume "${PWD}/helper/var/cache/uniget/metadata.json:/var/cache/uniget/metadata.json" foo uniget list --installed
         docker run --rm --volume "${PWD}/helper/var/cache/uniget/metadata.json:/var/cache/uniget/metadata.json" foo uniget version "${TOOL}"
