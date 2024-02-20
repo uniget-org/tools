@@ -114,29 +114,6 @@ jobs:
     - run: |
         true
 
-  test:
-    name: Test version extraction
-    needs:
-    - collect
-    - success
-    runs-on: ubuntu-22.04
-    strategy:
-      fail-fast: false
-      matrix:
-        tool: ${{ fromJSON(needs.collect.outputs.tools) }}
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-    - name: Install uniget
-      uses: uniget-org/uniget-action@v1
-      with:
-        prefix: helper
-    - name: Test version extraction
-      run: |
-        uniget --prefix=helper generate uniget "${{ matrix.tool }}" | docker build --tag foo --load -
-        docker run --rm --volume "${PWD}/helper/var/cache/uniget/metadata.json:/var/cache/uniget/metadata.json" foo uniget list --installed
-        docker run --rm --volume "${PWD}/helper/var/cache/uniget/metadata.json:/var/cache/uniget/metadata.json" foo uniget version "${{ matrix.tool }}"
-
   visibility:
     name: Check visibility
     needs:
@@ -217,3 +194,26 @@ jobs:
     secrets:
       DOCKERHUB_USER: ${{ secrets.DOCKERHUB_USER }}
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+
+  test:
+    name: Test version extraction
+    needs:
+    - collect_versions
+    runs-on: ubuntu-22.04
+    strategy:
+      fail-fast: false
+      matrix:
+        tool_with_version: ${{ fromJSON(needs.collect_versions.outputs.tools_with_version) }}
+    steps:
+    - name: Install uniget
+      uses: uniget-org/uniget-action@v1
+      with:
+        prefix: helper
+    - name: Test version extraction
+      run: |
+        TOOL_WITH_VERSION="${{ matrix.tool }}"
+        TOOL="$( echo "${TOOL_WITH_VERSION}" | cut -d= -f1 )"
+        VERSION="$( echo "${TOOL_WITH_VERSION}" | cut -d= -f2 )"
+        uniget --prefix=helper generate uniget "${TOOL}@${VERSION}" | docker build --tag foo --load -
+        docker run --rm --volume "${PWD}/helper/var/cache/uniget/metadata.json:/var/cache/uniget/metadata.json" foo uniget list --installed
+        docker run --rm --volume "${PWD}/helper/var/cache/uniget/metadata.json:/var/cache/uniget/metadata.json" foo uniget version "${TOOL}"
