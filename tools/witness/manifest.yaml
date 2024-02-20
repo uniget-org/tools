@@ -1,5 +1,5 @@
 name: witness
-version: "0.2.0"
+version: "0.3.0"
 check: ${binary} version | cut -d' ' -f2 | cut -d- -f1 | tr -d v
 tags:
 - type/cli
