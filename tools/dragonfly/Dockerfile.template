@@ -8,8 +8,8 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
-check-github-release-asset "dragonflyoss/Dragonfly2" "v${version}" "dragonfly-2.1.30-linux-amd64.tar.gz"
-curl --silent --location --fail "https://github.com/dragonflyoss/Dragonfly2/releases/download/v2.1.30/dragonfly-2.1.30-linux-amd64.tar.gz" \
+check-github-release-asset "dragonflyoss/Dragonfly2" "v${version}" "dragonfly-${version}-linux-${alt_version}.tar.gz"
+curl --silent --location --fail "https://github.com/dragonflyoss/Dragonfly2/releases/download/v${version}/dragonfly-${version}-linux-${alt_version}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     dfget \
     dfcache \
@@ -18,32 +18,32 @@ curl --silent --location --fail "https://github.com/dragonflyoss/Dragonfly2/rele
     manager \
     trainer
 
-# https://github.com/dragonflyoss/Dragonfly2/raw/v2.1.30/build/package/nfpm/systemd/dfget-daemon.service
-# https://github.com/dragonflyoss/Dragonfly2/raw/v2.1.30/build/package/nfpm/systemd/fix.dfget-daemon.cpuset.sh
-# https://github.com/dragonflyoss/Dragonfly2/raw/v2.1.30/build/package/nfpm/systemd/dfget-daemon.service.d/CPUQuota.conf
-# https://github.com/dragonflyoss/Dragonfly2/raw/v2.1.30/build/package/nfpm/systemd/dfget-daemon.service.d/CPUShares.conf
-# https://github.com/dragonflyoss/Dragonfly2/raw/v2.1.30/build/package/nfpm/systemd/dfget-daemon.service.d/MemoryLimit.conf
-    
+# https://github.com/dragonflyoss/Dragonfly2/raw/v${version}/build/package/nfpm/systemd/dfget-daemon.service
+# https://github.com/dragonflyoss/Dragonfly2/raw/v${version}/build/package/nfpm/systemd/fix.dfget-daemon.cpuset.sh
+# https://github.com/dragonflyoss/Dragonfly2/raw/v${version}/build/package/nfpm/systemd/dfget-daemon.service.d/CPUQuota.conf
+# https://github.com/dragonflyoss/Dragonfly2/raw/v${version}/build/package/nfpm/systemd/dfget-daemon.service.d/CPUShares.conf
+# https://github.com/dragonflyoss/Dragonfly2/raw/v${version}/build/package/nfpm/systemd/dfget-daemon.service.d/MemoryLimit.conf
+
 "${prefix}/bin/dfget" completion bash >"${prefix}/share/bash-completion/completions/dfget"
 "${prefix}/bin/dfget" completion fish >"${prefix}/share/fish/vendor_completions.d/dfget.fish"
 "${prefix}/bin/dfget" completion zsh >"${prefix}/share/zsh/vendor-completions/_dfget"
-    
+
 "${prefix}/bin/dfcache" completion bash >"${prefix}/share/bash-completion/completions/dfcache"
 "${prefix}/bin/dfcache" completion fish >"${prefix}/share/fish/vendor_completions.d/dfcache.fish"
 "${prefix}/bin/dfcache" completion zsh >"${prefix}/share/zsh/vendor-completions/_dfcache"
-    
+
 "${prefix}/bin/dfstore" completion bash >"${prefix}/share/bash-completion/completions/dfstore"
 "${prefix}/bin/dfstore" completion fish >"${prefix}/share/fish/vendor_completions.d/dfstore.fish"
 "${prefix}/bin/dfstore" completion zsh >"${prefix}/share/zsh/vendor-completions/_dfstore"
-    
+
 "${prefix}/bin/manager" completion bash >"${prefix}/share/bash-completion/completions/manager"
 "${prefix}/bin/manager" completion fish >"${prefix}/share/fish/vendor_completions.d/manager.fish"
 "${prefix}/bin/manager" completion zsh >"${prefix}/share/zsh/vendor-completions/_manager"
-    
+
 "${prefix}/bin/scheduler" completion bash >"${prefix}/share/bash-completion/completions/scheduler"
 "${prefix}/bin/scheduler" completion fish >"${prefix}/share/fish/vendor_completions.d/scheduler.fish"
 "${prefix}/bin/scheduler" completion zsh >"${prefix}/share/zsh/vendor-completions/_scheduler"
-    
+
 "${prefix}/bin/trainer" completion bash >"${prefix}/share/bash-completion/completions/trainer"
 "${prefix}/bin/trainer" completion fish >"${prefix}/share/fish/vendor_completions.d/trainer.fish"
 "${prefix}/bin/trainer" completion zsh >"${prefix}/share/zsh/vendor-completions/_trainer"
