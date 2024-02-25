@@ -1,5 +1,5 @@
 name: python
-version: "3.12.1.20240107"
+version: "3.12.2.20240224"
 check: ""
 tags:
 - category/development
