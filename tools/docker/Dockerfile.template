@@ -42,8 +42,8 @@ RUN <<EOF
 check-download "https://github.com/moby/moby/raw/v${version}/contrib/init/systemd/docker.service"
 curl --silent --location --fail --output "${prefix}/etc/systemd/system/docker.service" \
     "https://github.com/moby/moby/raw/v${version}/contrib/init/systemd/docker.service"
-sed -i "/^\[Service\]/a Environment=PATH=/libexec/${name}/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin" "${prefix}/etc/systemd/system/docker.service"
-sed -i -E "s|^(ExecStart=)/usr/bin/dockerd(.+)$|\1/bin/dockerd|" "${prefix}/etc/systemd/system/docker.service"
+sed -i "/^\[Service\]/a Environment=PATH=/usr/local/libexec/${name}/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin" "${prefix}/etc/systemd/system/docker.service"
+sed -i -E "s|^(ExecStart=)/usr/bin/dockerd(.+)$|\1/usr/local/bin/dockerd|" "${prefix}/etc/systemd/system/docker.service"
 sed -i -n '/Type=notify/!p' "${prefix}/etc/systemd/system/docker.service"
 sed -i -n '/Requires=docker.socket/!p' "${prefix}/etc/systemd/system/docker.service"
 EOF
@@ -54,8 +54,8 @@ curl --silent --location --fail --output "${prefix}${uniget_contrib}/${name}/sys
 
 curl --silent --location --fail --output "${prefix}${uniget_contrib}/${name}/sysvinit/debian/docker" \
     "https://github.com/moby/moby/raw/v${version}/contrib/init/sysvinit-debian/docker"
-sed -i -E "s|^(export PATH=)|\1/libexec/${name}/bin:|" "${prefix}${uniget_contrib}/${name}/sysvinit/debian/docker"
-sed -i -E "s|^DOCKERD=/usr/bin/dockerd|DOCKERD=/bin/dockerd|" "${prefix}${uniget_contrib}/${name}/sysvinit/debian/docker"
+sed -i -E "s|^(export PATH=)|\1/usr/local/libexec/${name}/bin:|" "${prefix}${uniget_contrib}/${name}/sysvinit/debian/docker"
+sed -i -E "s|^DOCKERD=/usr/bin/dockerd|DOCKERD=/usr/local/bin/dockerd|" "${prefix}${uniget_contrib}/${name}/sysvinit/debian/docker"
 chmod +x "${prefix}${uniget_contrib}/${name}/sysvinit/debian/docker"
 
 curl --silent --location --fail --output "${prefix}${uniget_contrib}/${name}/sysvinit/redhat/docker.sysconfig" \
@@ -63,16 +63,16 @@ curl --silent --location --fail --output "${prefix}${uniget_contrib}/${name}/sys
 
 curl --silent --location --fail --output "${prefix}${uniget_contrib}/${name}/sysvinit/redhat/docker" \
     "https://github.com/moby/moby/raw/v${version}/contrib/init/sysvinit-redhat/docker"
-sed -i -E "s|(^prog=)|export PATH="/libexec/${name}/bin:/sbin:/bin:\${PATH}"\n\n\1|" "${prefix}${uniget_contrib}/${name}/sysvinit/redhat/docker"
-sed -i -E "s|/usr/bin/dockerd|/bin/dockerd|" "${prefix}${uniget_contrib}/${name}/sysvinit/redhat/docker"
+sed -i -E "s|(^prog=)|export PATH="/usr/local/libexec/${name}/bin:/sbin:/bin:\${PATH}"\n\n\1|" "${prefix}${uniget_contrib}/${name}/sysvinit/redhat/docker"
+sed -i -E "s|/usr/bin/dockerd|/usr/local/bin/dockerd|" "${prefix}${uniget_contrib}/${name}/sysvinit/redhat/docker"
 chmod +x "${prefix}${uniget_contrib}/${name}/sysvinit/redhat/docker"
 
 curl --silent --location --fail --output "${prefix}${uniget_contrib}/${name}/openrc/docker.confd" \
     "https://github.com/moby/moby/raw/v${version}/contrib/init/openrc/docker.confd"
-sed -i "s|/usr/bin/dockerd|/bin/dockerd|" "${prefix}${uniget_contrib}/${name}/openrc/docker.confd"
+sed -i "s|/usr/bin/dockerd|/usr/local/bin/dockerd|" "${prefix}${uniget_contrib}/${name}/openrc/docker.confd"
 
 curl --silent --location --fail --output "${prefix}${uniget_contrib}/${name}/openrc/docker.initd" \
     "https://github.com/moby/moby/raw/v${version}/contrib/init/openrc/docker.initd"
-sed -i -E "s|^(command=)|export PATH="/libexec/${name}/bin:\${PATH}"\n\n\1|" "${prefix}${uniget_contrib}/${name}/openrc/docker.initd"
-sed -i "s|/usr/bin/dockerd|/bin/dockerd|" "${prefix}${uniget_contrib}/${name}/openrc/docker.initd"
+sed -i -E "s|^(command=)|export PATH="/usr/local/libexec/${name}/bin:\${PATH}"\n\n\1|" "${prefix}${uniget_contrib}/${name}/openrc/docker.initd"
+sed -i "s|/usr/bin/dockerd|/usr/local/bin/dockerd|" "${prefix}${uniget_contrib}/${name}/openrc/docker.initd"
 EOF
