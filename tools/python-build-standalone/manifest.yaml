@@ -1,10 +1,11 @@
 name: python-build-standalone
 version: "3.12.2.20240224"
 check: ""
+binary: python
 tags:
-  - category/development
-  - lang/python
-  - type/cli
+- category/development
+- lang/python
+- type/cli
 homepage: https://github.com/indygreg/python-build-standalone
 description: Redistributable builds of Python
 renovate:
