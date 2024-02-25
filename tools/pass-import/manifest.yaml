@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: pass-import
-version: "3.4"
+version: "3.5"
 check: "" # TODO
 build_dependencies:
 #- python
