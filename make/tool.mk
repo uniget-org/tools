@@ -40,7 +40,7 @@ $(addsuffix /Dockerfile,$(ALL_TOOLS)):$(TOOLS_DIR)/%/Dockerfile: \
 	cat $@.template >$@; \
 	echo >>$@; \
 	echo >>$@; \
-	if test -f $(TOOLS_DIR)/$*/post_install.sh; then echo 'COPY post_install.sh $${prefix}$${uniget_post_install}/$${name}.sh' >>$@; fi; \
+	if test -f $(TOOLS_DIR)/$*/post_install.sh; then echo 'COPY post_install.sh /uniget_bootstrap/var/lib/uniget/post_install/$*.sh' >>$@; fi; \
 	cat $(TOOLS_DIR)/Dockerfile.tail >>$@
 
 .PHONY:
