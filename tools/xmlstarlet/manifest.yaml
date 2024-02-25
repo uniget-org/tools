@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: xmlstarlet
+version: "1.6.1"
+check: ""
+build_dependencies:
+- bar
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- category/development
+- lang/c
+- type/cli
+homepage: https://sourceforge.net/projects/xmlstar/
+description: Command line XML toolkit
+renovate:
+  datasource: git-tags
+  package: https://git.code.sf.net/p/xmlstar/code
+  #extractVersion: ^\d+\.\d+\.\d+$
+  priority: low

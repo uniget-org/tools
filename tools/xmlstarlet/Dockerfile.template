@@ -1,0 +1,27 @@
+#syntax=docker/dockerfile:1.6.0
+
+FROM ghcr.io/uniget-org/tools/make:latest AS make
+
+FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+COPY --link --from=make / /usr/local/
+RUN <<EOF
+apt-get update
+apt-get -y install --no-install-recommends \
+    libxml2-dev \
+    libxslt-dev \
+    xsltproc
+EOF
+WORKDIR /tmp/xmlstarlet
+ARG name
+ARG version
+RUN <<EOF
+git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" https://git.code.sf.net/p/xmlstar/code .
+autoreconf -sif
+./configure --prefix="${prefix}"
+make #LDFLAGS=-static
+make install
+EOF

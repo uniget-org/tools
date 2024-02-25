@@ -2990,7 +2990,7 @@
       "depNameTemplate": "bigskysoftware/htmx",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
-        "^tools/htmx/manifest.yaml$"
+        "^tools//manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
@@ -7696,6 +7696,17 @@
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
         "^tools/xh/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "git-tags",
+      "depNameTemplate": "https://git.code.sf.net/p/xmlstar/code",
+      "fileMatch": [
+        "^tools/xmlstarlet/manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
