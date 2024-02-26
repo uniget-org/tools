@@ -2,11 +2,16 @@
 
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 
-FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/build-base:3.19 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
+RUN <<EOF
+apk update
+apk add \
+    linux-headers
+EOF
 COPY --link --from=make / /usr/local/
 WORKDIR /tmp/github.com/nelhage/reptyr
 ARG name
@@ -15,8 +20,7 @@ RUN <<EOF
 check-clone https://github.com/nelhage/reptyr "reptyr-${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "reptyr-${version}" https://github.com/nelhage/reptyr .
 sed -E -i "s/#define REPTYR_VERSION \".+\"/#define REPTYR_VERSION \"${version}\"/" reptyr.h
-export LDFLAGS=-static
-make -j$(nproc) reptyr
+make -j$(nproc) reptyr LDFLAGS=-static
 mkdir -p /opt/reptyr/bin /opt/reptyr/share/man/man1
 cp reptyr "${prefix}/bin/"
 cp reptyr.1 "${prefix}/share/man/man1/"

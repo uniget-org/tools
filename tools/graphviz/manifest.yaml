@@ -1,6 +1,7 @@
 name: graphviz
 version: "10.0.1"
-check: ""
+binary: dot
+check: ${binary} --version 2>&1 | cut -d' ' -f5
 platforms:
 - linux/amd64
 #- linux/arm64

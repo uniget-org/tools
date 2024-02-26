@@ -2,7 +2,7 @@
 
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 
-FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/build-base:3.19 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -10,14 +10,17 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
-apt-get update
-apt-get -y install --no-install-recommends \
-    libtalloc-dev
+apk update
+apk add \
+    talloc-dev \
+    talloc-static \
+    linux-headers \
+    bsd-compat-headers
 EOF
 COPY --link --from=make / /usr/local/
 WORKDIR /tmp/proot
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/proot-me/proot .
-make -C src -j$(nproc)
+make -C src -j$(nproc) LDFLAGS=-static
 cp src/proot "${prefix}/bin/"
 EOF

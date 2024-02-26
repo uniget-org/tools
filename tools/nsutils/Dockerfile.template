@@ -2,17 +2,17 @@
 
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 
-FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/build-base:3.19 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
 RUN <<EOF
-apt-get update
-apt-get -y install --no-install-recommends \
+apk update
+apk add \
     libcap-dev \
     libbsd-dev \
-    libcap2-bin
+    linux-headers
 EOF
 COPY --link --from=make / /usr/local/
 WORKDIR /tmp/nsutils
@@ -23,6 +23,6 @@ check-clone https://github.com/rd235/nsutils "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/rd235/nsutils .
 autoreconf -if
 ./configure --prefix="${prefix}"
-make -j$(nproc) LDFLAGS=--static
+make -j$(nproc) LDFLAGS=-static
 make install
 EOF

@@ -2,13 +2,18 @@
 
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 
-FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/build-base:3.19 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-WORKDIR /tmp/wireguard-tools
+RUN <<EOF
+apk update
+apk add \
+    linux-headers
+EOF
 COPY --link --from=make / /usr/local/
+WORKDIR /tmp/wireguard-tools
 ARG name
 ARG version
 RUN <<EOF

@@ -2,7 +2,7 @@
 
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 
-FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/build-base:3.19 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -15,5 +15,5 @@ RUN <<EOF
 check-clone https://github.com/ncopa/su-exec "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/ncopa/su-exec .
 make -j$(nproc) su-exec-static
-cp su-exec-static /usr/local/bin/su-exec
+mv su-exec-static "${prefix}/bin/su-exec"
 EOF

@@ -2,16 +2,11 @@
 
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 
-FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/build-base:3.19 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-RUN <<EOF
-apt-get update
-apt-get -y install --no-install-recommends \
-    yodl
-EOF
 COPY --link --from=make / /usr/local/
 WORKDIR /tmp/socat
 ARG name
@@ -22,7 +17,7 @@ curl --silent --location --fail "http://www.dest-unreach.org/socat/download/soca
 | tar --extract --gzip --strip-components=1
 autoconf
 ./configure
-make -j$(nproc)
+make -j$(nproc) LDFLAGS=-static
 cp socat "${prefix}/bin/"
 cp doc/socat.1 "${prefix}/share/man/man1/"
 EOF

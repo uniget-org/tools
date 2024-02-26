@@ -2,7 +2,7 @@
 
 FROM ghcr.io/uniget-org/tools/go:latest AS go
 
-FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/build-base:3.19 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -11,11 +11,9 @@ COPY --link --from=go / /usr/local/
 WORKDIR /go/src/github.com/keybase/client
 ARG name
 ARG version
-# Unable to create statically linked binary
-# - No effect of -ldflags "-s -w"
-# - Fails with CGO_ENABLED=0
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/keybase/client .
+export CGO_ENABLED=0
 cd go
 go build -tags production -o "${prefix}/bin/keybase" github.com/keybase/client/go/keybase
 EOF
