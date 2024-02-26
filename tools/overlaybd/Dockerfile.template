@@ -8,20 +8,21 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
 RUN <<EOF
-apt-get update
-apt-get -y install --no-install-recommends \
+apk update
+apk add \
     cmake \
-    libcurl4-openssl-dev \
-    libssl-dev \
+    curl-dev \
+    openssl-dev \
     libaio-dev \
-    libnl-3-dev \
-    libnl-genl-3-dev \
-    libgflags-dev \
-    libzstd-dev \
-    libext2fs-dev \
-    zlib1g-dev \
-    libgtest-dev \
-    sudo
+    libnl3-dev \
+    gflags-dev \
+    zstd-dev \
+    e2fsprogs-dev \
+    zlib-dev \
+    gtest-dev \
+    sudo \
+    linux-headers \
+    elfutils-dev
 EOF
 COPY --link --from=make / /usr/local/
 WORKDIR /tmp/overlaybd
