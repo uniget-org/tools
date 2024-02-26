@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: promtool
-version: "2.50.0"
+version: "2.50.1"
 check: "" # No version parameter
 build_dependencies:
 - go
