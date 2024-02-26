@@ -31,10 +31,10 @@ RUN <<EOF
 check-github-release-asset "roddhjav/pass-import" "v${version}" "pass-import-${version}.tar.gz"
 curl --silent --location --fail "https://github.com/roddhjav/pass-import/releases/download/v${version}/pass-import-${version}.tar.gz" \
 | tar --extract --gzip --strip-components=1 \
-    pass-import-${version}/import.bash \
-    pass-import-${version}/share/man/man1 \
-    pass-import-${version}/share/bash-completion \
-    pass-import-${version}/share/zsh/site-functions
+    "pass-import-${version}/import.bash" \
+    "pass-import-${version}/share/man/man1" \
+    "pass-import-${version}/share/bash-completion" \
+    "pass-import-${version}/share/zsh/site-functions"
 mkdir -p "${prefix}/lib/password-store/extensions/"
 mv import.bash "${prefix}/lib/password-store/extensions/"
 sed -i 's/python3 -m pass_import/pimport/g' "${prefix}/lib/password-store/extensions/import.bash"
