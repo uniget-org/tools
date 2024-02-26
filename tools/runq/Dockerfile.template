@@ -4,7 +4,7 @@ FROM ghcr.io/uniget-org/tools/go:latest AS go
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 FROM ghcr.io/uniget-org/tools/tini:main AS tini
 
-FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/build-base:3.19 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -13,8 +13,8 @@ COPY --link --from=go / /usr/local/
 COPY --link --from=make / /usr/local/
 COPY --link --from=tini / /usr/local/
 RUN <<EOF
-apt-get update
-apt-get -y install --no-install-recommends \
+apk update
+apk add \
     libseccomp-dev
 EOF
 WORKDIR /go/src/github.com/gotoz/runq
