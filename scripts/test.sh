@@ -21,5 +21,5 @@ docker run --interactive --rm --env TOOL --env VERSION --volume "${PWD}/metadata
 mv /usr/local/var/lib/uniget /var/lib/
 uniget list --installed
 uniget healthcheck "${TOOL}"
-uniget version "${TOOL}
+uniget version "${TOOL}"
 EOF
