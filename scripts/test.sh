@@ -20,4 +20,6 @@ uniget --prefix=test generate uniget "${TOOL}@${VERSION}" \
 docker run --interactive --rm --env TOOL --env VERSION --volume "${PWD}/metadata.json:/var/cache/uniget/metadata.json" test bash <<EOF
 mv /usr/local/var/lib/uniget /var/lib/
 uniget list --installed
+uniget healthcheck "${TOOL}"
+uniget version "${TOOL}
 EOF
