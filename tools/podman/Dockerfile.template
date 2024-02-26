@@ -16,8 +16,6 @@ COPY --link --from=go-md2man / /usr/local/
 COPY --link --from=cni / /usr/local/
 RUN <<EOF
 apk add --update-cache --no-cache \
-    gcc \
-    pkgconf \
     musl-dev \
 	btrfs-progs \
     btrfs-progs-dev \

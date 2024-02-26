@@ -15,5 +15,5 @@ ARG name
 ARG version
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" https://github.com/parke/lxroot .
-g++ lxroot.cpp -o "${prefix}/bin/lxroot-static" -s -Os -fomit-frame-pointer -fno-stack-protector -ffunction-sections -fdata-sections -Wl,--gc-sections -fno-unroll-loops -fmerge-all-constants -fno-ident -Wl,-z,norelro -Wl,--build-id=none -fno-exceptions -fno-rtti -static
+g++ lxroot.cpp -o "${prefix}/bin/lxroot" -s -Os -fomit-frame-pointer -fno-stack-protector -ffunction-sections -fdata-sections -Wl,--gc-sections -fno-unroll-loops -fmerge-all-constants -fno-ident -Wl,-z,norelro -Wl,--build-id=none -fno-exceptions -fno-rtti -static
 EOF
