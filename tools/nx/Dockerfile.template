@@ -12,7 +12,7 @@ ARG name
 ARG version
 COPY --link --from=nodejs / /usr/local/
 COPY --link --from=npm / /usr/local/
-WORKDIR ${prefix}/libexec/nx
+WORKDIR /uniget_bootstrap/libexec/nx
 ARG name
 ARG version
 RUN <<EOF
