@@ -1,6 +1,7 @@
 #syntax=docker/dockerfile:1.6.0
 
 FROM ghcr.io/uniget-org/tools/make:latest AS make
+FROM ghcr.io/uniget-org/tools/libcap:latest AS libcap
 
 FROM ghcr.io/uniget-org/images/build-base:3.19 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
@@ -11,10 +12,13 @@ RUN <<EOF
 apk update
 apk add \
     libcap-dev \
+    libcap-static \
     libbsd-dev \
+    libbsd-static \
     linux-headers
 EOF
 COPY --link --from=make / /usr/local/
+COPY --link --from=libcap / /usr/local/
 WORKDIR /tmp/nsutils
 ARG name
 ARG version
@@ -23,6 +27,19 @@ check-clone https://github.com/rd235/nsutils "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/rd235/nsutils .
 autoreconf -if
 ./configure --prefix="${prefix}"
+if test "${version}" == "0.2"; then
+    cat <<EOP | patch -p0
+--- nssearch.c.orig
++++ nssearch.c
+@@ -25,6 +25,7 @@
+ #include <stdlib.h>
+ #include <string.h>
+ #include <ctype.h>
++#include <limits.h>
+ #include <dirent.h>
+ #include <regex.h>
+EOP
+fi
 make -j$(nproc) LDFLAGS=-static
 make install
 EOF
