@@ -2,7 +2,7 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: lxroot
 version: "0.22.1"
-check: "" # No version parameter
+check: ${binary} --version 2>&1 | tr -s ' ' | cut -d' ' -f3
 platforms:
 - linux/amd64
 - linux/arm64

@@ -1,6 +1,6 @@
 #syntax=docker/dockerfile:1.6.0
 
-FROM alpine:3.19@sha256:c5b1261d6d3e43071626931fc004f70149baeba2c8ec672bd4f27761f8e1ad6b AS build
+FROM ghcr.io/uniget-org/images/build-base:3.19 AS build
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -8,7 +8,6 @@ ENV CC=clang
 RUN <<EOF
 apk update
 apk add \
-    build-base \
     clang \
     openssl-dev \
     nghttp2-dev \
