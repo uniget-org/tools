@@ -2,9 +2,8 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: xmlstarlet
 version: "1.6.1"
-check: ""
-build_dependencies:
-- bar
+binary: xml
+check: ${binary} --version | head -n 1
 platforms:
 - linux/amd64
 #- linux/arm64

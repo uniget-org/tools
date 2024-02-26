@@ -2,26 +2,37 @@
 
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 
-FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/build-base:3.19 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=make / /usr/local/
 RUN <<EOF
-apt-get update
-apt-get -y install --no-install-recommends \
+apk update
+apk add \
+    ghostscript \
     libxml2-dev \
+    libxml2-static \
     libxslt-dev \
-    xsltproc
+    libxslt-static \
+    xz-dev \
+    xz-static \
+    libgcrypt-dev \
+    libgcrypt-static \
+    zlib-dev \
+    zlib-static \
+    libgpg-error-dev \
+    libgpg-error-static
 EOF
 WORKDIR /tmp/xmlstarlet
 ARG name
 ARG version
 RUN <<EOF
-git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" https://git.code.sf.net/p/xmlstar/code .
-autoreconf -sif
-./configure --prefix="${prefix}"
-make #LDFLAGS=-static
-make install
+curl --silent --show-error --location --fail https://sourceforge.net/projects/xmlstar/files/xmlstarlet/${version}/xmlstarlet-${version}.tar.gz/download \
+| tar --extract --gzip --strip-components=1
+./configure --prefix="${prefix}" --enable-static-libs --enable-build-docs
+make LDFLAGS="-static" LIBS="-llzma -lgcrypt -lgpg-error"
+make install DESTDIR="${prefix}" prefix=""
+ln --symbolic --relative --force "${prefix}/bin/xml" "${prefix}/bin/xmlstarlet"
 EOF
