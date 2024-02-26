@@ -1,5 +1,5 @@
 name: gitea
-version: "1.21.6"
+version: "1.21.7"
 check: ${binary} --version | cut -d' ' -f3
 platforms:
 - linux/amd64
