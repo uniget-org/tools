@@ -10,8 +10,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
-apk update
-apk add \
+apk add --update-cache --no-cache \
     talloc-dev \
     talloc-static \
     linux-headers \

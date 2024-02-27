@@ -8,8 +8,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
 RUN <<EOF
-apk update
-apk add \
+apk add --update-cache --no-cache \
     zlib-dev \
     zlib-static
 EOF

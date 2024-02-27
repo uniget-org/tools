@@ -9,8 +9,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=make / /usr/local/
 RUN <<EOF
-apk update
-apk add \
+apk add --update-cache --no-cache \
     linux-headers
 EOF
 WORKDIR /tmp/passt
