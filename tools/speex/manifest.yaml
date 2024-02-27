@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: speex
+version: "1.2.1"
+binary: "false"
+check: ""
+build_dependencies:
+- make
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- category/development
+- lang/c
+- type/library
+homepage: https://gitlab.xiph.org/xiph/speex
+description: Speex voice codec
+renovate:
+  datasource: gitlab-releases
+  package: xiph/speex
+  extractVersion: ^Speex-(?<version>.+?)$
+  priority: low
