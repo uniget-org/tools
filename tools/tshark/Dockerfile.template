@@ -25,7 +25,9 @@ apk add --update-cache --no-cache \
     c-ares-static \
     pcre-dev \
     libgpg-error-dev \
-    libgpg-error-static
+    libgpg-error-static \
+    gettext-dev \
+    gettext-static
 EOF
 WORKDIR /tmp/wireshark
 ARG name

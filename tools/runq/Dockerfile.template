@@ -14,7 +14,8 @@ COPY --link --from=make / /usr/local/
 COPY --link --from=tini / /usr/local/
 RUN <<EOF
 apk add --update-cache --no-cache \
-    libseccomp-dev
+    libseccomp-dev \
+    libseccomp-static
 EOF
 WORKDIR /go/src/github.com/gotoz/runq
 ARG name
