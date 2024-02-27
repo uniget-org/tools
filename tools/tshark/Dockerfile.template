@@ -27,8 +27,8 @@ WORKDIR /tmp/wireshark
 ARG name
 ARG version
 RUN <<EOF
-check-download "https://gitlab.com/wireshark/wireshark/-/archive/v4.2.2/wireshark-v4.2.2.tar.gz"
-curl --silent --show-error --location --fail "https://gitlab.com/wireshark/wireshark/-/archive/v4.2.2/wireshark-v4.2.2.tar.gz" \
+check-download "https://gitlab.com/wireshark/wireshark/-/archive/v${version}/wireshark-v${version}.tar.gz"
+curl --silent --show-error --location --fail "https://gitlab.com/wireshark/wireshark/-/archive/v${version}/wireshark-v${version}.tar.gz" \
 | tar --extract --gzip --strip-components=1 --no-same-owner
 cmake . \
     -DENABLE_CARES=ON \
