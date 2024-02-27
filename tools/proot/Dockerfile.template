@@ -14,12 +14,15 @@ apk add --update-cache --no-cache \
     talloc-dev \
     talloc-static \
     linux-headers \
-    bsd-compat-headers
+    bsd-compat-headers \
+    py3-docutils
 EOF
 COPY --link --from=make / /usr/local/
 WORKDIR /tmp/proot
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/proot-me/proot .
-make -C src -j$(nproc) LDFLAGS=-static
+make -C src -j$(nproc) LDFLAGS="-static -ltalloc"
+make -C doc proot/man.1
 cp src/proot "${prefix}/bin/"
+cp doc/proot/man.1 "${prefix}/share/man/man1/proot.1"
 EOF
