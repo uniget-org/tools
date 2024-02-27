@@ -11,10 +11,11 @@ COPY --link --from=make / /usr/local/
 WORKDIR /tmp/pv
 ARG name
 ARG version
+# Static linking causes "undefined refererence to printf
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/a-j-wood/pv .
 ./generate.sh
 ./configure --prefix="${prefix}"
-make -j$(nproc) LDFLAGS=-static
+make -j$(nproc) #LDFLAGS=-static
 make install
 EOF
