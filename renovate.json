@@ -6631,6 +6631,31 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "gitlab-releases",
+      "depNameTemplate": "xiph/speex",
+      "extractVersionTemplate": "^Speex-(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/speex/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "gitlab-releases",
+      "depNameTemplate": "xiph/speexdsp",
+      "extractVersionTemplate": "^SpeexDSP-(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/speexdsp/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ],
+      "registryUrlTemplate": "https://gitlab.xiph.org/xiph/speexdsp/api/v4/projects/xdg%2fxdg-utils/repository/tags?per_page=100"
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "philips-labs/spiffe-vault",
       "extractVersionTemplate": "^v(?<version>.+?)$",

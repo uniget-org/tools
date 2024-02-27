@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: speexdsp
+version: "1.2.1"
+binary: "false"
+check: ""
+build_dependencies:
+- bar
+runtime_dependencies:
+- baz
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- category/development
+- lang/c
+- type/library
+homepage: https://gitlab.xiph.org/xiph/speexdsp
+description: DSP library derived from speex
+renovate:
+  datasource: gitlab-releases
+  package: xiph/speexdsp
+  api: https://gitlab.xiph.org/xiph/speexdsp/api/v4/projects/xdg%2fxdg-utils/repository/tags?per_page=100
+  extractVersion: ^SpeexDSP-(?<version>.+?)$
+  priority: low

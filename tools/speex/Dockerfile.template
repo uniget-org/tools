@@ -1,0 +1,20 @@
+#syntax=docker/dockerfile:1.6.0
+
+FROM ghcr.io/uniget-org/tools/make:latest AS make
+
+FROM ghcr.io/uniget-org/images/build-base:3.19 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+COPY --link --from=make / /usr/local/
+WORKDIR /tmp/speex
+ARG name
+ARG version
+RUN <<EOF
+git clone -q --config advice.detachedHead=false --depth 1 --branch "Speex-${version}" https://gitlab.xiph.org/xiph/speex .
+./autogen.sh
+./configure --prefix="${prefix}" --enable-shared --enable-static
+make
+make install
+EOF

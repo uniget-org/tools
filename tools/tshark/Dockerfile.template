@@ -1,6 +1,7 @@
 #syntax=docker/dockerfile:1.6.0
 
 FROM ghcr.io/uniget-org/tools/make:latest AS make
+FROM ghcr.io/uniget-org/tools/speexdsp:latest AS speexdsp
 
 FROM ghcr.io/uniget-org/images/build-base:3.19 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
@@ -8,20 +9,23 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=make / /usr/local/
+COPY --link --from=speexdsp / /usr/local/
 RUN <<EOF
-apt-get -y install \
+apk add --update-cache --no-cache \
     cmake \
-    libglib2.0-dev \
-    libgcrypt20-dev \
+    glib-dev \
+    glib-static \
+    libgcrypt-dev \
+    libgcrypt-static \
     flex \
-    yacc \
     bison \
-    byacc \
     libpcap-dev \
     libssh-dev \
-    libsystemd-dev \
-    libc-ares-dev \
-    libspeexdsp-dev
+    c-ares-dev \
+    c-ares-static \
+    pcre-dev \
+    libgpg-error-dev \
+    libgpg-error-static
 EOF
 WORKDIR /tmp/wireshark
 ARG name
@@ -31,7 +35,6 @@ check-download "https://gitlab.com/wireshark/wireshark/-/archive/v${version}/wir
 curl --silent --show-error --location --fail "https://gitlab.com/wireshark/wireshark/-/archive/v${version}/wireshark-v${version}.tar.gz" \
 | tar --extract --gzip --strip-components=1 --no-same-owner
 cmake . \
-    -DENABLE_CARES=ON \
     -DENABLE_GNUTLS=ON \
     -DENABLE_LUA=ON \
     -DENABLE_SMI=ON \
@@ -42,10 +45,9 @@ cmake . \
     -DENABLE_APPLICATION_BUNDLE=OFF \
     -DCMAKE_INSTALL_PREFIX=${prefix} \
     -DCMAKE_BUILD_TYPE=Release \
-    -Wno-dev #\
-    #-DCMAKE_VERBOSE_MAKEFILE=ON \
-    #-DENABLE_STATIC=ON \
-    #-DUSE_STATIC=ON
+    -Wno-dev \
+    -DENABLE_STATIC=ON \
+    -DUSE_STATIC=ON
 make -j$(nproc)
 make install
 EOF
@@ -53,10 +55,3 @@ EOF
 RUN <<EOF
 touch "${prefix}/foo"
 EOF
-
-# completion
-#RUN <<EOF
-#"${prefix}/bin/foo" completion bash >"${prefix}/share/bash-completion/completions/foo"
-#"${prefix}/bin/foo" completion fish >"${prefix}/share/fish/vendor_completions.d/foo.fish"
-#"${prefix}/bin/foo" completion zsh >"${prefix}/share/zsh/vendor-completions/_foo"
-#EOF
