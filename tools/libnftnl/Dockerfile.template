@@ -11,8 +11,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=make / /usr/local/
 COPY --link --from=libmnl / /usr/local/
 RUN <<EOF
-apk update
-apk add \
+apk add --update-cache --no-cache \
     linux-headers
 EOF
 WORKDIR /tmp/libnftnl

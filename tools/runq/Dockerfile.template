@@ -13,8 +13,7 @@ COPY --link --from=go / /usr/local/
 COPY --link --from=make / /usr/local/
 COPY --link --from=tini / /usr/local/
 RUN <<EOF
-apk update
-apk add \
+apk add --update-cache --no-cache \
     libseccomp-dev
 EOF
 WORKDIR /go/src/github.com/gotoz/runq

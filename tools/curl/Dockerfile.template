@@ -6,8 +6,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/
 ENV CC=clang
 RUN <<EOF
-apk update
-apk add \
+apk add --update-cache --no-cache \
     clang \
     openssl-dev \
     nghttp2-dev \

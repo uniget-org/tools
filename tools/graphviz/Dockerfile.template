@@ -7,8 +7,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG DEBIAN_FRONTEND=noninteractive
 RUN <<EOF
-apk update
-apk add \
+apk add --update-cache --no-cache \
     python3 \
     libltdl \
     libltdl-static \
