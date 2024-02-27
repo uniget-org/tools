@@ -27,7 +27,9 @@ apk add --update-cache --no-cache \
     libgpg-error-dev \
     libgpg-error-static \
     gettext-dev \
-    gettext-static
+    gettext-static \
+    zlib-dev \
+    zlib-static
 EOF
 WORKDIR /tmp/wireshark
 ARG name
@@ -36,6 +38,8 @@ RUN <<EOF
 check-download "https://gitlab.com/wireshark/wireshark/-/archive/v${version}/wireshark-v${version}.tar.gz"
 curl --silent --show-error --location --fail "https://gitlab.com/wireshark/wireshark/-/archive/v${version}/wireshark-v${version}.tar.gz" \
 | tar --extract --gzip --strip-components=1 --no-same-owner
+export CMAKE_EXE_LINKER_FLAGS="-static -lintl"
+export CMAKE_STATIC_LINKER_FLAGS="-static -lintl"
 cmake . \
     -DENABLE_GNUTLS=ON \
     -DENABLE_LUA=ON \
@@ -49,7 +53,9 @@ cmake . \
     -DCMAKE_BUILD_TYPE=Release \
     -Wno-dev \
     -DENABLE_STATIC=ON \
-    -DUSE_STATIC=ON
+    -DUSE_STATIC=ON #\
+    #-DCMAKE_VERBOSE_MAKEFILE=ON
+# would work with LDFLAGS="-static -lintl"
 make -j$(nproc)
 make install
 EOF
