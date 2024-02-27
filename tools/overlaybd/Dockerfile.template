@@ -2,26 +2,27 @@
 
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 
-FROM ghcr.io/uniget-org/images/build-base:3.19 AS prepare
+# Cannot use musl because execinfo.h is required but not available
+FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
 RUN <<EOF
-apk add --update-cache --no-cache \
+apt-get update
+apt-get -y install --no-install-recommends \
     cmake \
-    curl-dev \
-    openssl-dev \
+    libcurl4-openssl-dev \
+    libssl-dev \
     libaio-dev \
-    libnl3-dev \
-    gflags-dev \
-    zstd-dev \
-    e2fsprogs-dev \
-    zlib-dev \
-    gtest-dev \
-    sudo \
-    linux-headers \
-    elfutils-dev
+    libnl-3-dev \
+    libnl-genl-3-dev \
+    libgflags-dev \
+    libzstd-dev \
+    libext2fs-dev \
+    zlib1g-dev \
+    libgtest-dev \
+    sudo
 EOF
 COPY --link --from=make / /usr/local/
 WORKDIR /tmp/overlaybd
