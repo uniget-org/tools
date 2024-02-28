@@ -27,6 +27,7 @@ EOF
 RUN <<EOF
 mkdir -p /var/lib/runq/qemu
 mv /usr/local/bin/tini /usr/bin/docker-init
+export QEMU_ROOT="${prefix}/var/lib/runq"
 make -j$(nproc) version
 make -j$(nproc) -C cmd/proxy install
 make -j$(nproc) -C cmd/runq install
