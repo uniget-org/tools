@@ -12,7 +12,7 @@ ARG name
 ARG version
 COPY --link --from=nodejs / /usr/local/
 COPY --link --from=npm / /usr/local/
-WORKDIR ${prefix}/libexec/emoj
+WORKDIR /uniget_bootstrap/libexec/emoj
 ARG name
 ARG version
 RUN <<EOF

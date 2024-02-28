@@ -12,7 +12,7 @@ COPY --link --from=nodejs / /usr/local/
 COPY --link --from=npm / /usr/local/
 ARG name
 ARG version
-WORKDIR ${prefix}/libexec/jsonata-cli
+WORKDIR /uniget_bootstrap/libexec/jsonata-cli
 ARG name
 ARG version
 RUN <<EOF
