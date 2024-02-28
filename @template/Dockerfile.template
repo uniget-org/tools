@@ -129,7 +129,7 @@ ARG version
 # node
 #COPY --link --from=nodejs / /usr/local/
 #COPY --link --from=npm / /usr/local/
-#WORKDIR ${prefix}/libexec/foo
+#WORKDIR /uniget_bootstrap/libexec/foo
 #ARG name
 #ARG version
 #RUN <<EOF
