@@ -14,7 +14,7 @@ make metadata.json
 mkdir -p test/var/cache/uniget
 cp metadata.json test/var/cache/uniget/metadata.json
 
-uniget --prefix=test generate "${TOOL}@${VERSION}" \
+uniget --prefix=test generate --base ghcr.io/uniget-org/images/ubuntu:22.04 "${TOOL}@${VERSION}" \
 | docker build --tag test --load -
 
 docker run --interactive --rm --env TOOL --env VERSION --volume "${PWD}/metadata.json:/var/cache/uniget/metadata.json" test bash <<EOF
