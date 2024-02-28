@@ -2,7 +2,8 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: overlaybd
 version: "1.0.9"
-check: ""
+binary: ${target}/opt/overlaybd/bin/overlaybd-tcmu
+check: "" # No version parameter
 build_dependencies:
 - make
 platforms:
