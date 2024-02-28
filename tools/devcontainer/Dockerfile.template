@@ -14,7 +14,7 @@ COPY --link --from=python / /usr/local/
 COPY --link --from=nodejs / /usr/local/
 COPY --link --from=npm / /usr/local/
 COPY --link --from=make / /usr/local/
-WORKDIR ${prefix}/libexec/devcontainer
+WORKDIR /uniget_bootstrap/libexec/devcontainer
 ARG name
 ARG version
 RUN <<EOF

@@ -10,7 +10,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=nodejs / /usr/local/
 COPY --link --from=npm / /usr/local/
-WORKDIR ${prefix}/libexec/n8n
+WORKDIR /uniget_bootstrap/libexec/n8n
 ARG name
 ARG version
 RUN <<EOF
