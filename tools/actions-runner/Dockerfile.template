@@ -5,7 +5,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-WORKDIR ${prefix}/opt/actions-runner
+WORKDIR /uniget_bootstrap/opt/actions-runner
 ARG name
 ARG version
 RUN <<EOF
