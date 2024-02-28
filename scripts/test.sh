@@ -17,7 +17,7 @@ cp metadata.json test/var/cache/uniget/metadata.json
 uniget --prefix=test generate --base ghcr.io/uniget-org/images/ubuntu:22.04 "${TOOL}@${VERSION}" \
 | docker build --tag test --load -
 
-docker run --interactive --rm --env TOOL --env VERSION --volume "${PWD}/metadata.json:/var/cache/uniget/metadata.json" test bash <<EOF
+docker run --interactive --rm --env TOOL --env VERSION --volume "${PWD}/metadata.json:/var/cache/uniget/metadata.json" test bash -o errexit <<EOF
 curl -sLf https://github.com/uniget-org/cli/releases/latest/download/uniget_linux_$(uname -m).tar.gz \
 | tar -xzC /usr/local/bin uniget
 mv /usr/local/var/lib/uniget /var/lib/
