@@ -1,6 +1,6 @@
 name: actions-runner
 version: "2.314.1"
-binary: opt/actions-runner/bin/Runner.Listener
+binary: ${target}/opt/actions-runner/bin/Runner.Listener
 check: ${binary} --version
 tags:
 - org/github
