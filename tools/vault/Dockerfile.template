@@ -9,7 +9,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 
-COPY <<vault.sh ${prefix}/share/bash-completion/completions/
+COPY <<vault.sh /uniget_bootstrap/share/bash-completion/completions/
 complete -C /bin/vault vault
 vault.sh
 

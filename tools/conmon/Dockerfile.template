@@ -45,8 +45,8 @@ make -j$(nproc) -C docs GOMD2MAN=go-md2man
 mv bin/conmon "${prefix}/bin/conmon"
 mv docs/conmon.8 "${prefix}/share/man/man8"
 EOF
-COPY default.yaml ${prefix}/etc/containers/registries.d/default.yaml
-COPY policy.json ${prefix}/etc/containers/policy.json
-COPY policy.conf ${prefix}/etc/containers/policy.conf
-COPY registry.json ${prefix}/etc/containers/registries.json
-COPY storage.conf ${prefix}/etc/containers/storage.conf
+COPY default.yaml /uniget_bootstrap/etc/containers/registries.d/default.yaml
+COPY policy.json /uniget_bootstrap/etc/containers/policy.json
+COPY policy.conf /uniget_bootstrap/etc/containers/policy.conf
+COPY registry.json /uniget_bootstrap/etc/containers/registries.json
+COPY storage.conf /uniget_bootstrap/etc/containers/storage.conf

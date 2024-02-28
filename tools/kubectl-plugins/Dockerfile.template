@@ -17,7 +17,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 COPY --from=krew / /usr/local/
 ARG name
 ARG version
-COPY --chmod=755 <<EOF ${prefix}/bin/krew-uniget
+COPY --chmod=755 <<EOF /uniget_bootstrap/bin/krew-uniget
 #!/bin/bash
 set -o errexit
 

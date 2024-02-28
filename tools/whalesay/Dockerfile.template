@@ -7,8 +7,8 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-COPY docker.cow ${prefix}/share/cows/
-COPY --chmod=0755 <<EOF ${prefix}/bin/whalesay
+COPY docker.cow /uniget_bootstrap/share/cows/
+COPY --chmod=0755 <<EOF /uniget_bootstrap/bin/whalesay
 #!/bin/bash
 exec cowsay -f docker "\$@"
 EOF

@@ -1,10 +1,9 @@
 name: portainer
 version: "2.19.4"
 check: ${binary} --version 2>&1
-build_dependencies:
-- docker-compose-v1
 runtime_dependencies:
 - docker
+- docker-compose-v1
 tags:
 - org/portainer
 - standard/docker

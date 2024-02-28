@@ -9,7 +9,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 
-COPY docker ${prefix}/libexec/podman/
+COPY docker /uniget_bootstrap/libexec/podman/
 RUN <<EOF
 ln --symbolic --relative --force "${prefix}/libexec/podman/docker" "/bin/docker"
 EOF

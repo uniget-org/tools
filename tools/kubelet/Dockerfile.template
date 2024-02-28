@@ -10,7 +10,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 COPY --from=cosign / /usr/local/
 ARG name
 ARG version
-COPY kubelet.service ${prefix}/etc/systemd/system/
+COPY kubelet.service /uniget_bootstrap/etc/systemd/system/
 RUN <<EOF
 curl --silent --location --fail --output "${prefix}/bin/kubelet" \
     "https://storage.googleapis.com/kubernetes-release/release/v${version}/bin/linux/${alt_arch}/kubelet"

@@ -12,4 +12,4 @@ check-github-release-asset "kubernetes-sigs/cri-tools" "v${version}" "crictl-v${
 curl --silent --location --fail "https://github.com/kubernetes-sigs/cri-tools/releases/download/v${version}/crictl-v${version}-linux-${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory "${prefix}/bin/" --no-same-owner
 EOF
-COPY crictl.yaml "${prefix}/etc/"
+COPY crictl.yaml "/uniget_bootstrap/etc/"

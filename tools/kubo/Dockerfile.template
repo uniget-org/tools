@@ -8,7 +8,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 
-COPY ipfs.service ${prefix}/etc/systemd/system
+COPY ipfs.service /uniget_bootstrap/etc/systemd/system
 
 RUN <<EOF
 check-github-release-asset "ipfs/kubo" "v${version}" "kubo_v${version}_linux-${alt_arch}.tar.gz"

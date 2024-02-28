@@ -10,7 +10,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 COPY --from=cosign / /usr/local/
-COPY kubectl.sh ${prefix}/etc/profile.d/
+COPY kubectl.sh /uniget_bootstrap/etc/profile.d/
 RUN <<EOF
 curl --silent --location --fail --output "${prefix}/bin/kubectl" \
     "https://dl.k8s.io/release/v${version}/bin/linux/${alt_arch}/kubectl"

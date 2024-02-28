@@ -7,7 +7,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-COPY k3s.service ${prefix}/etc/systemd/system/
+COPY k3s.service /uniget_bootstrap/etc/systemd/system/
 RUN <<EOF
 echo "### Setting architecture string for ${TARGETPLATFORM}"
 case "${arch}" in

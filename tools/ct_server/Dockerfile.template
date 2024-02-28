@@ -10,7 +10,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=go / /usr/local/
 ARG name
 ARG version
-COPY ct_server.service ${prefix}/etc/systemd/system/ct_server.service
+COPY ct_server.service /uniget_bootstrap/etc/systemd/system/ct_server.service
 WORKDIR /go/src/github.com/google/certificate-transparency-go
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/google/certificate-transparency-go .

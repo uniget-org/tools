@@ -17,8 +17,8 @@ mkdir -p \
     "${prefix}${uniget_contrib}/${name}/openrc"
 EOF
 
-COPY daemon.json ${prefix}/etc/docker-preview/
-COPY --chmod=0755 <<EOF ${prefix}/bin/docker-preview
+COPY daemon.json /uniget_bootstrap/etc/docker-preview/
+COPY --chmod=0755 <<EOF /uniget_bootstrap/bin/docker-preview
 #!/bin/bash
 set -o errexit
 export DOCKER_HOST=unix:///var/run/docker-preview.sock

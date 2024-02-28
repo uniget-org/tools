@@ -12,7 +12,7 @@ COPY --link --from=cosign / /usr/local/
 COPY --from=go-md2man / /usr/local/
 ARG name
 ARG version
-COPY crio.conf ${prefix}/etc/crio.conf
+COPY crio.conf /uniget_bootstrap/etc/crio.conf
 RUN <<EOF
 echo "### Downloading cri-o ${version}"
 curl --silent --location --fail --remote-name "https://storage.googleapis.com/cri-o/artifacts/cri-o.${alt_arch}.v${version}.tar.gz"

@@ -10,7 +10,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=cosign / /usr/local/
 ARG name
 ARG version
-COPY gitsign-credential-cache.sh ${prefix}/etc/profile.d/
+COPY gitsign-credential-cache.sh /uniget_bootstrap/etc/profile.d/
 RUN <<EOF
 check-github-release-asset "sigstore/gitsign" "v${version}" "gitsign_${version}_linux_${alt_arch}"
 

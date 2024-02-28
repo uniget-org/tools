@@ -7,8 +7,8 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-COPY gitlab-runner.service ${prefix}/etc/systemd/system/
-COPY config.toml ${prefix}/etc/gitlab-runner/
+COPY gitlab-runner.service /uniget_bootstrap/etc/systemd/system/
+COPY config.toml /uniget_bootstrap/etc/gitlab-runner/
 RUN <<EOF
 curl --silent --location --fail --output "${prefix}/bin/gitlab-runner" \
     "https://gitlab-runner-downloads.s3.amazonaws.com/v${version}/binaries/gitlab-runner-linux-${alt_arch}"
