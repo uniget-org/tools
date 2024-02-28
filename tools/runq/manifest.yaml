@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: runq
 version: master
+binary: ${target}/var/lib/runq/runq
 check: "" # No tag/release
 build_dependencies:
 - go
