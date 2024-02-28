@@ -14,10 +14,12 @@ make metadata.json
 mkdir -p test/var/cache/uniget
 cp metadata.json test/var/cache/uniget/metadata.json
 
-uniget --prefix=test generate uniget "${TOOL}@${VERSION}" \
+uniget --prefix=test generate "${TOOL}@${VERSION}" \
 | docker build --tag test --load -
 
 docker run --interactive --rm --env TOOL --env VERSION --volume "${PWD}/metadata.json:/var/cache/uniget/metadata.json" test bash <<EOF
+curl -sLf https://github.com/uniget-org/cli/releases/latest/download/uniget_linux_$(uname -m).tar.gz \
+| tar -xzC /usr/local/bin uniget
 mv /usr/local/var/lib/uniget /var/lib/
 uniget list --installed
 uniget healthcheck "${TOOL}"
