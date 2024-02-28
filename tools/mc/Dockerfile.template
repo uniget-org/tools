@@ -14,11 +14,11 @@ curl --silent --location --fail --output "${prefix}/bin/mc" \
 chmod +x "${prefix}/bin/mc"
 EOF
 
-COPY <<EOF ${prefix}/share/bash-completion/completions/mc
+COPY <<EOF /uniget_bootstrap/share/bash-completion/completions/mc
 complete -C /bin/mc mc
 EOF
 
-COPY <<EOF ${prefix}/share/fish/vendor_completions.d/mc.fish
+COPY <<EOF /uniget_bootstrap/share/fish/vendor_completions.d/mc.fish
 function __complete_mc
     set -lx COMP_LINE (commandline -cp)
     test -z (commandline -ct)

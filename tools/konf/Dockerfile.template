@@ -7,7 +7,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-COPY <<EOF ${prefix}/etc/profile.d/konf.sh
+COPY <<EOF /uniget_bootstrap/etc/profile.d/konf.sh
 case "\$(basename "\${SHELL}")" in
     bash)
         source <(konf-go shellwrapper bash)

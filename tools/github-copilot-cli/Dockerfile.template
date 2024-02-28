@@ -21,6 +21,6 @@ npm install \
     "@githubnext/github-copilot-cli@${version}"
 ln --symbolic --relative --force "${prefix}/libexec/github-copilot-cli/node_modules/.bin/github-copilot-cli" "${prefix}/bin/"
 EOF
-COPY <<EOF ${prefix}/etc/profile.d/github-copilot-cli.sh
+COPY <<EOF /uniget_bootstrap/etc/profile.d/github-copilot-cli.sh
 eval "$(github-copilot-cli alias -- "$0")"
 EOF

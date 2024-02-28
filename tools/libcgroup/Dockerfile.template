@@ -18,7 +18,7 @@ COPY --link --from=make / /usr/local/
 RUN <<EOF
 mkdir -p "${prefix}/etc/ld.so.conf.d"
 EOF
-COPY <<EOF ${prefix}/etc/ld.so.conf.d/libcgroup.conf
+COPY <<EOF /uniget_bootstrap/etc/ld.so.conf.d/libcgroup.conf
 /lib
 EOF
 WORKDIR /tmp/libcgroup

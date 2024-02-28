@@ -24,7 +24,7 @@ set -o errexit
 export KREW_ROOT="/libexec/krew"
 krew "\$@"
 EOF
-COPY <<EOF ${prefix}/etc/profile.d/krew.sh
+COPY <<EOF /uniget_bootstrap/etc/profile.d/krew.sh
 export PATH="/libexec/krew/bin:${PATH}"
 EOF
 RUN <<EOF

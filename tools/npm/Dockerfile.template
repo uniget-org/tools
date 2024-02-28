@@ -5,4 +5,4 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY <<EOF ${prefix}/var/cache/uniget/npm-is-included-in-prebuilt-binaries-of-nodejs
+COPY <<EOF /uniget_bootstrap/var/cache/uniget/npm-is-included-in-prebuilt-binaries-of-nodejs
