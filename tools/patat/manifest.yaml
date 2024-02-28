@@ -1,5 +1,5 @@
 name: patat
-version: "0.11.0.0"
+version: "0.12.0.0"
 check: ${binary} --version | head -n 1
 tags:
 - type/cli
