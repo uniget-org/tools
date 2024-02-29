@@ -1,5 +1,5 @@
 name: syft
-version: "0.105.1"
+version: "1.0.0"
 check: ${binary} version 2>&1 | grep ^Version | tr -s ' ' | cut -d' ' -f2
 platforms:
 - linux/amd64
