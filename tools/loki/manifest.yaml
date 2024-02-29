@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: loki
-version: "2.9.4"
+version: "2.9.5"
 check: "" # Wrong version
 tags:
 - org/grafana

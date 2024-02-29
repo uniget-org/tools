@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: pass-update
-version: "2.2"
+version: "2.2.1"
 check: "" # TODO
 runtime_dependencies:
 - pass

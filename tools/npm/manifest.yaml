@@ -1,6 +1,7 @@
 name: npm
 version: "10.5.0"
-check: ${binary} --version
+binary: "false"
+check: "" # No binary
 build_dependencies:
 - nodejs-lts
 runtime_dependencies:
