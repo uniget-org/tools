@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Make buildx the default builder on login"
-cat >"/etc/profile.d/docker-buildx-install.sh" <<EOF
+cat >"${target}/etc/profile.d/docker-buildx-install.sh" <<EOF
 #!/bin/bash
 mkdir -p "\${HOME}/.docker"
 if ! test -f "\${HOME}/.docker/config.json"; then
