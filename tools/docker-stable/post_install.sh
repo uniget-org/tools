@@ -88,7 +88,7 @@ if ! test -f "/etc/docker/daemon.json"; then
 fi
 
 if test -f "/etc/fstab"; then
-    root_fs="$(cat "/etc/fstab" | tr -s ' ' | grep " / " | cut -d' ' -f3)"
+    root_fs="$(cat "/etc/fstab" | grep -v "^#" | tr -s ' ' | grep " / " | cut -d' ' -f3)"
     if test -z "${root_fs}"; then
         root_fs="$(mount | grep " on / " | cut -d' ' -f5)"
     fi
@@ -135,9 +135,14 @@ if ! test "$(jq --raw-output '.features.buildkit // false' "/etc/docker/daemon.j
     # shellcheck disable=SC2094
     cat <<< "$(jq '. * {"features":{"buildkit":true}}' "/etc/docker/daemon.json")" >"/etc/docker/daemon.json"
 fi
+if ! test "$(jq --raw-output '.features."containerd-snapshotter" // false' "/etc/docker/daemon.json")" == true; then
+    echo "Enable ContainerD snapshotter"
+    # shellcheck disable=SC2094
+    cat <<< "$(jq '. * {"features":{"containerd-snapshotter":true}}' "/etc/docker/daemon.json")" >"/etc/docker/daemon.json"
+fi
 echo "Check if daemon.json is valid JSON (@ ${SECONDS} seconds)"
 if ! jq --exit-status '.' "/etc/docker/daemon.json" >/dev/null 2>&1; then
-    error "/etc/docker/daemon.json is not valid JSON."
+    echo "ERROR: /etc/docker/daemon.json is not valid JSON."
     exit 1
 fi
 

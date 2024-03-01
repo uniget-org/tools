@@ -1,6 +1,8 @@
 #!/bin/bash
 set -o errexit
 
+name=docker-preview
+
 function get_lsb_distro_name() {
 	local lsb_dist=""
 	if test -r "/etc/os-release"; then
@@ -68,14 +70,14 @@ if test -f "/etc/group"; then
 fi
 
 echo "Configure daemon (@ ${SECONDS} seconds)"
-mkdir -p "/etc/docker-preview"
-if ! test -f "/etc/docker-preview/daemon.json"; then
+mkdir -p "/etc/${name}"
+if ! test -f "/etc/${name}/daemon.json"; then
     echo "Initialize dockerd configuration"
-    echo "{}" >"/etc/docker-preview/daemon.json"
+    echo "{}" >"/etc/${name}/daemon.json"
 fi
 
 if test -f "/etc/fstab"; then
-    root_fs="$(cat "/etc/fstab" | tr -s ' ' | grep " / " | cut -d' ' -f3)"
+    root_fs="$(cat "/etc/fstab" | grep -v "^#" | tr -s ' ' | grep " / " | cut -d' ' -f3)"
     if test -z "${root_fs}"; then
         root_fs="$(mount | grep " on / " | cut -d' ' -f5)"
     fi
@@ -86,7 +88,7 @@ if test -f "/etc/fstab"; then
         if grep -qE "^[^:]+:[^:]*:/.+$" /proc/1/cgroup; then
             echo "Configuring storage driver for DinD"
             # shellcheck disable=SC2094
-            cat <<< "$(jq '. * {"storage-driver": "fuse-overlayfs"}' "/etc/docker-preview/daemon.json")" >"/etc/docker-preview/daemon.json"
+            cat <<< "$(jq '. * {"storage-driver": "fuse-overlayfs"}' "/etc/${name}/daemon.json")" >"/etc/${name}/daemon.json"
 
         else
             echo "fuse-overlayfs should be planned for installation."
@@ -94,62 +96,62 @@ if test -f "/etc/fstab"; then
     fi
 fi
 
-if ! test "$(jq '."exec-opts" // [] | any(. | startswith("native.cgroupdriver="))' "/etc/docker-preview/daemon.json")" == "true"; then
+if ! test "$(jq '."exec-opts" // [] | any(. | startswith("native.cgroupdriver="))' "/etc/${name}/daemon.json")" == "true"; then
     echo "Configuring native cgroup driver"
     # shellcheck disable=SC2094
-    cat <<< "$(jq '."exec-opts" += ["native.cgroupdriver=cgroupfs"]' "/etc/docker-preview/daemon.json")" >"/etc/docker-preview/daemon.json"
+    cat <<< "$(jq '."exec-opts" += ["native.cgroupdriver=cgroupfs"]' "/etc/${name}/daemon.json")" >"/etc/${name}/daemon.json"
 fi
-if ! test "$(jq '. | keys | any(. == "default-runtime")' "/etc/docker-preview/daemon.json")" == true; then
+if ! test "$(jq '. | keys | any(. == "default-runtime")' "/etc/${name}/daemon.json")" == true; then
     echo "Set default runtime"
     # shellcheck disable=SC2094
-    cat <<< "$(jq '. * {"default-runtime": "runc"}' "/etc/docker-preview/daemon.json")" >"/etc/docker-preview/daemon.json"
+    cat <<< "$(jq '. * {"default-runtime": "runc"}' "/etc/${name}/daemon.json")" >"/etc/${name}/daemon.json"
 fi
 # shellcheck disable=SC2016
-if test -n "${docker_address_base}" && test -n "${docker_address_size}" && ! test "$(jq --arg base "${docker_address_base}" --arg size "${docker_address_size}" '."default-address-pool" | any(.base == $base and .size == $size)' "/etc/docker-preview/daemon.json")" == "true"; then
+if test -n "${docker_address_base}" && test -n "${docker_address_size}" && ! test "$(jq --arg base "${docker_address_base}" --arg size "${docker_address_size}" '."default-address-pool" | any(.base == $base and .size == $size)' "/etc/${name}/daemon.json")" == "true"; then
     echo "Add address pool with base ${docker_address_base} and size ${docker_address_size}"
     # shellcheck disable=SC2094
-    cat <<< "$(jq --args base "${docker_address_base}" --arg size "${docker_address_size}" '."default-address-pool" += {"base": $base, "size": $size}' "/etc/docker-preview/daemon.json")" >"/etc/docker-preview/daemon.json"
+    cat <<< "$(jq --args base "${docker_address_base}" --arg size "${docker_address_size}" '."default-address-pool" += {"base": $base, "size": $size}' "/etc/${name}/daemon.json")" >"/etc/${name}/daemon.json"
 fi
 # shellcheck disable=SC2016
-if test -n "${docker_hub_mirror}" && ! test "$(jq --arg mirror "${docker_hub_mirror}" '."registry-mirrors" // [] | any(. == $mirror)' "/etc/docker-preview/daemon.json")" == "true"; then
+if test -n "${docker_hub_mirror}" && ! test "$(jq --arg mirror "${docker_hub_mirror}" '."registry-mirrors" // [] | any(. == $mirror)' "/etc/${name}/daemon.json")" == "true"; then
     echo "Add registry mirror ${docker_hub_mirror}"
     # shellcheck disable=SC2094
     # shellcheck disable=SC2016
-    cat <<< "$(jq --args mirror "${docker_hub_mirror}" '."registry-mirrors" += ["\($mirror)"]' "/etc/docker-preview/daemon.json")" >"/etc/docker-preview/daemon.json"
+    cat <<< "$(jq --args mirror "${docker_hub_mirror}" '."registry-mirrors" += ["\($mirror)"]' "/etc/${name}/daemon.json")" >"/etc/${name}/daemon.json"
 fi
-if ! test "$(jq --raw-output '.features.buildkit // false' "/etc/docker-preview/daemon.json")" == true; then
+if ! test "$(jq --raw-output '.features.buildkit // false' "/etc/${name}/daemon.json")" == true; then
     echo "Enable BuildKit"
     # shellcheck disable=SC2094
-    cat <<< "$(jq '. * {"features":{"buildkit":true}}' "/etc/docker-preview/daemon.json")" >"/etc/docker-preview/daemon.json"
+    cat <<< "$(jq '. * {"features":{"buildkit":true}}' "/etc/${name}/daemon.json")" >"/etc/${name}/daemon.json"
 fi
-if ! test "$(jq --raw-output '.features."containerd-snapshotter" // false' "/etc/docker-preview/daemon.json")" == true; then
+if ! test "$(jq --raw-output '.features."containerd-snapshotter" // false' "/etc/${name}/daemon.json")" == true; then
     echo "Enable ContainerD snapshotter"
     # shellcheck disable=SC2094
-    cat <<< "$(jq '. * {"features":{"containerd-snapshotter":true}}' "/etc/docker-preview/daemon.json")" >"/etc/docker-preview/daemon.json"
+    cat <<< "$(jq '. * {"features":{"containerd-snapshotter":true}}' "/etc/${name}/daemon.json")" >"/etc/${name}/daemon.json"
 fi
 echo "Check if daemon.json is valid JSON (@ ${SECONDS} seconds)"
-if ! jq --exit-status '.' "/etc/docker-preview/daemon.json" >/dev/null 2>&1; then
-    echo "ERROR /etc/docker-preview/daemon.json is not valid JSON."
+if ! jq --exit-status '.' "/etc/${name}/daemon.json" >/dev/null 2>&1; then
+    echo "ERROR: /etc/${name}/daemon.json is not valid JSON."
     exit 1
 fi
 
 if is_debian || is_clearlinux; then
     echo "Install init script for debian"
     mkdir -p "/etc/default" "/etc/init.d"
-    cp "${uniget_contrib}/docker-preview/sysvinit/debian/docker.default" "/etc/default/docker-preview"
-    cp "${uniget_contrib}/docker-preview/sysvinit/debian/docker" "/etc/init.d/docker-preview"
+    cp "${uniget_contrib}/${name}/sysvinit/debian/docker.default" "/etc/default/docker"
+    cp "${uniget_contrib}/${name}/sysvinit/debian/docker" "/etc/init.d/docker"
     
 elif is_redhat; then
     echo "Install init script for redhat"
     mkdir -p "/etc/sysconfig" "/etc/init.d"
-    cp "${uniget_contrib}/docker-preview/sysvinit/redhat/docker.sysconfig" "/etc/sysconfig/docker-preview"
-    cp "${uniget_contrib}/docker-preview/sysvinit/redhat/docker" "/etc/init.d/docker-preview"
+    cp "${uniget_contrib}/${name}/sysvinit/redhat/docker.sysconfig" "/etc/sysconfig/docker"
+    cp "${uniget_contrib}/${name}/sysvinit/redhat/docker" "/etc/init.d/docker"
     
 elif is_alpine; then
     echo "Install openrc script for alpine"
     mkdir -p "/etc/conf.d" "/etc/init.d"
-    cp "${uniget_contrib}/docker-preview/openrc/docker.confd" "/etc/conf.d/docker-preview"
-    cp "${uniget_contrib}/docker-preview/openrc/docker.initd" "/etc/init.d/docker-preview"
+    cp "${uniget_contrib}/${name}/openrc/docker.confd" "/etc/conf.d/docker"
+    cp "${uniget_contrib}/${name}/openrc/docker.initd" "/etc/init.d/docker"
     openrc
 else
     echo "Unable to install init script because the distributon is unknown."
