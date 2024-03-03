@@ -11,6 +11,7 @@ RUN <<EOF
 check-github-release-asset "armosec/kubescape" "v${version}" "kubescape-ubuntu-latest.tar.gz"
 curl --silent --location --fail "https://github.com/armosec/kubescape/releases/download/v${version}/kubescape-ubuntu-latest.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin" --no-same-owner
+mv "${prefix}/bin/kubescape-ubuntu-latest" "${prefix}/bin/kubescape"
 "${prefix}/bin/kubescape" completion bash >"${prefix}/share/bash-completion/completions/kubescape"
 "${prefix}/bin/kubescape" completion fish >"${prefix}/share/fish/vendor_completions.d/kubescape.fish"
 "${prefix}/bin/kubescape" completion zsh >"${prefix}/share/zsh/vendor-completions/_kubescape"
