@@ -51,3 +51,5 @@ mkdir -p \
     "${prefix}/share/bash-completion/completions" \
     "${prefix}/share/fish/vendor_completions.d" \
     "${prefix}/share/zsh/vendor-completions"
+
+set +o errexit
