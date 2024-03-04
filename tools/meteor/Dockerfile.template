@@ -1,0 +1,19 @@
+#syntax=docker/dockerfile:1.6.0
+
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN <<EOF
+check-github-release-asset "raystack/meteor" "v${version}" "meteor_${version}_linux_${alt_arch}.tar.gz"
+curl --silent --location --fail "https://github.com/raystack/meteor/releases/download/v${version}/meteor_${version}_linux_${alt_arch}.tar.gz" \
+| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
+    meteor
+
+"${prefix}/bin/meteor" completion bash >"${prefix}/share/bash-completion/completions/meteor"
+"${prefix}/bin/meteor" completion fish >"${prefix}/share/fish/vendor_completions.d/meteor.fish"
+"${prefix}/bin/meteor" completion zsh >"${prefix}/share/zsh/vendor-completions/_meteor"
+EOF
