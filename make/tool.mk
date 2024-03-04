@@ -205,7 +205,7 @@ $(addsuffix --debug,$(ALL_TOOLS_RAW)):%--debug: \
 		--env version=$${TOOL_VERSION} \
 		--rm \
 		$(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${VERSION_TAG} \
-			bash --login
+			bash --login +o errexit +o pipefail
 
 .PHONY:
 $(addsuffix --buildg,$(ALL_TOOLS_RAW)):%--buildg: \
