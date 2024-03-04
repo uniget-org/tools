@@ -1,0 +1,17 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: sotp
+version: "1.0.0"
+check: "" # No version parameter
+platforms:
+- linux/amd64
+tags:
+- category/security
+- lang/go
+- type/cli
+homepage: https://github.com/getsops/sotp
+description: Get TOTP from the command line using TOTP secrets in Sops encrypted files
+renovate:
+  datasource: github-releases
+  package: getsops/sotp
+  priority: low

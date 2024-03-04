@@ -6656,6 +6656,17 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "getsops/sotp",
+      "fileMatch": [
+        "^tools/sotp/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "adobe-fonts/source-sans",
       "extractVersionTemplate": "^(?<version>.+?)R$",
       "fileMatch": [
