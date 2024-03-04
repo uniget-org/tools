@@ -2,7 +2,7 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: namespace
 version: "0.0.345"
-check: ""
+check: ${binary} version | grep ^version | cut -d' ' -f2 | tr -d v
 platforms:
 - linux/amd64
 - linux/arm64

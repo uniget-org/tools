@@ -18,11 +18,16 @@ check-download "https://get.namespace.so/packages/ns/v${version}/ns_${version}_l
 curl --silent --location --fail "https://get.namespace.so/packages/ns/v${version}/ns_${version}_linux_${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     ns
+    
+"${prefix}/bin/nsc" completion bash >"${prefix}/share/bash-completion/completions/nsc"
+"${prefix}/bin/nsc" completion fish >"${prefix}/share/fish/vendor_completions.d/nsc.fish"
+"${prefix}/bin/nsc" completion zsh >"${prefix}/share/zsh/vendor-completions/_nsc"
+    
+"${prefix}/bin/docker-credential-nsc" completion bash >"${prefix}/share/bash-completion/completions/docker-credential-nsc"
+"${prefix}/bin/docker-credential-nsc" completion fish >"${prefix}/share/fish/vendor_completions.d/docker-credential-nsc.fish"
+"${prefix}/bin/docker-credential-nsc" completion zsh >"${prefix}/share/zsh/vendor-completions/_docker-credential-nsc"
+    
+"${prefix}/bin/ns" completion bash >"${prefix}/share/bash-completion/completions/ns"
+"${prefix}/bin/ns" completion fish >"${prefix}/share/fish/vendor_completions.d/ns.fish"
+"${prefix}/bin/ns" completion zsh >"${prefix}/share/zsh/vendor-completions/_ns"
 EOF
-
-# completion
-#RUN <<EOF
-#"${prefix}/bin/foo" completion bash >"${prefix}/share/bash-completion/completions/foo"
-#"${prefix}/bin/foo" completion fish >"${prefix}/share/fish/vendor_completions.d/foo.fish"
-#"${prefix}/bin/foo" completion zsh >"${prefix}/share/zsh/vendor-completions/_foo"
-#EOF
