@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: tea
+version: "0.9.2"
+check: ""
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/gitea
+- category/development
+- lang/go
+- type/cli
+homepage: https://gitea.com/gitea/tea
+description: Some description
+renovate:
+  datasource: gitea-releases
+  package: gitea/tea
+  extractVersion: ^v(?<version>.+?)$
+  priority: low

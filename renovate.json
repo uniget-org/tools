@@ -6965,6 +6965,18 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "gitea-releases",
+      "depNameTemplate": "gitea/tea",
+      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/tea/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "kubernetes-sigs/tejolote",
       "extractVersionTemplate": "^v(?<version>.+?)$",
