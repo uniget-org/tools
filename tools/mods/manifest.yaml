@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: mods
+version: "1.2.1"
+check: ${binary} --version | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/cli
+homepage: https://github.com/charmbracelet/mods
+description: AI on the command line
+renovate:
+  datasource: github-releases
+  package: charmbracelet/mods
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
