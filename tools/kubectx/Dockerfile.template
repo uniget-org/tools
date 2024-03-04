@@ -10,7 +10,7 @@ ARG version
 RUN <<EOF
 echo "### Setting architecture string for ${TARGETPLATFORM}"
 case "${arch}" in
-    ${arch_suffix})
+    x86_64)
         export arch_suffix="${arch}"
         ;;
     aarch64)
