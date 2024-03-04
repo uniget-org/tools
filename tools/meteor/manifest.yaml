@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: meteor
+version: "0.9.2"
+check: ${binary} version | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/daemon
+homepage: https://github.com/raystack/meteor
+description: Easy-to-use, plugin-driven metadata collection framework to extract data from different sources and sink to any data catalog
+renovate:
+  datasource: github-releases
+  package: raystack/meteor
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
