@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: kubectx
+version: "0.9.5"
+check: ${binary} --version
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/go
+- type/cli
+homepage: https://github.com/ahmetb/kubectx
+description: Faster way to switch between clusters and namespaces in kubectl 
+renovate:
+  datasource: github-releases
+  package: ahmetb/kubectx
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
