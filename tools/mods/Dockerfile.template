@@ -1,0 +1,36 @@
+#syntax=docker/dockerfile:1.6.0
+
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN <<EOF
+echo "### Setting architecture string for ${TARGETPLATFORM}"
+case "${arch}" in
+    x86_64)
+        export arch_suffix="${arch}"
+        ;;
+    aarch64)
+        export arch_suffix="${alt_arch}"
+        ;;
+    *)
+        echo "ERROR: Unsupported architecture ${arch}."
+        exit 1
+        ;;
+esac
+echo "    Using ${arch_suffix}"
+
+check-github-release-asset "charmbracelet/mods" "v${version}" "mods_1.2.1_Linux_x86_64.tar.gz"
+curl --silent --location --fail "https://github.com/charmbracelet/mods/releases/download/v1.2.1/mods_1.2.1_Linux_x86_64.tar.gz" \
+| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
+    mods \
+    completions
+
+mv "${prefix}/bin/completions/mods.bash" "${prefix}/share/bash-completion/completions/mods"
+mv "${prefix}/bin/completions/mods.fish" "${prefix}/share/fish/vendor_completions.d/mods.fish"
+mv "${prefix}/bin/completions/mods.zsh"  "${prefix}/share/zsh/vendor-completions/_mods"
+rmdir "${prefix}/bin/completions"
+EOF
