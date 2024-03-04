@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: namespace
+version: "0.0.345"
+check: ""
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/cli
+homepage: https://namespace.so
+description: Accelerate your workflow
+#renovate:
+#  datasource: github-releases
+#  package: foo/bar
+#  extractVersion: ^v(?<version>.+?)$
+#  priority: low
