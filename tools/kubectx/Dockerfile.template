@@ -10,7 +10,7 @@ ARG version
 RUN <<EOF
 echo "### Setting architecture string for ${TARGETPLATFORM}"
 case "${arch}" in
-    x86_64)
+    ${arch_suffix})
         export arch_suffix="${arch}"
         ;;
     aarch64)
@@ -23,13 +23,13 @@ case "${arch}" in
 esac
 echo "    Using ${arch_suffix}"
 
-check-github-release-asset "ahmetb/kubectx" "v${version}" "kubectx_v0.9.5_linux_x86_64.tar.gz"
-curl --silent --location --fail "https://github.com/ahmetb/kubectx/releases/download/v0.9.5/kubectx_v0.9.5_linux_x86_64.tar.gz" \
+check-github-release-asset "ahmetb/kubectx" "v${version}" "kubectx_v${version}_linux_${arch_suffix}.tar.gz"
+curl --silent --location --fail "https://github.com/ahmetb/kubectx/releases/download/v${version}/kubectx_v${version}_linux_${arch_suffix}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     kubectx
 
-check-github-release-asset "ahmetb/kubectx" "v${version}" "kubens_v0.9.5_linux_x86_64.tar.gz"
-curl --silent --location --fail "https://github.com/ahmetb/kubectx/releases/download/v0.9.5/kubens_v0.9.5_linux_x86_64.tar.gz" \
+check-github-release-asset "ahmetb/kubectx" "v${version}" "kubens_v${version}_linux_${arch_suffix}.tar.gz"
+curl --silent --location --fail "https://github.com/ahmetb/kubectx/releases/download/v${version}/kubens_v${version}_linux_${arch_suffix}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     kubens
 EOF
