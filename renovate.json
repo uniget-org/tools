@@ -5086,6 +5086,18 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "uniget-org/renovate-custom",
+      "extractVersionTemplate": "^namespace/(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/namespace/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "sonatype-nexus-community/nancy",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
