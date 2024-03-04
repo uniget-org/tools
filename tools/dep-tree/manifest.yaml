@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: dep-tree
+version: "0.19.9"
+check: ${binary} --version | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/cli
+homepage: https://github.com/gabotechs/dep-tree
+description: Visualising a "code base entropy" using a 3d force-directed graph of files and the dependencies between
+renovate:
+  datasource: github-releases
+  package: gabotechs/dep-tree
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
