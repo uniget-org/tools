@@ -14,5 +14,7 @@ ARG version
 RUN <<EOF
 check-clone "https://github.com/getsops/sotp" "${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" https://github.com/getsops/sotp .
+go get -u ./...
+go mod tidy
 go build -o "${prefix}/bin/sotp" -ldflags "-s -w" .
 EOF
