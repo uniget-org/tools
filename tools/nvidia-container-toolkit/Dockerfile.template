@@ -3,20 +3,34 @@
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 FROM ghcr.io/uniget-org/tools/go:latest AS go
 
-FROM ghcr.io/uniget-org/images/build-base:3.19 AS prepare
+FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=make / /usr/local/
 COPY --link --from=go / /usr/local/
+RUN <<EOF
+apt-get update
+apt-get -y install --no-install-recommends \
+    dh-make \
+    fakeroot \
+    devscripts \
+    lsb-release
+EOF
 WORKDIR /tmp/nvidia-container-toolkit
 ARG name
 ARG version
 RUN <<EOF
-git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" https://github.com/NVIDIA/nvidia-container-toolkit .
-make all
-make install DESTDIR="${prefix}" prefix=""
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/NVIDIA/nvidia-container-toolkit .
+make cmds
+cp \
+    nvidia-ctk \
+    nvidia-container-runtime \
+    nvidia-container-runtime-hook \
+    nvidia-container-runtime.cdi \
+    nvidia-container-runtime.legacy \
+    "${prefix}/bin/"
 EOF
 
 # completion
