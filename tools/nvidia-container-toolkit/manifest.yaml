@@ -2,10 +2,13 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: nvidia-container-toolkit
 version: "1.14.6"
-check: ""
+binary: nvidia-ctk
+check: ${binary} --version | grep ^NVIDIA | cut -d' ' -f6
 build_dependencies:
 - go
 - make
+runtime_dependencies:
+- docker
 platforms:
 - linux/amd64
 #- linux/arm64
