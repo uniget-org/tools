@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: libnvidia-container
+version: "1.14.6"
+check: ""
+build_dependencies:
+- bar
+runtime_dependencies:
+- baz
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- org/nvidia
+- category/operations
+- lang/c
+- type/library
+homepage: https://github.com/NVIDIA/libnvidia-container
+description: NVIDIA container runtime library
+renovate:
+  datasource: github-releases
+  package: NVIDIA/libnvidia-container
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
