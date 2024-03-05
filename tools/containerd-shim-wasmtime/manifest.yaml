@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: containerd-shim-wasmtime
+version: "0.3.0"
+check: ""
+build_dependencies:
+- rust
+- make
+runtime_dependencies:
+- containerd
+platforms:
+- linux/amd64
+tags:
+- org/containerd
+- category/development
+- lang/rust
+- type/plugin
+homepage: https://github.com/containerd/runwasi
+description: Facilitates running Wasm / WASI workloads managed by containerd
+renovate:
+  datasource: github-releases
+  package: containerd/runwasi
+  extractVersion: ^containerd-shim-wasmtime/v(?<version>.+?)$
+  priority: low

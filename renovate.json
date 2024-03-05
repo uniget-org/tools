@@ -960,7 +960,7 @@
       "depNameTemplate": "deislabs/containerd-wasm-shims",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
-        "^tools/runwasi/manifest.yaml$"
+        "^tools/containerd-shim-lunatic/manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
@@ -972,7 +972,7 @@
       "depNameTemplate": "deislabs/containerd-wasm-shims",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
-        "^tools/runwasi/manifest.yaml$"
+        "^tools/containerd-shim-slight/manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
@@ -984,7 +984,43 @@
       "depNameTemplate": "deislabs/containerd-wasm-shims",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
-        "^tools/runwasi/manifest.yaml$"
+        "^tools/containerd-shim-spin-runwasi/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "containerd/runwasi",
+      "extractVersionTemplate": "^containerd-shim-wasmedge/v(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/containerd-shim-wasmedge/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "containerd/runwasi",
+      "extractVersionTemplate": "^containerd-shim-wasmer/v(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/containerd-shim-wasmer/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "containerd/runwasi",
+      "extractVersionTemplate": "^containerd-shim-wasmtime/v(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/containerd-shim-wasmtime/manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
@@ -996,7 +1032,7 @@
       "depNameTemplate": "deislabs/containerd-wasm-shims",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
-        "^tools/runwasi/manifest.yaml$"
+        "^tools/containerd-shim-wws/manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
