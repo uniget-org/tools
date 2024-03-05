@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: nvidia-container-toolkit
+version: "1.14.6"
+check: ""
+build_dependencies:
+- go
+- make
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- org/nvidia
+- category/operations
+- lang/c
+- type/cli
+homepage: https://github.com/NVIDIA/nvidia-container-toolkit
+description: Build and run containers leveraging NVIDIA GPUs
+renovate:
+  datasource: github-releases
+  package: NVIDIA/nvidia-container-toolkit
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
