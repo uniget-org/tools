@@ -4587,7 +4587,7 @@
       "depNameTemplate": "NVIDIA/libnvidia-container",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
-        "^tools/libnvidia/manifest.yaml$"
+        "^tools/libnvidia-container/manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
