@@ -7,7 +7,7 @@ check: ${binary} --version | cut -d, -f1 | cut -d' ' -f3
 runtime_dependencies:
 - fuse-overlayfs
 - docker-manpages
-- gojq
+- jq
 platforms:
 - linux/amd64
 - linux/arm64
