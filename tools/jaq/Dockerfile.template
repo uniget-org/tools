@@ -18,4 +18,6 @@ export RUSTUP_HOME=/usr/local/rustup
 export RUSTFLAGS='-C target-feature=+crt-static'
 cargo build --release --target x86_64-unknown-linux-gnu
 cp target/x86_64-unknown-linux-gnu/release/jaq "${prefix}/bin/"
+
+ln --symbolic --relative --force "${prefix}/bin/jaq" "${prefix}/bin/jq"
 EOF
