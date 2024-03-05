@@ -1,0 +1,46 @@
+#syntax=docker/dockerfile:1.6.0
+
+FROM ghcr.io/uniget-org/tools/go:latest AS go
+FROM ghcr.io/uniget-org/tools/make:latest AS make
+
+FROM ghcr.io/uniget-org/images/build-base:3.19 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+COPY --link --from=go / /usr/local/
+COPY --link --from=make / /usr/local/
+RUN <<EOF
+apk add --update-cache --no-cache \
+    bmake \
+    bzip2 \
+    fakeroot \
+    gnupg \
+    libcap-dev \
+    libcap-static \
+    elfutils-dev \
+    libseccomp-dev \
+    libseccomp-static \
+    lsb-release \
+    m4 \
+    pkgconfig \
+    xz \
+    bsd-compat-headers \
+    groff \
+    rpcgen
+EOF
+WORKDIR /tmp/libnvidia-container
+ARG name
+ARG version
+RUN <<EOF
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/NVIDIA/libnvidia-container .
+make all
+make install DESTDIR="${prefix}" prefix=""
+EOF
+
+# completion
+#RUN <<EOF
+#"${prefix}/bin/foo" completion bash >"${prefix}/share/bash-completion/completions/foo"
+#"${prefix}/bin/foo" completion fish >"${prefix}/share/fish/vendor_completions.d/foo.fish"
+#"${prefix}/bin/foo" completion zsh >"${prefix}/share/zsh/vendor-completions/_foo"
+#EOF
