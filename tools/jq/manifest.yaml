@@ -3,6 +3,7 @@ version: "1.7.1"
 check: ${binary} --version | cut -d- -f2
 conflicts_with:
 - gojq
+- jaq
 platforms:
 - linux/amd64
 - linux/arm64
