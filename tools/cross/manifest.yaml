@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: cross
+version: "0.2.5"
+check: ${binary}-util --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+tags:
+- category/development
+- lang/rust
+- type/cli
+homepage: https://github.com/cross-rs/cross
+description: Zero setup cross compilation and cross testing of Rust crates 
+renovate:
+  datasource: github-releases
+  package: cross-rs/cross
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
