@@ -40,8 +40,6 @@ git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}"
 export WITH_LIBELF=yes
 export WITH_TIRPC=yes
 make deps
-EOF
-RUN <<EOF
 make shared static
 make tools
 make install DESTDIR="${prefix}" prefix=""
