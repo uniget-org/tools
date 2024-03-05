@@ -1,0 +1,36 @@
+#syntax=docker/dockerfile:1.6.0
+
+FROM ghcr.io/uniget-org/tools/make:latest AS make
+FROM ghcr.io/uniget-org/tools/rust:latest AS rust
+
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+#FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+COPY --link --from=rust / /usr/local/
+RUN <<EOF
+apt-get -y update
+apt-get -y install --no-install-recommends \
+    pkg-config \
+    libsystemd-dev \
+    libdbus-glib-1-dev \
+    libelf-dev \
+    libseccomp-dev \
+    libclang-dev \
+    libzstd-dev \
+    protobuf-compiler
+EOF
+WORKDIR /tmp/github.com/containerd/runwasi
+RUN <<EOF
+git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" https://github.com/containerd/runwasi .
+export CARGO_HOME=/usr/local/cargo
+export RUSTUP_HOME=/usr/local/rustup
+#export RUSTFLAGS='-C target-feature=+crt-static'
+false
+make build-wasmedge
+make install PREFIX="${prefix}"
+EOF
