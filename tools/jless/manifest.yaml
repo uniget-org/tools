@@ -13,10 +13,17 @@ description: Command-line JSON viewer designed for reading, exploring, and searc
 messages:
   usage: |
     You must make sure the following libraries are installed:
-    - libxcb1
-    - libxcb-render0
-    - libxcb-shape0
-    - libxcb-xfixes0
+    - libxcb.so.1
+    - libxcb-render.so.0
+    - libxcb-shape.so.0
+    - libxcb-xfixes.so.0
+
+    Ubuntu:
+        apt-get install \
+            libxcb1 \
+            libxcb-render0 \
+            libxcb-shape0 \
+            libxcb-xfixes0
 renovate:
   datasource: github-releases
   package: PaulJuliusMartinez/jless

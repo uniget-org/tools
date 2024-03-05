@@ -19,6 +19,16 @@ tags:
 - type/cli
 homepage: https://github.com/NVIDIA/nvidia-container-toolkit
 description: Build and run containers leveraging NVIDIA GPUs
+messages:
+  usage: |
+    Please refer to the official documentation to learn how to configure...
+    - Docker
+    - containerd
+    - cri-o
+    - podman
+    - rootless
+
+    https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html
 renovate:
   datasource: github-releases
   package: NVIDIA/nvidia-container-toolkit
