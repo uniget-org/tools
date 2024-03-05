@@ -3,6 +3,8 @@ $schema: https://tools.uniget.dev/schema.yaml
 name: cross
 version: "0.2.5"
 check: ${binary}-util --version | cut -d' ' -f2
+runtime_dependencies:
+- rust
 platforms:
 - linux/amd64
 tags:
