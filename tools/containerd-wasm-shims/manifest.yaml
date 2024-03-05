@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: containerd-wasm-shims
+version: "0.11.1"
+check: ""
+build_dependencies:
+- rust
+- make
+runtime_dependencies:
+- containerd
+platforms:
+- linux/amd64
+tags:
+- org/deislabs
+- category/development
+- lang/rust
+- type/cli
+homepage: https://github.com/deislabs/containerd-wasm-shims
+description: containerd shims for running WebAssembly workloads in Kubernetes 
+renovate:
+  datasource: github-releases
+  package: deislabs/containerd-wasm-shims
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
