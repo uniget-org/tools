@@ -2,11 +2,11 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: libnvidia-container
 version: "1.14.6"
-check: ""
+binary: nvidia-container-cli
+check: ${binary} --version | grep ^cli | cut -d' ' -f2
 build_dependencies:
-- bar
-runtime_dependencies:
-- baz
+- go
+- make
 platforms:
 - linux/amd64
 #- linux/arm64
