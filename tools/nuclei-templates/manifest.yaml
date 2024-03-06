@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: nuclei-templates
-version: "9.7.6"
+version: "9.7.7"
 binary: "false"
 check: "" # No binary and no version file
 platforms:
