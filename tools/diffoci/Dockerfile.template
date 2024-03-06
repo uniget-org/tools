@@ -1,4 +1,4 @@
-#syntax=docker/dockerfile:1.6.0
+#syntax=docker/dockerfile:1.7.0
 
 FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
