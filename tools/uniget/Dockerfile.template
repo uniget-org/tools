@@ -18,4 +18,6 @@ chmod +x "${prefix}/bin/uniget"
 "${prefix}/bin/uniget" completion bash >"${prefix}/share/bash-completion/completions/uniget"
 "${prefix}/bin/uniget" completion fish >"${prefix}/share/fish/vendor_completions.d/uniget.fish"
 "${prefix}/bin/uniget" completion zsh >"${prefix}/share/zsh/vendor-completions/_uniget"
+
+"${prefix}/bin/uniget" --target="${prefix}" man
 EOF
