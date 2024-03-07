@@ -11,21 +11,19 @@ COPY --link --from=go-md2man / /usr/local/
 ARG name
 ARG version
 RUN <<EOF
-curl --silent --location --fail --output "${prefix}/share/man/man5/Containerfile.5.md" \
-    "https://github.com/containers/common/raw/v${version}/docs/Containerfile.5.md"
-curl --silent --location --fail --output "${prefix}/share/man/man5/containerignore.5.md" \
-    "https://github.com/containers/common/raw/v${version}/docs/containerignore.5.md"
-curl --silent --location --fail --output "${prefix}/share/man/man5/containers-mounts.conf.5.md" \
-    "https://github.com/containers/common/raw/v${version}/docs/containers-mounts.conf.5.md"
-curl --silent --location --fail --output "${prefix}/share/man/man5/containers.conf.5.md" \
-    "https://github.com/containers/common/raw/v${version}/docs/containers.conf.5.md"
-go-md2man -in "${prefix}/share/man/man5/Containerfile.5.md"          -out "${prefix}/share/man/man5/Containerfile.5"
-go-md2man -in "${prefix}/share/man/man5/containerignore.5.md"        -out "${prefix}/share/man/man5/containerignore.5"
-go-md2man -in "${prefix}/share/man/man5/containers-mounts.conf.5.md" -out "${prefix}/share/man/man5/containers-mounts.conf.5"
-go-md2man -in "${prefix}/share/man/man5/containers.conf.5.md"        -out "${prefix}/share/man/man5/containers.conf.5"
-rm \
-    "${prefix}/share/man/man5/Containerfile.5.md" \
-    "${prefix}/share/man/man5/containerignore.5.md" \
-    "${prefix}/share/man/man5/containers-mounts.conf.5.md" \
-    "${prefix}/share/man/man5/containers.conf.5.md"
+for file in \
+    Containerfile.5 \
+    containerignore.5 \
+    containers-mounts.conf.5 \
+    containers.conf.5; do
+
+    echo "Processing manpage ${file}..."
+    curl --silent --location --fail --remote-name "https://github.com/containers/common/raw/main/docs/${file}.md"
+    go-md2man -in "${file}.md" -out "${prefix}/share/man/man5/${file}"
+    rm "${file}.md"
+done
 EOF
+COPY policy.json /uniget_bootstrap/etc/containers/
+COPY shortnames.conf /uniget_bootstrap/etc/containers/registries.conf.d/
+COPY containers.conf /uniget_bootstrap/usr/share/containers/
+COPY seccomp.json /uniget_bootstrap/usr/share/containers/
