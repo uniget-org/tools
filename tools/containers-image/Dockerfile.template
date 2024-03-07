@@ -1,0 +1,32 @@
+#syntax=docker/dockerfile:1.7.0
+
+FROM ghcr.io/uniget-org/tools/go-md2man:latest AS go-md2man
+
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+COPY --link --from=go-md2man / /usr/local/
+WORKDIR /tmp/containers-image
+ARG name
+ARG version
+RUN <<EOF
+for file in \
+    containers-auth.json.5 \
+    containers-certs.d.5 \
+    containers-policy.json.5 \
+    containers-registries.conf.5 \
+    containers-registries.conf.d.5 \
+    containers-registries.d.5 \
+    containers-signature.5 \
+    containers-sigstore-signing-params.yaml.5 \
+    containers-transports.5; do
+
+    echo "Processing manpage ${file}..."
+    curl --silent --location --fail --remote-name "https://github.com/containers/image/raw/main/docs/${file}.md"
+    go-md2man -in "${file}.md" -out "${prefix}/share/man/man5/${file}"
+    rm "${file}.md"
+done
+EOF
+COPY registries.conf /uniget_bootstrap/etc/containers/

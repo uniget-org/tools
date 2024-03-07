@@ -1,0 +1,94 @@
+#syntax=docker/dockerfile:1.7.0
+
+FROM ghcr.io/uniget-org/tools/go:latest AS go
+FROM ghcr.io/uniget-org/tools/make:latest AS make
+FROM ghcr.io/uniget-org/tools/go-md2man:latest AS go-md2man
+
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+COPY --link --from=go / /usr/local/
+COPY --link --from=make / /usr/local/
+COPY --link --from=go-md2man / /usr/local/
+WORKDIR /tmp/containers-storage
+ARG name
+ARG version
+RUN <<EOF
+check-clone "https://github.com/containers/storage" "v${version}"
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/containers/storage .
+make containers-storage
+cp containers-storage "${prefix}/bin/"
+
+for file in \
+    containers-storage-add-names \
+    containers-storage-applydiff-using-staging-dir \
+    containers-storage-applydiff \
+    containers-storage-changes \
+    containers-storage-check \
+    containers-storage-container \
+    containers-storage-containers \
+    containers-storage-copy \
+    containers-storage-create-container \
+    containers-storage-create-image \
+    containers-storage-create-layer \
+    containers-storage-create-storage-layer \
+    containers-storage-delete-container \
+    containers-storage-delete-image \
+    containers-storage-delete-layer \
+    containers-storage-delete \
+    containers-storage-diff \
+    containers-storage-diffsize \
+    containers-storage-exists \
+    containers-storage-gc \
+    containers-storage-get-container-data-digest \
+    containers-storage-get-container-data-size \
+    containers-storage-get-container-data \
+    containers-storage-get-container-dir \
+    containers-storage-get-container-run-dir \
+    containers-storage-get-image-data-digest \
+    containers-storage-get-image-data-size \
+    containers-storage-get-image-data \
+    containers-storage-get-image-dir \
+    containers-storage-get-image-run-dir \
+    containers-storage-get-layer-data \
+    containers-storage-get-names \
+    containers-storage-image \
+    containers-storage-images-by-digest \
+    containers-storage-images \
+    containers-storage-import-layer \
+    containers-storage-layer \
+    containers-storage-layers \
+    containers-storage-list-container-data \
+    containers-storage-list-image-data \
+    containers-storage-list-layer-data \
+    containers-storage-metadata \
+    containers-storage-mount \
+    containers-storage-mounted \
+    containers-storage-remove-names \
+    containers-storage-set-container-data \
+    containers-storage-set-image-data \
+    containers-storage-set-layer-data \
+    containers-storage-set-metadata \
+    containers-storage-set-names \
+    containers-storage-shutdown \
+    containers-storage-status \
+    containers-storage-unmount \
+    containers-storage-unshare \
+    containers-storage-version \
+    containers-storage-wipe \
+    containers-storage; do
+
+    echo "Processing manpage ${file}..."
+    go-md2man -in "docs/${file}.md" -out "${prefix}/share/man/man1/${file}"
+done
+
+for file in \
+    containers-storage.conf.5; do
+
+    echo "Processing manpage ${file}..."
+    go-md2man -in "docs/${file}.md" -out "${prefix}/share/man/man5/${file}"
+done
+EOF
+COPY storage.conf /uniget_bootstrap/usr/share/containers/

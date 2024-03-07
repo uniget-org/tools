@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: containers-image
+version: "5.30.0"
+check: ""
+build_dependencies:
+- go-md2man
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/redhat
+- type/configuration
+- type/documentation
+homepage: https://github.com/containers/image
+description: Work with containers' images
+renovate:
+  datasource: github-releases
+  package: containers/image
+  extractVersion: ^v(?<version>.+?)$
+  priority: low

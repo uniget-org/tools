@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: containers-storage
+version: "1.53.0"
+check: ${binary} version 2>&1 | grep ^Version | cut -d' ' -f2
+build_dependencies:
+- go
+- make
+- go-md2man
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/redhat
+- type/cli
+- type/configuration
+- type/documentation
+homepage: https://github.com/containers/storage
+description: Container Storage Library 
+renovate:
+  datasource: github-releases
+  package: containers/storage
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
