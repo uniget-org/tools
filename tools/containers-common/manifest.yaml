@@ -11,6 +11,7 @@ platforms:
 tags:
 - org/redhat
 - type/configuration
+- type/documentation
 homepage: https://github.com/containers/common
 description: Location for shared common files in github.com/containers repos
 renovate:
