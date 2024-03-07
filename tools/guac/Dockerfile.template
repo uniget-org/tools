@@ -1,26 +1,43 @@
 #syntax=docker/dockerfile:1.6.0
 
-FROM ghcr.io/uniget-org/tools/go:latest AS go
-FROM ghcr.io/uniget-org/tools/make:latest AS make
-FROM ghcr.io/uniget-org/tools/goreleaser:latest AS goreleaser
-
 FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --link --from=go / /usr/local/
-COPY --link --from=make / /usr/local/
-COPY --link --from=goreleaser / /usr/local/
 WORKDIR /go/src/github.com/guacsec/guac
 ARG name
 ARG version
 RUN <<EOF
-check-clone https://github.com/guacsec/guac "v${version}"
-git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/guacsec/guac .
-export CGO_ENABLED=0
-make -j$(nproc) build
-cp bin/guac* "${prefix}/bin/"
+check-github-release-asset "guacsec/guac" "v${version}" "guaccollect-linux-${alt_arch}"
+curl --silent --location --fail --output "${prefix}/bin/guaccollect" \
+    "https://github.com/guacsec/guac/releases/download/v${version}/guaccollect-linux-${alt_arch}"
+chmod +x "${prefix}/bin/guaccollect"
+
+check-github-release-asset "guacsec/guac" "v${version}" "guaccsub-linux-${alt_arch}"
+curl --silent --location --fail --output "${prefix}/bin/guaccsub" \
+    "https://github.com/guacsec/guac/releases/download/v${version}/guaccsub-linux-${alt_arch}"
+chmod +x "${prefix}/bin/guaccsub"
+
+check-github-release-asset "guacsec/guac" "v${version}" "guacgql-linux-${alt_arch}"
+curl --silent --location --fail --output "${prefix}/bin/guacgql" \
+    "https://github.com/guacsec/guac/releases/download/v${version}/guacgql-linux-${alt_arch}"
+chmod +x "${prefix}/bin/guacgql"
+
+check-github-release-asset "guacsec/guac" "v${version}" "guacingest-linux-${alt_arch}"
+curl --silent --location --fail --output "${prefix}/bin/guacingest" \
+    "https://github.com/guacsec/guac/releases/download/v${version}/guacingest-linux-${alt_arch}"
+chmod +x "${prefix}/bin/guacingest"
+
+check-github-release-asset "guacsec/guac" "v${version}" "guacone-linux-${alt_arch}"
+curl --silent --location --fail --output "${prefix}/bin/guacone" \
+    "https://github.com/guacsec/guac/releases/download/v${version}/guacone-linux-${alt_arch}"
+chmod +x "${prefix}/bin/guacone"
+
+check-github-release-asset "guacsec/guac" "v${version}" "guacrest-linux-${alt_arch}"
+curl --silent --location --fail --output "${prefix}/bin/guacrest" \
+    "https://github.com/guacsec/guac/releases/download/v${version}/guacrest-linux-${alt_arch}"
+chmod +x "${prefix}/bin/guacrest"
 EOF
 RUN <<EOF
 "${prefix}/bin/guaccollect" completion bash >"${prefix}/share/bash-completion/completions/guaccollect"
