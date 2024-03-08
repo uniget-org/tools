@@ -23,8 +23,8 @@ case "${arch}" in
 esac
 echo "    Using ${arch_suffix}"
 
-check-github-release-asset "charmbracelet/mods" "v${version}" "mods_1.2.1_Linux_x86_64.tar.gz"
-curl --silent --location --fail "https://github.com/charmbracelet/mods/releases/download/v1.2.1/mods_1.2.1_Linux_x86_64.tar.gz" \
+check-github-release-asset "charmbracelet/mods" "v${version}" "mods_${version}_Linux_${arch_suffix}.tar.gz"
+curl --silent --location --fail "https://github.com/charmbracelet/mods/releases/download/v${version}/mods_${version}_Linux_${arch_suffix}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     mods \
     completions
