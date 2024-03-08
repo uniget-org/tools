@@ -1,5 +1,5 @@
 name: shellcheck
-version: "0.9.0"
+version: "0.10.0"
 check: ${binary} --version | grep ^version | cut -d' ' -f2
 build_dependencies:
 - go-md2man
