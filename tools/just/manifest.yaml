@@ -1,5 +1,5 @@
 name: just
-version: "1.25.0"
+version: "1.25.1"
 check: ${binary} --version | cut -d' ' -f2
 tags:
 - category/development
