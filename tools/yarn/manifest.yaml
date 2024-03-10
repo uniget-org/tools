@@ -1,5 +1,5 @@
 name: yarn
-version: "1.22.21"
+version: "1.22.22"
 check: ${binary} --version
 build_dependencies:
 - nodejs-lts
