@@ -25,9 +25,9 @@ echo "    Using ${arch_suffix}"
 
 check-github-release-asset "charmbracelet/mods" "v${version}" "mods_${version}_Linux_${arch_suffix}.tar.gz"
 curl --silent --location --fail "https://github.com/charmbracelet/mods/releases/download/v${version}/mods_${version}_Linux_${arch_suffix}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
-    mods \
-    completions
+| tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
+    "mods_${version}_Linux_${arch_suffix}/mods" \
+    "mods_${version}_Linux_${arch_suffix}/completions"
 
 mv "${prefix}/bin/completions/mods.bash" "${prefix}/share/bash-completion/completions/mods"
 mv "${prefix}/bin/completions/mods.fish" "${prefix}/share/fish/vendor_completions.d/mods.fish"
