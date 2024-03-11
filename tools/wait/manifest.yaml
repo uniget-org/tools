@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: wait
+version: "2.12.1"
+check: ""
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/rust
+- type/cli
+homepage: https://github.com/ufoscout/docker-compose-wait
+description: wait for other docker images to be started while using docker-compose (or Kubernetes or docker stack or whatever)
+renovate:
+  datasource: github-releases
+  package: ufoscout/docker-compose-wait
+  priority: low
