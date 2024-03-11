@@ -969,6 +969,30 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "containers/image",
+      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/containers-image/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "containers/storage",
+      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/containers-storage/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "ContainerSSH/ContainerSSH",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
@@ -4490,6 +4514,18 @@
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/lazygit/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "jorgerojas26/lazysql",
+      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/lazysql/manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"

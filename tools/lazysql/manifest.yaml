@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: lazysql
+version: "0.1.7"
+check: "" # No version parameter
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/developmenmt
+- lang/go
+- type/cli
+homepage: https://github.com/jorgerojas26/lazysql
+description: Cross-platform TUI database management tool
+renovate:
+  datasource: github-releases
+  package: jorgerojas26/lazysql
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
