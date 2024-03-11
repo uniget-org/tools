@@ -1,0 +1,22 @@
+#syntax=docker/dockerfile:1.7.0
+
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN <<EOF
+check-github-release-asset "ufoscout/docker-compose-wait" "${version}" "wait_${arch}"
+curl --silent --location --fail --output "${prefix}/bin/wait" \
+    "https://github.com/ufoscout/docker-compose-wait/releases/download/${version}/wait_${arch}"
+chmod +x "${prefix}/bin/wait"
+EOF
+
+# completion
+#RUN <<EOF
+#"${prefix}/bin/foo" completion bash >"${prefix}/share/bash-completion/completions/foo"
+#"${prefix}/bin/foo" completion fish >"${prefix}/share/fish/vendor_completions.d/foo.fish"
+#"${prefix}/bin/foo" completion zsh >"${prefix}/share/zsh/vendor-completions/_foo"
+#EOF

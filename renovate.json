@@ -7608,6 +7608,17 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "ufoscout/docker-compose-wait",
+      "fileMatch": [
+        "^tools/wait/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "dnnrly/wait-for",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
