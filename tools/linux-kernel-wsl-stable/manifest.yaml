@@ -2,6 +2,7 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: linux-kernel-wsl-stable
 version: "5.15.146.1"
+binary: "false"
 check: make kernelversion
 platforms:
 - linux/amd64
