@@ -1,0 +1,30 @@
+#syntax=docker/dockerfile:1.7.0
+
+FROM ghcr.io/uniget-org/tools/make:latest AS make
+
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+COPY --from=make / /usr/local/
+RUN <<EOF
+apt-get update
+apt-get -y install --no-install-recommends \
+    python3-pip \
+    python3-venv \
+    python-is-python3
+EOF
+WORKDIR /tmp/kpxhs
+ARG name
+ARG version
+RUN <<EOF
+check-github-release-asset "akazukin5151/kpxhs" "v${version}" "kpxhs-linux"
+curl --silent --location --fail --output "${prefix}/bin/kpxhs" \
+    "https://github.com/akazukin5151/kpxhs/releases/download/v${version}/kpxhs-linux"
+chmod +x "${prefix}/bin/kpxhs"
+
+check-github-release-asset "akazukin5151/kpxhs" "v${version}" "kpxhs.1"
+curl --silent --location --fail --output "${prefix}/share/man/man1/kpxhs.1" \
+    "https://github.com/akazukin5151/kpxhs/releases/download/v${version}/kpxhs.1"
+EOF
