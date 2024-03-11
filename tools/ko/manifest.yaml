@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: ko
+version: "0.15.2"
+check: ${binary} --version
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/cli
+homepage: https://github.com/ko-build/ko
+description: Build and deploy Go applications
+renovate:
+  datasource: github-releases
+  package: ko-build/ko
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
