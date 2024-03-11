@@ -2,6 +2,7 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: linux-kernel
 version: "6.8"
+binary: "false"
 check: ""
 platforms:
 - linux/amd64
