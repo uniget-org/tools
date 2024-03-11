@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: kpxhs
+version: "1.11"
+check: ""
+build_dependencies:
+- bar
+runtime_dependencies:
+- baz
+platforms:
+- linux/amd64
+tags:
+- lang/haskell
+- type/cli
+homepage: https://github.com/akazukin5151/kpxhs
+description: Interactive Keepass database TUI viewer 
+renovate:
+  datasource: github-releases
+  package: akazukin5151/kpxhs
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
