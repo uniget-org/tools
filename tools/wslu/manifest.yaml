@@ -1,6 +1,7 @@
 name: wslu
 version: "4.1.2"
-check: "" # Wrong version
+binary: wslview
+check: ${binary} -v 2>/dev/null | cut -d' ' -f2 | cut -d- -f1 | tr -d v
 build_dependencies:
 - make
 tags:
