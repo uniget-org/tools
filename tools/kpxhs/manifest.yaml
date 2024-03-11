@@ -2,18 +2,25 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: kpxhs
 version: "1.11"
-check: ""
-build_dependencies:
-- bar
-runtime_dependencies:
-- baz
+check: ${binary} --version | tr -d '"'
 platforms:
 - linux/amd64
 tags:
 - lang/haskell
 - type/cli
 homepage: https://github.com/akazukin5151/kpxhs
-description: Interactive Keepass database TUI viewer 
+description: Interactive Keepass database TUI viewer
+messages:
+  usage: |
+    Dynamically linked against:
+    - libtinfo.so.6
+    - libgmp.so.10
+    - libm.so.6
+
+    To install these dependencies on Ubuntu, run:
+        apt-get install \
+            libtinfo6 \
+            libgmp10
 renovate:
   datasource: github-releases
   package: akazukin5151/kpxhs
