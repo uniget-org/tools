@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: dragonfly
-version: "2.1.34"
+version: "2.1.35"
 binary: manager
 check: ${binary} version | grep ^GitVersion | cut -dv -f2
 platforms:
