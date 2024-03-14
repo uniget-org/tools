@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: nushell
+version: "0.91.0"
+binary: nu
+check: ${binary} --version
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/rust
+- type/cli
+homepage: https://github.com/nushell/nushell
+description: New type of shell
+renovate:
+  datasource: github-releases
+  package: nushell/nushell
+  priority: low

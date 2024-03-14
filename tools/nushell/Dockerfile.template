@@ -1,0 +1,30 @@
+#syntax=docker/dockerfile:1.7.0
+
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN <<EOF
+echo "### Setting library string for ${TARGETPLATFORM}"
+case "${arch}" in
+    x86_64)
+        export lib_suffix=musl
+        ;;
+    aarch64)
+        export lib_suffix=gnu
+        ;;
+    *)
+        echo "ERROR: Unsupported architecture ${arch}."
+        exit 1
+        ;;
+esac
+echo "    Using ${lib_suffix}"
+
+check-github-release-asset "nushell/nushell" "${version}" "nu-${version}-${arch}-linux-${lib_suffix}-full.tar.gz"
+curl --silent --location --fail "https://github.com/nushell/nushell/releases/download/${version}/nu-${version}-${arch}-linux-${lib_suffix}-full.tar.gz" \
+| tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner
+rm -f "${prefix}/bin/LICENSE" "${prefix}/bin/README.txt"
+EOF
