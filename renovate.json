@@ -5434,6 +5434,17 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "nushell/nushell",
+      "fileMatch": [
+        "^tools/nushell/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "NVIDIA/nvidia-container-toolkit",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
