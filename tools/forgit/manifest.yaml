@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: forgit
-version: "24.03.1"
+version: "24.03.2"
 binary: "false"
 check: "" # No binary
 runtime_dependencies:
