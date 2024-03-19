@@ -1,5 +1,5 @@
 name: portainer
-version: "2.19.4"
+version: "2.20.0"
 check: ${binary} --version 2>&1
 runtime_dependencies:
 - docker
