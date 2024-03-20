@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: minder
-version: "0.0.35"
+version: "0.0.36"
 check: ""
 platforms:
 - linux/amd64
