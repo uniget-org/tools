@@ -8,11 +8,11 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=rust / /usr/local
-WORKDIR /tmp/github.com/paritytech/wasmi
+WORKDIR /tmp/github.com/wasmi-labs/wasmi
 ARG name
 ARG version
 RUN <<EOF
-git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/paritytech/wasmi .
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/wasmi-labs/wasmi .
 export CARGO_HOME=/usr/local/cargo
 export RUSTUP_HOME=/usr/local/rustup
 export RUSTFLAGS='-C target-feature=+crt-static'
