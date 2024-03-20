@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: dcp
+version: "0.4.1"
+check: ${binary} --version | cut -d' ' -f2
+build_dependencies:
+- rust
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- category/development
+- lang/rust
+- type/cli
+- state/stale
+homepage: https://github.com/exdx/dcp
+description: Some description
+renovate:
+  datasource: github-releases
+  package: exdx/dcp
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
