@@ -1,5 +1,6 @@
 name: wasmi
 version: "0.31.2"
+binary: wasmi_cli
 check: ${binary} --version | cut -d' ' -f2
 build_dependencies:
 - rust
