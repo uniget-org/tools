@@ -1,5 +1,5 @@
 name: openjdk-jre
-version: "21"
+version: "22"
 binary: java
 check: ${binary} -version 2>&1 | grep ^openjdk | cut -d' ' -f3 | tr -d '"'
 build_dependencies:
