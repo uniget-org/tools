@@ -12,10 +12,10 @@ tags:
 - type/cli
 - webassembly
 - wasm
-homepage: https://github.com/paritytech/wasmi
+homepage: https://github.com/wasmi-labs/wasmi
 description: WebAssembly (Wasm) interpreter
 renovate:
   datasource: github-releases
-  package: paritytech/wasmi
+  package: wasmi-labs/wasmi
   extractVersion: ^v(?<version>.+?)$
   priority: low
