@@ -13,6 +13,9 @@ ARG name
 ARG version
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/wasmi-labs/wasmi .
+sed -i -E "s/version = \"[0-9]+\.[0-9]+\.[0-9]+(-[a-z]+\.[0-9]+)?\"/version = \"${version}\"/g" crates/cli/Cargo.toml
+sed -i -E "s/version = \"[0-9]+\.[0-9]+\.[0-9]+(-[a-z]+\.[0-9]+)?\"/version = \"${version}\"/g" crates/wasi/Cargo.toml
+sed -i -E "s/version = \"[0-9]+\.[0-9]+\.[0-9]+(-[a-z]+\.[0-9]+)?\"/version = \"${version}\"/g" crates/wasmi/Cargo.toml
 export CARGO_HOME=/usr/local/cargo
 export RUSTUP_HOME=/usr/local/rustup
 export RUSTFLAGS='-C target-feature=+crt-static'
