@@ -1328,6 +1328,18 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "exdx/dcp",
+      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/dcp/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "ddosify/ddosify",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
@@ -7725,7 +7737,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "paritytech/wasmi",
+      "depNameTemplate": "wasmi-labs/wasmi",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
         "^tools/wasmi/manifest.yaml$"
