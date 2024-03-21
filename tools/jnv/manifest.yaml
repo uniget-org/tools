@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: jnv
+version: "0.1.1"
+check: ""
+build_dependencies:
+- rust
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- category/development
+- lang/rust
+- type/cli
+- standard/jq
+homepage: https://github.com/ynqa/jnv
+description: Interactive JSON filter using jq 
+renovate:
+  datasource: github-releases
+  package: ynqa/jnv
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
