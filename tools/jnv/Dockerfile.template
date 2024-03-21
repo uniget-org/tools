@@ -1,0 +1,36 @@
+#syntax=docker/dockerfile:1.7.0
+
+FROM ghcr.io/uniget-org/tools/rust:latest AS rust
+
+FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+COPY --link --from=rust / /usr/local/
+RUN <<EOF
+apt-get update
+apt-get -y install --no-install-recommends \
+    python3-pip \
+    python3-venv \
+    python-is-python3 \
+    valgrind
+EOF
+WORKDIR /tmp/github.com/ynqa/jnv
+ARG name
+ARG version
+RUN <<EOF
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/ynqa/jnv .
+export CARGO_HOME=/usr/local/cargo
+export RUSTUP_HOME=/usr/local/rustup
+export RUSTFLAGS='-C target-feature=+crt-static'
+cargo build --release --target "${arch}-unknown-linux-gnu"
+cp "target/${arch}-unknown-linux-gnu/release/jnv" "${prefix}/bin/"
+EOF
+
+# completion
+#RUN <<EOF
+#"${prefix}/bin/jnv" completion bash >"${prefix}/share/bash-completion/completions/jnv"
+#"${prefix}/bin/jnv" completion fish >"${prefix}/share/fish/vendor_completions.d/jnv.fish"
+#"${prefix}/bin/jnv" completion zsh >"${prefix}/share/zsh/vendor-completions/_jnv"
+#EOF
