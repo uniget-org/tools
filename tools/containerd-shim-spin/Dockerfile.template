@@ -1,0 +1,26 @@
+#syntax=docker/dockerfile:1.7.0
+
+FROM ghcr.io/uniget-org/tools/make:latest AS make
+FROM ghcr.io/uniget-org/tools/rust:latest AS rust
+
+FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+COPY --link --from=rust / /usr/local/
+RUN <<EOF
+apt-get install -y --no-install-recommends \
+    protobuf-compiler
+EOF
+WORKDIR /tmp/github.com/spinkube/containerd-shim-spin
+RUN <<EOF
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/spinkube/containerd-shim-spin .
+export CARGO_HOME=/usr/local/cargo
+export RUSTUP_HOME=/usr/local/rustup
+#export RUSTFLAGS='-C target-feature=+crt-static'
+make build-spin
+make install PREFIX="${prefix}"
+EOF
