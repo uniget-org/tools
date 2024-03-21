@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: containerd-shim-spin
+version: "0.13.1"
+check: ""
+build_dependencies:
+- rust
+- make
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- category/operations
+- lang/rust
+- type/?
+homepage: https://github.com/spinkube/containerd-shim-spin
+description: ContainerD shim for running Spin applications
+renovate:
+  datasource: github-releases
+  package: spinkube/containerd-shim-spin
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
