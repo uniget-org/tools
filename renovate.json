@@ -6883,6 +6883,18 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "fermyon/spin",
+      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/spin/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "spiffe/spire",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
@@ -7725,7 +7737,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "paritytech/wasmi",
+      "depNameTemplate": "wasmi-labs/wasmi",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
         "^tools/wasmi/manifest.yaml$"

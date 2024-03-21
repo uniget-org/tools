@@ -1,0 +1,30 @@
+#syntax=docker/dockerfile:1.7.0
+
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN <<EOF
+echo "### Setting architecture string for ${TARGETPLATFORM}"
+case "${arch}" in
+    x86_64)
+        export arch_suffix="${alt_arch}"
+        ;;
+    aarch64)
+        export arch_suffix="${arch}"
+        ;;
+    *)
+        echo "ERROR: Unsupported architecture ${arch}."
+        exit 1
+        ;;
+esac
+echo "    Using ${arch_suffix}"
+
+check-github-release-asset "fermyon/spin" "v${version}" "spin-v${version}-linux-${arch_suffix}.tar.gz"
+curl --silent --location --fail "https://github.com/fermyon/spin/releases/download/v${version}/spin-v${version}-static-linux-${arch_suffix}.tar.gz" \
+| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
+    spin
+EOF
