@@ -1,5 +1,5 @@
 name: regclient
-version: "0.5.7"
+version: "0.6.0"
 binary: regctl
 check: ${binary} version --format '{{ .VCSTag }}' | tr -d v
 platforms:
