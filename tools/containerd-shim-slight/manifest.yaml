@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: runwasi
+version: "0.11.1"
+check: "" # No version parameter
+runtime_dependencies:
+- containerd
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/deislabs
+- category/development
+- lang/rust
+- type/cli
+- wasm
+- webassembly
+- containerd
+- kubernetes
+- k8s
+homepage: https://github.com/deislabs/containerd-wasm-shims
+description: containerd shims for running WebAssembly workloads in Kubernetes 
+renovate:
+  datasource: github-releases
+  package: deislabs/containerd-wasm-shims
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
