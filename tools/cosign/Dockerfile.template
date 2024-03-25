@@ -7,7 +7,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG TARGETPLATFORM
 # renovate: datasource=github-releases depName=sigstore/cosign
-ARG COSIGN_VERSION=2.1.1
+ARG COSIGN_VERSION=2.2.3
 COPY checksums.txt .
 RUN <<EOF
 check-github-release-asset "sigstore/cosign" "v${COSIGN_VERSION}" "cosign-linux-${alt_arch}"
