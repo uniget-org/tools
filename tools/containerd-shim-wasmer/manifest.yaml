@@ -15,6 +15,11 @@ tags:
 - category/development
 - lang/rust
 - type/plugin
+- wasm
+- webassembly
+- kubernetes
+- k8s
+- containerd
 homepage: https://github.com/containerd/runwasi
 description: Facilitates running Wasm / WASI workloads managed by containerd
 renovate:
