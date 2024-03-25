@@ -22,7 +22,8 @@ apt-get -y install --no-install-recommends \
     libseccomp-dev \
     libclang-dev \
     libzstd-dev \
-    protobuf-compiler
+    protobuf-compiler \
+    sudo
 EOF
 WORKDIR /tmp/github.com/containerd/runwasi
 RUN <<EOF
@@ -30,7 +31,7 @@ set -e -x
 git clone -q --config advice.detachedHead=false --depth 1 --branch "containerd-shim-wasmer/v${version}" https://github.com/containerd/runwasi .
 export CARGO_HOME=/usr/local/cargo
 export RUSTUP_HOME=/usr/local/rustup
-#export RUSTFLAGS='-C target-feature=+crt-static'
+export RUSTFLAGS='-C target-feature=+crt-static'
 make build-wasmer
 make install-wasmer PREFIX="${prefix}"
 EOF
