@@ -20,3 +20,19 @@ default_runtime_name = "runc"
 # kata-containers
 [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.kata]
     runtime_type = "io.containerd.kata.v2"
+
+# containerd-shim-spin
+[plugins.cri.containerd.runtimes.spin]
+  runtime_type = "io.containerd.spin.v2"
+
+# containerd-shim-slight
+[plugins.cri.containerd.runtimes.slight]
+  runtime_type = "io.containerd.slight.v1"
+
+# containerd-shim-wws
+[plugins.cri.containerd.runtimes.wws]
+  runtime_type = "io.containerd.wws.v1"
+
+# containerd-shim-lunatic
+[plugins.cri.containerd.runtimes.lunatic]
+  runtime_type = "io.containerd.lunatic.v1"
