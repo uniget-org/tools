@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: jnv
-version: "0.1.1"
+version: "0.2.0"
 check: ""
 build_dependencies:
 - rust
@@ -14,7 +14,7 @@ tags:
 - type/cli
 - standard/jq
 homepage: https://github.com/ynqa/jnv
-description: Interactive JSON filter using jq 
+description: Interactive JSON filter using jq
 renovate:
   datasource: github-releases
   package: ynqa/jnv
