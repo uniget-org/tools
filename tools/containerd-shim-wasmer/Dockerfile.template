@@ -32,5 +32,5 @@ export CARGO_HOME=/usr/local/cargo
 export RUSTUP_HOME=/usr/local/rustup
 #export RUSTFLAGS='-C target-feature=+crt-static'
 make build-wasmer
-make install PREFIX="${prefix}"
+make install-wasmer PREFIX="${prefix}"
 EOF
