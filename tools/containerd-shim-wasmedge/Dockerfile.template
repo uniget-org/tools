@@ -3,8 +3,7 @@
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 FROM ghcr.io/uniget-org/tools/rust:latest AS rust
 
-FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
-#FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -12,6 +11,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 COPY --link --from=rust / /usr/local/
+COPY --link --from=make / /usr/local/
 RUN <<EOF
 apt-get -y update
 apt-get -y install --no-install-recommends \
@@ -30,7 +30,6 @@ git clone -q --config advice.detachedHead=false --depth 1 --branch "containerd-s
 export CARGO_HOME=/usr/local/cargo
 export RUSTUP_HOME=/usr/local/rustup
 #export RUSTFLAGS='-C target-feature=+crt-static'
-false
 make build-wasmedge
 make install PREFIX="${prefix}"
 EOF
