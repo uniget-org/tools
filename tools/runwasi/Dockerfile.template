@@ -1,0 +1,26 @@
+#syntax=docker/dockerfile:1.6.0
+
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN <<EOF
+check-github-release-asset "deislabs/containerd-wasm-shims" "v${version}" "containerd-wasm-shims-v2-spin-linux-${arch}.tar.gz"
+curl --silent --location --fail "https://github.com/deislabs/containerd-wasm-shims/releases/download/v${version}/containerd-wasm-shims-v2-spin-linux-${arch}.tar.gz" \
+| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner
+
+check-github-release-asset "deislabs/containerd-wasm-shims" "v${version}" "containerd-wasm-shims-v1-wws-linux-${arch}.tar.gz"
+curl --silent --location --fail "https://github.com/deislabs/containerd-wasm-shims/releases/download/v${version}/containerd-wasm-shims-v1-wws-linux-${arch}.tar.gz" \
+| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner
+
+check-github-release-asset "deislabs/containerd-wasm-shims" "v${version}" "containerd-wasm-shims-v1-slight-linux-${arch}.tar.gz"
+curl --silent --location --fail "https://github.com/deislabs/containerd-wasm-shims/releases/download/v${version}/containerd-wasm-shims-v1-slight-linux-${arch}.tar.gz" \
+| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner
+
+check-github-release-asset "deislabs/containerd-wasm-shims" "v${version}" "containerd-wasm-shims-v1-lunatic-linux-${arch}.tar.gz"
+curl --silent --location --fail "https://github.com/deislabs/containerd-wasm-shims/releases/download/v${version}/containerd-wasm-shims-v1-lunatic-linux-${arch}.tar.gz" \
+| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner
+EOF
