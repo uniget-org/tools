@@ -6,6 +6,8 @@ check: ""
 build_dependencies:
 - rust
 - make
+conflicts_with:
+- containerd-shim-spin-runwasi
 platforms:
 - linux/amd64
 #- linux/arm64

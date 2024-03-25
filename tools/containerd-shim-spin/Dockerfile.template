@@ -14,7 +14,8 @@ COPY --link --from=rust / /usr/local/
 RUN <<EOF
 apt-get install -y --no-install-recommends \
     protobuf-compiler \
-    libseccomp-dev
+    libseccomp-dev \
+    sudo
 EOF
 WORKDIR /tmp/github.com/spinkube/containerd-shim-spin
 RUN <<EOF
