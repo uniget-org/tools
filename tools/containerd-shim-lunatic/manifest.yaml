@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
-name: runwasi
+name: containerd-shim-lunatic
 version: "0.11.1"
 check: "" # No version parameter
 runtime_dependencies:
@@ -19,7 +19,7 @@ tags:
 - kubernetes
 - k8s
 homepage: https://github.com/deislabs/containerd-wasm-shims
-description: containerd shims for running WebAssembly workloads in Kubernetes 
+description: containerd shims for running WebAssembly workloads in Kubernetes
 renovate:
   datasource: github-releases
   package: deislabs/containerd-wasm-shims
