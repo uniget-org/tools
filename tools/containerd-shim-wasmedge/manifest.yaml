@@ -3,7 +3,7 @@ $schema: https://tools.uniget.dev/schema.yaml
 name: containerd-shim-wasmedge
 version: "0.4.0"
 binary: containerd-shim-wasmedge-v1
-check: ""
+check: "" # No version parameter
 build_dependencies:
 - rust
 - make
