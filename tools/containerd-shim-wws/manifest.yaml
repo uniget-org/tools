@@ -2,6 +2,7 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: containerd-shim-wws
 version: "0.11.1"
+binary: containerd-shim-wws-v1
 check: "" # No version parameter
 runtime_dependencies:
 - containerd
