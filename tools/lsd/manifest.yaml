@@ -1,5 +1,5 @@
 name: lsd
-version: "v1.1.1"
+version: "v1.1.2"
 check: ${binary} --version | cut -d' ' -f2
 tags:
 - type/cli
