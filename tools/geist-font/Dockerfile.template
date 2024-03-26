@@ -9,14 +9,14 @@ WORKDIR /tmp/geist-font
 ARG name
 ARG version
 RUN <<EOF
-check-github-release-asset "vercel/geist-font" "${version}" "Geist.zip"
-url="https://github.com/vercel/geist-font/releases/download/${version}/Geist.zip"
+check-github-release-asset "vercel/geist-font" "${version}" "Geist-${version}.zip"
+url="https://github.com/vercel/geist-font/releases/download/${version}/Geist-${version}.zip"
 filename="$(basename "${url}")"
 curl --silent --location --fail --remote-name "${url}"
 unzip -q -o "${filename}"
 
-check-github-release-asset "vercel/geist-font" "${version}" "Geist.Mono.zip"
-url="https://github.com/vercel/geist-font/releases/download/${version}/Geist.Mono.zip"
+check-github-release-asset "vercel/geist-font" "${version}" "GeistMono-${version}.zip"
+url="https://github.com/vercel/geist-font/releases/download/${version}/GeistMono-${version}.zip"
 filename="$(basename "${url}")"
 curl --silent --location --fail --remote-name "${url}"
 unzip -q -o "${filename}"
