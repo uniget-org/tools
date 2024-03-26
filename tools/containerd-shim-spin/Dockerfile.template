@@ -24,6 +24,5 @@ export CARGO_HOME=/usr/local/cargo
 export RUSTUP_HOME=/usr/local/rustup
 #export RUSTFLAGS='-C target-feature=+crt-static'
 make build-spin
-find . -type f
-make install PREFIX="${prefix}"
+cp target/release/containerd-shim-spin-v2 "${prefix}/bin/"
 EOF
