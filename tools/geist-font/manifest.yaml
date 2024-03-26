@@ -2,7 +2,8 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: geist-font
 version: "1.3.0"
-check: ""
+binary: "false"
+check: "" # No binary
 platforms:
 - linux/amd64
 - linux/arm64
