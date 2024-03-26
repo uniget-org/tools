@@ -24,7 +24,5 @@ unzip -q -o "${filename}"
 mkdir -p \
     "${prefix}/share/geist-font" \
     "${prefix}/share/fonts/geist-font"
-find Geist Geist.Mono -type f -name \*.woff2 -exec cp {} "${prefix}/share/geist-font/" \;
-find Geist Geist.Mono -type f -name \*.otf   -exec cp {} "${prefix}/share/geist-font/" \;
-find Geist Geist.Mono -type f -name \*.ttf   -exec cp {} "${prefix}/share/geist-font/" \;
+find "Geist-${version}" "GeistMono-${version}" -type f \( -name \*.woff2 -or -name \*.otf -or -name \*.ttf \) -exec cp {} "${prefix}/share/geist-font/" \;
 EOF
