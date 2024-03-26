@@ -5,21 +5,12 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
+WORKDIR /tmp/distrobox
 ARG name
 ARG version
 RUN <<EOF
 curl --silent --location --fail "https://github.com/89luca89/distrobox/archive/refs/tags/${version}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner --strip-components=1 --wildcards \
-    "distrobox-${version}/distrobox-*" \
-    "distrobox-${version}/man" \
-    "distrobox-${version}/completions" \
-    "distrobox-${version}/terminal-distrobox-icon.svg"
-
-mv "${prefix}/bin/man/man1" "${prefix}/share/man/"
-rm -rf "${prefix}/bin/man/"
-
-mv "${prefix}/bin/completions" "${prefix}/share/bash-completion/"
-
-mkdir -p "${prefix}/share/icons/"
-mv "${prefix}/bin/terminal-distrobox-icon.svg" "${prefix}/share/icons/"
+| tar --extract --gzip --strip-components=1 --no-same-owner
+./install --prefix="${prefix}"
+mv "${prefix}/share/zsh/site-functions/" "${prefix}/share/zsh/vendor-completions/"
 EOF
