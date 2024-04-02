@@ -1,5 +1,5 @@
 name: dependency-check
-version: "9.0.10"
+version: "9.1.0"
 binary: ${target}/opt/dependency-check/bin/dependency-check.sh
 check: ${binary} --version | grep "^Dependency-Check Core version" | cut -d' ' -f4
 runtime_dependencies:
