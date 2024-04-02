@@ -15,6 +15,7 @@ apt-get -y install --no-install-recommends \
     autopoint \
     gettext \
     bison \
+    flex \
     libtool \
     pkg-config \
     make \
