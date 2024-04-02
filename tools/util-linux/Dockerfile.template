@@ -17,6 +17,7 @@ apt-get -y install --no-install-recommends \
     bison \
     flex \
     libtool \
+    libsqlite3-dev \
     pkg-config \
     make \
     asciidoctor
