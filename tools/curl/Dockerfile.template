@@ -1,6 +1,6 @@
 #syntax=docker/dockerfile:1.7.0
 
-FROM ghcr.io/uniget-org/images/build-base:3.19 AS build
+FROM ghcr.io/uniget-org/images/build-base:3.19 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -17,6 +17,8 @@ apk add --update-cache --no-cache \
     zlib-static \
     libpsl-dev \
     libpsl-static \
+    c-ares-dev \
+    c-ares-static \
     curl \
     ca-certificates \
     bash \
@@ -34,25 +36,22 @@ curl --silent --location --fail "https://github.com/curl/curl/releases/download/
 LDFLAGS="-static" \
 PKG_CONFIG="pkg-config --static" \
     ./configure \
-        --disable-shared \
+        --prefix="${prefix}" \
+        --with-zsh-functions-dir="${prefix}/share/zsh/vendor-completions" \
+        --with-fish-functions-dir="${prefix}/share/fish/vendor_completions.d" \
         --enable-static \
-        --disable-ldap \
+        --enable-shared \
+		--enable-ares \
         --enable-ipv6 \
         --enable-unix-sockets \
+        --disable-ldap \
+		--with-libidn2 \
+		--with-nghttp2 \
+		--with-openssl \
         --with-ssl \
-        --with-libssh2 \
+        --without-libssh2 \
+		--with-pic \
         --without-libpsl
 make -j$(nproc) V=1 LDFLAGS="-static -all-static"
-cp src/curl /usr/local/bin/
-mkdir -p /usr/local/share/man/man1/
-cp docs/curl.1 /usr/local/share/man/man1/
+make install
 EOF
-
-FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
-COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
-    /etc/profile.d/ \
-    /etc/profile.d/
-SHELL [ "bash", "-clo", "errexit" ]
-ARG name
-ARG version
-COPY --from=build /usr/local/ /uniget_bootstrap/
