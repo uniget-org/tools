@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: fontawesome-free
-version: "6.5.1"
+version: "6.5.2"
 binary: "false"
 check: "" # No binary
 tags:
