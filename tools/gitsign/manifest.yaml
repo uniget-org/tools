@@ -1,5 +1,5 @@
 name: gitsign
-version: "0.8.1"
+version: "0.10.1"
 check: ${binary} --version | grep ^gitsign | cut -d' ' -f3 | tr -d v
 build_dependencies:
 - cosign
