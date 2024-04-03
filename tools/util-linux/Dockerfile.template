@@ -17,7 +17,6 @@ apt-get -y install --no-install-recommends \
     bison \
     flex \
     libtool \
-    libsqlite3-dev \
     pkg-config \
     make \
     asciidoctor
@@ -29,7 +28,7 @@ RUN <<EOF
 check-clone https://github.com/util-linux/util-linux "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/util-linux/util-linux .
 ./autogen.sh
-./configure --disable-shared
+./configure --disable-shared --disable-liblastlog2
 make -j$(nproc) LDFLAGS=--static
 cp lsns nsenter unshare "${prefix}/bin"
 cp \
