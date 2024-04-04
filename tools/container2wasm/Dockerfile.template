@@ -1,26 +1,5 @@
 #syntax=docker/dockerfile:1.7.0
 
-#FROM ghcr.io/uniget-org/tools/go:latest AS go
-#FROM ghcr.io/uniget-org/tools/make:latest AS make
-
-#FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS build
-FROM golang:1.21.9@sha256:7d0dcbe5807b1ad7272a598fbf9d7af15b5e2bed4fd6c4c2b5b3684df0b317dd AS build
-COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
-    /etc/profile.d/ \
-    /etc/profile.d/
-SHELL [ "bash", "-clo", "errexit" ]
-#COPY --from=go / /usr/local/
-#COPY --from=make / /usr/local/
-WORKDIR /go/src/github.com/ktock/container2wasm
-ARG name
-ARG version
-RUN <<EOF
-export PATH="${PATH}:/usr/local/go/bin"
-check-clone "https://github.com/ktock/container2wasm" "v${version}"
-git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/ktock/container2wasm .
-make -j$(nproc) c2w-net-proxy.wasm imagemounter.wasm
-EOF
-
 FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
@@ -32,9 +11,9 @@ RUN <<EOF
 check-github-release-asset "ktock/container2wasm" "v${version}" "container2wasm-v${version}-linux-${alt_arch}.tar.gz"
 curl --silent --location --fail "https://github.com/ktock/container2wasm/releases/download/v${version}/container2wasm-v${version}-linux-${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner
+
 mkdir -p "${prefix}/libexec/container2wasm"
+check-github-release-asset "ktock/container2wasm" "v${version}" "c2w-net-proxy.wasm"
+curl --silent --location --fail --output "${prefix}/libexec/container2wasm/c2w-net-proxy.wasm" \
+    "https://github.com/ktock/container2wasm/releases/download/v${version}/c2w-net-proxy.wasm"
 EOF
-COPY --from=build \
-    /go/src/github.com/ktock/container2wasm/out/c2w-net-proxy.wasm \
-    /go/src/github.com/ktock/container2wasm/out/imagemounter.wasm \
-    /uniget_bootstrap/libexec/container2wasm/
