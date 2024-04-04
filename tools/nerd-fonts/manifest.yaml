@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: nerd-fonts
-version: "3.1.1"
+version: "3.2.0"
 binary: "false"
 check: "" # No binary
 tags:
