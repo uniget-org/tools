@@ -1,5 +1,5 @@
 name: git-credential-gopass
-version: "1.15.11"
+version: "1.15.13"
 check: "" # No version parameter
 platforms:
 - linux/amd64
