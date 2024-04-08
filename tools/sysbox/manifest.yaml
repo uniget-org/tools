@@ -1,5 +1,6 @@
 name: sysbox
 version: "0.6.4"
+binary: sysbox-runc
 check: ${binary} --version | grep version | cut -f3
 platforms:
 - linux/amd64
