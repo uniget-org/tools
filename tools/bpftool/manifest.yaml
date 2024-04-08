@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: bpftool
-version: "7.3.0"
+version: "7.4.0"
 check: ${binary} --version | grep ^bpftool | cut -d' ' -f2 | tr -d v
 platforms:
 - linux/amd64
