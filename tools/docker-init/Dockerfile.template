@@ -8,3 +8,19 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 COPY --chmod=0755 install-docker-init.sh "/uniget_bootstrap/bin/"
+RUN <<EOF
+BODY="$(
+    curl --silent --show-error --location --fail \
+        "https://api.github.com/repos/uniget-org/renovate-custom/releases/tags/docker-init%2F${version}" \
+    | jq --raw-output '.body'
+)"
+if test -z "${BODY}"; then
+    echo "No release found for docker-debug/${version}" >&2
+    exit 1
+fi
+DD_VERSION="$(
+    echo "${BODY}" \
+    | cut -d@ -f2
+)"
+sed -i "s/docker_desktop_version:=DD_VERSION/docker_desktop_version:=${DD_VERSION}/" "/uniget_bootstrap/bin/install-docker-init.sh"
+EOF

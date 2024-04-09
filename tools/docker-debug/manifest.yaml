@@ -20,3 +20,9 @@ message:
 
     You must honor the licensing terms of Docker Desktop even when running the
     bundled CLI tools.
+renovate:
+  datasource: github-releases
+  package: uniget-org/renovate-custom
+  extractVersion: ^docker-init/(?<version>.+?)$
+  versioning: loose
+  priority: low
