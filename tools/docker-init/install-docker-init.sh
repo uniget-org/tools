@@ -13,6 +13,7 @@ curl --location --fail --remote-name "https://desktop.docker.com/linux/main/amd6
 ar -x "docker-desktop-${version}-amd64.deb" data.tar.xz
 rm "docker-desktop-${version}-amd64.deb"
 
+echo "Extracting to ${target}/libexec/docker/cli-plugins"
 mkdir -p "${target}/libexec/docker/cli-plugins"
 tar --extract --xz --file data.tar.xz --directory "${target}/libexec/" --strip-components=3 --no-same-owner \
     ./usr/lib/docker/cli-plugins/docker-init
