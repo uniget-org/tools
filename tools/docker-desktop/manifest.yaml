@@ -2,7 +2,7 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: docker-desktop
 version: "4.27.1"
-binary: ${target}/libexec/docker/cli-plugins/docker-debug
+binary: "false"
 check: "" # No version parameter
 platforms:
 - linux/amd64

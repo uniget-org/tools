@@ -2,7 +2,7 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: docker-init
 version: "1.0.0"
-binary: ${target}/libexec/docker/cli-plugins/docker-init
+binary: "false"
 check: ${binary} init --version | grep ^Version | cut -dv -f2
 platforms:
 - linux/amd64

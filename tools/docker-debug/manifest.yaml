@@ -2,7 +2,7 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: docker-debug
 version: "0.0.22"
-binary: ${target}/libexec/docker/cli-plugins/docker-debug
+binary: "false"
 check: ${binary} debug --version | grep ^Version | cut -d' ' -f2
 platforms:
 - linux/amd64
