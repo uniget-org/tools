@@ -1,8 +1,8 @@
 #!/bin/bash
 set -o errexit -o pipefail
 
-version="4.27.1"
-build="136059"
+version="4.29.0"
+build="145265"
 
 TEMP_DIR="$(mktemp -d)"
 cd "${TEMP_DIR}"
