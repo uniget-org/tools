@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: promtail
-version: "2.9.6"
+version: "3.0.0"
 check: "" # Empty version
 tags:
 - org/grafana
