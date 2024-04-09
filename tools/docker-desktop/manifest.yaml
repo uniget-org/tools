@@ -19,3 +19,9 @@ message:
     can use to install Docker Desktop.
 
     You must honor the licensing terms of Docker Desktop.
+renovate:
+  datasource: github-releases
+  package: uniget-org/renovate-custom
+  extractVersion: ^docker-desktop/(?<version>.+?)$
+  versioning: loose
+  priority: low

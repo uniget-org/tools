@@ -8,3 +8,6 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 COPY --chmod=0755 install-docker-desktop.sh "/uniget_bootstrap/bin/"
+RUN <<EOF
+sed -i "s/version:=VERSION/version:=${version}/" "/uniget_bootstrap/bin/install-docker-desktop.sh"
+EOF

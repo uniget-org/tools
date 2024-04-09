@@ -1,8 +1,12 @@
 #!/bin/bash
 set -o errexit -o pipefail
 
-version="4.29.0"
-build="145265"
+: "${version:=VERSION}"
+build="$(
+    curl --silent --show-error --location --fail "https://github.com/docker/docs/raw/main/content/desktop/release-notes.md" \
+    | grep "{{< desktop-install all=true version=\"${version}\" " \
+    | sed -E 's|^.+build_path="/([0-9]+)/".+$|\1|'
+)"
 
 TEMP_DIR="$(mktemp -d)"
 cd "${TEMP_DIR}"
