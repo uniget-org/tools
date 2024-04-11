@@ -23,6 +23,6 @@ message:
 renovate:
   datasource: github-releases
   package: uniget-org/renovate-custom
-  extractVersion: ^docker-init/(?<version>.+?)$
+  extractVersion: ^docker-debug/(?<version>.+?)$
   versioning: loose
   priority: low

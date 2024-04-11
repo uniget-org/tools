@@ -1734,7 +1734,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "uniget-org/renovate-custom",
-      "extractVersionTemplate": "^docker-init/(?<version>.+?)$",
+      "extractVersionTemplate": "^docker-debug/(?<version>.+?)$",
       "fileMatch": [
         "^tools/docker-debug/manifest.yaml$"
       ],
