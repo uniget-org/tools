@@ -1,0 +1,50 @@
+#syntax=docker/dockerfile:1.7.0
+
+FROM ghcr.io/uniget-org/tools/cosign:latest AS cosign
+
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+COPY --link --from=cosign / /usr/local/
+ARG name
+ARG version
+RUN <<EOF
+check-github-release-asset "kyverno/chainsaw" "v${version}" "chainsaw_linux_amd64.tar.gz"
+echo "### Downloading chainsaw ${version}"
+curl --silent --location --fail --remote-name \
+      "https://github.com/kyverno/chainsaw/releases/download/v${version}/chainsaw_linux_${alt_arch}.tar.gz"
+echo "    - SHA256: $(cat chainsaw_linux_${alt_arch}.tar.gz | sha256sum  | cut -d' ' -f1)"
+
+echo "### Checking keyless signature for chainsaw ${version}"
+curl --silent --location --fail --remote-name \
+      "https://github.com/kyverno/chainsaw/releases/download/v${version}/chainsaw_linux_${alt_arch}.tar.gz.pem"
+curl --silent --location --fail --remote-name \
+      "https://github.com/kyverno/chainsaw/releases/download/v${version}/chainsaw_linux_${alt_arch}.tar.gz.sig"
+SHA="$(
+    git ls-remote --tags https://github.com/kyverno/chainsaw "v${version}^{}" \
+    | cut -f1
+)"
+echo "    - SHA: ${SHA}"
+COSIGN_EXPERIMENTAL=1 cosign verify-blob \
+    --cert "chainsaw_linux_${alt_arch}.tar.gz.pem" \
+    --signature "chainsaw_linux_${alt_arch}.tar.gz.sig" \
+    --certificate-oidc-issuer "https://token.actions.githubusercontent.com" \
+    --certificate-identity "https://github.com/kyverno/chainsaw/.github/workflows/release.yaml@refs/tags/v${version}" \
+    --certificate-github-workflow-name "Release" \
+    --certificate-github-workflow-ref "refs/tags/v${version}" \
+    --certificate-github-workflow-repository "kyverno/chainsaw" \
+    --certificate-github-workflow-sha "${SHA}" \
+    --certificate-github-workflow-trigger push \
+    "chainsaw_linux_${alt_arch}.tar.gz"
+
+echo "### Installing chainsaw ${version}"
+tar --extract --gzip --directory="${prefix}/bin" --file "chainsaw_linux_${alt_arch}.tar.gz" \
+    chainsaw
+rm -f "chainsaw_linux_${alt_arch}.tar.gz"
+
+"${prefix}/bin/chainsaw" completion bash >"${prefix}/share/bash-completion/completions/chainsaw"
+"${prefix}/bin/chainsaw" completion fish >"${prefix}/share/fish/vendor_completions.d/chainsaw.fish"
+"${prefix}/bin/chainsaw" completion zsh >"${prefix}/share/zsh/vendor-completions/_chainsaw"
+EOF
