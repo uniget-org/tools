@@ -11,8 +11,10 @@ tags:
 - category/development
 - lang/go
 - type/cli
+- kubernetes
+- k8s
 homepage: https://github.com/kyverno/chainsaw
-description: Some description
+description: Declarative K8s e2e testing
 renovate:
   datasource: github-releases
   package: kyverno/chainsaw
