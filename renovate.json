@@ -614,6 +614,18 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "kyverno/chainsaw",
+      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/chainsaw/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "helm/chart-releaser",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
@@ -1721,6 +1733,32 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "uniget-org/renovate-custom",
+      "extractVersionTemplate": "^docker-init/(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/docker-debug/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ],
+      "versioningTemplate": "loose"
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "uniget-org/renovate-custom",
+      "extractVersionTemplate": "^docker-desktop/(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/docker-desktop/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ],
+      "versioningTemplate": "loose"
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "nginx-proxy/docker-gen",
       "fileMatch": [
         "^tools/docker-gen/manifest.yaml$"
@@ -1740,6 +1778,19 @@
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
       ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "uniget-org/renovate-custom",
+      "extractVersionTemplate": "^docker-init/(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/docker-init/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ],
+      "versioningTemplate": "loose"
     },
     {
       "customType": "regex",
