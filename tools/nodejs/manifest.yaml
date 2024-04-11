@@ -1,5 +1,5 @@
 name: nodejs
-version: "21.7.2"
+version: "21.7.3"
 binary: node
 check: ${binary} --version | tr -d v
 platforms:
