@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: zed
+version: "1.15.0"
+check: ${binary} --version | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/rust
+- type/cli
+homepage: https://github.com/brimdata/zed
+description: Novel data lake based on super-structured data
+renovate:
+  datasource: github-releases
+  package: brimdata/zed
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
