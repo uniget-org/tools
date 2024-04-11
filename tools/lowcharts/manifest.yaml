@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: lowcharts
+version: "0.5.9"
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+tags:
+- category/development
+- lang/rust
+- type/cli
+homepage: https://github.com/juan-leon/lowcharts
+description: Draw low-resolution graphs in terminal 
+renovate:
+  datasource: github-releases
+  package: juan-leon/lowcharts
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
