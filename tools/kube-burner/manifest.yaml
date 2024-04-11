@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: kube-burner
+version: "1.9.5"
+check: ${binary} version | grep ^Version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/go
+- type/cli
+homepage: https://github.com/kube-burner/kube-burner
+description: Kubernetes performance and scale test orchestration framework
+renovate:
+  datasource: github-releases
+  package: kube-burner/kube-burner
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
