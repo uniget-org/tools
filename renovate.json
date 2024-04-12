@@ -2290,7 +2290,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "cloudflare/cloudflare-go",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>0\\.\\d+\\.\\d+?)$",
       "fileMatch": [
         "^tools/flarectl/manifest.yaml$"
       ],
