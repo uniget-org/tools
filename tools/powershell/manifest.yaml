@@ -1,5 +1,5 @@
 name: powershell
-version: "7.4.1"
+version: "7.4.2"
 binary: pwsh
 check: ${binary} -Version | cut -d' ' -f2
 platforms:
