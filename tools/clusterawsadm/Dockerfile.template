@@ -10,10 +10,11 @@ ARG name
 ARG version
 
 RUN <<EOF
-check-github-release-asset "kubernetes-sigs/cluster-api-provider-aws" "v${version}" "clusterawsadm-linux-${alt_arch}"
+check-github-release-asset "kubernetes-sigs/cluster-api-provider-aws" "v${version}" "clusterawsadm_v${version}_linux_${alt_arch}"
 curl --silent --location --fail --output "${prefix}/bin/clusterawsadm" \
-    "https://github.com/kubernetes-sigs/cluster-api-provider-aws/releases/download/v${version}/clusterawsadm-linux-${alt_arch}"
+    "https://github.com/kubernetes-sigs/cluster-api-provider-aws/releases/download/v${version}/clusterawsadm_v${version}_linux_${alt_arch}"
 chmod +x "${prefix}/bin/clusterawsadm"
+
 "${prefix}/bin/clusterawsadm" completion bash >"${prefix}/share/bash-completion/completions/clusterawsadm"
 "${prefix}/bin/clusterawsadm" completion fish >"${prefix}/share/fish/vendor_completions.d/clusterawsadm.fish"
 "${prefix}/bin/clusterawsadm" completion zsh >"${prefix}/share/zsh/vendor-completions/_clusterawsadm"
