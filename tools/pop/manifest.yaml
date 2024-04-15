@@ -2,7 +2,7 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: pop
 version: "0.2.0"
-check: ""
+check: ${binary} --version | cut -d' ' -f3 | tr -d v
 platforms:
 - linux/amd64
 #- linux/arm64
