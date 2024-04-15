@@ -27,10 +27,10 @@ check-github-release-asset "charmbracelet/vhs" "v${version}" "vhs_${version}_Lin
 
 echo "### Downloading and installing vhs ${version}"
 curl --silent --location --fail "https://github.com/charmbracelet/vhs/releases/download/v${version}/vhs_${version}_Linux_${arch_suffix}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
-    vhs \
-    manpages \
-    completions
+| tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
+    "vhs_${version}_Linux_${arch_suffix}/vhs" \
+    "vhs_${version}_Linux_${arch_suffix}/manpages" \
+    "vhs_${version}_Linux_${arch_suffix}/completions"
 mv "${prefix}/bin/manpages/vhs.1.gz" "${prefix}/share/man/man1/"
 mv "${prefix}/bin/completions/vhs.bash" "${prefix}/share/bash-completion/completions/vhs"
 mv "${prefix}/bin/completions/vhs.fish" "${prefix}/share/fish/vendor_completions.d/vhs.fish"
