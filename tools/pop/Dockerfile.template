@@ -1,0 +1,40 @@
+#syntax=docker/dockerfile:1.7.0
+
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN <<EOF
+echo "### Setting architecture string for ${TARGETPLATFORM}"
+case "${arch}" in
+    x86_64)
+        export arch_suffix="${arch}"
+        ;;
+    aarch64)
+        export arch_suffix="${alt_arch}"
+        ;;
+    *)
+        echo "ERROR: Unsupported architecture ${arch}."
+        exit 1
+        ;;
+esac
+echo "    Using ${arch_suffix}"
+
+check-github-release-asset "charmbracelet/pop" "v${version}" "pop_${version}_Linux_${arch_suffix}.tar.gz"
+curl --silent --location --fail "https://github.com/charmbracelet/pop/releases/download/v${version}/pop_${version}_Linux_${arch_suffix}.tar.gz" \
+| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
+    pop \
+    manpages \
+    completions
+
+mv "${prefix}/bin/manpages/pop.1.gz" "${prefix}/share/man/man1/"
+rmdir "${prefix}/bin/manpages"
+
+mv "${prefix}/bin/completions/pop.bash" "${prefix}/share/bash-completion/completions/pop"
+mv "${prefix}/bin/completions/pop.fish" "${prefix}/share/fish/vendor_completions.d/pop.fish"
+mv "${prefix}/bin/completions/pop.zsh"  "${prefix}/share/zsh/vendor-completions/_pop"
+rmdir "${prefix}/bin/completions"
+EOF
