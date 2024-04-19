@@ -2,7 +2,8 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: osquery
 version: "5.12.1"
-check: ""
+binary: osqueryd
+check: ${binary} --version | cut -d' ' -f3
 platforms:
 - linux/amd64
 - linux/arm64
