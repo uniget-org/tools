@@ -1,5 +1,5 @@
 name: python-build-standalone
-version: "3.12.2.20240224"
+version: "3.12.3.20240415"
 check: ""
 binary: python
 tags:
