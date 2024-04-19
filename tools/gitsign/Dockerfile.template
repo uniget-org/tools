@@ -73,10 +73,9 @@ RUN <<EOF
 "${prefix}/bin/gitsign" completion zsh >"${prefix}/share/zsh/vendor-completions/_gitsign"
 EOF
 RUN <<EOF
-mkdir -p "${prefix}/etc/systemd/user"
-curl --silent --verbose --location --fail --output "${prefix}/etc/systemd/user/gitsign-credential-cache.service" \
+curl --silent --verbose --location --fail --output "${prefix}/etc/systemd/user/gitsign-credential-cache.service" --create-dirs \
     "https://github.com/sigstore/gitsign/raw/v${version}/contrib/systemd/gitsign-credential-cache.service"
-curl --silent --location --fail --output "${prefix}/etc/systemd/user/gitsign-credential-cache.socket" \
+curl --silent --location --fail --output "${prefix}/etc/systemd/user/gitsign-credential-cache.socket" --create-dirs \
     "https://github.com/sigstore/gitsign/raw/v${version}/contrib/systemd/gitsign-credential-cache.socket"
 sed -i "s|ExecStart=%h/.local/bin/gitsign-credential-cache|ExecStart=/bin/gitsign-credential-cache|" "${prefix}/etc/systemd/user/gitsign-credential-cache.service"
 EOF

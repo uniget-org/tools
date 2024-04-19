@@ -17,8 +17,7 @@ EOF
 
 RUN <<EOF
 check-github-release-asset "innobead/kubefire" "v${version}" "kubefire-linux-${alt_arch}"
-mkdir -p "${prefix}/libexec/cni"
-curl --silent --location --fail --output "${prefix}/libexec/cni/host-local-rev" \
+curl --silent --location --fail --output "${prefix}/libexec/cni/host-local-rev" --create-dirs \
     "https://github.com/innobead/kubefire/releases/download/v${version}/host-local-rev-linux-${alt_arch}"
 chmod +x "${prefix}/libexec/cni/host-local-rev"
 EOF
