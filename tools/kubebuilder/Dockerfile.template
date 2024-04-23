@@ -12,11 +12,8 @@ check-github-release-asset "kubernetes-sigs/kubebuilder" "v${version}" "kubebuil
 curl --silent --location --fail --output "${prefix}/bin/kubebuilder" \
     "https://github.com/kubernetes-sigs/kubebuilder/releases/download/v${version}/kubebuilder_linux_${alt_arch}"
 chmod +x "${prefix}/bin/kubebuilder"
-EOF
 
-# completion
-#RUN <<EOF
-#"${prefix}/bin/kubebuilder" completion bash >"${prefix}/share/bash-completion/completions/kubebuilder"
-#"${prefix}/bin/kubebuilder" completion fish >"${prefix}/share/fish/vendor_completions.d/kubebuilder.fish"
-#"${prefix}/bin/kubebuilder" completion zsh >"${prefix}/share/zsh/vendor-completions/_kubebuilder"
-#EOF
+"${prefix}/bin/kubebuilder" completion bash >"${prefix}/share/bash-completion/completions/kubebuilder"
+"${prefix}/bin/kubebuilder" completion fish >"${prefix}/share/fish/vendor_completions.d/kubebuilder.fish"
+"${prefix}/bin/kubebuilder" completion zsh >"${prefix}/share/zsh/vendor-completions/_kubebuilder"
+EOF
