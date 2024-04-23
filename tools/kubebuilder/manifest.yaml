@@ -2,8 +2,7 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: kubebuilder
 version: "3.14.1"
-check: |
-  ${binary} version | cut -d{ -f2 | cut -d, -f1 | cut -d: -f2 | tr -d '"'
+check: ${binary} version | cut -d'"' -f2
 platforms:
 - linux/amd64
 - linux/arm64
