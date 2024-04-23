@@ -1,5 +1,5 @@
 name: actions-runner
-version: "2.315.0"
+version: "2.316.0"
 binary: ${target}/opt/actions-runner/bin/Runner.Listener
 check: ${binary} --version
 tags:
