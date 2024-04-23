@@ -1,5 +1,5 @@
 name: hugo
-version: "0.125.2"
+version: "0.125.3"
 check: ${binary} version | cut -d' ' -f2 | cut -d- -f1 | tr -d v
 platforms:
 - linux/amd64
