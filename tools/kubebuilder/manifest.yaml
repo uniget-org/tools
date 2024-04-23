@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: kubebuilder
+version: "3.14.1"
+check: |
+  ${binary} version | cut -d{ -f2 | cut -d, -f1 | cut -d: -f2 | tr -d '"'
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/kubernetes
+- category/development
+- lang/go
+- type/cli
+- kubernetes
+- k8s
+homepage: https://github.com/kubernetes-sigs/kubebuilder
+description: SDK for building Kubernetes APIs using CRDs
+renovate:
+  datasource: github-releases
+  package: kubernetes-sigs/kubebuilder
+  extractVersion: ^v(?<version>.+?)$
+  priority: medium
