@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: zitadel
-version: "2.50.2"
+version: "2.50.3"
 check: ${binary} --version | cut -d' ' -f3 | tr -d v
 runtime_dependencies:
 - cockroach
