@@ -11,8 +11,11 @@ RUN <<EOF
 check-github-release-asset "Orange-OpenSource/hurl" "${version}" "hurl-${version}-${arch}-unknown-linux-gnu.tar.gz"
 curl --silent --location --fail "https://github.com/Orange-OpenSource/hurl/releases/download/${version}/hurl-${version}-${arch}-unknown-linux-gnu.tar.gz" \
 | tar --extract --gzip --directory="${prefix}" --strip-components=1 --no-same-owner
-mv "${prefix}/man/man1/*.1.gz" "${prefix}/share/man/man1/"
-rmdir -p "${prefix}/man/man1/"
+mv \
+    "${prefix}/man/man1/hurl.1.gz" \
+    "${prefix}/man/man1/hurlfmt.1.gz" \
+    "${prefix}/share/man/man1/"
+rm -rf "${prefix}/man/"
 
 mv "${prefix}/completions/hurl.bash"    "${prefix}/share/bash-completion/completions/hurl"
 mv "${prefix}/completions/hurl.fish"    "${prefix}/share/fish/vendor_completions.d/hurl.fish"
