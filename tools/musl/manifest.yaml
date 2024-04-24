@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: musl
+version: "1.2.5"
+check: ""
+build_dependencies:
+- bar
+runtime_dependencies:
+- baz
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/?
+- type/?
+homepage: https://git.musl-libc.org/cgit/musl
+description: An implementation of the standard library for Linux-based systems
+renovate:
+  datasource: git-tags
+  package: https://git.musl-libc.org/cgit/musl.git
+  versioning: regex:^(?<major>\d+?)\.(?<minor>\d+?)\.(?<patch>\d+?)$
+  priority: low

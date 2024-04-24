@@ -1,0 +1,38 @@
+#syntax=docker/dockerfile:1.7.0
+
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN <<EOF
+echo "### Setting architecture string for ${TARGETPLATFORM}"
+case "${arch}" in
+    x86_64)
+        export arch_suffix="x64"
+        ;;
+    aarch64)
+        export arch_suffix="${alt_arch}"
+        ;;
+    *)
+        echo "ERROR: Unsupported architecture ${arch}."
+        exit 1
+        ;;
+esac
+echo "    Using ${arch_suffix}"
+
+check-github-release-asset "sass/dart-sass" "${version}" "dart-sass-${version}-linux-${arch_suffix}-musl.tar.gz"
+curl --silent --location --fail "https://github.com/sass/dart-sass/releases/download/${version}/dart-sass-${version}-linux-${arch_suffix}-musl.tar.gz" \
+| tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
+    dart-sass/sass \
+    dart-sass/src/dart
+EOF
+
+# completion
+#RUN <<EOF
+#"${prefix}/bin/foo" completion bash >"${prefix}/share/bash-completion/completions/foo"
+#"${prefix}/bin/foo" completion fish >"${prefix}/share/fish/vendor_completions.d/foo.fish"
+#"${prefix}/bin/foo" completion zsh >"${prefix}/share/zsh/vendor-completions/_foo"
+#EOF

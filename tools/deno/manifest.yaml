@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: deno
+version: "1.42.4"
+check: ${binary} --version | grep ^deno | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/rust
+- type/cli
+homepage: https://github.com/denoland/deno
+description: Modern runtime for JavaScript and TypeScript
+renovate:
+  datasource: github-releases
+  package: denoland/deno
+  extractVersion: ^v(?<version>.+?)$
+  priority: low

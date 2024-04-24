@@ -1459,6 +1459,18 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "denoland/deno",
+      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/deno/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "gabotechs/dep-tree",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
@@ -2119,6 +2131,18 @@
       "depNameTemplate": "stephenc/envsub",
       "fileMatch": [
         "^tools/envsub/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "evanw/esbuild",
+      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/esbuild/manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
@@ -5376,6 +5400,18 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "git-tags",
+      "depNameTemplate": "https://git.musl-libc.org/cgit/musl.git",
+      "fileMatch": [
+        "^tools/musl/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ],
+      "versioningTemplate": "regex:^(?<major>\\d+?)\\.(?<minor>\\d+?)\\.(?<patch>\\d+?)$"
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "mutagen-io/mutagen",
       "extractVersionTemplate": "^v(?<version>.+?)$",
@@ -6597,6 +6633,17 @@
       "depNameTemplate": "petrgazarov/salami",
       "fileMatch": [
         "^tools/salami/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "sass/dart-sass",
+      "fileMatch": [
+        "^tools/sass/manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
