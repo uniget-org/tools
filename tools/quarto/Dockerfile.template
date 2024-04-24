@@ -1,0 +1,21 @@
+#syntax=docker/dockerfile:1.7.
+
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN <<EOF
+check-github-release-asset "quarto-dev/quarto-cli" "v${version}" "quarto-${version}-linux-${alt_arch}.tar.gz"
+curl --silent --location --fail "https://github.com/quarto-dev/quarto-cli/releases/download/v${version}/quarto-${version}-linux-${alt_arch}.tar.gz" \
+| tar --extract --gzip --directory="${prefix}" --no-same-owner
+EOF
+
+# completion
+#RUN <<EOF
+#"${prefix}/bin/foo" completion bash >"${prefix}/share/bash-completion/completions/foo"
+#"${prefix}/bin/foo" completion fish >"${prefix}/share/fish/vendor_completions.d/foo.fish"
+#"${prefix}/bin/foo" completion zsh >"${prefix}/share/zsh/vendor-completions/_foo"
+#EOF
