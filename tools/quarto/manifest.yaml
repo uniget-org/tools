@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: quarto
+version: "1.4.553"
+check: ""
+build_dependencies:
+- bar
+runtime_dependencies:
+- baz
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/javascript
+- type/cli
+homepage: https://github.com/quarto-dev/quarto-cli
+description: Open-source scientific and technical publishing system built on Pandoc
+renovate:
+  datasource: github-releases
+  package: quarto-dev/quarto-cli
+  extractVersion: ^v(?<version>.+?)$
+  priority: medium
