@@ -1,5 +1,5 @@
 name: kubeshark
-version: "v52.2.30"
+version: "v52.2.39"
 check: ${binary} version 2>&1 | cut -d' ' -f2
 tags:
 - category/security
