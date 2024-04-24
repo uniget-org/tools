@@ -10,9 +10,14 @@ ARG version
 RUN <<EOF
 check-github-release-asset "Orange-OpenSource/hurl" "${version}" "hurl-${version}-${arch}-unknown-linux-gnu.tar.gz"
 curl --silent --location --fail "https://github.com/Orange-OpenSource/hurl/releases/download/${version}/hurl-${version}-${arch}-unknown-linux-gnu.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner
-mv \
-    "${prefix}/bin/hurl.1.gz" \
-    "${prefix}/bin/hurlfmt.1.gz" \
-    "${prefix}/share/man/man1/"
+| tar --extract --gzip --directory="${prefix}" --strip-components=1 --no-same-owner
+mv "${prefix}/man/" "${prefix}/share/"
+
+mv "${prefix}/completions/hurl.bash"    "${prefix}/share/bash-completion/completions/hurl"
+mv "${prefix}/completions/hurl.fish"    "${prefix}/share/fish/vendor_completions.d/hurl.fish"
+mv "${prefix}/completions/_hurl"        "${prefix}/share/zsh/vendor-completions/_hurl"
+mv "${prefix}/completions/hurlfmt.bash" "${prefix}/share/bash-completion/completions/hurlfmt"
+mv "${prefix}/completions/hurlfmt.fish" "${prefix}/share/fish/vendor_completions.d/hurlfmt.fish"
+mv "${prefix}/completions/_hurlfmt"     "${prefix}/share/zsh/vendor-completions/_hurlfmt"
+rmdir "${prefix}/completions"
 EOF
