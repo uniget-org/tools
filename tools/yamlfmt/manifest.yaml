@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: yamlfmt
+version: "0.11.0"
+check: ${binary} -version
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/google
+- category/development
+- lang/go
+- type/cli
+- yaml
+homepage: https://github.com/google/yamlfmt
+description: Extensible command line tool or library to format yaml files
+renovate:
+  datasource: github-releases
+  package: google/yamlfmt
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
