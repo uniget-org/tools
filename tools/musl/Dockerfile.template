@@ -1,0 +1,23 @@
+#syntax=docker/dockerfile:1.7.0
+
+FROM ghcr.io/uniget-org/tools/make:latest AS make
+
+FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+COPY --link --from=make / /usr/local/
+WORKDIR /tmp/musl
+ARG name
+ARG version
+RUN <<EOF
+curl --silent --show-error --location --fail https://musl.libc.org/releases/musl-1.2.5.tar.gz \
+| tar --extract --gzip --strip-components=1 --no-same-owner
+./configure --prefix="${prefix}"
+make -j"$(nproc)"
+make install
+ln --symbolic --relative --force "${prefix}/lib/libc.so.6" "${prefix}/lib/libc.musl-x86_64.so.1"
+# fix paths in bin/musl-gcc
+# fix paths in lib/musl-gcc.specs
+EOF

@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: sass
+version: "1.75.0"
+check: ""
+runtime_dependencies:
+- musl
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/dart
+- type/cli
+homepage: https://github.com/sass/dart-sass
+description: Reference implementation of Sass
+renovate:
+  datasource: github-releases
+  package: sass/dart-sass
+  priority: low

@@ -1,13 +1,8 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
-name: quarto
-version: "1.4.553"
-check: ""
-runtime_dependencies:
-- esbuild
-- deno
-- sass
-- pandoc
+name: esbuild
+version: "0.20.1"
+check: ${binary} --version
 platforms:
 - linux/amd64
 - linux/arm64
@@ -15,10 +10,10 @@ tags:
 - category/development
 - lang/javascript
 - type/cli
-homepage: https://github.com/quarto-dev/quarto-cli
-description: Open-source scientific and technical publishing system built on Pandoc
+homepage: https://github.com/evanw/esbuild
+description: Extremely fast bundler for the web
 renovate:
   datasource: github-releases
-  package: quarto-dev/quarto-cli
+  package: evanw/esbuild
   extractVersion: ^v(?<version>.+?)$
-  priority: medium
+  priority: low
