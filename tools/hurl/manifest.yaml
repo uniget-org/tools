@@ -1,5 +1,5 @@
 name: hurl
-version: "4.2.0"
+version: "4.3.0"
 check: ${binary} --version | grep ^hurl | cut -d' ' -f2
 platforms:
 - linux/amd64
