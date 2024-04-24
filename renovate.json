@@ -1495,7 +1495,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "jetpack-io/devbox",
+      "depNameTemplate": "jetify-com/devbox",
       "fileMatch": [
         "^tools/devbox/manifest.yaml$"
       ],

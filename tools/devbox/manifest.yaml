@@ -8,9 +8,9 @@ tags:
 - category/development
 - lang/go
 - type/cli
-homepage: https://github.com/jetpack-io/devbox
+homepage: https://github.com/jetify-com/devbox
 description: Instant, easy, and predictable development environments
 renovate:
   datasource: github-releases
-  package: jetpack-io/devbox
+  package: jetify-com/devbox
   priority: medium
