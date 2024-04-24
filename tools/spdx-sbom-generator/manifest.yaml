@@ -10,6 +10,7 @@ tags:
 - lang/go
 - type/cli
 - sbom
+- state/stale
 homepage: https://github.com/opensbom-generator/spdx-sbom-generator
 description: Support CI generation of SBOMs via golang tooling
 renovate:

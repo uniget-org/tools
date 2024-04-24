@@ -7,7 +7,6 @@ tags:
 - category/development
 - lang/rust
 - type/cli
-- state/stale
 - terminal
 homepage: https://github.com/ogham/exa
 description: Modern replacement for 'ls'

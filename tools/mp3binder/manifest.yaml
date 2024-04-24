@@ -5,6 +5,7 @@ tags:
 - category/music
 - type/cli
 - lang/go
+- state/stale
 homepage: https://github.com/crra/mp3binder
 description: Concatenating, joining, binding MP3 files without re-encoding
 renovate:

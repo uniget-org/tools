@@ -13,6 +13,7 @@ tags:
 - category/development
 - lang/javascript
 - type/cli
+- state/stale
 homepage: https://github.com/gruntjs/grunt
 description: The JavaScript Task Runner
 renovate:

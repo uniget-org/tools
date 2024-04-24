@@ -13,7 +13,7 @@ tags:
 - type/cli
 - sbom
 homepage: https://github.com/interlynk-io/sbomgr
-description: SBOM Grep - search through SBOMs 
+description: SBOM Grep - search through SBOMs
 renovate:
   datasource: github-releases
   package: interlynk-io/sbomgr

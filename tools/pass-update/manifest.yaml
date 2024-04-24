@@ -8,7 +8,6 @@ tags:
 - category/security
 - lang/shell
 - type/plugin
-- state/stale
 - password
 - management
 homepage: https://github.com/roddhjav/pass-update

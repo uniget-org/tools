@@ -15,6 +15,7 @@ tags:
 - standard/compose
 - type/cli
 - lang/go
+- state/stale
 homepage: https://github.com/docker/compose-switch
 description: Replacement to the Compose v1 executable
 renovate:

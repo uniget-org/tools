@@ -8,6 +8,8 @@ platforms:
 tags:
 - lang/haskell
 - type/cli
+- state/stale
+- state/onemanshow
 homepage: https://github.com/akazukin5151/kpxhs
 description: Interactive Keepass database TUI viewer
 messages:

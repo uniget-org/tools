@@ -13,7 +13,7 @@ tags:
 - lang/rust
 - type/tui
 homepage: https://github.com/YS-L/csvlens
-description: Command line csv viewer 
+description: Command line csv viewer
 renovate:
   datasource: github-releases
   package: YS-L/csvlens

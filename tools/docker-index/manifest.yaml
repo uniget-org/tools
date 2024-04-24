@@ -14,6 +14,7 @@ tags:
 - type/cli
 - type/plugin
 - sbom
+- state/stale
 homepage: https://github.com/docker/index-cli-plugin
 description: Create image SBOMs as well as analyze packages for known vulnerabilities using the Atomist data plane
 renovate:

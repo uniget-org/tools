@@ -10,8 +10,8 @@ tags:
 - category/operations
 - lang/c
 - type/cli
-- state/stale
 - terminal
+- state/deprecated
 homepage: https://github.com/a-j-wood/pv
 description: Monitor the progress of data through a pipe
 renovate:

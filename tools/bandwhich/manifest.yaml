@@ -7,7 +7,6 @@ tags:
 - category/operations
 - type/cli
 - lang/rust
-- state/stale
 homepage: https://github.com/imsnif/bandwhich
 description: Terminal bandwidth utilization tool
 renovate:

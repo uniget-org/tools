@@ -8,6 +8,8 @@ tags:
 - lang/go
 - kubernetes
 - k8s
+- state/stale
+- state/deprecated
 homepage: https://github.com/hidetatz/kubecolor
 description: colorizes kubectl output
 renovate:

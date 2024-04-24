@@ -16,7 +16,7 @@ tags:
 - type/configuration
 - type/documentation
 homepage: https://github.com/containers/storage
-description: Container Storage Library 
+description: Container Storage Library
 renovate:
   datasource: github-releases
   package: containers/storage

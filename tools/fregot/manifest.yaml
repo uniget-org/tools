@@ -8,6 +8,7 @@ tags:
 - lang/haskell
 - type/cli
 - repo
+- state/stale
 homepage: https://github.com/fugue/fregot
 description: Fugue Rego Toolkit
 renovate:

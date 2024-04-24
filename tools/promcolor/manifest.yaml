@@ -13,8 +13,9 @@ tags:
 - prometheus
 - observability/metrics
 - o11y
+- state/stale
 homepage: https://github.com/fhemberger/promcolor
-description: Colorize piped Prometheus metrics in the terminal 
+description: Colorize piped Prometheus metrics in the terminal
 renovate:
   datasource: github-releases
   package: fhemberger/promcolor

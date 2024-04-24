@@ -9,7 +9,6 @@ tags:
 - category/development
 - lang/java
 - type/cli
-- state/stale
 - graphdb
 homepage: https://github.com/neo4j/neo4j
 description: Run queries and perform administrative tasks against a Neo4j instance

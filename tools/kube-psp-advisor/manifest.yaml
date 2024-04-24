@@ -8,6 +8,7 @@ tags:
 - kubernetes
 - k8s
 - lang/go
+- state/stale
 homepage: https://github.com/sysdiglabs/kube-psp-advisor
 description: Help building an adaptive and fine-grained pod security policy
 renovate:

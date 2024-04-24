@@ -6,6 +6,7 @@ tags:
 - category/development
 - type/cli
 - lang/go
+- state/stale
 homepage: https://github.com/joho/godotenv
 description: A Go port of Ruby's dotenv library (Loads environment variables from `.env`.)
 renovate:

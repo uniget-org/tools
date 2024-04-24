@@ -10,6 +10,7 @@ tags:
 - category/development
 - lang/go
 - type/cli
+- state/onemanshow
 homepage: https://github.com/gabotechs/dep-tree
 description: Visualising a "code base entropy" using a 3d force-directed graph of files and the dependencies between
 renovate:

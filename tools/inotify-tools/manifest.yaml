@@ -7,7 +7,6 @@ build_dependencies:
 tags:
 - component/kernel
 - lang/c
-- state/stale
 - category/monitoring
 homepage: https://github.com/inotify-tools/inotify-tools
 description: Library and a set of command-line programs providing a simple interface to inotify

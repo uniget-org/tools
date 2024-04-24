@@ -5,8 +5,8 @@ tags:
 - category/development
 - type/cli
 - lang/rust
-- state/onemanshow
 - standard/git
+- state/stale
 homepage: https://github.com/mlange-42/git-igitt
 description: Interactive, cross-platform Git terminal application with clear git graphs arranged for your branching model
 renovate:

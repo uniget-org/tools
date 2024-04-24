@@ -6,7 +6,6 @@ tags:
 - type/cli
 - terminal
 - lang/go
-- state/stale
 - graph
 - plot
 homepage: https://github.com/guptarohit/asciigraph

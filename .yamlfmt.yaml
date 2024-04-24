@@ -1,0 +1,7 @@
+doublestar: true
+include:
+- tools/**/manifest.yaml
+
+formatter:
+  type: basic
+  indentless_arrays: true

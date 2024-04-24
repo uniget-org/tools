@@ -12,7 +12,7 @@ tags:
 - lang/rust
 - type/cli
 homepage: https://github.com/cross-rs/cross
-description: Zero setup cross compilation and cross testing of Rust crates 
+description: Zero setup cross compilation and cross testing of Rust crates
 renovate:
   datasource: github-releases
   package: cross-rs/cross

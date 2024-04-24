@@ -10,6 +10,7 @@ tags:
 - container/runtime
 - type/cli
 - lang/go
+- state/stale
 homepage: https://github.com/opencontainers/runtime-tools
 description: OCI Runtime Tools
 renovate:

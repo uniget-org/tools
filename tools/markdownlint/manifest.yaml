@@ -16,7 +16,7 @@ tags:
 - lang/javascript
 - type/cli
 homepage: https://github.com/igorshubovych/markdownlint-cli
-description: MarkdownLint Command Line Interface 
+description: MarkdownLint Command Line Interface
 renovate:
   datasource: npm
   package: markdownlint-cli

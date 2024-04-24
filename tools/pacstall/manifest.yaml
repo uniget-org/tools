@@ -15,7 +15,7 @@ description: An AUR-inspired package manager for Ubuntu
 messages:
   usage: |
     Please install the prerequisites:
-    
+
         apt-get install curl wget build-essential unzip git zstd iputils-ping lsb-release
 renovate:
   datasource: github-releases

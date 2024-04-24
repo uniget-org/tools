@@ -13,6 +13,7 @@ tags:
 - lang/python
 - type/cli
 - standard/git
+- state/stale
 homepage: https://github.com/newren/git-filter-repo
 description: Quickly rewrite git repository history
 renovate:

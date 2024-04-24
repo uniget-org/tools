@@ -14,7 +14,7 @@ tags:
 - kubernetes
 - k8s
 homepage: https://github.com/eksctl-io/eksctl
-description: Official CLI for Amazon EKS 
+description: Official CLI for Amazon EKS
 renovate:
   datasource: github-releases
   package: eksctl-io/eksctl

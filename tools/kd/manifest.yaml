@@ -8,6 +8,7 @@ tags:
 - kubernetes
 - k8s
 - lang/go
+- state/stale
 homepage: https://github.com/UKHomeOffice/kd
 description: Minimalistic kubernetes resources deployment tool with templating
 renovate:

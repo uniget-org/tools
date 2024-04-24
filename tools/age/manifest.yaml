@@ -9,6 +9,7 @@ tags:
 - type/cli
 - lang/go
 - encryption
+- state/stale
 homepage: https://github.com/FiloSottile/age
 description: Simple, modern and secure encryption tool
 renovate:

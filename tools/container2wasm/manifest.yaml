@@ -12,7 +12,7 @@ tags:
 - lang/c
 - type/cli
 homepage: https://github.com/ktock/container2wasm
-description: Container to WASM converter 
+description: Container to WASM converter
 renovate:
   datasource: github-releases
   package: ktock/container2wasm

@@ -13,7 +13,6 @@ tags:
 - category/development
 - lang/javascript
 - type/cli
-- state/deprecated
 - dependency
 - management
 homepage: https://github.com/yarnpkg/yarn

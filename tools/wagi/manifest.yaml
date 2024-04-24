@@ -2,8 +2,8 @@ name: wagi
 version: "0.8.1"
 check: ""
 platforms:
-  - linux/amd64
-  - linux/arm64
+- linux/amd64
+- linux/arm64
 #Requires:
 #- libssl.so.1.1
 #- libcrypto.so.1.1

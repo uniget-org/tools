@@ -12,6 +12,7 @@ tags:
 - state/onemanshow
 - kubernetes
 - k8s
+- state/stale
 homepage: https://github.com/superbrothers/ksort
 description: Sort manfest files in a proper order by Kind
 renovate:

@@ -11,7 +11,7 @@ tags:
 - lang/go
 - type/cli
 homepage: https://github.com/open-component-model/ocm
-description: Open Component Model (Software Bill of Delivery Toolset) 
+description: Open Component Model (Software Bill of Delivery Toolset)
 renovate:
   datasource: github-releases
   package: open-component-model/ocm

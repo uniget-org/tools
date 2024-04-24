@@ -11,7 +11,7 @@ tags:
 - lang/go
 - type/cli
 homepage: https://github.com/ahmetb/kubectx
-description: Faster way to switch between clusters and namespaces in kubectl 
+description: Faster way to switch between clusters and namespaces in kubectl
 renovate:
   datasource: github-releases
   package: ahmetb/kubectx

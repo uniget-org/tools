@@ -8,6 +8,8 @@ tags:
 - lang/go
 - kubernetes
 - k8s
+- state/stale
+- state/deprecated
 homepage: https://github.com/ckotzbauer/chekr
 description: Inspection utility for the maintenance of Kubernetes clusters
 renovate:

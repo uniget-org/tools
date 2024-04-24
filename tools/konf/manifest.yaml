@@ -10,6 +10,7 @@ tags:
 - type/cli
 - kubernetes
 - k8s
+- state/stale
 homepage: https://github.com/SimonTheLeg/konf-go
 description: Lightweight kubeconfig manager
 renovate:

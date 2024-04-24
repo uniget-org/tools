@@ -131,22 +131,26 @@ for NAME in ${all_tools}; do
         if ${RELEASE_TOO_OLD} && ${COMMIT_TOO_OLD}; then
             if ! ${stale}; then
                 echo "+ Add state/stale"
+                yq '.tags += "state/stale"' "tools/${NAME}/manifest.yaml" --inplace
             fi
         
         else
             if ${stale}; then
                 echo "+ Remove state/stale"
+                yq 'del( .tags[] | select(. == "state/stale") )' "tools/${NAME}/manifest.yaml" --inplace
             fi
         fi
 
         if ${CONTRIBUTORS_TOO_FEW}; then
             if ! ${onemanshow}; then
                 echo "+ Add state/onemanshow"
+                yq '.tags += "state/onemanshow"' "tools/${NAME}/manifest.yaml" --inplace
             fi
         
         else
             if ${onemanshow}; then
                 echo "+ Remove state/onemanshow"
+                yq 'del( .tags[] | select(. == "state/onemanshow") )' "tools/${NAME}/manifest.yaml" --inplace
             fi
         fi
 
@@ -159,9 +163,11 @@ for NAME in ${all_tools}; do
         )"
         if ${REPO_ARCHIVED} && ! ${deprecated}; then
             echo "+ Add state/deprecated"
+            yq '.tags += "state/deprecated"' "tools/${NAME}/manifest.yaml" --inplace
         
         elif ! ${REPO_ARCHIVED} && ${deprecated}; then
             echo "+ Remove state/deprecated"
+            yq 'del( .tags[] | select(. == "state/deprecated") )' "tools/${NAME}/manifest.yaml" --inplace
         fi
 
     elif jq --exit-status 'select(.renovate.datasource == "github-tags")' <<<"${tool_json[${NAME}]}" >/dev/null; then

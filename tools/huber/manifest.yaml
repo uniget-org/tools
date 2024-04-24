@@ -10,6 +10,7 @@ tags:
 - lang/rust
 - package
 - management
+- state/stale
 homepage: https://github.com/innobead/huber
 description: Package Manager for GitHub repos
 messages:

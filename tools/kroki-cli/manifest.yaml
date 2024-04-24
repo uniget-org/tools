@@ -12,8 +12,9 @@ tags:
 - graph
 - diagram
 - markdown
+- state/stale
 homepage: https://github.com/yuzutech/kroki-cli
-description: Kroki CLI 
+description: Kroki CLI
 renovate:
   datasource: github-releases
   package: yuzutech/kroki-cli

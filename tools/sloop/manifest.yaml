@@ -13,6 +13,7 @@ tags:
 - troubleshooting
 - lang/go
 - category/operations
+- state/stale
 homepage: https://github.com/salesforce/sloop
 description: Kubernetes History Visualization
 renovate:

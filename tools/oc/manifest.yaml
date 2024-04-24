@@ -7,7 +7,6 @@ tags:
 - category/operations
 - lang/go
 - type/cli
-- state/stale
 homepage: https://github.com/openshift/origin
 description: Conformance test suite for OpenShift
 renovate:

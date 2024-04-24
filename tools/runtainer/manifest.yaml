@@ -10,6 +10,8 @@ tags:
 - category/operations
 - lang/c
 - type/cli
+- state/stale
+- state/onemanshow
 homepage: https://github.com/plumber-cd/runtainer
 description: Run anything as a container
 renovate:

@@ -6,6 +6,7 @@ tags:
 - type/cli
 - lang/rust
 - standard/git
+- state/stale
 homepage: https://github.com/mlange-42/git-graph
 description: Command line tool to show clear git graphs arranged for your branching model
 renovate:

@@ -7,6 +7,7 @@ tags:
 - lang/go
 - format/json
 - standard/jsonnet
+- state/stale
 homepage: https://github.com/google/go-jsonnet
 description: Data templating language. Implementation of Jsonnet in pure Go
 renovate:

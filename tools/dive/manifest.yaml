@@ -13,7 +13,6 @@ tags:
 - type/tui
 - troubleshooting
 - lang/go
-- state/stale
 homepage: https://github.com/wagoodman/dive
 description: Tool for exploring each layer in a docker image
 renovate:

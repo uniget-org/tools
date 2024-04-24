@@ -12,6 +12,7 @@ tags:
 - emulation
 - lang/go
 - state/stale
+- state/deprecated
 homepage: https://github.com/weaveworks/ignite
 description: Ignite a Firecracker microVM
 renovate:

@@ -6,7 +6,6 @@ tags:
 - package
 - management
 - lang/go
-- state/stale
 - standard/oci
 homepage: https://github.com/whalebrew/whalebrew
 description: Homebrew, but with Docker images
