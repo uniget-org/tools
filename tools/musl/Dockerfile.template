@@ -14,10 +14,11 @@ ARG version
 RUN <<EOF
 curl --silent --show-error --location --fail https://musl.libc.org/releases/musl-1.2.5.tar.gz \
 | tar --extract --gzip --strip-components=1 --no-same-owner
+# install to lib/x86_64-linux-musl?
 ./configure --prefix="${prefix}"
 make -j"$(nproc)"
 make install
-ln --symbolic --relative --force "${prefix}/lib/libc.so.6" "${prefix}/lib/libc.musl-x86_64.so.1"
+ln --symbolic --relative --force "${prefix}/lib/libc.so" "${prefix}/lib/libc.musl-x86_64.so.1"
 # fix paths in bin/musl-gcc
 # fix paths in lib/musl-gcc.specs
 EOF

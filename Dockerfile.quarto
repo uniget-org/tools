@@ -1,0 +1,11 @@
+#syntax=docker/dockerfile:1.7.0
+
+FROM ubuntu:22.04
+
+COPY --from=ghcr.io/uniget-org/tools/musl:1.2.5     / /usr/
+
+COPY --from=ghcr.io/uniget-org/tools/sass:1.75.0    / /opt/sass/
+COPY --from=ghcr.io/uniget-org/tools/deno:1.42.4    / /opt/deno/
+COPY --from=ghcr.io/uniget-org/tools/esbuild:0.20.1 / /opt/esbuild/
+COPY --from=ghcr.io/uniget-org/tools/pandoc:latest / /usr/local/
+COPY --from=ghcr.io/uniget-org/tools/quarto:1.4.553 / /opt/quarto/
