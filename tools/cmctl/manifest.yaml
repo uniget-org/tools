@@ -13,10 +13,10 @@ tags:
 - category/security
 - lang/go
 - certificate
-homepage: https://github.com/cert-manager/cert-manager
+homepage: https://github.com/cert-manager/cmctl
 description: Automatically provision and manage TLS certificates in Kubernetes
 renovate:
   datasource: github-releases
-  package: cert-manager/cert-manager
+  package: cert-manager/cmctl
   extractVersion: ^v(?<version>.+?)$
   priority: medium
