@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: nydus
-version: "2.2.4"
+version: "2.2.5"
 binary: nydusd
 check: ${binary} --version 2>&1 | head -n 1 | cut -dv -f2
 platforms:
