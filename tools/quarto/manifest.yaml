@@ -2,6 +2,7 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: quarto
 version: "1.4.553"
+binary: ${target}/opt/quarto/bin/quarto
 check: ""
 runtime_dependencies:
 - esbuild
