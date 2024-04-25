@@ -1,4 +1,4 @@
-#syntax=docker/dockerfile:1.7.0
+#syntax=docker/dockerfile:1.7.1
 
 # krew internals:
 # - KREW_ROOT defaults to ~/.krew

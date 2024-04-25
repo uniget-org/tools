@@ -1,4 +1,4 @@
-#syntax=docker/dockerfile:1.7.0
+#syntax=docker/dockerfile:1.7.1
 
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 FROM ghcr.io/uniget-org/tools/rust:latest AS rust
