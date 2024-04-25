@@ -5,7 +5,7 @@ version: "1.75.0"
 binary: sass
 check: ${binary} --version
 runtime_dependencies:
-- musl
+- dart
 platforms:
 - linux/amd64
 - linux/arm64
