@@ -1401,6 +1401,17 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "dart-lang/sdk",
+      "fileMatch": [
+        "^tools/dart/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "TomWright/dasel",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
