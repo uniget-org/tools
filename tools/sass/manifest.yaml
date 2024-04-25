@@ -2,7 +2,7 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: sass
 version: "1.75.0"
-check: ""
+check: ${binary} --version
 runtime_dependencies:
 - musl
 platforms:
