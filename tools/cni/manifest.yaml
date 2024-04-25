@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: cni
 version: "1.4.1"
 binary: ${target}/libexec/cni/loopback

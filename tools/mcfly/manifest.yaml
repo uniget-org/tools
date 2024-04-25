@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: mcfly
 version: "0.8.4"
 check: ${binary} --version | cut -d' ' -f2

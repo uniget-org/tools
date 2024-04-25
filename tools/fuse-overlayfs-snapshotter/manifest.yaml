@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: fuse-overlayfs-snapshotter
 version: "1.0.8"
 binary: containerd-fuse-overlayfs-grpc

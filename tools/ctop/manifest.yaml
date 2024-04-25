@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: ctop
 version: "0.7.7"
 check: ${binary} -v | cut -d, -f1 | cut -d' ' -f3

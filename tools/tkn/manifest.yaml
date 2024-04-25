@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: tkn
 version: "0.36.0"
 check: timeout 3 ${binary} version | grep ^Client | cut -d' ' -f3

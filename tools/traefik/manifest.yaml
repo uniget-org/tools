@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: traefik
 version: "2.11.2"
 check: ${binary} version | grep ^Version | tr -s ' ' | cut -d' ' -f2

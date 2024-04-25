@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: argocd
 version: "2.10.7"
 check: ${binary} version 2>/dev/null | grep ^argocd | cut -d' ' -f2 | cut -d+ -f1 | tr -d v

@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: grype
 version: "0.77.0"
 check: ${binary} version 2>&1 | grep "^Version:" | tr -s ' ' | cut -d' ' -f2

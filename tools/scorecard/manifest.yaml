@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: scorecard
 version: "4.13.1"
 check: ${binary} version 2>&1 | grep "GitVersion" | cut -dv -f2

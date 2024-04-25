@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: gitui
 version: "0.26.1"
 check: ${binary} --version | cut -d' ' -f2

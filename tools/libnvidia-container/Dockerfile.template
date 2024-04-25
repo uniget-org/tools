@@ -44,10 +44,3 @@ make shared static
 make tools
 make install DESTDIR="${prefix}" prefix=""
 EOF
-
-# completion
-#RUN <<EOF
-#"${prefix}/bin/foo" completion bash >"${prefix}/share/bash-completion/completions/foo"
-#"${prefix}/bin/foo" completion fish >"${prefix}/share/fish/vendor_completions.d/foo.fish"
-#"${prefix}/bin/foo" completion zsh >"${prefix}/share/zsh/vendor-completions/_foo"
-#EOF

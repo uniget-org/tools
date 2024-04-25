@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: docker-gen
 version: "0.12.0"
 check: ${binary} --version

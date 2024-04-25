@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: gvisor
 version: "20240422"
 binary: ${target}/bin/runsc

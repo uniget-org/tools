@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: ripgrep
 version: "14.1.0"
 binary: rg

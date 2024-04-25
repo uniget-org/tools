@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: ttyd
 version: "1.7.7"
 check: ${binary} --version | cut -d' ' -f3 | cut -d- -f1

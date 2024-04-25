@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: curlie
 version: "1.7.2"
 check: ${binary} version | cut -d' ' -f2

@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: chisel
 version: "1.9.1"
 check: ${binary} | grep Version | tr -s ' ' | cut -d' ' -f3

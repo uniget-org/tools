@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: slirp4netns
 version: "1.2.3"
 check: ${binary} --version | head -n 1 | cut -d' ' -f3

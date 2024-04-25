@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: hurl
 version: "4.3.0"
 check: ${binary} --version | grep ^hurl | cut -d' ' -f2

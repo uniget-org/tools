@@ -28,10 +28,3 @@ export RUSTFLAGS='-C target-feature=+crt-static'
 cargo build --release --target "${arch}-unknown-linux-gnu"
 cp "target/${arch}-unknown-linux-gnu/release/jnv" "${prefix}/bin/"
 EOF
-
-# completion
-#RUN <<EOF
-#"${prefix}/bin/jnv" completion bash >"${prefix}/share/bash-completion/completions/jnv"
-#"${prefix}/bin/jnv" completion fish >"${prefix}/share/fish/vendor_completions.d/jnv.fish"
-#"${prefix}/bin/jnv" completion zsh >"${prefix}/share/zsh/vendor-completions/_jnv"
-#EOF

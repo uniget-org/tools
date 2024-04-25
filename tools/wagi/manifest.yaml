@@ -1,12 +1,10 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: wagi
 version: "0.8.1"
 check: ""
 platforms:
 - linux/amd64
 - linux/arm64
-#Requires:
-#- libssl.so.1.1
-#- libcrypto.so.1.1
 tags:
 - category/development
 - lang/rust
@@ -14,6 +12,11 @@ tags:
 - webassembly
 - wasm
 - state/stale
+messages:
+  update: |
+    Please provide the following libraries:
+    - libssl.so.1.1
+    - libcrypto.so.1.1
 homepage: https://github.com/deislabs/wagi
 description: Write HTTP handlers in WebAssembly with a minimal amount of work
 renovate:

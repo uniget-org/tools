@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kink
 version: "0.2.1"
 check: ${binary} version | grep GitVersion | tr -s ' ' | cut -d' ' -f2

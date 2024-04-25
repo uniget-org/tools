@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: melange
 version: "0.6.11"
 check: ${binary} version 2>&1 | grep ^GitVersion | tr -s ' ' | cut -d' ' -f2 | tr -d v

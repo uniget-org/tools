@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kubectl
 version: "1.30.0"
 check: ${binary} version --client --short 2>/dev/null | grep ^Client | cut -d' ' -f3 | tr -d v

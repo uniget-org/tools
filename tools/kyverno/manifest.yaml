@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kyverno
 version: "1.11.4"
 check: ${binary} version | grep ^Version | cut -d' ' -f2

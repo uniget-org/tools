@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: oci-image-tool
 version: "1.0.0-rc3"
 check: ${binary} --version | cut -d' ' -f3

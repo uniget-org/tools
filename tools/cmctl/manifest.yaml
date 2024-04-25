@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: cmctl
 version: "1.14.4"
 check: ${binary} version --client --short | cut -dv -f2

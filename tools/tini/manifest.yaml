@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: tini
 version: "0.19.0"
 check: ${binary} --version | cut -d' ' -f3

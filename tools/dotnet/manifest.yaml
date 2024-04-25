@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: dotnet
 version: "8.0.204"
 check: ${binary} --version

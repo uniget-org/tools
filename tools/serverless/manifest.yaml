@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: serverless
 version: "3.38.0"
 check: ${binary} --version | grep ^Framework | cut -d' ' -f3

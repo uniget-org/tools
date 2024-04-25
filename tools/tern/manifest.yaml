@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: tern
 version: "2.12.1"
 check: ${binary} --version | grep ^Tern | cut -d' ' -f3

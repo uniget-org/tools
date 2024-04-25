@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: oc
 version: "3.11.0"
 check: ${binary} version | grep ^oc | cut -d' ' -f2 | cut -d+ -f1 | tr -d v

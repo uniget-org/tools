@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: ktunnel
 version: "1.6.1"
 check: ${binary} version

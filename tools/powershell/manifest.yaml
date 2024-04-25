@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: powershell
 version: "7.4.2"
 binary: pwsh

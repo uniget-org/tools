@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: docker-sbom
 version: "0.6.1"
 binary: ${target}/libexec/docker/cli-plugins/docker-sbom

@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: ddosify
 version: "1.0.6"
 check: ${binary} --version | head -1 | tr -s ' ' | cut -d' ' -f2

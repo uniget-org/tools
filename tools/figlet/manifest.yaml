@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: figlet
 version: "2.2.5"
 check: ${binary} -v | grep Version | cut -d' ' -f4 | tr -d ,

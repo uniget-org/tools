@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: fregot
 version: "0.14.2"
 check: ${binary} 2>&1 | grep ^fregot | cut -d' ' -f2 | tr -d v

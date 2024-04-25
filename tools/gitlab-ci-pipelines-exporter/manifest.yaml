@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: gitlab-ci-pipelines-exporter
 version: "0.5.7"
 check: ${binary} --version | cut -d' ' -f3

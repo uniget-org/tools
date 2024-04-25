@@ -7,7 +7,6 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-# agent
 RUN <<EOF
 check-github-release-asset "grafana/agent" "v${version}" "grafana-agent-linux-${alt_arch}.zip"
 url="https://github.com/grafana/agent/releases/download/v${version}/grafana-agent-linux-${alt_arch}.zip"
@@ -16,9 +15,7 @@ curl --silent --location --fail --remote-name "${url}"
 unzip -q -o -d "${prefix}/bin" "${filename}"
 ls -l "${prefix}/bin"
 mv "${prefix}/bin/grafana-agent-linux-${alt_arch}" "${prefix}/bin/grafana-agent"
-EOF
-# agentctl
-RUN <<EOF
+
 check-github-release-asset "grafana/agent" "v${version}" "grafana-agentctl-linux-${alt_arch}.zip"
 url="https://github.com/grafana/agent/releases/download/v${version}/grafana-agentctl-linux-${alt_arch}.zip"
 filename="$(basename "${url}")"

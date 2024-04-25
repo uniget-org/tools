@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kudo
 version: "0.19.0"
 binary: kubectl-kudo

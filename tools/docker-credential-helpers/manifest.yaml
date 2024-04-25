@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: docker-credential-helpers
 version: "0.8.1"
 binary: docker-credential-pass

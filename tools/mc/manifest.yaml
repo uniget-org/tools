@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: mc
 version: "2024-04-18T16-45-29Z"
 check: ${binary} --version | head -1 | cut -d' ' -f3 | cut -d. -f2

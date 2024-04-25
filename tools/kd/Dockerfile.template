@@ -13,10 +13,3 @@ curl --silent --location --fail --output "${prefix}/bin/kd" \
     "https://github.com/UKHomeOffice/kd/releases/download/v${version}/kd_linux_amd64"
 chmod +x "${prefix}/bin/kd"
 EOF
-
-# completion
-#RUN <<EOF
-#"${prefix}/bin/kd" completion bash >"${prefix}/share/bash-completion/completions/kd"
-#"${prefix}/bin/kd" completion fish >"${prefix}/share/fish/vendor_completions.d/kd.fish"
-#"${prefix}/bin/kd" completion zsh >"${prefix}/share/zsh/vendor-completions/_kd"
-#EOF

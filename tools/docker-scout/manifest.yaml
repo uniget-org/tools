@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: docker-scout
 version: "1.8.0"
 binary: ${target}/libexec/docker/cli-plugins/docker-scout

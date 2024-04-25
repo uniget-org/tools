@@ -40,10 +40,3 @@ rmdir \
     "${prefix}/bin/manpages" \
     "${prefix}/bin/completions"
 EOF
-
-# completion
-#RUN <<EOF
-#"${prefix}/bin/updatecli" completion bash >"${prefix}/share/bash-completion/completions/updatecli"
-#"${prefix}/bin/updatecli" completion fish >"${prefix}/share/fish/vendor_completions.d/updatecli.fish"
-#"${prefix}/bin/updatecli" completion zsh >"${prefix}/share/zsh/vendor-completions/_updatecli"
-#EOF

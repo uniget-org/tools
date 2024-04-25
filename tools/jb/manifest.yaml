@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: jb
 version: "0.5.1"
 check: ${binary} --version 2>&1 | tr -d v

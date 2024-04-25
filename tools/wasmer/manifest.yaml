@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: wasmer
 version: "4.2.8"
 check: ${binary} --version | cut -d' ' -f2

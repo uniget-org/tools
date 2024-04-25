@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: popeye
 version: "0.21.3"
 check: ${binary} version | sed 's/\x1B\[[0-9;]\{1,\}[A-Za-z]//g' | grep ^Version | tr -s ' ' | cut -d' ' -f2

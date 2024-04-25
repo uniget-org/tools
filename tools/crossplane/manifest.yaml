@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: crossplane
 version: "1.15.2"
 binary: kubectl-crossplane

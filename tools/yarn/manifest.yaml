@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: yarn
 version: "1.22.22"
 check: ${binary} --version

@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: dependency-check
 version: "9.1.0"
 binary: ${target}/opt/dependency-check/bin/dependency-check.sh

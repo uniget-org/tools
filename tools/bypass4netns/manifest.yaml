@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: bypass4netns
 version: "0.4.1"
 check: XDG_RUNTIME_DIR=foo ${binary} --version | grep ^bypass4netns | cut -d' ' -f3

@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: notation
 version: "1.1.0"
 check: ${binary} --version | cut -d' ' -f3

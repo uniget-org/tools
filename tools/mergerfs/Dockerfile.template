@@ -12,10 +12,3 @@ check-github-release-asset "trapexit/mergerfs" "${version}" "mergerfs-static-lin
 curl --silent --location --fail "https://github.com/trapexit/mergerfs/releases/download/${version}/mergerfs-static-linux_${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/" --strip-components=2 --no-same-owner
 EOF
-
-# completion
-#RUN <<EOF
-#"${prefix}/bin/foo" completion bash >"${prefix}/share/bash-completion/completions/foo"
-#"${prefix}/bin/foo" completion fish >"${prefix}/share/fish/vendor_completions.d/foo.fish"
-#"${prefix}/bin/foo" completion zsh >"${prefix}/share/zsh/vendor-completions/_foo"
-#EOF

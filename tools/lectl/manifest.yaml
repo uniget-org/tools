@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: lectl
 version: "0.22.1"
 check: ${binary} --version | grep ^lectl | cut -d' ' -f2

@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: falcosidekick
 version: "2.28.0"
 check: ${binary} --version | grep ^GitVersion | tr -s ' ' | cut -d' ' -f2

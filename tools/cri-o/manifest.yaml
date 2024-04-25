@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: cri-o
 version: "1.29.3"
 binary: crio

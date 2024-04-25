@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: konf
 version: "0.5.1"
 check: ${binary} version | jq --raw-output '.GitVersion'

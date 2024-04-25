@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: dbui
 version: "0.7.0"
 check: ${binary} -f foo | head -1 | cut -d' ' -f3 | tr -d v

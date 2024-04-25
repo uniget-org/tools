@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: sbomdiff
 version: "0.5.3"
 check: ${binary} --version

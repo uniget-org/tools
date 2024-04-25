@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: pass
 version: "1.7.4"
 check: ${binary} version | tr -s ' ' | grep '= v' | cut -d' ' -f2 | tr -d v

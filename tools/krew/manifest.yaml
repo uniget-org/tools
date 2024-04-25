@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: krew
 version: "0.4.4"
 check: ${binary} version 2>/dev/null | grep GitTag | tr -s ' ' | cut -d' ' -f2 | tr -d v
