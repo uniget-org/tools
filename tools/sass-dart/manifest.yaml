@@ -1,23 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
-name: sass
+name: sass-dart
 version: "1.75.0"
-check: ${binary} --version | cut -d' ' -f1
-build_dependencies:
-- nodejs
-- npm
+binary: sass
+check: ${binary} --version
 runtime_dependencies:
-- nodejs
+- musl
 platforms:
 - linux/amd64
 - linux/arm64
 tags:
 - category/development
-- lang/javascript
+- lang/dart
 - type/cli
-homepage: https://github.com/sass/sass
-description: Sass makes CSS fun
+homepage: https://github.com/sass/dart-sass
+description: Reference implementation of Sass
 renovate:
-  datasource: npm
-  package: sass
+  datasource: github-releases
+  package: sass/dart-sass
   priority: low
