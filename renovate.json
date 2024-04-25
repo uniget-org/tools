@@ -6663,10 +6663,21 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "npm",
+      "depNameTemplate": "sass",
+      "fileMatch": [
+        "^tools/sass/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "sass/dart-sass",
       "fileMatch": [
-        "^tools/sass/manifest.yaml$"
+        "^tools/sass-dart/manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
