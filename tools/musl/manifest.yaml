@@ -2,18 +2,17 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: musl
 version: "1.2.5"
-check: ""
+binary: "false"
+check: "" # No binary
 build_dependencies:
-- bar
-runtime_dependencies:
-- baz
+- make
 platforms:
 - linux/amd64
 - linux/arm64
 tags:
 - category/development
-- lang/?
-- type/?
+- lang/c
+- type/library
 homepage: https://git.musl-libc.org/cgit/musl
 description: An implementation of the standard library for Linux-based systems
 renovate:
