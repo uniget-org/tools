@@ -31,4 +31,8 @@ mkdir -p "${prefix}/opt/dart"
 unzip -q -o -d "${prefix}/opt/" "${filename}"
 rm "${filename}"
 mv "${prefix}/opt/dart-sdk" "${prefix}/opt/dart"
+
+ln --symbolic --relative --force \
+    "${prefix}/opt/dart/bin/dart" \
+    "${prefix}/bin/dart"
 EOF

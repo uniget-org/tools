@@ -20,4 +20,8 @@ rm --force \
 
 rm --force --recursive \
     "${prefix}/opt/quarto/bin/dart-sass/"
+
+ln --symbolic --relative --force \
+    "${prefix}/opt/quarto/bin/quarto" \
+    "${prefix}/bin/quarto"
 EOF
