@@ -11,11 +11,9 @@ RUN <<EOF
 curl --silent --location --fail --output "${prefix}/bin/tea" \
     "https://gitea.com/gitea/tea/releases/download/v${version}/tea-${version}-linux-${alt_arch}"
 chmod +x "${prefix}/bin/tea"
-EOF
 
-# completion
-#RUN <<EOF
-#"${prefix}/bin/foo" completion bash >"${prefix}/share/bash-completion/completions/foo"
-#"${prefix}/bin/foo" completion fish >"${prefix}/share/fish/vendor_completions.d/foo.fish"
-#"${prefix}/bin/foo" completion zsh >"${prefix}/share/zsh/vendor-completions/_foo"
-#EOF
+curl --silent --show-error --location --fail --output "${prefix}/share/bash-completion/completions/tea" \
+    "https://gitea.com/gitea/tea/raw/tag/v${version}/contrib/autocomplete.sh"
+curl --silent --show-error --location --fail --output "${prefix}/share/zsh/vendor-completions/_tea" \
+    "https://gitea.com/gitea/tea/raw/tag/v${version}/contrib/autocomplete.zsh"
+EOF

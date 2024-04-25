@@ -12,11 +12,8 @@ check-github-release-asset "kptdev/kpt" "v${version}" "kpt_linux_${alt_arch}-${v
 curl --silent --location --fail "https://github.com/kptdev/kpt/releases/download/v${version}/kpt_linux_${alt_arch}-${version}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     kpt
+    
+"${prefix}/bin/kpt" completion bash >"${prefix}/share/bash-completion/completions/kpt"
+"${prefix}/bin/kpt" completion fish >"${prefix}/share/fish/vendor_completions.d/kpt.fish"
+"${prefix}/bin/kpt" completion zsh >"${prefix}/share/zsh/vendor-completions/_kpt"
 EOF
-
-# completion
-#RUN <<EOF
-#"${prefix}/bin/foo" completion bash >"${prefix}/share/bash-completion/completions/foo"
-#"${prefix}/bin/foo" completion fish >"${prefix}/share/fish/vendor_completions.d/foo.fish"
-#"${prefix}/bin/foo" completion zsh >"${prefix}/share/zsh/vendor-completions/_foo"
-#EOF
