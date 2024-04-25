@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: dart
+version: "3.3.4"
+check: ""
+runtime_dependencies:
+- baz
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/dart
+- type/cli
+homepage: https://github.com/dart-lang/sdk
+description: Dart SDK, including the VM, dart2js, core libraries, and more
+renovate:
+  datasource: github-releases
+  package: dart-lang/sdk
+  priority: low

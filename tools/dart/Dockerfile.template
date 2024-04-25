@@ -1,0 +1,34 @@
+#syntax=docker/dockerfile:1.7.0
+
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN <<EOF
+echo "### Setting architecture string for ${TARGETPLATFORM}"
+case "${arch}" in
+    x86_64)
+        export arch_suffix=x64
+        ;;
+    aarch64)
+        export arch_suffix="${alt_arch}"
+        ;;
+    *)
+        echo "ERROR: Unsupported architecture ${arch}."
+        exit 1
+        ;;
+esac
+echo "    Using ${arch_suffix}"
+
+url="https://storage.googleapis.com/dart-archive/channels/stable/release/${version}/sdk/dartsdk-linux-${arch_suffix}-release.zip"
+check-download "${url}"
+filename="$(basename "${url}")"
+curl --silent --location --fail --remote-name "${url}"
+mkdir -p "${prefix}/opt/dart"
+unzip -q -o -d "${prefix}/opt/" "${filename}"
+rm "${filename}"
+mv "${prefix}/opt/dart-sdk" "${prefix}/opt/dart"
+EOF
