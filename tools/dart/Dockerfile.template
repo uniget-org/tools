@@ -35,4 +35,7 @@ mv "${prefix}/opt/dart-sdk" "${prefix}/opt/dart"
 ln --symbolic --relative --force \
     "${prefix}/opt/dart/bin/dart" \
     "${prefix}/bin/dart"
+ln --symbolic --relative --force \
+    "${prefix}/opt/dart/bin/dartaotruntime" \
+    "${prefix}/bin/dartaotruntime"
 EOF

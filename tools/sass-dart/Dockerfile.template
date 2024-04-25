@@ -24,16 +24,13 @@ esac
 echo "    Using ${arch_suffix}"
 
 check-github-release-asset "sass/dart-sass" "${version}" "dart-sass-${version}-linux-${arch_suffix}-musl.tar.gz"
+mkdir -p "${prefix}/libexec/dart-sass"
 curl --silent --location --fail "https://github.com/sass/dart-sass/releases/download/${version}/dart-sass-${version}-linux-${arch_suffix}-musl.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
-    dart-sass/sass \
-    dart-sass/src/sass.snapshot \
-    dart-sass/src/dart
+| tar --extract --gzip --directory="${prefix}/libexec/dart-sass" --strip-components=2 --no-same-owner \
+    dart-sass/src/sass.snapshot
 EOF
-
-# completion
-#RUN <<EOF
-#"${prefix}/bin/foo" completion bash >"${prefix}/share/bash-completion/completions/foo"
-#"${prefix}/bin/foo" completion fish >"${prefix}/share/fish/vendor_completions.d/foo.fish"
-#"${prefix}/bin/foo" completion zsh >"${prefix}/share/zsh/vendor-completions/_foo"
-#EOF
+COPY --chmod=0755 <<EOF /uniget_bootstrap/bin/sass
+#!/bin/bash
+SCRIPT_DIR="$( dirname "$( readlink -f "\$0" )" )"
+exec dartaotruntime "\${SCRIPT_DIR}/../libexec/dart-sass/sass.snapshot"
+EOF
