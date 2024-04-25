@@ -27,6 +27,7 @@ check-github-release-asset "sass/dart-sass" "${version}" "dart-sass-${version}-l
 curl --silent --location --fail "https://github.com/sass/dart-sass/releases/download/${version}/dart-sass-${version}-linux-${arch_suffix}-musl.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
     dart-sass/sass \
+    dart-sass/src/sass.snapshot \
     dart-sass/src/dart
 EOF
 
