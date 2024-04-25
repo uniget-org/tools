@@ -27,7 +27,7 @@ url="https://storage.googleapis.com/dart-archive/channels/stable/release/${versi
 check-download "${url}"
 filename="$(basename "${url}")"
 curl --silent --location --fail --remote-name "${url}"
-mkdir -p "${prefix}/opt/dart"
+mkdir -p "${prefix}/opt"
 unzip -q -o -d "${prefix}/opt/" "${filename}"
 rm "${filename}"
 mv "${prefix}/opt/dart-sdk" "${prefix}/opt/dart"

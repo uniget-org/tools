@@ -2,9 +2,8 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: dart
 version: "3.3.4"
-check: ""
-runtime_dependencies:
-- baz
+binary: ${target}/opt/dart/bin/dart
+check: ${binary} --version | cut -d' ' -f4
 platforms:
 - linux/amd64
 - linux/arm64
