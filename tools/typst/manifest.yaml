@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: typst
+version: "0.11.0"
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/rust
+- type/cli
+homepage: https://github.com/typst/typst
+description: New markup-based typesetting system that is powerful and easy to learn
+renovate:
+  datasource: github-releases
+  package: typst/typst
+  extractVersion: ^v(?<version>.+?)$
+  priority: low

@@ -1,0 +1,15 @@
+#syntax=docker/dockerfile:1.7.0
+
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN <<EOF
+check-github-release-asset "typst/typst" "v${version}" "typst-${arch}-unknown-linux-musl.tar.xz"
+curl --silent --location --fail "https://github.com/typst/typst/releases/download/v${version}/typst-${arch}-unknown-linux-musl.tar.xz" \
+| tar --extract --xz --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
+    "typst-${arch}-unknown-linux-musl/typst"
+EOF
