@@ -1,4 +1,4 @@
-#syntax=docker/dockerfile:1.7.0
+#syntax=docker/dockerfile:1.7.1
 
 FROM ubuntu:22.04 AS quarto
 COPY --from=ghcr.io/uniget-org/tools/musl:1.2.5     / /usr/
