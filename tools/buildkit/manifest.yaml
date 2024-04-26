@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: buildkit
-version: "0.13.1"
+version: "0.13.2"
 binary: buildkitd
 check: ${binary} --version | cut -d' ' -f3 | tr -d v
 platforms:
