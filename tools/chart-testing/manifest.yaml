@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: chart-testing
-version: "3.10.1"
+version: "3.11.0"
 binary: ct
 check: ${binary} version | grep ^Version | tr -s ' ' | cut -d' ' -f2 | tr -d v
 tags:
