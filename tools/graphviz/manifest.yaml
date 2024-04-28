@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: graphviz
-version: "10.0.1"
+version: "11.0.0"
 binary: dot
 check: ${binary} --version 2>&1 | cut -d' ' -f5
 platforms:
