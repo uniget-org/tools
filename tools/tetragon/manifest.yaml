@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: tetragon
-version: "1.0.3"
+version: "1.1.0"
 binary: tetra
 check: "" # Wants to connect to server
 platforms:
