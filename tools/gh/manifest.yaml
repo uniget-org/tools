@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: gh
-version: "2.48.0"
+version: "2.49.0"
 check: ${binary} --version | head -n 1 | cut -d' ' -f3
 tags:
 - org/github
