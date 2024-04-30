@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: az
-version: "2.59.0"
+version: "2.60.0"
 check: ${binary} version | jq --raw-output '."azure-cli"'
 build_dependencies:
 #- python
