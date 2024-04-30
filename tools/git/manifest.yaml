@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: git
-version: "2.44.0"
+version: "2.45.0"
 check: ${binary} --version | cut -d' ' -f3
 platforms:
 - linux/amd64
