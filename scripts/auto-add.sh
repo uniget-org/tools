@@ -55,8 +55,34 @@ renovate:
   priority: low
 EOF
 
-echo "${LATEST_RELEASE_JSON}" | jq
-for ASSET in $( seq 1 $( echo "${LATEST_RELEASE_JSON}" | jq --raw-output '.assets | length' ) ); do
-    echo "asset ${ASSET}"
-    echo "  url: $(echo "${LATEST_RELEASE_JSON}" | jq --raw-output --arg asset "${ASSET}" '.assets[$asset]')"
+for ASSET in $( seq 0 $( echo "${LATEST_RELEASE_JSON}" | jq --raw-output '.assets | length' ) ); do
+    ASSET_JSON="$(
+        jq --arg asset "${ASSET}" '.assets[$asset | tonumber]' <<<"${LATEST_RELEASE_JSON}"
+    )"
+    if test "${ASSET_JSON}" == "null"; then
+        continue
+    fi
+    echo "asset ${ASSET}:"
+
+    name="$(echo "${ASSET_JSON}" | jq --raw-output '.name')"
+    echo "  name: ${name}"
+
+    if echo "${name}" | grep -qE "\.tar\.(gz|xz|bz2)$"; then
+        echo "  type: artifact"
+
+    elif echo "${name}" | grep -qi "checksums?"; then
+        echo "  type: checksum"
+
+    elif echo "${name}" | grep -qE "(sbom|cyclonedx|spdx)"; then
+        echo "  type: sbom"
+
+    elif echo "${name}" | grep -qE "\.(sig|pem)$"; then
+        echo "  type: signature"
+
+    else
+        echo "  type: UNKNOWN"
+    fi
 done
+
+# TODO: Check for checksums file
+# TODO: Check for keyless signature files
