@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: nerdctl
-version: "1.7.5"
+version: "1.7.6"
 check: XDG_RUNTIME_DIR=foo ${binary} --version | cut -d' ' -f3
 runtime_dependencies:
 - containerd
