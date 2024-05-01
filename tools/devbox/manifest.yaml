@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: devbox
-version: "0.10.5"
+version: "0.10.6"
 check: ${binary} version
 platforms:
 - linux/amd64
