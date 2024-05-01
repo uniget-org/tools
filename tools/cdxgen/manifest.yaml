@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: cdxgen
-version: "10.4.3"
+version: "10.5.0"
 check: ${binary} --version
 build_dependencies:
 - nodejs-lts
