@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: teleport
-version: "15.2.5"
+version: "15.3.0"
 check: ${binary} version | cut -d' ' -f2 | tr -d v
 tags:
 - type/cli
