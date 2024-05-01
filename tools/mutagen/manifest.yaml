@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: mutagen
-version: "0.17.5"
+version: "0.17.6"
 check: ${binary} version
 tags:
 - component/network
