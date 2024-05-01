@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: cascadia-code
-version: "2111.01"
+version: "2404.23"
 binary: "false"
 check: "" # No binary
 tags:
