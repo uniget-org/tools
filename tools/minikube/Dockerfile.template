@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "kubernetes/minikube" "v${version}" "minikube-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/minikube" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/minikube" \
     "https://github.com/kubernetes/minikube/releases/download/v${version}/minikube-linux-${alt_arch}"
 chmod +x "${prefix}/bin/minikube"
 "${prefix}/bin/minikube" completion bash >"${prefix}/share/bash-completion/completions/minikube"

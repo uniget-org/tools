@@ -24,6 +24,6 @@ mkdir -p /opt/reptyr/bin /opt/reptyr/share/man/man1
 cp reptyr "${prefix}/bin/"
 cp reptyr.1 "${prefix}/share/man/man1/"
 
-curl --silent --location --fail --output "${prefix}/share/bash-completion/completions/reptyr" --create-dirs \
+curl --silent --show-error --location --fail --output "${prefix}/share/bash-completion/completions/reptyr" --create-dirs \
     "https://github.com/nelhage/reptyr/raw/reptyr-${version}/reptyr.bash"
 EOF

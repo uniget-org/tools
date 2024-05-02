@@ -11,7 +11,7 @@ RUN <<EOF
 check-github-release-asset "FortAwesome/Font-Awesome" "${version}" "fontawesome-free-${version}-web.zip"
 url="https://github.com/FortAwesome/Font-Awesome/releases/download/${version}/fontawesome-free-${version}-web.zip"
 filename="$(basename "${url}")"
-curl --silent --location --fail --remote-name "${url}"
+curl --silent --show-error --location --fail --remote-name "${url}"
 unzip -q -o -d "${prefix}/share/" "${filename}"
 mv "${prefix}/share/fontawesome-free-${version}-web" "${prefix}/share/fontawesome-free"
 EOF

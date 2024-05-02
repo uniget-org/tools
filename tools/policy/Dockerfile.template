@@ -26,6 +26,6 @@ echo "    Using ${arch_suffix}"
 check-github-release-asset "opcr-io/policy" "v${version}" "policy${version}_linux_${arch_suffix}.zip"
 url="https://github.com/opcr-io/policy/releases/download/v${version}/policy${version}_linux_${arch_suffix}.zip"
 filename="$(basename "${url}")"
-curl --silent --location --fail --remote-name "${url}"
+curl --silent --show-error --location --fail --remote-name "${url}"
 unzip -q -o -d "${prefix}/bin" "${filename}"
 EOF

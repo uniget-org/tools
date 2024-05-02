@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "aquasecurity/kube-bench" "v${version}" "kube-bench_${version}_linux_${alt_arch}.tar.gz"
-curl --silent --location --fail "https://github.com/aquasecurity/kube-bench/releases/download/v${version}/kube-bench_${version}_linux_${alt_arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/aquasecurity/kube-bench/releases/download/v${version}/kube-bench_${version}_linux_${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin" --no-same-owner
 "${prefix}/bin/kube-bench" completion bash | sed "s|${prefix}||g" >"${prefix}/share/bash-completion/completions/kube-bench"
 "${prefix}/bin/kube-bench" completion fish | sed "s|${prefix}||g" >"${prefix}/share/fish/vendor_completions.d/kube-bench.fish"

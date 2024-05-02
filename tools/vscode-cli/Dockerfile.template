@@ -25,6 +25,6 @@ echo "    Using ${arch_suffix}"
 
 check-download "https://update.code.visualstudio.com/${version}/cli-linux-${arch_suffix}/stable"
 
-curl --silent --location --fail "https://update.code.visualstudio.com/${version}/cli-linux-${arch_suffix}/stable" \
+curl --silent --show-error --location --fail "https://update.code.visualstudio.com/${version}/cli-linux-${arch_suffix}/stable" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner
 EOF

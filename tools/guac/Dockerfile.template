@@ -10,32 +10,32 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "guacsec/guac" "v${version}" "guaccollect-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/guaccollect" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/guaccollect" \
     "https://github.com/guacsec/guac/releases/download/v${version}/guaccollect-linux-${alt_arch}"
 chmod +x "${prefix}/bin/guaccollect"
 
 check-github-release-asset "guacsec/guac" "v${version}" "guaccsub-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/guaccsub" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/guaccsub" \
     "https://github.com/guacsec/guac/releases/download/v${version}/guaccsub-linux-${alt_arch}"
 chmod +x "${prefix}/bin/guaccsub"
 
 check-github-release-asset "guacsec/guac" "v${version}" "guacgql-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/guacgql" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/guacgql" \
     "https://github.com/guacsec/guac/releases/download/v${version}/guacgql-linux-${alt_arch}"
 chmod +x "${prefix}/bin/guacgql"
 
 check-github-release-asset "guacsec/guac" "v${version}" "guacingest-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/guacingest" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/guacingest" \
     "https://github.com/guacsec/guac/releases/download/v${version}/guacingest-linux-${alt_arch}"
 chmod +x "${prefix}/bin/guacingest"
 
 check-github-release-asset "guacsec/guac" "v${version}" "guacone-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/guacone" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/guacone" \
     "https://github.com/guacsec/guac/releases/download/v${version}/guacone-linux-${alt_arch}"
 chmod +x "${prefix}/bin/guacone"
 
 check-github-release-asset "guacsec/guac" "v${version}" "guacrest-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/guacrest" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/guacrest" \
     "https://github.com/guacsec/guac/releases/download/v${version}/guacrest-linux-${alt_arch}"
 chmod +x "${prefix}/bin/guacrest"
 EOF

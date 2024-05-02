@@ -12,7 +12,7 @@ ARG version
 COPY --from=yasu / /usr/local/
 RUN <<EOF
 check-github-release-asset "lima-vm/lima" "v${version}" "lima-${version}-Linux-${arch}.tar.gz"
-curl --silent --location --fail "https://github.com/lima-vm/lima/releases/download/v${version}/lima-${version}-Linux-${arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/lima-vm/lima/releases/download/v${version}/lima-${version}-Linux-${arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}" --no-same-owner
 yasu nobody "${prefix}/bin/limactl" completion bash >"${prefix}/share/bash-completion/completions/limactl"
 yasu nobody "${prefix}/bin/limactl" completion fish >"${prefix}/share/fish/vendor_completions.d/limactl.fish"

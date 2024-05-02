@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "norouter/norouter" "v${version}" "norouter-Linux-${arch}.tgz"
-curl --silent --location --fail "https://github.com/norouter/norouter/releases/download/v${version}/norouter-Linux-${arch}.tgz" \
+curl --silent --show-error --location --fail "https://github.com/norouter/norouter/releases/download/v${version}/norouter-Linux-${arch}.tgz" \
 | tar --extract --gzip --directory="${prefix}/bin" --no-same-owner \
     norouter
 EOF

@@ -11,7 +11,7 @@ RUN <<EOF
 check-github-release-asset "tinygo-org/tinygo" "v${version}" "tinygo${version}.linux-${alt_arch}.tar.gz"
 
 mkdir -p "${prefix}/opt"
-curl --silent --location --fail "https://github.com/tinygo-org/tinygo/releases/download/v${version}/tinygo${version}.linux-${alt_arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/tinygo-org/tinygo/releases/download/v${version}/tinygo${version}.linux-${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/opt/" --no-same-owner
 ln --symbolic --relative --force "${prefix}/opt/tinygo/bin/tinygo" "${prefix}/bin/tinygo"
 EOF

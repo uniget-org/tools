@@ -9,7 +9,7 @@ ARG name
 ARG version
 
 RUN <<EOF
-curl --silent --location --fail --output "${prefix}/bin/mc" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/mc" \
     "https://dl.min.io/client/mc/release/linux-${alt_arch}/mc.RELEASE.${version}"
 chmod +x "${prefix}/bin/mc"
 EOF

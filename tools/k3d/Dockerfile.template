@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "rancher/k3d" "v${version}" "k3d-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/k3d" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/k3d" \
     "https://github.com/rancher/k3d/releases/download/v${version}/k3d-linux-${alt_arch}"
 chmod +x "${prefix}/bin/k3d"
 "${prefix}/bin/k3d" completion bash >"${prefix}/share/bash-completion/completions/k3d"

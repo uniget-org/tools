@@ -23,7 +23,7 @@ case "${arch}" in
 esac
 echo "    Using ${arch_suffix}"
 check-github-release-asset "k0sproject/k0sctl" "v${version}" "k0sctl-linux-${arch_suffix}"
-curl --silent --location --fail --output "${prefix}/bin/k0sctl" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/k0sctl" \
     "https://github.com/k0sproject/k0sctl/releases/download/v${version}/k0sctl-linux-${arch_suffix}"
 chmod +x "${prefix}/bin/k0sctl"
 

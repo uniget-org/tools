@@ -14,7 +14,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "earthly/earthly" "v${version}" "earthly-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/earthly" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/earthly" \
     "https://github.com/earthly/earthly/releases/download/v${version}/earthly-linux-${alt_arch}"
 chmod +x "${prefix}/bin/earthly"
 "${prefix}/bin/earthly" bootstrap --with-autocomplete --no-buildkit

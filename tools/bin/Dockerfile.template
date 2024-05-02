@@ -11,7 +11,7 @@ RUN <<EOF
 check-github-release-asset "marcosnils/bin" "v${version}" "bin_${version}_linux_${alt_arch}"
 
 echo "### Downloading bin ${version}"
-curl --silent --location --fail --output "${prefix}/bin/bin" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/bin" \
     "https://github.com/marcosnils/bin/releases/download/v${version}/bin_${version}_linux_${alt_arch}"
 chmod +x "${prefix}/bin/bin"
 EOF

@@ -11,14 +11,14 @@ COPY --from=cosign / /usr/local/
 ARG name
 ARG version
 RUN <<EOF
-curl --silent --location --fail --output "${prefix}/bin/kube-proxy" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/kube-proxy" \
     "https://storage.googleapis.com/kubernetes-release/release/v${version}/bin/linux/${alt_arch}/kube-proxy"
 chmod +x "${prefix}/bin/kube-proxy"
 
 echo "Verifying keyless signature for kube-proxy"
-curl --silent --location --fail --output "/tmp/kube-proxy.sig" \
+curl --silent --show-error --location --fail --output "/tmp/kube-proxy.sig" \
     "https://dl.k8s.io/release/v${version}/bin/linux/${alt_arch}/kube-proxy.sig"
-curl --silent --location --fail --output "/tmp/kube-proxy.cert" \
+curl --silent --show-error --location --fail --output "/tmp/kube-proxy.cert" \
     "https://dl.k8s.io/release/v${version}/bin/linux/${alt_arch}/kube-proxy.cert"
 COSIGN_EXPERIMENTAL=1 cosign verify-blob "${prefix}/bin/kube-proxy" \
     --signature "/tmp/kube-proxy.sig" \

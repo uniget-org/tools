@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "stacklok/minder" "v${version}" "minder_${version}_linux_${alt_arch}.tar.gz"
-curl --silent --location --fail "https://github.com/stacklok/minder/releases/download/v${version}/minder_${version}_linux_${alt_arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/stacklok/minder/releases/download/v${version}/minder_${version}_linux_${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner
 
 "${prefix}/bin/minder" completion bash >"${prefix}/share/bash-completion/completions/minder"

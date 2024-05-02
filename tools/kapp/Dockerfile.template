@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "carvel-dev/kapp" "v${version}" "kapp-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/kapp" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/kapp" \
     "https://github.com/carvel-dev/kapp/releases/download/v${version}/kapp-linux-${alt_arch}"
 chmod +x "${prefix}/bin/kapp"
 "${prefix}/bin/kapp" completion bash >"${prefix}/share/bash-completion/completions/kapp"

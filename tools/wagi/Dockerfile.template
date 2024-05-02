@@ -21,7 +21,7 @@ case "${alt_arch}" in
         ;;
 esac
 check-github-release-asset "deislabs/wagi" "v${version}" "wagi-v${version}-linux-${arch_suffix}.tar.gz"
-curl --silent --location --fail "https://github.com/deislabs/wagi/releases/download/v${version}/wagi-v${version}-linux-${arch_suffix}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/deislabs/wagi/releases/download/v${version}/wagi-v${version}-linux-${arch_suffix}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     wagi
 EOF

@@ -9,6 +9,6 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "deislabs/containerd-wasm-shims" "v${version}" "containerd-wasm-shims-v1-lunatic-linux-${arch}.tar.gz"
-curl --silent --location --fail "https://github.com/deislabs/containerd-wasm-shims/releases/download/v${version}/containerd-wasm-shims-v1-lunatic-linux-${arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/deislabs/containerd-wasm-shims/releases/download/v${version}/containerd-wasm-shims-v1-lunatic-linux-${arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner
 EOF

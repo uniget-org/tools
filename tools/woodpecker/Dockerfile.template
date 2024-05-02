@@ -9,14 +9,14 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "woodpecker-ci/woodpecker" "v${version}" "woodpecker-server_linux_${alt_arch}.tar.gz"
-curl --silent --location --fail "https://github.com/woodpecker-ci/woodpecker/releases/download/v${version}/woodpecker-server_linux_${alt_arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/woodpecker-ci/woodpecker/releases/download/v${version}/woodpecker-server_linux_${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner
 
 check-github-release-asset "woodpecker-ci/woodpecker" "v${version}" "woodpecker-agent_linux_${alt_arch}.tar.gz"
-curl --silent --location --fail "https://github.com/woodpecker-ci/woodpecker/releases/download/v${version}/woodpecker-agent_linux_${alt_arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/woodpecker-ci/woodpecker/releases/download/v${version}/woodpecker-agent_linux_${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner
 
 check-github-release-asset "woodpecker-ci/woodpecker" "v${version}" "woodpecker-cli_linux_${alt_arch}.tar.gz"
-curl --silent --location --fail "https://github.com/woodpecker-ci/woodpecker/releases/download/v${version}/woodpecker-cli_linux_${alt_arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/woodpecker-ci/woodpecker/releases/download/v${version}/woodpecker-cli_linux_${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner
 EOF

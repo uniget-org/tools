@@ -10,7 +10,7 @@ ARG version
 RUN <<EOF
 check-github-release-asset "notaryproject/notation" "v${version}" "notation_${version}_linux_${alt_arch}.tar.gz"
 
-curl --silent --location --fail "https://github.com/notaryproject/notation/releases/download/v${version}/notation_${version}_linux_${alt_arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/notaryproject/notation/releases/download/v${version}/notation_${version}_linux_${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin" --no-same-owner \
     notation
 EOF

@@ -12,7 +12,7 @@ COPY checksums.txt .
 RUN <<EOF
 check-github-release-asset "sigstore/cosign" "v${COSIGN_VERSION}" "cosign-linux-${alt_arch}"
 echo "### Installing cosign ${COSIGN_VERSION} for bootstrapping on ${TARGETPLATFORM} (${alt_arch})"
-curl --silent --location --fail --remote-name \
+curl --silent --show-error --location --fail --remote-name \
     "https://github.com/sigstore/cosign/releases/download/v${COSIGN_VERSION}/cosign-linux-${alt_arch}"
 chmod +x "cosign-linux-${alt_arch}"
 
@@ -34,7 +34,7 @@ ARG version
 RUN <<EOF
 check-github-release-asset "sigstore/cosign" "v${version}" "cosign-linux-${alt_arch}"
 echo "### Installing cosign ${version}"
-curl --silent --location --fail --output "${prefix}/bin/cosign" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/cosign" \
     "https://github.com/sigstore/cosign/releases/download/v${version}/cosign-linux-${alt_arch}"
 chmod +x "${prefix}/bin/cosign"
 
@@ -44,16 +44,16 @@ echo "### Installing shell completion for cosign ${version}"
 "${prefix}/bin/cosign" completion zsh >"${prefix}/share/zsh/vendor-completions/_cosign"
 
 echo "### Checking PGP signature for cosign ${version}"
-curl --silent --location --fail --output "cosign-linux-${alt_arch}.sig" \
+curl --silent --show-error --location --fail --output "cosign-linux-${alt_arch}.sig" \
     "https://github.com/sigstore/cosign/releases/download/v${version}/cosign-linux-${alt_arch}.sig"
 COSIGN_PUB_KEY="https://github.com/sigstore/cosign/releases/download/v${version}/release-cosign.pub"
 cosign verify-blob --key "${COSIGN_PUB_KEY}" --signature "cosign-linux-${alt_arch}.sig" "${prefix}/bin/cosign"
 rm -f "cosign-linux-${alt_arch}.sig"
 
 echo "### Checking keyless signature for cosign ${version}"
-curl --silent --location --fail --output "cosign-linux-${alt_arch}-keyless.pem" \
+curl --silent --show-error --location --fail --output "cosign-linux-${alt_arch}-keyless.pem" \
     "https://github.com/sigstore/cosign/releases/download/v${version}/cosign-linux-${alt_arch}-keyless.pem"
-curl --silent --location --fail --output "cosign-linux-${alt_arch}-keyless.sig" \
+curl --silent --show-error --location --fail --output "cosign-linux-${alt_arch}-keyless.sig" \
     "https://github.com/sigstore/cosign/releases/download/v${version}/cosign-linux-${alt_arch}-keyless.sig"
 COSIGN_EXPERIMENTAL=1 cosign verify-blob \
     --cert "cosign-linux-${alt_arch}-keyless.pem" \

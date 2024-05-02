@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "mutagen-io/mutagen" "v${version}" "mutagen_linux_${alt_arch}_v${version}.tar.gz"
-curl --silent --location --fail "https://github.com/mutagen-io/mutagen/releases/download/v${version}/mutagen_linux_${alt_arch}_v${version}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/mutagen-io/mutagen/releases/download/v${version}/mutagen_linux_${alt_arch}_v${version}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin" --no-same-owner
 ${prefix}/bin/mutagen generate \
     "--bash-completion-script=${prefix}/share/bash-completion/completions/${name}" \

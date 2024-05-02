@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "brimdata/zed" "v${version}" "zed-v1.15.0.linux-amd64.tar.gz"
-curl --silent --location --fail "https://github.com/brimdata/zed/releases/download/v1.15.0/zed-v1.15.0.linux-amd64.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/brimdata/zed/releases/download/v1.15.0/zed-v1.15.0.linux-amd64.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     zed \
     zq

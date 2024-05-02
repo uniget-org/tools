@@ -11,7 +11,7 @@ ARG version
 
 RUN <<EOF
 check-github-release-asset "regclient/regclient" "v${version}" "regctl-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/regctl" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/regctl" \
     "https://github.com/regclient/regclient/releases/download/v${version}/regctl-linux-${alt_arch}"
 chmod +x "${prefix}/bin/regctl"
 "${prefix}/bin/regctl" completion bash >"${prefix}/share/bash-completion/completions/regctl"
@@ -19,7 +19,7 @@ chmod +x "${prefix}/bin/regctl"
 "${prefix}/bin/regctl" completion zsh >"${prefix}/share/zsh/vendor-completions/_regctl"
 
 check-github-release-asset "regclient/regclient" "v${version}" "regbot-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/regbot" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/regbot" \
     "https://github.com/regclient/regclient/releases/download/v${version}/regbot-linux-${alt_arch}"
 chmod +x "${prefix}/bin/regbot"
 "${prefix}/bin/regbot" completion bash >"${prefix}/share/bash-completion/completions/regbot"
@@ -27,14 +27,14 @@ chmod +x "${prefix}/bin/regbot"
 "${prefix}/bin/regbot" completion zsh >"${prefix}/share/zsh/vendor-completions/_regbot"
 
 check-github-release-asset "regclient/regclient" "v${version}" "regsync-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/regsync" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/regsync" \
     "https://github.com/regclient/regclient/releases/download/v${version}/regsync-linux-${alt_arch}"
 chmod +x "${prefix}/bin/regsync"
 "${prefix}/bin/regsync" completion bash >"${prefix}/share/bash-completion/completions/regsync"
 "${prefix}/bin/regsync" completion fish >"${prefix}/share/fish/vendor_completions.d/regsync.fish"
 "${prefix}/bin/regsync" completion zsh >"${prefix}/share/zsh/vendor-completions/_regsync"
 
-curl --silent --location --fail --output "${prefix}/libexec/docker/cli-plugins/docker-regclient" \
+curl --silent --show-error --location --fail --output "${prefix}/libexec/docker/cli-plugins/docker-regclient" \
     "https://github.com/regclient/regclient/raw/v${version}/docker-plugin/docker-regclient"
 chmod +x "${prefix}/libexec/docker/cli-plugins/docker-regclient"
 EOF

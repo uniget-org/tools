@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "plumber-cd/runtainer" "v${version}" "runtainer-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/runtainer" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/runtainer" \
     "https://github.com/plumber-cd/runtainer/releases/download/v${version}/runtainer-linux-${alt_arch}"
 chmod +x "${prefix}/bin/runtainer"
 

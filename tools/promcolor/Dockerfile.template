@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "fhemberger/promcolor" "v${version}" "promcolor_${version}_linux_${alt_arch}.tar.gz"
-curl --silent --location --fail "https://github.com/fhemberger/promcolor/releases/download/v${version}/promcolor_${version}_linux_${alt_arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/fhemberger/promcolor/releases/download/v${version}/promcolor_${version}_linux_${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     promcolor
 EOF

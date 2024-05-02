@@ -21,7 +21,7 @@ case "${alt_arch}" in
         ;;
 esac
 check-github-release-asset "wasmerio/wasmer" "v${version}" "wasmer-linux-${arch_suffix}.tar.gz"
-curl --silent --location --fail "https://github.com/wasmerio/wasmer/releases/download/v${version}/wasmer-linux-${arch_suffix}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/wasmerio/wasmer/releases/download/v${version}/wasmer-linux-${arch_suffix}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}" --no-same-owner \
     bin
 EOF

@@ -24,7 +24,7 @@ esac
 check-github-release-asset "kudobuilder/kudo" "v${version}" "kudo_${version}_linux_${arch_suffix}.tar.gz"
 
 echo "### Downloading kudo ${version}"
-curl --silent --location --fail "https://github.com/kudobuilder/kudo/releases/download/v${version}/kudo_${version}_linux_${arch_suffix}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/kudobuilder/kudo/releases/download/v${version}/kudo_${version}_linux_${arch_suffix}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     kubectl-kudo
 EOF

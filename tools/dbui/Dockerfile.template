@@ -11,7 +11,7 @@ ARG version
 
 RUN <<EOF
 check-github-release-asset "KenanBek/dbui" "v${version}" "dbui_Linux_${arch}.tar.gz"
-curl --silent --location --fail "https://github.com/KenanBek/dbui/releases/download/v${version}/dbui_Linux_${arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/KenanBek/dbui/releases/download/v${version}/dbui_Linux_${arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin" --no-same-owner \
     dbui
 EOF

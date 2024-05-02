@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "hadolint/hadolint" "v${version}" "hadolint-Linux-${arch}"
-curl --silent --location --fail --output "${prefix}/bin/hadolint" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/hadolint" \
     "https://github.com/hadolint/hadolint/releases/download/v${version}/hadolint-Linux-${arch}"
 chmod +x "${prefix}/bin/hadolint"
 EOF

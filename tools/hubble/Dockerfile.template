@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "cilium/hubble" "v${version}" "hubble-linux-${alt_arch}.tar.gz"
-curl --silent --location --fail "https://github.com/cilium/hubble/releases/download/v${version}/hubble-linux-${alt_arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/cilium/hubble/releases/download/v${version}/hubble-linux-${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner
 "${prefix}/bin/hubble" completion bash >"${prefix}/share/bash-completion/completions/hubble"
 "${prefix}/bin/hubble" completion fish >"${prefix}/share/fish/vendor_completions.d/hubble.fish"

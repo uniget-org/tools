@@ -25,7 +25,7 @@ echo "    Using ${arch_suffix}"
 check-github-release-asset "kudobuilder/kuttl" "v${version}" "kuttl_${version}_linux_${arch_suffix}.tar.gz"
 
 echo "### Downloading kuttl ${version}"
-curl --silent --location --fail "https://github.com/kudobuilder/kuttl/releases/download/v${version}/kuttl_${version}_linux_${arch_suffix}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/kudobuilder/kuttl/releases/download/v${version}/kuttl_${version}_linux_${arch_suffix}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     kubectl-kuttl
 

@@ -24,7 +24,7 @@ esac
 echo "    Using ${arch_suffix}"
 
 check-github-release-asset "petrgazarov/salami" "${version}" "salami-${version}-linux-${arch_suffix}"
-curl --silent --location --fail --output "${prefix}/bin/salami" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/salami" \
     "https://github.com/petrgazarov/salami/releases/download/${version}/salami-${version}-linux-${arch_suffix}"
 chmod +x "${prefix}/bin/salami"
 EOF

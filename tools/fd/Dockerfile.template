@@ -25,7 +25,7 @@ echo "    Using ${arch_suffix}"
 check-github-release-asset "sharkdp/fd" "v${version}" "fd-v${version}-${arch}-unknown-linux-${arch_suffix}.tar.gz"
 
 echo "### Downloading fd ${version}"
-curl --silent --location --fail "https://github.com/sharkdp/fd/releases/download/v${version}/fd-v${version}-${arch}-unknown-linux-${arch_suffix}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/sharkdp/fd/releases/download/v${version}/fd-v${version}-${arch}-unknown-linux-${arch_suffix}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
     "fd-v${version}-${arch}-unknown-linux-${arch_suffix}/fd" \
     "fd-v${version}-${arch}-unknown-linux-${arch_suffix}/fd.1" \

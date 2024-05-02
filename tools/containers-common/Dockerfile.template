@@ -18,7 +18,7 @@ for file in \
     containers.conf.5; do
 
     echo "Processing manpage ${file}..."
-    curl --silent --location --fail --remote-name "https://github.com/containers/common/raw/main/docs/${file}.md"
+    curl --silent --show-error --location --fail --remote-name "https://github.com/containers/common/raw/main/docs/${file}.md"
     go-md2man -in "${file}.md" -out "${prefix}/share/man/man5/${file}"
     rm "${file}.md"
 done

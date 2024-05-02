@@ -11,7 +11,7 @@ ARG version
 
 RUN <<EOF
 check-github-release-asset "cnabio/duffle" "${version}" "duffle-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/duffle" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/duffle" \
     "https://github.com/cnabio/duffle/releases/download/${version}/duffle-linux-${alt_arch}"
 chmod +x "${prefix}/bin/duffle"
 EOF

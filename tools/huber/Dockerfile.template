@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "innobead/huber" "v${version}" "huber-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/huber" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/huber" \
     "https://github.com/innobead/huber/releases/download/v${version}/huber-linux-${alt_arch}"
 chmod +x "${prefix}/bin/huber"
 EOF

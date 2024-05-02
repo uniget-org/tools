@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "ghostunnel/ghostunnel" "v${version}" "ghostunnel-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/ghostunnel" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/ghostunnel" \
     "https://github.com/ghostunnel/ghostunnel/releases/download/v${version}/ghostunnel-linux-${alt_arch}"
 chmod +x "${prefix}/bin/ghostunnel"
 EOF

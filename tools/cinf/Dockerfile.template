@@ -11,7 +11,7 @@ ARG version
 
 RUN <<EOF
 check-github-release-asset "mhausenblas/cinf" "v${version}" "cinf_linux_${alt_arch}.tar.gz"
-curl --silent --location --fail "https://github.com/mhausenblas/cinf/releases/download/v${version}/cinf_linux_${alt_arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/mhausenblas/cinf/releases/download/v${version}/cinf_linux_${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin" --no-same-owner \
     cinf
 EOF

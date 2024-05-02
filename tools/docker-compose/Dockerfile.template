@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "docker/compose" "v${version}" "docker-compose-linux-${arch}"
-curl --silent --location --fail --output "${prefix}/libexec/docker/cli-plugins/docker-compose" \
+curl --silent --show-error --location --fail --output "${prefix}/libexec/docker/cli-plugins/docker-compose" \
     "https://github.com/docker/compose/releases/download/v${version}/docker-compose-linux-${arch}"
 chmod +x "${prefix}/libexec/docker/cli-plugins/docker-compose"
 EOF

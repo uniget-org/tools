@@ -10,7 +10,7 @@ ARG version
 RUN <<EOF
 url="https://releases.hashicorp.com/packer/${version}/packer_${version}_linux_${alt_arch}.zip"
 filename="$(basename "${url}")"
-curl --silent --location --fail --remote-name "${url}"
+curl --silent --show-error --location --fail --remote-name "${url}"
 unzip -q -o -d "${prefix}/bin" "${filename}"
 echo "complete -C /bin/packer packer" >"${prefix}/etc/profile.d/packer.sh"
 EOF

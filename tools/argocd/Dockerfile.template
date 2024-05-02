@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "argoproj/argo-cd" "v${version}" "argocd-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/argocd" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/argocd" \
     "https://github.com/argoproj/argo-cd/releases/download/v${version}/argocd-linux-${alt_arch}"
 chmod +x "${prefix}/bin/argocd"
 "${prefix}/bin/argocd" completion bash >"${prefix}/share/bash-completion/completions/argocd"

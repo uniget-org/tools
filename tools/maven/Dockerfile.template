@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 mkdir -p "${prefix}/opt/maven"
-curl --silent --location --fail "https://archive.apache.org/dist/maven/maven-3/${version}/binaries/apache-maven-${version}-bin.tar.gz" \
+curl --silent --show-error --location --fail "https://archive.apache.org/dist/maven/maven-3/${version}/binaries/apache-maven-${version}-bin.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/opt/maven" --strip-components=1 --no-same-owner
 ln --symbolic --relative --force "${prefix}/opt/maven/bin/mvn" "${prefix}/bin/mvn"
 EOF

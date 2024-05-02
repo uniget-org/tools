@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "ovh/venom" "v${version}" "venom.linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/venom" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/venom" \
     "https://github.com/ovh/venom/releases/download/v${version}/venom.linux-${alt_arch}"
 chmod +x "${prefix}/bin/venom"
 

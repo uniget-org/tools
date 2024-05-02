@@ -9,6 +9,6 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "wader/fq" "v${version}" "fq_${version}_linux_${alt_arch}.tar.gz"
-curl --silent --location --fail "https://github.com/wader/fq/releases/download/v${version}/fq_${version}_linux_${alt_arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/wader/fq/releases/download/v${version}/fq_${version}_linux_${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner
 EOF

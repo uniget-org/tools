@@ -13,14 +13,14 @@ ARG version
 RUN <<EOF
 check-github-release-asset "kyverno/chainsaw" "v${version}" "chainsaw_linux_amd64.tar.gz"
 echo "### Downloading chainsaw ${version}"
-curl --silent --location --fail --remote-name \
+curl --silent --show-error --location --fail --remote-name \
       "https://github.com/kyverno/chainsaw/releases/download/v${version}/chainsaw_linux_${alt_arch}.tar.gz"
 echo "    - SHA256: $(cat chainsaw_linux_${alt_arch}.tar.gz | sha256sum  | cut -d' ' -f1)"
 
 echo "### Checking keyless signature for chainsaw ${version}"
-curl --silent --location --fail --remote-name \
+curl --silent --show-error --location --fail --remote-name \
       "https://github.com/kyverno/chainsaw/releases/download/v${version}/chainsaw_linux_${alt_arch}.tar.gz.pem"
-curl --silent --location --fail --remote-name \
+curl --silent --show-error --location --fail --remote-name \
       "https://github.com/kyverno/chainsaw/releases/download/v${version}/chainsaw_linux_${alt_arch}.tar.gz.sig"
 SHA="$(
     git ls-remote --tags https://github.com/kyverno/chainsaw "v${version}^{}" \

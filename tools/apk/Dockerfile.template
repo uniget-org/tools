@@ -10,7 +10,7 @@ ARG version
 RUN <<EOF
 check-download "https://gitlab.alpinelinux.org/api/v4/projects/5/packages/generic//v${version}/${arch}/apk.static"
 
-curl --silent --location --fail --output "${prefix}/bin/apk" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/apk" \
     "https://gitlab.alpinelinux.org/api/v4/projects/5/packages/generic//v${version}/${arch}/apk.static"
 chmod +x "${prefix}/bin/apk"
 EOF

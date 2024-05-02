@@ -24,6 +24,6 @@ esac
 echo "    Using ${arch_suffix}"
 
 check-github-release-asset "kovidgoyal/kitty" "v${version}" "kitty-${version}-${arch_suffix}.txz"
-curl --silent --location --fail "https://github.com/kovidgoyal/kitty/releases/download/v${version}/kitty-${version}-${arch_suffix}.txz" \
+curl --silent --show-error --location --fail "https://github.com/kovidgoyal/kitty/releases/download/v${version}/kitty-${version}-${arch_suffix}.txz" \
 | tar --extract --xz --directory="${prefix}/" --no-same-owner
 EOF

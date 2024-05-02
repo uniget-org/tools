@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "kubernetes-sigs/tejolote" "v${version}" "tejolote-${alt_arch}-linux"
-curl --silent --location --fail --output "${prefix}/bin/tejolote" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/tejolote" \
     "https://github.com/kubernetes-sigs/tejolote/releases/download/v${version}/tejolote-${alt_arch}-linux"
 chmod +x "${prefix}/bin/tejolote"
 

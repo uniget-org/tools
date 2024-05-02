@@ -25,7 +25,7 @@ echo "    Using ${arch_suffix}"
 
 check-github-release-asset "updatecli/updatecli" "v${version}" "updatecli_Linux_${arch_suffix}.tar.gz"
 
-curl --silent --location --fail "https://github.com/updatecli/updatecli/releases/download/v${version}/updatecli_Linux_${arch_suffix}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/updatecli/updatecli/releases/download/v${version}/updatecli_Linux_${arch_suffix}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     updatecli \
     manpages \

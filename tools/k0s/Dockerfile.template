@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "k0sproject/k0s" "v${version}" "k0s-v${version}-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/k0s" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/k0s" \
     "https://github.com/k0sproject/k0s/releases/download/v${version}/k0s-v${version}-${alt_arch}"
 chmod +x "${prefix}/bin/k0s"
 

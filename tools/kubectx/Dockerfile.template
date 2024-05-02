@@ -24,12 +24,12 @@ esac
 echo "    Using ${arch_suffix}"
 
 check-github-release-asset "ahmetb/kubectx" "v${version}" "kubectx_v${version}_linux_${arch_suffix}.tar.gz"
-curl --silent --location --fail "https://github.com/ahmetb/kubectx/releases/download/v${version}/kubectx_v${version}_linux_${arch_suffix}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/ahmetb/kubectx/releases/download/v${version}/kubectx_v${version}_linux_${arch_suffix}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     kubectx
 
 check-github-release-asset "ahmetb/kubectx" "v${version}" "kubens_v${version}_linux_${arch_suffix}.tar.gz"
-curl --silent --location --fail "https://github.com/ahmetb/kubectx/releases/download/v${version}/kubens_v${version}_linux_${arch_suffix}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/ahmetb/kubectx/releases/download/v${version}/kubens_v${version}_linux_${arch_suffix}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     kubens
 EOF

@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "loft-sh/vcluster" "v${version}" "vcluster-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/vcluster" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/vcluster" \
     "https://github.com/loft-sh/vcluster/releases/download/v${version}/vcluster-linux-${alt_arch}"
 chmod +x "${prefix}/bin/vcluster"
 

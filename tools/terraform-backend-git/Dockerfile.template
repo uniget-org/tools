@@ -10,7 +10,7 @@ ARG version
 
 RUN <<EOF
 check-github-release-asset "plumber-cd/terraform-backend-git" "v${version}" "terraform-backend-git-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/terraform-backend-git" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/terraform-backend-git" \
     "https://github.com/plumber-cd/terraform-backend-git/releases/download/v${version}/terraform-backend-git-linux-${alt_arch}"
 chmod +x "${prefix}/bin/terraform-backend-git"
 

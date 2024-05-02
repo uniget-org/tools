@@ -9,6 +9,6 @@ ARG name
 ARG version
 RUN <<EOF
 check-download "https://dev.yorhel.nl/download/ncdu-${version}-linux-${arch}.tar.gz"
-curl --silent --location --fail "https://dev.yorhel.nl/download/ncdu-${version}-linux-${arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://dev.yorhel.nl/download/ncdu-${version}-linux-${arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner
 EOF

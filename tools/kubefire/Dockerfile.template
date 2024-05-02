@@ -10,14 +10,14 @@ ARG version
 
 RUN <<EOF
 check-github-release-asset "innobead/kubefire" "v${version}" "kubefire-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/kubefire" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/kubefire" \
     "https://github.com/innobead/kubefire/releases/download/v${version}/kubefire-linux-${alt_arch}"
 chmod +x "${prefix}/bin/kubefire"
 EOF
 
 RUN <<EOF
 check-github-release-asset "innobead/kubefire" "v${version}" "kubefire-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/libexec/cni/host-local-rev" --create-dirs \
+curl --silent --show-error --location --fail --output "${prefix}/libexec/cni/host-local-rev" --create-dirs \
     "https://github.com/innobead/kubefire/releases/download/v${version}/host-local-rev-linux-${alt_arch}"
 chmod +x "${prefix}/libexec/cni/host-local-rev"
 EOF

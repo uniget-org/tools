@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "vi/websocat" "v${version}" "websocat.x86_64-unknown-linux-musl"
-curl --silent --location --fail --output "${prefix}/bin/websocat" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/websocat" \
     "https://github.com/vi/websocat/releases/download/v${version}/websocat.x86_64-unknown-linux-musl"
 chmod +x "${prefix}/bin/websocat"
 EOF

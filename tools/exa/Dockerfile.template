@@ -11,7 +11,7 @@ RUN <<EOF
 check-github-release-asset "ogham/exa" "v${version}" "exa-linux-${arch}-v${version}.zip"
 url="https://github.com/ogham/exa/releases/download/v${version}/exa-linux-${arch}-v${version}.zip"
 filename="$(basename "${url}")"
-curl --silent --location --fail --remote-name "${url}"
+curl --silent --show-error --location --fail --remote-name "${url}"
 unzip -q -o -d "/tmp" "${filename}"
 
 mv /tmp/bin/exa "${prefix}/bin/"

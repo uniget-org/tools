@@ -9,6 +9,6 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "shenwei356/rush" "v${version}" "rush_linux_amd64.tar.gz"
-curl --silent --location --fail "https://github.com/shenwei356/rush/releases/download/v${version}/rush_linux_${alt_arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/shenwei356/rush/releases/download/v${version}/rush_linux_${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner
 EOF

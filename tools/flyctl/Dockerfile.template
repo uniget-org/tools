@@ -26,7 +26,7 @@ echo "    Using ${arch_suffix}"
 check-github-release-asset "superfly/flyctl" "v${version}" "flyctl_${version}_Linux_${arch_suffix}.tar.gz"
 
 echo "### Downloading flyctl ${version}"
-curl --silent --location --fail "https://github.com/superfly/flyctl/releases/download/v${version}/flyctl_${version}_Linux_${arch_suffix}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/superfly/flyctl/releases/download/v${version}/flyctl_${version}_Linux_${arch_suffix}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner
 
 "${prefix}/bin/flyctl" completion bash >"${prefix}/share/bash-completion/completions/flyctl"

@@ -12,7 +12,7 @@ RUN <<EOF
 check-github-release-asset "githubnext/monaspace" "v${version}" "monaspace-v${version}.zip"
 url="https://github.com/githubnext/monaspace/releases/download/v${version}/monaspace-v${version}.zip"
 filename="$(basename "${url}")"
-curl --silent --location --fail --remote-name "${url}"
+curl --silent --show-error --location --fail --remote-name "${url}"
 unzip -q -o "${filename}"
 
 mkdir -p \

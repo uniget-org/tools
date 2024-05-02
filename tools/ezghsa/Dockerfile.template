@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "csdev/ezghsa" "v${version}" "ezghsa-${version}-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/ezghsa" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/ezghsa" \
     "https://github.com/csdev/ezghsa/releases/download/v${version}/ezghsa-${version}-linux-${alt_arch}"
 chmod +x "${prefix}/bin/ezghsa"
 EOF

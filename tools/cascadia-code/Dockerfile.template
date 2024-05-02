@@ -11,7 +11,7 @@ RUN <<EOF
 check-github-release-asset "microsoft/cascadia-code" "v${version}" "CascadiaCode-${version}.zip"
 url="https://github.com/microsoft/cascadia-code/releases/download/v${version}/CascadiaCode-${version}.zip"
 filename="$(basename "${url}")"
-curl --silent --location --fail --remote-name "${url}"
+curl --silent --show-error --location --fail --remote-name "${url}"
 mkdir -p \
     "${prefix}/share/cascadia-code" \
     "${prefix}/share/fonts/cascadia-code"

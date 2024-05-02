@@ -10,6 +10,6 @@ ARG version
 COPY fuse-overlayfs-snapshotter.service /uniget_bootstrap/etc/systemd/system/
 RUN <<EOF
 check-github-release-asset "containerd/fuse-overlayfs-snapshotter" "v${version}" "containerd-fuse-overlayfs-${version}-linux-${alt_arch}.tar.gz"
-curl --silent --location --fail "https://github.com/containerd/fuse-overlayfs-snapshotter/releases/download/v${version}/containerd-fuse-overlayfs-${version}-linux-${alt_arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/containerd/fuse-overlayfs-snapshotter/releases/download/v${version}/containerd-fuse-overlayfs-${version}-linux-${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin" --no-same-owner
 EOF

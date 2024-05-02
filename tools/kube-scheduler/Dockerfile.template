@@ -11,14 +11,14 @@ COPY --from=cosign / /usr/local/
 ARG name
 ARG version
 RUN <<EOF
-curl --silent --location --fail --output "${prefix}/bin/kube-scheduler" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/kube-scheduler" \
     "https://storage.googleapis.com/kubernetes-release/release/v${version}/bin/linux/${alt_arch}/kube-scheduler"
 chmod +x "${prefix}/bin/kube-scheduler"
 
 echo "Verifying keyless signature for kube-scheduler"
-curl --silent --location --fail --output "/tmp/kube-scheduler.sig" \
+curl --silent --show-error --location --fail --output "/tmp/kube-scheduler.sig" \
     "https://dl.k8s.io/release/v${version}/bin/linux/${alt_arch}/kube-scheduler.sig"
-curl --silent --location --fail --output "/tmp/kube-scheduler.cert" \
+curl --silent --show-error --location --fail --output "/tmp/kube-scheduler.cert" \
     "https://dl.k8s.io/release/v${version}/bin/linux/${alt_arch}/kube-scheduler.cert"
 COSIGN_EXPERIMENTAL=1 cosign verify-blob "${prefix}/bin/kube-scheduler" \
     --signature "/tmp/kube-scheduler.sig" \

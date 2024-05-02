@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "genuinetools/img" "v${version}" "img-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/img" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/img" \
     "https://github.com/genuinetools/img/releases/download/v${version}/img-linux-${alt_arch}"
 chmod +x "${prefix}/bin/img"
 EOF

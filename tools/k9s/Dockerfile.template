@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "derailed/k9s" "v${version}" "k9s_Linux_${alt_arch}.tar.gz"
-curl --silent --location --fail "https://github.com/derailed/k9s/releases/download/v${version}/k9s_Linux_${alt_arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/derailed/k9s/releases/download/v${version}/k9s_Linux_${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin" --no-same-owner \
     k9s
 "${prefix}/bin/k9s" completion bash >"${prefix}/share/bash-completion/completions/k9s"

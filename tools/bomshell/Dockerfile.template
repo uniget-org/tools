@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "chainguard-dev/bomshell" "v${version}" "bomshell-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/bomshell" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/bomshell" \
     "https://github.com/chainguard-dev/bomshell/releases/download/v${version}/bomshell-linux-${alt_arch}"
 chmod +x "${prefix}/bin/bomshell"
 EOF

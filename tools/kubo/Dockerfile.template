@@ -12,7 +12,7 @@ COPY ipfs.service /uniget_bootstrap/etc/systemd/system/
 
 RUN <<EOF
 check-github-release-asset "ipfs/kubo" "v${version}" "kubo_v${version}_linux-${alt_arch}.tar.gz"
-curl --silent --location --fail "https://github.com/ipfs/kubo/releases/download/v${version}/kubo_v${version}_linux-${alt_arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/ipfs/kubo/releases/download/v${version}/kubo_v${version}_linux-${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin" --strip-components=1 --no-same-owner \
     kubo/ipfs
 "${prefix}/bin/ipfs" commands completion bash >"${prefix}/share/bash-completion/completions/ipfs"

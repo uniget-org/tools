@@ -9,7 +9,7 @@ WORKDIR /tmp/distrobox
 ARG name
 ARG version
 RUN <<EOF
-curl --silent --location --fail "https://github.com/89luca89/distrobox/archive/refs/tags/${version}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/89luca89/distrobox/archive/refs/tags/${version}.tar.gz" \
 | tar --extract --gzip --strip-components=1 --no-same-owner
 ./install --prefix="${prefix}"
 mv "${prefix}/share/zsh/site-functions/" "${prefix}/share/zsh/vendor-completions/"

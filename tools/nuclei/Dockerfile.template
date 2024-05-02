@@ -12,7 +12,7 @@ check-github-release-asset "projectdiscovery/nuclei" "v${version}" "nuclei_${ver
 
 url="https://github.com/projectdiscovery/nuclei/releases/download/v${version}/nuclei_${version}_linux_${alt_arch}.zip"
 filename="$(basename "${url}")"
-curl --silent --location --fail --remote-name "${url}"
+curl --silent --show-error --location --fail --remote-name "${url}"
 unzip -q -o -d "${prefix}/bin" "${filename}" \
     nuclei
 EOF

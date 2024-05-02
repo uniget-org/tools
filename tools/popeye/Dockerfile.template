@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "derailed/popeye" "v${version}" "popeye_Linux_${alt_arch}.tar.gz"
-curl --silent --location --fail "https://github.com/derailed/popeye/releases/download/v${version}/popeye_Linux_${alt_arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/derailed/popeye/releases/download/v${version}/popeye_Linux_${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     popeye
 "${prefix}/bin/popeye" completion bash >"${prefix}/share/bash-completion/completions/popeye"

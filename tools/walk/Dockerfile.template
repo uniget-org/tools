@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "antonmedv/walk" "v${version}" "walk_linux_${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/walk" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/walk" \
     "https://github.com/antonmedv/walk/releases/download/v${version}/walk_linux_${alt_arch}"
 chmod +x "${prefix}/bin/walk"
 EOF

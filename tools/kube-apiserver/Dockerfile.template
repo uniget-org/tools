@@ -11,14 +11,14 @@ COPY --from=cosign / /usr/local/
 ARG name
 ARG version
 RUN <<EOF
-curl --silent --location --fail --output "${prefix}/bin/kube-apiserver" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/kube-apiserver" \
     "https://dl.k8s.io/release/v${version}/bin/linux/${alt_arch}/kube-apiserver"
 chmod +x "${prefix}/bin/kube-apiserver"
 
 echo "Verifying keyless signature for kube-apiserver"
-curl --silent --location --fail --output "/tmp/kube-apiserver.sig" \
+curl --silent --show-error --location --fail --output "/tmp/kube-apiserver.sig" \
     "https://dl.k8s.io/release/v${version}/bin/linux/${alt_arch}/kube-apiserver.sig"
-curl --silent --location --fail --output "/tmp/kube-apiserver.cert" \
+curl --silent --show-error --location --fail --output "/tmp/kube-apiserver.cert" \
     "https://dl.k8s.io/release/v${version}/bin/linux/${alt_arch}/kube-apiserver.cert"
 COSIGN_EXPERIMENTAL=1 cosign verify-blob "${prefix}/bin/kube-apiserver" \
     --signature "/tmp/kube-apiserver.sig" \

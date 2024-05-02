@@ -9,6 +9,6 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "rootless-containers/rootlesskit" "v${version}" "rootlesskit-${arch}.tar.gz"
-curl --silent --location --fail "https://github.com/rootless-containers/rootlesskit/releases/download/v${version}/rootlesskit-${arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/rootless-containers/rootlesskit/releases/download/v${version}/rootlesskit-${arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin" --no-same-owner
 EOF

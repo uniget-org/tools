@@ -11,6 +11,6 @@ RUN <<EOF
 check-download "https://github.com/projectdiscovery/nuclei-templates/archive/refs/tags/v${version}.tar.gz"
 
 mkdir -p "${prefix}/share/nuclei-templates/"
-curl --silent --location --fail "https://github.com/projectdiscovery/nuclei-templates/archive/refs/tags/v${version}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/projectdiscovery/nuclei-templates/archive/refs/tags/v${version}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/share/nuclei-templates/" --strip-components=1 --no-same-owner
 EOF

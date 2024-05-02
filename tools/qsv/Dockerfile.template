@@ -26,7 +26,7 @@ echo "    Using ${arch_suffix}"
 check-github-release-asset "jqnatividad/qsv" "${version}" "qsv-${version}-${arch}-unknown-linux-${arch_suffix}.zip"
 url="https://github.com/jqnatividad/qsv/releases/download/${version}/qsv-${version}-${arch}-unknown-linux-${arch_suffix}.zip"
 filename="$(basename "${url}")"
-curl --silent --location --fail --remote-name "${url}"
+curl --silent --show-error --location --fail --remote-name "${url}"
 unzip -q -o -d "${prefix}/bin" "${filename}" \
     qsv
 EOF

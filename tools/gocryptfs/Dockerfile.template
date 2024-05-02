@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "rfjakob/gocryptfs" "v${version}" "gocryptfs_v${version}_linux-static_amd64.tar.gz"
-curl --silent --location --fail "https://github.com/rfjakob/gocryptfs/releases/download/v${version}/gocryptfs_v${version}_linux-static_amd64.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/rfjakob/gocryptfs/releases/download/v${version}/gocryptfs_v${version}_linux-static_amd64.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin" --no-same-owner
 mv \
     "${prefix}/bin/gocryptfs.1" \

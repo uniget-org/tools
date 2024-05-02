@@ -11,12 +11,12 @@ ARG version
 
 RUN <<EOF
 check-github-release-asset "openfaas/faasd" "${version}" "faasd"
-curl --silent --location --fail --output "${prefix}/bin/faasd" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/faasd" \
     "https://github.com/openfaas/faasd/releases/download/${version}/faasd"
 chmod +x "${prefix}/bin/faasd"
 
-curl --silent --location --fail --output "${prefix}/etc/systemd/system/faasd.service" \
+curl --silent --show-error --location --fail --output "${prefix}/etc/systemd/system/faasd.service" \
     "https://github.com/openfaas/faasd/raw/${version}/hack/faasd.service"
-curl --silent --location --fail --output "${prefix}/etc/systemd/system/faasd-provider.service" \
+curl --silent --show-error --location --fail --output "${prefix}/etc/systemd/system/faasd-provider.service" \
     "https://github.com/openfaas/faasd/raw/${version}/hack/faasd-provider.service"
 EOF

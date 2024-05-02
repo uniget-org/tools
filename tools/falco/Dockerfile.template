@@ -8,7 +8,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
-curl --silent --location --fail "https://download.falco.org/packages/bin/${arch}/falco-${version}-${arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://download.falco.org/packages/bin/${arch}/falco-${version}-${arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}" --strip-components=1 --no-same-owner
 
 mv "${prefix}/usr/bin/" "${prefix}/"

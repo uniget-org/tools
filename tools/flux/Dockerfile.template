@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "influxdata/flux" "v${version}" "flux_${version}_linux_amd64.tar.gz"
-curl --silent --location --fail "https://github.com/influxdata/flux/releases/download/v${version}/flux_${version}_linux_amd64.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/influxdata/flux/releases/download/v${version}/flux_${version}_linux_amd64.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --strip-component=1 --no-same-owner \
     "flux_${version}_linux_amd64/flux"
 EOF

@@ -11,7 +11,7 @@ RUN <<EOF
 check-github-release-asset "jeremylong/DependencyCheck" "v${version}" "dependency-check-${version}-release.zip"
 url="https://github.com/jeremylong/DependencyCheck/releases/download/v${version}/dependency-check-${version}-release.zip"
 filename="$(basename "${url}")"
-curl --silent --location --fail --remote-name "${url}"
+curl --silent --show-error --location --fail --remote-name "${url}"
 unzip -q -o -d "${prefix}/opt" "${filename}"
 ln --symbolic --relative --force "/opt/dependency-check/bin/dependency-check.sh" "${prefix}/bin/dependency-check.sh"
 mv "${prefix}/opt/dependency-check/bin/completion-for-dependency-check.sh" "${prefix}/share/bash-completion/completions/dependency-check.sh"

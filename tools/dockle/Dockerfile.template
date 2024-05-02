@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "goodwithtech/dockle" "v${version}" "dockle_${version}_Linux-64bit.tar.gz"
-curl --silent --location --fail "https://github.com/goodwithtech/dockle/releases/download/v${version}/dockle_${version}_Linux-64bit.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/goodwithtech/dockle/releases/download/v${version}/dockle_${version}_Linux-64bit.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     dockle
 EOF

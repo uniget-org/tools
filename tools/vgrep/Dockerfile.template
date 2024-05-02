@@ -21,7 +21,7 @@ case "${alt_arch}" in
         ;;
 esac
 check-github-release-asset "vrothberg/vgrep" "v${version}" "vgrep_${version}_Linux_${arch_suffix}"
-curl --silent --location --fail --output "${prefix}/bin/vgrep" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/vgrep" \
     "https://github.com/vrothberg/vgrep/releases/download/v${version}/vgrep_${version}_Linux_${arch_suffix}"
 chmod +x "${prefix}/bin/vgrep"
 EOF

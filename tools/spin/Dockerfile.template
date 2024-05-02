@@ -24,7 +24,7 @@ esac
 echo "    Using ${arch_suffix}"
 
 check-github-release-asset "fermyon/spin" "v${version}" "spin-v${version}-linux-${arch_suffix}.tar.gz"
-curl --silent --location --fail "https://github.com/fermyon/spin/releases/download/v${version}/spin-v${version}-static-linux-${arch_suffix}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/fermyon/spin/releases/download/v${version}/spin-v${version}-static-linux-${arch_suffix}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     spin
 EOF

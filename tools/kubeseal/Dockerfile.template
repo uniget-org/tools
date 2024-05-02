@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "bitnami-labs/sealed-secrets" "v${version}" "kubeseal-${version}-linux-amd64.tar.gz"
-curl --silent --location --fail "https://github.com/bitnami-labs/sealed-secrets/releases/download/v${version}/kubeseal-${version}-linux-amd64.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/bitnami-labs/sealed-secrets/releases/download/v${version}/kubeseal-${version}-linux-amd64.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     kubeseal
 EOF

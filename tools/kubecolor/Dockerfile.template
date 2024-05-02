@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 
-curl --silent --location --fail "https://github.com/hidetatz/kubecolor/releases/download/v${version}/kubecolor_${version}_Linux_${arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/hidetatz/kubecolor/releases/download/v${version}/kubecolor_${version}_Linux_${arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     kubecolor
 EOF

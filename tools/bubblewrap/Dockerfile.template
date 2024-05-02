@@ -16,7 +16,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "containers/bubblewrap" "v${version}" "bubblewrap-${version}.tar.xz"
-curl --silent --location --fail "https://github.com/containers/bubblewrap/releases/download/v${version}/bubblewrap-${version}.tar.xz" \
+curl --silent --show-error --location --fail "https://github.com/containers/bubblewrap/releases/download/v${version}/bubblewrap-${version}.tar.xz" \
 | tar --extract --xz --strip-components=1
 ./autogen.sh
 make LDFLAGS=-static -j$(nproc)

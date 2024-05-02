@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "loft-sh/devpod" "v${version}" "devpod-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/devpod" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/devpod" \
     "https://github.com/loft-sh/devpod/releases/download/v${version}/devpod-linux-${alt_arch}"
 chmod +x "${prefix}/bin/devpod"
 

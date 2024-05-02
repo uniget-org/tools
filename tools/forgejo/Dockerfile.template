@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 url="$(
-    curl --silent --location --fail "https://codeberg.org/api/v1/repos/forgejo/forgejo/releases" \
+    curl --silent --show-error --location --fail "https://codeberg.org/api/v1/repos/forgejo/forgejo/releases" \
     | jq --raw-output --arg version "${version}" --arg alt_arch "${alt_arch}" '
         .[] 
         | select(.tag_name == "v\($version)")
@@ -20,7 +20,7 @@ url="$(
 )"
 test -n "${url}"
 check-download "${url}"
-curl --silent --location --fail "${url}" \
+curl --silent --show-error --location --fail "${url}" \
 | xz --decompress >"${prefix}/bin/forgejo"
 chmod +x "${prefix}/bin/forgejo"
 EOF

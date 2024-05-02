@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "anchore/syft" "v${version}" "syft_${version}_linux_${alt_arch}.tar.gz"
-curl --silent --location --fail "https://github.com/anchore/syft/releases/download/v${version}/syft_${version}_linux_${alt_arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/anchore/syft/releases/download/v${version}/syft_${version}_linux_${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin" --no-same-owner \
     syft
 "${prefix}/bin/syft" completion bash | sed -E 's/^(\s*complete.*)/\1 syft/'            >"${prefix}/share/bash-completion/completions/syft"

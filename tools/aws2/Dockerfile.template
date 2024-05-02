@@ -13,7 +13,7 @@ EOF
 RUN <<EOF
 check-download "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-${version}.zip"
 
-curl --silent --location --fail --remote-name \
+curl --silent --show-error --location --fail --remote-name \
     "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-${version}.zip"
 unzip "awscli-exe-linux-x86_64-${version}.zip"
 mkdir -p "${prefix}/aws-cli/v2/${version}/bin"

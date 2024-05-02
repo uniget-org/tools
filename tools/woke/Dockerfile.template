@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "get-woke/woke" "v${version}" "woke-${version}-linux-${alt_arch}.tar.gz"
-curl --silent --location --fail "https://github.com/get-woke/woke/releases/download/v${version}/woke-${version}-linux-${alt_arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/get-woke/woke/releases/download/v${version}/woke-${version}-linux-${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
     "woke-${version}-linux-${alt_arch}/woke"
 EOF

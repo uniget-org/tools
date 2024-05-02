@@ -26,7 +26,7 @@ echo "    Using ${arch_suffix}"
 check-github-release-asset "charmbracelet/vhs" "v${version}" "vhs_${version}_Linux_${arch_suffix}.tar.gz"
 
 echo "### Downloading and installing vhs ${version}"
-curl --silent --location --fail "https://github.com/charmbracelet/vhs/releases/download/v${version}/vhs_${version}_Linux_${arch_suffix}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/charmbracelet/vhs/releases/download/v${version}/vhs_${version}_Linux_${arch_suffix}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
     "vhs_${version}_Linux_${arch_suffix}/vhs" \
     "vhs_${version}_Linux_${arch_suffix}/manpages" \

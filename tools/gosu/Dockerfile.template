@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "tianon/gosu" "${version}" "gosu-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/gosu" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/gosu" \
     "https://github.com/tianon/gosu/releases/download/${version}/gosu-${alt_arch}"
 chmod +x "${prefix}/bin/gosu"
 EOF

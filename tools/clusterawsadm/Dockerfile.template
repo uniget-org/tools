@@ -11,12 +11,12 @@ ARG version
 
 RUN <<EOF
 check-github-release-asset "kubernetes-sigs/cluster-api-provider-aws" "v${version}" "clusterawsadm_v${version}_linux_${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/clusterawsadm" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/clusterawsadm" \
     "https://github.com/kubernetes-sigs/cluster-api-provider-aws/releases/download/v${version}/clusterawsadm_v${version}_linux_${alt_arch}"
 chmod +x "${prefix}/bin/clusterawsadm"
 
 check-github-release-asset "kubernetes-sigs/cluster-api-provider-aws" "v${version}" "clusterctl-aws_v${version}_linux_${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/clusterctl-aws" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/clusterctl-aws" \
     "https://github.com/kubernetes-sigs/cluster-api-provider-aws/releases/download/v${version}/clusterctl-aws_v${version}_linux_${alt_arch}"
 chmod +x "${prefix}/bin/clusterctl-aws"
 

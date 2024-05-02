@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "kubernetes-sigs/cluster-api" "v${version}" "clusterctl-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/clusterctl" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/clusterctl" \
     "https://github.com/kubernetes-sigs/cluster-api/releases/download/v${version}/clusterctl-linux-${alt_arch}"
 chmod +x "${prefix}/bin/clusterctl"
 "${prefix}/bin/clusterctl" completion bash >"${prefix}/share/bash-completion/completions/clusterctl"

@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "go-gitea/gitea" "v${version}" "gitea-${version}-linux-${alt_arch}.xz"
-curl --silent --location --fail "https://github.com/go-gitea/gitea/releases/download/v${version}/gitea-${version}-linux-${alt_arch}.xz" \
+curl --silent --show-error --location --fail "https://github.com/go-gitea/gitea/releases/download/v${version}/gitea-${version}-linux-${alt_arch}.xz" \
 | xz --decompress >"${prefix}/bin/gitea"
 chmod +x "${prefix}/bin/gitea"
 EOF

@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "git-lfs/git-lfs" "v${version}" "git-lfs-linux-${alt_arch}-v${version}.tar.gz"
-curl --silent --location --fail "https://github.com/git-lfs/git-lfs/releases/download/v${version}/git-lfs-linux-${alt_arch}-v${version}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/git-lfs/git-lfs/releases/download/v${version}/git-lfs-linux-${alt_arch}-v${version}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/share/" --strip-components=1 --no-same-owner \
     git-lfs-${version}/git-lfs \
     git-lfs-${version}/man

@@ -11,7 +11,7 @@ RUN <<EOF
 check-github-release-asset "grafana/loki" "v${version}" "logcli-linux-${alt_arch}.zip"
 url="https://github.com/grafana/loki/releases/download/v${version}/logcli-linux-${alt_arch}.zip"
 filename="$(basename "${url}")"
-curl --silent --location --fail --remote-name "${url}"
+curl --silent --show-error --location --fail --remote-name "${url}"
 unzip -q -o -d "${prefix}/bin" "${filename}"
 mv "${prefix}/bin/logcli-linux-${alt_arch}" "${prefix}/bin/logcli"
 "${prefix}/bin/logcli" --completion-script-bash >"${prefix}/share/bash-completion/completions/logcli"

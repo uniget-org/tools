@@ -10,7 +10,7 @@ ARG version
 COPY gitlab-runner.service /uniget_bootstrap/etc/systemd/system/
 COPY config.toml /uniget_bootstrap/etc/gitlab-runner/
 RUN <<EOF
-curl --silent --location --fail --output "${prefix}/bin/gitlab-runner" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/gitlab-runner" \
     "https://gitlab-runner-downloads.s3.amazonaws.com/v${version}/binaries/gitlab-runner-linux-${alt_arch}"
 chmod +x "${prefix}/bin/gitlab-runner"
 EOF

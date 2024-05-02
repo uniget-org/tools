@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "zitadel/zitadel" "v${version}" "zitadel-linux-${alt_arch}.tar.gz"
-curl --silent --location --fail "https://github.com/zitadel/zitadel/releases/download/v${version}/zitadel-linux-${alt_arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/zitadel/zitadel/releases/download/v${version}/zitadel-linux-${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
     zitadel-linux-${alt_arch}/zitadel
 

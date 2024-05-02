@@ -12,7 +12,7 @@ RUN <<EOF
 check-github-release-asset "JetBrains/JetBrainsMono" "v${version}" "JetBrainsMono-2.304.zip"
 url="https://github.com/JetBrains/JetBrainsMono/releases/download/v2.304/JetBrainsMono-2.304.zip"
 filename="$(basename "${url}")"
-curl --silent --location --fail --remote-name "${url}"
+curl --silent --show-error --location --fail --remote-name "${url}"
 unzip -q -o "${filename}"
 
 mkdir -p \

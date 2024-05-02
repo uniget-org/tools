@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "antonmedv/fx" "${version}" "fx_linux_${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/fx" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/fx" \
     "https://github.com/antonmedv/fx/releases/download/${version}/fx_linux_${alt_arch}"
 chmod +x "${prefix}/bin/fx"
 EOF

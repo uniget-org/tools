@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "CycloneDX/sbom-utility" "v${version}" "sbom-utility-v${version}-linux-${alt_arch}.tar.gz"
-curl --silent --location --fail "https://github.com/CycloneDX/sbom-utility/releases/download/v${version}/sbom-utility-v${version}-linux-${alt_arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/CycloneDX/sbom-utility/releases/download/v${version}/sbom-utility-v${version}-linux-${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     sbom-utility \
     config.json \

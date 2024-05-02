@@ -11,6 +11,6 @@ RUN <<EOF
 check-download "https://github.com/microsoft/WSL2-Linux-Kernel/archive/refs/tags/linux-msft-wsl-${version}.tar.gz"
 mkdir -p "${prefix}/src/linux-${version}-wsl2"
 cd "${prefix}/src/linux-${version}-wsl2"
-curl --silent --location --fail "https://github.com/microsoft/WSL2-Linux-Kernel/archive/refs/tags/linux-msft-wsl-${version}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/microsoft/WSL2-Linux-Kernel/archive/refs/tags/linux-msft-wsl-${version}.tar.gz" \
 | tar --extract --gzip --strip-components=1 --no-same-owner
 EOF

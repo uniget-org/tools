@@ -10,6 +10,6 @@ ARG version
 RUN <<EOF
 check-download "https://github.com/bigskysoftware/htmx/blob/v${version}/dist/htmx.min.js"
 mkdir -p "${prefix}/share/htmx"
-curl --silent --location --fail --output "${prefix}/share/htmx/htmx.min.js" \
+curl --silent --show-error --location --fail --output "${prefix}/share/htmx/htmx.min.js" \
     "https://github.com/bigskysoftware/htmx/blob/v${version}/dist/htmx.min.js"
 EOF

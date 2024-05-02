@@ -14,7 +14,7 @@ complete -C /bin/vault vault
 vault.sh
 
 RUN <<EOF
-curl --silent --location --fail --remote-name "https://releases.hashicorp.com/vault/${version}/vault_${version}_linux_${alt_arch}.zip"
+curl --silent --show-error --location --fail --remote-name "https://releases.hashicorp.com/vault/${version}/vault_${version}_linux_${alt_arch}.zip"
 unzip -q -o -d "${prefix}/bin" "vault_${version}_linux_${alt_arch}.zip"
 rm "vault_${version}_linux_${alt_arch}.zip"
 EOF

@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "whalebrew/whalebrew" "${version}" "whalebrew-Linux-x86_64"
-curl --silent --location --fail --output "${prefix}/bin/whalebrew" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/whalebrew" \
     "https://github.com/whalebrew/whalebrew/releases/download/${version}/whalebrew-Linux-x86_64"
 chmod +x "${prefix}/bin/whalebrew"
 

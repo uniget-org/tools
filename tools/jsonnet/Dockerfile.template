@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "google/go-jsonnet" "v${version}" "go-jsonnet_${version}_Linux_x86_64.tar.gz"
-curl --silent --location --fail "https://github.com/google/go-jsonnet/releases/download/v${version}/go-jsonnet_${version}_Linux_x86_64.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/google/go-jsonnet/releases/download/v${version}/go-jsonnet_${version}_Linux_x86_64.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     jsonnet \
     jsonnetfmt

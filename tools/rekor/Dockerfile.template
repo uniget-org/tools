@@ -15,7 +15,7 @@ RUN <<EOF
 check-github-release-asset "sigstore/rekor" "v${version}" "rekor-cli-linux-${alt_arch}"
 
 echo "### Installing rekor-cli ${version}"
-curl --silent --location --fail --output "${prefix}/bin/rekor-cli" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/rekor-cli" \
     "https://github.com/sigstore/rekor/releases/download/v${version}/rekor-cli-linux-${alt_arch}"
 chmod +x "${prefix}/bin/rekor-cli"
 
@@ -25,7 +25,7 @@ echo "### Installing shell completion for rekor-cli ${version}"
 "${prefix}/bin/rekor-cli" completion zsh >"${prefix}/share/zsh/vendor-completions/_rekor-cli"
 
 echo "### Checking PGP signature for rekor-cli ${version}"
-curl --silent --location --fail --output "rekor-cli-linux-${alt_arch}.sig" \
+curl --silent --show-error --location --fail --output "rekor-cli-linux-${alt_arch}.sig" \
     "https://github.com/sigstore/rekor/releases/download/v${version}/rekor-cli-linux-${alt_arch}.sig"
 cosign verify-blob \
     --key "https://raw.githubusercontent.com/sigstore/rekor/v${version}/release/release-cosign.pub" \
@@ -34,9 +34,9 @@ cosign verify-blob \
 rm -f "rekor-cli-linux-${alt_arch}.sig"
 
 echo "### Checking keyless signature for rekor-cli ${version}"
-curl --silent --location --fail --output "rekor-cli-linux-${alt_arch}-keyless.pem" \
+curl --silent --show-error --location --fail --output "rekor-cli-linux-${alt_arch}-keyless.pem" \
     "https://github.com/sigstore/rekor/releases/download/v${version}/rekor-cli-linux-${alt_arch}-keyless.pem"
-curl --silent --location --fail --output "rekor-cli-linux-${alt_arch}-keyless.sig" \
+curl --silent --show-error --location --fail --output "rekor-cli-linux-${alt_arch}-keyless.sig" \
     "https://github.com/sigstore/rekor/releases/download/v${version}/rekor-cli-linux-${alt_arch}-keyless.sig"
 COSIGN_EXPERIMENTAL=1 cosign verify-blob \
     --cert "rekor-cli-linux-${alt_arch}-keyless.pem" \
@@ -49,7 +49,7 @@ rm -f "rekor-cli-linux-${alt_arch}-keyless.pem" "rekor-cli-linux-${alt_arch}-key
 "${prefix}/bin/rekor-cli" version
 
 echo "### Installing rekor-server ${version}"
-curl --silent --location --fail --output "${prefix}/bin/rekor-server" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/rekor-server" \
     "https://github.com/sigstore/rekor/releases/download/v${version}/rekor-server-linux-${alt_arch}"
 chmod +x "${prefix}/bin/rekor-server"
 
@@ -59,7 +59,7 @@ echo "### Installing shell completion for rekor-server ${version}"
 "${prefix}/bin/rekor-server" completion zsh >"${prefix}/share/zsh/vendor-completions/_rekor-server"
 
 echo "### Checking PGP signature for rekor-server ${version}"
-curl --silent --location --fail --output "rekor-server-linux-${alt_arch}.sig" \
+curl --silent --show-error --location --fail --output "rekor-server-linux-${alt_arch}.sig" \
     "https://github.com/sigstore/rekor/releases/download/v${version}/rekor-server-linux-${alt_arch}.sig"
 cosign verify-blob \
     --key "https://raw.githubusercontent.com/sigstore/rekor/v${version}/release/release-cosign.pub" \
@@ -68,9 +68,9 @@ cosign verify-blob \
 rm -f "rekor-server-linux-${alt_arch}.sig"
 
 echo "### Checking keyless signature for rekor-server ${version}"
-curl --silent --location --fail --output "rekor-server-linux-${alt_arch}-keyless.pem" \
+curl --silent --show-error --location --fail --output "rekor-server-linux-${alt_arch}-keyless.pem" \
     "https://github.com/sigstore/rekor/releases/download/v${version}/rekor-server-linux-${alt_arch}-keyless.pem"
-curl --silent --location --fail --output "rekor-server-linux-${alt_arch}-keyless.sig" \
+curl --silent --show-error --location --fail --output "rekor-server-linux-${alt_arch}-keyless.sig" \
     "https://github.com/sigstore/rekor/releases/download/v${version}/rekor-server-linux-${alt_arch}-keyless.sig"
 COSIGN_EXPERIMENTAL=1 cosign verify-blob \
     --cert "rekor-server-linux-${alt_arch}-keyless.pem" \

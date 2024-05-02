@@ -24,7 +24,7 @@ esac
 echo "    Using ${arch_suffix}"
 
 check-github-release-asset "kubernetes-sigs/ingress2gateway" "v${version}" "ingress2gateway_Linux_${arch_suffix}.tar.gz"
-curl --silent --location --fail "https://github.com/kubernetes-sigs/ingress2gateway/releases/download/v${version}/ingress2gateway_Linux_${arch_suffix}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/kubernetes-sigs/ingress2gateway/releases/download/v${version}/ingress2gateway_Linux_${arch_suffix}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     ingress2gateway
 

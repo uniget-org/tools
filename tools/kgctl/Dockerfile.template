@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "squat/kilo" "${version}" "kgctl-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/kgctl" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/kgctl" \
     "https://github.com/squat/kilo/releases/download/${version}/kgctl-linux-${alt_arch}"
 chmod +x "${prefix}/bin/kgctl"
 EOF

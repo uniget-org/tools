@@ -8,6 +8,6 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
-curl --silent --location --fail --output "${prefix}/etc/containers/registries.conf.d/00-shortnames.conf" --create-dirs \
+curl --silent --show-error --location --fail --output "${prefix}/etc/containers/registries.conf.d/00-shortnames.conf" --create-dirs \
     "https://github.com/containers/shortnames/raw/v${version}/shortnames.conf"
 EOF

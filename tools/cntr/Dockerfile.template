@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "Mic92/cntr" "${version}" "cntr-bin-${version}-${arch}-unknown-linux-musl"
-curl --silent --location --fail --output "${prefix}/bin/cntr" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/cntr" \
     "https://github.com/Mic92/cntr/releases/download/${version}/cntr-bin-${version}-${arch}-unknown-linux-musl"
 chmod +x "${prefix}/bin/cntr"
 EOF

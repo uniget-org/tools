@@ -9,6 +9,6 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "vmware-archive/buildkit-cli-for-kubectl" "v${version}" "linux-v${version}.tgz"
-curl --silent --location --fail "https://github.com/vmware-archive/buildkit-cli-for-kubectl/releases/download/v${version}/linux-v${version}.tgz" \
+curl --silent --show-error --location --fail "https://github.com/vmware-archive/buildkit-cli-for-kubectl/releases/download/v${version}/linux-v${version}.tgz" \
 | tar --extract --gzip --directory="${prefix}/bin" --no-same-owner 
 EOF

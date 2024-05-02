@@ -11,7 +11,7 @@ ARG version
 
 RUN <<EOF
 check-github-release-asset "bcicen/ctop" "v${version}" "ctop-${version}-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/ctop" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/ctop" \
     "https://github.com/bcicen/ctop/releases/download/v${version}/ctop-${version}-linux-${alt_arch}"
 chmod +x "${prefix}/bin/ctop"
 EOF

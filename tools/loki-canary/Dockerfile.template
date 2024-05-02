@@ -11,7 +11,7 @@ RUN <<EOF
 check-github-release-asset "grafana/loki" "v${version}" "loki-canary-linux-${alt_arch}.zip"
 url="https://github.com/grafana/loki/releases/download/v${version}/loki-canary-linux-${alt_arch}.zip"
 filename="$(basename "${url}")"
-curl --silent --location --fail --remote-name "${url}"
+curl --silent --show-error --location --fail --remote-name "${url}"
 unzip -q -o -d "${prefix}/bin" "${filename}"
 mv "${prefix}/bin/loki-canary-linux-amd64" "${prefix}/bin/loki-canary"
 EOF

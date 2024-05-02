@@ -30,13 +30,13 @@ echo "    Using ${arch_suffix}"
 check-github-release-asset "aquasecurity/trivy" "v${version}" "trivy_${version}_Linux-${arch_suffix}.tar.gz"
 
 echo "### Downloading trivy ${version}"
-curl --silent --location --fail --remote-name \
+curl --silent --show-error --location --fail --remote-name \
       "https://github.com/aquasecurity/trivy/releases/download/v${version}/trivy_${version}_Linux-${arch_suffix}.tar.gz"
 
 echo "### Checking keyless signature for trivy ${version}"
-curl --silent --location --fail --remote-name \
+curl --silent --show-error --location --fail --remote-name \
       "https://github.com/aquasecurity/trivy/releases/download/v${version}/trivy_${version}_Linux-${arch_suffix}.tar.gz.pem"
-curl --silent --location --fail --remote-name \
+curl --silent --show-error --location --fail --remote-name \
       "https://github.com/aquasecurity/trivy/releases/download/v${version}/trivy_${version}_Linux-${arch_suffix}.tar.gz.sig"
 SHA="$(
     git ls-remote --tags https://github.com/aquasecurity/trivy "v${version}" \
@@ -72,6 +72,6 @@ EOF
 
 RUN <<EOF
 echo "### Installing SonarQube template for trivy ${version}"
-curl --silent --location --fail --output "${prefix}/share/trivy/contrib/sonarqube.tpl" \
+curl --silent --show-error --location --fail --output "${prefix}/share/trivy/contrib/sonarqube.tpl" \
       https://github.com/mendhak/trivy-template-output-to-sonarqube/raw/master/sonarqube.tpl
 EOF

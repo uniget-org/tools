@@ -11,11 +11,11 @@ ARG version
 
 RUN <<EOF
 check-download "https://github.com/4U6U57/wsl-open/raw/v${version}/wsl-open.sh"
-curl --silent --location --fail --output "${prefix}/bin/wsl-open" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/wsl-open" \
     "https://github.com/4U6U57/wsl-open/raw/v${version}/wsl-open.sh"
 chmod +x "${prefix}/bin/wsl-open"
 
 check-download "https://github.com/4U6U57/wsl-open/raw/v${version}/wsl-open.1"
-curl --silent --location --fail --output "${prefix}/share/man/man1/wsl-open.1" \
+curl --silent --show-error --location --fail --output "${prefix}/share/man/man1/wsl-open.1" \
     "https://github.com/4U6U57/wsl-open/raw/v${version}/wsl-open.1"
 EOF

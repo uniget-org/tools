@@ -24,7 +24,7 @@ esac
 echo "    Using ${arch_suffix}"
 
 check-download "https://registry.npmjs.org/@esbuild/linux-${arch_suffix}/-/linux-${arch_suffix}-${version}.tgz"
-curl --silent --location --fail "https://registry.npmjs.org/@esbuild/linux-${arch_suffix}/-/linux-${arch_suffix}-${version}.tgz" \
+curl --silent --show-error --location --fail "https://registry.npmjs.org/@esbuild/linux-${arch_suffix}/-/linux-${arch_suffix}-${version}.tgz" \
 | tar --extract --gzip --directory="${prefix}" --strip-components=1 --no-same-owner \
     package/bin/esbuild
 EOF

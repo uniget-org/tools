@@ -11,7 +11,7 @@ RUN <<EOF
 check-github-release-asset "projectdiscovery/proxify" "v${version}" "proxify_${version}_linux_${alt_arch}.zip"
 url="https://github.com/projectdiscovery/proxify/releases/download/v${version}/proxify_${version}_linux_${alt_arch}.zip"
 filename="$(basename "${url}")"
-curl --silent --location --fail --remote-name "${url}"
+curl --silent --show-error --location --fail --remote-name "${url}"
 unzip -q -o -d "${prefix}/bin" "${filename}" \
     proxify \
     replay \

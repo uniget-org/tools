@@ -11,7 +11,7 @@ ARG version
 
 RUN <<EOF
 check-github-release-asset "CycloneDX/cyclonedx-cli" "v${version}" "cyclonedx-linux-x64"
-curl --silent --location --fail --output "${prefix}/bin/cyclonedx-cli" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/cyclonedx-cli" \
     "https://github.com/CycloneDX/cyclonedx-cli/releases/download/v${version}/cyclonedx-linux-x64"
 chmod +x "${prefix}/bin/cyclonedx-cli"
 EOF

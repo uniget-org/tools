@@ -24,7 +24,7 @@ esac
 echo "    Using ${lib_suffix}"
 
 check-github-release-asset "nushell/nushell" "${version}" "nu-${version}-${arch}-linux-${lib_suffix}-full.tar.gz"
-curl --silent --location --fail "https://github.com/nushell/nushell/releases/download/${version}/nu-${version}-${arch}-linux-${lib_suffix}-full.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/nushell/nushell/releases/download/${version}/nu-${version}-${arch}-linux-${lib_suffix}-full.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner
 rm -f "${prefix}/bin/LICENSE" "${prefix}/bin/README.txt"
 EOF

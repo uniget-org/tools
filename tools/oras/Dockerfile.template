@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "oras-project/oras" "v${version}" "oras_${version}_linux_${alt_arch}.tar.gz"
-curl --silent --location --fail "https://github.com/oras-project/oras/releases/download/v${version}/oras_${version}_linux_${alt_arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/oras-project/oras/releases/download/v${version}/oras_${version}_linux_${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin" --no-same-owner \
     oras
 "${prefix}/bin/oras" completion bash >"${prefix}/share/bash-completion/completions/oras"

@@ -11,6 +11,6 @@ RUN <<EOF
 check-download "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/snapshot/linux-${version}.tar.gz"
 mkdir -p "${prefix}/src/linux-${version}"
 cd "${prefix}/src/linux-${version}"
-curl --silent --location --fail "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/snapshot/linux-${version}.tar.gz" \
+curl --silent --show-error --location --fail "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/snapshot/linux-${version}.tar.gz" \
 | tar --extract --gzip --strip-components=1 --no-same-owner
 EOF

@@ -27,6 +27,6 @@ echo "    Using ${arch_suffix}"
 check-github-release-asset "actions/runner" "v${version}" "actions-runner-linux-${arch_suffix}-${version}.tar.gz"
 
 echo "### Downloading actions-runner ${version}"
-curl --silent --location --fail "https://github.com/actions/runner/releases/download/v${version}/actions-runner-linux-${arch_suffix}-${version}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/actions/runner/releases/download/v${version}/actions-runner-linux-${arch_suffix}-${version}.tar.gz" \
 | tar --extract --gzip --no-same-owner
 EOF

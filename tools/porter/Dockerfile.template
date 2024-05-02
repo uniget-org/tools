@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "getporter/porter" "v${version}" "porter-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/porter" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/porter" \
     "https://github.com/getporter/porter/releases/download/v${version}/porter-linux-${alt_arch}"
 chmod +x "${prefix}/bin/porter"
 "${prefix}/bin/porter" completion bash >"${prefix}/share/bash-completion/completions/porter"

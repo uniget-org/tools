@@ -8,7 +8,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
-curl --silent --location --fail --output "${prefix}/bin/dinit" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/dinit" \
     "https://gitlab.com/tozd/dinit/-/releases/v${version}/downloads/linux-${alt_arch}/dinit"
 chmod +x "${prefix}/bin/dinit"
 EOF

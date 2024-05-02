@@ -15,7 +15,7 @@ ARG version
 WORKDIR /tmp/walk
 RUN <<EOF
 check-download "https://github.com/binpash/try/archive/refs/tags/v${version}.tar.gz"
-curl --silent --location --fail "https://github.com/binpash/try/archive/refs/tags/v${version}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/binpash/try/archive/refs/tags/v${version}.tar.gz" \
 | tar --extract --gzip --strip-components=1 --no-same-owner
 
 cp try "${prefix}/bin/"

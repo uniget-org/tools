@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "containers/youki" "v${version}" "youki-${version}-${arch}-musl.tar.gz"
-curl --silent --location --fail "https://github.com/containers/youki/releases/download/v${version}/youki-${version}-${arch}-musl.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/containers/youki/releases/download/v${version}/youki-${version}-${arch}-musl.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     youki
 EOF

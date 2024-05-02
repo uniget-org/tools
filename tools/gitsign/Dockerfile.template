@@ -15,14 +15,14 @@ RUN <<EOF
 check-github-release-asset "sigstore/gitsign" "v${version}" "gitsign_${version}_linux_${alt_arch}"
 
 echo "### Installing gitsign ${version}"
-curl --silent --location --fail --output "${prefix}/bin/gitsign" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/gitsign" \
     "https://github.com/sigstore/gitsign/releases/download/v${version}/gitsign_${version}_linux_${alt_arch}"
 chmod +x "${prefix}/bin/gitsign"
 
 echo "### Checking keyless signature for gitsign ${version}"
-curl --silent --location --fail --output "gitsign_${version}_linux_${alt_arch}.pem" \
+curl --silent --show-error --location --fail --output "gitsign_${version}_linux_${alt_arch}.pem" \
     "https://github.com/sigstore/gitsign/releases/download/v${version}/gitsign_${version}_linux_${alt_arch}.pem"
-curl --silent --location --fail --output "gitsign_${version}_linux_${alt_arch}.sig" \
+curl --silent --show-error --location --fail --output "gitsign_${version}_linux_${alt_arch}.sig" \
     "https://github.com/sigstore/gitsign/releases/download/v${version}/gitsign_${version}_linux_${alt_arch}.sig"
 SHA="$(
     git ls-remote --tags https://github.com/sigstore/gitsign "v${version}^{}" \
@@ -45,14 +45,14 @@ RUN <<EOF
 check-github-release-asset "sigstore/gitsign" "v${version}" "gitsign-credential-cache_${version}_linux_${alt_arch}"
 
 echo "### Installing gitsign-credential-cache ${version}"
-curl --silent --location --fail --output "${prefix}/bin/gitsign-credential-cache" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/gitsign-credential-cache" \
     "https://github.com/sigstore/gitsign/releases/download/v${version}/gitsign-credential-cache_${version}_linux_${alt_arch}"
 chmod +x "${prefix}/bin/gitsign-credential-cache"
 
 echo "### Checking keyless signature for gitsign-credential-cache ${version}"
-curl --silent --location --fail --output "gitsign-credential-cache_${version}_linux_${alt_arch}.pem" \
+curl --silent --show-error --location --fail --output "gitsign-credential-cache_${version}_linux_${alt_arch}.pem" \
     "https://github.com/sigstore/gitsign/releases/download/v${version}/gitsign-credential-cache_${version}_linux_${alt_arch}.pem"
-curl --silent --location --fail --output "gitsign-credential-cache_${version}_linux_${alt_arch}.sig" \
+curl --silent --show-error --location --fail --output "gitsign-credential-cache_${version}_linux_${alt_arch}.sig" \
     "https://github.com/sigstore/gitsign/releases/download/v${version}/gitsign-credential-cache_${version}_linux_${alt_arch}.sig"
 COSIGN_EXPERIMENTAL=1 cosign verify-blob \
     --cert "gitsign-credential-cache_${version}_linux_${alt_arch}.pem" \
@@ -75,7 +75,7 @@ EOF
 RUN <<EOF
 curl --silent --verbose --location --fail --output "${prefix}/etc/systemd/user/gitsign-credential-cache.service" --create-dirs \
     "https://github.com/sigstore/gitsign/raw/v${version}/contrib/systemd/gitsign-credential-cache.service"
-curl --silent --location --fail --output "${prefix}/etc/systemd/user/gitsign-credential-cache.socket" --create-dirs \
+curl --silent --show-error --location --fail --output "${prefix}/etc/systemd/user/gitsign-credential-cache.socket" --create-dirs \
     "https://github.com/sigstore/gitsign/raw/v${version}/contrib/systemd/gitsign-credential-cache.socket"
 sed -i "s|ExecStart=%h/.local/bin/gitsign-credential-cache|ExecStart=/bin/gitsign-credential-cache|" "${prefix}/etc/systemd/user/gitsign-credential-cache.service"
 EOF

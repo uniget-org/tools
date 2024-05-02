@@ -24,7 +24,7 @@ esac
 check-github-release-asset "sharkdp/hyperfine" "v${version}" "hyperfine-v${version}-${arch}-unknown-linux-${suffix}.tar.gz"
 
 echo "### Downloading hyperfine ${version}"
-curl --silent --location --fail "https://github.com/sharkdp/hyperfine/releases/download/v${version}/hyperfine-v${version}-${arch}-unknown-linux-${suffix}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/sharkdp/hyperfine/releases/download/v${version}/hyperfine-v${version}-${arch}-unknown-linux-${suffix}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
     "hyperfine-v${version}-${arch}-unknown-linux-${suffix}/hyperfine" \
     "hyperfine-v${version}-${arch}-unknown-linux-${suffix}/autocomplete"

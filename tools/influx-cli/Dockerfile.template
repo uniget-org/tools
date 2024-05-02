@@ -8,7 +8,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
-curl --silent --location --fail "https://dl.influxdata.com/influxdb/releases/influxdb2-client-${version}-linux-${alt_arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://dl.influxdata.com/influxdb/releases/influxdb2-client-${version}-linux-${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --strip-component=1 --no-same-owner \
     "./influx"
 "${prefix}/bin/influx" completion bash >"${prefix}/share/bash-completion/completions/influx"

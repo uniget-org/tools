@@ -10,7 +10,7 @@ ARG name
 ARG version
 
 RUN <<EOF
-curl --silent --location --fail --output "${prefix}/bin/jf" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/jf" \
     "https://releases.jfrog.io/artifactory/jfrog-cli/v2-jf/${version}/jfrog-cli-linux-${alt_arch}/jf"
 chmod +x "${prefix}/bin/jf"
 "${prefix}/bin/jf" completion bash >"${prefix}/share/bash-completion/completions/jf"

@@ -11,7 +11,7 @@ ARG version
 
 RUN <<EOF
 check-github-release-asset "abiosoft/colima" "v${version}" "colima-Linux-${arch}"
-curl --silent --location --fail --output "${prefix}/bin/colima" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/colima" \
     "https://github.com/abiosoft/colima/releases/download/v${version}/colima-Linux-${arch}"
 chmod +x "${prefix}/bin/colima"
 "${prefix}/bin/colima" completion bash >"${prefix}/share/bash-completion/completions/colima"

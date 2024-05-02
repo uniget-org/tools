@@ -11,13 +11,13 @@ RUN <<EOF
 check-github-release-asset "denoland/deno" "v${version}" "deno-${arch}-unknown-linux-gnu.zip"
 url="https://github.com/denoland/deno/releases/download/v${version}/deno-${arch}-unknown-linux-gnu.zip"
 filename="$(basename "${url}")"
-curl --silent --location --fail --remote-name "${url}"
+curl --silent --show-error --location --fail --remote-name "${url}"
 unzip -q -o -d "${prefix}/bin" "${filename}"
 
 check-github-release-asset "denoland/deno" "v${version}" "denort-${arch}-unknown-linux-gnu.zip"
 url="https://github.com/denoland/deno/releases/download/v${version}/denort-${arch}-unknown-linux-gnu.zip"
 filename="$(basename "${url}")"
-curl --silent --location --fail --remote-name "${url}"
+curl --silent --show-error --location --fail --remote-name "${url}"
 unzip -q -o -d "${prefix}/bin" "${filename}"
 
 "${prefix}/bin/deno" completions bash >"${prefix}/share/bash-completion/completions/deno"

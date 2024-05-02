@@ -11,7 +11,7 @@ ARG version
 
 RUN <<EOF
 check-github-release-asset "project-zot/zot" "v${version}" "zot-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/zot" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/zot" \
     "https://github.com/project-zot/zot/releases/download/v${version}/zot-linux-${alt_arch}"
 chmod +x "${prefix}/bin/zot"
 "${prefix}/bin/zot" completion bash >"${prefix}/share/bash-completion/completions/zot"
@@ -19,7 +19,7 @@ chmod +x "${prefix}/bin/zot"
 "${prefix}/bin/zot" completion zsh >"${prefix}/share/zsh/vendor-completions/_zot"
 
 check-github-release-asset "project-zot/zot" "v${version}" "zli-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/zli" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/zli" \
     "https://github.com/project-zot/zot/releases/download/v${version}/zli-linux-${alt_arch}"
 chmod +x "${prefix}/bin/zli"
 "${prefix}/bin/zli" completion bash >"${prefix}/share/bash-completion/completions/zli"
@@ -27,12 +27,12 @@ chmod +x "${prefix}/bin/zli"
 "${prefix}/bin/zli" completion zsh >"${prefix}/share/zsh/vendor-completions/_zli"
 
 check-github-release-asset "project-zot/zot" "v${version}" "zb-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/zb" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/zb" \
     "https://github.com/project-zot/zot/releases/download/v${version}/zb-linux-${alt_arch}"
 chmod +x "${prefix}/bin/zb"
 
 check-github-release-asset "project-zot/zot" "v${version}" "zxp-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/zxp" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/zxp" \
     "https://github.com/project-zot/zot/releases/download/v${version}/zxp-linux-${alt_arch}"
 chmod +x "${prefix}/bin/zxp"
 

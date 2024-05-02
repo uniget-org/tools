@@ -16,16 +16,16 @@ COPY snapshotters.toml "/uniget_bootstrap/etc/containerd/conf.d/snapshotters.tom
 COPY init-containerd "/uniget_bootstrap/etc/init.d/containerd"
 RUN <<EOF
 check-github-release-asset "containerd/containerd" "v${version}" "containerd-${version}-linux-${alt_arch}.tar.gz"
-curl --silent --location --fail "https://github.com/containerd/containerd/releases/download/v${version}/containerd-${version}-linux-${alt_arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/containerd/containerd/releases/download/v${version}/containerd-${version}-linux-${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}" --no-same-owner
 
-curl --silent --location --fail --output "${prefix}/etc/systemd/system/containerd.service" \
+curl --silent --show-error --location --fail --output "${prefix}/etc/systemd/system/containerd.service" \
     "https://github.com/containerd/containerd/raw/v${version}/containerd.service"
 EOF
 RUN <<EOF
-curl --silent --location --fail --output "${prefix}/share/man/man8/containerd-config.8.md" \
+curl --silent --show-error --location --fail --output "${prefix}/share/man/man8/containerd-config.8.md" \
     "https://github.com/containerd/containerd/raw/v${version}/docs/man/containerd-config.8.md"
-curl --silent --location --fail --output "${prefix}/share/man/man5/containerd-config.toml.5.md" \
+curl --silent --show-error --location --fail --output "${prefix}/share/man/man5/containerd-config.toml.5.md" \
     "https://github.com/containerd/containerd/raw/v${version}/docs/man/containerd-config.toml.5.md"
 go-md2man \
     -in "${prefix}/share/man/man8/containerd-config.8.md" \

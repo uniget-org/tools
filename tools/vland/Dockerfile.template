@@ -8,7 +8,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
-curl --silent --location --fail --output "${prefix}/bin/vland" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/vland" \
     "https://github.com/parke/vland/raw/${version}/vland"
 chmod +x "${prefix}/bin/vland"
 EOF

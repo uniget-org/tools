@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "owenrumney/lazytrivy" "v${version}" "lazytrivy-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/lazytrivy" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/lazytrivy" \
     "https://github.com/owenrumney/lazytrivy/releases/download/v${version}/lazytrivy-linux-${alt_arch}"
 chmod +x "${prefix}/bin/lazytrivy"
 EOF

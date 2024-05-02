@@ -15,30 +15,30 @@ EOF
 
 RUN <<EOF
 check-download "https://download.docker.com/linux/static/stable/${arch}/docker-${version}.tgz"
-curl --silent --location --fail "https://download.docker.com/linux/static/stable/${arch}/docker-${version}.tgz" \
+curl --silent --show-error --location --fail "https://download.docker.com/linux/static/stable/${arch}/docker-${version}.tgz" \
 | tar --extract --gzip --directory="${prefix}/libexec/${name}/bin" --no-same-owner --strip-components=1
 mv "${prefix}/libexec/${name}/bin/dockerd"      "${prefix}/bin/"
 mv "${prefix}/libexec/${name}/bin/docker"       "${prefix}/bin/"
 mv "${prefix}/libexec/${name}/bin/docker-proxy" "${prefix}/bin/"
 
 check-download "https://download.docker.com/linux/static/stable/${arch}/docker-rootless-extras-${version}.tgz"
-curl --silent --location --fail "https://download.docker.com/linux/static/stable/${arch}/docker-rootless-extras-${version}.tgz" \
+curl --silent --show-error --location --fail "https://download.docker.com/linux/static/stable/${arch}/docker-rootless-extras-${version}.tgz" \
 | tar --extract --gzip --directory="${prefix}/libexec/${name}/bin" --no-same-owner --strip-components=1
 mv "${prefix}/libexec/${name}/bin/dockerd-rootless.sh"           "${prefix}/bin/"
 mv "${prefix}/libexec/${name}/bin/dockerd-rootless-setuptool.sh" "${prefix}/bin/"
 EOF
 
 RUN <<EOF
-curl --silent --location --fail --output "${prefix}/share/bash-completion/completions/docker" \
+curl --silent --show-error --location --fail --output "${prefix}/share/bash-completion/completions/docker" \
     "https://github.com/docker/cli/raw/v${version}/contrib/completion/bash/docker"
-curl --silent --location --fail --output "${prefix}/share/fish/vendor_completions.d/docker.fish" \
+curl --silent --show-error --location --fail --output "${prefix}/share/fish/vendor_completions.d/docker.fish" \
     "https://github.com/docker/cli/raw/v${version}/contrib/completion/fish/docker.fish"
-curl --silent --location --fail --output "${prefix}/share/zsh/vendor-completions/_docker" \
+curl --silent --show-error --location --fail --output "${prefix}/share/zsh/vendor-completions/_docker" \
     "https://github.com/docker/cli/raw/v${version}/contrib/completion/zsh/_docker"
 EOF
 
 RUN <<EOF
-curl --silent --location --fail --output "${prefix}/etc/systemd/system/docker.service" \
+curl --silent --show-error --location --fail --output "${prefix}/etc/systemd/system/docker.service" \
     "https://github.com/moby/moby/raw/v${version}/contrib/init/systemd/docker.service"
 sed -i "/^\[Service\]/a Environment=PATH=/libexec/${name}/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin" "${prefix}/etc/systemd/system/docker.service"
 sed -i -E "s|^(ExecStart=)/usr/bin/dockerd(.+)$|\1/libexec/${name}/bin/dockerd|" "${prefix}/etc/systemd/system/docker.service"
@@ -47,29 +47,29 @@ sed -i -n '/Requires=docker.socket/!p' "${prefix}/etc/systemd/system/docker.serv
 EOF
 
 RUN <<EOF
-curl --silent --location --fail --output "${prefix}${uniget_contrib}/${name}/sysvinit/debian/docker.default" --create-dirs \
+curl --silent --show-error --location --fail --output "${prefix}${uniget_contrib}/${name}/sysvinit/debian/docker.default" --create-dirs \
     "https://github.com/moby/moby/raw/v${version}/contrib/init/sysvinit-debian/docker.default"
 
-curl --silent --location --fail --output "${prefix}${uniget_contrib}/${name}/sysvinit/debian/docker" --create-dirs \
+curl --silent --show-error --location --fail --output "${prefix}${uniget_contrib}/${name}/sysvinit/debian/docker" --create-dirs \
     "https://github.com/moby/moby/raw/v${version}/contrib/init/sysvinit-debian/docker"
 sed -i -E "s|^(export PATH=)|\1/libexec/${name}/bin:|" "${prefix}${uniget_contrib}/${name}/sysvinit/debian/docker"
 sed -i -E "s|^DOCKERD=/usr/bin/dockerd|DOCKERD=/bin/dockerd|" "${prefix}${uniget_contrib}/${name}/sysvinit/debian/docker"
 chmod +x "${prefix}${uniget_contrib}/${name}/sysvinit/debian/docker"
 
-curl --silent --location --fail --output "${prefix}${uniget_contrib}/${name}/sysvinit/redhat/docker.sysconfig" --create-dirs \
+curl --silent --show-error --location --fail --output "${prefix}${uniget_contrib}/${name}/sysvinit/redhat/docker.sysconfig" --create-dirs \
     "https://github.com/moby/moby/raw/v${version}/contrib/init/sysvinit-redhat/docker.sysconfig"
 
-curl --silent --location --fail --output "${prefix}${uniget_contrib}/${name}/sysvinit/redhat/docker" --create-dirs \
+curl --silent --show-error --location --fail --output "${prefix}${uniget_contrib}/${name}/sysvinit/redhat/docker" --create-dirs \
     "https://github.com/moby/moby/raw/v${version}/contrib/init/sysvinit-redhat/docker"
 sed -i -E "s|(^prog=)|export PATH="/libexec/${name}/bin:/sbin:/bin:\${PATH}"\n\n\1|" "${prefix}${uniget_contrib}/${name}/sysvinit/redhat/docker"
 sed -i -E "s|/usr/bin/dockerd|/bin/dockerd|" "${prefix}${uniget_contrib}/${name}/sysvinit/redhat/docker"
 chmod +x "${prefix}${uniget_contrib}/${name}/sysvinit/redhat/docker"
 
-curl --silent --location --fail --output "${prefix}${uniget_contrib}/${name}/openrc/docker.confd" --create-dirs \
+curl --silent --show-error --location --fail --output "${prefix}${uniget_contrib}/${name}/openrc/docker.confd" --create-dirs \
     "https://github.com/moby/moby/raw/v${version}/contrib/init/openrc/docker.confd"
 sed -i "s|/usr/bin/dockerd|/bin/dockerd|" "${prefix}${uniget_contrib}/${name}/openrc/docker.confd"
 
-curl --silent --location --fail --output "${prefix}${uniget_contrib}/${name}/openrc/docker.initd" --create-dirs \
+curl --silent --show-error --location --fail --output "${prefix}${uniget_contrib}/${name}/openrc/docker.initd" --create-dirs \
     "https://github.com/moby/moby/raw/v${version}/contrib/init/openrc/docker.initd"
 sed -i -E "s|^(command=)|export PATH="/libexec/${name}/bin:\${PATH}"\n\n\1|" "${prefix}${uniget_contrib}/${name}/openrc/docker.initd"
 sed -i "s|/usr/bin/dockerd|/bin/dockerd|" "${prefix}${uniget_contrib}/${name}/openrc/docker.initd"

@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "open-policy-agent/gatekeeper" "v${version}" "gator-v${version}-linux-${alt_arch}.tar.gz"
-curl --silent --location --fail "https://github.com/open-policy-agent/gatekeeper/releases/download/v${version}/gator-v${version}-linux-${alt_arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/open-policy-agent/gatekeeper/releases/download/v${version}/gator-v${version}-linux-${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner
 "${prefix}/bin/gator" completion bash >"${prefix}/share/bash-completion/completions/gatekeeper"
 "${prefix}/bin/gator" completion fish >"${prefix}/share/fish/vendor_completions.d/gatekeeper.fish"

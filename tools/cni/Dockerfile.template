@@ -10,10 +10,10 @@ ARG version
 RUN <<EOF
 check-github-release-asset "containernetworking/plugins" "v${version}" "cni-plugins-linux-${alt_arch}-v${version}.tgz"
 mkdir -p "${prefix}/libexec/cni"
-curl --silent --location --fail "https://github.com/containernetworking/plugins/releases/download/v${version}/cni-plugins-linux-${alt_arch}-v${version}.tgz" \
+curl --silent --show-error --location --fail "https://github.com/containernetworking/plugins/releases/download/v${version}/cni-plugins-linux-${alt_arch}-v${version}.tgz" \
 | tar --extract --gzip --directory="${prefix}/libexec/cni" --no-same-owner
-curl --silent --location --fail --output "${prefix}/etc/systemd/system/cni-dhcp.service" \
+curl --silent --show-error --location --fail --output "${prefix}/etc/systemd/system/cni-dhcp.service" \
     "https://github.com/containernetworking/plugins/raw/v${version}/plugins/ipam/dhcp/systemd/cni-dhcp.service"
-curl --silent --location --fail --output "${prefix}/etc/systemd/system/cni-dhcp.socket" \
+curl --silent --show-error --location --fail --output "${prefix}/etc/systemd/system/cni-dhcp.socket" \
     "https://github.com/containernetworking/plugins/raw/v${version}/plugins/ipam/dhcp/systemd/cni-dhcp.socket"
 EOF

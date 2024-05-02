@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "gittuf/gittuf" "v${version}" "gittuf_${version}_linux_${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/gittuf" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/gittuf" \
     "https://github.com/gittuf/gittuf/releases/download/v${version}/gittuf_${version}_linux_${alt_arch}"
 chmod +x "${prefix}/bin/gittuf"
 

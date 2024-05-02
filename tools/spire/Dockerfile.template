@@ -13,11 +13,11 @@ RUN <<EOF
 mkdir "${prefix}/share/spire/"
 
 check-github-release-asset "spiffe/spire" "v${version}" "spire-${version}-linux-${alt_arch}-musl.tar.gz"
-curl --silent --location --fail "https://github.com/spiffe/spire/releases/download/v${version}/spire-${version}-linux-${alt_arch}-musl.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/spiffe/spire/releases/download/v${version}/spire-${version}-linux-${alt_arch}-musl.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/share/spire/" --strip-components=1 --no-same-owner
 
 check-github-release-asset "spiffe/spire" "v${version}" "spire-extras-${version}-linux-${alt_arch}-musl.tar.gz"
-curl --silent --location --fail "https://github.com/spiffe/spire/releases/download/v${version}/spire-extras-${version}-linux-${alt_arch}-musl.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/spiffe/spire/releases/download/v${version}/spire-extras-${version}-linux-${alt_arch}-musl.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/share/spire/" --strip-components=1 --no-same-owner
 
 find "${prefix}/share/spire/bin" -type f -executable -exec mv {} "${prefix}/bin/" \;

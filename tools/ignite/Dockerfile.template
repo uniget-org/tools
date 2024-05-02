@@ -9,12 +9,12 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "weaveworks/ignite" "v${version}" "ignite-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/ignite" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/ignite" \
     "https://github.com/weaveworks/ignite/releases/download/v${version}/ignite-${alt_arch}"
 chmod +x "${prefix}/bin/ignite"
 
 check-github-release-asset "weaveworks/ignite" "v${version}" "ignited-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/ignited" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/ignited" \
     "https://github.com/weaveworks/ignite/releases/download/v${version}/ignited-${alt_arch}"
 chmod +x "${prefix}/bin/ignited"
 

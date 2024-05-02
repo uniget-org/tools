@@ -29,7 +29,7 @@ ARG version
 COPY setup.cfg.patch /tmp/
 RUN <<EOF
 check-github-release-asset "roddhjav/pass-audit" "v${version}" "pass-audit-${version}.tar.gz"
-curl --silent --location --fail "https://github.com/roddhjav/pass-audit/releases/download/v${version}/pass-audit-${version}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/roddhjav/pass-audit/releases/download/v${version}/pass-audit-${version}.tar.gz" \
 | tar --extract --gzip --strip-components=1 --no-same-owner
 patch </tmp/setup.cfg.patch
 export PIPX_HOME="${prefix}/libexec/pipx"

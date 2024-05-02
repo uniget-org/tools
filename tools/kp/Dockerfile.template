@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "buildpacks-community/kpack-cli" "v${version}" "kp-linux-amd64-${version}"
-curl --silent --location --fail --output "${prefix}/bin/kp" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/kp" \
     "https://github.com/buildpacks-community/kpack-cli/releases/download/v${version}/kp-linux-amd64-${version}"
 chmod +x "${prefix}/bin/kp"
 "${prefix}/bin/kp" completion bash >"${prefix}/share/bash-completion/completions/kp"

@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-download "https://binaries.cockroachdb.com/cockroach-v${version}.linux-${alt_arch}.tgz"
-curl --silent --location --fail "https://binaries.cockroachdb.com/cockroach-v${version}.linux-${alt_arch}.tgz" \
+curl --silent --show-error --location --fail "https://binaries.cockroachdb.com/cockroach-v${version}.linux-${alt_arch}.tgz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner
 mkdir -p "${prefix}/lib/cockroach"
 mv "${prefix}/bin/lib/libgeos.so" "${prefix}/lib/cockroach/"

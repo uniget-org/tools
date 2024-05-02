@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "casey/just" "${version}" "just-${version}-x86_64-unknown-linux-musl.tar.gz"
-curl --silent --location --fail "https://github.com/casey/just/releases/download/${version}/just-${version}-x86_64-unknown-linux-musl.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/casey/just/releases/download/${version}/just-${version}-x86_64-unknown-linux-musl.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     just \
     just.1

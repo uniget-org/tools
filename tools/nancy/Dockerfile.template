@@ -24,7 +24,7 @@ esac
 echo "    Using ${arch_suffix}"
 
 check-github-release-asset "sonatype-nexus-community/nancy" "v${version}" "nancy-v${version}-linux-${alt_arch}.tar.gz"
-curl --silent --location --fail "https://github.com/sonatype-nexus-community/nancy/releases/download/v${version}/nancy-v${version}-linux-${alt_arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/sonatype-nexus-community/nancy/releases/download/v${version}/nancy-v${version}-linux-${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     nancy
 EOF

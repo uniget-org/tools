@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "vitobotta/hetzner-k3s" "v${version}" "hetzner-k3s-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/hetzner-k3s" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/hetzner-k3s" \
     "https://github.com/vitobotta/hetzner-k3s/releases/download/v${version}/hetzner-k3s-linux-${alt_arch}"
 chmod +x "${prefix}/bin/hetzner-k3s"
 EOF

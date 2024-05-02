@@ -12,7 +12,7 @@ WORKDIR /tmp/wslu
 ARG name
 ARG version
 RUN <<EOF
-curl --silent --location --fail "https://github.com/wslutilities/wslu/archive/refs/tags/v${version}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/wslutilities/wslu/archive/refs/tags/v${version}.tar.gz" \
 | tar --extract --gzip --strip-components=1
 make -j$(nproc) all
 make install "DESTDIR=${prefix}" "PREFIX="

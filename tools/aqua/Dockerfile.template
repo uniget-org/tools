@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "aquaproj/aqua" "v${version}" "aqua_linux_${alt_arch}.tar.gz"
-curl --silent --location --fail "https://github.com/aquaproj/aqua/releases/download/v${version}/aqua_linux_${alt_arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/aquaproj/aqua/releases/download/v${version}/aqua_linux_${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     aqua
 "${prefix}/bin/aqua" completion bash >"${prefix}/share/bash-completion/completions/aqua"

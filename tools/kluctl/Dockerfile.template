@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "kluctl/kluctl" "v${version}" "kluctl_v${version}_linux_${alt_arch}.tar.gz"
-curl --silent --location --fail "https://github.com/kluctl/kluctl/releases/download/v${version}/kluctl_v${version}_linux_${alt_arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/kluctl/kluctl/releases/download/v${version}/kluctl_v${version}_linux_${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner
 "${prefix}/bin/kluctl" completion bash >"${prefix}/share/bash-completion/completions/kluctl"
 "${prefix}/bin/kluctl" completion fish >"${prefix}/share/fish/vendor_completions.d/kluctl.fish"

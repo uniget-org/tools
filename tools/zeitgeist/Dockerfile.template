@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "kubernetes-sigs/zeitgeist" "v${version}" "zeitgeist-${alt_arch}-linux"
-curl --silent --location --fail --output "${prefix}/bin/zeitgeist" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/zeitgeist" \
     "https://github.com/kubernetes-sigs/zeitgeist/releases/download/v${version}/zeitgeist-${alt_arch}-linux"
 chmod +x "${prefix}/bin/zeitgeist"
 "${prefix}/bin/zeitgeist" completion bash >"${prefix}/share/bash-completion/completions/zeitgeist"
@@ -17,7 +17,7 @@ chmod +x "${prefix}/bin/zeitgeist"
 "${prefix}/bin/zeitgeist" completion zsh >"${prefix}/share/zsh/vendor-completions/_zeitgeist"
 
 check-github-release-asset "kubernetes-sigs/zeitgeist" "v${version}" "buoy-${alt_arch}-linux"
-curl --silent --location --fail --output "${prefix}/bin/buoy" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/buoy" \
     "https://github.com/kubernetes-sigs/zeitgeist/releases/download/v${version}/buoy-${alt_arch}-linux"
 chmod +x "${prefix}/bin/buoy"
 EOF

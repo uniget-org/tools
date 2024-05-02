@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "mikefarah/yq" "v${version}" "yq_linux_${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/yq" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/yq" \
     "https://github.com/mikefarah/yq/releases/download/v${version}/yq_linux_${alt_arch}"
 chmod +x "${prefix}/bin/yq"
 "${prefix}/bin/yq" shell-completion bash >"${prefix}/share/bash-completion/completions/yq"

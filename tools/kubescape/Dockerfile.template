@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "armosec/kubescape" "v${version}" "kubescape-ubuntu-latest.tar.gz"
-curl --silent --location --fail "https://github.com/armosec/kubescape/releases/download/v${version}/kubescape-ubuntu-latest.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/armosec/kubescape/releases/download/v${version}/kubescape-ubuntu-latest.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin" --no-same-owner
 mv "${prefix}/bin/kubescape-ubuntu-latest" "${prefix}/bin/kubescape"
 "${prefix}/bin/kubescape" completion bash >"${prefix}/share/bash-completion/completions/kubescape"

@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "projectcalico/calico" "v${version}" "calicoctl-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/calicoctl" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/calicoctl" \
     "https://github.com/projectcalico/calico/releases/download/v${version}/calicoctl-linux-${alt_arch}"
 chmod +x "${prefix}/bin/calicoctl"
 EOF

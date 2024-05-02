@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "ufoscout/docker-compose-wait" "${version}" "wait_${arch}"
-curl --silent --location --fail --output "${prefix}/bin/wait" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/wait" \
     "https://github.com/ufoscout/docker-compose-wait/releases/download/${version}/wait_${arch}"
 chmod +x "${prefix}/bin/wait"
 EOF

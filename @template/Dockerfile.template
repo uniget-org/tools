@@ -36,7 +36,7 @@ ARG version
 #
 #check-github-release-asset "foo/bar" "${version}" "foo-${version}-linux-amd64.tar.gz"
 #check-download ""
-#curl --silent --location --fail "" \
+#curl --silent --show-error --location --fail "" \
 #| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner
 #EOF
 
@@ -59,7 +59,7 @@ ARG version
 #
 #check-github-release-asset "foo/bar" "${version}" "foo-${version}-linux-amd64.tar.gz"
 #check-download ""
-#curl --silent --location --fail --output "${prefix}/bin/foo" \
+#curl --silent --show-error --location --fail --output "${prefix}/bin/foo" \
 #    ""
 #chmod +x "${prefix}/bin/foo"
 #EOF
@@ -85,7 +85,7 @@ ARG version
 #check-download ""
 #url=""
 #filename="$(basename "${url}")"
-#curl --silent --location --fail --remote-name "${url}"
+#curl --silent --show-error --location --fail --remote-name "${url}"
 #unzip -q -o -d "${prefix}/bin" "${filename}"
 #EOF
 

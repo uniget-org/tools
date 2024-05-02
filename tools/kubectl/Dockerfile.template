@@ -12,15 +12,15 @@ ARG version
 COPY --from=cosign / /usr/local/
 COPY kubectl.sh /uniget_bootstrap/etc/profile.d/
 RUN <<EOF
-curl --silent --location --fail --output "${prefix}/bin/kubectl" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/kubectl" \
     "https://dl.k8s.io/release/v${version}/bin/linux/${alt_arch}/kubectl"
 chmod +x "${prefix}/bin/kubectl"
 
 if test "$(echo -e "1.26.0-beta.0\n${version}" | sort -V | head -n 1)" == "1.26.0-beta.0"; then
     echo "Verifying keyless signature for kubectl"
-    curl --silent --location --fail --output "/tmp/kubectl.sig" \
+    curl --silent --show-error --location --fail --output "/tmp/kubectl.sig" \
         "https://dl.k8s.io/release/v${version}/bin/linux/${alt_arch}/kubectl.sig"
-    curl --silent --location --fail --output "/tmp/kubectl.cert" \
+    curl --silent --show-error --location --fail --output "/tmp/kubectl.cert" \
         "https://dl.k8s.io/release/v${version}/bin/linux/${alt_arch}/kubectl.cert"
     COSIGN_EXPERIMENTAL=1 cosign verify-blob "${prefix}/bin/kubectl" \
         --signature "/tmp/kubectl.sig" \
@@ -32,15 +32,15 @@ if test "$(echo -e "1.26.0-beta.0\n${version}" | sort -V | head -n 1)" == "1.26.
         "/tmp/kubectl.cert"
 fi
 
-curl --silent --location --fail --output "${prefix}/bin/kubectl-convert" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/kubectl-convert" \
     "https://dl.k8s.io/release/v${version}/bin/linux/${alt_arch}/kubectl-convert"
 chmod +x "${prefix}/bin/kubectl-convert"
 
 if test "$(echo -e "1.26.0-beta.0\n${version}" | sort -V | head -n 1)" == "1.26.0-beta.0"; then
     echo "Verifying keyless signature for kubectl-convert"
-    curl --silent --location --fail --output "/tmp/kubectl-convert.sig" \
+    curl --silent --show-error --location --fail --output "/tmp/kubectl-convert.sig" \
         "https://dl.k8s.io/release/v${version}/bin/linux/${alt_arch}/kubectl-convert.sig"
-    curl --silent --location --fail --output "/tmp/kubectl-convert.cert" \
+    curl --silent --show-error --location --fail --output "/tmp/kubectl-convert.cert" \
         "https://dl.k8s.io/release/v${version}/bin/linux/${alt_arch}/kubectl-convert.cert"
     COSIGN_EXPERIMENTAL=1 cosign verify-blob "${prefix}/bin/kubectl-convert" \
         --signature "/tmp/kubectl-convert.sig" \

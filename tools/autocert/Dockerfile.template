@@ -13,13 +13,13 @@ ARG version
 RUN <<EOF
 check-github-release-asset "smallstep/autocert" "v${version}" "autocert_linux_${version}_amd64.tar.gz"
 echo "### Downloading autocert ${version}"
-curl --silent --location --fail --remote-name \
+curl --silent --show-error --location --fail --remote-name \
     "https://github.com/smallstep/autocert/releases/download/v${version}/autocert_linux_${version}_amd64.tar.gz"
 
 echo "### Checking keyless signature for autocert ${version}"
-curl --silent --location --fail --remote-name \
+curl --silent --show-error --location --fail --remote-name \
     "https://github.com/smallstep/autocert/releases/download/v${version}/autocert_linux_${version}_amd64.tar.gz.pem"
-curl --silent --location --fail --remote-name \
+curl --silent --show-error --location --fail --remote-name \
     "https://github.com/smallstep/autocert/releases/download/v${version}/autocert_linux_${version}_amd64.tar.gz.sig"
 SHA="$(
     git ls-remote --tags https://github.com/smallstep/autocert "v${version}" \

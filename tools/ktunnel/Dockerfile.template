@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "omrikiei/ktunnel" "v${version}" "ktunnel_${version}_Linux_x86_64.tar.gz"
-curl --silent --location --fail "https://github.com/omrikiei/ktunnel/releases/download/v${version}/ktunnel_${version}_Linux_x86_64.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/omrikiei/ktunnel/releases/download/v${version}/ktunnel_${version}_Linux_x86_64.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     ktunnel
 EOF

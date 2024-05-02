@@ -12,13 +12,13 @@ RUN <<EOF
 check-github-release-asset "vercel/geist-font" "${version}" "Geist-${version}.zip"
 url="https://github.com/vercel/geist-font/releases/download/${version}/Geist-${version}.zip"
 filename="$(basename "${url}")"
-curl --silent --location --fail --remote-name "${url}"
+curl --silent --show-error --location --fail --remote-name "${url}"
 unzip -q -o "${filename}"
 
 check-github-release-asset "vercel/geist-font" "${version}" "GeistMono-${version}.zip"
 url="https://github.com/vercel/geist-font/releases/download/${version}/GeistMono-${version}.zip"
 filename="$(basename "${url}")"
-curl --silent --location --fail --remote-name "${url}"
+curl --silent --show-error --location --fail --remote-name "${url}"
 unzip -q -o "${filename}"
 
 mkdir -p \

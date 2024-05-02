@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "F1bonacc1/process-compose" "v${version}" "process-compose_linux_${alt_arch}.tar.gz"
-curl --silent --location --fail "https://github.com/F1bonacc1/process-compose/releases/download/v${version}/process-compose_linux_${alt_arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/F1bonacc1/process-compose/releases/download/v${version}/process-compose_linux_${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner
 
 "${prefix}/bin/process-compose" completion bash >"${prefix}/share/bash-completion/completions/process-compose"

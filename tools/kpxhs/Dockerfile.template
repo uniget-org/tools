@@ -20,11 +20,11 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "akazukin5151/kpxhs" "v${version}" "kpxhs-linux"
-curl --silent --location --fail --output "${prefix}/bin/kpxhs" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/kpxhs" \
     "https://github.com/akazukin5151/kpxhs/releases/download/v${version}/kpxhs-linux"
 chmod +x "${prefix}/bin/kpxhs"
 
 check-github-release-asset "akazukin5151/kpxhs" "v${version}" "kpxhs.1"
-curl --silent --location --fail --output "${prefix}/share/man/man1/kpxhs.1" \
+curl --silent --show-error --location --fail --output "${prefix}/share/man/man1/kpxhs.1" \
     "https://github.com/akazukin5151/kpxhs/releases/download/v${version}/kpxhs.1"
 EOF

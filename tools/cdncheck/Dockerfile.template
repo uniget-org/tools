@@ -12,7 +12,7 @@ check-github-release-asset "projectdiscovery/cdncheck" "v${version}" "cdncheck_$
 
 url="https://github.com/projectdiscovery/cdncheck/releases/download/v${version}/cdncheck_${version}_linux_${alt_arch}.zip"
 filename="$(basename "${url}")"
-curl --silent --location --fail --remote-name "${url}"
+curl --silent --show-error --location --fail --remote-name "${url}"
 unzip -q -o -d "${prefix}/bin" "${filename}" \
     cdncheck
 EOF

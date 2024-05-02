@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "Trendyol/kink" "v${version}" "kink_${version}_Linux-${arch}.tar.gz"
-curl --silent --location --fail "https://github.com/Trendyol/kink/releases/download/v${version}/kink_${version}_Linux-${arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/Trendyol/kink/releases/download/v${version}/kink_${version}_Linux-${arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin" --no-same-owner \
     kink
 "${prefix}/bin/kink" completion bash >"${prefix}/share/bash-completion/completions/kink"

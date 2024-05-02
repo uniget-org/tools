@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "gopasspw/git-credential-gopass" "v${version}" "git-credential-gopass-${version}-linux-${alt_arch}.tar.gz"
-curl --silent --location --fail "https://github.com/gopasspw/git-credential-gopass/releases/download/v${version}/git-credential-gopass-${version}-linux-${alt_arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/gopasspw/git-credential-gopass/releases/download/v${version}/git-credential-gopass-${version}-linux-${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     git-credential-gopass
 EOF

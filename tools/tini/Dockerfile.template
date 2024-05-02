@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "krallin/tini" "v${version}" "tini-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/tini" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/tini" \
     "https://github.com/krallin/tini/releases/download/v${version}/tini-${alt_arch}"
 chmod +x "${prefix}/bin/tini"
 EOF

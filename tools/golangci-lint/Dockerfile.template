@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "golangci/golangci-lint" "v${version}" "golangci-lint-${version}-linux-${alt_arch}.tar.gz"
-curl --silent --location --fail "https://github.com/golangci/golangci-lint/releases/download/v${version}/golangci-lint-${version}-linux-${alt_arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/golangci/golangci-lint/releases/download/v${version}/golangci-lint-${version}-linux-${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
     "golangci-lint-${version}-linux-${alt_arch}/golangci-lint"
 

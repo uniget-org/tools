@@ -9,6 +9,6 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "extrawurst/gitui" "v${version}" "gitui-linux-${arch}.tar.gz"
-curl --silent --location --fail "https://github.com/extrawurst/gitui/releases/download/v${version}/gitui-linux-${arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/extrawurst/gitui/releases/download/v${version}/gitui-linux-${arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner
 EOF

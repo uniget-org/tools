@@ -14,12 +14,12 @@ RUN <<EOF
 check-github-release-asset "ckotzbauer/sbom-operator" "${version}" "sbom-operator_${version}_linux_${alt_arch}.tar.gz"
 
 echo "### Downloading sbom-operator ${version}"
-curl --silent --location --fail --remote-name "https://github.com/ckotzbauer/sbom-operator/releases/download/${version}/sbom-operator_${version}_linux_${alt_arch}.tar.gz"
+curl --silent --show-error --location --fail --remote-name "https://github.com/ckotzbauer/sbom-operator/releases/download/${version}/sbom-operator_${version}_linux_${alt_arch}.tar.gz"
 echo "    SHA256 checksum: $(sha256sum sbom-operator_${version}_linux_${alt_arch}.tar.gz | cut -d' ' -f1)"
 
 echo "### Downloading signature and certificate"
-curl --silent --location --fail --remote-name "https://github.com/ckotzbauer/sbom-operator/releases/download/${version}/sbom-operator_${version}_linux_${alt_arch}.tar.gz.sig"
-curl --silent --location --fail --remote-name "https://github.com/ckotzbauer/sbom-operator/releases/download/${version}/sbom-operator_${version}_linux_${alt_arch}.tar.gz.pem"
+curl --silent --show-error --location --fail --remote-name "https://github.com/ckotzbauer/sbom-operator/releases/download/${version}/sbom-operator_${version}_linux_${alt_arch}.tar.gz.sig"
+curl --silent --show-error --location --fail --remote-name "https://github.com/ckotzbauer/sbom-operator/releases/download/${version}/sbom-operator_${version}_linux_${alt_arch}.tar.gz.pem"
 
 echo "### Verifying signature"
 COSIGN_EXPERIMENTAL=1 cosign verify-blob "sbom-operator_${version}_linux_${alt_arch}.tar.gz" \

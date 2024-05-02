@@ -11,13 +11,13 @@ ARG version
 
 RUN <<EOF
 check-github-release-asset "Code-Hex/Neo-cowsay" "v${version}" "cowsay_${version}_Linux_x86_64.tar.gz"
-curl --silent --location --fail "https://github.com/Code-Hex/Neo-cowsay/releases/download/v${version}/cowsay_${version}_Linux_x86_64.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/Code-Hex/Neo-cowsay/releases/download/v${version}/cowsay_${version}_Linux_x86_64.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     cowsay \
     cowthink
-curl --silent --location --fail --output "${prefix}/share/man/man1/cowsay.1" \
+curl --silent --show-error --location --fail --output "${prefix}/share/man/man1/cowsay.1" \
     "https://github.com/Code-Hex/Neo-cowsay/raw/v${version}/doc/cowsay.1"
-curl --silent --location --fail "https://github.com/Code-Hex/Neo-cowsay/archive/refs/tags/v${version}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/Code-Hex/Neo-cowsay/archive/refs/tags/v${version}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/share" --strip-components=1 --no-same-owner \
     "Neo-cowsay-${version}/cows"
 EOF

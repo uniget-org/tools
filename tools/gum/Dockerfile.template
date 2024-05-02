@@ -24,7 +24,7 @@ esac
 echo "    Using ${arch_suffix}"
 
 check-github-release-asset "charmbracelet/gum" "v${version}" "gum_${version}_Linux_${arch_suffix}.tar.gz"
-curl --silent --location --fail "https://github.com/charmbracelet/gum/releases/download/v${version}/gum_${version}_Linux_${arch_suffix}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/charmbracelet/gum/releases/download/v${version}/gum_${version}_Linux_${arch_suffix}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
     "gum_${version}_Linux_${arch_suffix}/gum" \
     "gum_${version}_Linux_${arch_suffix}/manpages/gum.1.gz"

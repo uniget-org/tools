@@ -11,7 +11,7 @@ ARG BINARIES="cfssl-bundle cfssl-certinfo cfssl-newkey cfssl-scan cfssljson cfss
 RUN <<EOF
 for BINARY in ${BINARIES}; do
     check-github-release-asset "cloudflare/cfssl" "v${version}" "${BINARY}_${version}_linux_amd64"
-    curl --silent --location --fail --output "${prefix}/bin/${BINARY}" \
+    curl --silent --show-error --location --fail --output "${prefix}/bin/${BINARY}" \
         "https://github.com/cloudflare/cfssl/releases/download/v${version}/${BINARY}_${version}_linux_amd64"
     chmod +x "${prefix}/bin/${BINARY}"
 done

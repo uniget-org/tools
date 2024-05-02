@@ -11,7 +11,7 @@ ARG version
 
 RUN <<EOF
 check-github-release-asset "firecracker-microvm/firectl" "v${version}" "firectl-v${version}"
-curl --silent --location --fail --output "${prefix}/bin/firectl" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/firectl" \
     "https://github.com/firecracker-microvm/firectl/releases/download/v${version}/firectl-v${version}"
 chmod +x "${prefix}/bin/firectl"
 EOF

@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "oligot/go-mod-upgrade" "v${version}" "go-mod-upgrade_linux_${alt_arch}.tar.gz"
-curl --silent --location --fail "https://github.com/oligot/go-mod-upgrade/releases/download/v${version}/go-mod-upgrade_linux_${alt_arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/oligot/go-mod-upgrade/releases/download/v${version}/go-mod-upgrade_linux_${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     go-mod-upgrade
 EOF

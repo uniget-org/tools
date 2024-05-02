@@ -9,9 +9,9 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "jqlang/jq" "jq-${version}" "jq-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/jq" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/jq" \
     "https://github.com/jqlang/jq/releases/download/jq-${version}/jq-linux-${alt_arch}"
 chmod +x "${prefix}/bin/jq"
-curl --silent --location --fail --output "${prefix}/share/man/man1/jq.1" \
+curl --silent --show-error --location --fail --output "${prefix}/share/man/man1/jq.1" \
     "https://raw.githubusercontent.com/jqlang/jq/jq-${version}/jq.1.prebuilt"
 EOF

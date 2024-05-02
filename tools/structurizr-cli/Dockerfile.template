@@ -11,7 +11,7 @@ RUN <<EOF
 check-github-release-asset "structurizr/cli" "v${version}" "structurizr-cli-${version}.zip"
 url="https://github.com/structurizr/cli/releases/download/v${version}/structurizr-cli-${version}.zip"
 filename="$(basename "${url}")"
-curl --silent --location --fail --remote-name "${url}"
+curl --silent --show-error --location --fail --remote-name "${url}"
 mkdir -p "${prefix}/opt/structurizr-cli"
 unzip -q -o -d "${prefix}/opt/structurizr-cli" "${filename}"
 ln --symbolic --relative --force "${prefix}/opt/structurizr-cli/structurizr.sh" "${prefix}/bin/structurizr"

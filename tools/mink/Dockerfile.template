@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "mattmoor/mink" "v${version}" "mink_${version}_Linux_x86_64.tar.gz"
-curl --silent --location --fail "https://github.com/mattmoor/mink/releases/download/v${version}/mink_${version}_Linux_x86_64.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/mattmoor/mink/releases/download/v${version}/mink_${version}_Linux_x86_64.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
     "mink_${version}_Linux_x86_64/mink"
 EOF

@@ -8,9 +8,9 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
-curl --silent --location --fail --output "${prefix}/bin/neofetch" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/neofetch" \
     "https://github.com/dylanaraps/neofetch/raw/${version}/neofetch"
 chmod +x "${prefix}/bin/neofetch"
-curl --silent --location --fail --output "${prefix}/share/man/man1/neofetch.1" \
+curl --silent --show-error --location --fail --output "${prefix}/share/man/man1/neofetch.1" \
     "https://github.com/dylanaraps/neofetch/raw/${version}/neofetch.1"
 EOF

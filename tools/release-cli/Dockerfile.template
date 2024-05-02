@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-download "https://gitlab.com/gitlab-org/release-cli/-/releases/v${version}/downloads/bin/release-cli-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/release-cli" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/release-cli" \
     "https://gitlab.com/gitlab-org/release-cli/-/releases/v${version}/downloads/bin/release-cli-linux-${alt_arch}"
 chmod +x "${prefix}/bin/release-cli"
 EOF

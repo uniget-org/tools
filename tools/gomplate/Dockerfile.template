@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "hairyhenderson/gomplate" "v${version}" "gomplate_linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/gomplate" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/gomplate" \
     "https://github.com/hairyhenderson/gomplate/releases/download/v${version}/gomplate_linux-${alt_arch}"
 chmod +x "${prefix}/bin/gomplate"
 EOF

@@ -9,10 +9,10 @@ ARG name
 ARG version
 RUN <<EOF
 check-download "https://github.com/ublue-os/blincus/raw/${version}/blincus"
-curl --silent --location --fail --output "${prefix}/bin/blincus" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/blincus" \
     "https://github.com/ublue-os/blincus/raw/${version}/blincus"
 chmod +x "${prefix}/bin/blincus"
 
-curl --silent --location --fail --output "${prefix}/share/bash-completion/completions/blincus" \
+curl --silent --show-error --location --fail --output "${prefix}/share/bash-completion/completions/blincus" \
     "https://github.com/ublue-os/blincus/raw/${version}/completions/blincus"
 EOF

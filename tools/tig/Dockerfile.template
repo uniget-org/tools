@@ -18,7 +18,7 @@ WORKDIR /tmp/tig
 ARG name
 ARG version
 RUN <<EOF
-curl --silent --location --fail "https://github.com/jonas/tig/releases/download/tig-${version}/tig-${version}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/jonas/tig/releases/download/tig-${version}/tig-${version}.tar.gz" \
 | tar --extract --gzip --strip-components=1
 ./configure
 make -j$(nproc) prefix="${prefix}"

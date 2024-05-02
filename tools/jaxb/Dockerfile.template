@@ -10,7 +10,7 @@ ARG version
 RUN <<EOF
 url="https://repo1.maven.org/maven2/com/sun/xml/bind/jaxb-ri/${version}/jaxb-ri-${version}.zip"
 filename="$(basename "${url}")"
-curl --silent --location --fail --remote-name "${url}"
+curl --silent --show-error --location --fail --remote-name "${url}"
 unzip -q -o -d "${prefix}/opt/" "${filename}"
 rm -rf \
     "${prefix}/opt/jaxb-ri/docs" \

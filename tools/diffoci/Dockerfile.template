@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "reproducible-containers/diffoci" "v${version}" "diffoci-v${version}.linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/diffoci" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/diffoci" \
     "https://github.com/reproducible-containers/diffoci/releases/download/v${version}/diffoci-v${version}.linux-${alt_arch}"
 chmod +x "${prefix}/bin/diffoci"
 

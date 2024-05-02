@@ -11,7 +11,7 @@ ARG version
 
 RUN <<EOF
 check-github-release-asset "openfaas/faas-cli" "${version}" "faas-cli"
-curl --silent --location --fail --output "${prefix}/bin/faas-cli" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/faas-cli" \
     "https://github.com/openfaas/faas-cli/releases/download/${version}/faas-cli"
 chmod +x "${prefix}/bin/faas-cli"
 EOF

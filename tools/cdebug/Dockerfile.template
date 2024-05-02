@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "iximiuz/cdebug" "v${version}" "cdebug_linux_${alt_arch}.tar.gz"
-curl --silent --location --fail "https://github.com/iximiuz/cdebug/releases/download/v${version}/cdebug_linux_${alt_arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/iximiuz/cdebug/releases/download/v${version}/cdebug_linux_${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     cdebug
 

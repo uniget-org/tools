@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "cilium/cilium-cli" "v${version}" "cilium-linux-${alt_arch}.tar.gz"
-curl --silent --location --fail "https://github.com/cilium/cilium-cli/releases/download/v${version}/cilium-linux-${alt_arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/cilium/cilium-cli/releases/download/v${version}/cilium-linux-${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin" --no-same-owner
 "${prefix}/bin/cilium" completion bash >"${prefix}/share/bash-completion/completions/cilium"
 "${prefix}/bin/cilium" completion fish >"${prefix}/share/fish/vendor_completions.d/cilium.fish"

@@ -9,6 +9,6 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "nginx-proxy/docker-gen" "${version}" "docker-gen-alpine-linux-${alt_arch}-${version}.tar.gz"
-curl --silent --location --fail "https://github.com/nginx-proxy/docker-gen/releases/download/${version}/docker-gen-alpine-linux-${alt_arch}-${version}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/nginx-proxy/docker-gen/releases/download/${version}/docker-gen-alpine-linux-${alt_arch}-${version}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner
 EOF

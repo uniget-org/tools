@@ -9,12 +9,12 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "Mirantis/cri-dockerd" "v${version}" "cri-dockerd-${version}.${alt_arch}.tgz"
-curl --silent --location --fail "https://github.com/Mirantis/cri-dockerd/releases/download/v${version}/cri-dockerd-${version}.${alt_arch}.tgz" \
+curl --silent --show-error --location --fail "https://github.com/Mirantis/cri-dockerd/releases/download/v${version}/cri-dockerd-${version}.${alt_arch}.tgz" \
 | tar --extract --gzip --directory="${prefix}/bin" --strip-components=1 --no-same-owner \
     cri-dockerd
 
-curl --silent --location --fail --output "${prefix}/etc/systemd/system/cri-docker.service" \
+curl --silent --show-error --location --fail --output "${prefix}/etc/systemd/system/cri-docker.service" \
     "https://github.com/Mirantis/cri-dockerd/raw/v${version}/packaging/systemd/cri-docker.service"
-curl --silent --location --fail --output "${prefix}/etc/systemd/system/cri-docker.socket" \
+curl --silent --show-error --location --fail --output "${prefix}/etc/systemd/system/cri-docker.socket" \
     "https://github.com/Mirantis/cri-dockerd/raw/v${version}/packaging/systemd/cri-docker.socket"
 EOF

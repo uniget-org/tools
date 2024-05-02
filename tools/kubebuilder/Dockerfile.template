@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "kubernetes-sigs/kubebuilder" "v${version}" "kubebuilder_linux_${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/kubebuilder" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/kubebuilder" \
     "https://github.com/kubernetes-sigs/kubebuilder/releases/download/v${version}/kubebuilder_linux_${alt_arch}"
 chmod +x "${prefix}/bin/kubebuilder"
 

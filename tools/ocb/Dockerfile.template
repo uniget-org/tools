@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "open-telemetry/opentelemetry-collector" "cmd%2Fbuilder%2Fv${version}" "ocb_${version}_linux_${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/ocb" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/ocb" \
     "https://github.com/open-telemetry/opentelemetry-collector/releases/download/cmd%2Fbuilder%2Fv${version}/ocb_${version}_linux_${alt_arch}"
 chmod +x "${prefix}/bin/ocb"
 

@@ -9,10 +9,10 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "ktock/container2wasm" "v${version}" "container2wasm-v${version}-linux-${alt_arch}.tar.gz"
-curl --silent --location --fail "https://github.com/ktock/container2wasm/releases/download/v${version}/container2wasm-v${version}-linux-${alt_arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/ktock/container2wasm/releases/download/v${version}/container2wasm-v${version}-linux-${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner
 
 check-github-release-asset "ktock/container2wasm" "v${version}" "c2w-net-proxy.wasm"
-curl --silent --location --fail --output "${prefix}/libexec/container2wasm/c2w-net-proxy.wasm" --create-dirs \
+curl --silent --show-error --location --fail --output "${prefix}/libexec/container2wasm/c2w-net-proxy.wasm" --create-dirs \
     "https://github.com/ktock/container2wasm/releases/download/v${version}/c2w-net-proxy.wasm"
 EOF

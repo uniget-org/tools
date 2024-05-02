@@ -21,7 +21,7 @@ WORKDIR /tmp/pass-git-helper
 ARG name
 ARG version
 RUN <<EOF
-curl --silent --location --fail "https://github.com/languitar/pass-git-helper/archive/refs/tags/v${version}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/languitar/pass-git-helper/archive/refs/tags/v${version}.tar.gz" \
 | tar --extract --gzip --strip-components=1 --no-same-owner
 printenv | sort
 export PIPX_HOME="${prefix}/libexec/pipx"

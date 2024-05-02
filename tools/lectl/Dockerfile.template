@@ -10,7 +10,7 @@ ARG name
 ARG version
 
 RUN <<EOF
-curl --silent --location --fail --output "${prefix}/bin/lectl" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/lectl" \
     "https://github.com/sahsanu/lectl/raw/v${version}/lectl"
 chmod +x "${prefix}/bin/lectl"
 EOF

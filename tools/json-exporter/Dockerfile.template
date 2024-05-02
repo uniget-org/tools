@@ -10,7 +10,7 @@ ARG version
 RUN <<EOF
 check-github-release-asset "prometheus-community/json_exporter" "v${version}" "json_exporter-${version}.linux-${alt_arch}.tar.gz"
 
-curl --silent --location --fail "https://github.com/prometheus-community/json_exporter/releases/download/v${version}/json_exporter-${version}.linux-${alt_arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/prometheus-community/json_exporter/releases/download/v${version}/json_exporter-${version}.linux-${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
     "json_exporter-${version}.linux-${alt_arch}/json_exporter"
 EOF

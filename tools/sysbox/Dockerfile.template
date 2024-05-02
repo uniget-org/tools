@@ -9,7 +9,7 @@ ARG name
 ARG version
 WORKDIR /tmp/sysbox
 RUN <<EOF
-curl --silent --location --fail --remote-name \
+curl --silent --show-error --location --fail --remote-name \
     "https://downloads.nestybox.com/sysbox/releases/v${version}/sysbox-ce_${version}-0.linux_${alt_arch}.deb"
 ar x "sysbox-ce_${version}-0.linux_${alt_arch}.deb"
 tar --extract --xz --file data.tar.xz

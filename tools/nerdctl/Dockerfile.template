@@ -10,7 +10,7 @@ ARG version
 COPY nerdctl.toml /uniget_bootstrap/etc/nerdctl/
 RUN <<EOF
 check-github-release-asset "containerd/nerdctl" "v${version}" "nerdctl-${version}-linux-${alt_arch}.tar.gz"
-curl --silent --location --fail "https://github.com/containerd/nerdctl/releases/download/v${version}/nerdctl-${version}-linux-${alt_arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/containerd/nerdctl/releases/download/v${version}/nerdctl-${version}-linux-${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin" --no-same-owner
 "${prefix}/bin/nerdctl" completion bash >"${prefix}/share/bash-completion/completions/nerdctl"
 "${prefix}/bin/nerdctl" completion fish >"${prefix}/share/fish/vendor_completions.d/nerdctl.fish"

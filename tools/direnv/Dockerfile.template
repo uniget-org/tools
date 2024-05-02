@@ -9,16 +9,16 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "direnv/direnv" "v${version}" "direnv.linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/direnv" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/direnv" \
     "https://github.com/direnv/direnv/releases/download/v${version}/direnv.linux-${alt_arch}"
 chmod +x "${prefix}/bin/direnv"
-curl --silent --location --fail --output "${prefix}/share/man/man1/direnv-fetchurl.1" \
+curl --silent --show-error --location --fail --output "${prefix}/share/man/man1/direnv-fetchurl.1" \
     "https://github.com/direnv/direnv/raw/v${version}/man/direnv-fetchurl.1"
-curl --silent --location --fail --output "${prefix}/share/man/man1/direnv-stdlib.1" \
+curl --silent --show-error --location --fail --output "${prefix}/share/man/man1/direnv-stdlib.1" \
     "https://github.com/direnv/direnv/raw/v${version}/man/direnv-stdlib.1"
-curl --silent --location --fail --output "${prefix}/share/man/man1/direnv.1" \
+curl --silent --show-error --location --fail --output "${prefix}/share/man/man1/direnv.1" \
     "https://github.com/direnv/direnv/raw/v${version}/man/direnv.1"
-curl --silent --location --fail --output "${prefix}/share/man/man1/direnv.toml.1" \
+curl --silent --show-error --location --fail --output "${prefix}/share/man/man1/direnv.toml.1" \
     "https://github.com/direnv/direnv/raw/v${version}/man/direnv.toml.1"
 
 cat <<EOF >"${prefix}/etc/profile.d/direnv.sh"

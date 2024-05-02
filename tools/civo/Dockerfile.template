@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "civo/cli" "v${version}" "civo-${version}-linux-${alt_arch}.tar.gz"
-curl --silent --location --fail "https://github.com/civo/cli/releases/download/v${version}/civo-${version}-linux-${alt_arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/civo/cli/releases/download/v${version}/civo-${version}-linux-${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     civo
 

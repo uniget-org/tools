@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "interlynk-io/sbomex" "v${version}" "sbomex-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/sbomex" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/sbomex" \
     "https://github.com/interlynk-io/sbomex/releases/download/v${version}/sbomex-linux-${alt_arch}"
 chmod +x "${prefix}/bin/sbomex"
 

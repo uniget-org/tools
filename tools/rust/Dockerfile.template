@@ -15,7 +15,7 @@ rustup_version="$(
 )"
 rust_arch="${arch}-unknown-linux-gnu"
 
-curl --silent --location --fail --output "/tmp/rustup-init" \
+curl --silent --show-error --location --fail --output "/tmp/rustup-init" \
     "https://static.rust-lang.org/rustup/archive/${rustup_version}/${rust_arch}/rustup-init"
 chmod +x "/tmp/rustup-init"
 

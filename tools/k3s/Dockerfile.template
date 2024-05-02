@@ -27,7 +27,7 @@ echo "    Using ${arch_suffix}"
 check-github-release-asset "k3s-io/k3s" "v${version}" "k3s${arch_suffix}"
 
 echo "### Downloading ${name} ${version}"
-curl --silent --location --fail --output "${prefix}/bin/k3s" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/k3s" \
     "https://github.com/k3s-io/k3s/releases/download/v${version}/k3s${arch_suffix}"
 chmod +x "${prefix}/bin/k3s"
 "${prefix}/bin/k3s" completion bash >"${prefix}/share/bash-completion/completions/k3s"

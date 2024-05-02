@@ -11,7 +11,7 @@ RUN <<EOF
 check-github-release-asset "dalance/procs" "v${version}" "procs-v${version}-${arch}-linux.zip"
 url="https://github.com/dalance/procs/releases/download/v${version}/procs-v${version}-${arch}-linux.zip"
 filename="$(basename "${url}")"
-curl --silent --location --fail --remote-name "${url}"
+curl --silent --show-error --location --fail --remote-name "${url}"
 unzip -q -o -d "${prefix}/bin" "${filename}"
 "${prefix}/bin/procs" --gen-completion-out bash >"${prefix}/share/bash-completion/completions/procs"
 "${prefix}/bin/procs" --gen-completion-out fish >"${prefix}/share/fish/vendor_completions.d/procs.fish"

@@ -25,7 +25,7 @@ echo "    Using ${arch_suffix}"
 
 check-github-release-asset "sass/dart-sass" "${version}" "dart-sass-${version}-linux-${arch_suffix}-musl.tar.gz"
 mkdir -p "${prefix}/libexec/dart-sass"
-curl --silent --location --fail "https://github.com/sass/dart-sass/releases/download/${version}/dart-sass-${version}-linux-${arch_suffix}-musl.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/sass/dart-sass/releases/download/${version}/dart-sass-${version}-linux-${arch_suffix}-musl.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/libexec/dart-sass" --strip-components=2 --no-same-owner \
     dart-sass/src/sass.snapshot
 EOF

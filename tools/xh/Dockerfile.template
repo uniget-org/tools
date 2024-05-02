@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "ducaale/xh" "v${version}" "xh-v${version}-${arch}-unknown-linux-musl.tar.gz"
-curl --silent --location --fail "https://github.com/ducaale/xh/releases/download/v${version}/xh-v${version}-${arch}-unknown-linux-musl.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/ducaale/xh/releases/download/v${version}/xh-v${version}-${arch}-unknown-linux-musl.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
     "xh-v${version}-${arch}-unknown-linux-musl/xh" \
     "xh-v${version}-${arch}-unknown-linux-musl/completions" \

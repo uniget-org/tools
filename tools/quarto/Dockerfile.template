@@ -10,7 +10,7 @@ ARG version
 RUN <<EOF
 check-github-release-asset "quarto-dev/quarto-cli" "v${version}" "quarto-${version}-linux-${alt_arch}.tar.gz"
 mkdir -p "${prefix}/opt/quarto"
-curl --silent --location --fail "https://github.com/quarto-dev/quarto-cli/releases/download/v${version}/quarto-${version}-linux-${alt_arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/quarto-dev/quarto-cli/releases/download/v${version}/quarto-${version}-linux-${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/opt/quarto" --strip-components=1 --no-same-owner
 
 rm --force \

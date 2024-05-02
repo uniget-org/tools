@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "homeport/havener" "v${version}" "havener_${version}_linux_${alt_arch}.tar.gz"
-curl --silent --location --fail "https://github.com/homeport/havener/releases/download/v${version}/havener_${version}_linux_${alt_arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/homeport/havener/releases/download/v${version}/havener_${version}_linux_${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin" --no-same-owner \
     havener
 "${prefix}/bin/havener" completion bash >"${prefix}/share/bash-completion/completions/havener"

@@ -10,7 +10,7 @@ ARG version
 WORKDIR /uniget_bootstrap/opt/gcloud
 RUN <<EOF
 check-download "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-${version}-linux-${arch}.tar.gz"
-curl --silent --location --fail "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-${version}-linux-${arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-${version}-linux-${arch}.tar.gz" \
 | tar --extract --gzip --strip-components=1 --no-same-owner
 ln --symbolic --relative --force "${prefix}/opt/gcloud/bin/gcloud" "${prefix}/bin/gcloud"
 ln --symbolic --relative --force "${prefix}/opt/gcloud/bin/bq" "${prefix}/bin/bq"

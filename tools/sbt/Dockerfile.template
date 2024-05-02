@@ -10,7 +10,7 @@ ARG version
 RUN <<EOF
 check-github-release-asset "sbt/sbt" "v${version}" "sbt-${version}.tgz"
 mkdir -p "${prefix}/opt/sbt"
-curl --silent --location --fail "https://github.com/sbt/sbt/releases/download/v${version}/sbt-${version}.tgz" \
+curl --silent --show-error --location --fail "https://github.com/sbt/sbt/releases/download/v${version}/sbt-${version}.tgz" \
 | tar --extract --gzip --directory="${prefix}/opt/sbt" --strip-components=1 --no-same-owner \
     sbt/bin/sbt \
     sbt/bin/sbt-launch.jar \

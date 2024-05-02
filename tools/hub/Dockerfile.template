@@ -11,7 +11,7 @@ ARG version
 
 RUN <<EOF
 check-github-release-asset "github/hub" "v${version}" "hub-linux-${alt_arch}-${version}.tgz"
-curl --silent --location --fail "https://github.com/GrantBirki/hub/releases/download/v${version}/hub-linux-${alt_arch}-${version}.tgz" \
+curl --silent --show-error --location --fail "https://github.com/GrantBirki/hub/releases/download/v${version}/hub-linux-${alt_arch}-${version}.tgz" \
 | tar --extract --gzip --directory="${prefix}" --strip-components=1 --no-same-owner
 rm -f \
     "${prefix}/LICENSE" \

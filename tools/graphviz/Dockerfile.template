@@ -20,7 +20,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-download "https://gitlab.com/graphviz/graphviz/-/archive/${version}/graphviz-${version}.tar.gz"
-curl --silent --location --fail "https://gitlab.com/graphviz/graphviz/-/archive/${version}/graphviz-${version}.tar.gz" \
+curl --silent --show-error --location --fail "https://gitlab.com/graphviz/graphviz/-/archive/${version}/graphviz-${version}.tar.gz" \
 | tar --extract --gzip --strip-components=1
 ./autogen.sh
 ./configure \

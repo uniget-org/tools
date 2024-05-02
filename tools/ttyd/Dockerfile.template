@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "tsl0922/ttyd" "${version}" "ttyd.${arch}"
-curl --silent --location --fail --output "${prefix}/bin/ttyd" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/ttyd" \
     "https://github.com/tsl0922/ttyd/releases/download/${version}/ttyd.${arch}"
 chmod +x "${prefix}/bin/ttyd"
 EOF

@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "kubernetes-sigs/bom" "v${version}" "bom-amd64-linux"
-curl --silent --location --fail --output "${prefix}/bin/bom" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/bom" \
     "https://github.com/kubernetes-sigs/bom/releases/download/v${version}/bom-amd64-linux"
 chmod +x "${prefix}/bin/bom"
 "${prefix}/bin/bom" completion bash >"${prefix}/share/bash-completion/completions/bom"

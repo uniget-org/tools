@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "gptscript-ai/gptscript" "v${version}" "gptscript-v${version}-linux-${alt_arch}.tar.gz"
-curl --silent --location --fail "https://github.com/gptscript-ai/gptscript/releases/download/v${version}/gptscript-v${version}-linux-${alt_arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/gptscript-ai/gptscript/releases/download/v${version}/gptscript-v${version}-linux-${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     gptscript
 EOF

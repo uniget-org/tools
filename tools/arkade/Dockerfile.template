@@ -26,7 +26,7 @@ echo "    Using ${arch_suffix}"
 check-github-release-asset "alexellis/arkade" "${version}" "arkade${arch_suffix}"
 
 echo "### Downloading arkade ${version}"
-curl --silent --location --fail --output "${prefix}/bin/arkade" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/arkade" \
     "https://github.com/alexellis/arkade/releases/download/${version}/arkade${arch_suffix}"
 chmod +x "${prefix}/bin/arkade"
 

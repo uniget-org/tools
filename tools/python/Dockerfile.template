@@ -16,6 +16,6 @@ check-github-release-asset \
     "${RELEASE_TAG}" \
     "cpython-${PYTHON_VERSION}+${RELEASE_TAG}-${arch}-unknown-linux-musl-install_only.tar.gz"
 
-curl --silent --location --fail "https://github.com/indygreg/python-build-standalone/releases/download/${RELEASE_TAG}/cpython-${PYTHON_VERSION}+${RELEASE_TAG}-${arch}-unknown-linux-musl-install_only.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/indygreg/python-build-standalone/releases/download/${RELEASE_TAG}/cpython-${PYTHON_VERSION}+${RELEASE_TAG}-${arch}-unknown-linux-musl-install_only.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/" --strip-components=1 --no-same-owner
 EOF

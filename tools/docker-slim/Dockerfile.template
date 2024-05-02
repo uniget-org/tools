@@ -20,6 +20,6 @@ case "${alt_arch}" in
         exit 1
         ;;
 esac
-curl --silent --location --fail "https://downloads.dockerslim.com/releases/1.40.0/dist_linux${arch_suffix}.tar.gz" \
+curl --silent --show-error --location --fail "https://downloads.dockerslim.com/releases/1.40.0/dist_linux${arch_suffix}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner
 EOF

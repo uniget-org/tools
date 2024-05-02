@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "interlynk-io/sbomgr" "v${version}" "sbomgr-linux-${alt_arch}"
-curl --silent --location --fail --output "${prefix}/bin/sbomgr" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/sbomgr" \
     "https://github.com/interlynk-io/sbomgr/releases/download/v${version}/sbomgr-linux-${alt_arch}"
 chmod +x "${prefix}/bin/sbomgr"
 

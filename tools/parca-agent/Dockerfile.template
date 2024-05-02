@@ -11,7 +11,7 @@ RUN <<EOF
 check-github-release-asset "parca-dev/parca-agent" "v${version}" "parca-agent_${version}_Linux_${arch}"
 
 echo "### Downloading parca-agent ${version}"
-curl --silent --location --fail --output "${prefix}/bin/parca-agent" \
+curl --silent --show-error --location --fail --output "${prefix}/bin/parca-agent" \
     "https://github.com/parca-dev/parca-agent/releases/download/v${version}/parca-agent_${version}_Linux_${arch}"
 chmod +x "${prefix}/bin/parca-agent"
 EOF

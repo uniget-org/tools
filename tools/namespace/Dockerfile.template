@@ -9,13 +9,13 @@ ARG name
 ARG version
 RUN <<EOF
 check-download "https://get.namespace.so/packages/nsc/v${version}/nsc_${version}_linux_${alt_arch}.tar.gz"
-curl --silent --location --fail "https://get.namespace.so/packages/nsc/v${version}/nsc_${version}_linux_${alt_arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://get.namespace.so/packages/nsc/v${version}/nsc_${version}_linux_${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     nsc \
     docker-credential-nsc
 
 check-download "https://get.namespace.so/packages/ns/v${version}/ns_${version}_linux_${alt_arch}.tar.gz"
-curl --silent --location --fail "https://get.namespace.so/packages/ns/v${version}/ns_${version}_linux_${alt_arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://get.namespace.so/packages/ns/v${version}/ns_${version}_linux_${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     ns
     
