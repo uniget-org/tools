@@ -20,7 +20,7 @@ filename="$(basename "${url}")"
 curl --silent --location --fail --remote-name "${url}"
 unzip -q -o -d "${prefix}/bin" "${filename}"
 
-"${prefix}/bin/deno" completion bash >"${prefix}/share/bash-completion/completions/deno"
-"${prefix}/bin/deno" completion fish >"${prefix}/share/fish/vendor_completions.d/deno.fish"
-"${prefix}/bin/deno" completion zsh >"${prefix}/share/zsh/vendor-completions/_deno"
+"${prefix}/bin/deno" completions bash >"${prefix}/share/bash-completion/completions/deno"
+"${prefix}/bin/deno" completions fish >"${prefix}/share/fish/vendor_completions.d/deno.fish"
+"${prefix}/bin/deno" completions zsh >"${prefix}/share/zsh/vendor-completions/_deno"
 EOF
