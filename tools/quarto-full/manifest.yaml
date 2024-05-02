@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: quarto-full
-version: "1.4.553"
+version: "1.4.554"
 binary: ${target}/opt/quarto/bin/quarto
 check: ""
 conflicts_with:
