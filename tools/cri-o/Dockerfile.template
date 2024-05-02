@@ -15,7 +15,8 @@ ARG version
 COPY crio.conf /uniget_bootstrap/etc/crio.conf
 RUN <<EOF
 echo "### Downloading cri-o ${version}"
-curl --silent --location --fail --remote-name "https://storage.googleapis.com/cri-o/artifacts/cri-o.${alt_arch}.v${version}.tar.gz"
+check-download "https://storage.googleapis.com/cri-o/artifacts/cri-o.${alt_arch}.v${version}.tar.gz"
+curl --silent --show-error --location --fail --remote-name "https://storage.googleapis.com/cri-o/artifacts/cri-o.${alt_arch}.v${version}.tar.gz"
 
 echo "### Checking keyless signature for cri-o ${version}"
 curl --silent --location --fail --remote-name "https://storage.googleapis.com/cri-o/artifacts/cri-o.${alt_arch}.v${version}.tar.gz.sig"
