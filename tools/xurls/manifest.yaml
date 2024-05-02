@@ -1,0 +1,18 @@
+$schema: https://tools.uniget.dev/schema.yaml
+name: xurls
+version: "2.5.0"
+check: ${binary} --version | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/cli
+homepage: https://github.com/mvdan/xurls
+description: Extract urls from text
+renovate:
+  datasource: github-releases
+  package: mvdan/xurls
+  extractVersion: ^v(?<version>.+?)$
+  priority: low

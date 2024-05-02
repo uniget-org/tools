@@ -1,0 +1,15 @@
+#syntax=docker/dockerfile:1.7.1
+
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN <<EOF
+check-github-release-asset "mvdan/xurls" "v${version}" "xurls_v${version}_linux_${alt_arch}"
+curl --silent --show-error --location --fail --output "${prefix}/bin/xurls" \
+    "https://github.com/mvdan/xurls/releases/download/v${version}/xurls_v${version}_linux_${alt_arch}"
+chmod +x "${prefix}/bin/xurls"
+EOF
