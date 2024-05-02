@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: deno
-version: "1.42.4"
+version: "1.43.1"
 check: ${binary} --version | grep ^deno | cut -d' ' -f2
 platforms:
 - linux/amd64
