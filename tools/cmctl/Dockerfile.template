@@ -8,15 +8,15 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
-check-github-release-asset "cert-manager/cmctl" "v${version}" "cmctl-linux-${alt_arch}.tar.gz"
-curl --silent --show-error --location --fail "https://github.com/cert-manager/cmctl/releases/download/v${version}/cmctl-linux-${alt_arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin" --no-same-owner \
-    cmctl
+check-github-release-asset "cert-manager/cmctl" "v${version}" "cmctl_linux_${alt_arch}"
+curl --silent --show-error --location --fail --output "${prefix}/bin/cmctl" \
+    "https://github.com/cert-manager/cmctl/releases/download/v${version}/cmctl_linux_${alt_arch}"
+chmod +x "${prefix}/bin/cmctl"
 
-check-github-release-asset "cert-manager/cmctl" "v${version}" "kubectl-cert_manager-linux-${alt_arch}.tar.gz"
-curl --silent --show-error --location --fail "https://github.com/cert-manager/cmctl/releases/download/v${version}/kubectl-cert_manager-linux-${alt_arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin" --no-same-owner \
-    kubectl-cert_manager
+check-github-release-asset "cert-manager/cmctl" "v${version}" "kubectl-cert_manager_linux_${alt_arch}"
+curl --silent --show-error --location --fail --output "${prefix}/bin/kubectl-cert_manager" \
+    "https://github.com/cert-manager/cmctl/releases/download/v${version}/kubectl-cert_manager_linux_${alt_arch}"
+chmod +x "${prefix}/bin/kubectl-cert_manager"
 
 "${prefix}/bin/cmctl" completion bash >"${prefix}/share/bash-completion/completions/cmctl"
 "${prefix}/bin/cmctl" completion fish >"${prefix}/share/fish/vendor_completions.d/cmctl.fish"
