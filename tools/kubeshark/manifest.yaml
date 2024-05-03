@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kubeshark
-version: "v52.2.39"
+version: "v52.3.0"
 check: ${binary} version 2>&1 | cut -d' ' -f2
 tags:
 - category/security
