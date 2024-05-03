@@ -13,9 +13,9 @@ curl --silent --show-error --location --fail --output "${prefix}/bin/cmctl" \
     "https://github.com/cert-manager/cmctl/releases/download/v${version}/cmctl_linux_${alt_arch}"
 chmod +x "${prefix}/bin/cmctl"
 
-check-github-release-asset "cert-manager/cmctl" "v${version}" "kubectl-cert_manager_linux_${alt_arch}"
+check-github-release-asset "cert-manager/cmctl" "v${version}" "kubectl_cert-manager_linux_${alt_arch}"
 curl --silent --show-error --location --fail --output "${prefix}/bin/kubectl-cert_manager" \
-    "https://github.com/cert-manager/cmctl/releases/download/v${version}/kubectl-cert_manager_linux_${alt_arch}"
+    "https://github.com/cert-manager/cmctl/releases/download/v${version}/kubectl_cert-manager_linux_${alt_arch}"
 chmod +x "${prefix}/bin/kubectl-cert_manager"
 
 "${prefix}/bin/cmctl" completion bash >"${prefix}/share/bash-completion/completions/cmctl"
