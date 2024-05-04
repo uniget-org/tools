@@ -2,7 +2,7 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: monaspace
 version: "1.100"
-binary: false
+binary: "false"
 check: "" # No binary
 platforms:
 - linux/amd64
