@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: monaspace
-version: "1.000"
+version: "1.100"
 check: ""
 platforms:
 - linux/amd64
