@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: cri-o
-version: "1.29.4"
+version: "1.30.0"
 binary: crio
 check: ${binary} --version | grep ^crio | cut -d' ' -f3
 build_dependencies:
