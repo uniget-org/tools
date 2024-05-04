@@ -8,8 +8,8 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
-check-github-release-asset "gojue/ecapture" "v${version}" "ecapture-v${version}-linux-${arch}.tar.gz"
-curl --silent --show-error --location --fail "https://github.com/gojue/ecapture/releases/download/v${version}/ecapture-v${version}-linux-${arch}.tar.gz" \
+check-github-release-asset "gojue/ecapture" "v${version}" "ecapture-v${version}-linux-${alt_arch}.tar.gz"
+curl --silent --show-error --location --fail "https://github.com/gojue/ecapture/releases/download/v${version}/ecapture-v${version}-linux-${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
-    "ecapture-v${version}-linux-${arch}/ecapture"
+    "ecapture-v${version}-linux-${alt_arch}/ecapture"
 EOF
