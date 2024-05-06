@@ -1,0 +1,19 @@
+#syntax=docker/dockerfile:1.7.1
+
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN <<EOF
+check-github-release-asset "siderolabs/talos" "v${version}" "talosctl-linux-${alt_arch}"
+curl --silent --show-error --location --fail --output "${prefix}/bin/talosctl" \
+    "https://github.com/siderolabs/talos/releases/download/v${version}/talosctl-linux-${alt_arch}"
+chmod +x "${prefix}/bin/talosctl"
+
+"${prefix}/bin/talosctl" completion bash >"${prefix}/share/bash-completion/completions/talosctl"
+"${prefix}/bin/talosctl" completion fish >"${prefix}/share/fish/vendor_completions.d/talosctl.fish"
+"${prefix}/bin/talosctl" completion zsh >"${prefix}/share/zsh/vendor-completions/_talosctl"
+EOF

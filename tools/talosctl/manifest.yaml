@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: talosctl
+version: "1.7.1"
+check: ${binary} version --client --short | grep "^Client " | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/go
+- type/cli
+- kubernetes
+- k8s
+homepage: https://github.com/siderolabs/talos
+description: Modern Linux distribution built for Kubernetes
+renovate:
+  datasource: github-releases
+  package: siderolabs/talos
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
