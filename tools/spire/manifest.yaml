@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: spire
-version: "1.9.4"
+version: "1.9.5"
 binary: spire-server
 check: ${binary} --version 2>&1
 platforms:
