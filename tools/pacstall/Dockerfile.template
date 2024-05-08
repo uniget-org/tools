@@ -8,6 +8,8 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
+set -e -x
+
 curl --silent --show-error --location --fail --output "${prefix}/bin/pacstall" \
     "https://github.com/pacstall/pacstall/raw/${version}/pacstall"
 chmod +x "${prefix}/bin/pacstall"
@@ -15,7 +17,7 @@ chmod +x "${prefix}/bin/pacstall"
 curl --silent --show-error --location --fail --output "${prefix}/share/man/man8/pacstall.8.gz" \
     "https://github.com/pacstall/pacstall/raw/${version}/misc/pacstall.8.gz"
 
-for script in add-repo checks dep-tree download error_log install-local query-info remove search update upgrade; do
+for script in error-log add-repo search dep-tree version-constraints checks get-pacscript package fetch-sources build upgrade remove update query-info quality-assurance bwrap; do
     curl --silent --show-error --location --fail --output "${prefix}/share/pacstall/scripts/${script}.sh" --create-dirs \
         "https://github.com/pacstall/pacstall/raw/${version}/misc/scripts/${script}.sh"
     chmod +x "${prefix}/share/pacstall/scripts/${script}.sh"
