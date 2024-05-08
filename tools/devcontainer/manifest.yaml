@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: devcontainer
-version: "0.59.1"
+version: "0.60.0"
 check: ${binary} --version
 build_dependencies:
 - python
