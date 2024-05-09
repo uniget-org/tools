@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kubeconform
-version: "0.6.4"
+version: "0.6.5"
 check: ${binary} -v | tr -d v
 runtime_dependencies:
 - kubernetes-json-schema
