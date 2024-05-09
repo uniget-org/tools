@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: containers-image
-version: "5.30.0"
+version: "5.30.1"
 check: ""
 build_dependencies:
 - go-md2man
