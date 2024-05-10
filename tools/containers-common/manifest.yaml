@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: containers-common
-version: "0.58.2"
+version: "0.58.3"
 binary: "false"
 check: "" # No binary
 build_dependencies:
