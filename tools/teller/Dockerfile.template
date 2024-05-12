@@ -8,8 +8,8 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
-check-github-release-asset "tellerops/teller" "v${version}" "teller_${version}_Linux_${arch}.tar.gz"
-curl --silent --show-error --location --fail "https://github.com/tellerops/teller/releases/download/v${version}/teller_${version}_Linux_${arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
-    teller
+check-github-release-asset "tellerops/teller" "v${version}" "teller-${arch}-linux.tar.xz"
+curl --silent --show-error --location --fail "https://github.com/tellerops/teller/releases/download/v${version}/teller-${arch}-linux.tar.xz" \
+| tar --extract --xz --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
+    "teller-${arch}-linux/teller"
 EOF

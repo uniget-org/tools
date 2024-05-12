@@ -2,10 +2,18 @@
 name: teller
 version: "2.0.3"
 check: ${binary} version | head -1 | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 tags:
 - category/security
 - type/cli
 - lang/go
+messages:
+  update: |
+    Please make sure the following libraries are available:
+    - libssl.so.1.1
+    - libcrypto.so.1.1
 homepage: https://github.com/tellerops/teller
 description: Cloud native secrets management for developers - never leave your command line for secrets.
 renovate:
