@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: dotnet
-version: "8.0.204"
+version: "8.0.300"
 check: ${binary} --version
 platforms:
 - linux/amd64
