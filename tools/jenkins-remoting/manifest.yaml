@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: jenkins-remoting
-version: "3244.vf7f977e04755"
+version: "3248.v65ecb_254c298"
 binary: "false"
 check: "" # Requires Java to run
 runtime_dependencies:
