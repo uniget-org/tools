@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: vgrep
-version: "2.7.0"
+version: "2.8.0"
 check: ${binary} --version
 platforms:
 - linux/amd64
