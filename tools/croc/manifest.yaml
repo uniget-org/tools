@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: croc
-version: "9.6.15"
+version: "9.6.17"
 check: ${binary} --version | cut -d' ' -f3 | cut -d- -f1 | tr -d v
 platforms:
 - linux/amd64
