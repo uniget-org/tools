@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: imgcrypt
-version: "1.1.10"
+version: "1.1.11"
 binary: ctr-enc
 check: ${binary} --version | cut -d' ' -f3 | tr -d v
 build_dependencies:
