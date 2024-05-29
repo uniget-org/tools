@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: earthly
-version: "0.8.12"
+version: "0.8.13"
 check: ${binary} --version | cut -d' ' -f3 | tr -d v
 runtime_dependencies:
 - docker
