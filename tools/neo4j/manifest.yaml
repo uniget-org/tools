@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: neo4j
-version: "5.18.1"
+version: "5.20.0"
 check: ${binary} --version
 runtime_dependencies:
 - openjdk-jre
