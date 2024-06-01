@@ -12,6 +12,8 @@ tags:
 - type/cli
 - state/stale
 - state/onemanshow
+- standard/docker
+- docker
 homepage: https://github.com/plumber-cd/runtainer
 description: Run anything as a container
 renovate:

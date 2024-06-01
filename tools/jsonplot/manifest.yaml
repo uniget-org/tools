@@ -15,7 +15,7 @@ tags:
 - lang/go
 - type/cli
 - state/stale
-- standard/json
+- format/json
 - plot
 - graph
 homepage: https://github.com/sgreben/jp

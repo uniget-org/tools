@@ -15,6 +15,8 @@ tags:
 - lang/go
 - sbom
 - spdx
+- standard/docker
+- docker
 homepage: https://github.com/moby/buildkit
 description: Concurrent, cache-efficient, and Dockerfile-agnostic builder toolkit
 renovate:

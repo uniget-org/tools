@@ -7,7 +7,7 @@ runtime_dependencies:
 - openjdk-jre
 tags:
 - category/development
-- langjava
+- lang/java
 - type/cli
 homepage: https://github.com/structurizr/cli
 description: CLI for Structurizr

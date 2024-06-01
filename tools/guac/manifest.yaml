@@ -12,6 +12,7 @@ tags:
 - type/cli
 - lang/go
 - graphdb
+- visualization
 homepage: https://github.com/guacsec/guac
 description: Aggregate software security metadata into a high fidelity graph database
 renovate:

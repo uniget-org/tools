@@ -11,6 +11,7 @@ tags:
 - state/stale
 - component/monitoring
 - observability/metrics
+- docker
 homepage: https://github.com/bcicen/ctop
 description: Top-like interface for container metrics
 renovate:

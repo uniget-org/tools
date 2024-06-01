@@ -9,6 +9,7 @@ tags:
 - state/stale
 - state/deprecated
 - lang/go
+- docker
 homepage: https://github.com/docker/machine
 description: Machine management for a container-centric world
 renovate:

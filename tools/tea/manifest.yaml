@@ -12,7 +12,7 @@ tags:
 - lang/go
 - type/cli
 homepage: https://gitea.com/gitea/tea
-description: Some description
+description: Command line tool to interact with Gitea servers
 renovate:
   datasource: gitea-releases
   package: gitea/tea

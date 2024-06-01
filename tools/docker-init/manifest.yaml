@@ -11,6 +11,7 @@ tags:
 - category/development
 - lang/go
 - type/cli
+- docker
 homepage: https://docs.docker.com/desktop/
 description: Creates Docker-related starter files for your project
 message:

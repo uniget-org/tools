@@ -15,6 +15,7 @@ tags:
 - type/plugin
 - password
 - management
+- standard/pass
 homepage: https://github.com/roddhjav/pass-import
 description: Pass extension for importing data from most existing password managers
 renovate:

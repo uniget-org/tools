@@ -8,6 +8,7 @@ tags:
 - lang/go
 - observability/metrics
 - state/stale
+- prometheus
 homepage: https://github.com/nalbury/promql-cli
 description: Prometheus Query CLI
 renovate:

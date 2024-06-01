@@ -12,6 +12,7 @@ tags:
 - type/cli
 - graph
 - plot
+- visualization
 homepage: http://www.gnuplot.info
 description: Command-driven, interactive function plotting
 renovate:

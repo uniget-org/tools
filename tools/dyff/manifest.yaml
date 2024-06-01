@@ -6,7 +6,7 @@ tags:
 - category/development
 - type/cli
 - lang/go
-- yaml
+- format/yaml
 homepage: https://github.com/homeport/dyff
 description: Diff tool for YAML files
 renovate:

@@ -4,10 +4,10 @@ version: "5.1.0"
 binary: "false"
 check: "" # No binary
 tags:
-- markdown
 - slides
 - presentation
 - lang/javascript
+- format/markdown
 homepage: https://github.com/hakimel/reveal.js
 description: HTML Presentation Framework
 renovate:

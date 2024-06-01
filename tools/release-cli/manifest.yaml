@@ -11,6 +11,8 @@ tags:
 - category/development
 - lang/go
 - type/cli
+- cloud/gitlab
+- standard/gitlab
 homepage: https://gitlab.com/gitlab-org/release-cli
 description: CLI to interact with GitLab's Releases API
 renovate:

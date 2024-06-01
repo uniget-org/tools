@@ -13,6 +13,8 @@ tags:
 - org/redhat
 - container/runtime
 - lang/rust
+- standard/docker
+- docker
 homepage: https://github.com/containers/youki
 description: Container runtime written in rust
 renovate:

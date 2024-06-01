@@ -11,6 +11,7 @@ tags:
 - lang/go
 - type/cli
 - standard/git
+- git
 homepage: https://github.com/hickford/git-credential-oauth
 description: Git credential helper that securely authenticates to GitHub, GitLab and BitBucket using OAuth
 renovate:

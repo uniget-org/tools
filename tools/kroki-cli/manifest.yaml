@@ -11,7 +11,7 @@ tags:
 - type/cli
 - graph
 - diagram
-- markdown
+- format/markdown
 - state/stale
 homepage: https://github.com/yuzutech/kroki-cli
 description: Kroki CLI

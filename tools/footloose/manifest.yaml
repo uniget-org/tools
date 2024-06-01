@@ -9,6 +9,8 @@ tags:
 - lang/go
 - state/stale
 - state/deprecated
+- standard/docker
+- docker
 homepage: https://github.com/weaveworks/footloose
 description: Containers that look like Virtual Machines
 renovate:

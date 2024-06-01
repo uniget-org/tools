@@ -13,6 +13,7 @@ tags:
 - lang/rust
 - type/cli
 - standard/jq
+- format/json
 homepage: https://github.com/ynqa/jnv
 description: Interactive JSON filter using jq
 renovate:

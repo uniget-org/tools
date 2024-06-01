@@ -11,6 +11,8 @@ tags:
 - category/development
 - lang/c
 - type/cli
+- standard/git
+- git
 homepage: https://github.com/git/git
 description: Distributed version control system
 renovate:

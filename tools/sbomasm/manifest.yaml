@@ -12,6 +12,8 @@ tags:
 - lang/go
 - type/cli
 - sbom
+- format/spdx
+- format/cyclonedx
 homepage: https://github.com/interlynk-io/sbomasm
 description: SBOM Assembler - A tool to compose your various sboms into a single sbom
 renovate:

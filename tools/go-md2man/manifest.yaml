@@ -10,7 +10,8 @@ platforms:
 - linux/arm64
 tags:
 - type/cli
-- markdown
+- format/markdown
+- format/man
 - lang/go
 homepage: https://github.com/cpuguy83/go-md2man
 description: Converts markdown into roff (man pages)

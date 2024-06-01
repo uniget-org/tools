@@ -4,7 +4,7 @@ version: "34.0.0"
 check: ${binary} | grep "fx" | head -n 1 | tr -s ' ' | cut -d' ' -f3
 tags:
 - type/cli
-- format
+- format/json
 - lang/go
 homepage: https://github.com/antonmedv/fx
 description: Terminal JSON viewer

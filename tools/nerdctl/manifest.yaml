@@ -16,6 +16,8 @@ tags:
 - lang/go
 - containerd
 - standard/oci
+- standard/docker
+- docker
 homepage: https://github.com/containerd/nerdctl
 description: Docker-compatible CLI for containerd, with support for Compose, Rootless, eStargz, OCIcrypt, IPFS
 renovate:

@@ -17,6 +17,8 @@ tags:
 - category/operations
 - lang/c
 - type/cli
+- standard/docker
+- docker
 homepage: https://github.com/NVIDIA/nvidia-container-toolkit
 description: Build and run containers leveraging NVIDIA GPUs
 messages:

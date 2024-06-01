@@ -15,7 +15,7 @@ platforms:
 tags:
 - category/operations
 - lang/rust
-- type/?
+- type/cli
 homepage: https://github.com/spinkube/containerd-shim-spin
 description: ContainerD shim for running Spin applications
 renovate:

@@ -15,6 +15,9 @@ tags:
 - type/plugin
 - password
 - management
+- standard/pass
+- standard/git
+- git
 homepage: https://github.com/languitar/pass-git-helper
 description: Git credential helper interfacing with pass, the standard unix password manager
 renovate:

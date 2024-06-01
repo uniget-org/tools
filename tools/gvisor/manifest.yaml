@@ -14,6 +14,8 @@ tags:
 - container/runtime
 - category/security
 - lang/go
+- standard/docker
+- docker
 homepage: https://github.com/google/gvisor
 description: Application Kernel for Containers
 renovate:

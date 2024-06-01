@@ -8,6 +8,7 @@ runtime_dependencies:
 tags:
 - org/portainer
 - standard/docker
+- docker
 - type/daemon
 - kubernetes
 - k8s

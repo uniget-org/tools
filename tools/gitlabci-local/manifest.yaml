@@ -17,6 +17,8 @@ tags:
 - type/cli
 - cicd
 - gitlab
+- standard/docker
+- docker
 homepage: https://gitlab.com/AdrianDC/gitlabci-local
 description: Launch .gitlab-ci.yml jobs locally
 renovate:

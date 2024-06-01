@@ -11,6 +11,7 @@ tags:
 - state/stale
 - password
 - management
+- standard/pass
 homepage: https://github.com/palortoff/pass-extension-tail
 description: Pass extension to avoid printing the password to the console
 renovate:

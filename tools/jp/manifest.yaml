@@ -5,10 +5,10 @@ check: ${binary} --version | cut -d' ' -f3
 tags:
 - standard/jmespath
 - type/cli
-- format
 - lang/go
 - format/json
 - state/stale
+- standard/jmespath
 homepage: https://github.com/jmespath/jp
 description: Command line interface to JMESPath
 renovate:

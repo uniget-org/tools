@@ -16,6 +16,7 @@ tags:
 - lang/python
 - type/cli
 - standard/git
+- git
 homepage: https://github.com/nosarthur/gita
 description: Manage many git repos with sanity
 renovate:

@@ -10,7 +10,6 @@ platforms:
 - linux/arm64
 tags:
 - type/cli
-- format
 - lang/c
 - standard/jq
 - format/json

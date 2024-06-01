@@ -9,7 +9,6 @@ conflicts_with:
 - jq
 tags:
 - type/cli
-- format
 - lang/rust
 - standard/jq
 - format/json

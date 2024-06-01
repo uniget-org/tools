@@ -11,6 +11,7 @@ tags:
 - lang/go
 - policy
 - management
+- standard/rego
 homepage: https://github.com/open-policy-agent/opa
 description: Open source, general-purpose policy engine
 renovate:

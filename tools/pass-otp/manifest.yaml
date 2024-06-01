@@ -11,6 +11,7 @@ tags:
 - state/stale
 - password
 - management
+- standard/pass
 homepage: https://github.com/tadfisher/pass-otp
 description: Pass extension for managing one-time-password (OTP) tokens
 renovate:

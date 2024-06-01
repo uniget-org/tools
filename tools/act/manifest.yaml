@@ -12,6 +12,7 @@ tags:
 - lang/go
 - cloud/github
 - standard/github
+- docker
 homepage: https://github.com/nektos/act
 description: Run your GitHub Actions locally
 renovate:

@@ -10,6 +10,7 @@ tags:
 - type/cli
 - password
 - management
+- standard/pass
 homepage: https://www.passwordstore.org/
 description: The standard unix password manager
 messages:

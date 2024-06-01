@@ -10,6 +10,8 @@ tags:
 - category/development
 - lang/shell
 - terminal
+- standard/git
+- git
 homepage: https://github.com/wfxr/forgit
 description: Utility tool powered by fzf for using git interactively
 renovate:

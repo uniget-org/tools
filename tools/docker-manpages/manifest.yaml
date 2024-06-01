@@ -17,6 +17,7 @@ tags:
 - container/runtime
 - container/build
 - type/documentation
+- docker
 homepage: https://www.docker.com/
 description: The Docker CLI
 renovate:

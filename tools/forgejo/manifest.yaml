@@ -11,6 +11,7 @@ tags:
 - type/daemon
 - type/cli
 - standard/git
+- git
 homepage: https://codeberg.org/forgejo/forgejo
 description: Beyond coding. We forge.
 renovate:

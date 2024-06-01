@@ -11,6 +11,8 @@ tags:
 - category/development
 - lang/go
 - type/cli
+- standard/docker
+- docker
 homepage: https://docs.docker.com/desktop/
 description: Get a shell into any container or image
 message:

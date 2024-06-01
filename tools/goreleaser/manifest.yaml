@@ -13,6 +13,7 @@ tags:
 - category/development
 - cicd
 - lang/go
+- type/cli
 homepage: https://github.com/goreleaser/goreleaser
 description: Deliver Go binaries as fast and easily as possible
 renovate:

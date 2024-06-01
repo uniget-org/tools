@@ -11,6 +11,7 @@ tags:
 - type/daemon
 - type/cli
 - standard/git
+- git
 homepage: https://github.com/go-gitea/gitea
 description: Git with a cup of tea, painless self-hosted git service
 renovate:

@@ -12,6 +12,8 @@ tags:
 - type/cli
 - format/json
 - standard/jsonpath
+- prometheus
+- exporter
 homepage: https://github.com/prometheus-community/json_exporter
 description: Prometheus exporter which scrapes remote JSON by JSONPath
 renovate:

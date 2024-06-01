@@ -12,6 +12,11 @@ tags:
 - lang/go
 - type/cli
 - scan
+- docker
+- sbom
+- standard/vex
+- standard/spdx
+- standard/cyclonedx
 homepage: https://github.com/docker/scout-cli
 description: Secure your supply chain at every layer
 renovate:

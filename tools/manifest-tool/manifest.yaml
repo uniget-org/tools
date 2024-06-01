@@ -10,6 +10,8 @@ tags:
 - container/registry
 - type/cli
 - lang/go
+- standard/docker
+- docker
 homepage: https://github.com/estesp/manifest-tool
 description: Command line tool to create and query container image manifest list/indexes
 renovate:

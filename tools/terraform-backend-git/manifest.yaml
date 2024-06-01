@@ -15,6 +15,8 @@ tags:
 - type/plugin
 - component/storage
 - management
+- standard/git
+- git
 homepage: https://github.com/plumber-cd/terraform-backend-git
 description: Terraform HTTP Backend implementation that uses Git repository as storage
 renovate:

@@ -7,7 +7,7 @@ platforms:
 - linux/amd64
 - linux/arm64
 tags:
-- category/developmenmt
+- category/development
 - lang/go
 - type/cli
 homepage: https://github.com/jorgerojas26/lazysql

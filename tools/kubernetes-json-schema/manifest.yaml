@@ -10,7 +10,6 @@ platforms:
 tags:
 - kubernetes
 - k8s
-- lang/json
 - type/library
 - format/json
 - category/operations

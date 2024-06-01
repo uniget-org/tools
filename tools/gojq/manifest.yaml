@@ -12,7 +12,6 @@ platforms:
 tags:
 - lang/go
 - type/cli
-- format
 - standard/jq
 - format/json
 homepage: https://github.com/itchyny/gojq

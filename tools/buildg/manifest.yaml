@@ -11,6 +11,8 @@ tags:
 - category/development
 - type/cli
 - lang/go
+- standard/docker
+- docker
 homepage: https://github.com/ktock/buildg
 description: Interactive debugger for Dockerfile
 renovate:

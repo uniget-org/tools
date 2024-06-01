@@ -8,7 +8,7 @@ tags:
 - category/security
 - type/cli
 - lang/rust
-- standard/json
+- format/json
 - standard/jwt
 homepage: https://github.com/mike-engel/jwt-cli
 description: Super fast CLI tool to decode and encode JWTs

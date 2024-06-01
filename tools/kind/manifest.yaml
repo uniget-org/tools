@@ -10,6 +10,7 @@ platforms:
 tags:
 - org/cncf
 - standard/docker
+- docker
 - type/cli
 - kubernetes
 - k8s

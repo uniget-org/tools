@@ -8,6 +8,8 @@ tags:
 - lang/go
 - state/stale
 - format/yaml
+- kubernetes
+- k8s
 homepage: https://github.com/andreazorzetto/yh
 description: YAML syntax highlighter to bring colours to kubectl output
 renovate:

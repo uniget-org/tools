@@ -9,6 +9,8 @@ tags:
 - management
 - lang/go
 - state/stale
+- standard/docker
+- docker
 homepage: https://github.com/EnvCLI/EnvCLI
 description: Don't install locally, use containers you define within your project
 renovate:

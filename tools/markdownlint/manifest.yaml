@@ -15,6 +15,7 @@ tags:
 - category/development
 - lang/javascript
 - type/cli
+- format/markdown
 homepage: https://github.com/igorshubovych/markdownlint-cli
 description: MarkdownLint Command Line Interface
 renovate:

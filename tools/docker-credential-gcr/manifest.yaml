@@ -10,6 +10,7 @@ tags:
 - category/security
 - cloud/google
 - lang/go
+- docker
 homepage: https://github.com/GoogleCloudPlatform/docker-credential-gcr
 description: Docker credential helper for GCR users
 renovate:

@@ -5,7 +5,7 @@ check: "" # No version parameter
 platforms:
 - linux/amd64
 tags:
-- category/opertions
+- category/operations
 - lang/go
 - type/cli
 - kubernetes

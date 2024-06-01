@@ -10,6 +10,7 @@ tags:
 - category/security
 - lang/go
 - type/cli
+- standard/git
 - git
 homepage: https://github.com/gittuf/gittuf
 description: Security layer for Git repositories

@@ -4,7 +4,11 @@ version: "2.7.0"
 check: ${binary} --version | cut -d' ' -f3 | tr -d v
 tags:
 - type/cli
-- format
+- format/json
+- format/toml
+- format/yaml
+- format/xml
+- format/csv
 - lang/go
 homepage: https://github.com/TomWright/dasel
 description: Select, put and delete data from JSON, TOML, YAML, XML and CSV files

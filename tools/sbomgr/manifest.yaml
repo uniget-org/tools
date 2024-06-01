@@ -12,6 +12,8 @@ tags:
 - lang/go
 - type/cli
 - sbom
+- format/spdx
+- format/cyclonedx
 homepage: https://github.com/interlynk-io/sbomgr
 description: SBOM Grep - search through SBOMs
 renovate:

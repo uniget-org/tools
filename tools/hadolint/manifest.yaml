@@ -10,6 +10,8 @@ tags:
 - cicd
 - lang/haskell
 - state/stale
+- standard/docker
+- docker
 homepage: https://github.com/hadolint/hadolint
 description: Dockerfile linter, validate inline bash
 renovate:

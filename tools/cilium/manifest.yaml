@@ -12,6 +12,7 @@ tags:
 - k8s
 - standard/cni
 - lang/go
+- cilium
 homepage: https://github.com/cilium/cilium-cli
 description: CLI to install, manage & troubleshoot Kubernetes clusters running Cilium
 renovate:
