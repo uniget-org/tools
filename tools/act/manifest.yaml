@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: act
-version: "0.2.62"
+version: "0.2.63"
 check: ${binary} --version | cut -d' ' -f3
 runtime_dependencies:
 - docker
