@@ -22,7 +22,6 @@ tags:
 homepage: https://github.com/mkaz/termgraph
 description: Command-line tool which draws basic graphs in the terminal
 renovate:
-  datasource: github-releases
-  package: mkaz/termgraph
-  extractVersion: ^v(?<version>.+?)$
+  datasource: pypi
+  package: termgraph
   priority: low

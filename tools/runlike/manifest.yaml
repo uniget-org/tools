@@ -20,6 +20,6 @@ tags:
 homepage: https://github.com/lavie/runlike
 description: Given an existing docker container, prints the command line necessary to run a copy of it
 renovate:
-  datasource: github-releases
-  package: lavie/runlike
+  datasource: pypi
+  package: runlike
   priority: low

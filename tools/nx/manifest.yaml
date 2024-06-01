@@ -16,6 +16,6 @@ tags:
 homepage: https://github.com/nrwl/nx
 description: Smart, Fast and Extensible Build System
 renovate:
-  datasource: github-releases
-  package: nrwl/nx
+  datasource: npm
+  package: nx
   priority: low

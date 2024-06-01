@@ -19,6 +19,6 @@ tags:
 homepage: https://github.com/mermaid-js/mermaid-cli
 description: Command line tool for the Mermaid library
 renovate:
-  datasource: github-releases
-  package: mermaid-js/mermaid-cli
+  datasource: npm
+  package: "@mermaid-js/mermaid-cli"
   priority: low

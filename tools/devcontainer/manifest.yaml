@@ -19,7 +19,6 @@ tags:
 homepage: https://github.com/devcontainers/cli
 description: Reference implementation for the specification that can create and configure a dev container from a devcontainer.json
 renovate:
-  datasource: github-tags
-  package: devcontainers/cli
-  extractVersion: ^v(?<version>.+?)$
+  datasource: npm
+  package: "@devcontainers/cli"
   priority: medium

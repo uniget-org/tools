@@ -7,13 +7,6 @@
       "transformTemplates": [
         "{ \"releases\": [ $[].{ \"version\": $replace( $substring( tag_name, 5 ), '_', '.' ) } ] }"
       ]
-    },
-    "mu-repo": {
-      "defaultRegistryUrlTemplate": "https://api.github.com/repos/fabioz/mu-repo/git/matching-refs/tags/mu_repo_",
-      "format": "json",
-      "transformTemplates": [
-        "{ \"releases\": [ $[].{ \"version\": $replace( $substring( ref, 18 ), '_', '.') } ] }"
-      ]
     }
   },
   "customManagers": [
@@ -589,9 +582,8 @@
     },
     {
       "customType": "regex",
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "CycloneDX/cdxgen",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "datasourceTemplate": "npm",
+      "depNameTemplate": "@cyclonedx/cdxgen",
       "fileMatch": [
         "^tools/cdxgen/manifest.yaml$"
       ],
@@ -660,8 +652,8 @@
     },
     {
       "customType": "regex",
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "bridgecrewio/checkov",
+      "datasourceTemplate": "pypi",
+      "depNameTemplate": "checkov",
       "fileMatch": [
         "^tools/checkov/manifest.yaml$"
       ],
@@ -896,9 +888,8 @@
     },
     {
       "customType": "regex",
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "composerize/composerize",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "datasourceTemplate": "npm",
+      "depNameTemplate": "composerize",
       "fileMatch": [
         "^tools/composerize/manifest.yaml$"
       ],
@@ -1328,16 +1319,14 @@
     },
     {
       "customType": "regex",
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "intel/cve-bin-tool",
-      "extractVersionTemplate": "^v(?<version>\\d+\\.\\d+(\\.\\d+)??)$",
+      "datasourceTemplate": "pypi",
+      "depNameTemplate": "cve-bin-tool",
       "fileMatch": [
         "^tools/cve-bin-tool/manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
-      ],
-      "versioningTemplate": "loose"
+      ]
     },
     {
       "customType": "regex",
@@ -1528,9 +1517,8 @@
     },
     {
       "customType": "regex",
-      "datasourceTemplate": "github-tags",
-      "depNameTemplate": "devcontainers/cli",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "datasourceTemplate": "npm",
+      "depNameTemplate": "@devcontainers/cli",
       "fileMatch": [
         "^tools/devcontainer/manifest.yaml$"
       ],
@@ -2311,9 +2299,8 @@
     },
     {
       "customType": "regex",
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "laixintao/flameshow",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "datasourceTemplate": "pypi",
+      "depNameTemplate": "flameshow",
       "fileMatch": [
         "^tools/flameshow/manifest.yaml$"
       ],
@@ -2654,16 +2641,14 @@
     },
     {
       "customType": "regex",
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "nosarthur/gita",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "datasourceTemplate": "pypi",
+      "depNameTemplate": "gita",
       "fileMatch": [
         "^tools/gita/manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
-      ],
-      "versioningTemplate": "loose"
+      ]
     },
     {
       "customType": "regex",
@@ -3060,9 +3045,8 @@
     },
     {
       "customType": "regex",
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "gruntjs/grunt",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "datasourceTemplate": "npm",
+      "depNameTemplate": "grunt",
       "fileMatch": [
         "^tools/grunt/manifest.yaml$"
       ],
@@ -3252,8 +3236,8 @@
     },
     {
       "customType": "regex",
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "httpie/cli",
+      "datasourceTemplate": "pypi",
+      "depNameTemplate": "httpie",
       "fileMatch": [
         "^tools/httpie/manifest.yaml$"
       ],
@@ -4034,8 +4018,8 @@
     },
     {
       "customType": "regex",
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "senges/kitt",
+      "datasourceTemplate": "pypi",
+      "depNameTemplate": "kitt",
       "fileMatch": [
         "^tools/kitt/manifest.yaml$"
       ],
@@ -5208,8 +5192,8 @@
     },
     {
       "customType": "regex",
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "mermaid-js/mermaid-cli",
+      "datasourceTemplate": "npm",
+      "depNameTemplate": "@mermaid-js/mermaid-cli",
       "fileMatch": [
         "^tools/mermaid-cli/manifest.yaml$"
       ],
@@ -5352,8 +5336,8 @@
     },
     {
       "customType": "regex",
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "mkdocs/mkdocs",
+      "datasourceTemplate": "pypi",
+      "depNameTemplate": "mkdocs",
       "fileMatch": [
         "^tools/mkdocs/manifest.yaml$"
       ],
@@ -5400,8 +5384,8 @@
     },
     {
       "customType": "regex",
-      "datasourceTemplate": "custom.mu-repo",
-      "depNameTemplate": "fabioz/mu-repo",
+      "datasourceTemplate": "pypi",
+      "depNameTemplate": "mu-repo",
       "fileMatch": [
         "^tools/mu-repo/manifest.yaml$"
       ],
@@ -5554,9 +5538,8 @@
     },
     {
       "customType": "regex",
-      "datasourceTemplate": "github-tags",
-      "depNameTemplate": "postmanlabs/newman",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "datasourceTemplate": "npm",
+      "depNameTemplate": "newman",
       "fileMatch": [
         "^tools/newman/manifest.yaml$"
       ],
@@ -5710,8 +5693,8 @@
     },
     {
       "customType": "regex",
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "nrwl/nx",
+      "datasourceTemplate": "npm",
+      "depNameTemplate": "nx",
       "fileMatch": [
         "^tools/nx/manifest.yaml$"
       ],
@@ -6606,8 +6589,8 @@
     },
     {
       "customType": "regex",
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "lavie/runlike",
+      "datasourceTemplate": "pypi",
+      "depNameTemplate": "runlike",
       "fileMatch": [
         "^tools/runlike/manifest.yaml$"
       ],
@@ -6905,9 +6888,8 @@
     },
     {
       "customType": "regex",
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "serverless/serverless",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "datasourceTemplate": "npm",
+      "depNameTemplate": "serverless",
       "fileMatch": [
         "^tools/serverless/manifest.yaml$"
       ],
@@ -6929,8 +6911,8 @@
     },
     {
       "customType": "regex",
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "TheR1D/shell_gpt",
+      "datasourceTemplate": "pypi",
+      "depNameTemplate": "shell-gpt",
       "fileMatch": [
         "^tools/shell-gpt/manifest.yaml$"
       ],
@@ -7468,9 +7450,8 @@
     },
     {
       "customType": "regex",
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "mkaz/termgraph",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "datasourceTemplate": "pypi",
+      "depNameTemplate": "termgraph",
       "fileMatch": [
         "^tools/termgraph/manifest.yaml$"
       ],
@@ -7635,9 +7616,8 @@
     },
     {
       "customType": "regex",
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "Textualize/toolong",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "datasourceTemplate": "pypi",
+      "depNameTemplate": "toolong",
       "fileMatch": [
         "^tools/toolong/manifest.yaml$"
       ],
@@ -8370,9 +8350,8 @@
     },
     {
       "customType": "regex",
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "yarnpkg/yarn",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "datasourceTemplate": "npm",
+      "depNameTemplate": "yarn",
       "fileMatch": [
         "^tools/yarn/manifest.yaml$"
       ],

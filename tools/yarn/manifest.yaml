@@ -19,7 +19,6 @@ tags:
 homepage: https://github.com/yarnpkg/yarn
 description: Fast, reliable, and secure dependency management
 renovate:
-  datasource: github-releases
-  package: yarnpkg/yarn
-  extractVersion: ^v(?<version>.+?)$
+  datasource: npm
+  package: yarn
   priority: low

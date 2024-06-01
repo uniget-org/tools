@@ -20,7 +20,6 @@ tags:
 homepage: https://github.com/serverless/serverless
 description: Build web, mobile and IoT applications with serverless architectures using AWS Lambda, Azure Functions, Google CloudFunctions & more
 renovate:
-  datasource: github-releases
-  package: serverless/serverless
-  extractVersion: ^v(?<version>.+?)$
+  datasource: npm
+  package: serverless
   priority: low

@@ -20,7 +20,6 @@ tags:
 homepage: https://github.com/CycloneDX/cdxgen
 description: Creates CycloneDX Software Bill-of-Materials (SBOM) for your projects from source and container images
 renovate:
-  datasource: github-releases
-  package: CycloneDX/cdxgen
-  extractVersion: ^v(?<version>.+?)$
+  datasource: npm
+  package: "@cyclonedx/cdxgen"
   priority: low

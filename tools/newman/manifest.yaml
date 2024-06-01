@@ -17,7 +17,6 @@ tags:
 homepage: https://github.com/postmanlabs/newman
 description: The JavaScript Task Runner
 renovate:
-  datasource: github-tags
-  package: postmanlabs/newman
-  extractVersion: ^v(?<version>.+?)$
+  datasource: npm
+  package: newman
   priority: low

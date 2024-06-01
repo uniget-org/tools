@@ -18,7 +18,6 @@ tags:
 homepage: https://github.com/laixintao/flameshow
 description: Terminal flamegraph viewer
 renovate:
-  datasource: github-releases
-  package: laixintao/flameshow
-  extractVersion: ^v(?<version>.+?)$
+  datasource: pypi
+  package: flameshow
   priority: low

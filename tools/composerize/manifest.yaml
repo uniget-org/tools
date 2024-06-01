@@ -19,7 +19,6 @@ tags:
 homepage: https://github.com/composerize/composerize
 description: Turns docker run commands into docker-compose files
 renovate:
-  datasource: github-releases
-  package: composerize/composerize
-  extractVersion: ^v(?<version>.+?)$
+  datasource: npm
+  package: composerize
   priority: medium

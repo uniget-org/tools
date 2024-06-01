@@ -19,8 +19,6 @@ tags:
 homepage: https://github.com/nosarthur/gita
 description: Manage many git repos with sanity
 renovate:
-  datasource: github-releases
-  package: nosarthur/gita
-  extractVersion: ^v(?<version>.+?)$
-  versioning: loose
+  datasource: pypi
+  package: gita
   priority: low

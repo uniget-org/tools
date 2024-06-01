@@ -20,6 +20,6 @@ tags:
 homepage: https://github.com/senges/kitt
 description: Container based portable shell environment
 renovate:
-  datasource: github-releases
-  package: senges/kitt
+  datasource: pypi
+  package: kitt
   priority: low

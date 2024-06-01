@@ -19,7 +19,6 @@ tags:
 homepage: https://github.com/Textualize/toolong
 description: Terminal application to view, tail, merge, and search log files (plus JSONL)
 renovate:
-  datasource: github-releases
-  package: Textualize/toolong
-  extractVersion: ^v(?<version>.+?)$
+  datasource: pypi
+  package: toolong
   priority: low

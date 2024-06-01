@@ -18,7 +18,6 @@ tags:
 homepage: https://github.com/gruntjs/grunt
 description: The JavaScript Task Runner
 renovate:
-  datasource: github-releases
-  package: gruntjs/grunt
-  extractVersion: ^v(?<version>.+?)$
+  datasource: npm
+  package: grunt
   priority: low

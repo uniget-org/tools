@@ -17,6 +17,6 @@ tags:
 homepage: https://github.com/bridgecrewio/checkov
 description: Prevent cloud misconfigurations and find vulnerabilities during build-time in infrastructure as code, container images and open source packages
 renovate:
-  datasource: github-releases
-  package: bridgecrewio/checkov
+  datasource: pypi
+  package: checkov
   priority: low

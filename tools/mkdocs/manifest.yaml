@@ -19,6 +19,6 @@ tags:
 homepage: https://github.com/mkdocs/mkdocs
 description: Some description
 renovate:
-  datasource: github-releases
-  package: mkdocs/mkdocs
+  datasource: pypi
+  package: mkdocs
   priority: low
