@@ -4019,7 +4019,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "pypi",
-      "depNameTemplate": "kitt",
+      "depNameTemplate": "kitt-shell",
       "fileMatch": [
         "^tools/kitt/manifest.yaml$"
       ],

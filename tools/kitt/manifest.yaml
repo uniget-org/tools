@@ -21,5 +21,5 @@ homepage: https://github.com/senges/kitt
 description: Container based portable shell environment
 renovate:
   datasource: pypi
-  package: kitt
+  package: kitt-shell
   priority: low
