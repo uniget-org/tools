@@ -2,7 +2,7 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: containers-storage
 version: "1.54.0"
-check: ${binary} version 2>&1 | grep ^Version | cut -d' ' -f2
+check: ${binary} version --unshare=false 2>&1 | grep ^Version | cut -d' ' -f2
 build_dependencies:
 - go
 - make
