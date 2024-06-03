@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: spc
+version: "2.2.1"
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/php
+- type/cli
+homepage: https://github.com/crazywhalecc/static-php-cli
+description: Build standalone PHP binary with popular extensions included
+renovate:
+  datasource: github-releases
+  package: crazywhalecc/static-php-cli
+  priority: low
