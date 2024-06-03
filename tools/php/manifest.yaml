@@ -2,10 +2,9 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: php
 version: "8.3.7"
-check: ""
+check: ${binary} --version | grep ^PHP | cut -d' ' -f2
 platforms:
 - linux/amd64
-#- linux/arm64
 tags:
 - category/development
 - lang/c
