@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: php
+version: "8.3.7"
+check: ""
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- category/development
+- lang/c
+- type/cli
+homepage: https://github.com/php/php-src
+description: PHP Interpreter
+renovate:
+  datasource: github-tags
+  package: php/php-src
+  extractVersion: ^php-(?<version>\d+\.\d+\.\d+)$
+  priority: low

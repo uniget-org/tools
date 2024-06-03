@@ -6113,6 +6113,18 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-tags",
+      "depNameTemplate": "php/php-src",
+      "extractVersionTemplate": "^php-(?<version>\\d+\\.\\d+\\.\\d+)$",
+      "fileMatch": [
+        "^tools/php/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-tags",
       "depNameTemplate": "madler/pigz",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [

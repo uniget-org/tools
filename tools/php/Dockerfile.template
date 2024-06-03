@@ -1,0 +1,28 @@
+#syntax=docker/dockerfile:1.7.1
+
+FROM ghcr.io/uniget-org/tools/make:latest AS make
+
+FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+COPY --link --from=make / /usr/local/
+RUN <<EOF
+apt-get update
+apt-get install -y --no-install-recommends \
+    re2c \
+    libxml2-dev \
+    libsqlite3-dev \
+    bison
+EOF
+WORKDIR /tmp/php
+RUN <<EOF
+git clone -q --config advice.detachedHead=false --depth 1 --branch "php-${version}" https://github.com/php/php-src .
+./buildconf --force
+./configure --prefix="${prefix}"
+make -j$(nproc) LDFLAGS=-static
+make install
+EOF
