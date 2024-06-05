@@ -2,7 +2,7 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: qrencode
 version: "4.1.1"
-check: ""
+check: ${binary} --version | grep ^qrencode | cut -d' ' -f3
 build_dependencies:
 - make
 platforms:
