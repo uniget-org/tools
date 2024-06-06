@@ -2,8 +2,8 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: docker
 version: "26.1.4"
-binary: dockerd
-check: ${binary} --version | cut -d, -f1 | cut -d' ' -f3
+binary: "false"
+check: "" # No binary
 runtime_dependencies:
 - docker
 - rootlesskit
