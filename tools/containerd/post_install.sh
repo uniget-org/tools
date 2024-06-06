@@ -9,8 +9,8 @@ if ! test -f "/etc/containerd/config.toml"; then
     echo "Adding default configuration"
     "${target}/bin/containerd" config default \
     | sed "s|/opt/cni/bin|${target}/libexec/cni|" \
-    | sed -i 's|imports = \[\]|imports = ["/etc/containerd/conf.d/*.toml"]|' \
-    | sed -i 's|config_path = ""|config_path = "/etc/containerd/certs.d"|' \
+    | sed 's|imports = \[\]|imports = ["/etc/containerd/conf.d/*.toml"]|' \
+    | sed 's|config_path = ""|config_path = "/etc/containerd/certs.d"|' \
     >"/etc/containerd/config.toml"
 fi
 
