@@ -8,4 +8,4 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 COPY docker.service /uniget_bootstrap/.config/systemd/user/
-COPY delegate.conf /uniget_bootstrap/var/lib/uniget/contrib/docker-rootless/delegate.conf << EOF
+COPY delegate.conf /uniget_bootstrap/var/lib/uniget/contrib/docker-rootless/delegate.conf
