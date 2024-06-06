@@ -64,13 +64,26 @@ function is_alpine() {
     esac
 }
 
+if test "${name}" == "docker"; then
+    echo "Install systemd unit (@ ${SECONDS} seconds)"
+    cat "${target}/etc/systemd/system/docker.service" \
+    | sed -E "s|/usr/local/bin/dockerd|${target}/bin/dockerd|" \
+    >"/etc/systemd/system/docker.service"
+
+    echo "Patch paths in init scripts (@ ${SECONDS} seconds)"
+    sed -i -E "s|^DOCKERD=/usr/local/bin/dockerd|DOCKERD=${target}/bin/dockerd|" "${uniget_contrib}/${name}/sysvinit/debian/docker"
+    sed -i -E "s|/usr/local/bin/dockerd|${target}/bin/dockerd|" "${uniget_contrib}/${name}/sysvinit/redhat/docker"
+    sed -i "s|/usr/local/bin/dockerd|${target}/bin/dockerd|" "${uniget_contrib}/${name}/openrc/docker.initd"
+    sed -i "s|/usr/local/bin/dockerd|${target}/bin/dockerd|" "${uniget_contrib}/${name}/openrc/docker.confd"
+fi
+
 if test -f "/etc/group"; then
     echo "Create group (@ ${SECONDS} seconds)"
     groupadd --prefix "" --system --force docker
 fi
 
 echo "Configure daemon (@ ${SECONDS} seconds)"
-mkdir -p "/etc/${name}"
+mkdir -p "/etc/docker"
 if ! test -f "/etc/${name}/daemon.json"; then
     echo "Initialize dockerd configuration"
     echo "{}" >"/etc/${name}/daemon.json"
@@ -89,17 +102,20 @@ if test -f "/etc/fstab"; then
             echo "Configuring storage driver for DinD"
             # shellcheck disable=SC2094
             cat <<< "$(jq '. * {"storage-driver": "fuse-overlayfs"}' "/etc/${name}/daemon.json")" >"/etc/${name}/daemon.json"
-
-        else
-            echo "fuse-overlayfs should be planned for installation."
         fi
     fi
 fi
 
 if ! test "$(jq '."exec-opts" // [] | any(. | startswith("native.cgroupdriver="))' "/etc/${name}/daemon.json")" == "true"; then
     echo "Configuring native cgroup driver"
-    # shellcheck disable=SC2094
-    cat <<< "$(jq '."exec-opts" += ["native.cgroupdriver=cgroupfs"]' "/etc/${name}/daemon.json")" >"/etc/${name}/daemon.json"
+
+    if systemctl >/dev/null 2>&1; then
+        # shellcheck disable=SC2094
+        cat <<< "$(jq '."exec-opts" += ["native.cgroupdriver=systemd"]' "/etc/${name}/daemon.json")" >"/etc/${name}/daemon.json"
+    else
+        # shellcheck disable=SC2094
+        cat <<< "$(jq '."exec-opts" += ["native.cgroupdriver=cgroupfs"]' "/etc/${name}/daemon.json")" >"/etc/${name}/daemon.json"
+    fi
 fi
 if ! test "$(jq '. | keys | any(. == "default-runtime")' "/etc/${name}/daemon.json")" == true; then
     echo "Set default runtime"
@@ -160,6 +176,12 @@ fi
 if systemctl >/dev/null 2>&1; then
     echo "Reload systemd (@ ${SECONDS} seconds)"
     systemctl daemon-reload
+
+    if test "${name}" == "docker" && ! systemctl is-active --quiet docker; then
+        echo "Start dockerd (@ ${SECONDS} seconds)"
+        systemctl enable docker
+        systemctl start docker
+    fi
 fi
 
 echo "Finished after ${SECONDS} seconds."

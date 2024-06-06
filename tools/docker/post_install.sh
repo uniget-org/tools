@@ -64,16 +64,18 @@ function is_alpine() {
     esac
 }
 
-echo "Install systemd unit (@ ${SECONDS} seconds)"
-cat "${target}/etc/systemd/system/docker.service" \
-| sed -E "s|/usr/local/bin/dockerd|${target}/bin/dockerd|" \
->"/etc/systemd/system/docker.service"
+if test "${name}" == "docker"; then
+    echo "Install systemd unit (@ ${SECONDS} seconds)"
+    cat "${target}/etc/systemd/system/docker.service" \
+    | sed -E "s|/usr/local/bin/dockerd|${target}/bin/dockerd|" \
+    >"/etc/systemd/system/docker.service"
 
-echo "Patch paths in init scripts (@ ${SECONDS} seconds)"
-sed -i -E "s|^DOCKERD=/usr/local/bin/dockerd|DOCKERD=${target}/bin/dockerd|" "${uniget_contrib}/${name}/sysvinit/debian/docker"
-sed -i -E "s|/usr/local/bin/dockerd|${target}/bin/dockerd|" "${uniget_contrib}/${name}/sysvinit/redhat/docker"
-sed -i "s|/usr/local/bin/dockerd|${target}/bin/dockerd|" "${uniget_contrib}/${name}/openrc/docker.initd"
-sed -i "s|/usr/local/bin/dockerd|${target}/bin/dockerd|" "${uniget_contrib}/${name}/openrc/docker.confd"
+    echo "Patch paths in init scripts (@ ${SECONDS} seconds)"
+    sed -i -E "s|^DOCKERD=/usr/local/bin/dockerd|DOCKERD=${target}/bin/dockerd|" "${uniget_contrib}/${name}/sysvinit/debian/docker"
+    sed -i -E "s|/usr/local/bin/dockerd|${target}/bin/dockerd|" "${uniget_contrib}/${name}/sysvinit/redhat/docker"
+    sed -i "s|/usr/local/bin/dockerd|${target}/bin/dockerd|" "${uniget_contrib}/${name}/openrc/docker.initd"
+    sed -i "s|/usr/local/bin/dockerd|${target}/bin/dockerd|" "${uniget_contrib}/${name}/openrc/docker.confd"
+fi
 
 if test -f "/etc/group"; then
     echo "Create group (@ ${SECONDS} seconds)"
@@ -82,9 +84,9 @@ fi
 
 echo "Configure daemon (@ ${SECONDS} seconds)"
 mkdir -p "/etc/docker"
-if ! test -f "/etc/docker/daemon.json"; then
+if ! test -f "/etc/${name}/daemon.json"; then
     echo "Initialize dockerd configuration"
-    echo "{}" >"/etc/docker/daemon.json"
+    echo "{}" >"/etc/${name}/daemon.json"
 fi
 
 if test -f "/etc/fstab"; then
@@ -99,50 +101,53 @@ if test -f "/etc/fstab"; then
         if grep -qE "^[^:]+:[^:]*:/.+$" /proc/1/cgroup; then
             echo "Configuring storage driver for DinD"
             # shellcheck disable=SC2094
-            cat <<< "$(jq '. * {"storage-driver": "fuse-overlayfs"}' "/etc/docker/daemon.json")" >"/etc/docker/daemon.json"
-
-        else
-            echo "fuse-overlayfs should be planned for installation."
+            cat <<< "$(jq '. * {"storage-driver": "fuse-overlayfs"}' "/etc/${name}/daemon.json")" >"/etc/${name}/daemon.json"
         fi
     fi
 fi
 
-if ! test "$(jq '."exec-opts" // [] | any(. | startswith("native.cgroupdriver="))' "/etc/docker/daemon.json")" == "true"; then
+if ! test "$(jq '."exec-opts" // [] | any(. | startswith("native.cgroupdriver="))' "/etc/${name}/daemon.json")" == "true"; then
     echo "Configuring native cgroup driver"
-    # shellcheck disable=SC2094
-    cat <<< "$(jq '."exec-opts" += ["native.cgroupdriver=cgroupfs"]' "/etc/docker/daemon.json")" >"/etc/docker/daemon.json"
+
+    if systemctl >/dev/null 2>&1; then
+        # shellcheck disable=SC2094
+        cat <<< "$(jq '."exec-opts" += ["native.cgroupdriver=systemd"]' "/etc/${name}/daemon.json")" >"/etc/${name}/daemon.json"
+    else
+        # shellcheck disable=SC2094
+        cat <<< "$(jq '."exec-opts" += ["native.cgroupdriver=cgroupfs"]' "/etc/${name}/daemon.json")" >"/etc/${name}/daemon.json"
+    fi
 fi
-if ! test "$(jq '. | keys | any(. == "default-runtime")' "/etc/docker/daemon.json")" == true; then
+if ! test "$(jq '. | keys | any(. == "default-runtime")' "/etc/${name}/daemon.json")" == true; then
     echo "Set default runtime"
     # shellcheck disable=SC2094
-    cat <<< "$(jq '. * {"default-runtime": "runc"}' "/etc/docker/daemon.json")" >"/etc/docker/daemon.json"
+    cat <<< "$(jq '. * {"default-runtime": "runc"}' "/etc/${name}/daemon.json")" >"/etc/${name}/daemon.json"
 fi
 # shellcheck disable=SC2016
-if test -n "${docker_address_base}" && test -n "${docker_address_size}" && ! test "$(jq --arg base "${docker_address_base}" --arg size "${docker_address_size}" '."default-address-pool" | any(.base == $base and .size == $size)' "/etc/docker/daemon.json")" == "true"; then
+if test -n "${docker_address_base}" && test -n "${docker_address_size}" && ! test "$(jq --arg base "${docker_address_base}" --arg size "${docker_address_size}" '."default-address-pool" | any(.base == $base and .size == $size)' "/etc/${name}/daemon.json")" == "true"; then
     echo "Add address pool with base ${docker_address_base} and size ${docker_address_size}"
     # shellcheck disable=SC2094
-    cat <<< "$(jq --args base "${docker_address_base}" --arg size "${docker_address_size}" '."default-address-pool" += {"base": $base, "size": $size}' "/etc/docker/daemon.json")" >"/etc/docker/daemon.json"
+    cat <<< "$(jq --args base "${docker_address_base}" --arg size "${docker_address_size}" '."default-address-pool" += {"base": $base, "size": $size}' "/etc/${name}/daemon.json")" >"/etc/${name}/daemon.json"
 fi
 # shellcheck disable=SC2016
-if test -n "${docker_hub_mirror}" && ! test "$(jq --arg mirror "${docker_hub_mirror}" '."registry-mirrors" // [] | any(. == $mirror)' "/etc/docker/daemon.json")" == "true"; then
+if test -n "${docker_hub_mirror}" && ! test "$(jq --arg mirror "${docker_hub_mirror}" '."registry-mirrors" // [] | any(. == $mirror)' "/etc/${name}/daemon.json")" == "true"; then
     echo "Add registry mirror ${docker_hub_mirror}"
     # shellcheck disable=SC2094
     # shellcheck disable=SC2016
-    cat <<< "$(jq --args mirror "${docker_hub_mirror}" '."registry-mirrors" += ["\($mirror)"]' "/etc/docker/daemon.json")" >"/etc/docker/daemon.json"
+    cat <<< "$(jq --args mirror "${docker_hub_mirror}" '."registry-mirrors" += ["\($mirror)"]' "/etc/${name}/daemon.json")" >"/etc/${name}/daemon.json"
 fi
-if ! test "$(jq --raw-output '.features.buildkit // false' "/etc/docker/daemon.json")" == true; then
+if ! test "$(jq --raw-output '.features.buildkit // false' "/etc/${name}/daemon.json")" == true; then
     echo "Enable BuildKit"
     # shellcheck disable=SC2094
-    cat <<< "$(jq '. * {"features":{"buildkit":true}}' "/etc/docker/daemon.json")" >"/etc/docker/daemon.json"
+    cat <<< "$(jq '. * {"features":{"buildkit":true}}' "/etc/${name}/daemon.json")" >"/etc/${name}/daemon.json"
 fi
-if ! test "$(jq --raw-output '.features."containerd-snapshotter" // false' "/etc/docker/daemon.json")" == true; then
+if ! test "$(jq --raw-output '.features."containerd-snapshotter" // false' "/etc/${name}/daemon.json")" == true; then
     echo "Enable ContainerD snapshotter"
     # shellcheck disable=SC2094
-    cat <<< "$(jq '. * {"features":{"containerd-snapshotter":true}}' "/etc/docker/daemon.json")" >"/etc/docker/daemon.json"
+    cat <<< "$(jq '. * {"features":{"containerd-snapshotter":true}}' "/etc/${name}/daemon.json")" >"/etc/${name}/daemon.json"
 fi
 echo "Check if daemon.json is valid JSON (@ ${SECONDS} seconds)"
-if ! jq --exit-status '.' "/etc/docker/daemon.json" >/dev/null 2>&1; then
-    echo "ERROR: /etc/docker/daemon.json is not valid JSON."
+if ! jq --exit-status '.' "/etc/${name}/daemon.json" >/dev/null 2>&1; then
+    echo "ERROR: /etc/${name}/daemon.json is not valid JSON."
     exit 1
 fi
 
@@ -172,7 +177,7 @@ if systemctl >/dev/null 2>&1; then
     echo "Reload systemd (@ ${SECONDS} seconds)"
     systemctl daemon-reload
 
-    if ! systemctl is-active --quiet docker; then
+    if test "${name}" == "docker" && ! systemctl is-active --quiet docker; then
         echo "Start dockerd (@ ${SECONDS} seconds)"
         systemctl enable docker
         systemctl start docker

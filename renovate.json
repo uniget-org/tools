@@ -1899,18 +1899,6 @@
     },
     {
       "customType": "regex",
-      "datasourceTemplate": "github-tags",
-      "depNameTemplate": "moby/moby",
-      "extractVersionTemplate": "^v(?<version>24\\..+?)$",
-      "fileMatch": [
-        "^tools/docker-stable/manifest.yaml$"
-      ],
-      "matchStrings": [
-        "version: \"?(?<currentValue>.*?)\"?\\n"
-      ]
-    },
-    {
-      "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "patrickhoefler/dockerfilegraph",
       "extractVersionTemplate": "^v(?<version>.+?)$",
