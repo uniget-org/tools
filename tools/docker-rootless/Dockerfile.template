@@ -7,5 +7,5 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-COPY docker.service /uniget_bootstrap/.config/systemd/user/
-COPY delegate.conf /uniget_bootstrap/var/lib/uniget/contrib/docker-rootless/delegate.conf
+COPY docker.service /uniget_bootstrap/var/lib/uniget/contrib/docker-rootless/
+COPY delegate.conf /uniget_bootstrap/var/lib/uniget/contrib/docker-rootless/
