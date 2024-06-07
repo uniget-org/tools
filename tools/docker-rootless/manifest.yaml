@@ -32,8 +32,6 @@ messages:
   internals: |
     - SystemD must be present
     - You must run "enable-docker-rootless.sh" manually
-    - For publishing privileged ports, you must run "sudo setcap cap_net_bind_service=ep $(which rootlesskit)"
-    - For resource control, you must copy delegate.conf to /etc/systemd/system/user@.service.d/delegate.conf
     - More info: https://docs.docker.com/engine/security/rootless/
   update: |
     You need to restart the Docker daemon to apply the update (systemctl --user restart docker)
