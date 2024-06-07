@@ -1868,7 +1868,7 @@
       "depNameTemplate": "moby/moby",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
-        "^tools/docker/manifest.yaml$"
+        "^tools/docker-rootless/manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
