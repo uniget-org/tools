@@ -4,7 +4,7 @@ name: dummy-broken-dep
 version: "0.0.1"
 binary: "false"
 check: "" # No version check possible
-runtime_dependency:
+runtime_dependencies:
 - foo
 platforms:
 - linux/amd64
