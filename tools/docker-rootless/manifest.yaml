@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
-name: docker
+name: docker-rootless
 version: "26.1.4"
 binary: "false"
 check: "" # No binary
