@@ -8,7 +8,7 @@ runtime_dependencies:
 - docker
 - rootlesskit
 - slirp4netns
-- pasta
+- passt
 - bypass4netns
 - containerd
 platforms:
@@ -30,6 +30,7 @@ homepage: https://www.docker.com/
 description: The Docker CLI
 messages:
   internals: |
+    - SystemD must be present
     - You must run "enable-docker-rootless.sh" manually
     - For publishing privileged ports, you must run "sudo setcap cap_net_bind_service=ep $(which rootlesskit)"
     - For resource control, you must copy delegate.conf to /etc/systemd/system/user@.service.d/delegate.conf
