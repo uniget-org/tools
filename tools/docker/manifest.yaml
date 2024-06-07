@@ -33,6 +33,7 @@ messages:
     - runc is configured as the default runtime
     - If installed in a container, the storage driver is set to fuse-overlayfs
     - Existing settings are not changed
+    - For CLI plugins: mkdir -p ~/.docker && ln -sfr ~/.local/libexec/docker/cli-plugins ~/.docker/
   update: |
     You need to restart the Docker daemon to apply an update
 renovate:
