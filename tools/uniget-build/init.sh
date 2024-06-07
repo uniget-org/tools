@@ -1,5 +1,4 @@
 #!/bin/bash
-set -o errexit
 
 arch="$(uname -m)"
 case "${arch}" in
