@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: faas-cli
-version: "0.16.27"
+version: "0.16.29"
 check: ${binary} version | grep "version:" | cut -d' ' -f3
 tags:
 - category/serverless
