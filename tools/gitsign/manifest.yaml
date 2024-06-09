@@ -19,6 +19,10 @@ tags:
 - git
 homepage: https://github.com/sigstore/gitsign
 description: Keyless Git signing using Sigstore
+messages:
+  internals: |
+    - XXX gitsign-credential-cache.sh (/etc/profile.d/ or ~/.local/etc/profile.d/)
+    - XXX systemd (/etc/systemd/user/ or ~/.config/systemd/user/)
 renovate:
   datasource: github-releases
   package: sigstore/gitsign
