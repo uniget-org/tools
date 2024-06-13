@@ -3,7 +3,7 @@
 #FROM ghcr.io/uniget-org/tools/python:latest AS python
 FROM ghcr.io/uniget-org/tools/shiv:latest AS shiv
 
-FROM ghcr.io/uniget-org/images/build-essential:24.04@sha256:14f774bf79b412dcc6d623829f6a7f492f2fee52f10fbb9163aa899154e1e919 AS prepare
+FROM ghcr.io/uniget-org/images/build-essential:24.04@sha256:06902d6b74cef7f3ce838c6fdc89006a20d0718214692d225b8a3abfff24bf75 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
