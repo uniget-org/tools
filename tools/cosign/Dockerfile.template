@@ -1,6 +1,6 @@
 #syntax=docker/dockerfile:1.8.0
 
-FROM ghcr.io/uniget-org/images/ubuntu:24.04@sha256:6ff62e5ed6b1c33f0ae1644692a354281534a37ec4d752cf480850e19a94d16d AS cosign-bootstrap
+FROM ghcr.io/uniget-org/images/ubuntu:24.04@sha256:178a01206383923b589ecfe3bace55431c4b8528086909ffcdc1ef88de4da10f AS cosign-bootstrap
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -23,7 +23,7 @@ mv "cosign-linux-${alt_arch}" /usr/local/bin/cosign
 cosign version
 EOF
 
-FROM ghcr.io/uniget-org/images/ubuntu:24.04@sha256:6ff62e5ed6b1c33f0ae1644692a354281534a37ec4d752cf480850e19a94d16d AS prepare
+FROM ghcr.io/uniget-org/images/ubuntu:24.04@sha256:178a01206383923b589ecfe3bace55431c4b8528086909ffcdc1ef88de4da10f AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/

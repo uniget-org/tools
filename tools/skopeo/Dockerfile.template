@@ -3,7 +3,7 @@
 FROM ghcr.io/uniget-org/tools/go:latest AS go
 FROM ghcr.io/uniget-org/tools/go-md2man:latest AS go-md2man
 
-FROM ghcr.io/uniget-org/images/ubuntu:24.04@sha256:6ff62e5ed6b1c33f0ae1644692a354281534a37ec4d752cf480850e19a94d16d AS prepare
+FROM ghcr.io/uniget-org/images/ubuntu:24.04@sha256:178a01206383923b589ecfe3bace55431c4b8528086909ffcdc1ef88de4da10f AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
