@@ -1,6 +1,6 @@
 #syntax=docker/dockerfile:1.8.0
 
-FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/build-essential:24.04@sha256:14f774bf79b412dcc6d623829f6a7f492f2fee52f10fbb9163aa899154e1e919 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
