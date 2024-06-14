@@ -8569,7 +8569,8 @@
         "docker"
       ],
       "matchPackagePrefixes": [
-        "ghcr.io/uniget-org/tools/"
+        "ghcr.io/uniget-org/tools/",
+        "ghcr.io/uniget-org/images/"
       ]
     },
     {
