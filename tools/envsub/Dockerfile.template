@@ -2,7 +2,7 @@
 
 FROM ghcr.io/uniget-org/tools/rust:latest AS rust
 
-FROM ghcr.io/uniget-org/images/build-essential:24.04@sha256:06902d6b74cef7f3ce838c6fdc89006a20d0718214692d225b8a3abfff24bf75 AS prepare
+FROM ghcr.io/uniget-org/images/build-essential:24.04@sha256:2b201a13c865ad8ca885fb04659c3996fa547f5ce147f0996e2d7fd878d331e1 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
