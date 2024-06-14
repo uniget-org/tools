@@ -3,7 +3,7 @@
 #FROM ghcr.io/uniget-org/tools/python:latest AS python
 FROM ghcr.io/uniget-org/tools/pipx:latest AS pipx
 
-FROM ghcr.io/uniget-org/images/ubuntu:24.04@sha256:178a01206383923b589ecfe3bace55431c4b8528086909ffcdc1ef88de4da10f AS prepare
+FROM ghcr.io/uniget-org/images/ubuntu:24.04@sha256:dc6c0030ff36d8c83922c5c24088c89faf3cb4f0b21540e231f35408453b76c3 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/

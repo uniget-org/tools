@@ -4,7 +4,7 @@ FROM ghcr.io/uniget-org/tools/go:latest AS go
 FROM ghcr.io/uniget-org/tools/bpftool:latest AS bpftool
 FROM ghcr.io/uniget-org/tools/libbpf:latest AS libbpf
 
-FROM ghcr.io/uniget-org/images/ubuntu:24.04@sha256:178a01206383923b589ecfe3bace55431c4b8528086909ffcdc1ef88de4da10f AS headers
+FROM ghcr.io/uniget-org/images/ubuntu:24.04@sha256:dc6c0030ff36d8c83922c5c24088c89faf3cb4f0b21540e231f35408453b76c3 AS headers
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
