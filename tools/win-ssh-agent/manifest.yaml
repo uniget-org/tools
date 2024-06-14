@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+name: win-ssh-agent
+version: "1.6.6"
+binary: npiperelay.exe
+check: "" # TODO
+runtime_dependencies:
+- socat
+tags:
+- type/cli
+- wsl
+- lang/go
+- state/stale
+- state/deprecated
+- ssh
+homepage: https://github.com/rupor-github/wsl-ssh-agent
+description: Helper to interface with Windows ssh-agent.exe service from Windows Subsystem for Linux (WSL)
+renovate:
+  datasource: github-releases
+  package: rupor-github/wsl-ssh-agent
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
