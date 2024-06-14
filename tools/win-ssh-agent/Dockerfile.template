@@ -1,0 +1,20 @@
+#syntax=docker/dockerfile:1.8.0
+
+FROM ghcr.io/uniget-org/images/ubuntu:24.04@sha256:178a01206383923b589ecfe3bace55431c4b8528086909ffcdc1ef88de4da10f AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+
+ARG name
+ARG version
+
+RUN <<EOF
+check-github-release-asset "rupor-github/wsl-ssh-agent" "v${version}" "wsl-ssh-agent.zip"
+curl --silent --show-error --location --fail --remote-name "https://github.com/rupor-github/wsl-ssh-agent/releases/download/v${version}/wsl-ssh-agent.zip"
+unzip -q -o -d "/tmp" "wsl-ssh-agent.zip"
+rm "wsl-ssh-agent.zip"
+mv "/tmp/npiperelay.exe" "${prefix}/bin"
+mv "/tmp/wsl-ssh-agent-gui.exe" "${prefix}/bin"
+EOF
+COPY wsl-ssh-agent-forward.sh /uniget_bootstrap/etc/profile.d/
