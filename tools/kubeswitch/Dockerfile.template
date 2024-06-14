@@ -13,7 +13,7 @@ curl --silent --show-error --location --fail "https://github.com/danielb42/kubes
 | tar --extract --gzip --directory="${prefix}/bin" --no-same-owner \
     kubeswitch
 EOF
-COPY <<EOF "/uniget_bootstrap/share/bash-completion/completions/kubeswitch"
+COPY <<"EOF" "/uniget_bootstrap/share/bash-completion/completions/kubeswitch"
 _kubeswitch_autocomplete() {
     local cur namespaces
     cur="${COMP_WORDS[COMP_CWORD]}"
