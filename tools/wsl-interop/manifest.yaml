@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: wsl-interop
+version: "0.1.0"
+binary: false
+check: "" # No binary
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- wsl
+homepage: https://github.com/microsoft/WSL/issues/8843
+description: Workaround for WSL interop issue
