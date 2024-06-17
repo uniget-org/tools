@@ -77,4 +77,5 @@ curl --silent --verbose --location --fail --output "${prefix}/etc/systemd/user/g
     "https://github.com/sigstore/gitsign/raw/v${version}/contrib/systemd/gitsign-credential-cache.service"
 curl --silent --show-error --location --fail --output "${prefix}/etc/systemd/user/gitsign-credential-cache.socket" --create-dirs \
     "https://github.com/sigstore/gitsign/raw/v${version}/contrib/systemd/gitsign-credential-cache.socket"
+sed -i "s|ExecStart=%h/.local/bin/gitsign-credential-cache|ExecStart=gitsign-credential-cache|" "${prefix}/etc/systemd/user/gitsign-credential-cache.service"
 EOF
