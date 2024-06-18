@@ -4,7 +4,7 @@ set -o errexit -o pipefail
 : "${version:=VERSION}"
 build="$(
     curl --silent --show-error --location --fail "https://github.com/docker/docs/raw/main/content/desktop/release-notes.md" \
-    | grep "{{< desktop-install all=true version=\"${version}\" " \
+    | grep -P "{{< desktop-install all=true.+ version=\"${version}\" " \
     | sed -E 's|^.+build_path="/([0-9]+)/".+$|\1|'
 )"
 
