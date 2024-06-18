@@ -10,7 +10,7 @@ ARG version
 RUN <<EOF
 check-github-release-asset "aquasecurity/tracee" "v${version}" "tracee-${arch}.v${version}.tar.gz"
 curl --silent --show-error --location --fail "https://github.com/aquasecurity/tracee/releases/download/v${version}/tracee-${arch}.v${version}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
+| tar --extract --gzip --directory="${prefix}/bin/" --strip-components=2 --no-same-owner \
     ./dist/
 mv "${prefix}/bin/tracee-static" "${prefix}/bin/tracee"
 mv "${prefix}/bin/tracee-ebpf-static" "${prefix}/bin/tracee-ebpf"
