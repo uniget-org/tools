@@ -1,6 +1,6 @@
 #syntax=docker/dockerfile:1.8.1
 
-FROM ghcr.io/uniget-org/images/ubuntu:24.04 AS prepare
+FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -10,7 +10,7 @@ ARG version
 RUN <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
-    libicu74
+    libicu70
 curl --silent --show-error --location --remote-name \
     "https://github.com/PowerShell/PowerShell/releases/download/v${version}/powershell_${version}-1.deb_amd64.deb"
 dpkg -i "powershell_${version}-1.deb_amd64.deb"
