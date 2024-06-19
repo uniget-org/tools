@@ -10,7 +10,7 @@ ARG version
 RUN <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
-    libicu70
+    libicu74
 curl --silent --show-error --location --remote-name \
     "https://github.com/PowerShell/PowerShell/releases/download/v${version}/powershell_${version}-1.deb_amd64.deb"
 dpkg -i "powershell_${version}-1.deb_amd64.deb"
