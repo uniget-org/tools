@@ -5,11 +5,12 @@ version: "4.14.2"
 check: ""
 platforms:
 - linux/amd64
-#- linux/arm64
+- linux/arm64
 tags:
 - category/operations
 - lang/go
 - type/cli
+- certificate
 homepage: https://github.com/go-acme/lego
 description: Let's Encrypt/ACME client and library written in Go 
 renovate:
