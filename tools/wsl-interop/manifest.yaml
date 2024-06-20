@@ -11,3 +11,7 @@ tags:
 - wsl
 homepage: https://github.com/microsoft/WSL/issues/8843
 description: Workaround for WSL interop issue
+messages:
+  internals: |
+    - This tool is a workaround for WSL interop issue described in microsoft/WSL/issues#8842
+    - An alternative workaround is running the following commant manually: systemctl restart user@1000
