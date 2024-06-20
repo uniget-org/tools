@@ -1,7 +1,7 @@
 #syntax=docker/dockerfile:1.8.1
 
-FROM ghcr.io/uniget-org/tools/nodejs:${ref} AS nodejs
-FROM ghcr.io/uniget-org/tools/npm:${ref} AS npm
+FROM ghcr.io/uniget-org/tools/nodejs:latest AS nodejs
+FROM ghcr.io/uniget-org/tools/npm:latest AS npm
 
 FROM ghcr.io/uniget-org/images/ubuntu:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
