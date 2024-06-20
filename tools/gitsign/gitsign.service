@@ -1,0 +1,12 @@
+[Unit]
+Description=Gitsign Credentials Cache
+Documentation=https://github.com/sigstore/gitsign
+
+[Service]
+Type=simple
+ExecStart=gitsign-credential-cache
+
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
