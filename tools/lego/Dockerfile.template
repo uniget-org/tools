@@ -10,12 +10,6 @@ ARG version
 RUN <<EOF
 check-github-release-asset "go-acme/lego" "v${version}" "lego_v${version}_linux_${alt_arch}.tar.gz"
 curl --silent --location --fail "https://github.com/go-acme/lego/releases/download/v${version}/lego_v${version}_linux_${alt_arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}${target}/bin/" --no-same-owner
+| tar --extract --gzip --directory="${prefix}${target}/bin/" --no-same-owner \
+    lego
 EOF
-
-# completion
-#RUN <<EOF
-#"${prefix}${target}/bin/foo" completion bash >"${prefix}${target}/share/bash-completion/completions/foo"
-#"${prefix}${target}/bin/foo" completion fish >"${prefix}${target}/share/fish/vendor_completions.d/foo.fish"
-#"${prefix}${target}/bin/foo" completion zsh >"${prefix}${target}/share/zsh/vendor-completions/_foo"
-#EOF
