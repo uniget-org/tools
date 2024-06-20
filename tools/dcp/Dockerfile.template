@@ -1,8 +1,8 @@
-#syntax=docker/dockerfile:1.7.0
+#syntax=docker/dockerfile:1.8.1
 
 FROM ghcr.io/uniget-org/tools/rust:latest AS rust
 
-FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/build-essential:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
