@@ -7,7 +7,6 @@ build_dependencies:
 - rust
 platforms:
 - linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/rust
