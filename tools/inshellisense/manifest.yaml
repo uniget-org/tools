@@ -2,7 +2,7 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: inshellisense
 version: "0.0.1-rc.15"
-check: ""
+check: ${binary} --version
 build_dependencies:
 - nodejs
 - npm
