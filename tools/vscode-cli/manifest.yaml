@@ -6,7 +6,7 @@ binary: code
 check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
-- linux/arm64
+#- linux/arm64
 tags:
 - org/microsoft
 - category/development
