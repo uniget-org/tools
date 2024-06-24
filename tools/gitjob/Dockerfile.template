@@ -8,8 +8,8 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
-check-github-release-asset "rancher/gitjob" "v${version}" "gitjob-${alt_arch}"
+check-github-release-asset "rancher/gitjob" "v${version}" "gitjob-linux-${alt_arch}"
 curl --silent --show-error --location --fail --output "${prefix}/bin/gitjob" \
-    "https://github.com/rancher/gitjob/releases/download/v${version}/gitjob-${alt_arch}"
+    "https://github.com/rancher/gitjob/releases/download/v${version}/gitjob-linux-${alt_arch}"
 chmod +x "${prefix}/bin/gitjob"
 EOF
