@@ -1,0 +1,18 @@
+#syntax=docker/dockerfile:1.8.1
+
+FROM ghcr.io/uniget-org/tools/php:latest AS php
+
+FROM ghcr.io/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+COPY --from=php / /usr/local/
+RUN <<EOF
+check-github-release-asset "phar-io/phive" "${version}" "phive-${version}.phar"
+curl --silent --show-error --location --fail --output "${prefix}/bin/phive" \
+    "https://github.com/phar-io/phive/releases/download/${version}/phive-${version}.phar"
+chmod +x "${prefix}/bin/phive"
+EOF

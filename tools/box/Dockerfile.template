@@ -1,0 +1,20 @@
+#syntax=docker/dockerfile:1.8.1
+
+FROM ghcr.io/uniget-org/tools/php:latest AS php
+
+FROM ghcr.io/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+COPY --from=php / /usr/local/
+RUN <<EOF
+check-github-release-asset "box-project/box" "${version}" "box.phar"
+curl --silent --show-error --location --fail --output "${prefix}/bin/box" \
+    "https://github.com/box-project/box/releases/download/${version}/box.phar"
+chmod +x "${prefix}/bin/box"
+
+"${prefix}/bin/box" completion bash >"${prefix}/share/bash-completion/completions/box"
+EOF
