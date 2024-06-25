@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: xcaddy
+version: "0.4.2"
+check: ${binary} version | cut -d' ' -f1 | tr -d v
+runtime_dependencies:
+- go
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/go
+- type/cli
+homepage: https://github.com/caddyserver/xcaddy
+description: Build Caddy with plugins
+renovate:
+  datasource: github-releases
+  package: caddyserver/xcaddy
+  extractVersion: ^v(?<version>.+?)$
+  priority: low

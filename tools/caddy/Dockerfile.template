@@ -1,0 +1,19 @@
+#syntax=docker/dockerfile:1.8.1
+
+FROM ghcr.io/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN <<EOF
+check-github-release-asset "caddyserver/caddy" "v${version}" "caddy_${version}_linux_${alt_arch}.tar.gz"
+curl --silent --show-error --location --fail "https://github.com/caddyserver/caddy/releases/download/v${version}/caddy_${version}_linux_${alt_arch}.tar.gz" \
+| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
+    caddy
+    
+"${prefix}/bin/caddy" completion bash >"${prefix}/share/bash-completion/completions/caddy"
+"${prefix}/bin/caddy" completion fish >"${prefix}/share/fish/vendor_completions.d/caddy.fish"
+"${prefix}/bin/caddy" completion zsh >"${prefix}/share/zsh/vendor-completions/_caddy"
+EOF
