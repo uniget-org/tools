@@ -1,22 +1,64 @@
 #syntax=docker/dockerfile:1.8.1
 
-FROM ghcr.io/uniget-org/images/build-essential:24.04@sha256:2b201a13c865ad8ca885fb04659c3996fa547f5ce147f0996e2d7fd878d331e1 AS prepare
+FROM ghcr.io/uniget-org/tools/spc:latest AS spc
+
+FROM ghcr.io/uniget-org/images/build-essential:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
+COPY --from=spc / /usr/local/
+RUN <<EOF
+apt-get update
+apt-get -y install \
+    re2c
+EOF
 ARG name
 ARG version
+WORKDIR /tmp/php
+ARG EXTENSION_BULK="apcu,bcmath,bz2,calendar,ctype,curl,dba,dom,event,exif,fileinfo,filter,ftp,gd,gmp,iconv,imagick,imap,intl,mbregex,mbstring,mysqli,mysqlnd,opcache,openssl,pcntl,pdo,pdo_mysql,pgsql,phar,posix,protobuf,readline,redis,session,shmop,simplexml,soap,sockets,sodium,sqlite3,swoole,swoole-hook-mysql,swoole-hook-pgsql,swoole-hook-sqlite,sysvmsg,sysvsem,sysvshm,tokenizer,xml,xmlreader,xmlwriter,xsl,zip,zlib"
+ARG EXTENSIONS_COMMON="bcmath,bz2,calendar,ctype,curl,dom,exif,fileinfo,filter,ftp,gd,gmp,iconv,xml,mbstring,mbregex,mysqlnd,openssl,pcntl,pdo,pdo_mysql,pdo_sqlite,phar,posix,redis,session,simplexml,soap,sockets,sqlite3,tokenizer,xmlwriter,xmlreader,zlib,zip"
+ARG EXTENSIONS_MINIMAL="pcntl,posix,mbstring,tokenizer,phar"
+ARG EXTENSIONS="${EXTENSIONS_COMMON}"
 RUN <<EOF
-check-download "https://dl.static-php.dev/static-php-cli/common/php-${version}-cli-linux-${arch}.tar.gz"
-curl --silent --show-error --location --fail "https://dl.static-php.dev/static-php-cli/common/php-${version}-cli-linux-${arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner
+PHP_MINOR_VERSION="$( echo "${version}" | cut -d. -f1-2)"
 
-check-download "https://dl.static-php.dev/static-php-cli/common/php-${version}-fpm-linux-${arch}.tar.gz"
-curl --silent --show-error --location --fail "https://dl.static-php.dev/static-php-cli/common/php-${version}-fpm-linux-${arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner
+mkdir -p \
+    downloads \
+    buildroot/sources/php-src \
+    source/php-src
+curl --silent --show-error --location --fail --output "downloads/php-${version}.tar.gz" "https://github.com/php/php-src/archive/refs/tags/php-${version}.tar.gz"
+tar --extract --gzip --file "downloads/php-${version}.tar.gz" --directory buildroot/sources/php-src/ --strip-components=1 --no-same-owner
+tar --extract --gzip --file "downloads/php-${version}.tar.gz" --directory source/php-src/ --strip-components=1 --no-same-owner
 
-check-download "https://dl.static-php.dev/static-php-cli/common/php-${version}-micro-linux-${arch}.tar.gz"
-curl --silent --show-error --location --fail "https://dl.static-php.dev/static-php-cli/common/php-${version}-micro-linux-${arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner
+spc download \
+    --with-php="${PHP_MINOR_VERSION}" \
+    --for-extensions="${EXTENSIONS}"
+PHP_SRC_VERSION="$(
+    cat buildroot/sources/php-src/main/php_version.h \
+    | grep " PHP_VERSION " | cut -d'"' -f2
+)"
+if [ "${PHP_SRC_VERSION}" != "${version}" ]; then
+    echo "PHP_SRC_VERSION=${PHP_SRC_VERSION} != ${version}"
+    exit 1
+fi
+
+SPC_USE_SUDO=no spc doctor --auto-fix
+spc install-pkg upx
+EOF
+RUN <<EOF
+spc build --build-cli --build-micro --build-fpm "${EXTENSIONS}" --debug --with-upx-pack
+cp \
+    buildroot/bin/php \
+    buildroot/bin/php-fpm \
+    buildroot/bin/micro.sfx \
+    "${prefix}/bin/"
+cp \
+    source/php-src/sapi/cli/php.1 \
+    source/php-src/ext/phar/phar.1 \
+    source/php-src/ext/phar/phar.phar.1 \
+    "${prefix}/share/man/man1/"
+cp \
+    source/php-src/sapi/fpm/php-fpm.8 \
+    "${prefix}/share/man/man8/"
 EOF
