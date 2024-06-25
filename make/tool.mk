@@ -1,4 +1,5 @@
 SOURCE_DATE_EPOCH ?= $(shell git log -1 --pretty=%ct)
+BUILDER           ?= uniget
 
 $(addsuffix --vim,$(ALL_TOOLS_RAW)):%--vim: ## ???
 	@vim -o2 $(TOOLS_DIR)/$*/manifest.yaml  $(TOOLS_DIR)/$*/Dockerfile.template
@@ -64,7 +65,7 @@ clean-builders: \
 		; $(info $(M) Pruning builders...) ## ???
 	@\
 	docker buildx ls | grep -q "^uniget " \
-	&& docker builder prune --builder uniget --all --force
+	&& docker builder prune --builder $(BUILDER) --all --force
 
 .PHONY:
 $(ALL_TOOLS_RAW):%: \
@@ -89,7 +90,7 @@ $(ALL_TOOLS_RAW):%: \
 	echo "Platforms:    $${ARCHS}"; \
 	echo "Push:         $${PUSH}"; \
 	if ! docker buildx build $(TOOLS_DIR)/$@ \
-			--builder uniget \
+			--builder $(BUILDER) \
 			--build-arg branch=$(DOCKER_TAG) \
 			--build-arg ref=$(DOCKER_TAG) \
 			--build-arg name=$* \
@@ -184,7 +185,7 @@ $(addsuffix --debug,$(ALL_TOOLS_RAW)):%--debug: \
 	echo "Build deps:   $${DEPS}"; \
 	export BUILDX_EXPERIMENTAL=1; \
 	docker buildx debug --on=error --invoke=/bin/bash build $(TOOLS_DIR)/$* \
-		--builder uniget \
+		--builder $(BUILDER) \
 		--build-arg branch=$(DOCKER_TAG) \
 		--build-arg ref=$(DOCKER_TAG) \
 		--build-arg name=$* \
