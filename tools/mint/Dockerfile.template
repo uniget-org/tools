@@ -20,6 +20,8 @@ case "${alt_arch}" in
         exit 1
         ;;
 esac
-curl --silent --show-error --location --fail "https://downloads.dockerslim.com/releases/1.40.0/dist_linux${arch_suffix}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner
+curl --silent --show-error --location --fail "https://github.com/mintoolkit/mint/releases/download/${version}/dist_linux${arch_suffix}.tar.gz" \
+| tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
+    "dist_linux${arch_suffix}/mint" \
+    "dist_linux${arch_suffix}/mint-sensor"
 EOF
