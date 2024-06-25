@@ -2,7 +2,7 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: xcaddy
 version: "0.4.2"
-check: ${binary} version | cut -d' ' -f1 | tr -d v
+check: "" # No version parameters
 runtime_dependencies:
 - go
 platforms:
