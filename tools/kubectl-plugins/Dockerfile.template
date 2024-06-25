@@ -1,4 +1,4 @@
-#syntax=docker/dockerfile:1.7.1
+#syntax=docker/dockerfile:1.8.1
 
 # krew internals:
 # - KREW_ROOT defaults to ~/.krew
@@ -9,7 +9,7 @@
 
 FROM ghcr.io/uniget-org/tools/krew:latest AS krew
 
-FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/ubuntu:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/

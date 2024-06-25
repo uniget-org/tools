@@ -1,0 +1,12 @@
+#syntax=docker/dockerfile:1.8.1
+
+FROM ghcr.io/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+COPY docker.service /uniget_bootstrap/etc/systemd/user/
+COPY delegate.conf /uniget_bootstrap/var/lib/uniget/contrib/docker-rootless/
+COPY --chmod=0755 enable-docker-rootless.sh /uniget_bootstrap/bin/

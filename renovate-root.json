@@ -34,9 +34,14 @@
   "digest": { "labels": [ "bump/digest", "type/renovate" ] },
   "packageRules": [
     {
-      "matchDatasources":     [ "docker" ],
-      "matchPackagePrefixes": [ "ghcr.io/uniget-org/tools/" ],
-      "enabled":                false
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchPackagePrefixes": [
+        "ghcr.io/uniget-org/tools/",
+        "ghcr.io/uniget-org/images/"
+      ],
+      "enabled": false
     }
   ],
   "customManagers": [

@@ -1,6 +1,6 @@
-#syntax=docker/dockerfile:1.7.1
+#syntax=docker/dockerfile:1.8.1
 
-FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/ubuntu:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "crazywhalecc/static-php-cli" "${version}" "spc-linux-${arch}.tar.gz"
-curl --silent --show-error --location --fail "https://github.com/crazywhalecc/static-php-cli/releases/download/2.2.1/spc-linux-${arch}.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/crazywhalecc/static-php-cli/releases/download/${version}/spc-linux-${arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner
 
 "${prefix}/bin/spc" completion bash >"${prefix}/share/bash-completion/completions/spc"

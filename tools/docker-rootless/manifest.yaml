@@ -1,0 +1,42 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: docker-rootless
+version: "26.1.4"
+binary: "false"
+check: "" # No binary
+runtime_dependencies:
+- docker
+- rootlesskit
+- slirp4netns
+- passt
+- bypass4netns
+- containerd
+platforms:
+- linux/amd64
+- linux/arm64
+conflicts_with:
+- docker-stable
+tags:
+- org/docker
+- standard/docker
+- standard/oci
+- container/runtime
+- container/build
+- category/default
+- type/cli
+- type/daemon
+- lang/go
+homepage: https://www.docker.com/
+description: The Docker CLI
+messages:
+  internals: |
+    - SystemD must be present
+    - You must run "enable-docker-rootless.sh" manually
+    - More info: https://docs.docker.com/engine/security/rootless/
+  update: |
+    You need to restart the Docker daemon to apply the update (systemctl --user restart docker)
+renovate:
+  datasource: github-tags
+  package: moby/moby
+  extractVersion: ^v(?<version>.+?)$
+  priority: high

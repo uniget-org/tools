@@ -1,0 +1,11 @@
+[Unit]
+Description=Monitor for WSLInterop
+After=systemd-binfmt.service
+
+[Path]
+PathChanged=/proc/sys/fs/binfmt_misc/WSLInterop
+Unit=wslinterop-force.service
+TriggerLimitIntervalSec=0
+
+[Install]
+WantedBy=multi-user.target

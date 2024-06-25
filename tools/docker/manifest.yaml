@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: docker
-version: "26.1.3"
+version: "26.1.4"
 binary: dockerd
 check: ${binary} --version | cut -d, -f1 | cut -d' ' -f3
 runtime_dependencies:
@@ -11,8 +11,6 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-conflicts_with:
-- docker-stable
 tags:
 - org/docker
 - standard/docker
@@ -28,11 +26,16 @@ description: The Docker CLI
 messages:
   internals: |
     - Binaries (except docker) are installed into ${prefix}${target}/libexec/docker/bin
-    - Systemd units and init scripts are modified to perfer binaries from this directory
+    - SystemD units and init scripts are modified to perfer binaries from this directory
+    - The cgroup drive is to systemd if SystemD is used
     - The BuildKit builder is enabled by default
     - The containerd image store is enabled by default
+    - runc is configured as the default runtime
+    - If installed in a container, the storage driver is set to fuse-overlayfs
+    - Existing settings are not changed
+    - For CLI plugins: mkdir -p ~/.docker && ln -sfr ~/.local/libexec/docker/cli-plugins ~/.docker/
   update: |
-    You need to restart the Docker daemon to apply the update
+    You need to restart the Docker daemon to apply an update
 renovate:
   datasource: github-tags
   package: moby/moby

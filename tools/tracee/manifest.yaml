@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: tracee
+version: "0.21.0"
+check: ${binary} version | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/aquasecurity
+- category/security
+- lang/go
+- lang/c
+- type/cli
+- ebpf
+homepage: https://github.com/aquasecurity/tracee
+description: Linux Runtime Security and Forensics using eBPF
+renovate:
+  datasource: github-releases
+  package: aquasecurity/tracee
+  extractVersion: ^v(?<version>.+?)$
+  priority: low

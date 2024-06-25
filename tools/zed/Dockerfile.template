@@ -1,6 +1,6 @@
-#syntax=docker/dockerfile:1.7.1
+#syntax=docker/dockerfile:1.8.1
 
-FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/ubuntu:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -8,8 +8,8 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
-check-github-release-asset "brimdata/zed" "v${version}" "zed-v1.15.0.linux-amd64.tar.gz"
-curl --silent --show-error --location --fail "https://github.com/brimdata/zed/releases/download/v1.15.0/zed-v1.15.0.linux-amd64.tar.gz" \
+check-github-release-asset "brimdata/zed" "v${version}" "zed-v${version}.linux-${alt_arch}.tar.gz"
+curl --silent --show-error --location --fail "https://github.com/brimdata/zed/releases/download/v${version}/zed-v${version}.linux-${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     zed \
     zq

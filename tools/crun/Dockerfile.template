@@ -1,6 +1,6 @@
-#syntax=docker/dockerfile:1.7.1
+#syntax=docker/dockerfile:1.8.1
 
-FROM nixos/nix:2.22.1@sha256:a53abaf5242b3e94ad0adce074c386d62eeeb73ec8571ffa28b1ba3f0b2576c9 AS build
+FROM nixos/nix:2.23.0@sha256:7ac2cd9079e1bdfdae8af24b0887fdcaaf0f9c30c1afe2b26bcbf24e2fd4a4e7 AS build
 ARG name
 ARG version
 WORKDIR /tmp/crun
@@ -12,7 +12,7 @@ cp -rfp ./result/bin/crun /usr/local/bin/
 cp *.1 /usr/local/share/man/man1/
 EOF
 
-FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/ubuntu:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/

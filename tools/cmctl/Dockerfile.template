@@ -1,6 +1,6 @@
-#syntax=docker/dockerfile:1.7.1
+#syntax=docker/dockerfile:1.8.1
 
-FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/ubuntu:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -13,10 +13,7 @@ curl --silent --show-error --location --fail --output "${prefix}/bin/cmctl" \
     "https://github.com/cert-manager/cmctl/releases/download/v${version}/cmctl_linux_${alt_arch}"
 chmod +x "${prefix}/bin/cmctl"
 
-check-github-release-asset "cert-manager/cmctl" "v${version}" "kubectl_cert-manager_linux_${alt_arch}"
-curl --silent --show-error --location --fail --output "${prefix}/bin/kubectl-cert_manager" \
-    "https://github.com/cert-manager/cmctl/releases/download/v${version}/kubectl_cert-manager_linux_${alt_arch}"
-chmod +x "${prefix}/bin/kubectl-cert_manager"
+ln --symbolic --relative --force "${prefix}/bin/cmctl" "${prefix}/bin/kubectl-cert_manager"
 
 "${prefix}/bin/cmctl" completion bash >"${prefix}/share/bash-completion/completions/cmctl"
 "${prefix}/bin/cmctl" completion fish >"${prefix}/share/fish/vendor_completions.d/cmctl.fish"

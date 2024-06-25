@@ -1,4 +1,4 @@
-#syntax=docker/dockerfile:1.7.1
+#syntax=docker/dockerfile:1.8.1
 
 #FROM ghcr.io/uniget-org/tools/make:latest AS make
 #FROM ghcr.io/uniget-org/tools/go:latest AS go
@@ -8,7 +8,7 @@
 #FROM ghcr.io/uniget-org/tools/nodejs:latest AS nodejs
 #FROM ghcr.io/uniget-org/tools/npm:latest AS npm
 
-FROM ghcr.io/uniget-org/images/ubuntu:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/ubuntu:24.04 AS prepare
 #FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \

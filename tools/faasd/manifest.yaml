@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: faasd
-version: "0.18.8"
+version: "0.19.0"
 check: ${binary} version | grep faasd | tr '\t' ' ' | cut -d' ' -f3
 runtime_dependencies:
 - containerd

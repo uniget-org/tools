@@ -1,0 +1,12 @@
+[Unit]
+Description=Force WSLInterop
+After=systemd-binfmt.service
+ConditionPathExists=!/proc/sys/fs/binfmt_misc/WSLInterop
+
+[Service]
+Type=oneshot
+ExecStart=echo ":WSLInterop:M::MZ::/init:PF"
+StandardOutput=file:/proc/sys/fs/binfmt_misc/register
+
+[Install]
+WantedBy=multi-user.target

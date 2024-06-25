@@ -6,7 +6,7 @@ target="${1:-/usr/local}"
 echo "Using Docker Desktop version ${docker_desktop_version}"
 docker_desktop_build="$(
     curl --silent --show-error --location --fail "https://github.com/docker/docs/raw/main/content/desktop/release-notes.md" \
-    | grep "{{< desktop-install all=true version=\"${docker_desktop_version}\" " \
+    | grep -P "{{< desktop-install all=true.+ version=\"${docker_desktop_version}\" " \
     | sed -E 's|^.+build_path="/([0-9]+)/".+$|\1|'
 )"
 if test -z "${docker_desktop_build}"; then
