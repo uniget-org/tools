@@ -13,7 +13,7 @@ COPY --from=php / /usr/local/
 RUN <<EOF
 check-github-release-asset "composer/composer" "${version}" "composer.phar"
 curl --silent --show-error --location --fail --output "${prefix}/bin/composer" \
-    "https://github.com/composer/composer/releases/download/2.7.6/composer.phar"
+    "https://github.com/composer/composer/releases/download/${version}/composer.phar"
 chmod +x "${prefix}/bin/composer"
 
 "${prefix}/bin/composer" completion bash >"${prefix}/share/bash-completion/completions/composer"

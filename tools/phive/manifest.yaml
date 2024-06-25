@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: phive
+version: "0.15.2"
+check: ""
+build_dependencies:
+- php
+runtime_dependencies:
+- php
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/php
+- type/cli
+homepage: https://github.com/phar-io/phive
+description: Phar Installation and Verification Environment
+renovate:
+  datasource: github-releases
+  package: phar-io/phive
+  priority: low

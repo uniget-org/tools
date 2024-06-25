@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: box
+version: "4.6.1"
+check: ""
+build_dependencies:
+- php
+runtime_dependencies:
+- php
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/php
+- type/cli
+homepage: https://github.com/box-project/box
+description: Fast, zero config application bundler with PHARs
+renovate:
+  datasource: github-releases
+  package: box-project/box
+  priority: low
