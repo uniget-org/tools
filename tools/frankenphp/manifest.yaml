@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: frankphp
+version: "1.2.0"
+check: ${binary} version | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/daemon
+homepage: https://github.com/dunglas/frankenphp
+description: Modern PHP app server
+renovate:
+  datasource: github-releases
+  package: dunglas/frankenphp
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
