@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
-name: docker-slim
-version: "1.40.11"
-check: ${binary} --version | cut -d' ' -f3 | cut -d\| -f3
+name: mint
+version: "1.41.4"
+check: ${binary} --version | cut -d' ' -f3 | cut -d'|' -f3
 platforms:
 - linux/amd64
 - linux/arm64
@@ -11,9 +11,12 @@ tags:
 - type/cli
 - container/image
 - standard/oci
-homepage: https://github.com/slimtoolkit/slim
+homepage: https://github.com/mintoolkit/mint
 description: Don't change anything in your container image and minify it by up to 30x
+messages:
+  internal: |
+    This project was former called docker-slim and for a short time it was called slim/slimtoolkit.
 renovate:
   datasource: github-releases
-  package: slimtoolkit/slim
+  package: mintoolkit/mint
   priority: medium
