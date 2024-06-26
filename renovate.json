@@ -8288,6 +8288,19 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "miquels/webdavfs",
+      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/webdavfs/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ],
+      "versioningTemplate": "loose"
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "tarampampam/webhook-tester",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [

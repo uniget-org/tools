@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: webdavfs
+version: "1.0"
+check: ${binary} --version | cut -d' ' -f2
+build_dependencies:
+- go
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/go
+- type/cli
+homepage: https://github.com/miquels/webdavfs
+description: Linux / OSX FUSE webdav filesystem
+renovate:
+  datasource: github-releases
+  package: miquels/webdavfs
+  extractVersion: ^v(?<version>.+?)$
+  versioning: loose
+  priority: low
