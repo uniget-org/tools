@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: ocotsql
+version: "0.13.0"
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/cli
+homepage: https://github.com/cube2222/octosql
+description: Query tool that allows you to join, analyse and transform data from multiple databases and file formats using SQL
+renovate:
+  datasource: github-releases
+  package: cube2222/octosql
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
