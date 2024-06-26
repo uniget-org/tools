@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: soft-serve
+version: "0.7.4"
+binary: soft
+check: ${binary} --version | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/charmbracelet
+- category/operations
+- lang/go
+- type/cli
+homepage: https://github.com/charmbracelet/soft-serve
+description: Mighty, self-hostable Git server for the command line
+renovate:
+  datasource: github-releases
+  package: charmbracelet/soft-serve
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
