@@ -7899,6 +7899,19 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "curl/trurl",
+      "extractVersionTemplate": "^trurl-(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/trurl/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ],
+      "versioningTemplate": "loose"
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "binpash/try",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
