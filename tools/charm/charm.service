@@ -1,0 +1,14 @@
+[Unit]
+Description=Charm Cloud
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+Environment=CHARM_SERVER_DATA_DIR=/var/lib/charm
+ExecStart=/usr/local/bin/charm serve
+
+[Install]
+WantedBy=multi-user.target
