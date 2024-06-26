@@ -108,6 +108,17 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "npm",
+      "depNameTemplate": "alex",
+      "fileMatch": [
+        "^tools/alex/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "fidian/ansi",
       "fileMatch": [
