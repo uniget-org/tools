@@ -5909,7 +5909,7 @@
       "depNameTemplate": "cube2222/octosql",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
-        "^tools/ocotsql/manifest.yaml$"
+        "^tools/octosql/manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
@@ -7883,6 +7883,19 @@
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
       ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "curl/trurl",
+      "extractVersionTemplate": "^trurl-(?<version>.+?)$",
+      "fileMatch": [
+        "^tools/trurl/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ],
+      "versioningTemplate": "loose"
     },
     {
       "customType": "regex",

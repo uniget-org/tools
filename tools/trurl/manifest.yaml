@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: trurl
+version: "0.13"
+check: ""
+build_dependencies:
+- make
+- curl
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- org/curl
+- category/?
+- lang/?
+- type/?
+homepage: https://github.com/curl/trurl
+description: Command line tool for URL parsing and manipulation
+renovate:
+  datasource: github-releases
+  package: curl/trurl
+  extractVersion: ^trurl-(?<version>.+?)$
+  versioning: loose
+  priority: low
