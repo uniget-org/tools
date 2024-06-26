@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
-name: ocotsql
+name: octosql
 version: "0.13.0"
 check: ${binary} --version | cut -d' ' -f3
 platforms:
