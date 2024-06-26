@@ -7766,6 +7766,17 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "npm",
+      "depNameTemplate": "textlint",
+      "fileMatch": [
+        "^tools/textlint/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "jonas/tig",
       "extractVersionTemplate": "^tig-(?<version>.+?)$",
