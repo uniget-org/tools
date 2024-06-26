@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: octopilot
+version: "1.12.0"
+check: ${binary} --version | cut -d, -f1 | cut -d' ' -f2
+platforms:
+- linux/amd64
+tags:
+- category/development
+- lang/go
+- type/cli
+homepage: https://github.com/dailymotion-oss/octopilot
+description: Automate your Gitops workflow by automatically creating/merging GitHub Pull Requests
+renovate:
+  datasource: github-releases
+  package: dailymotion-oss/octopilot
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
