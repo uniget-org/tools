@@ -1,0 +1,24 @@
+#syntax=docker/dockerfile:1.8.1
+
+FROM ghcr.io/uniget-org/images/build-base:3.20 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+RUN <<EOF
+apk update
+apk add \
+    cmake \
+    clang
+EOF
+WORKDIR /tmp/fastgron
+ARG name
+ARG version
+RUN <<EOF
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/adamritter/fastgron .
+cmake -B build \
+    -DCMAKE_CXX_COMPILER=/usr/bin/clang++ \
+    -DCMAKE_EXE_LINKER_FLAGS=-static
+cmake --build build
+cp build/fastgron "${prefix}/bin/"
+EOF
