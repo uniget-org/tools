@@ -38,3 +38,4 @@ mv "${prefix}/bin/completions/charm.fish" "${prefix}/share/fish/vendor_completio
 mv "${prefix}/bin/completions/charm.zsh" "${prefix}/share/zsh/vendor-completions/_charm"
 rmdir "${prefix}/bin/completions"
 EOF
+COPY charm.service /uniget_bootstrap/etc/systemd/system/
