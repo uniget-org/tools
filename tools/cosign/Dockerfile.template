@@ -6,7 +6,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
 ARG TARGETPLATFORM
-# renovate: datasource=github-releases depName=sigstore/cosign
+# renovate: datasource=github-releases depName=sigstore/cosign extractVersion=^v(?<version>.+?)$
 ARG COSIGN_VERSION=2.2.3
 COPY checksums.txt .
 RUN <<EOF

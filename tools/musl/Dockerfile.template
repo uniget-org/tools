@@ -12,7 +12,7 @@ WORKDIR /tmp/musl
 ARG name
 ARG version
 RUN <<EOF
-curl --silent --show-error --location --fail https://musl.libc.org/releases/musl-1.2.5.tar.gz \
+curl --silent --show-error --location --fail https://musl.libc.org/releases/musl-${version}.tar.gz \
 | tar --extract --gzip --strip-components=1 --no-same-owner
 # install to lib/x86_64-linux-musl?
 ./configure --prefix="${prefix}"

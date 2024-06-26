@@ -20,9 +20,9 @@ cargo build --release --target "${arch}-unknown-linux-gnu"
 cp "target/${arch}-unknown-linux-gnu/release/tspin" "${prefix}/bin/"
 
 curl --silent --show-error --location --fail --output "${prefix}/share/bash-completion/completions/tspin" \
-    --url "https://github.com/bensadeh/tailspin/raw/2.1.0/completions/tspin.bash"
+    --url "https://github.com/bensadeh/tailspin/raw/${version}/completions/tspin.bash"
 curl --silent --show-error --location --fail --output "${prefix}/share/fish/vendor_completions.d/tspin.fish" \
-    --url "https://github.com/bensadeh/tailspin/raw/2.1.0/completions/tspin.fish"
+    --url "https://github.com/bensadeh/tailspin/raw/${version}/completions/tspin.fish"
 curl --silent --show-error --location --fail --output "${prefix}/share/zsh/vendor-completions/_tspin" \
-    --url "https://github.com/bensadeh/tailspin/raw/2.1.0/completions/tspin.zsh"
+    --url "https://github.com/bensadeh/tailspin/raw/${version}/completions/tspin.zsh"
 EOF
