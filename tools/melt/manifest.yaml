@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: melt
+version: "0.6.1"
+check: "" # No version parameter
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/charmbracelet
+- category/operations
+- lang/go
+- type/cli
+homepage: https://github.com/charmbracelet/melt
+description: Backup and restore Ed25519 SSH keys with seed words
+renovate:
+  datasource: github-releases
+  package: charmbracelet/melt
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
