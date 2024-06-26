@@ -1,0 +1,28 @@
+#syntax=docker/dockerfile:1.8.1
+
+FROM ghcr.io/uniget-org/tools/go:latest AS go
+FROM ghcr.io/uniget-org/tools/make:latest AS make
+
+FROM ghcr.io/uniget-org/images/build-base:3.20 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+COPY --link --from=go / /usr/local/
+COPY --link --from=make / /usr/local/
+WORKDIR /go/src/github.com/adnanh/webhook
+RUN <<EOF
+check-clone "https://github.com/adnanh/webhook" "${version}"
+git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" https://github.com/adnanh/webhook .
+export CGO_ENABLED=0
+go build -ldflags "-s -w" -o "${prefix}/bin/webhook"
+EOF
+
+# completion
+#RUN <<EOF
+#"${prefix}/bin/foo" completion bash >"${prefix}/share/bash-completion/completions/foo"
+#"${prefix}/bin/foo" completion fish >"${prefix}/share/fish/vendor_completions.d/foo.fish"
+#"${prefix}/bin/foo" completion zsh >"${prefix}/share/zsh/vendor-completions/_foo"
+#EOF

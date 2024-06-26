@@ -8336,6 +8336,17 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "adnanh/webhook",
+      "fileMatch": [
+        "^tools/webhook/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "tarampampam/webhook-tester",
       "extractVersionTemplate": "^v(?<version>.+?)$",
       "fileMatch": [
