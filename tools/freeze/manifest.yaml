@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: freeze
+version: "0.1.6"
+check: "" # No version parameter
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/charmbracelet
+- category/operations
+- lang/go
+- type/cli
+homepage: https://github.com/charmbracelet/freeze
+description: Generate images of code and terminal output
+renovate:
+  datasource: github-releases
+  package: charmbracelet/freeze
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
