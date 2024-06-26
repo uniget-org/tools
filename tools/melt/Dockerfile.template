@@ -1,0 +1,40 @@
+#syntax=docker/dockerfile:1.8.1
+
+FROM ghcr.io/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN <<EOF
+echo "### Setting architecture string for ${TARGETPLATFORM}"
+case "${arch}" in
+    x86_64)
+        export arch_suffix="${arch}"
+        ;;
+    aarch64)
+        export arch_suffix="${alt_arch}"
+        ;;
+    *)
+        echo "ERROR: Unsupported architecture ${arch}."
+        exit 1
+        ;;
+esac
+echo "    Using ${arch_suffix}"
+
+check-github-release-asset "charmbracelet/melt" "v${version}" "melt_${version}_Linux_${arch_suffix}.tar.gz"
+curl --silent --show-error --location --fail "https://github.com/charmbracelet/melt/releases/download/v${version}/melt_${version}_Linux_${arch_suffix}.tar.gz" \
+| tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
+    "melt_${version}_Linux_${arch_suffix}/melt" \
+    "melt_${version}_Linux_${arch_suffix}/completions" \
+    "melt_${version}_Linux_${arch_suffix}/manpages"
+
+mv "${prefix}/bin/manpages/melt.1.gz" "${prefix}/share/man/man1/"
+rmdir "${prefix}/bin/manpages"
+
+mv "${prefix}/bin/completions/melt.bash" "${prefix}/share/bash-completion/completions/melt"
+mv "${prefix}/bin/completions/melt.fish" "${prefix}/share/fish/vendor_completions.d/melt.fish"
+mv "${prefix}/bin/completions/melt.zsh" "${prefix}/share/zsh/vendor-completions/_melt"
+rmdir "${prefix}/bin/completions"
+EOF
