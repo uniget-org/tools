@@ -1,0 +1,19 @@
+#syntax=docker/dockerfile:1.8.1
+
+FROM ghcr.io/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN <<EOF
+check-github-release-asset "cube2222/octosql" "v${version}" "octosql_${version}_linux_${alt_arch}.tar.gz"
+curl --silent --show-error --location --fail "https://github.com/cube2222/octosql/releases/download/v${version}/octosql_${version}_linux_${alt_arch}.tar.gz" \
+| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
+    octosql
+    
+"${prefix}/bin/octosql" completion bash >"${prefix}/share/bash-completion/completions/octosql"
+"${prefix}/bin/octosql" completion fish >"${prefix}/share/fish/vendor_completions.d/octosql.fish"
+"${prefix}/bin/octosql" completion zsh >"${prefix}/share/zsh/vendor-completions/_octosql"
+EOF
