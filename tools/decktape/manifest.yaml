@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: decktape
+version: "3.12.0"
+check: ${binary} version
+build_dependencies:
+- nodejs
+- npm
+runtime_dependencies:
+- nodejs
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/javascript
+- type/cli
+homepage: https://github.com/astefanutti/decktape
+description: PDF exporter for HTML presentations
+renovate:
+  datasource: npm
+  package: decktape
+  priority: low
