@@ -3,10 +3,10 @@ name: yamllint
 version: "1.35.1"
 check: ${binary} --version | cut -d' ' -f2
 build_dependencies:
-#- python
+- python
 - shiv
-#runtime_dependencies:
-#- python
+runtime_dependencies:
+- python
 platforms:
 - linux/amd64
 - linux/arm64
