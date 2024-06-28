@@ -3,12 +3,12 @@ name: pass-git-helper
 version: "2.0.0"
 check: "" # TODO
 build_dependencies:
-#- python
+- python
 - pipx
 runtime_dependencies:
 - pass
-#- python
-#- git
+- python
+- git
 tags:
 - category/security
 - lang/python
