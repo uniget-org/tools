@@ -3,10 +3,10 @@ name: az
 version: "2.61.0"
 check: ${binary} version | jq --raw-output '."azure-cli"'
 build_dependencies:
-#- python
+- python
 - shiv
-#runtime_dependencies:
-#- python
+runtime_dependencies:
+- python
 platforms:
 - linux/amd64
 tags:

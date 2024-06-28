@@ -1,6 +1,6 @@
 #syntax=docker/dockerfile:1.8.1
 
-#FROM ghcr.io/uniget-org/tools/python:latest AS python
+FROM ghcr.io/uniget-org/tools/python:latest AS python
 FROM ghcr.io/uniget-org/tools/shiv:latest AS shiv
 
 FROM ghcr.io/uniget-org/images/build-essential:24.04@sha256:2b201a13c865ad8ca885fb04659c3996fa547f5ce147f0996e2d7fd878d331e1 AS prepare
@@ -8,14 +8,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-RUN <<EOF
-apt-get update
-apt-get -y install --no-install-recommends \
-    python3-pip \
-    python3-venv \
-    python-is-python3
-EOF
-#COPY --link --from=python / /usr/local/
+COPY --link --from=python / /usr/local/
 COPY --link --from=shiv / /usr/local/
 ARG name
 ARG version

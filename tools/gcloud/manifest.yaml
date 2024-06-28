@@ -2,8 +2,8 @@
 name: gcloud
 version: "482.0.0"
 check: ${binary} --version | head -n 1 | cut -d' ' -f4
-#runtime_dependencies:
-#- python
+runtime_dependencies:
+- python
 platforms:
 - linux/amd64
 #- linux/arm64
