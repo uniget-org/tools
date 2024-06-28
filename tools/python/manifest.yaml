@@ -8,6 +8,9 @@ tags:
 - type/cli
 homepage: https://github.com/indygreg/python-build-standalone
 description: Redistributable builds of Python
+messages:
+  internals: |
+    This dynamically linked Python requires dynamically linked libraries for executions.
 renovate:
   datasource: github-releases
   package: uniget-org/renovate-custom
