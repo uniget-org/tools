@@ -9,6 +9,10 @@ tags:
 - type/cli
 homepage: https://github.com/indygreg/python-build-standalone
 description: Redistributable builds of Python
+messages:
+  internals: |
+    This statically linked Python is not able to load dynamic objects.
+    Please use python if you see errors.
 renovate:
   datasource: github-releases
   package: uniget-org/renovate-custom
