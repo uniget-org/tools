@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
-name: python-build-standalone
+name: python-static
 version: "3.12.3.20240415"
-check: ""
+check: ${binary} --version | cut -d' ' -f2
 binary: python
 tags:
 - category/development

@@ -6635,7 +6635,7 @@
       "depNameTemplate": "uniget-org/renovate-custom",
       "extractVersionTemplate": "^python/(?<version>.+?)$",
       "fileMatch": [
-        "^tools/python-build-standalone/manifest.yaml$"
+        "^tools/python-static/manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
