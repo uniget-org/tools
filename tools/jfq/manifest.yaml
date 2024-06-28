@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: jfq
+version: "1.2.11"
+check: "" # No version parameter
+build_dependencies:
+- nodejs
+- npm
+runtime_dependencies:
+- nodejs
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/javascript
+- type/cli
+homepage: https://github.com/blgm/jfq
+description: JSONata on the command line
+renovate:
+  datasource: npm
+  package: jfq
+  priority: low
