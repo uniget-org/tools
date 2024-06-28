@@ -7718,6 +7718,17 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "npm",
+      "depNameTemplate": "terminalizer",
+      "fileMatch": [
+        "^tools/terminalizer/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "pypi",
       "depNameTemplate": "tern",
       "fileMatch": [
