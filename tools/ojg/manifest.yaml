@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: ojg
+version: "1.22.1"
+binary: oj
+check: ${binary} --version | cut -d' ' -f2 | tr -d v
+build_dependencies:
+- bar
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/cli
+homepage: https://github.com/ohler55/ojg
+description: Optimized JSON for Go
+renovate:
+  datasource: github-releases
+  package: ohler55/ojg
+  extractVersion: ^v(?<version>.+?)$
+  priority: low
