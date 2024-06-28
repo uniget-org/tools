@@ -3,10 +3,10 @@ name: checkov
 version: "3.2.167"
 check: "" # Expect to reach local server
 build_dependencies:
-#- python
+- python
 - shiv
-#runtime_dependencies:
-#- python
+runtime_dependencies:
+- python
 platforms:
 - linux/amd64
 - linux/arm64
