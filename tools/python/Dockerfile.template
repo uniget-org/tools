@@ -11,12 +11,26 @@ RUN <<EOF
 PYTHON_VERSION="$( echo "${version}" | cut -d. -f1-3 )"
 RELEASE_TAG="$( echo "${version}" | cut -d. -f4 )"
 
+case "${arch}" in
+    x86_64)
+        OPT_TAG="pgo+lto"
+        ;;
+    aarch)
+        OPT_TAG="lto"
+        ;;
+    *)
+        echo "Unsupported arch: ${arch}" >&2
+        exit 1
+        ;;
+esac
+
+
 check-github-release-asset \
     "indygreg/python-build-standalone" \
     "${RELEASE_TAG}" \
-    "cpython-${PYTHON_VERSION}+${RELEASE_TAG}-${arch}-unknown-linux-gnu-pgo+lto-full.tar.zst"
+    "cpython-${PYTHON_VERSION}+${RELEASE_TAG}-${arch}-unknown-linux-gnu-${OPT_TAG}-full.tar.zst"
 
-curl --silent --show-error --location --fail "https://github.com/indygreg/python-build-standalone/releases/download/${RELEASE_TAG}/cpython-${PYTHON_VERSION}+${RELEASE_TAG}-${arch}-unknown-linux-gnu-pgo+lto-full.tar.zst" \
+curl --silent --show-error --location --fail "https://github.com/indygreg/python-build-standalone/releases/download/${RELEASE_TAG}/cpython-${PYTHON_VERSION}+${RELEASE_TAG}-${arch}-unknown-linux-gnu-${OPT_TAG}-full.tar.zst" \
 | tar --extract --zstd --directory="${prefix}/" --strip-components=2 --no-same-owner \
     python/install
 EOF
