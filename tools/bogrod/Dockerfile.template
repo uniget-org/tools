@@ -13,5 +13,6 @@ COPY --link --from=shiv / /usr/local/
 ARG name
 ARG version
 RUN <<EOF
+find /usr/local -type f -executable
 shiv --output-file "${prefix}/bin/bogrod" --console-script bogrod "bogrod==${version}" pyyaml tabulate
 EOF
