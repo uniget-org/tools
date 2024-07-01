@@ -15,7 +15,7 @@ case "${arch}" in
     x86_64)
         OPT_TAG="pgo+lto"
         ;;
-    aarch)
+    aarch64)
         OPT_TAG="lto"
         ;;
     *)
