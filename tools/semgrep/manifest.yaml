@@ -3,11 +3,11 @@ $schema: https://tools.uniget.dev/schema.yaml
 name: semgrep
 version: "1.78.0"
 check: ${binary} --version
-#build_dependencies:
-#- python
-#- shiv
-#runtime_dependencies:
-#- python
+build_dependencies:
+- python
+- shiv
+runtime_dependencies:
+- python
 platforms:
 - linux/amd64
 - linux/arm64

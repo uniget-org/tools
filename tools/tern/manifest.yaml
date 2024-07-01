@@ -3,11 +3,11 @@ name: tern
 version: "2.12.1"
 check: ${binary} --version | grep ^Tern | cut -d' ' -f3
 build_dependencies:
-#- python
+- python
 - shiv
-#runtime_dependencies:
-#- python
-#- git
+runtime_dependencies:
+- python
+- git
 platforms:
 - linux/amd64
 - linux/arm64

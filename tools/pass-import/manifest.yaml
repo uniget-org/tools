@@ -4,11 +4,11 @@ version: "3.5"
 binary: pimport
 check: "" # TODO
 build_dependencies:
-#- python
+- python
 - pipx
 runtime_dependencies:
 - pass
-#- python
+- python
 tags:
 - category/security
 - lang/python

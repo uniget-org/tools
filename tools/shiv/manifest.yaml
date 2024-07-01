@@ -2,8 +2,8 @@
 name: shiv
 version: "1.0.6"
 check: "" # Need python to run binary
-#runtime_dependencies:
-#- python
+runtime_dependencies:
+- python
 platforms:
 - linux/amd64
 - linux/arm64

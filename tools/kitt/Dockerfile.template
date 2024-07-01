@@ -1,6 +1,6 @@
 #syntax=docker/dockerfile:1.8.1
 
-#FROM ghcr.io/uniget-org/tools/python:latest AS python
+FROM ghcr.io/uniget-org/tools/python:latest AS python
 FROM ghcr.io/uniget-org/tools/shiv:latest AS shiv
 
 FROM ghcr.io/uniget-org/images/ubuntu:24.04 AS prepare
@@ -8,21 +8,14 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-#COPY --link --from=python / /usr/local/
+COPY --link --from=python / /usr/local/
 COPY --link --from=shiv / /usr/local/
-RUN <<EOF
-apt-get update
-apt-get -y install --no-install-recommends \
-    python3-pip \
-    python3-venv \
-    python-is-python3
-EOF
 ARG name
 ARG version
 RUN <<EOF
 shiv --output-file "${prefix}/bin/kitt" --console-script kitt "kitt-shell==${version}" cryptography
 
-#"${prefix}/bin/kitt" completion bash >"${prefix}/share/bash-completion/completions/kitt"
-#"${prefix}/bin/kitt" completion fish >"${prefix}/share/fish/vendor_completions.d/kitt.fish"
-#"${prefix}/bin/kitt" completion zsh >"${prefix}/share/zsh/vendor-completions/_kitt"
+"${prefix}/bin/kitt" completion bash >"${prefix}/share/bash-completion/completions/kitt"
+"${prefix}/bin/kitt" completion fish >"${prefix}/share/fish/vendor_completions.d/kitt.fish"
+"${prefix}/bin/kitt" completion zsh >"${prefix}/share/zsh/vendor-completions/_kitt"
 EOF

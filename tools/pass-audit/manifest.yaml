@@ -3,11 +3,11 @@ name: pass-audit
 version: "1.2"
 check: "" # TODO
 build_dependencies:
-#- python
+- python
 - pipx
 runtime_dependencies:
 - pass
-#- python
+- python
 tags:
 - category/security
 - lang/python

@@ -4,10 +4,10 @@ name: httpie
 version: "3.2.2"
 check: ${binary}--version
 build_dependencies:
-#- python
+- python
 - shiv
-#runtime_dependencies:
-#- python
+runtime_dependencies:
+- python
 platforms:
 - linux/amd64
 - linux/arm64
