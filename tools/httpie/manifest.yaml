@@ -2,7 +2,8 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: httpie
 version: "3.2.2"
-check: ${binary}--version
+binary: http
+check: ${binary} --version
 build_dependencies:
 - python
 - shiv

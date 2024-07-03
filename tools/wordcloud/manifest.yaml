@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: wordcloud
 version: "1.9.3"
+binary: wordcloud_cli
 check: ""
 build_dependencies:
 - python

@@ -2,6 +2,7 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: mu-repo
 version: "1.9.0"
+binary: mu
 check: ${binary} --version | cut -d' ' -f3
 build_dependencies:
 - python
