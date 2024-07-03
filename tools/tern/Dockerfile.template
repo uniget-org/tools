@@ -3,15 +3,22 @@
 FROM ghcr.io/uniget-org/tools/python:latest AS python
 FROM ghcr.io/uniget-org/tools/shiv:latest AS shiv
 
-FROM ghcr.io/uniget-org/images/ubuntu:24.04 AS prepare
+FROM ghcr.io/uniget-org/images/build-essential:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=python / /usr/local/
 COPY --link --from=shiv / /usr/local/
+RUN <<EOF
+apt-get update
+apt-get -y install --no-install-recommends \
+    clang
+EOF
 ARG name
 ARG version
+WORKDIR /tmp/tern
 RUN <<EOF
-shiv --output-file "${prefix}/bin/tern" --console-script tern "tern==${version}"
+pip install "cython<3.0.0" wheel
+shiv --output-file "${prefix}/bin/tern" --console-script tern "tern==${version}" --no-build-isolation
 EOF
