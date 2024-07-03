@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: konf
 version: "0.7.0"
+binary: konf-go
 check: ${binary} version | sed -E 's/^.+GitVersion":"([^"]+)".+$/\1/'
 platforms:
 - linux/amd64
