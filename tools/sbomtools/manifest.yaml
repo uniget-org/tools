@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: sbomtools
 version: "0.3.3"
+binary: sbomls
 check: "" # No version parameter
 build_dependencies:
 - python
