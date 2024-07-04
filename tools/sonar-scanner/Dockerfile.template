@@ -8,7 +8,21 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
-url="https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${version}-linux.zip"
+case "${arch}" in
+    x86_64)
+        export arch_suffix=x64
+        ;;
+    aarch64)
+        export arch_suffix=arm64
+        ;;
+    *)
+        echo "ERROR: Unsupported architecture ${arch}."
+        exit 1
+        ;;
+esac
+echo "    Using ${arch_suffix}"
+
+url="https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${version}-linux-${arch_suffix}.zip"
 filename="$(basename "${url}")"
 curl --silent --show-error --location --fail --remote-name "${url}"
 unzip -q -o -d "${prefix}/opt" "${filename}"

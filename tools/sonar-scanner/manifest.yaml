@@ -4,6 +4,9 @@ version: "6.1.0.4477"
 check: ${binary} --version | grep SonarScanner | cut -d' ' -f3
 runtime_dependencies:
 - openjdk-jre
+platforms:
+- linux/amd64
+#- linux/arm64
 tags:
 - org/sonarsource
 - type/cli
