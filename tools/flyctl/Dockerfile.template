@@ -8,25 +8,8 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
-echo "### Setting architecture string for ${TARGETPLATFORM}"
-case "${arch}" in
-    x86_64)
-        export arch_suffix="${arch}"
-        ;;
-    aarch64)
-        export arch_suffix="${alt_arch}"
-        ;;
-    *)
-        echo "ERROR: Unsupported architecture ${arch}."
-        exit 1
-        ;;
-esac
-echo "    Using ${arch_suffix}"
-
-check-github-release-asset "superfly/flyctl" "v${version}" "flyctl_${version}_Linux_${arch_suffix}.tar.gz"
-
-echo "### Downloading flyctl ${version}"
-curl --silent --show-error --location --fail "https://github.com/superfly/flyctl/releases/download/v${version}/flyctl_${version}_Linux_${arch_suffix}.tar.gz" \
+check-github-release-asset "superfly/flyctl" "v${version}" "flyctl_${version}_Linux_${alt_arch}.tar.gz"
+curl --silent --show-error --location --fail "https://github.com/superfly/flyctl/releases/download/v${version}/flyctl_${version}_Linux_${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner
 
 "${prefix}/bin/flyctl" completion bash >"${prefix}/share/bash-completion/completions/flyctl"
