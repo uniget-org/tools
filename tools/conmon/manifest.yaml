@@ -17,5 +17,5 @@ description: OCI container runtime monitor
 renovate:
   datasource: github-releases
   package: containers/conmon
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: high

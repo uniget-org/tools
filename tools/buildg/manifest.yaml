@@ -18,5 +18,5 @@ description: Interactive debugger for Dockerfile
 renovate:
   datasource: github-releases
   package: ktock/buildg
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

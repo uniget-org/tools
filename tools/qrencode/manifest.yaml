@@ -17,5 +17,5 @@ description: Fast and compact QR Code encoding library
 renovate:
   datasource: github-releases
   package: fukuchi/libqrencode
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

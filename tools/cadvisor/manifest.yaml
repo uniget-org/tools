@@ -16,5 +16,5 @@ description: Analyzes resource usage and performance characteristics of running 
 renovate:
   datasource: github-releases
   package: google/cadvisor
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

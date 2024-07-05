@@ -16,5 +16,5 @@ description: CLI for managing resources in InfluxDB v2
 renovate:
   datasource: github-releases
   package: influxdata/influx-cli
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

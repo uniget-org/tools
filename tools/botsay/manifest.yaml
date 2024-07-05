@@ -16,5 +16,5 @@ description: Output text together with randomly generated ASCII robots in colors
 renovate:
   datasource: github-tags
   package: xyproto/botsay
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

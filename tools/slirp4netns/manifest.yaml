@@ -12,5 +12,5 @@ description: User-mode networking for unprivileged network namespaces
 renovate:
   datasource: github-releases
   package: rootless-containers/slirp4netns
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: high

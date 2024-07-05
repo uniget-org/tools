@@ -15,5 +15,5 @@ description: eBPF based always-on profiler auto-discovering targets in Kubernete
 renovate:
   datasource: github-releases
   package: parca-dev/parca-agent
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

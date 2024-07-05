@@ -18,5 +18,5 @@ description: JSON Schemas for every version of every object in every version of 
 renovate:
   datasource: github-releases
   package: kubernetes/kubernetes
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: high

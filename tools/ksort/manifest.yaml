@@ -18,5 +18,5 @@ description: Sort manfest files in a proper order by Kind
 renovate:
   datasource: github-releases
   package: superbrothers/ksort
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

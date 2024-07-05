@@ -21,5 +21,5 @@ description: Userspace command line program used to configure kernel packet filt
 renovate:
   datasource: git-tags
   package: https://git.netfilter.org/iptables/
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

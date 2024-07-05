@@ -14,5 +14,5 @@ description: cdebug - a swiss army knife of container debugging
 renovate:
   datasource: github-releases
   package: iximiuz/cdebug
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -16,5 +16,5 @@ description: Base Image Finder CLI
 renovate:
   datasource: github-releases
   package: FairwindsOps/bif
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

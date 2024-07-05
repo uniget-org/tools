@@ -16,5 +16,5 @@ description: Zero setup cross compilation and cross testing of Rust crates
 renovate:
   datasource: github-releases
   package: cross-rs/cross
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

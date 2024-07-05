@@ -15,5 +15,5 @@ description: Cross-platform TUI database management tool
 renovate:
   datasource: github-releases
   package: jorgerojas26/lazysql
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

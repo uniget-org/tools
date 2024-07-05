@@ -16,5 +16,5 @@ description: Framework, tools and integrations that enable the delivery and mana
 renovate:
   datasource: github-releases
   package: replicatedhq/kots
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

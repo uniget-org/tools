@@ -15,5 +15,5 @@ description: Command-line hex viewer
 renovate:
   datasource: github-releases
   package: sharkdp/hexyl
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

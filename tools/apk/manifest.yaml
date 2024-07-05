@@ -13,5 +13,5 @@ description: Alpine package manager
 renovate:
   datasource: github-tags
   package: alpinelinux/apk-tools
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

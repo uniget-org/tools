@@ -15,5 +15,5 @@ description: Send emails from your terminal
 renovate:
   datasource: github-releases
   package: charmbracelet/pop
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

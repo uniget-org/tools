@@ -15,5 +15,5 @@ description: Thin wrapper for Terraform that provides extra tools for working wi
 renovate:
   datasource: github-releases
   package: gruntwork-io/terragrunt
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

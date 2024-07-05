@@ -15,6 +15,6 @@ description: Linux namespace utilities
 renovate:
   datasource: github-tags
   package: rd235/nsutils
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   versioning: loose
   priority: low

@@ -14,5 +14,5 @@ description: CLI to manage KinD clusters as Kubernetes pods
 renovate:
   datasource: github-releases
   package: Trendyol/kink
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

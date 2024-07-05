@@ -15,5 +15,5 @@ description: Artificial Intelligence Infrastructure-as-Code Generator
 renovate:
   datasource: github-releases
   package: gofireflyio/aiac
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

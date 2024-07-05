@@ -17,5 +17,5 @@ description: Command Line Interface (CLI) for interacting with your Civo resourc
 renovate:
   datasource: github-releases
   package: civo/cli
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

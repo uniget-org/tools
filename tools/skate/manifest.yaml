@@ -16,5 +16,5 @@ description: Personal key value store
 renovate:
   datasource: github-releases
   package: charmbracelet/skate
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

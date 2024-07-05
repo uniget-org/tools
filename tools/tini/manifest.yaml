@@ -15,5 +15,5 @@ description: Tiny but valid init for containers
 renovate:
   datasource: github-releases
   package: krallin/tini
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

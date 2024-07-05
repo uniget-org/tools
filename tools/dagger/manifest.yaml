@@ -17,5 +17,5 @@ description: Portable devkit for CI/CD pipelines
 renovate:
   datasource: github-releases
   package: dagger/dagger
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

@@ -18,5 +18,5 @@ description: Rancher Kubernetes Engine (RKE), an extremely simple, lightning fas
 renovate:
   datasource: github-releases
   package: rancher/rke
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

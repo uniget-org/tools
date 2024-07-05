@@ -25,7 +25,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "acorn-io/runtime",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/acorn/manifest.yaml$"
       ],
@@ -37,7 +37,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "Azure/acr-cli",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/acr/manifest.yaml$"
       ],
@@ -50,7 +50,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "nektos/act",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/act/manifest.yaml$"
       ],
@@ -62,7 +62,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "actions/runner",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/actions-runner/manifest.yaml$"
       ],
@@ -74,7 +74,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "FiloSottile/age",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/age/manifest.yaml$"
       ],
@@ -86,7 +86,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "artifacthub/hub",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/ah/manifest.yaml$"
       ],
@@ -98,7 +98,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "gofireflyio/aiac",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/aiac/manifest.yaml$"
       ],
@@ -132,7 +132,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "alpinelinux/apk-tools",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/apk/manifest.yaml$"
       ],
@@ -144,7 +144,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "chainguard-dev/apko",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/apko/manifest.yaml$"
       ],
@@ -156,7 +156,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "aquaproj/aqua",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/aqua/manifest.yaml$"
       ],
@@ -168,7 +168,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "argoproj/argo-workflows",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/argo/manifest.yaml$"
       ],
@@ -180,7 +180,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "argoproj/argo-cd",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/argocd/manifest.yaml$"
       ],
@@ -203,7 +203,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "crazy-max/artifactory-cleanup",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/artifactory-cleanup/manifest.yaml$"
       ],
@@ -215,7 +215,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "guptarohit/asciigraph",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/asciigraph/manifest.yaml$"
       ],
@@ -227,7 +227,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "smallstep/autocert",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/autocert/manifest.yaml$"
       ],
@@ -261,7 +261,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "axel-download-accelerator/axel",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/axel/manifest.yaml$"
       ],
@@ -284,7 +284,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "imsnif/bandwhich",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/bandwhich/manifest.yaml$"
       ],
@@ -296,7 +296,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "sharkdp/bat",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/bat/manifest.yaml$"
       ],
@@ -308,7 +308,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "FairwindsOps/bif",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/bif/manifest.yaml$"
       ],
@@ -320,7 +320,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "marcosnils/bin",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/bin/manifest.yaml$"
       ],
@@ -354,7 +354,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "kubernetes-sigs/bom",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/bom/manifest.yaml$"
       ],
@@ -366,7 +366,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "devops-kung-fu/bomber",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/bomber/manifest.yaml$"
       ],
@@ -378,7 +378,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "chainguard-dev/bomshell",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/bomshell/manifest.yaml$"
       ],
@@ -390,7 +390,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "xyproto/botsay",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/botsay/manifest.yaml$"
       ],
@@ -413,7 +413,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "libbpf/bpftool",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/bpftool/manifest.yaml$"
       ],
@@ -425,7 +425,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "containers/bubblewrap",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/bubblewrap/manifest.yaml$"
       ],
@@ -437,7 +437,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "containers/buildah",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/buildah/manifest.yaml$"
       ],
@@ -449,7 +449,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "ktock/buildg",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/buildg/manifest.yaml$"
       ],
@@ -461,7 +461,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "moby/buildkit",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/buildkit/manifest.yaml$"
       ],
@@ -473,7 +473,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "docker/buildx",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/buildx/manifest.yaml$"
       ],
@@ -485,7 +485,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "solo-io/bumblebee",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/bumblebee/manifest.yaml$"
       ],
@@ -497,7 +497,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "rootless-containers/bypass4netns",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/bypass4netns/manifest.yaml$"
       ],
@@ -509,7 +509,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "caddyserver/caddy",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/caddy/manifest.yaml$"
       ],
@@ -521,7 +521,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "google/cadvisor",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/cadvisor/manifest.yaml$"
       ],
@@ -533,7 +533,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "projectcalico/calico",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/calicoctl/manifest.yaml$"
       ],
@@ -545,7 +545,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "tetratelabs/car",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/car/manifest.yaml$"
       ],
@@ -557,7 +557,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "microsoft/cascadia-code",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/cascadia-code/manifest.yaml$"
       ],
@@ -570,7 +570,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "openSUSE/catatonit",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/catatonit/manifest.yaml$"
       ],
@@ -582,7 +582,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "ibuildthecloud/catgpt",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/catgpt/manifest.yaml$"
       ],
@@ -594,7 +594,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "iximiuz/cdebug",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/cdebug/manifest.yaml$"
       ],
@@ -606,7 +606,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "projectdiscovery/cdncheck",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/cdncheck/manifest.yaml$"
       ],
@@ -629,7 +629,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "cloudflare/cfssl",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/cfssl/manifest.yaml$"
       ],
@@ -641,7 +641,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "kyverno/chainsaw",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/chainsaw/manifest.yaml$"
       ],
@@ -653,7 +653,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "charmbracelet/charm",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/charm/manifest.yaml$"
       ],
@@ -665,7 +665,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "helm/chart-releaser",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/chart-releaser/manifest.yaml$"
       ],
@@ -677,7 +677,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "helm/chart-testing",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/chart-testing/manifest.yaml$"
       ],
@@ -722,7 +722,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "UltiRequiem/chigo",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/chigo/manifest.yaml$"
       ],
@@ -734,7 +734,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "jpillora/chisel",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/chisel/manifest.yaml$"
       ],
@@ -746,7 +746,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "cilium/cilium-cli",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/cilium/manifest.yaml$"
       ],
@@ -758,7 +758,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "mhausenblas/cinf",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/cinf/manifest.yaml$"
       ],
@@ -770,7 +770,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "civo/cli",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/civo/manifest.yaml$"
       ],
@@ -782,7 +782,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "databricks/click",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/click/manifest.yaml$"
       ],
@@ -805,7 +805,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "kubernetes-sigs/cluster-api-provider-aws",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/clusterawsadm/manifest.yaml$"
       ],
@@ -817,7 +817,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "kubernetes-sigs/cluster-api",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/clusterctl/manifest.yaml$"
       ],
@@ -829,7 +829,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "digitalocean/clusterlint",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/clusterlint/manifest.yaml$"
       ],
@@ -841,7 +841,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "cert-manager/cmctl",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/cmctl/manifest.yaml$"
       ],
@@ -853,7 +853,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "containernetworking/plugins",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/cni/manifest.yaml$"
       ],
@@ -865,7 +865,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "containernetworking/cni",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/cnitool/manifest.yaml$"
       ],
@@ -888,7 +888,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "cockroachdb/cockroach",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/cockroach/manifest.yaml$"
       ],
@@ -900,7 +900,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "coder/code-server",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/code-server/manifest.yaml$"
       ],
@@ -912,7 +912,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "coder/coder",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/coder/manifest.yaml$"
       ],
@@ -924,7 +924,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "abiosoft/colima",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/colima/manifest.yaml$"
       ],
@@ -958,7 +958,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "concourse/concourse",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/concourse/manifest.yaml$"
       ],
@@ -970,7 +970,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "open-policy-agent/conftest",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/conftest/manifest.yaml$"
       ],
@@ -982,7 +982,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "containers/conmon",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/conmon/manifest.yaml$"
       ],
@@ -994,7 +994,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "ktock/container2wasm",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/container2wasm/manifest.yaml$"
       ],
@@ -1006,7 +1006,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "containerd/containerd",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/containerd/manifest.yaml$"
       ],
@@ -1018,7 +1018,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "deislabs/containerd-wasm-shims",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/containerd-shim-lunatic/manifest.yaml$"
       ],
@@ -1030,7 +1030,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "deislabs/containerd-wasm-shims",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/containerd-shim-slight/manifest.yaml$"
       ],
@@ -1042,7 +1042,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "spinkube/containerd-shim-spin",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/containerd-shim-spin/manifest.yaml$"
       ],
@@ -1054,7 +1054,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "deislabs/containerd-wasm-shims",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/containerd-shim-spin-runwasi/manifest.yaml$"
       ],
@@ -1066,7 +1066,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "containerd/runwasi",
-      "extractVersionTemplate": "^containerd-shim-wasmedge/v(?<version>.+?)$",
+      "extractVersionTemplate": "^containerd-shim-wasmedge/v(?<version>.+)$",
       "fileMatch": [
         "^tools/containerd-shim-wasmedge/manifest.yaml$"
       ],
@@ -1078,7 +1078,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "containerd/runwasi",
-      "extractVersionTemplate": "^containerd-shim-wasmer/v(?<version>.+?)$",
+      "extractVersionTemplate": "^containerd-shim-wasmer/v(?<version>.+)$",
       "fileMatch": [
         "^tools/containerd-shim-wasmer/manifest.yaml$"
       ],
@@ -1090,7 +1090,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "containerd/runwasi",
-      "extractVersionTemplate": "^containerd-shim-wasmtime/v(?<version>.+?)$",
+      "extractVersionTemplate": "^containerd-shim-wasmtime/v(?<version>.+)$",
       "fileMatch": [
         "^tools/containerd-shim-wasmtime/manifest.yaml$"
       ],
@@ -1102,7 +1102,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "deislabs/containerd-wasm-shims",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/containerd-shim-wws/manifest.yaml$"
       ],
@@ -1114,7 +1114,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "containers/common",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/containers-common/manifest.yaml$"
       ],
@@ -1126,7 +1126,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "containers/image",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/containers-image/manifest.yaml$"
       ],
@@ -1138,7 +1138,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "containers/storage",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/containers-storage/manifest.yaml$"
       ],
@@ -1150,7 +1150,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "ContainerSSH/ContainerSSH",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/containerssh/manifest.yaml$"
       ],
@@ -1162,7 +1162,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "project-copacetic/copacetic",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/copa/manifest.yaml$"
       ],
@@ -1174,7 +1174,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "sigstore/cosign",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/cosign/manifest.yaml$"
       ],
@@ -1186,7 +1186,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "Code-Hex/Neo-cowsay",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/cowsay/manifest.yaml$"
       ],
@@ -1198,7 +1198,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "google/go-containerregistry",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/crane/manifest.yaml$"
       ],
@@ -1210,7 +1210,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "Mirantis/cri-dockerd",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/cri-dockerd/manifest.yaml$"
       ],
@@ -1222,7 +1222,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "cri-o/cri-o",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/cri-o/manifest.yaml$"
       ],
@@ -1234,7 +1234,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "kubernetes-sigs/cri-tools",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/crictl/manifest.yaml$"
       ],
@@ -1246,7 +1246,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "schollz/croc",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/croc/manifest.yaml$"
       ],
@@ -1258,7 +1258,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "cross-rs/cross",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/cross/manifest.yaml$"
       ],
@@ -1270,7 +1270,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "crossplane/crossplane",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/crossplane/manifest.yaml$"
       ],
@@ -1282,7 +1282,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "containers/crun",
-      "extractVersionTemplate": "^(?<version>\\\\d+\\\\.\\\\d+(\\\\.\\\\d+)??)$",
+      "extractVersionTemplate": "^(?<version>\\\\d+\\\\.\\\\d+(\\\\.\\\\d+)?)$",
       "fileMatch": [
         "^tools/crun/manifest.yaml$"
       ],
@@ -1295,7 +1295,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "YS-L/csvlens",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/csvlens/manifest.yaml$"
       ],
@@ -1307,7 +1307,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "flatcar/container-linux-config-transpiler",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/ct/manifest.yaml$"
       ],
@@ -1319,7 +1319,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "google/certificate-transparency-go",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/ct_server/manifest.yaml$"
       ],
@@ -1331,7 +1331,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "bcicen/ctop",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/ctop/manifest.yaml$"
       ],
@@ -1343,7 +1343,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "cue-lang/cue",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/cue/manifest.yaml$"
       ],
@@ -1366,7 +1366,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "rs/curlie",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/curlie/manifest.yaml$"
       ],
@@ -1389,7 +1389,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "projectdiscovery/cvemap",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/cvemap/manifest.yaml$"
       ],
@@ -1401,7 +1401,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "CycloneDX/cyclonedx-cli",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/cyclonedx-cli/manifest.yaml$"
       ],
@@ -1413,7 +1413,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "CycloneDX/cyclonedx-gomod",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/cyclonedx-gomod/manifest.yaml$"
       ],
@@ -1436,7 +1436,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "dagger/dagger",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/dagger/manifest.yaml$"
       ],
@@ -1459,7 +1459,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "TomWright/dasel",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/dasel/manifest.yaml$"
       ],
@@ -1482,7 +1482,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "KenanBek/dbui",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/dbui/manifest.yaml$"
       ],
@@ -1494,7 +1494,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "exdx/dcp",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/dcp/manifest.yaml$"
       ],
@@ -1506,7 +1506,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "ddosify/ddosify",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/ddosify/manifest.yaml$"
       ],
@@ -1540,7 +1540,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "denoland/deno",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/deno/manifest.yaml$"
       ],
@@ -1552,7 +1552,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "gabotechs/dep-tree",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/dep-tree/manifest.yaml$"
       ],
@@ -1564,7 +1564,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "jeremylong/DependencyCheck",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/dependency-check/manifest.yaml$"
       ],
@@ -1576,7 +1576,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "depot/cli",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/depot/manifest.yaml$"
       ],
@@ -1610,7 +1610,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "loft-sh/devpod",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/devpod/manifest.yaml$"
       ],
@@ -1622,7 +1622,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "reproducible-containers/diffoci",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/diffoci/manifest.yaml$"
       ],
@@ -1634,7 +1634,7 @@
       "customType": "regex",
       "datasourceTemplate": "gitlab-releases",
       "depNameTemplate": "tozd/dinit",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/dinit/manifest.yaml$"
       ],
@@ -1646,7 +1646,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "direnv/direnv",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/direnv/manifest.yaml$"
       ],
@@ -1670,7 +1670,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "crazy-max/diun",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/diun/manifest.yaml$"
       ],
@@ -1682,7 +1682,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "wagoodman/dive",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/dive/manifest.yaml$"
       ],
@@ -1694,7 +1694,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "projectdiscovery/dnsx",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/dnsx/manifest.yaml$"
       ],
@@ -1706,7 +1706,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "moby/moby",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/docker/manifest.yaml$"
       ],
@@ -1718,7 +1718,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "docker/base-cli-plugin",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/docker-base/manifest.yaml$"
       ],
@@ -1730,7 +1730,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "docker/compose",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/docker-compose/manifest.yaml$"
       ],
@@ -1742,7 +1742,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "docker/compose-switch",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/docker-compose-switch/manifest.yaml$"
       ],
@@ -1754,7 +1754,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "docker/compose",
-      "extractVersionTemplate": "^(?<version>1\\.\\d+\\.\\d+?)$",
+      "extractVersionTemplate": "^(?<version>1\\.\\d+\\.\\d+)$",
       "fileMatch": [
         "^tools/docker-compose-v1/manifest.yaml$"
       ],
@@ -1777,7 +1777,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "awslabs/amazon-ecr-credential-helper",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/docker-credential-ecr-login/manifest.yaml$"
       ],
@@ -1789,7 +1789,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "GoogleCloudPlatform/docker-credential-gcr",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/docker-credential-gcr/manifest.yaml$"
       ],
@@ -1801,7 +1801,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "docker/docker-credential-helpers",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/docker-credential-helpers/manifest.yaml$"
       ],
@@ -1813,7 +1813,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "docker-credential-magic/docker-credential-magic",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/docker-credential-magic/manifest.yaml$"
       ],
@@ -1825,7 +1825,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "uniget-org/renovate-custom",
-      "extractVersionTemplate": "^docker-debug/(?<version>.+?)$",
+      "extractVersionTemplate": "^docker-debug/(?<version>.+)$",
       "fileMatch": [
         "^tools/docker-debug/manifest.yaml$"
       ],
@@ -1838,7 +1838,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "uniget-org/renovate-custom",
-      "extractVersionTemplate": "^docker-desktop/(?<version>.+?)$",
+      "extractVersionTemplate": "^docker-desktop/(?<version>.+)$",
       "fileMatch": [
         "^tools/docker-desktop/manifest.yaml$"
       ],
@@ -1862,7 +1862,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "docker/index-cli-plugin",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/docker-index/manifest.yaml$"
       ],
@@ -1874,7 +1874,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "uniget-org/renovate-custom",
-      "extractVersionTemplate": "^docker-init/(?<version>.+?)$",
+      "extractVersionTemplate": "^docker-init/(?<version>.+)$",
       "fileMatch": [
         "^tools/docker-init/manifest.yaml$"
       ],
@@ -1887,7 +1887,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "safe-waters/docker-lock",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/docker-lock/manifest.yaml$"
       ],
@@ -1899,7 +1899,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "docker/machine",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/docker-machine/manifest.yaml$"
       ],
@@ -1911,7 +1911,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "docker/cli",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/docker-manpages/manifest.yaml$"
       ],
@@ -1923,7 +1923,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "moby/moby",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/docker-preview/manifest.yaml$"
       ],
@@ -1935,7 +1935,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "moby/moby",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/docker-rootless/manifest.yaml$"
       ],
@@ -1947,7 +1947,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "docker/sbom-cli-plugin",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/docker-sbom/manifest.yaml$"
       ],
@@ -1959,7 +1959,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "docker/scout-cli",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/docker-scout/manifest.yaml$"
       ],
@@ -1971,7 +1971,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "patrickhoefler/dockerfilegraph",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/dockerfilegraph/manifest.yaml$"
       ],
@@ -1983,7 +1983,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "goodwithtech/dockle",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/dockle/manifest.yaml$"
       ],
@@ -1995,7 +1995,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "stepchowfun/docuum",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/docuum/manifest.yaml$"
       ],
@@ -2007,7 +2007,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "goccy/go-graphviz",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/dot/manifest.yaml$"
       ],
@@ -2019,7 +2019,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "dotnet/sdk",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/dotnet/manifest.yaml$"
       ],
@@ -2031,7 +2031,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "dragonflyoss/Dragonfly2",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/dragonfly/manifest.yaml$"
       ],
@@ -2043,7 +2043,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "moncho/dry",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/dry/manifest.yaml$"
       ],
@@ -2055,7 +2055,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "Byron/dua-cli",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/dua/manifest.yaml$"
       ],
@@ -2067,7 +2067,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "muesli/duf",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/duf/manifest.yaml$"
       ],
@@ -2090,7 +2090,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "Yelp/dumb-init",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/dumb-init/manifest.yaml$"
       ],
@@ -2102,7 +2102,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "homeport/dyff",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/dyff/manifest.yaml$"
       ],
@@ -2114,7 +2114,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "earthly/earthly",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/earthly/manifest.yaml$"
       ],
@@ -2126,7 +2126,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "gojue/ecapture",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/ecapture/manifest.yaml$"
       ],
@@ -2138,7 +2138,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "eksctl-io/eksctl",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/eksctl/manifest.yaml$"
       ],
@@ -2172,7 +2172,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "emojisum/emojisum",
-      "extractVersionTemplate": "^draft\\+(?<version>.+?)$",
+      "extractVersionTemplate": "^draft\\+(?<version>.+)$",
       "fileMatch": [
         "^tools/emojisum/manifest.yaml$"
       ],
@@ -2185,7 +2185,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "EnvCLI/EnvCLI",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/envcli/manifest.yaml$"
       ],
@@ -2208,7 +2208,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "evanw/esbuild",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/esbuild/manifest.yaml$"
       ],
@@ -2220,7 +2220,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "etcd-io/etcd",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/etcd/manifest.yaml$"
       ],
@@ -2232,7 +2232,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "kubernetes-sigs/etcdadm",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/etcdadm/manifest.yaml$"
       ],
@@ -2244,7 +2244,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "ogham/exa",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/exa/manifest.yaml$"
       ],
@@ -2256,7 +2256,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "csdev/ezghsa",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/ezghsa/manifest.yaml$"
       ],
@@ -2312,7 +2312,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "adamritter/fastgron",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/fastgron/manifest.yaml$"
       ],
@@ -2324,7 +2324,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "sharkdp/fd",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/fd/manifest.yaml$"
       ],
@@ -2347,7 +2347,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "firecracker-microvm/firecracker",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/firecracker/manifest.yaml$"
       ],
@@ -2359,7 +2359,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "firecracker-microvm/firectl",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/firectl/manifest.yaml$"
       ],
@@ -2393,7 +2393,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "cloudflare/cloudflare-go",
-      "extractVersionTemplate": "^v(?<version>0\\.\\d+\\.\\d+?)$",
+      "extractVersionTemplate": "^v(?<version>0\\.\\d+\\.\\d+)$",
       "fileMatch": [
         "^tools/flarectl/manifest.yaml$"
       ],
@@ -2405,7 +2405,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "rancher/fleet",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/fleet/manifest.yaml$"
       ],
@@ -2417,7 +2417,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "influxdata/flux",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/flux/manifest.yaml$"
       ],
@@ -2429,7 +2429,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "fluxcd/flux2",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/flux2/manifest.yaml$"
       ],
@@ -2441,7 +2441,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "superfly/flyctl",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/flyctl/manifest.yaml$"
       ],
@@ -2475,7 +2475,7 @@
       "customType": "regex",
       "datasourceTemplate": "git-tags",
       "depNameTemplate": "forgejo/forgejo",
-      "extractVersionTemplate": "^v(?<version>\\d+\\.\\d+\\.\\d+-\\d+?)$",
+      "extractVersionTemplate": "^v(?<version>\\d+\\.\\d+\\.\\d+-\\d+)$",
       "fileMatch": [
         "^tools/forgejo/manifest.yaml$"
       ],
@@ -2483,7 +2483,7 @@
         "version: \"?(?<currentValue>.*?)\"?\\n"
       ],
       "packageNameTemplate": "https://codeberg.org/forgejo/forgejo",
-      "versioningTemplate": "regex:^(?<major>\\d+?)\\.(?<minor>\\d+?)\\.(?<patch>\\d+?)-(?<build>\\d+?)$"
+      "versioningTemplate": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-(?<build>\\d+)$"
     },
     {
       "customType": "regex",
@@ -2501,7 +2501,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "wader/fq",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/fq/manifest.yaml$"
       ],
@@ -2513,7 +2513,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "dunglas/frankenphp",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/frankphp/manifest.yaml$"
       ],
@@ -2525,7 +2525,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "charmbracelet/freeze",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/freeze/manifest.yaml$"
       ],
@@ -2537,7 +2537,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "fugue/fregot",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/fregot/manifest.yaml$"
       ],
@@ -2549,7 +2549,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "sighupio/furyctl",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/furyctl/manifest.yaml$"
       ],
@@ -2561,7 +2561,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "containers/fuse-overlayfs",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/fuse-overlayfs/manifest.yaml$"
       ],
@@ -2574,7 +2574,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "containerd/fuse-overlayfs-snapshotter",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/fuse-overlayfs-snapshotter/manifest.yaml$"
       ],
@@ -2608,7 +2608,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "open-policy-agent/gatekeeper",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/gatekeeper/manifest.yaml$"
       ],
@@ -2642,7 +2642,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "cli/cli",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/gh/manifest.yaml$"
       ],
@@ -2654,7 +2654,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "ghostunnel/ghostunnel",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/ghostunnel/manifest.yaml$"
       ],
@@ -2666,7 +2666,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "git/git",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/git/manifest.yaml$"
       ],
@@ -2678,7 +2678,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "gopasspw/git-credential-gopass",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/git-credential-gopass/manifest.yaml$"
       ],
@@ -2690,7 +2690,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "hickford/git-credential-oauth",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/git-credential-oauth/manifest.yaml$"
       ],
@@ -2702,7 +2702,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "newren/git-filter-repo",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/git-filter-repo/manifest.yaml$"
       ],
@@ -2736,7 +2736,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "git-lfs/git-lfs",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/git-lfs/manifest.yaml$"
       ],
@@ -2759,7 +2759,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "go-gitea/gitea",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/gitea/manifest.yaml$"
       ],
@@ -2782,7 +2782,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "rancher/gitjob",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/gitjob/manifest.yaml$"
       ],
@@ -2794,7 +2794,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "mvisonneau/gitlab-ci-pipelines-exporter",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/gitlab-ci-pipelines-exporter/manifest.yaml$"
       ],
@@ -2817,7 +2817,7 @@
       "customType": "regex",
       "datasourceTemplate": "gitlab-releases",
       "depNameTemplate": "gitlab-org/gitlab-runner",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/gitlab-runner/manifest.yaml$"
       ],
@@ -2840,7 +2840,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "gitleaks/gitleaks",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/gitleaks/manifest.yaml$"
       ],
@@ -2852,7 +2852,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "sigstore/gitsign",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/gitsign/manifest.yaml$"
       ],
@@ -2864,7 +2864,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "gittuf/gittuf",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/gittuf/manifest.yaml$"
       ],
@@ -2876,7 +2876,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "extrawurst/gitui",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/gitui/manifest.yaml$"
       ],
@@ -2888,7 +2888,7 @@
       "customType": "regex",
       "datasourceTemplate": "gitlab-releases",
       "depNameTemplate": "gitlab-org/cli",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/glab/manifest.yaml$"
       ],
@@ -2900,7 +2900,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "charmbracelet/glow",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/glow/manifest.yaml$"
       ],
@@ -2924,7 +2924,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "golang/go",
-      "extractVersionTemplate": "^go(?<version>.+?)$",
+      "extractVersionTemplate": "^go(?<version>.+)$",
       "fileMatch": [
         "^tools/go/manifest.yaml$"
       ],
@@ -2936,7 +2936,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "cpuguy83/go-md2man",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/go-md2man/manifest.yaml$"
       ],
@@ -2948,7 +2948,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "oligot/go-mod-upgrade",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/go-mod-upgrade/manifest.yaml$"
       ],
@@ -2960,7 +2960,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "rfjakob/gocryptfs",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/gocryptfs/manifest.yaml$"
       ],
@@ -2973,7 +2973,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "joho/godotenv",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/godotenv/manifest.yaml$"
       ],
@@ -2985,7 +2985,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "itchyny/gojq",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/gojq/manifest.yaml$"
       ],
@@ -2997,7 +2997,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "golangci/golangci-lint",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/golangci-lint/manifest.yaml$"
       ],
@@ -3009,7 +3009,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "hairyhenderson/gomplate",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/gomplate/manifest.yaml$"
       ],
@@ -3021,7 +3021,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "gopasspw/gopass",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/gopass/manifest.yaml$"
       ],
@@ -3033,7 +3033,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "goreleaser/goreleaser",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/goreleaser/manifest.yaml$"
       ],
@@ -3045,7 +3045,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "securego/gosec",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/gosec/manifest.yaml$"
       ],
@@ -3069,7 +3069,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "gotestyourself/gotestsum",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/gotestsum/manifest.yaml$"
       ],
@@ -3081,7 +3081,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "vmware/govmomi",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/govc/manifest.yaml$"
       ],
@@ -3093,7 +3093,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "gptscript-ai/gptscript",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/gptscript/manifest.yaml$"
       ],
@@ -3105,7 +3105,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "gradle/gradle",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/gradle/manifest.yaml$"
       ],
@@ -3117,7 +3117,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "grafana/agent",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/grafana-agent/manifest.yaml$"
       ],
@@ -3140,7 +3140,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "tomnomnom/gron",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/gron/manifest.yaml$"
       ],
@@ -3163,7 +3163,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "anchore/grype",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/grype/manifest.yaml$"
       ],
@@ -3186,7 +3186,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "guacsec/guac",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/guac/manifest.yaml$"
       ],
@@ -3198,7 +3198,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "charmbracelet/gum",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/gum/manifest.yaml$"
       ],
@@ -3210,7 +3210,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "google/gvisor",
-      "extractVersionTemplate": "^release-(?<version>.+?)\\.0$",
+      "extractVersionTemplate": "^release-(?<version>.+)\\.0$",
       "fileMatch": [
         "^tools/gvisor/manifest.yaml$"
       ],
@@ -3223,7 +3223,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "hadolint/hadolint",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/hadolint/manifest.yaml$"
       ],
@@ -3235,7 +3235,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "kdabir/has",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/has/manifest.yaml$"
       ],
@@ -3247,7 +3247,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "homeport/havener",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/havener/manifest.yaml$"
       ],
@@ -3259,7 +3259,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "hetznercloud/cli",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/hcloud/manifest.yaml$"
       ],
@@ -3271,7 +3271,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "helm/helm",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/helm/manifest.yaml$"
       ],
@@ -3283,7 +3283,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "roboll/helmfile",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/helmfile/manifest.yaml$"
       ],
@@ -3295,7 +3295,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "arttor/helmify",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/helmify/manifest.yaml$"
       ],
@@ -3307,7 +3307,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "vitobotta/hetzner-k3s",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/hetzner-k3s/manifest.yaml$"
       ],
@@ -3319,7 +3319,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "sharkdp/hexyl",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/hexyl/manifest.yaml$"
       ],
@@ -3331,7 +3331,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "bigskysoftware/htmx",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools//manifest.yaml$"
       ],
@@ -3354,7 +3354,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "projectdiscovery/httpx",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/httpx/manifest.yaml$"
       ],
@@ -3366,7 +3366,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "mislav/hub",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/hub/manifest.yaml$"
       ],
@@ -3378,7 +3378,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "docker/hub-tool",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/hub-tool/manifest.yaml$"
       ],
@@ -3390,7 +3390,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "cilium/hubble",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/hubble/manifest.yaml$"
       ],
@@ -3402,7 +3402,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "innobead/huber",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/huber/manifest.yaml$"
       ],
@@ -3414,7 +3414,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "gohugoio/hugo",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/hugo/manifest.yaml$"
       ],
@@ -3437,7 +3437,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "sharkdp/hyperfine",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/hyperfine/manifest.yaml$"
       ],
@@ -3449,7 +3449,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "weaveworks/ignite",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/ignite/manifest.yaml$"
       ],
@@ -3461,7 +3461,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "genuinetools/img",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/img/manifest.yaml$"
       ],
@@ -3473,7 +3473,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "containerd/imgcrypt",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/imgcrypt/manifest.yaml$"
       ],
@@ -3485,7 +3485,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "carvel-dev/imgpkg",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/imgpkg/manifest.yaml$"
       ],
@@ -3497,7 +3497,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "in-toto/in-toto-golang",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/in-toto/manifest.yaml$"
       ],
@@ -3509,7 +3509,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "lxc/incus",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/incus/manifest.yaml$"
       ],
@@ -3521,7 +3521,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "influxdata/influx-cli",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/influx-cli/manifest.yaml$"
       ],
@@ -3533,7 +3533,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "influxdata/influxdb",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/influxdb/manifest.yaml$"
       ],
@@ -3545,7 +3545,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "kubernetes-sigs/ingress2gateway",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/ingress2gateway/manifest.yaml$"
       ],
@@ -3580,7 +3580,7 @@
       "customType": "regex",
       "datasourceTemplate": "git-tags",
       "depNameTemplate": "https://git.netfilter.org/iptables/",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/iptables/manifest.yaml$"
       ],
@@ -3614,7 +3614,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "01mf02/jaq",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/jaq/manifest.yaml$"
       ],
@@ -3626,7 +3626,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "eclipse-ee4j/jaxb-ri",
-      "extractVersionTemplate": "^(?<version>.+?)-RI$",
+      "extractVersionTemplate": "^(?<version>.+)-RI$",
       "fileMatch": [
         "^tools/jaxb/manifest.yaml$"
       ],
@@ -3638,7 +3638,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "jsonnet-bundler/jsonnet-bundler",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/jb/manifest.yaml$"
       ],
@@ -3662,7 +3662,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "JetBrains/JetBrainsMono",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/jetbrainsmono/manifest.yaml$"
       ],
@@ -3675,7 +3675,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "jfrog/jfrog-cli",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/jf/manifest.yaml$"
       ],
@@ -3698,7 +3698,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "PaulJuliusMartinez/jless",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/jless/manifest.yaml$"
       ],
@@ -3710,7 +3710,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "ynqa/jnv",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/jnv/manifest.yaml$"
       ],
@@ -3733,7 +3733,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "jqlang/jq",
-      "extractVersionTemplate": "^jq-(?<version>.+?)$",
+      "extractVersionTemplate": "^jq-(?<version>.+)$",
       "fileMatch": [
         "^tools/jq/manifest.yaml$"
       ],
@@ -3746,7 +3746,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "noahgorstein/jqp",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/jqp/manifest.yaml$"
       ],
@@ -3758,7 +3758,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "prometheus-community/json_exporter",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/json-exporter/manifest.yaml$"
       ],
@@ -3781,7 +3781,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "google/go-jsonnet",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/jsonnet/manifest.yaml$"
       ],
@@ -3826,7 +3826,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "jenkins-x/jx",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/jx/manifest.yaml$"
       ],
@@ -3838,7 +3838,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "k0sproject/k0s",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/k0s/manifest.yaml$"
       ],
@@ -3851,7 +3851,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "k0sproject/k0sctl",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/k0sctl/manifest.yaml$"
       ],
@@ -3874,7 +3874,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "k3d-io/k3d",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/k3d/manifest.yaml$"
       ],
@@ -3886,7 +3886,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "k3s-io/k3s",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/k3s/manifest.yaml$"
       ],
@@ -3910,7 +3910,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "grafana/k6",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/k6/manifest.yaml$"
       ],
@@ -3933,7 +3933,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "k8spacket/k8spacket",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/k8spacket/manifest.yaml$"
       ],
@@ -3945,7 +3945,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "derailed/k9s",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/k9s/manifest.yaml$"
       ],
@@ -3957,7 +3957,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "carvel-dev/kapp",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kapp/manifest.yaml$"
       ],
@@ -3969,7 +3969,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "projectdiscovery/katana",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/katana/manifest.yaml$"
       ],
@@ -3981,7 +3981,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "carvel-dev/kbld",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kbld/manifest.yaml$"
       ],
@@ -3993,7 +3993,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "ksoclabs/kbom",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kbom/manifest.yaml$"
       ],
@@ -4005,7 +4005,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "kbrew-dev/kbrew",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kbrew/manifest.yaml$"
       ],
@@ -4017,7 +4017,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "pan-net-security/kcount",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kcount/manifest.yaml$"
       ],
@@ -4029,7 +4029,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "kcp-dev/kcp",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kcp/manifest.yaml$"
       ],
@@ -4041,7 +4041,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "UKHomeOffice/kd",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kd/manifest.yaml$"
       ],
@@ -4053,7 +4053,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "stepro/kdo",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kdo/manifest.yaml$"
       ],
@@ -4065,7 +4065,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "theketchio/ketch",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/ketch/manifest.yaml$"
       ],
@@ -4077,7 +4077,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "iximiuz/kexp",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kexp/manifest.yaml$"
       ],
@@ -4089,7 +4089,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "keybase/client",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/keybase/manifest.yaml$"
       ],
@@ -4123,7 +4123,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "kubernetes-sigs/kind",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kind/manifest.yaml$"
       ],
@@ -4135,7 +4135,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "Trendyol/kink",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kink/manifest.yaml$"
       ],
@@ -4158,7 +4158,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "kovidgoyal/kitty",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kitty/manifest.yaml$"
       ],
@@ -4170,7 +4170,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "kluctl/kluctl",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kluctl/manifest.yaml$"
       ],
@@ -4182,7 +4182,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "orhun/kmon",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kmon/manifest.yaml$"
       ],
@@ -4194,7 +4194,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "knative/client",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kn/manifest.yaml$"
       ],
@@ -4206,7 +4206,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "ko-build/ko",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/ko/manifest.yaml$"
       ],
@@ -4218,7 +4218,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "kubernetes/kompose",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kompose/manifest.yaml$"
       ],
@@ -4230,7 +4230,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "SimonTheLeg/konf-go",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/konf/manifest.yaml$"
       ],
@@ -4242,7 +4242,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "replicatedhq/kots",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kots/manifest.yaml$"
       ],
@@ -4254,7 +4254,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "buildpacks-community/kpack-cli",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kp/manifest.yaml$"
       ],
@@ -4266,7 +4266,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "kptdev/kpt",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kpt/manifest.yaml$"
       ],
@@ -4278,7 +4278,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "akazukin5151/kpxhs",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kpxhs/manifest.yaml$"
       ],
@@ -4290,7 +4290,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "kubernetes-sigs/krew",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/krew/manifest.yaml$"
       ],
@@ -4302,7 +4302,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "yuzutech/kroki-cli",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kroki-cli/manifest.yaml$"
       ],
@@ -4314,7 +4314,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "superbrothers/ksort",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/ksort/manifest.yaml$"
       ],
@@ -4326,7 +4326,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "vladimirvivien/ktop",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/ktop/manifest.yaml$"
       ],
@@ -4338,7 +4338,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "omrikiei/ktunnel",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/ktunnel/manifest.yaml$"
       ],
@@ -4350,7 +4350,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "kubernetes/kubernetes",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kube-apiserver/manifest.yaml$"
       ],
@@ -4362,7 +4362,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "aquasecurity/kube-bench",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kube-bench/manifest.yaml$"
       ],
@@ -4374,7 +4374,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "kube-burner/kube-burner",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kube-burner/manifest.yaml$"
       ],
@@ -4386,7 +4386,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "kubernetes/kubernetes",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kube-controller-manager/manifest.yaml$"
       ],
@@ -4409,7 +4409,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "kubernetes/kubernetes",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kube-proxy/manifest.yaml$"
       ],
@@ -4421,7 +4421,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "sysdiglabs/kube-psp-advisor",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kube-psp-advisor/manifest.yaml$"
       ],
@@ -4433,7 +4433,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "kubernetes/kubernetes",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kube-scheduler/manifest.yaml$"
       ],
@@ -4445,7 +4445,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "zegl/kube-score",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kube-score/manifest.yaml$"
       ],
@@ -4457,7 +4457,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "kubevela/kube-trigger",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kube-trigger/manifest.yaml$"
       ],
@@ -4469,7 +4469,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "kubernetes/kubernetes",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kubeadm/manifest.yaml$"
       ],
@@ -4481,7 +4481,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "Shopify/kubeaudit",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kubeaudit/manifest.yaml$"
       ],
@@ -4504,7 +4504,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "kubernetes-sigs/kubebuilder",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kubebuilder/manifest.yaml$"
       ],
@@ -4516,7 +4516,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "openclarity/kubeclarity",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kubeclarity-cli/manifest.yaml$"
       ],
@@ -4528,7 +4528,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "hidetatz/kubecolor",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kubecolor/manifest.yaml$"
       ],
@@ -4540,7 +4540,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "yannh/kubeconform",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kubeconform/manifest.yaml$"
       ],
@@ -4552,7 +4552,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "kubernetes/kubernetes",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kubectl/manifest.yaml$"
       ],
@@ -4564,7 +4564,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "vmware-archive/buildkit-cli-for-kubectl",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kubectl-build/manifest.yaml$"
       ],
@@ -4576,7 +4576,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "makocchi-git/kubectl-free",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kubectl-free/manifest.yaml$"
       ],
@@ -4588,7 +4588,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "howardjohn/kubectl-resources",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kubectl-resources/manifest.yaml$"
       ],
@@ -4611,7 +4611,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "ahmetb/kubectx",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kubectx/manifest.yaml$"
       ],
@@ -4623,7 +4623,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "innobead/kubefire",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kubefire/manifest.yaml$"
       ],
@@ -4635,7 +4635,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "kubernetes/kubernetes",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kubelet/manifest.yaml$"
       ],
@@ -4647,7 +4647,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "cyberark/kubeletctl",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kubeletctl/manifest.yaml$"
       ],
@@ -4671,7 +4671,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "kubernetes/kubernetes",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kubernetes-json-schema/manifest.yaml$"
       ],
@@ -4683,7 +4683,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "kubescape/kubescape",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kubescape/manifest.yaml$"
       ],
@@ -4695,7 +4695,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "bitnami-labs/sealed-secrets",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kubeseal/manifest.yaml$"
       ],
@@ -4707,7 +4707,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "controlplaneio/kubesec",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kubesec/manifest.yaml$"
       ],
@@ -4731,7 +4731,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "danielb42/kubeswitch",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kubeswitch/manifest.yaml$"
       ],
@@ -4743,7 +4743,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "instrumenta/kubeval",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kubeval/manifest.yaml$"
       ],
@@ -4755,7 +4755,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "ipfs/kubo",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kubo/manifest.yaml$"
       ],
@@ -4767,7 +4767,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "kudobuilder/kudo",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kudo/manifest.yaml$"
       ],
@@ -4803,7 +4803,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "kudobuilder/kuttl",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kuttl/manifest.yaml$"
       ],
@@ -4815,7 +4815,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "kubernetes-sigs/kwok",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kwok/manifest.yaml$"
       ],
@@ -4827,7 +4827,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "kyverno/kyverno",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kyverno/manifest.yaml$"
       ],
@@ -4876,7 +4876,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "jorgerojas26/lazysql",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/lazysql/manifest.yaml$"
       ],
@@ -4888,7 +4888,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "owenrumney/lazytrivy",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/lazytrivy/manifest.yaml$"
       ],
@@ -4900,7 +4900,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "sahsanu/lectl",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/lectl/manifest.yaml$"
       ],
@@ -4913,7 +4913,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "go-acme/lego",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/lego/manifest.yaml$"
       ],
@@ -4925,7 +4925,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "libbpf/libbpf",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/libbpf/manifest.yaml$"
       ],
@@ -4974,7 +4974,7 @@
       "customType": "regex",
       "datasourceTemplate": "git-tags",
       "depNameTemplate": "https://git.netfilter.org/libmnl/",
-      "extractVersionTemplate": "^libmnl-(?<version>.+?)$",
+      "extractVersionTemplate": "^libmnl-(?<version>.+)$",
       "fileMatch": [
         "^tools/libmnl/manifest.yaml$"
       ],
@@ -4986,7 +4986,7 @@
       "customType": "regex",
       "datasourceTemplate": "git-tags",
       "depNameTemplate": "https://git.netfilter.org/libnftnl/",
-      "extractVersionTemplate": "^libnftnl-(?<version>.+?)$",
+      "extractVersionTemplate": "^libnftnl-(?<version>.+)$",
       "fileMatch": [
         "^tools/libnftnl/manifest.yaml$"
       ],
@@ -4998,7 +4998,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "NVIDIA/libnvidia-container",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/libnvidia-container/manifest.yaml$"
       ],
@@ -5010,7 +5010,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "lima-vm/lima",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/lima/manifest.yaml$"
       ],
@@ -5022,7 +5022,7 @@
       "customType": "regex",
       "datasourceTemplate": "git-tags",
       "depNameTemplate": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/linux-kernel/manifest.yaml$"
       ],
@@ -5034,7 +5034,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "microsoft/WSL2-Linux-Kernel",
-      "extractVersionTemplate": "^linux-msft-wsl-(?<version>.+?)$",
+      "extractVersionTemplate": "^linux-msft-wsl-(?<version>.+)$",
       "fileMatch": [
         "^tools/linux-kernel-wsl/manifest.yaml$"
       ],
@@ -5047,7 +5047,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "microsoft/WSL2-Linux-Kernel",
-      "extractVersionTemplate": "^linux-msft-wsl-(?<version>5\\..+?)$",
+      "extractVersionTemplate": "^linux-msft-wsl-(?<version>5\\..+)$",
       "fileMatch": [
         "^tools/linux-kernel-wsl-stable/manifest.yaml$"
       ],
@@ -5060,7 +5060,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "linuxkit/linuxkit",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/linuxkit/manifest.yaml$"
       ],
@@ -5072,7 +5072,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "getoutreach/localizer",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/localizer/manifest.yaml$"
       ],
@@ -5096,7 +5096,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "grafana/loki",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/logcli/manifest.yaml$"
       ],
@@ -5108,7 +5108,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "grafana/loki",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/loki/manifest.yaml$"
       ],
@@ -5120,7 +5120,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "grafana/loki",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/loki-canary/manifest.yaml$"
       ],
@@ -5132,7 +5132,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "juan-leon/lowcharts",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/lowcharts/manifest.yaml$"
       ],
@@ -5155,7 +5155,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "ivanilves/lstags",
-      "extractVersionTemplate": "^v(?<version>\\d+\\.\\d+\\.\\d+?)$",
+      "extractVersionTemplate": "^v(?<version>\\d+\\.\\d+\\.\\d+)$",
       "fileMatch": [
         "^tools/lstags/manifest.yaml$"
       ],
@@ -5178,7 +5178,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "lz4/lz4",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/lz4/manifest.yaml$"
       ],
@@ -5190,7 +5190,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "magefile/mage",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/mage/manifest.yaml$"
       ],
@@ -5208,13 +5208,13 @@
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
       ],
-      "versioningTemplate": "regex:^(?<major>\\d+?)\\.(?<minor>\\d+?)\\.(?<patch>\\d+?)(\\.(?<build>\\d+?))?$"
+      "versioningTemplate": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)(\\.(?<build>\\d+))?$"
     },
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "alajmo/mani",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/mani/manifest.yaml$"
       ],
@@ -5226,7 +5226,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "estesp/manifest-tool",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/manifest-tool/manifest.yaml$"
       ],
@@ -5238,7 +5238,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "projectdiscovery/mapcidr",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/mapcidr/manifest.yaml$"
       ],
@@ -5261,7 +5261,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "undistro/marvin",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/marvin/manifest.yaml$"
       ],
@@ -5273,7 +5273,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "apache/maven",
-      "extractVersionTemplate": "^maven-(?<version>.+?)$",
+      "extractVersionTemplate": "^maven-(?<version>.+)$",
       "fileMatch": [
         "^tools/maven/manifest.yaml$"
       ],
@@ -5285,7 +5285,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "minio/mc",
-      "extractVersionTemplate": "^RELEASE.(?<version>.+?)$",
+      "extractVersionTemplate": "^RELEASE.(?<version>.+)$",
       "fileMatch": [
         "^tools/mc/manifest.yaml$"
       ],
@@ -5298,7 +5298,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "cantino/mcfly",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/mcfly/manifest.yaml$"
       ],
@@ -5310,7 +5310,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "chainguard-dev/melange",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/melange/manifest.yaml$"
       ],
@@ -5322,7 +5322,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "charmbracelet/melt",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/melt/manifest.yaml$"
       ],
@@ -5356,7 +5356,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "raystack/meteor",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/meteor/manifest.yaml$"
       ],
@@ -5368,7 +5368,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "CAFxX/mgo",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/mgo/manifest.yaml$"
       ],
@@ -5380,7 +5380,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "micro/micro",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/micro/manifest.yaml$"
       ],
@@ -5392,7 +5392,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "johnkerl/miller",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/miller/manifest.yaml$"
       ],
@@ -5404,7 +5404,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "stacklok/minder",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/minder/manifest.yaml$"
       ],
@@ -5416,7 +5416,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "dirien/minectl",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/minectl/manifest.yaml$"
       ],
@@ -5428,7 +5428,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "kubernetes/minikube",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/minikube/manifest.yaml$"
       ],
@@ -5440,7 +5440,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "minio/minio",
-      "extractVersionTemplate": "^RELEASE.(?<version>.+?)$",
+      "extractVersionTemplate": "^RELEASE.(?<version>.+)$",
       "fileMatch": [
         "^tools/minio/manifest.yaml$"
       ],
@@ -5453,7 +5453,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "mattmoor/mink",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/mink/manifest.yaml$"
       ],
@@ -5476,7 +5476,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "mitmproxy/mitmproxy",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/mitmproxy/manifest.yaml$"
       ],
@@ -5488,7 +5488,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "FiloSottile/mkcert",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/mkcert/manifest.yaml$"
       ],
@@ -5511,7 +5511,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "charmbracelet/mods",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/mods/manifest.yaml$"
       ],
@@ -5523,7 +5523,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "githubnext/monaspace",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/monaspace/manifest.yaml$"
       ],
@@ -5536,7 +5536,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "crra/mp3binder",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/mp3binder/manifest.yaml$"
       ],
@@ -5565,13 +5565,13 @@
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
       ],
-      "versioningTemplate": "regex:^(?<major>\\d+?)\\.(?<minor>\\d+?)\\.(?<patch>\\d+?)$"
+      "versioningTemplate": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
     },
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "mutagen-io/mutagen",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/mutagen/manifest.yaml$"
       ],
@@ -5583,7 +5583,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "mutagen-io/mutagen-compose",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/mutagen-compose/manifest.yaml$"
       ],
@@ -5607,7 +5607,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "uniget-org/renovate-custom",
-      "extractVersionTemplate": "^namespace/(?<version>.+?)$",
+      "extractVersionTemplate": "^namespace/(?<version>.+)$",
       "fileMatch": [
         "^tools/namespace/manifest.yaml$"
       ],
@@ -5619,7 +5619,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "sonatype-nexus-community/nancy",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/nancy/manifest.yaml$"
       ],
@@ -5631,7 +5631,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "denisidoro/navi",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/navi/manifest.yaml$"
       ],
@@ -5678,7 +5678,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "ryanoasis/nerd-fonts",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/nerd-fonts/manifest.yaml$"
       ],
@@ -5690,7 +5690,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "containerd/nerdctl",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/nerdctl/manifest.yaml$"
       ],
@@ -5713,7 +5713,7 @@
       "customType": "regex",
       "datasourceTemplate": "git-tags",
       "depNameTemplate": "https://git.netfilter.org/nftables/",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/nftables/manifest.yaml$"
       ],
@@ -5725,7 +5725,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "nodejs/node",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/nodejs/manifest.yaml$"
       ],
@@ -5737,7 +5737,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "uniget-org/renovate-custom",
-      "extractVersionTemplate": "^nodejs-lts/(?<version>.+?)$",
+      "extractVersionTemplate": "^nodejs-lts/(?<version>.+)$",
       "fileMatch": [
         "^tools/nodejs-lts/manifest.yaml$"
       ],
@@ -5749,7 +5749,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "norouter/norouter",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/norouter/manifest.yaml$"
       ],
@@ -5761,7 +5761,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "notaryproject/notation",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/notation/manifest.yaml$"
       ],
@@ -5773,7 +5773,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "npm/cli",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/npm/manifest.yaml$"
       ],
@@ -5785,7 +5785,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "rd235/nsutils",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/nsutils/manifest.yaml$"
       ],
@@ -5798,7 +5798,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "projectdiscovery/nuclei",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/nuclei/manifest.yaml$"
       ],
@@ -5810,7 +5810,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "projectdiscovery/nuclei-templates",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/nuclei-templates/manifest.yaml$"
       ],
@@ -5833,7 +5833,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "NVIDIA/nvidia-container-toolkit",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/nvidia-container-toolkit/manifest.yaml$"
       ],
@@ -5845,7 +5845,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "nvm-sh/nvm",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/nvm/manifest.yaml$"
       ],
@@ -5868,7 +5868,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "dragonflyoss/nydus",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/nydus/manifest.yaml$"
       ],
@@ -5880,7 +5880,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "containerd/nydus-snapshotter",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/nydus-snapshotter/manifest.yaml$"
       ],
@@ -5892,7 +5892,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "openshift/origin",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/oc/manifest.yaml$"
       ],
@@ -5904,7 +5904,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "open-telemetry/opentelemetry-collector",
-      "extractVersionTemplate": "^cmd/builder/v(?<version>.+?)$",
+      "extractVersionTemplate": "^cmd/builder/v(?<version>.+)$",
       "fileMatch": [
         "^tools/ocb/manifest.yaml$"
       ],
@@ -5916,7 +5916,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "opencontainers/image-tools",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/oci-image-tool/manifest.yaml$"
       ],
@@ -5928,7 +5928,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "opencontainers/runtime-tools",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/oci-runtime-tool/manifest.yaml$"
       ],
@@ -5940,7 +5940,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "open-component-model/ocm",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/ocm/manifest.yaml$"
       ],
@@ -5952,7 +5952,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "dailymotion-oss/octopilot",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/octopilot/manifest.yaml$"
       ],
@@ -5964,7 +5964,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "cube2222/octosql",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/octosql/manifest.yaml$"
       ],
@@ -5976,7 +5976,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "ohler55/ojg",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/ojg/manifest.yaml$"
       ],
@@ -5988,7 +5988,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "open-policy-agent/opa",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/opa/manifest.yaml$"
       ],
@@ -6000,7 +6000,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "openjdk/jdk",
-      "extractVersionTemplate": "^jdk-(?<version>.+?)-ga$",
+      "extractVersionTemplate": "^jdk-(?<version>.+)-ga$",
       "fileMatch": [
         "^tools/openjdk/manifest.yaml$"
       ],
@@ -6013,7 +6013,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "openjdk/jdk",
-      "extractVersionTemplate": "^jdk-(?<version>.+?)-ga$",
+      "extractVersionTemplate": "^jdk-(?<version>.+)-ga$",
       "fileMatch": [
         "^tools/openjdk-jre/manifest.yaml$"
       ],
@@ -6026,7 +6026,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "opentofu/opentofu",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/opentofu/manifest.yaml$"
       ],
@@ -6038,7 +6038,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "oras-project/oras",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/oras/manifest.yaml$"
       ],
@@ -6061,7 +6061,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "google/osv-scanner",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/osv-scanner/manifest.yaml$"
       ],
@@ -6073,7 +6073,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "containerd/overlaybd",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/overlaybd/manifest.yaml$"
       ],
@@ -6085,7 +6085,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "containerd/accelerated-container-image",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/overlaybd-snapshotter/manifest.yaml$"
       ],
@@ -6097,7 +6097,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "buildpacks/pack",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/pack/manifest.yaml$"
       ],
@@ -6109,7 +6109,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "hashicorp/packer",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/packer/manifest.yaml$"
       ],
@@ -6143,7 +6143,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "jetstack/paranoia",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/paranoia/manifest.yaml$"
       ],
@@ -6155,7 +6155,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "parca-dev/parca",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/parca/manifest.yaml$"
       ],
@@ -6167,7 +6167,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "parca-dev/parca-agent",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/parca-agent/manifest.yaml$"
       ],
@@ -6203,7 +6203,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "languitar/pass-git-helper",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/pass-git-helper/manifest.yaml$"
       ],
@@ -6226,7 +6226,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "tadfisher/pass-otp",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/pass-otp/manifest.yaml$"
       ],
@@ -6238,7 +6238,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "palortoff/pass-extension-tail",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/pass-tail/manifest.yaml$"
       ],
@@ -6250,7 +6250,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "roddhjav/pass-update",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/pass-update/manifest.yaml$"
       ],
@@ -6263,7 +6263,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "clarkwang/passh",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/passh/manifest.yaml$"
       ],
@@ -6275,19 +6275,20 @@
       "customType": "regex",
       "datasourceTemplate": "git-tags",
       "depNameTemplate": "https://passt.top/passt/",
-      "extractVersionTemplate": "^(?<version>\\d+_\\d+_\\d+?)\\.\\w+$",
+      "extractVersionTemplate": "^(?<version>\\d+_\\d+_\\d+\\.\\w+)$",
       "fileMatch": [
         "^tools/passt/manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
-      ]
+      ],
+      "versioningTemplate": "loose"
     },
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "jaspervdj/patat",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/patat/manifest.yaml$"
       ],
@@ -6300,7 +6301,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "canonical/pebble",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/pebble/manifest.yaml$"
       ],
@@ -6335,7 +6336,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "madler/pigz",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/pigz/manifest.yaml$"
       ],
@@ -6359,7 +6360,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "containers/podman",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/podman/manifest.yaml$"
       ],
@@ -6371,7 +6372,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "containers/podman-tui",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/podman-tui/manifest.yaml$"
       ],
@@ -6394,7 +6395,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "opcr-io/policy",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/policy/manifest.yaml$"
       ],
@@ -6406,7 +6407,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "charmbracelet/pop",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/pop/manifest.yaml$"
       ],
@@ -6418,7 +6419,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "derailed/popeye",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/popeye/manifest.yaml$"
       ],
@@ -6441,7 +6442,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "getporter/porter",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/porter/manifest.yaml$"
       ],
@@ -6453,7 +6454,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "justjanne/powerline-go",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/powerline-go/manifest.yaml$"
       ],
@@ -6465,7 +6466,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "PowerShell/PowerShell",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/powershell/manifest.yaml$"
       ],
@@ -6488,7 +6489,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "mfontanini/presenterm",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/presenterm/manifest.yaml$"
       ],
@@ -6500,7 +6501,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "F1bonacc1/process-compose",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/process-compose/manifest.yaml$"
       ],
@@ -6512,7 +6513,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "dalance/procs",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/procs/manifest.yaml$"
       ],
@@ -6524,7 +6525,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "fhemberger/promcolor",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/promcolor/manifest.yaml$"
       ],
@@ -6536,7 +6537,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "nalbury/promql-cli",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/promql-cli/manifest.yaml$"
       ],
@@ -6548,7 +6549,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "grafana/loki",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/promtail/manifest.yaml$"
       ],
@@ -6560,7 +6561,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "prometheus/prometheus",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/promtool/manifest.yaml$"
       ],
@@ -6572,7 +6573,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "proot-me/proot",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/proot/manifest.yaml$"
       ],
@@ -6584,7 +6585,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "projectdiscovery/proxify",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/proxify/manifest.yaml$"
       ],
@@ -6596,7 +6597,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "a-j-wood/pv",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/pv/manifest.yaml$"
       ],
@@ -6608,7 +6609,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "cilium/pwru",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/pwru/manifest.yaml$"
       ],
@@ -6620,7 +6621,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "uniget-org/renovate-custom",
-      "extractVersionTemplate": "^python/(?<version>.+?)$",
+      "extractVersionTemplate": "^python/(?<version>.+)$",
       "fileMatch": [
         "^tools/python/manifest.yaml$"
       ],
@@ -6633,7 +6634,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "uniget-org/renovate-custom",
-      "extractVersionTemplate": "^python/(?<version>.+?)$",
+      "extractVersionTemplate": "^python/(?<version>.+)$",
       "fileMatch": [
         "^tools/python-static/manifest.yaml$"
       ],
@@ -6646,7 +6647,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "qemu/qemu",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/qemu/manifest.yaml$"
       ],
@@ -6658,7 +6659,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "fukuchi/libqrencode",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/qrencode/manifest.yaml$"
       ],
@@ -6681,7 +6682,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "quarto-dev/quarto-cli",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/quarto/manifest.yaml$"
       ],
@@ -6693,7 +6694,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "quarto-dev/quarto-cli",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/quarto-full/manifest.yaml$"
       ],
@@ -6705,7 +6706,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "regclient/regclient",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/regclient/manifest.yaml$"
       ],
@@ -6717,7 +6718,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "distribution/distribution",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/registry/manifest.yaml$"
       ],
@@ -6729,7 +6730,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "sigstore/rekor",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/rekor/manifest.yaml$"
       ],
@@ -6741,7 +6742,7 @@
       "customType": "regex",
       "datasourceTemplate": "gitlab-releases",
       "depNameTemplate": "gitlab-org/release-cli",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/release-cli/manifest.yaml$"
       ],
@@ -6753,7 +6754,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "nelhage/reptyr",
-      "extractVersionTemplate": "^reptyr-(?<version>.+?)$",
+      "extractVersionTemplate": "^reptyr-(?<version>.+)$",
       "fileMatch": [
         "^tools/reptyr/manifest.yaml$"
       ],
@@ -6787,7 +6788,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "rancher/rke",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/rke/manifest.yaml$"
       ],
@@ -6799,7 +6800,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "rancher/rke2",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/rke2/manifest.yaml$"
       ],
@@ -6812,7 +6813,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "rootless-containers/rootlesskit",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/rootlesskit/manifest.yaml$"
       ],
@@ -6824,7 +6825,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "opencontainers/runc",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/runc/manifest.yaml$"
       ],
@@ -6847,7 +6848,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "plumber-cd/runtainer",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/runtainer/manifest.yaml$"
       ],
@@ -6859,7 +6860,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "shenwei356/rush",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/rush/manifest.yaml$"
       ],
@@ -6926,7 +6927,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "microsoft/sbom-tool",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/sbom-tool/manifest.yaml$"
       ],
@@ -6938,7 +6939,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "CycloneDX/sbom-utility",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/sbom-utility/manifest.yaml$"
       ],
@@ -6972,7 +6973,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "interlynk-io/sbomasm",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/sbomasm/manifest.yaml$"
       ],
@@ -6995,7 +6996,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "interlynk-io/sbomex",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/sbomex/manifest.yaml$"
       ],
@@ -7007,7 +7008,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "interlynk-io/sbomgr",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/sbomgr/manifest.yaml$"
       ],
@@ -7019,7 +7020,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "interlynk-io/sbomqs",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/sbomqs/manifest.yaml$"
       ],
@@ -7042,7 +7043,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "sbt/sbt",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/sbt/manifest.yaml$"
       ],
@@ -7054,7 +7055,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "scala/scala",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/scala/manifest.yaml$"
       ],
@@ -7066,7 +7067,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "boyter/scc",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/scc/manifest.yaml$"
       ],
@@ -7078,7 +7079,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "ossf/scorecard",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/scorecard/manifest.yaml$"
       ],
@@ -7090,7 +7091,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "sealerio/sealer",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/sealer/manifest.yaml$"
       ],
@@ -7146,7 +7147,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "ko1nksm/shdotenv",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/shdotenv/manifest.yaml$"
       ],
@@ -7169,7 +7170,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "koalaman/shellcheck",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/shellcheck/manifest.yaml$"
       ],
@@ -7192,7 +7193,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "containers/shortnames",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/shortnames/manifest.yaml$"
       ],
@@ -7205,7 +7206,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "antoniomika/sish",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/sish/manifest.yaml$"
       ],
@@ -7217,7 +7218,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "charmbracelet/skate",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/skate/manifest.yaml$"
       ],
@@ -7229,7 +7230,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "containers/skopeo",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/skopeo/manifest.yaml$"
       ],
@@ -7241,7 +7242,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "maaslalani/slides",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/slides/manifest.yaml$"
       ],
@@ -7253,7 +7254,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "rootless-containers/slirp4netns",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/slirp4netns/manifest.yaml$"
       ],
@@ -7265,7 +7266,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "salesforce/sloop",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/sloop/manifest.yaml$"
       ],
@@ -7278,7 +7279,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "slsa-framework/slsa-verifier",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/slsa-verifier/manifest.yaml$"
       ],
@@ -7290,7 +7291,7 @@
       "customType": "regex",
       "datasourceTemplate": "git-tags",
       "depNameTemplate": "git://repo.or.cz/socat.git",
-      "extractVersionTemplate": "^tag-(?<version>\\d+\\.\\d+\\.\\d+(\\.\\d+)??)$",
+      "extractVersionTemplate": "^tag-(?<version>\\d+\\.\\d+\\.\\d+(\\.\\d+)?)$",
       "fileMatch": [
         "^tools/socat/manifest.yaml$"
       ],
@@ -7303,7 +7304,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "awslabs/soci-snapshotter",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/soci-snapshotter/manifest.yaml$"
       ],
@@ -7315,7 +7316,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "charmbracelet/soft-serve",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/soft-serve/manifest.yaml$"
       ],
@@ -7339,7 +7340,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "vmware-tanzu/sonobuoy",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/sonobuoy/manifest.yaml$"
       ],
@@ -7351,7 +7352,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "getsops/sops",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/sops/manifest.yaml$"
       ],
@@ -7374,7 +7375,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "adobe-fonts/source-sans",
-      "extractVersionTemplate": "^(?<version>.+?)R$",
+      "extractVersionTemplate": "^(?<version>.+)R$",
       "fileMatch": [
         "^tools/source-sans/manifest.yaml$"
       ],
@@ -7397,7 +7398,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "opensbom-generator/spdx-sbom-generator",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/spdx-sbom-generator/manifest.yaml$"
       ],
@@ -7409,7 +7410,7 @@
       "customType": "regex",
       "datasourceTemplate": "gitlab-releases",
       "depNameTemplate": "xiph/speex",
-      "extractVersionTemplate": "^Speex-(?<version>.+?)$",
+      "extractVersionTemplate": "^Speex-(?<version>.+)$",
       "fileMatch": [
         "^tools/speex/manifest.yaml$"
       ],
@@ -7421,7 +7422,7 @@
       "customType": "regex",
       "datasourceTemplate": "gitlab-releases",
       "depNameTemplate": "xiph/speexdsp",
-      "extractVersionTemplate": "^SpeexDSP-(?<version>.+?)$",
+      "extractVersionTemplate": "^SpeexDSP-(?<version>.+)$",
       "fileMatch": [
         "^tools/speexdsp/manifest.yaml$"
       ],
@@ -7434,7 +7435,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "philips-labs/spiffe-vault",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/spiffe-vault/manifest.yaml$"
       ],
@@ -7446,7 +7447,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "fermyon/spin",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/spin/manifest.yaml$"
       ],
@@ -7458,7 +7459,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "spiffe/spire",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/spire/manifest.yaml$"
       ],
@@ -7470,7 +7471,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "benjojo/ssh-key-confirmer",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/ssh-key-confirmer/manifest.yaml$"
       ],
@@ -7483,7 +7484,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "francoismichel/ssh3",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/ssh3/manifest.yaml$"
       ],
@@ -7495,7 +7496,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "lima-vm/sshocker",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/sshocker/manifest.yaml$"
       ],
@@ -7507,7 +7508,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "containerd/stargz-snapshotter",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/stargz-snapshotter/manifest.yaml$"
       ],
@@ -7541,7 +7542,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "stern/stern",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/stern/manifest.yaml$"
       ],
@@ -7553,7 +7554,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "structurizr/cli",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/structurizr-cli/manifest.yaml$"
       ],
@@ -7565,7 +7566,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "ncopa/su-exec",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/su-exec/manifest.yaml$"
       ],
@@ -7600,7 +7601,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "anchore/syft",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/syft/manifest.yaml$"
       ],
@@ -7612,7 +7613,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "nestybox/sysbox",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/sysbox/manifest.yaml$"
       ],
@@ -7635,7 +7636,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "siderolabs/talos",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/talosctl/manifest.yaml$"
       ],
@@ -7647,7 +7648,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "go-task/task",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/task/manifest.yaml$"
       ],
@@ -7659,7 +7660,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "stevegrubb/tasker",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/tasker/manifest.yaml$"
       ],
@@ -7672,7 +7673,7 @@
       "customType": "regex",
       "datasourceTemplate": "gitea-releases",
       "depNameTemplate": "gitea/tea",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/tea/manifest.yaml$"
       ],
@@ -7684,7 +7685,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "kubernetes-sigs/tejolote",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/tejolote/manifest.yaml$"
       ],
@@ -7696,7 +7697,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "influxdata/telegraf",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/telegraf/manifest.yaml$"
       ],
@@ -7708,7 +7709,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "gravitational/teleport",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/teleport/manifest.yaml$"
       ],
@@ -7720,7 +7721,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "tellerops/teller",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/teller/manifest.yaml$"
       ],
@@ -7754,7 +7755,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "hashicorp/terraform",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/terraform/manifest.yaml$"
       ],
@@ -7766,7 +7767,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "plumber-cd/terraform-backend-git",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/terraform-backend-git/manifest.yaml$"
       ],
@@ -7778,7 +7779,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "terraform-docs/terraform-docs",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/terraform-docs/manifest.yaml$"
       ],
@@ -7790,7 +7791,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "gruntwork-io/terragrunt",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/terragrunt/manifest.yaml$"
       ],
@@ -7802,7 +7803,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "cilium/tetragon",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/tetragon/manifest.yaml$"
       ],
@@ -7825,7 +7826,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "jonas/tig",
-      "extractVersionTemplate": "^tig-(?<version>.+?)$",
+      "extractVersionTemplate": "^tig-(?<version>.+)$",
       "fileMatch": [
         "^tools/tig/manifest.yaml$"
       ],
@@ -7837,7 +7838,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "stefanprodan/timoni",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/timoni/manifest.yaml$"
       ],
@@ -7849,7 +7850,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "krallin/tini",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/tini/manifest.yaml$"
       ],
@@ -7861,7 +7862,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "tinygo-org/tinygo",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/tinygo/manifest.yaml$"
       ],
@@ -7873,7 +7874,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "tektoncd/cli",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/tkn/manifest.yaml$"
       ],
@@ -7885,7 +7886,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "projectdiscovery/tlsx",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/tlsx/manifest.yaml$"
       ],
@@ -7897,7 +7898,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "liamg/tml",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/tml/manifest.yaml$"
       ],
@@ -7920,7 +7921,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "aquasecurity/tracee",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/tracee/manifest.yaml$"
       ],
@@ -7932,7 +7933,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "traefik/traefik",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/traefik/manifest.yaml$"
       ],
@@ -7944,7 +7945,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "google/trillian",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/trillian/manifest.yaml$"
       ],
@@ -7956,7 +7957,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "aquasecurity/trivy",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/trivy/manifest.yaml$"
       ],
@@ -7968,7 +7969,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "aquasecurity/trivy-operator",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/trivy-operator/manifest.yaml$"
       ],
@@ -7980,7 +7981,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "binpash/try",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/try/manifest.yaml$"
       ],
@@ -7992,7 +7993,7 @@
       "customType": "regex",
       "datasourceTemplate": "gitlab-tags",
       "depNameTemplate": "wireshark/wiresharkar",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/tshark/manifest.yaml$"
       ],
@@ -8015,7 +8016,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "theupdateframework/go-tuf",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/tuf/manifest.yaml$"
       ],
@@ -8038,7 +8039,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "typst/typst",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/typst/manifest.yaml$"
       ],
@@ -8050,7 +8051,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "shadow-maint/shadow",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/uidmap/manifest.yaml$"
       ],
@@ -8062,7 +8063,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "opencontainers/umoci",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/umoci/manifest.yaml$"
       ],
@@ -8074,7 +8075,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "uniget-org/cli",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/uniget/manifest.yaml$"
       ],
@@ -8086,7 +8087,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "updatecli/updatecli",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/updatecli/manifest.yaml$"
       ],
@@ -8098,7 +8099,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "upx/upx",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/upx/manifest.yaml$"
       ],
@@ -8123,7 +8124,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "errata-ai/vale",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/vale/manifest.yaml$"
       ],
@@ -8135,7 +8136,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "hashicorp/vault",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/vault/manifest.yaml$"
       ],
@@ -8147,7 +8148,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "loft-sh/vcluster",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/vcluster/manifest.yaml$"
       ],
@@ -8159,7 +8160,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "carvel-dev/vendir",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/vendir/manifest.yaml$"
       ],
@@ -8171,7 +8172,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "ovh/venom",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/venom/manifest.yaml$"
       ],
@@ -8183,7 +8184,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "openvex/vexctl",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/vexctl/manifest.yaml$"
       ],
@@ -8206,7 +8207,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "vrothberg/vgrep",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/vgrep/manifest.yaml$"
       ],
@@ -8218,7 +8219,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "charmbracelet/vhs",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/vhs/manifest.yaml$"
       ],
@@ -8230,7 +8231,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "saulpw/visidata",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/visidata/manifest.yaml$"
       ],
@@ -8275,7 +8276,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "deislabs/wagi",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/wagi/manifest.yaml$"
       ],
@@ -8298,7 +8299,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "dnnrly/wait-for",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/wait-for/manifest.yaml$"
       ],
@@ -8310,7 +8311,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "antonmedv/walk",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/walk/manifest.yaml$"
       ],
@@ -8322,7 +8323,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "minio/warp",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/warp/manifest.yaml$"
       ],
@@ -8345,7 +8346,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "wasmerio/wasmer",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/wasmer/manifest.yaml$"
       ],
@@ -8357,7 +8358,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "wasmi-labs/wasmi",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/wasmi/manifest.yaml$"
       ],
@@ -8369,7 +8370,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "bytecodealliance/wasmtime",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/wasmtime/manifest.yaml$"
       ],
@@ -8381,7 +8382,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "watchexec/watchexec",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/watchexec/manifest.yaml$"
       ],
@@ -8393,7 +8394,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "containrrr/watchtower",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/watchtower/manifest.yaml$"
       ],
@@ -8405,7 +8406,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "miquels/webdavfs",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/webdavfs/manifest.yaml$"
       ],
@@ -8429,7 +8430,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "tarampampam/webhook-tester",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/webhook-tester/manifest.yaml$"
       ],
@@ -8441,7 +8442,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "ncarlier/webhookd",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/webhookd/manifest.yaml$"
       ],
@@ -8453,7 +8454,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "vi/websocat",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/websocat/manifest.yaml$"
       ],
@@ -8465,7 +8466,7 @@
       "customType": "regex",
       "datasourceTemplate": "git-tags",
       "depNameTemplate": "wireguard-tools",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/wg/manifest.yaml$"
       ],
@@ -8489,7 +8490,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "rupor-github/win-gpg-agent",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/win-gpg-agent/manifest.yaml$"
       ],
@@ -8501,7 +8502,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "rupor-github/wsl-ssh-agent",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/win-ssh-agent/manifest.yaml$"
       ],
@@ -8525,7 +8526,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "in-toto/witness",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/witness/manifest.yaml$"
       ],
@@ -8537,7 +8538,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "weaveworks/wksctl",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/wksctl/manifest.yaml$"
       ],
@@ -8549,7 +8550,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "get-woke/woke",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/woke/manifest.yaml$"
       ],
@@ -8561,7 +8562,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "wolfi-dev/wolfictl",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/wolfictl/manifest.yaml$"
       ],
@@ -8573,7 +8574,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "woodpecker-ci/woodpecker",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/woodpecker/manifest.yaml$"
       ],
@@ -8597,7 +8598,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "4U6U57/wsl-open",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/wsl-open/manifest.yaml$"
       ],
@@ -8609,7 +8610,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "wslutilities/wslu",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/wslu/manifest.yaml$"
       ],
@@ -8621,7 +8622,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "caddyserver/xcaddy",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/xcaddy/manifest.yaml$"
       ],
@@ -8633,7 +8634,7 @@
       "customType": "regex",
       "datasourceTemplate": "gitlab-tags",
       "depNameTemplate": "xdg/xdg-utils",
-      "extractVersionTemplate": "^v(?<version>\\d+\\.\\d+(\\.\\d+)??)$",
+      "extractVersionTemplate": "^v(?<version>\\d+\\.\\d+(\\.\\d+)?)$",
       "fileMatch": [
         "^tools/xdg-utils/manifest.yaml$"
       ],
@@ -8646,7 +8647,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "ducaale/xh",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/xh/manifest.yaml$"
       ],
@@ -8669,7 +8670,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "sibprogrammer/xq",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/xq/manifest.yaml$"
       ],
@@ -8681,7 +8682,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "mvdan/xurls",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/xurls/manifest.yaml$"
       ],
@@ -8704,7 +8705,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "google/yamlfmt",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/yamlfmt/manifest.yaml$"
       ],
@@ -8738,7 +8739,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "crazy-max/yasu",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/yasu/manifest.yaml$"
       ],
@@ -8750,7 +8751,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "andreazorzetto/yh",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/yh/manifest.yaml$"
       ],
@@ -8762,7 +8763,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "containers/youki",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/youki/manifest.yaml$"
       ],
@@ -8774,7 +8775,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "mikefarah/yq",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/yq/manifest.yaml$"
       ],
@@ -8786,7 +8787,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "carvel-dev/ytt",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/ytt/manifest.yaml$"
       ],
@@ -8798,7 +8799,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "brimdata/zed",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/zed/manifest.yaml$"
       ],
@@ -8810,7 +8811,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "kubernetes-sigs/zeitgeist",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/zeitgeist/manifest.yaml$"
       ],
@@ -8822,7 +8823,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "zitadel/zitadel",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/zitadel/manifest.yaml$"
       ],
@@ -8834,7 +8835,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "project-zot/zot",
-      "extractVersionTemplate": "^v(?<version>.+?)$",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/zot/manifest.yaml$"
       ],

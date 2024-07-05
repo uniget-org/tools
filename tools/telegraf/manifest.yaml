@@ -15,5 +15,5 @@ description: Plugin-driven server agent for collecting & reporting metrics
 renovate:
   datasource: github-releases
   package: influxdata/telegraf
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

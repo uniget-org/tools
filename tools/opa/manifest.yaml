@@ -17,5 +17,5 @@ description: Open source, general-purpose policy engine
 renovate:
   datasource: github-releases
   package: open-policy-agent/opa
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -16,5 +16,5 @@ description: Lightweight scripting language for querying databases (like InfluxD
 renovate:
   datasource: github-releases
   package: influxdata/flux
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

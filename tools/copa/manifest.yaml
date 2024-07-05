@@ -18,5 +18,5 @@ description: CLI tool for directly patching container images using reports from 
 renovate:
   datasource: github-releases
   package: project-copacetic/copacetic
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

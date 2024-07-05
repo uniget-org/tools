@@ -13,5 +13,5 @@ description: No-frills local development tool for service developers working in 
 renovate:
   datasource: github-releases
   package: getoutreach/localizer
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

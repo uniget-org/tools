@@ -15,5 +15,5 @@ description: Vulnerability scanning just got lazier
 renovate:
   datasource: github-releases
   package: owenrumney/lazytrivy
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

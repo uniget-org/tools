@@ -18,5 +18,5 @@ description: Kubernetes Bill of Materials
 renovate:
   datasource: github-releases
   package: ksoclabs/kbom
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

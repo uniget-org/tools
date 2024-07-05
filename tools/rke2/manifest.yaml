@@ -17,6 +17,6 @@ description: Rancher's next-generation Kubernetes distribution
 renovate:
   datasource: github-releases
   package: rancher/rke2
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   versioning: loose
   priority: low

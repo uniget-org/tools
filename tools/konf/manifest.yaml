@@ -18,5 +18,5 @@ description: Lightweight kubeconfig manager
 renovate:
   datasource: github-releases
   package: SimonTheLeg/konf-go
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -12,5 +12,5 @@ description: Validate and define text-based and dynamic configuration
 renovate:
   datasource: github-releases
   package: cue-lang/cue
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

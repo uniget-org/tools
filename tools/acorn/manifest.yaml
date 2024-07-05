@@ -18,5 +18,5 @@ description: Simple application deployment framework built on Kubernetes
 renovate:
   datasource: github-releases
   package: acorn-io/runtime
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

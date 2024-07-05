@@ -21,5 +21,5 @@ description: nftables replaces the popular iptables, arptables, ebtables
 renovate:
   datasource: git-tags
   package: https://git.netfilter.org/nftables/
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

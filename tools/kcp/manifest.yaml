@@ -14,5 +14,5 @@ description: Prototype of a multi-tenant Kubernetes control plane
 renovate:
   datasource: github-releases
   package: kcp-dev/kcp
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

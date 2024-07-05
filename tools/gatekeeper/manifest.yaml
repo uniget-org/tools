@@ -14,5 +14,5 @@ description: Policy Controller for Kubernetes
 renovate:
   datasource: github-releases
   package: open-policy-agent/gatekeeper
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

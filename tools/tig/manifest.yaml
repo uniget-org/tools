@@ -13,5 +13,5 @@ description: Text-mode interface for git
 renovate:
   datasource: github-releases
   package: jonas/tig
-  extractVersion: ^tig-(?<version>.+?)$
+  extractVersion: ^tig-(?<version>.+)$
   priority: low

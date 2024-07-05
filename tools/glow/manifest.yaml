@@ -11,5 +11,5 @@ description: Render markdown on the CLI
 renovate:
   datasource: github-releases
   package: charmbracelet/glow
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -31,6 +31,6 @@ messages:
 renovate:
   datasource: github-tags
   package: moby/moby
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   allowPrereleases: true
   priority: high

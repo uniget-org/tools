@@ -17,5 +17,5 @@ description: Docker and OCI Registry Client in Go and tooling using those librar
 renovate:
   datasource: github-releases
   package: regclient/regclient
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: high

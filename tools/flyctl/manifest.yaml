@@ -14,5 +14,5 @@ description: Command line tools for fly.io services
 renovate:
   datasource: github-releases
   package: superfly/flyctl
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

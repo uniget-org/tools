@@ -17,5 +17,5 @@ description: Mighty, self-hostable Git server for the command line
 renovate:
   datasource: github-releases
   package: charmbracelet/soft-serve
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -18,5 +18,5 @@ description: Small utility program to perform multiple operations for a given su
 renovate:
   datasource: github-releases
   package: projectdiscovery/mapcidr
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

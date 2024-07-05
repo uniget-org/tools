@@ -20,5 +20,5 @@ description: SBOM query language and associated utilities
 renovate:
   datasource: github-releases
   package: chainguard-dev/bomshell
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

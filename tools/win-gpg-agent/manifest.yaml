@@ -18,5 +18,5 @@ description: Windows helpers for GnuPG tools suite
 renovate:
   datasource: github-releases
   package: rupor-github/win-gpg-agent
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

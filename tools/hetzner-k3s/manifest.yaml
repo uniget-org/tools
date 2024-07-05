@@ -19,5 +19,5 @@ description: Create and manage Kubernetes clusters in Hetzner Cloud
 renovate:
   datasource: github-releases
   package: vitobotta/hetzner-k3s
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

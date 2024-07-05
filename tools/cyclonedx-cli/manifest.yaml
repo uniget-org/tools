@@ -16,5 +16,5 @@ description: CycloneDX CLI tool for SBOM analysis, merging, diffs and format con
 renovate:
   datasource: github-releases
   package: CycloneDX/cyclonedx-cli
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

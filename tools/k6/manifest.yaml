@@ -15,5 +15,5 @@ description: Modern load testing tool, using Go and JavaScript
 renovate:
   datasource: github-releases
   package: grafana/k6
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -16,5 +16,5 @@ description: Accelerate your workflow
 renovate:
   datasource: github-releases
   package: uniget-org/renovate-custom
-  extractVersion: ^namespace/(?<version>.+?)$
+  extractVersion: ^namespace/(?<version>.+)$
   priority: low

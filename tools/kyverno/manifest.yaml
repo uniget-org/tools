@@ -15,5 +15,5 @@ description: Kubernetes Native Policy Management
 renovate:
   datasource: github-releases
   package: kyverno/kyverno
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

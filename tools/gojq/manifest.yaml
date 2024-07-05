@@ -22,5 +22,5 @@ messages:
 renovate:
   datasource: github-releases
   package: itchyny/gojq
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: high

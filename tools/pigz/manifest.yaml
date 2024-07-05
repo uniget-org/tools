@@ -14,6 +14,6 @@ description: Parallel implementation of gzip for modern multi-processor, multi-c
 renovate:
   datasource: github-tags
   package: madler/pigz
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   versioning: loose
   priority: low

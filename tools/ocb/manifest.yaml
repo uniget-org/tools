@@ -15,5 +15,5 @@ description: OpenTelemetry Collector Builder
 renovate:
   datasource: github-releases
   package: open-telemetry/opentelemetry-collector
-  extractVersion: ^cmd/builder/v(?<version>.+?)$
+  extractVersion: ^cmd/builder/v(?<version>.+)$
   priority: low

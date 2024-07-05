@@ -14,5 +14,5 @@ description: Command line interface for interacting with kpack
 renovate:
   datasource: github-releases
   package: buildpacks-community/kpack-cli
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -15,5 +15,5 @@ description: Detect various technology for a given IP address
 renovate:
   datasource: github-releases
   package: projectdiscovery/cvemap
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

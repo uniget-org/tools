@@ -19,5 +19,5 @@ description: Find and install kubectl plugins
 renovate:
   datasource: github-releases
   package: kubernetes-sigs/krew
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: high

@@ -14,5 +14,5 @@ description: Your CLI home video recorder
 renovate:
   datasource: github-releases
   package: charmbracelet/vhs
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

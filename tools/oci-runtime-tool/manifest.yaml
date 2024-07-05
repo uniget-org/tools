@@ -17,5 +17,5 @@ description: OCI Runtime Tools
 renovate:
   datasource: github-releases
   package: opencontainers/runtime-tools
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

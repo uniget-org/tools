@@ -17,6 +17,6 @@ description: Zero Friction Kubernetes
 renovate:
   datasource: github-releases
   package: k0sproject/k0s
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   versioning: loose
   priority: low

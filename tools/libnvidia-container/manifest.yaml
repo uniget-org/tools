@@ -20,5 +20,5 @@ description: NVIDIA container runtime library
 renovate:
   datasource: github-releases
   package: NVIDIA/libnvidia-container
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

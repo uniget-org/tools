@@ -15,5 +15,5 @@ description: Collection of utilities for Windows Subsystem for Linux
 renovate:
   datasource: github-releases
   package: wslutilities/wslu
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

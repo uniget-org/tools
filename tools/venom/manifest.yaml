@@ -12,5 +12,5 @@ description: Manage and run your integration tests with efficiency - Venom run e
 renovate:
   datasource: github-releases
   package: ovh/venom
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

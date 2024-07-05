@@ -15,5 +15,5 @@ description: Machine management for a container-centric world
 renovate:
   datasource: github-releases
   package: docker/machine
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

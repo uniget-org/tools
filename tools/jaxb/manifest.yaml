@@ -19,5 +19,5 @@ description: Jakarta XML Binding - an efficient and standard way of mapping betw
 renovate:
   datasource: github-releases
   package: eclipse-ee4j/jaxb-ri
-  extractVersion: ^(?<version>.+?)-RI$
+  extractVersion: ^(?<version>.+)-RI$
   priority: low

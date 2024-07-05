@@ -18,5 +18,5 @@ description: Job controller to launch kubernetes jobs based on git event
 renovate:
   datasource: github-releases
   package: rancher/gitjob
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

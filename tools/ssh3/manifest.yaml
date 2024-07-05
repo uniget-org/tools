@@ -16,5 +16,5 @@ description: SSH3 - faster and rich secure shell using HTTP/3
 renovate:
   datasource: github-releases
   package: francoismichel/ssh3
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

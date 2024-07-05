@@ -15,5 +15,5 @@ description: Command-line benchmarking tool
 renovate:
   datasource: github-releases
   package: sharkdp/hyperfine
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

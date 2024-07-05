@@ -17,5 +17,5 @@ description: Docker manager for the terminal
 renovate:
   datasource: github-releases
   package: moncho/dry
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

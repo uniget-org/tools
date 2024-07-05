@@ -12,5 +12,5 @@ description: cat(1) clone with wings
 renovate:
   datasource: github-releases
   package: sharkdp/bat
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

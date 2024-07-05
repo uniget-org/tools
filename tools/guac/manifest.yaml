@@ -18,5 +18,5 @@ description: Aggregate software security metadata into a high fidelity graph dat
 renovate:
   datasource: github-tags
   package: guacsec/guac
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

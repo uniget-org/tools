@@ -16,5 +16,5 @@ description: SPIFFE Runtime Environment
 renovate:
   datasource: github-releases
   package: spiffe/spire
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

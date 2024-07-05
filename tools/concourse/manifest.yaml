@@ -12,5 +12,5 @@ description: Container-based continuous thing-doer
 renovate:
   datasource: github-releases
   package: concourse/concourse
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

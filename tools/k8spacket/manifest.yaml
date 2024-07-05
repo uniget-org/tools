@@ -19,5 +19,5 @@ description: Traffic visualization for kubernetes
 renovate:
   datasource: github-releases
   package: k8spacket/k8spacket
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

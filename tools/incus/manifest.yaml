@@ -16,5 +16,5 @@ description: Powerful system container and virtual machine manager
 renovate:
   datasource: github-releases
   package: lxc/incus
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: high

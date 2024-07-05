@@ -18,5 +18,5 @@ description: Kroki CLI
 renovate:
   datasource: github-releases
   package: yuzutech/kroki-cli
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -16,6 +16,6 @@ description: FUSE implementation for overlayfs
 renovate:
   datasource: github-releases
   package: containers/fuse-overlayfs
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   versioning: loose
   priority: high

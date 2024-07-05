@@ -12,5 +12,5 @@ description: Unclutter your .profile
 renovate:
   datasource: github-releases
   package: direnv/direnv
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

@@ -18,5 +18,5 @@ description: Auditing for TLS certificates
 renovate:
   datasource: github-releases
   package: google/certificate-transparency-go
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

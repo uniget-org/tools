@@ -16,5 +16,5 @@ description: Prometheus / OpenMetrics exporter for GitLab CI pipelines insights
 renovate:
   datasource: github-releases
   package: mvisonneau/gitlab-ci-pipelines-exporter
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

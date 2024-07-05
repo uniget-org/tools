@@ -16,5 +16,5 @@ description: Make JSON greppable
 renovate:
   datasource: github-releases
   package: tomnomnom/gron
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

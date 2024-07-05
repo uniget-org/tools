@@ -15,5 +15,5 @@ description: Cross-platform command-line tool for executing jobs in parallel
 renovate:
   datasource: github-releases
   package: shenwei356/rush
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -19,5 +19,5 @@ description: Linux kernel source tree
 renovate:
   datasource: git-tags
   package: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -13,6 +13,6 @@ description: Check issued certificates by Let's Encrypt on CTL (Certificate Tran
 renovate:
   datasource: github-releases
   package: sahsanu/lectl
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   versioning: loose
   priority: low

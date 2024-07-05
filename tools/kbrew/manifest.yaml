@@ -15,5 +15,5 @@ description: Homebrew for Kubernetes
 renovate:
   datasource: github-releases
   package: kbrew-dev/kbrew
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

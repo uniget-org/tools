@@ -12,5 +12,5 @@ description: Toolkit for building secure, portable and lean operating systems fo
 renovate:
   datasource: github-releases
   package: linuxkit/linuxkit
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -15,5 +15,5 @@ description: Modern PHP app server
 renovate:
   datasource: github-releases
   package: dunglas/frankenphp
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

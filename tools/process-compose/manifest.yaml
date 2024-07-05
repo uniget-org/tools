@@ -15,5 +15,5 @@ description: Simple and flexible scheduler and orchestrator to manage non-contai
 renovate:
   datasource: github-releases
   package: F1bonacc1/process-compose
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

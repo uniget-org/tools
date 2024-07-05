@@ -24,6 +24,6 @@ description: Build OCI images using APK directly without Dockerfile
 renovate:
   datasource: github-tags
   package: chainguard-dev/apko
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   allowPrereleases: true
   priority: medium

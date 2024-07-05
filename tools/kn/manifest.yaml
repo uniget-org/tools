@@ -13,5 +13,5 @@ description: Knative developer experience, docs, reference Knative CLI implement
 renovate:
   datasource: github-releases
   package: knative/client
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

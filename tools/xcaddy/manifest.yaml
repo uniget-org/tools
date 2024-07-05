@@ -17,5 +17,5 @@ description: Build Caddy with plugins
 renovate:
   datasource: github-releases
   package: caddyserver/xcaddy
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

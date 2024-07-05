@@ -14,5 +14,5 @@ description: Reparent a running program to a new terminal
 renovate:
   datasource: github-tags
   package: nelhage/reptyr
-  extractVersion: ^reptyr-(?<version>.+?)$
+  extractVersion: ^reptyr-(?<version>.+)$
   priority: low

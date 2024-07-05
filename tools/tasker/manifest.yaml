@@ -15,6 +15,6 @@ description: Parallelizes tasks from a list on stdin
 renovate:
   datasource: github-releases
   package: stevegrubb/tasker
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   versioning: loose
   priority: low

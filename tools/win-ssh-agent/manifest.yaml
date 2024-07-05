@@ -17,5 +17,5 @@ description: Helper to interface with Windows ssh-agent.exe service from Windows
 renovate:
   datasource: github-releases
   package: rupor-github/wsl-ssh-agent
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

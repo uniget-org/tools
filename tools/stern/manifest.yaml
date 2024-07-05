@@ -14,5 +14,5 @@ description: Multi pod and container log tailing for Kubernetes
 renovate:
   datasource: github-releases
   package: stern/stern
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

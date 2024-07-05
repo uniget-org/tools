@@ -19,5 +19,5 @@ description: Show various requested resources on Kubernetes nodes
 renovate:
   datasource: github-releases
   package: makocchi-git/kubectl-free
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

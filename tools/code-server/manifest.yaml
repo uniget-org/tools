@@ -16,5 +16,5 @@ description: VS Code in the browser
 renovate:
   datasource: github-releases
   package: coder/code-server
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

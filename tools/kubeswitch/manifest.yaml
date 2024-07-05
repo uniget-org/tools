@@ -13,5 +13,5 @@ description: Visually select kubernetes context/namespace from tree
 renovate:
   datasource: github-releases
   package: danielb42/kubeswitch
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: high

@@ -12,5 +12,5 @@ description: Concatenating, joining, binding MP3 files without re-encoding
 renovate:
   datasource: github-releases
   package: crra/mp3binder
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

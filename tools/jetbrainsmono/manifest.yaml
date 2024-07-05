@@ -17,6 +17,6 @@ description: Free and open-source typeface for developers
 renovate:
   datasource: github-releases
   package: JetBrains/JetBrainsMono
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   versioning: loose
   priority: low

@@ -14,5 +14,5 @@ description: Standalone, daemon-less, unprivileged Dockerfile and OCI compatible
 renovate:
   datasource: github-releases
   package: genuinetools/img
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

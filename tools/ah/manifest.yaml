@@ -16,5 +16,5 @@ description: Find, install and publish Kubernetes packages
 renovate:
   datasource: github-releases
   package: artifacthub/hub
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -19,5 +19,5 @@ description: Some description
 renovate:
   datasource: github-tags
   package: wolfi-dev/wolfictl
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

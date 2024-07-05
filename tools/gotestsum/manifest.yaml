@@ -15,5 +15,5 @@ description: go test runner with output optimized for humans, JUnit XML for CI i
 renovate:
   datasource: github-releases
   package: gotestyourself/gotestsum
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

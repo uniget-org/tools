@@ -19,5 +19,5 @@ description: Ignite a Firecracker microVM
 renovate:
   datasource: github-releases
   package: weaveworks/ignite
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -20,5 +20,5 @@ description: Quickly rewrite git repository history
 renovate:
   datasource: github-releases
   package: newren/git-filter-repo
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

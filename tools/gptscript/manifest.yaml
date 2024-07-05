@@ -15,5 +15,5 @@ description: Natural Language Programming
 renovate:
   datasource: github-releases
   package: gptscript-ai/gptscript
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

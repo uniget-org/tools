@@ -11,5 +11,5 @@ description: dnsx is a fast and multi-purpose DNS toolkit allow to run multiple 
 renovate:
   datasource: github-releases
   package: projectdiscovery/dnsx
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

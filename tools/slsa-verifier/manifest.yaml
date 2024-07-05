@@ -12,5 +12,5 @@ description: Implementation for verifying SLSA provenance
 renovate:
   datasource: github-releases
   package: slsa-framework/slsa-verifier
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

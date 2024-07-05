@@ -22,5 +22,5 @@ description: Tooling for the Prometheus monitoring system
 renovate:
   datasource: github-releases
   package: prometheus/prometheus
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

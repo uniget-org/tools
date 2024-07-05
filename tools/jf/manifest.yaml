@@ -14,5 +14,5 @@ description: Client that provides a simple interface that automates access to th
 renovate:
   datasource: github-releases
   package: jfrog/jfrog-cli
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

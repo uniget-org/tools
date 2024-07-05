@@ -18,5 +18,5 @@ description: Dragonfly image service, providing fast, secure and easy access to 
 renovate:
   datasource: github-releases
   package: dragonflyoss/nydus
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -19,5 +19,5 @@ description: Kubernetes proxy
 renovate:
   datasource: github-releases
   package: kubernetes/kubernetes
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

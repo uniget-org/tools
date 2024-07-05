@@ -16,5 +16,5 @@ description: Hosting Helm Charts via GitHub Pages and Releases
 renovate:
   datasource: github-releases
   package: helm/chart-releaser
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

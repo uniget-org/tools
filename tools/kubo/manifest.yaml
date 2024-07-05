@@ -18,5 +18,5 @@ description: IPFS implementation in Go
 renovate:
   datasource: github-releases
   package: ipfs/kubo
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

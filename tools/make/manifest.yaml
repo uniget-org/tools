@@ -16,5 +16,5 @@ description: Tool which controls the generation of executables and other non-sou
 renovate:
   datasource: git-tags
   package: https://git.savannah.gnu.org/cgit/make.git
-  versioning: regex:^(?<major>\d+?)\.(?<minor>\d+?)\.(?<patch>\d+?)(\.(?<build>\d+?))?$
+  versioning: regex:^(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)(\.(?<build>\d+))?$
   priority: low

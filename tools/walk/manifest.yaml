@@ -16,5 +16,5 @@ description: Terminal file manager
 renovate:
   datasource: github-releases
   package: antonmedv/walk
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

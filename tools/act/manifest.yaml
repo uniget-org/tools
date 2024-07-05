@@ -18,5 +18,5 @@ description: Run your GitHub Actions locally
 renovate:
   datasource: github-releases
   package: nektos/act
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

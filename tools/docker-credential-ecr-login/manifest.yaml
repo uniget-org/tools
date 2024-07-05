@@ -16,5 +16,5 @@ description: Automatically gets credentials for Amazon ECR on docker push/pull
 renovate:
   datasource: github-releases
   package: awslabs/amazon-ecr-credential-helper
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

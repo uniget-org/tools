@@ -19,5 +19,5 @@ description: Utility for Flatcar Container Linux
 renovate:
   datasource: github-releases
   package: flatcar/container-linux-config-transpiler
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

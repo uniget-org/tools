@@ -18,5 +18,5 @@ description: Work with containers' images
 renovate:
   datasource: github-releases
   package: containers/image
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

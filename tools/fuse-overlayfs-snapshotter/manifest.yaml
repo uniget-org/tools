@@ -17,5 +17,5 @@ description: fuse-overlayfs plugin for rootless containerd
 renovate:
   datasource: github-releases
   package: containerd/fuse-overlayfs-snapshotter
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: high

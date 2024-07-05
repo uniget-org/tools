@@ -15,5 +15,5 @@ description: Tool for detection and management of Software Bill Of Materials and
 renovate:
   datasource: github-releases
   package: openclarity/kubeclarity
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

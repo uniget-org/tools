@@ -18,5 +18,5 @@ description: Optimized JSON for Go
 renovate:
   datasource: github-releases
   package: ohler55/ojg
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

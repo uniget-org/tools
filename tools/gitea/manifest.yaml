@@ -17,5 +17,5 @@ description: Git with a cup of tea, painless self-hosted git service
 renovate:
   datasource: github-releases
   package: go-gitea/gitea
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

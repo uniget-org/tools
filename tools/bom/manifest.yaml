@@ -13,5 +13,5 @@ description: generate SPDX-compliant Bill of Materials manifests
 renovate:
   datasource: github-releases
   package: kubernetes-sigs/bom
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

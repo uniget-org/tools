@@ -16,5 +16,5 @@ description: Provides an API platform for validating, querying, updating and man
 renovate:
   datasource: github-releases
   package: CycloneDX/sbom-utility
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

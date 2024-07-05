@@ -14,5 +14,5 @@ description: Fast file synchronization and network forwarding for remote develop
 renovate:
   datasource: github-releases
   package: mutagen-io/mutagen
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

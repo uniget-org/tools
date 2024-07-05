@@ -18,5 +18,6 @@ description: Plug A Simple Socket Transport
 renovate:
   datasource: git-tags
   package: https://passt.top/passt/
-  extractVersion: ^(?<version>\d+_\d+_\d+?)\.\w+$
+  extractVersion: ^(?<version>\d+_\d+_\d+\.\w+)$
+  versioning: loose
   priority: low

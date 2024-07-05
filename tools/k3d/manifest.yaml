@@ -16,5 +16,5 @@ description: Little helper to run CNCF's k3s in Docker
 renovate:
   datasource: github-releases
   package: k3d-io/k3d
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

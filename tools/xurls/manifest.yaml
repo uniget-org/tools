@@ -14,5 +14,5 @@ description: Extract urls from text
 renovate:
   datasource: github-releases
   package: mvdan/xurls
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

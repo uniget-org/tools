@@ -15,5 +15,5 @@ description: Scalable datastore for metrics, events, and real-time analytics
 renovate:
   datasource: github-releases
   package: influxdata/influxdb
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

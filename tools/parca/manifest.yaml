@@ -17,5 +17,5 @@ description: Continuous profiling for analysis of CPU and memory usage, down to 
 renovate:
   datasource: github-releases
   package: parca-dev/parca
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

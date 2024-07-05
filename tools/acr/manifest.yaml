@@ -19,6 +19,6 @@ description: CLI for interacting with Azure Container Registry Images
 renovate:
   datasource: github-releases
   package: Azure/acr-cli
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   versioning: loose
   priority: low

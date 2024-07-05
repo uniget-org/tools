@@ -20,5 +20,5 @@ description: Access Kubernetes resource requests, limits, and usage
 renovate:
   datasource: github-releases
   package: howardjohn/kubectl-resources
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

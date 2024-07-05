@@ -12,5 +12,5 @@ description: Iconic font aggregator, collection, and patcher
 renovate:
   datasource: github-releases
   package: ryanoasis/nerd-fonts
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

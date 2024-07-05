@@ -17,5 +17,5 @@ description: Apache Maven
 renovate:
   datasource: github-releases
   package: apache/maven
-  extractVersion: ^maven-(?<version>.+?)$
+  extractVersion: ^maven-(?<version>.+)$
   priority: low

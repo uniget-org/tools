@@ -13,5 +13,5 @@ description: Audit your Kubernetes clusters against common security controls
 renovate:
   datasource: github-releases
   package: Shopify/kubeaudit
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

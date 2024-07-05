@@ -16,5 +16,5 @@ description: Creates Helm chart from Kubernetes yaml
 renovate:
   datasource: github-releases
   package: arttor/helmify
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

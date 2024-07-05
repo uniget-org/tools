@@ -15,5 +15,5 @@ description: CLI for building OPA policies into OCI images
 renovate:
   datasource: github-releases
   package: opcr-io/policy
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

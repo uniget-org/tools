@@ -20,5 +20,5 @@ messages:
 renovate:
   datasource: github-releases
   package: kovidgoyal/kitty
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

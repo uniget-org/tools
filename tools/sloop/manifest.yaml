@@ -19,6 +19,6 @@ description: Kubernetes History Visualization
 renovate:
   datasource: github-releases
   package: salesforce/sloop
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   versioning: loose
   priority: low

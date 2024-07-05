@@ -18,5 +18,5 @@ description: Watches Kubernetes events and triggers actions in a programmable wa
 renovate:
   datasource: github-releases
   package: kubevela/kube-trigger
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

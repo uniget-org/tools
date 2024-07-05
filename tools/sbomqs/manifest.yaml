@@ -19,5 +19,5 @@ description: SBOM quality score - Quality metrics for your sboms
 renovate:
   datasource: github-releases
   package: interlynk-io/sbomqs
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

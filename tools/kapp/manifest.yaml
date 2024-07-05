@@ -16,5 +16,5 @@ description: Simple deployment tool focused on the concept of "Kubernetes applic
 renovate:
   datasource: github-releases
   package: carvel-dev/kapp
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -17,5 +17,5 @@ description: Receive notifications when an image is updated on a Docker registry
 renovate:
   datasource: github-releases
   package: crazy-max/diun
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

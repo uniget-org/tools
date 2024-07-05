@@ -16,5 +16,5 @@ description: Process for automating Docker container base image updates
 renovate:
   datasource: github-releases
   package: containrrr/watchtower
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

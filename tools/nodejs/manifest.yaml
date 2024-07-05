@@ -15,5 +15,5 @@ description: Node.js JavaScript runtime
 renovate:
   datasource: github-releases
   package: nodejs/node
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

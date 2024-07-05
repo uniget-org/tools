@@ -18,5 +18,5 @@ description: CLI to install, manage & troubleshoot Kubernetes clusters running C
 renovate:
   datasource: github-releases
   package: cilium/cilium-cli
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

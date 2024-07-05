@@ -13,5 +13,5 @@ description: Modern replacement for ps written in Rust
 renovate:
   datasource: github-releases
   package: dalance/procs
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

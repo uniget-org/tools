@@ -15,5 +15,5 @@ description: Tool for glamorous shell scripts 🎀
 renovate:
   datasource: github-releases
   package: charmbracelet/gum
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

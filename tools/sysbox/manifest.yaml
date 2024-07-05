@@ -20,5 +20,5 @@ description: Next-generation "runc" that empowers rootless containers
 renovate:
   datasource: github-releases
   package: nestybox/sysbox
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: high

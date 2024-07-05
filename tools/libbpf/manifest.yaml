@@ -18,5 +18,5 @@ description: libbpf
 renovate:
   datasource: github-releases
   package: libbpf/libbpf
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

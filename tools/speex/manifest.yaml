@@ -18,5 +18,5 @@ description: Speex voice codec
 renovate:
   datasource: gitlab-releases
   package: xiph/speex
-  extractVersion: ^Speex-(?<version>.+?)$
+  extractVersion: ^Speex-(?<version>.+)$
   priority: low

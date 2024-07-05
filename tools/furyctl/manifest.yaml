@@ -13,5 +13,5 @@ description: Multi-purpose command line tool for the Kubernetes Fury Distributio
 renovate:
   datasource: github-releases
   package: sighupio/furyctl
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

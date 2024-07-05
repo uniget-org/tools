@@ -13,5 +13,5 @@ description: Store application configuration files in Docker/OCI registries
 renovate:
   datasource: github-releases
   package: carvel-dev/imgpkg
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

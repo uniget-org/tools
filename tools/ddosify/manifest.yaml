@@ -11,5 +11,5 @@ description: High-performance load testing tool
 renovate:
   datasource: github-releases
   package: ddosify/ddosify
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

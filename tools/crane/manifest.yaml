@@ -17,5 +17,5 @@ description: Go library and CLIs for working with container registries
 renovate:
   datasource: github-releases
   package: google/go-containerregistry
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: high

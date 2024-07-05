@@ -16,5 +16,5 @@ description: Best practices checker for Kubernetes clusters
 renovate:
   datasource: github-releases
   package: digitalocean/clusterlint
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

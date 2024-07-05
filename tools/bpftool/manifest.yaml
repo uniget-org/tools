@@ -15,5 +15,5 @@ description: bpftool
 renovate:
   datasource: github-releases
   package: libbpf/bpftool
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

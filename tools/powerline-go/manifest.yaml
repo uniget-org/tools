@@ -15,5 +15,5 @@ description: Beautiful and useful low-latency prompt for your shell
 renovate:
   datasource: github-releases
   package: justjanne/powerline-go
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: high

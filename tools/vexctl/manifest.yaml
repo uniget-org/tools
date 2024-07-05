@@ -16,5 +16,5 @@ description: Create, transform and attest VEX metadata
 renovate:
   datasource: github-tags
   package: openvex/vexctl
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

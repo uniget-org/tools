@@ -18,5 +18,5 @@ description: Software Supply Chain Transparency Log
 renovate:
   datasource: github-releases
   package: sigstore/rekor
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

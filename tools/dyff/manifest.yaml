@@ -12,5 +12,5 @@ description: Diff tool for YAML files
 renovate:
   datasource: github-releases
   package: homeport/dyff
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

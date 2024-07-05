@@ -20,5 +20,5 @@ description: Tool for exploring each layer in a docker image
 renovate:
   datasource: github-releases
   package: wagoodman/dive
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: high

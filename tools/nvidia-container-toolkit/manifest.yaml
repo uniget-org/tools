@@ -34,5 +34,5 @@ messages:
 renovate:
   datasource: github-releases
   package: NVIDIA/nvidia-container-toolkit
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

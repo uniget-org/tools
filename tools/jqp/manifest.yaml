@@ -16,5 +16,5 @@ description: TUI playground to experiment with jq
 renovate:
   datasource: github-releases
   package: noahgorstein/jqp
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

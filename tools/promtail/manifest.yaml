@@ -16,5 +16,5 @@ description: Agent which ships the contents of local logs to Grafana Loki
 renovate:
   datasource: github-releases
   package: grafana/loki
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -14,5 +14,5 @@ description: Seamlessly incorporates image building and image pushing into your 
 renovate:
   datasource: github-releases
   package: carvel-dev/kbld
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

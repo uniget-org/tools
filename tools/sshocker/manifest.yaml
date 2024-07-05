@@ -14,5 +14,5 @@ description: SSH + reverse sshfs + port forwarder in Docker-like CLI
 renovate:
   datasource: github-releases
   package: lima-vm/sshocker
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

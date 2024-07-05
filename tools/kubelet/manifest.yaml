@@ -19,5 +19,5 @@ description: Kubernetes primary node agent that runs on each node
 renovate:
   datasource: github-releases
   package: kubernetes/kubernetes
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

@@ -18,5 +18,5 @@ description: Linux Runtime Security and Forensics using eBPF
 renovate:
   datasource: github-releases
   package: aquasecurity/tracee
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

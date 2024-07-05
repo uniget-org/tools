@@ -15,5 +15,5 @@ description: AI on the command line
 renovate:
   datasource: github-releases
   package: charmbracelet/mods
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

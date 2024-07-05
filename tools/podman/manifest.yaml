@@ -28,5 +28,5 @@ description: Tool for managing OCI containers and pods
 renovate:
   datasource: github-releases
   package: containers/podman
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: high

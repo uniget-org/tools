@@ -16,5 +16,5 @@ description: Kubernetes cluster resource sanitizer
 renovate:
   datasource: github-releases
   package: derailed/popeye
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

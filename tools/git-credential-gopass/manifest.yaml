@@ -16,5 +16,5 @@ description: Gopass git-credentials helper
 renovate:
   datasource: github-releases
   package: gopasspw/git-credential-gopass
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

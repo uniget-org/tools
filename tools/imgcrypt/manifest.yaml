@@ -21,5 +21,5 @@ description: OCI Image Encryption Package
 renovate:
   datasource: github-releases
   package: containerd/imgcrypt
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

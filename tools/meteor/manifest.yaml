@@ -15,5 +15,5 @@ description: Easy-to-use, plugin-driven metadata collection framework to extract
 renovate:
   datasource: github-releases
   package: raystack/meteor
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -15,5 +15,5 @@ description: Command-line tool for summarizing and filtering vulnerability alert
 renovate:
   datasource: github-releases
   package: csdev/ezghsa
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

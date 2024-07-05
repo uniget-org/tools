@@ -17,5 +17,5 @@ description: Programs to keep Docker login credentials safe
 renovate:
   datasource: github-releases
   package: docker/docker-credential-helpers
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

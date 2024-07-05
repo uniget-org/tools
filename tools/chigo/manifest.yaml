@@ -12,5 +12,5 @@ description: Lolcat in Go - Rainbows and Unicorns
 renovate:
   datasource: github-releases
   package: UltiRequiem/chigo
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

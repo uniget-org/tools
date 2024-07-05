@@ -15,5 +15,5 @@ description: Some description
 renovate:
   datasource: github-releases
   package: reproducible-containers/diffoci
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

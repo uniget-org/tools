@@ -19,5 +19,5 @@ description: Package manager for Kubernetes, powered by CUE and inspired by Helm
 renovate:
   datasource: github-releases
   package: stefanprodan/timoni
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

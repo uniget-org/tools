@@ -13,5 +13,5 @@ description: Easy way to vendor declaratively
 renovate:
   datasource: github-releases
   package: carvel-dev/vendir
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

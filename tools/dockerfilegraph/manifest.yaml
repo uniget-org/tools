@@ -16,5 +16,5 @@ description: Visualize your multi-stage Dockerfiles
 renovate:
   datasource: github-releases
   package: patrickhoefler/dockerfilegraph
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

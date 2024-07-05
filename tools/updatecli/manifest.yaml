@@ -15,5 +15,5 @@ description: Declarative Dependency Management
 renovate:
   datasource: github-releases
   package: updatecli/updatecli
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

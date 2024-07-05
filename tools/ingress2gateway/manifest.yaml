@@ -18,5 +18,5 @@ description: Some description
 renovate:
   datasource: github-releases
   package: kubernetes-sigs/ingress2gateway
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

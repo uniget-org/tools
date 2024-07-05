@@ -17,5 +17,5 @@ description: Open source P2P-based file distribution and image acceleration syst
 renovate:
   datasource: github-releases
   package: dragonflyoss/Dragonfly2
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

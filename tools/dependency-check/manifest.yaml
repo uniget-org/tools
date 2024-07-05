@@ -14,5 +14,5 @@ description: software composition analysis utility that detects publicly disclos
 renovate:
   datasource: github-releases
   package: jeremylong/DependencyCheck
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

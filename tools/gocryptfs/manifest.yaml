@@ -13,6 +13,6 @@ description: Encrypted overlay filesystem written in Go
 renovate:
   datasource: github-releases
   package: rfjakob/gocryptfs
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   versioning: loose
   priority: low

@@ -15,5 +15,5 @@ description: S3 benchmarking tool
 renovate:
   datasource: github-releases
   package: minio/warp
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

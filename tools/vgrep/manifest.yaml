@@ -15,5 +15,5 @@ description: User-friendly pager for grep
 renovate:
   datasource: github-releases
   package: vrothberg/vgrep
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -13,5 +13,5 @@ description: View disk space usage and delete unwanted data, fast.
 renovate:
   datasource: github-releases
   package: Byron/dua-cli
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

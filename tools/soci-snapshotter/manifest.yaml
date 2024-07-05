@@ -17,5 +17,5 @@ description: Some description
 renovate:
   datasource: github-releases
   package: awslabs/soci-snapshotter
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

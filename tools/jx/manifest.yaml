@@ -18,5 +18,5 @@ description: Automated CI+CD for Kubernetes with Preview Environments on Pull Re
 renovate:
   datasource: github-releases
   package: jenkins-x/jx
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

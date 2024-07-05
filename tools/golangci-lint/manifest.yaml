@@ -15,5 +15,5 @@ description: Fast linters Runner for Go
 renovate:
   datasource: github-releases
   package: golangci/golangci-lint
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

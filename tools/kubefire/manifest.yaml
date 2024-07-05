@@ -16,5 +16,5 @@ description: Creates and manages Kubernetes Clusters using Firecracker microVMs
 renovate:
   datasource: github-releases
   package: innobead/kubefire
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

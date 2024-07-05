@@ -15,5 +15,5 @@ description: Declarative continuous deployment for Kubernetes
 renovate:
   datasource: github-releases
   package: argoproj/argo-cd
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

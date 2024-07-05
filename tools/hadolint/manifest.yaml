@@ -17,5 +17,5 @@ description: Dockerfile linter, validate inline bash
 renovate:
   datasource: github-releases
   package: hadolint/hadolint
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

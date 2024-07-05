@@ -12,5 +12,5 @@ description: Container runtimes on macOS (and Linux) with minimal setup
 renovate:
   datasource: github-releases
   package: abiosoft/colima
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

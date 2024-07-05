@@ -17,6 +17,6 @@ description: Innovative superfamily of fonts for code
 renovate:
   datasource: github-releases
   package: githubnext/monaspace
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   versioning: loose
   priority: low

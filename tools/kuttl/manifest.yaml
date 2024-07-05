@@ -19,5 +19,5 @@ description: Kubernetes Test TooL
 renovate:
   datasource: github-releases
   package: kudobuilder/kuttl
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -15,5 +15,5 @@ description: Effortless binary manager
 renovate:
   datasource: github-releases
   package: marcosnils/bin
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

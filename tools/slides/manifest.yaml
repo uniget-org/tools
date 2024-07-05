@@ -14,5 +14,5 @@ description: Terminal based presentation tool
 renovate:
   datasource: github-releases
   package: maaslalani/slides
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

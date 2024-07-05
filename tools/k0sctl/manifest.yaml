@@ -18,5 +18,5 @@ description: Bootstrapping and management tool for k0s clusters
 renovate:
   datasource: github-releases
   package: k0sproject/k0sctl
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

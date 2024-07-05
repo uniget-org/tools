@@ -26,5 +26,5 @@ messages:
 renovate:
   datasource: github-releases
   package: akazukin5151/kpxhs
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

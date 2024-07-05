@@ -13,5 +13,5 @@ description: Open files with xdg-open on Bash for Windows in Windows application
 renovate:
   datasource: github-tags
   package: 4U6U57/wsl-open
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

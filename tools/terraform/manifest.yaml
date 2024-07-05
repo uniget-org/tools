@@ -15,5 +15,5 @@ description: Safely and predictably create, change, and improve infrastructure
 renovate:
   datasource: github-releases
   package: hashicorp/terraform
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: high

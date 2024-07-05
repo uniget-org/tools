@@ -20,5 +20,5 @@ description: containerd snapshotter with data deduplication and lazy loading in 
 renovate:
   datasource: github-releases
   package: containerd/nydus-snapshotter
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

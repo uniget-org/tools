@@ -22,5 +22,5 @@ description: Secure your supply chain at every layer
 renovate:
   datasource: github-releases
   package: docker/scout-cli
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: high

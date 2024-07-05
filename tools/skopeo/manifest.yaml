@@ -17,5 +17,5 @@ description: Work with remote images registries
 renovate:
   datasource: github-releases
   package: containers/skopeo
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: high

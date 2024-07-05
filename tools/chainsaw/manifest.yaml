@@ -18,5 +18,5 @@ description: Declarative K8s e2e testing
 renovate:
   datasource: github-releases
   package: kyverno/chainsaw
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

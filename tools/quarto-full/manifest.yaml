@@ -18,5 +18,5 @@ description: Open-source scientific and technical publishing system built on Pan
 renovate:
   datasource: github-releases
   package: quarto-dev/quarto-cli
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

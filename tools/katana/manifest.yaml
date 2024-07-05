@@ -12,5 +12,5 @@ description: Next-generation crawling and spidering framework
 renovate:
   datasource: github-releases
   package: projectdiscovery/katana
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

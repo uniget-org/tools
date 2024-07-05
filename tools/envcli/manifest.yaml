@@ -16,5 +16,5 @@ description: Don't install locally, use containers you define within your projec
 renovate:
   datasource: github-releases
   package: EnvCLI/EnvCLI
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

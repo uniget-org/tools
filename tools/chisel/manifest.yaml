@@ -12,5 +12,5 @@ description: Fast TCP/UDP tunnel over HTTP
 renovate:
   datasource: github-releases
   package: jpillora/chisel
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

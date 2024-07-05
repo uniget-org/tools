@@ -14,5 +14,5 @@ description: Go programming language
 renovate:
   datasource: github-tags
   package: golang/go
-  extractVersion: ^go(?<version>.+?)$
+  extractVersion: ^go(?<version>.+)$
   priority: medium

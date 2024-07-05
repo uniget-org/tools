@@ -15,5 +15,5 @@ description: Scans Software Bill of Materials (SBOMs) for security vulnerabiliti
 renovate:
   datasource: github-releases
   package: devops-kung-fu/bomber
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

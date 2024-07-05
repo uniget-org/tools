@@ -17,5 +17,5 @@ description: Command-line tool that uses the OpenAI model to generate text based
 renovate:
   datasource: github-releases
   package: ibuildthecloud/catgpt
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -18,5 +18,5 @@ description: Distributed version control system
 renovate:
   datasource: github-tags
   package: git/git
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: high

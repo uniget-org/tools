@@ -14,5 +14,5 @@ description: Data templating language. Implementation of Jsonnet in pure Go
 renovate:
   datasource: github-releases
   package: google/go-jsonnet
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

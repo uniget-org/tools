@@ -12,5 +12,5 @@ description: Super simple tool to help with orchestration of commands on the CLI
 renovate:
   datasource: github-releases
   package: dnnrly/wait-for
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

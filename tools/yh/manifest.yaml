@@ -15,5 +15,5 @@ description: YAML syntax highlighter to bring colours to kubectl output
 renovate:
   datasource: github-releases
   package: andreazorzetto/yh
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -15,5 +15,5 @@ description: CLI for building apps using Cloud Native Buildpacks
 renovate:
   datasource: github-releases
   package: buildpacks/pack
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

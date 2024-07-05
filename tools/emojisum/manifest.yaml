@@ -16,6 +16,6 @@ description: Easier way to compare hashes/fingerprints when dealing human weak l
 renovate:
   datasource: github-tags
   package: emojisum/emojisum
-  extractVersion: ^draft\+(?<version>.+?)$
+  extractVersion: ^draft\+(?<version>.+)$
   versioning: loose
   priority: low

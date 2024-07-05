@@ -15,5 +15,5 @@ description: Cloudflare's PKI and TLS toolkit
 renovate:
   datasource: github-releases
   package: cloudflare/cfssl
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

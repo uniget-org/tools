@@ -14,6 +14,6 @@ description: Switch user and group id and exec
 renovate:
   datasource: github-tags
   package: ncopa/su-exec
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   versioning: loose
   priority: low

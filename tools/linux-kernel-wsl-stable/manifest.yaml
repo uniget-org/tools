@@ -45,6 +45,6 @@ messages:
 renovate:
   datasource: github-releases
   package: microsoft/WSL2-Linux-Kernel
-  extractVersion: ^linux-msft-wsl-(?<version>5\..+?)$
+  extractVersion: ^linux-msft-wsl-(?<version>5\..+)$
   versioning: loose
   priority: low

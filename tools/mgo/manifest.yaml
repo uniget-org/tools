@@ -17,5 +17,5 @@ description: Build and bundle multiple GOAMD64 variants in a single executable
 renovate:
   datasource: github-releases
   package: CAFxX/mgo
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

@@ -13,5 +13,5 @@ description: Cloud native networking and network security
 renovate:
   datasource: github-releases
   package: projectcalico/calico
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

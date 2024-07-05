@@ -18,5 +18,5 @@ description: CLI and validation tools for Kubelet Container Runtime Interface
 renovate:
   datasource: github-releases
   package: kubernetes-sigs/cri-tools
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: high

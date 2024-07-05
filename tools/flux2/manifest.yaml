@@ -18,5 +18,5 @@ description: Open and extensible continuous delivery solution for Kubernetes
 renovate:
   datasource: github-releases
   package: fluxcd/flux2
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -17,5 +17,5 @@ description: Lightweight CLI download accelerator
 renovate:
   datasource: github-releases
   package: axel-download-accelerator/axel
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

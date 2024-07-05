@@ -25,5 +25,5 @@ description: Open and reliable container runtime
 renovate:
   datasource: github-releases
   package: containerd/containerd
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: high

@@ -15,5 +15,5 @@ description: CLI for interacting with Tekton
 renovate:
   datasource: github-releases
   package: tektoncd/cli
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

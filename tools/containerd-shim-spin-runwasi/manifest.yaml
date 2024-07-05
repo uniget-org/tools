@@ -26,5 +26,5 @@ description: containerd shims for running WebAssembly workloads in Kubernetes
 renovate:
   datasource: github-releases
   package: deislabs/containerd-wasm-shims
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

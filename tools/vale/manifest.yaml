@@ -16,5 +16,5 @@ description: Markup-aware linter for prose built with speed and extensibility in
 renovate:
   datasource: github-releases
   package: errata-ai/vale
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

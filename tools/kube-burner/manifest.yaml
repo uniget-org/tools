@@ -15,5 +15,5 @@ description: Kubernetes performance and scale test orchestration framework
 renovate:
   datasource: github-releases
   package: kube-burner/kube-burner
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -14,5 +14,5 @@ description: CLI that exposes your local resources to kubernetes
 renovate:
   datasource: github-releases
   package: omrikiei/ktunnel
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

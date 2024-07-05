@@ -16,5 +16,5 @@ description: Community fork of the Drone CI system
 renovate:
   datasource: github-releases
   package: woodpecker-ci/woodpecker
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

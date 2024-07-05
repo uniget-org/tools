@@ -19,5 +19,5 @@ description: Find & pull public SBOMs
 renovate:
   datasource: github-releases
   package: interlynk-io/sbomex
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -17,5 +17,5 @@ description: Extensible command line tool or library to format yaml files
 renovate:
   datasource: github-releases
   package: google/yamlfmt
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

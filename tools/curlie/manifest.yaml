@@ -12,5 +12,5 @@ description: The power of curl, the ease of use of httpie.
 renovate:
   datasource: github-releases
   package: rs/curlie
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

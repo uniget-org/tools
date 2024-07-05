@@ -13,5 +13,5 @@ description: Modifies Open Container images
 renovate:
   datasource: github-releases
   package: opencontainers/umoci
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

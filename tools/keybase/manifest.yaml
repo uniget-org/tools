@@ -13,5 +13,5 @@ description: Keybase client
 renovate:
   datasource: github-releases
   package: keybase/client
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

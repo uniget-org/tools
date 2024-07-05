@@ -18,6 +18,6 @@ description: Command-line JSON processor
 renovate:
   datasource: github-releases
   package: jqlang/jq
-  extractVersion: ^jq-(?<version>.+?)$
+  extractVersion: ^jq-(?<version>.+)$
   versioning: loose
   priority: low

@@ -13,5 +13,5 @@ description: Zeitgeist the language-agnostic dependency checker
 renovate:
   datasource: github-releases
   package: kubernetes-sigs/zeitgeist
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -12,6 +12,6 @@ description: Collecting registry alias names for shortnames to fully specified c
 renovate:
   datasource: github-releases
   package: containers/shortnames
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   versioning: loose
   priority: low

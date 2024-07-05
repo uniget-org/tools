@@ -16,5 +16,5 @@ description: CLI tool to help you manage repositories
 renovate:
   datasource: github-releases
   package: alajmo/mani
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -15,5 +15,5 @@ description: New markup-based typesetting system that is powerful and easy to le
 renovate:
   datasource: github-releases
   package: typst/typst
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

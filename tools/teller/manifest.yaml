@@ -18,5 +18,5 @@ description: Cloud native secrets management for developers - never leave your c
 renovate:
   datasource: github-releases
   package: tellerops/teller
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

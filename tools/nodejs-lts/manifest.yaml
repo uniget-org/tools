@@ -15,5 +15,5 @@ description: Node.js JavaScript runtime
 renovate:
   datasource: github-releases
   package: uniget-org/renovate-custom
-  extractVersion: ^nodejs-lts/(?<version>.+?)$
+  extractVersion: ^nodejs-lts/(?<version>.+)$
   priority: low

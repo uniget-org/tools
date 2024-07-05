@@ -25,5 +25,5 @@ description: Automatically manage image digests in Dockerfiles, docker-compose f
 renovate:
   datasource: github-releases
   package: safe-waters/docker-lock
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

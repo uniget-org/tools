@@ -17,5 +17,5 @@ description: Effortless CI/CD framework that runs anywhere
 renovate:
   datasource: github-releases
   package: earthly/earthly
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

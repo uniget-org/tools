@@ -19,5 +19,5 @@ description: SBOM Grep - search through SBOMs
 renovate:
   datasource: github-releases
   package: interlynk-io/sbomgr
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

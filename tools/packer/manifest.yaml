@@ -18,5 +18,5 @@ description: Tool for creating identical machine images for multiple platforms f
 renovate:
   datasource: github-releases
   package: hashicorp/packer
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

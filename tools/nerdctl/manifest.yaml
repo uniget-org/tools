@@ -23,5 +23,5 @@ description: Docker-compatible CLI for containerd, with support for Compose, Roo
 renovate:
   datasource: github-releases
   package: containerd/nerdctl
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: high

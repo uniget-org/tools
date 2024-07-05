@@ -15,5 +15,5 @@ description: Select, put and delete data from JSON, TOML, YAML, XML and CSV file
 renovate:
   datasource: github-releases
   package: TomWright/dasel
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

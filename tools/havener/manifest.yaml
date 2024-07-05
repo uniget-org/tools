@@ -13,5 +13,5 @@ description: Think of it as a swiss army knife for Kubernetes tasks
 renovate:
   datasource: github-releases
   package: homeport/havener
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

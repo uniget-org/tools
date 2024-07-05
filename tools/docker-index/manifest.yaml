@@ -22,5 +22,5 @@ description: Create image SBOMs as well as analyze packages for known vulnerabil
 renovate:
   datasource: github-releases
   package: docker/index-cli-plugin
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

@@ -12,5 +12,5 @@ description: A Go port of Ruby's dotenv library (Loads environment variables fro
 renovate:
   datasource: github-releases
   package: joho/godotenv
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

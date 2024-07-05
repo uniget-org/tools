@@ -17,5 +17,5 @@ description: Manage large fleets of Kubernetes clusters
 renovate:
   datasource: github-releases
   package: rancher/fleet
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

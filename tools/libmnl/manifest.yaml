@@ -20,5 +20,5 @@ description: Minimalistic user-space library oriented to Netlink developers
 renovate:
   datasource: git-tags
   package: https://git.netfilter.org/libmnl/
-  extractVersion: ^libmnl-(?<version>.+?)$
+  extractVersion: ^libmnl-(?<version>.+)$
   priority: low

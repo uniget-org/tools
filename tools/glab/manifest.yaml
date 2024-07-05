@@ -15,5 +15,5 @@ description: CLI tool bringing GitLab to your command line
 renovate:
   datasource: gitlab-releases
   package: gitlab-org/cli
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

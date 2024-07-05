@@ -17,5 +17,5 @@ description: Universal installer and updater for (container) tools
 renovate:
   datasource: github-releases
   package: uniget-org/cli
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: high

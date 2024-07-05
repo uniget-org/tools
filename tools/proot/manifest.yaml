@@ -17,5 +17,5 @@ description: chroot, mount --bind, and binfmt_misc without privilege/setup for L
 renovate:
   datasource: github-releases
   package: proot-me/proot
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: high

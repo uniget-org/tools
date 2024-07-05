@@ -22,5 +22,5 @@ description: Terraform HTTP Backend implementation that uses Git repository as s
 renovate:
   datasource: github-releases
   package: plumber-cd/terraform-backend-git
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

@@ -15,5 +15,5 @@ description: Provision remote development environments via Terraform
 renovate:
   datasource: github-releases
   package: coder/coder
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

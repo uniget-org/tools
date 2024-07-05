@@ -15,5 +15,5 @@ description: Extremely fast bundler for the web
 renovate:
   datasource: github-releases
   package: evanw/esbuild
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

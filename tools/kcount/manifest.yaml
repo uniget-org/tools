@@ -17,5 +17,5 @@ description: Count Kubernetes objects across namespaces and clusters
 renovate:
   datasource: github-releases
   package: pan-net-security/kcount
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

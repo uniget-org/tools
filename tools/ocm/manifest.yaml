@@ -15,5 +15,5 @@ description: Open Component Model (Software Bill of Delivery Toolset)
 renovate:
   datasource: github-releases
   package: open-component-model/ocm
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

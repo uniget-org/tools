@@ -16,5 +16,5 @@ description: Visualising a "code base entropy" using a 3d force-directed graph o
 renovate:
   datasource: github-releases
   package: gabotechs/dep-tree
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

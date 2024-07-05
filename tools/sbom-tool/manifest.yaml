@@ -13,5 +13,5 @@ description: Highly scalable and enterprise ready tool to create SPDX 2.2 compat
 renovate:
   datasource: github-releases
   package: microsoft/sbom-tool
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

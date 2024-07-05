@@ -11,5 +11,5 @@ description: Security health metrics for Open Source
 renovate:
   datasource: github-releases
   package: ossf/scorecard
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

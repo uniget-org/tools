@@ -11,5 +11,5 @@ description: Command-line client for WebSockets, like netcat (or curl) for ws://
 renovate:
   datasource: github-releases
   package: vi/websocat
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

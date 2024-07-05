@@ -22,5 +22,5 @@ description: Replacement to the Compose v1 executable
 renovate:
   datasource: github-releases
   package: docker/compose-switch
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: high

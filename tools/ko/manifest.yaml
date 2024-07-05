@@ -15,5 +15,5 @@ description: Build and deploy Go applications
 renovate:
   datasource: github-releases
   package: ko-build/ko
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -14,5 +14,5 @@ description: Secrets management, encryption as a service, and privileged access 
 renovate:
   datasource: github-releases
   package: hashicorp/vault
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -15,5 +15,5 @@ description: Command-line tool for operating an etcd cluster
 renovate:
   datasource: github-releases
   package: kubernetes-sigs/etcdadm
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

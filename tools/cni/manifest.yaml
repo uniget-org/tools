@@ -18,5 +18,5 @@ description: Some reference and example networking plugins
 renovate:
   datasource: github-releases
   package: containernetworking/plugins
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: high

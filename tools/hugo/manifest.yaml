@@ -16,5 +16,5 @@ description: World’s fastest framework for building websites
 renovate:
   datasource: github-releases
   package: gohugoio/hugo
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

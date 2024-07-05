@@ -15,5 +15,5 @@ description: Command-line tool that makes git easier to use with GitHub
 renovate:
   datasource: github-releases
   package: mislav/hub
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

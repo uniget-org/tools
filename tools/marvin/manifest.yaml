@@ -17,5 +17,5 @@ description: CLI tool that scans a k8s cluster by performing CEL expressions to 
 renovate:
   datasource: github-releases
   package: undistro/marvin
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -14,5 +14,5 @@ description: jq for binary formats
 renovate:
   datasource: github-releases
   package: wader/fq
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

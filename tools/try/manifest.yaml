@@ -18,5 +18,5 @@ description: Inspect a command's effects before modifying your live system
 renovate:
   datasource: github-releases
   package: binpash/try
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

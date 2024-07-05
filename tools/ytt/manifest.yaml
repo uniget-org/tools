@@ -20,5 +20,5 @@ description: YAML templating tool that works on YAML structure instead of text
 renovate:
   datasource: github-releases
   package: carvel-dev/ytt
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

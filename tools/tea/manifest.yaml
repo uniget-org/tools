@@ -16,5 +16,5 @@ description: Command line tool to interact with Gitea servers
 renovate:
   datasource: gitea-releases
   package: gitea/tea
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

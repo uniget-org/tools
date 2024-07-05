@@ -11,5 +11,5 @@ description: Inspect certificate authorities in container images
 renovate:
   datasource: github-releases
   package: jetstack/paranoia
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -16,5 +16,5 @@ description: Simple and flexible tool for managing secrets
 renovate:
   datasource: github-releases
   package: getsops/sops
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

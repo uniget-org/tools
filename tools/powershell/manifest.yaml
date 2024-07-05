@@ -15,5 +15,5 @@ description: PowerShell for every system
 renovate:
   datasource: github-releases
   package: PowerShell/PowerShell
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

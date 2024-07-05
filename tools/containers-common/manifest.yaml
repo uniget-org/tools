@@ -17,5 +17,5 @@ description: Location for shared common files in github.com/containers repos
 renovate:
   datasource: github-releases
   package: containers/common
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

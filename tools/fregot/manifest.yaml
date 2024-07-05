@@ -15,5 +15,5 @@ description: Fugue Rego Toolkit
 renovate:
   datasource: github-releases
   package: fugue/fregot
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

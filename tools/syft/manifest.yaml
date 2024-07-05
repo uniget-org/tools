@@ -18,5 +18,5 @@ description: CLI tool and library for generating a Software Bill of Materials fr
 renovate:
   datasource: github-releases
   package: anchore/syft
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: high

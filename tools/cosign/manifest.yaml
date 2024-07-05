@@ -22,5 +22,5 @@ description: Container Signing
 renovate:
   datasource: github-releases
   package: sigstore/cosign
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: high

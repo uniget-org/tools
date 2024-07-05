@@ -18,5 +18,5 @@ description: SDK for building Kubernetes APIs using CRDs
 renovate:
   datasource: github-releases
   package: kubernetes-sigs/kubebuilder
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

@@ -12,5 +12,5 @@ description: Fast and multi-purpose HTTP toolkit that allows running multiple pr
 renovate:
   datasource: github-releases
   package: projectdiscovery/httpx
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

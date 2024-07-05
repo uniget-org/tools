@@ -15,5 +15,5 @@ description: Add signatures as standard items in the registry ecosystem
 renovate:
   datasource: github-releases
   package: notaryproject/notation
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: high

@@ -16,5 +16,5 @@ description: Kubernetes-native security toolkit
 renovate:
   datasource: github-releases
   package: aquasecurity/trivy-operator
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

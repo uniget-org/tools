@@ -28,5 +28,5 @@ messages:
 renovate:
   datasource: gitlab-tags
   package: wireshark/wiresharkar
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

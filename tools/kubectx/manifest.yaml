@@ -15,5 +15,5 @@ description: Faster way to switch between clusters and namespaces in kubectl
 renovate:
   datasource: github-releases
   package: ahmetb/kubectx
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

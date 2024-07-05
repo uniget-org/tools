@@ -17,6 +17,6 @@ messages:
 renovate:
   datasource: github-releases
   package: uniget-org/renovate-custom
-  extractVersion: ^python/(?<version>.+?)$
+  extractVersion: ^python/(?<version>.+)$
   versioning: loose
   priority: low

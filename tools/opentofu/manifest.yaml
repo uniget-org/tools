@@ -18,5 +18,5 @@ description: Declaratively manage your cloud infrastructure
 renovate:
   datasource: github-releases
   package: opentofu/opentofu
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

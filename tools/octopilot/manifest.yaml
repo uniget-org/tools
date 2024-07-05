@@ -14,5 +14,5 @@ description: Automate your Gitops workflow by automatically creating/merging Git
 renovate:
   datasource: github-releases
   package: dailymotion-oss/octopilot
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

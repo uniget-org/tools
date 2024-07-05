@@ -16,5 +16,5 @@ description: Blazing fast terminal-ui for git written in rust
 renovate:
   datasource: github-releases
   package: extrawurst/gitui
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -16,5 +16,5 @@ description: Telemetry agent for the LGTM stack
 renovate:
   datasource: github-releases
   package: grafana/agent
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

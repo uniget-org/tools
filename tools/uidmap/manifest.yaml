@@ -15,5 +15,5 @@ description: Programs to help use subuids
 renovate:
   datasource: github-releases
   package: shadow-maint/shadow
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

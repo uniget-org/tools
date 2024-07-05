@@ -18,5 +18,5 @@ description: Podman Terminal UI
 renovate:
   datasource: github-releases
   package: containers/podman-tui
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

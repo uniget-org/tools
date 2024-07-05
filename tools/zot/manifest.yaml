@@ -13,5 +13,5 @@ description: Production-ready vendor-neutral OCI image registry server purely ba
 renovate:
   datasource: github-releases
   package: project-zot/zot
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

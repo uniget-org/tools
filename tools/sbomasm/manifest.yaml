@@ -19,5 +19,5 @@ description: SBOM Assembler - A tool to compose your various sboms into a single
 renovate:
   datasource: github-releases
   package: interlynk-io/sbomasm
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

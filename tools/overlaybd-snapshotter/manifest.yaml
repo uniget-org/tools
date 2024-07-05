@@ -19,5 +19,5 @@ description: Production-ready remote container image format
 renovate:
   datasource: github-releases
   package: containerd/accelerated-container-image
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

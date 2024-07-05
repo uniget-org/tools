@@ -12,5 +12,5 @@ description: Simple zero-config tool to make locally trusted development certifi
 renovate:
   datasource: github-releases
   package: FiloSottile/mkcert
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

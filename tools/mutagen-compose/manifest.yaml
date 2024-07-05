@@ -16,6 +16,6 @@ description: Compose with Mutagen integration
 renovate:
   datasource: github-releases
   package: mutagen-io/mutagen-compose
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   versioning: loose
   priority: low

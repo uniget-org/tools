@@ -20,5 +20,5 @@ description: Docker CLI plugin to detect base images
 renovate:
   datasource: github-releases
   package: docker/base-cli-plugin
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

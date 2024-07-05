@@ -26,5 +26,5 @@ description: Facilitates running Wasm / WASI workloads managed by containerd
 renovate:
   datasource: github-releases
   package: containerd/runwasi
-  extractVersion: ^containerd-shim-wasmedge/v(?<version>.+?)$
+  extractVersion: ^containerd-shim-wasmedge/v(?<version>.+)$
   priority: low

@@ -15,5 +15,5 @@ description: Workflow engine for Kubernetes
 renovate:
   datasource: github-releases
   package: argoproj/argo-workflows
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

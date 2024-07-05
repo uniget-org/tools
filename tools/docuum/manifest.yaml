@@ -18,5 +18,5 @@ description: Performs least recently used eviction of Docker images
 renovate:
   datasource: github-releases
   package: stepchowfun/docuum
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -16,6 +16,6 @@ description: Simple | Fast tool to manage MinIO clusters ☁️
 renovate:
   datasource: github-releases
   package: minio/mc
-  extractVersion: ^RELEASE.(?<version>.+?)$
+  extractVersion: ^RELEASE.(?<version>.+)$
   versioning: loose
   priority: low

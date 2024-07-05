@@ -18,5 +18,5 @@ description: Transparent, highly scalable and cryptographically verifiable data 
 renovate:
   datasource: github-releases
   package: google/trillian
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

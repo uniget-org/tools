@@ -24,6 +24,6 @@ message:
 renovate:
   datasource: github-releases
   package: uniget-org/renovate-custom
-  extractVersion: ^docker-desktop/(?<version>.+?)$
+  extractVersion: ^docker-desktop/(?<version>.+)$
   versioning: loose
   priority: low

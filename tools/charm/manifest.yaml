@@ -16,5 +16,5 @@ description: Charm Tool and Library
 renovate:
   datasource: github-releases
   package: charmbracelet/charm
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

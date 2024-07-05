@@ -16,5 +16,5 @@ description: Minimal distribution of Knative and Tekton, and CLI
 renovate:
   datasource: github-releases
   package: mattmoor/mink
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

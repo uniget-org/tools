@@ -15,5 +15,5 @@ description: GitHub's official command line tool
 renovate:
   datasource: github-releases
   package: cli/cli
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

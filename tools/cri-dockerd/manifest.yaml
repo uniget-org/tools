@@ -20,5 +20,5 @@ description: Shim for Docker Engine that lets you control Docker via the Kuberne
 renovate:
   datasource: github-releases
   package: Mirantis/cri-dockerd
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

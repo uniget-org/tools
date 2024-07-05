@@ -16,5 +16,5 @@ description: Docker credential helper for GCR users
 renovate:
   datasource: github-releases
   package: GoogleCloudPlatform/docker-credential-gcr
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

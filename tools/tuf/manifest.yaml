@@ -11,5 +11,5 @@ description: The Update Framework (TUF)
 renovate:
   datasource: github-releases
   package: theupdateframework/go-tuf
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -16,5 +16,5 @@ description: Kubernetes Cluster API Provider AWS
 renovate:
   datasource: github-releases
   package: kubernetes-sigs/cluster-api-provider-aws
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

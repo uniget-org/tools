@@ -15,5 +15,5 @@ description: open source, cloud-native distributed SQL database
 renovate:
   datasource: github-tags
   package: cockroachdb/cockroach
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

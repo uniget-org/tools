@@ -11,5 +11,5 @@ description: Pluggable framework for software supply chain risk management
 renovate:
   datasource: github-releases
   package: in-toto/witness
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -14,5 +14,5 @@ description: Sans serif font family for user interface environments
 renovate:
   datasource: github-releases
   package: adobe-fonts/source-sans
-  extractVersion: ^(?<version>.+?)R$
+  extractVersion: ^(?<version>.+)R$
   priority: low

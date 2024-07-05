@@ -17,5 +17,5 @@ description: Security layer for Git repositories
 renovate:
   datasource: github-releases
   package: gittuf/gittuf
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

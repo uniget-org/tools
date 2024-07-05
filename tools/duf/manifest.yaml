@@ -15,5 +15,5 @@ description: Disk Usage/Free Utility - a better 'df' alternative
 renovate:
   datasource: github-releases
   package: muesli/duf
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

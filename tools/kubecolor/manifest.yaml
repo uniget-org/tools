@@ -15,5 +15,5 @@ description: colorizes kubectl output
 renovate:
   datasource: github-releases
   package: hidetatz/kubecolor
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

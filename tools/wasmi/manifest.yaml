@@ -19,5 +19,5 @@ description: WebAssembly (Wasm) interpreter
 renovate:
   datasource: github-releases
   package: wasmi-labs/wasmi
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

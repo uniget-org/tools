@@ -17,5 +17,5 @@ description: Explore Docker registries and manipulate Docker images
 renovate:
   datasource: github-releases
   package: ivanilves/lstags
-  extractVersion: ^v(?<version>\d+\.\d+\.\d+?)$
+  extractVersion: ^v(?<version>\d+\.\d+\.\d+)$
   priority: medium

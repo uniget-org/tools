@@ -16,5 +16,5 @@ description: Toolkit to pack, ship, store, and deliver container content
 renovate:
   datasource: github-releases
   package: distribution/distribution
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

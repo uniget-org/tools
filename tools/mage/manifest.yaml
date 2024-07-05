@@ -15,5 +15,5 @@ description: Make/rake-like dev tool using Go
 renovate:
   datasource: github-releases
   package: magefile/mage
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -17,5 +17,5 @@ description: OCI Image Tooling
 renovate:
   datasource: github-releases
   package: opencontainers/image-tools
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

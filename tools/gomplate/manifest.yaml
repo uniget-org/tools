@@ -15,5 +15,5 @@ description: flexible commandline tool for template rendering
 renovate:
   datasource: github-releases
   package: hairyhenderson/gomplate
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

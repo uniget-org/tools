@@ -15,5 +15,5 @@ description: Command Line Interactive Controller for Kubernetes
 renovate:
   datasource: github-releases
   package: databricks/click
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

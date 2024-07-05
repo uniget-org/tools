@@ -15,5 +15,5 @@ description: High-performance JSON to GRON (greppable, flattened JSON) converter
 renovate:
   datasource: github-releases
   package: adamritter/fastgron
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

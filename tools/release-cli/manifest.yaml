@@ -18,5 +18,5 @@ description: CLI to interact with GitLab's Releases API
 renovate:
   datasource: gitlab-releases
   package: gitlab-org/release-cli
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

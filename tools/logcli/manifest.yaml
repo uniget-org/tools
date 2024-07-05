@@ -14,5 +14,5 @@ description: CLI to Grafana Loki, facilitates running LogQL queries
 renovate:
   datasource: github-releases
   package: grafana/loki
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

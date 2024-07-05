@@ -15,5 +15,5 @@ description: Easily and securely send things from one computer to another
 renovate:
   datasource: github-releases
   package: schollz/croc
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

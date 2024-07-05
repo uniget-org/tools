@@ -17,5 +17,5 @@ description: Support CI generation of SBOMs via golang tooling
 renovate:
   datasource: github-releases
   package: opensbom-generator/spdx-sbom-generator
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

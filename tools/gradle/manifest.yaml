@@ -13,5 +13,5 @@ description: Adaptable, fast automation for all
 renovate:
   datasource: github-releases
   package: gradle/gradle
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

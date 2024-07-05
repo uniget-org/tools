@@ -16,6 +16,6 @@ description: Pass extension that provides an easy flow for updating passwords
 renovate:
   datasource: github-releases
   package: roddhjav/pass-update
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   versioning: loose
   priority: low

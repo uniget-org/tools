@@ -17,5 +17,5 @@ description: Pass extension to avoid printing the password to the console
 renovate:
   datasource: github-releases
   package: palortoff/pass-extension-tail
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

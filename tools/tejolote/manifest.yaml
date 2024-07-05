@@ -18,5 +18,5 @@ description: Highly configurable build executor and observer designed to generat
 renovate:
   datasource: github-releases
   package: kubernetes-sigs/tejolote
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

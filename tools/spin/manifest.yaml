@@ -16,5 +16,5 @@ description: Open source developer tool for building and running serverless appl
 renovate:
   datasource: github-releases
   package: fermyon/spin
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

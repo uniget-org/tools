@@ -15,5 +15,5 @@ description: API first development platform
 renovate:
   datasource: github-releases
   package: micro/micro
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

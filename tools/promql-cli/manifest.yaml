@@ -14,5 +14,5 @@ description: Prometheus Query CLI
 renovate:
   datasource: github-releases
   package: nalbury/promql-cli
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

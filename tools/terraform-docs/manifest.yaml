@@ -15,5 +15,5 @@ description: Generate documentation from Terraform modules in various output for
 renovate:
   datasource: github-releases
   package: terraform-docs/terraform-docs
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

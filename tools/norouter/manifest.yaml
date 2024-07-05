@@ -12,5 +12,5 @@ description: IP-over-Stdio
 renovate:
   datasource: github-releases
   package: norouter/norouter
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

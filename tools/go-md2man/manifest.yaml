@@ -18,5 +18,5 @@ description: Converts markdown into roff (man pages)
 renovate:
   datasource: github-releases
   package: cpuguy83/go-md2man
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -19,5 +19,5 @@ description: terminal spreadsheet multitool for discovering and arranging data
 renovate:
   datasource: github-releases
   package: saulpw/visidata
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

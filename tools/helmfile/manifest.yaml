@@ -15,5 +15,5 @@ description: Deploy Kubernetes Helm Charts
 renovate:
   datasource: github-releases
   package: roboll/helmfile
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -17,5 +17,5 @@ description: Pass extension for managing one-time-password (OTP) tokens
 renovate:
   datasource: github-releases
   package: tadfisher/pass-otp
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

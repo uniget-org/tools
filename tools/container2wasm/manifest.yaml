@@ -16,5 +16,5 @@ description: Container to WASM converter
 renovate:
   datasource: github-releases
   package: ktock/container2wasm
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: high

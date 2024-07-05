@@ -14,5 +14,5 @@ description: Help building an adaptive and fine-grained pod security policy
 renovate:
   datasource: github-releases
   package: sysdiglabs/kube-psp-advisor
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

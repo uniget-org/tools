@@ -13,6 +13,6 @@ description: Terminal-based presentations using Pandoc
 renovate:
   datasource: github-releases
   package: jaspervdj/patat
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   versioning: loose
   priority: low

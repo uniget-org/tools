@@ -15,5 +15,5 @@ description: CLI tool for linting and testing Helm charts
 renovate:
   datasource: github-releases
   package: helm/chart-testing
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

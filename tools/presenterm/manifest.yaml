@@ -18,5 +18,5 @@ description: Markdown terminal slideshow tool
 renovate:
   datasource: github-releases
   package: mfontanini/presenterm
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

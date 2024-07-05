@@ -13,5 +13,5 @@ description: Cowsay is reborn
 renovate:
   datasource: github-releases
   package: Code-Hex/Neo-cowsay
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -23,5 +23,5 @@ description: Git credential helper interfacing with pass, the standard unix pass
 renovate:
   datasource: github-releases
   package: languitar/pass-git-helper
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

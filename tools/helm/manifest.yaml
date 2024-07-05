@@ -19,5 +19,5 @@ description: The Kubernetes Package Manager
 renovate:
   datasource: github-releases
   package: helm/helm
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: high

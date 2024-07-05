@@ -13,5 +13,5 @@ description: Unprivileged sandboxing tool
 renovate:
   datasource: github-releases
   package: containers/bubblewrap
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -20,5 +20,5 @@ description: Vulnerability scanner for container images and filesystems
 renovate:
   datasource: github-releases
   package: anchore/grype
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: high

@@ -19,5 +19,5 @@ renovate:
   datasource: git-tags
   package: wireguard-tools
   url: https://git.zx2c4.com/wireguard-tools
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

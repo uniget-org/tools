@@ -16,5 +16,5 @@ description: Let's Encrypt/ACME client and library written in Go
 renovate:
   datasource: github-releases
   package: go-acme/lego
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

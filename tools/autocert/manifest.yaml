@@ -18,5 +18,5 @@ description: Kubernetes add-on that automatically injects TLS/HTTPS certificates
 renovate:
   datasource: github-releases
   package: smallstep/autocert
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

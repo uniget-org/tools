@@ -19,5 +19,5 @@ description: Fast container image distribution plugin with lazy pulling
 renovate:
   datasource: github-releases
   package: containerd/stargz-snapshotter
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: high

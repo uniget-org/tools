@@ -16,5 +16,5 @@ description: Friendly and fast tool for sending HTTP requests
 renovate:
   datasource: github-releases
   package: ducaale/xh
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

@@ -16,5 +16,5 @@ description: Generate images of code and terminal output
 renovate:
   datasource: github-releases
   package: charmbracelet/freeze
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -17,5 +17,5 @@ description: Some description
 renovate:
   datasource: github-releases
   package: exdx/dcp
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -17,5 +17,5 @@ description: jq clone focussed on correctness, speed, and simplicity
 renovate:
   datasource: github-releases
   package: 01mf02/jaq
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

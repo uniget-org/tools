@@ -16,5 +16,5 @@ description: Node Version Manager
 renovate:
   datasource: github-releases
   package: nvm-sh/nvm
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

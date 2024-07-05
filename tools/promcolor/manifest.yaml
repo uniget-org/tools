@@ -19,5 +19,5 @@ description: Colorize piped Prometheus metrics in the terminal
 renovate:
   datasource: github-releases
   package: fhemberger/promcolor
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

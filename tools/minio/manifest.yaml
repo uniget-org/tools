@@ -15,6 +15,6 @@ description: Multi-Cloud ☁️ Object Storage
 renovate:
   datasource: github-releases
   package: minio/minio
-  extractVersion: ^RELEASE.(?<version>.+?)$
+  extractVersion: ^RELEASE.(?<version>.+)$
   versioning: loose
   priority: low

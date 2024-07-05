@@ -17,5 +17,5 @@ description: Modern Linux distribution built for Kubernetes
 renovate:
   datasource: github-releases
   package: siderolabs/talos
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

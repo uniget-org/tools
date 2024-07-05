@@ -14,5 +14,5 @@ description: Executes commands in response to file modifications
 renovate:
   datasource: github-releases
   package: watchexec/watchexec
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

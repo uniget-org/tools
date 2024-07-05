@@ -15,5 +15,5 @@ description: Fast and extensible multi-platform HTTP/1-2-3 web server with autom
 renovate:
   datasource: github-releases
   package: caddyserver/caddy
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

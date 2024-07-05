@@ -11,5 +11,5 @@ description: Write tests against structured configuration data
 renovate:
   datasource: github-releases
   package: open-policy-agent/conftest
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

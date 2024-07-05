@@ -13,5 +13,5 @@ description: Checks whether Kubernetes is deployed according to security best pr
 renovate:
   datasource: github-releases
   package: aquasecurity/kube-bench
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

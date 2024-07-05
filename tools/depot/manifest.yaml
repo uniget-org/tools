@@ -15,5 +15,5 @@ description: Build your Docker images in the cloud
 renovate:
   datasource: github-releases
   package: depot/cli
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

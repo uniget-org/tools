@@ -13,5 +13,5 @@ description: Get eBPF programs running from the cloud to the kernel
 renovate:
   datasource: github-releases
   package: solo-io/bumblebee
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -16,5 +16,5 @@ description: Automate Kubernetes Configuration Editing
 renovate:
   datasource: github-releases
   package: kptdev/kpt
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

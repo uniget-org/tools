@@ -15,5 +15,5 @@ description: Minimalistic kubernetes resources deployment tool with templating
 renovate:
   datasource: github-releases
   package: UKHomeOffice/kd
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

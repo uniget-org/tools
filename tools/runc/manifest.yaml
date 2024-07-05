@@ -19,5 +19,5 @@ description: CLI tool for spawning and running containers according to the OCI s
 renovate:
   datasource: github-releases
   package: opencontainers/runc
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: high

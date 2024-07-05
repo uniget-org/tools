@@ -12,5 +12,5 @@ description: Protect and discover secrets using Gitleaks
 renovate:
   datasource: github-releases
   package: gitleaks/gitleaks
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

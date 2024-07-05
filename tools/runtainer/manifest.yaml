@@ -19,5 +19,5 @@ description: Run anything as a container
 renovate:
   datasource: github-releases
   package: plumber-cd/runtainer
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

@@ -12,5 +12,5 @@ description: Swiss Army knife Proxy tool for HTTP/HTTPS traffic capture, manipul
 renovate:
   datasource: github-releases
   package: projectdiscovery/proxify
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

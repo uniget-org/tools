@@ -20,5 +20,5 @@ description: Define and run multi-container applications with Docker (v1)
 renovate:
   datasource: github-releases
   package: docker/compose
-  extractVersion: ^(?<version>1\.\d+\.\d+?)$
+  extractVersion: ^(?<version>1\.\d+\.\d+)$
   priority: low

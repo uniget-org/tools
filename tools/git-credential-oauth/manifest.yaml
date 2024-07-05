@@ -17,5 +17,5 @@ description: Git credential helper that securely authenticates to GitHub, GitLab
 renovate:
   datasource: github-releases
   package: hickford/git-credential-oauth
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

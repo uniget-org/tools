@@ -18,5 +18,5 @@ description: Sonobuoy is a diagnostic tool that makes it easier to understand th
 renovate:
   datasource: github-releases
   package: vmware-tanzu/sonobuoy
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

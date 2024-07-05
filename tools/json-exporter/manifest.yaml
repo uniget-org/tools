@@ -19,5 +19,5 @@ description: Prometheus exporter which scrapes remote JSON by JSONPath
 renovate:
   datasource: github-releases
   package: prometheus-community/json_exporter
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

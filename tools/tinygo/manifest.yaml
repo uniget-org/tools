@@ -14,5 +14,5 @@ description: Go compiler for small places
 renovate:
   datasource: github-releases
   package: tinygo-org/tinygo
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

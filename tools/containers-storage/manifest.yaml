@@ -20,5 +20,5 @@ description: Container Storage Library
 renovate:
   datasource: github-releases
   package: containers/storage
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -17,5 +17,5 @@ description: Identity infrastructure, simplified for you
 renovate:
   datasource: github-releases
   package: zitadel/zitadel
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

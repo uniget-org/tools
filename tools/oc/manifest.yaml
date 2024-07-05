@@ -13,5 +13,5 @@ description: Conformance test suite for OpenShift
 renovate:
   datasource: github-releases
   package: openshift/origin
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

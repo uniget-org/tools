@@ -18,5 +18,5 @@ description: Home for Cluster API
 renovate:
   datasource: github-releases
   package: kubernetes-sigs/cluster-api
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

@@ -15,5 +15,5 @@ description: CLI application for interacting with a Cloudflare account
 renovate:
   datasource: github-releases
   package: cloudflare/cloudflare-go
-  extractVersion: ^v(?<version>0\.\d+\.\d+?)$
+  extractVersion: ^v(?<version>0\.\d+\.\d+)$
   priority: medium

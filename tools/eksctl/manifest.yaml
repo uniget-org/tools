@@ -18,5 +18,5 @@ description: Official CLI for Amazon EKS
 renovate:
   datasource: github-releases
   package: eksctl-io/eksctl
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -12,5 +12,5 @@ description: Support for POSIX-compliant and multiple .env file syntax
 renovate:
   datasource: github-releases
   package: ko1nksm/shdotenv
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

@@ -16,5 +16,5 @@ description: Fast and secure runtime for WebAssembly
 renovate:
   datasource: github-releases
   package: bytecodealliance/wasmtime
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

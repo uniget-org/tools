@@ -14,5 +14,5 @@ description: Missing glue to put together large Kubernetes deployments, composed
 renovate:
   datasource: github-releases
   package: kluctl/kluctl
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

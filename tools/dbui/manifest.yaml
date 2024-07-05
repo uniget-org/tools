@@ -12,5 +12,5 @@ description: Universal Database CLI for MySQL, PostgreSQL, and SQLite
 renovate:
   datasource: github-releases
   package: KenanBek/dbui
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

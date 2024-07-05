@@ -13,5 +13,5 @@ description: CLI for creating Minecraft server on different cloud provider
 renovate:
   datasource: github-releases
   package: dirien/minectl
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

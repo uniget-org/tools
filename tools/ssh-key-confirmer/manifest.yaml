@@ -15,6 +15,6 @@ description: Test SSH login key acceptance without having the private key
 renovate:
   datasource: github-releases
   package: benjojo/ssh-key-confirmer
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   versioning: loose
   priority: low

@@ -12,5 +12,5 @@ description: Interactive TLS-capable intercepting HTTP proxy for penetration tes
 renovate:
   datasource: github-releases
   package: mitmproxy/mitmproxy
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

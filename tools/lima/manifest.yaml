@@ -18,5 +18,5 @@ description: Linux virtual machines, typically on macOS, for running containerd
 renovate:
   datasource: github-releases
   package: lima-vm/lima
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

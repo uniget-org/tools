@@ -14,5 +14,5 @@ description: Update outdated Go dependencies interactively
 renovate:
   datasource: github-releases
   package: oligot/go-mod-upgrade
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

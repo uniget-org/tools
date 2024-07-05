@@ -15,5 +15,5 @@ description: Slightly more awesome standard unix password manager for teams
 renovate:
   datasource: github-releases
   package: gopasspw/gopass
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

@@ -16,5 +16,5 @@ description: Like tar, but for containers
 renovate:
   datasource: github-releases
   package: tetratelabs/car
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

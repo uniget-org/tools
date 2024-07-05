@@ -13,5 +13,5 @@ description: Terminal bandwidth utilization tool
 renovate:
   datasource: github-releases
   package: imsnif/bandwhich
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

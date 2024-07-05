@@ -14,6 +14,6 @@ description: OpenJDK
 renovate:
   datasource: github-tags
   package: openjdk/jdk
-  extractVersion: ^jdk-(?<version>.+?)-ga$
+  extractVersion: ^jdk-(?<version>.+)-ga$
   versioning: loose
   priority: low

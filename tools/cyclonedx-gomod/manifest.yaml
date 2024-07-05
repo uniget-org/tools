@@ -17,5 +17,5 @@ description: Creates CycloneDX Software Bill of Materials (SBOM) from Go modules
 renovate:
   datasource: github-releases
   package: CycloneDX/cyclonedx-gomod
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

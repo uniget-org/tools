@@ -15,5 +15,5 @@ description: Runner for GitHub Actions
 renovate:
   datasource: github-releases
   package: actions/runner
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

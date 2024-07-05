@@ -17,5 +17,5 @@ description: Command line csv viewer
 renovate:
   datasource: github-releases
   package: YS-L/csvlens
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

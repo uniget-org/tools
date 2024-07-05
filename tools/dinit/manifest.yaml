@@ -15,5 +15,5 @@ description: Specialized init for Docker containers
 renovate:
   datasource: gitlab-releases
   package: tozd/dinit
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

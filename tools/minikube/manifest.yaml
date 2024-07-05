@@ -18,5 +18,5 @@ description: Run Kubernetes locally
 renovate:
   datasource: github-releases
   package: kubernetes/minikube
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

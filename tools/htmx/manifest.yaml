@@ -11,5 +11,5 @@ description: High power tools for HTML
 renovate:
   datasource: github-releases
   package: bigskysoftware/htmx
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

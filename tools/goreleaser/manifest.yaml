@@ -19,5 +19,5 @@ description: Deliver Go binaries as fast and easily as possible
 renovate:
   datasource: github-releases
   package: goreleaser/goreleaser
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

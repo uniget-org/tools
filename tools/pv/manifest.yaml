@@ -18,5 +18,5 @@ description: Monitor the progress of data through a pipe
 renovate:
   datasource: github-releases
   package: a-j-wood/pv
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

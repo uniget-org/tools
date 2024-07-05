@@ -18,5 +18,5 @@ description: Automatically provision and manage TLS certificates in Kubernetes
 renovate:
   datasource: github-releases
   package: cert-manager/cmctl
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

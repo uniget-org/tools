@@ -14,5 +14,5 @@ description: Client-only tool to create developer environments based on a devcon
 renovate:
   datasource: github-releases
   package: loft-sh/devpod
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

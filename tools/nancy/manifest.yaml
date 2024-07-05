@@ -16,5 +16,5 @@ description: Check for vulnerabilities in your Golang dependencies
 renovate:
   datasource: github-releases
   package: sonatype-nexus-community/nancy
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

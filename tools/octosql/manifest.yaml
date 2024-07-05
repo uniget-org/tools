@@ -15,5 +15,5 @@ description: Query tool that allows you to join, analyse and transform data from
 renovate:
   datasource: github-releases
   package: cube2222/octosql
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

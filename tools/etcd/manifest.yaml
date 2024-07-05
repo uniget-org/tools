@@ -16,5 +16,5 @@ description: Distributed reliable key-value store
 renovate:
   datasource: github-releases
   package: etcd-io/etcd
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

@@ -15,5 +15,5 @@ description: Framework to protect software supply chain integrity
 renovate:
   datasource: github-tags
   package: in-toto/in-toto-golang
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

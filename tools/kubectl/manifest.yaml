@@ -20,5 +20,5 @@ description: Run commands against Kubernetes clusters
 renovate:
   datasource: github-releases
   package: kubernetes/kubernetes
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: high

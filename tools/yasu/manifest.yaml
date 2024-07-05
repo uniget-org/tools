@@ -13,5 +13,5 @@ description: Yet Another Switch User
 renovate:
   datasource: github-releases
   package: crazy-max/yasu
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

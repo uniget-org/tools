@@ -18,6 +18,6 @@ description: Linux / OSX FUSE webdav filesystem
 renovate:
   datasource: github-releases
   package: miquels/webdavfs
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   versioning: loose
   priority: low

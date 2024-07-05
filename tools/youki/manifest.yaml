@@ -20,5 +20,5 @@ description: Container runtime written in rust
 renovate:
   datasource: github-releases
   package: containers/youki
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

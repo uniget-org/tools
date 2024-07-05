@@ -17,5 +17,5 @@ description: open source project to run your CI/CD jobs and send the results bac
 renovate:
   datasource: gitlab-releases
   package: gitlab-org/gitlab-runner
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

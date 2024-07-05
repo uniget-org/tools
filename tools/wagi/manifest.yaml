@@ -22,5 +22,5 @@ description: Write HTTP handlers in WebAssembly with a minimal amount of work
 renovate:
   datasource: github-releases
   package: deislabs/wagi
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

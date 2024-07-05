@@ -16,5 +16,5 @@ description: Simple, modern and secure encryption tool
 renovate:
   datasource: github-releases
   package: FiloSottile/age
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: medium

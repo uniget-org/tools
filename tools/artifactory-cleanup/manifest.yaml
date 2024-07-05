@@ -14,5 +14,5 @@ description: Cleanup artifacts on Jfrog Artifactory with advanced settings
 renovate:
   datasource: github-releases
   package: crazy-max/artifactory-cleanup
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

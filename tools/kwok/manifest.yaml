@@ -18,5 +18,5 @@ description: Kubernetes WithOut Kubelet simulates thousands of nodes and cluster
 renovate:
   datasource: github-releases
   package: kubernetes-sigs/kwok
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

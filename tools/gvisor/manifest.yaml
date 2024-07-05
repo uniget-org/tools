@@ -21,6 +21,6 @@ description: Application Kernel for Containers
 renovate:
   datasource: github-tags
   package: google/gvisor
-  extractVersion: ^release-(?<version>.+?)\.0$
+  extractVersion: ^release-(?<version>.+)\.0$
   versioning: loose
   priority: high

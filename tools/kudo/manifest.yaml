@@ -19,5 +19,5 @@ description: Kubernetes Universal Declarative Operator
 renovate:
   datasource: github-releases
   package: kudobuilder/kudo
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

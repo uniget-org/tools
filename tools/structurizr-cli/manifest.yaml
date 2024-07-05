@@ -14,5 +14,5 @@ description: CLI for Structurizr
 renovate:
   datasource: github-releases
   package: structurizr/cli
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

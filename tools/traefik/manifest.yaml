@@ -18,5 +18,5 @@ description: Cloud Native Application Proxy
 renovate:
   datasource: github-releases
   package: traefik/traefik
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: high

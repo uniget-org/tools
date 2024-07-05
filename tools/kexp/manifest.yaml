@@ -17,5 +17,5 @@ description: Kubernetes Explorer
 renovate:
   datasource: github-releases
   package: iximiuz/kexp
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

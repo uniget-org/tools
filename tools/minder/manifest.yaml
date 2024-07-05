@@ -15,5 +15,5 @@ description: Secure Software Supply Chain Platform
 renovate:
   datasource: github-releases
   package: stacklok/minder
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

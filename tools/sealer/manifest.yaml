@@ -16,5 +16,5 @@ description: Build, Share and Run Both Your Kubernetes Cluster and Distributed A
 renovate:
   datasource: github-releases
   package: sealerio/sealer
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

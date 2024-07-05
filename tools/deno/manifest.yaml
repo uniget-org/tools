@@ -15,5 +15,5 @@ description: Modern runtime for JavaScript and TypeScript
 renovate:
   datasource: github-releases
   package: denoland/deno
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

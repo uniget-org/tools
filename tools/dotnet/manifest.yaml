@@ -15,5 +15,5 @@ description: Core functionality needed to create .NET Core projects
 renovate:
   datasource: github-releases
   package: dotnet/sdk
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

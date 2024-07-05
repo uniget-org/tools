@@ -16,5 +16,5 @@ description: Generic and open source machine & userspace emulator and virtualize
 renovate:
   datasource: github-tags
   package: qemu/qemu
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

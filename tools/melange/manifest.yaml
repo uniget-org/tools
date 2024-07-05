@@ -19,5 +19,5 @@ description: Build APKs from source code
 renovate:
   datasource: github-tags
   package: chainguard-dev/melange
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

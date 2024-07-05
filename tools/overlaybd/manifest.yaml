@@ -19,5 +19,5 @@ description: Block based remote image format
 renovate:
   datasource: github-releases
   package: containerd/overlaybd
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

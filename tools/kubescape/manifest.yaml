@@ -15,5 +15,5 @@ description: Risk analysis, security compliance, RBAC visualizer and image vulne
 renovate:
   datasource: github-releases
   package: kubescape/kubescape
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

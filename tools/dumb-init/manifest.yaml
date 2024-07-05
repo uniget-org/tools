@@ -12,5 +12,5 @@ description: Minimal init system for Linux containers
 renovate:
   datasource: github-releases
   package: Yelp/dumb-init
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

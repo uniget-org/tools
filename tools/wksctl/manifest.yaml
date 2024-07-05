@@ -15,5 +15,5 @@ description: Open Source Weaveworks Kubernetes System
 renovate:
   datasource: github-releases
   package: weaveworks/wksctl
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low

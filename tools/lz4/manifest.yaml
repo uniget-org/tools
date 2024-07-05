@@ -19,5 +19,5 @@ description: Extremely Fast Compression algorithm
 renovate:
   datasource: github-releases
   package: lz4/lz4
-  extractVersion: ^v(?<version>.+?)$
+  extractVersion: ^v(?<version>.+)$
   priority: low
