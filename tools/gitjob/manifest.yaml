@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: gitjob
-version: "0.9.11"
+version: "0.9.12"
 check: "" # Empty version
 platforms:
 - linux/amd64
