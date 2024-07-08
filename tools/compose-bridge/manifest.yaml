@@ -17,6 +17,9 @@ tags:
 - templating
 homepage: https://github.com/docker/compose-bridge-binaries
 description: Reuse compose.yaml but translate it into another platform's definition format, with a primary focus on Kubernetes
+messages:
+  internals: |
+    See the official documentation at https://docs.docker.com/compose/bridge/
 renovate:
   datasource: github-releases
   package: docker/compose-bridge-binaries
