@@ -1,5 +1,5 @@
 SOURCE_DATE_EPOCH ?= $(shell git log -1 --pretty=%ct)
-BUILDER           ?= uniget
+BUILDER           ?= default
 
 $(addsuffix --vim,$(ALL_TOOLS_RAW)):%--vim: ## ???
 	@vim -o2 $(TOOLS_DIR)/$*/manifest.yaml  $(TOOLS_DIR)/$*/Dockerfile.template
@@ -72,7 +72,6 @@ $(ALL_TOOLS_RAW):%: \
 		$(HELPER)/var/lib/uniget/manifests/gojq.json \
 		$(TOOLS_DIR)/%/manifest.json \
 		$(TOOLS_DIR)/%/Dockerfile \
-		builders \
 		; $(info $(M) Building image $(REGISTRY)/$(REPOSITORY_PREFIX)$*...) ## Build container image for all tools
 	@set -o errexit; \
 	PUSH=$(or $(PUSH), false); \
