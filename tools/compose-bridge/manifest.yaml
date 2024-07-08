@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: compose-bridge
+version: "0.0.4"
+check: "" # No version parameter
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/docker
+- category/development
+- lang/go
+- type/cli
+- standard/compose
+- kubernetes
+- k8s
+- templating
+homepage: https://github.com/docker/compose-bridge-binaries
+description: Reuse compose.yaml but translate it into another platform's definition format, with a primary focus on Kubernetes
+renovate:
+  datasource: github-releases
+  package: docker/compose-bridge-binaries
+  extractVersion: ^v(?<version>.+)$
+  priority: low
