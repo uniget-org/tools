@@ -2609,6 +2609,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "junegunn/fzf",
+      "extractVersionTemplate": "^v?(?<version>.+)$",
       "fileMatch": [
         "^tools/fzf/manifest.yaml$"
       ],

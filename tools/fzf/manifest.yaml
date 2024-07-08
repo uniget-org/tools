@@ -11,4 +11,5 @@ description: Command-line fuzzy finder
 renovate:
   datasource: github-releases
   package: junegunn/fzf
+  extractVersion: ^v?(?<version>.+)$
   priority: low
