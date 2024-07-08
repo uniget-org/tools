@@ -16,8 +16,7 @@ WORKDIR /tmp/passt
 ARG name
 ARG version
 RUN <<EOF
-tag="$(git ls-remote --tags https://passt.top/passt/ "refs/tags/${version}.*" | cut -d/ -f3)"
-git clone -q --config advice.detachedHead=false --branch "${tag}" https://passt.top/passt/ .
+git clone -q --config advice.detachedHead=false --branch "${version}" https://passt.top/passt/ .
 make -j$(nproc) static
 make install DESTDIR="${prefix}" prefix=""
 EOF
