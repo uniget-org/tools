@@ -1,0 +1,17 @@
+#syntax=docker/dockerfile:1.8.1
+
+FROM ghcr.io/uniget-org/tools/python:latest AS python
+FROM ghcr.io/uniget-org/tools/shiv:latest AS shiv
+
+FROM ghcr.io/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+COPY --link --from=python / /usr/local/
+COPY --link --from=shiv / /usr/local/
+ARG name
+ARG version
+RUN <<EOF
+shiv --output-file "${prefix}/bin/linkchecker" --console-script linkchecker "linkchecker==${version}"
+EOF
