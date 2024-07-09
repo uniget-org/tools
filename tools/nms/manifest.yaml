@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: nms
+version: "1.0.1"
+check: ${binary} -v | cut -d' ' -f3
+build_dependencies:
+- make
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/c
+- type/cli
+homepage: https://github.com/bartobri/no-more-secrets
+description: command line tool that recreates the famous data decryption effect seen in the 1992 movie Sneakers
+renovate:
+  datasource: github-releases
+  package: bartobri/no-more-secrets
+  extractVersion: ^v(?<version>.+)$
+  priority: low
