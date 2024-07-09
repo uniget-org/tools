@@ -48,7 +48,7 @@
     {
       "customType":           "regex",
       "fileMatch":          [ "(^|/|\\.)Dockerfile[^/]*$" ],
-      "matchStrings":       [ "#syntax=(?<depName>.*?):(?<currentValue>.*?)\\n" ],
+      "matchStrings":       [ "#syntax=(?<depName>[^:]+):(?<currentValue>[^@]+)(@.+)?\\n" ],
       "datasourceTemplate":   "docker",
       "depNameTemplate":      "docker/dockerfile"
     }
