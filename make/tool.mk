@@ -185,7 +185,7 @@ $(addsuffix --debug,$(ALL_TOOLS_RAW)):%--debug: \
 	echo "Build deps:   $${DEPS}"; \
 	export BUILDX_EXPERIMENTAL=1; \
 	docker buildx debug --on=error --invoke=/bin/bash build $(TOOLS_DIR)/$* \
-		--builder $(BUILDER) \
+		--builder default \
 		--build-arg branch=$(DOCKER_TAG) \
 		--build-arg ref=$(DOCKER_TAG) \
 		--build-arg name=$* \
