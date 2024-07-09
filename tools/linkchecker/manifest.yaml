@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: linkchecker
+version: "10.4.0"
+check: ${binary} --version 2>/dev/null | grep ^LinkChecker | cut -d' ' -f2
+build_dependencies:
+- python
+- shiv
+runtime_dependencies:
+- python
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- category/development
+- lang/python
+- type/cli
+homepage: https://github.com/linkchecker/linkchecker
+description: Check links in web documents or full websites
+renovate:
+  datasource: pypi
+  package: linkchecker
+  priority: low

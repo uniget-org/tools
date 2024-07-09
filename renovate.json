@@ -5044,6 +5044,17 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "pypi",
+      "depNameTemplate": "linkchecker",
+      "fileMatch": [
+        "^tools/linkchecker/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "git-tags",
       "depNameTemplate": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
       "extractVersionTemplate": "^v(?<version>.+)$",
