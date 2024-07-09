@@ -1,0 +1,19 @@
+#syntax=docker/dockerfile:1.8.1
+
+FROM ghcr.io/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN <<EOF
+check-github-release-asset "navilg/k8senv" "v${version}" "k8senv-linux-${alt_arch}"
+curl --silent --show-error --location --fail --output "${prefix}/bin/k8senv" \
+    "https://github.com/navilg/k8senv/releases/download/v${version}/k8senv-linux-${alt_arch}"
+chmod +x "${prefix}/bin/k8senv"
+
+"${prefix}/bin/k8senv" completion bash >"${prefix}/share/bash-completion/completions/k8senv"
+"${prefix}/bin/k8senv" completion fish >"${prefix}/share/fish/vendor_completions.d/k8senv.fish"
+"${prefix}/bin/k8senv" completion zsh >"${prefix}/share/zsh/vendor-completions/_k8senv"
+EOF
