@@ -225,6 +225,17 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "pypi",
+      "depNameTemplate": "asciinema",
+      "fileMatch": [
+        "^tools/asciinema/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "smallstep/autocert",
       "extractVersionTemplate": "^v(?<version>.+)$",

@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: asciinema
+version: "2.4.0"
+check: ${binary} --version | cut -d' ' -f2
+build_dependencies:
+- python
+- shiv
+runtime_dependencies:
+- python
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- category/development
+- lang/python
+- type/cli
+homepage: https://github.com/asciinema/asciinema
+description: Terminal session recorder
+renovate:
+  datasource: pypi
+  package: asciinema
+  priority: low
