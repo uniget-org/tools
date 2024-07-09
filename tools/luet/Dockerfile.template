@@ -1,0 +1,19 @@
+#syntax=docker/dockerfile:1.8.1
+
+FROM ghcr.io/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN <<EOF
+check-github-release-asset "mudler/luet" "${version}" "luet-${version}-linux-${alt_arch}"
+curl --silent --show-error --location --fail --output "${prefix}/bin/luet" \
+    "https://github.com/mudler/luet/releases/download/${version}/luet-${version}-linux-${alt_arch}"
+chmod +x "${prefix}/bin/luet"
+
+"${prefix}/bin/luet" completion bash >"${prefix}/share/bash-completion/completions/luet"
+"${prefix}/bin/luet" completion fish >"${prefix}/share/fish/vendor_completions.d/luet.fish"
+"${prefix}/bin/luet" completion zsh >"${prefix}/share/zsh/vendor-completions/_luet"
+EOF
