@@ -1,6 +1,7 @@
 #syntax=docker/dockerfile:1.8.1
 
 FROM ghcr.io/uniget-org/tools/make:latest AS make
+FROM ghcr.io/uniget-org/tools/python:latest AS python
 FROM ghcr.io/uniget-org/tools/nodejs:latest AS nodejs
 FROM ghcr.io/uniget-org/tools/npm:latest AS npm
 
@@ -9,14 +10,8 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-RUN <<EOF
-apt-get update
-apt-get -y install --no-install-recommends \
-    python3-pip \
-    python3-venv \
-    python-is-python3
-EOF
 COPY --link --from=make / /usr/local/
+COPY --link --from=python / /usr/local/
 COPY --link --from=nodejs / /usr/local/
 COPY --link --from=npm / /usr/local/
 WORKDIR /uniget_bootstrap/libexec/terminalizer
@@ -28,10 +23,3 @@ npm install \
     "terminalizer@${version}"
 ln --symbolic --relative --force "${prefix}/libexec/terminalizer/node_modules/.bin/terminalizer" "${prefix}/bin/"
 EOF
-
-# completion
-#RUN <<EOF
-#"${prefix}/bin/foo" completion bash >"${prefix}/share/bash-completion/completions/foo"
-#"${prefix}/bin/foo" completion fish >"${prefix}/share/fish/vendor_completions.d/foo.fish"
-#"${prefix}/bin/foo" completion zsh >"${prefix}/share/zsh/vendor-completions/_foo"
-#EOF

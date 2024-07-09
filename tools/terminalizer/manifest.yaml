@@ -1,8 +1,8 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: terminalizer
-version: "0.1.2"
-check: ""
+version: "0.11.0"
+check: ${binary} --version
 build_dependencies:
 - nodejs
 - npm
