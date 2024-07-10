@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: httpie
-version: "3.2.2"
+version: "3.2.3"
 binary: http
 check: ${binary} --version
 build_dependencies:
