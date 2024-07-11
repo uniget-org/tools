@@ -5,10 +5,17 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-
 ARG name
 ARG version
 RUN <<EOF
 touch \
     "${prefix}/dummy"
+EOF
+COPY <<EOF /uniget_bootstrap/etc/profile.d/dummy
+echo "target={{ .Target }}"
+echo "prefix={{ .Prefix }}"
+echo "name={{ .Name }}"
+echo "version={{ .Version }}"
+echo "contrib={{ .Contrib }}"
+echo "foo={{ .Foo }}"
 EOF
