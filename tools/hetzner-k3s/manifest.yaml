@@ -14,7 +14,7 @@ tags:
 - k8s
 - k3s
 - cloud/hetzner
-homepage: https://github.com/vitobotta/hetzner-k3s
+repository: https://github.com/vitobotta/hetzner-k3s
 description: Create and manage Kubernetes clusters in Hetzner Cloud
 renovate:
   datasource: github-releases

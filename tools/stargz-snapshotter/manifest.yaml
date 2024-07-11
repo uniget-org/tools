@@ -14,7 +14,7 @@ tags:
 - type/daemon
 - containerd
 - lang/go
-homepage: https://github.com/containerd/stargz-snapshotter
+repository: https://github.com/containerd/stargz-snapshotter
 description: Fast container image distribution plugin with lazy pulling
 renovate:
   datasource: github-releases

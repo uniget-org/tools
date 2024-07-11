@@ -9,7 +9,7 @@ tags:
 - kubernetes
 - k8s
 - lang/go
-homepage: https://github.com/carvel-dev/kbld
+repository: https://github.com/carvel-dev/kbld
 description: Seamlessly incorporates image building and image pushing into your development and deployment workflows
 renovate:
   datasource: github-releases

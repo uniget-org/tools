@@ -7,7 +7,7 @@ tags:
 - component/network
 - type/cli
 - lang/go
-homepage: https://github.com/rs/curlie
+repository: https://github.com/rs/curlie
 description: The power of curl, the ease of use of httpie.
 renovate:
   datasource: github-releases

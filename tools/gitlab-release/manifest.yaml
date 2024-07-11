@@ -19,7 +19,7 @@ tags:
 - cicd
 - gitlab
 - standard/gitlab
-homepage: https://gitlab.com/alelec/gitlab-release
+repository: https://gitlab.com/alelec/gitlab-release
 description: Utility for use in gitlab ci to upload files (from build) to the current projects release (tag)
 renovate:
   datasource: pypi

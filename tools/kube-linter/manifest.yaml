@@ -8,7 +8,7 @@ tags:
 - lang/go
 - k8s
 - helm
-homepage: https://github.com/stackrox/kube-linter
+repository: https://github.com/stackrox/kube-linter
 description: static analysis tool that checks Kubernetes YAML files and Helm charts
 renovate:
   datasource: github-releases

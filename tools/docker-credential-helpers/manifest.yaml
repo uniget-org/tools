@@ -12,7 +12,7 @@ tags:
 - category/security
 - lang/go
 - docker
-homepage: https://github.com/docker/docker-credential-helpers
+repository: https://github.com/docker/docker-credential-helpers
 description: Programs to keep Docker login credentials safe
 renovate:
   datasource: github-releases

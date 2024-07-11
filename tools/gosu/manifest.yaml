@@ -6,7 +6,7 @@ tags:
 - container/su
 - type/cli
 - lang/go
-homepage: https://github.com/tianon/gosu
+repository: https://github.com/tianon/gosu
 description: Simple Go-based setuid+setgid+setgroups+exec
 renovate:
   datasource: github-releases

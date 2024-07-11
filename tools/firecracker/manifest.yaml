@@ -8,7 +8,7 @@ tags:
 - vm
 - emulation
 - lang/rust
-homepage: https://github.com/firecracker-microvm/firecracker
+repository: https://github.com/firecracker-microvm/firecracker
 description: Secure and fast microVMs for serverless computing
 renovate:
   datasource: github-releases

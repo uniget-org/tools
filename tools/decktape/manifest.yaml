@@ -15,7 +15,7 @@ tags:
 - category/development
 - lang/javascript
 - type/cli
-homepage: https://github.com/astefanutti/decktape
+repository: https://github.com/astefanutti/decktape
 description: PDF exporter for HTML presentations
 renovate:
   datasource: npm

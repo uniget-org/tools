@@ -13,7 +13,7 @@ tags:
 - kubernetes
 - k8s
 - state/stale
-homepage: https://github.com/SimonTheLeg/konf-go
+repository: https://github.com/SimonTheLeg/konf-go
 description: Lightweight kubeconfig manager
 renovate:
   datasource: github-releases

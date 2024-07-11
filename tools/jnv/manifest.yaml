@@ -14,7 +14,7 @@ tags:
 - type/cli
 - standard/jq
 - format/json
-homepage: https://github.com/ynqa/jnv
+repository: https://github.com/ynqa/jnv
 description: Interactive JSON filter using jq
 renovate:
   datasource: github-releases

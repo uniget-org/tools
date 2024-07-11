@@ -10,7 +10,7 @@ tags:
 - category/development
 - lang/go
 - type/cli
-homepage: https://github.com/dominikh/go-tools
+repository: https://github.com/dominikh/go-tools
 description: Advanced Go linter
 renovate:
   datasource: github-releases

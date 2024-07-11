@@ -11,7 +11,7 @@ tags:
 - type/cli
 - webassembly
 - wasm
-homepage: https://github.com/bytecodealliance/wasmtime
+repository: https://github.com/bytecodealliance/wasmtime
 description: Fast and secure runtime for WebAssembly
 renovate:
   datasource: github-releases

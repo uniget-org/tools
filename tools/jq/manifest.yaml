@@ -13,7 +13,7 @@ tags:
 - lang/c
 - standard/jq
 - format/json
-homepage: https://github.com/jqlang/jq
+repository: https://github.com/jqlang/jq
 description: Command-line JSON processor
 renovate:
   datasource: github-releases

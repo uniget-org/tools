@@ -12,7 +12,7 @@ tags:
 - category/operations
 - lang/c
 - type/cli
-homepage: https://github.com/proot-me/proot
+repository: https://github.com/proot-me/proot
 description: chroot, mount --bind, and binfmt_misc without privilege/setup for Linux
 renovate:
   datasource: github-releases

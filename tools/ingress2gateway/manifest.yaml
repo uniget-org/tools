@@ -13,7 +13,7 @@ tags:
 - type/cli
 - kubernetes
 - k8s
-homepage: https://github.com/kubernetes-sigs/ingress2gateway
+repository: https://github.com/kubernetes-sigs/ingress2gateway
 description: Some description
 renovate:
   datasource: github-releases

@@ -7,7 +7,7 @@ tags:
 - lang/go
 - state/stale
 - terminal
-homepage: https://github.com/UltiRequiem/chigo
+repository: https://github.com/UltiRequiem/chigo
 description: Lolcat in Go - Rainbows and Unicorns
 renovate:
   datasource: github-releases

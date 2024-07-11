@@ -7,7 +7,7 @@ tags:
 - management
 - lang/rust
 - category/monitoring
-homepage: https://github.com/orhun/kmon
+repository: https://github.com/orhun/kmon
 description: Linux Kernel Manager and Activity Monitor
 renovate:
   datasource: github-releases

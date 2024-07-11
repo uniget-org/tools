@@ -14,7 +14,7 @@ tags:
 - k8s
 - package
 - manager
-homepage: https://github.com/stefanprodan/timoni
+repository: https://github.com/stefanprodan/timoni
 description: Package manager for Kubernetes, powered by CUE and inspired by Helm
 renovate:
   datasource: github-releases

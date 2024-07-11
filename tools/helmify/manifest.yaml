@@ -11,7 +11,7 @@ tags:
 - k8s
 - lang/go
 - helm
-homepage: https://github.com/arttor/helmify
+repository: https://github.com/arttor/helmify
 description: Creates Helm chart from Kubernetes yaml
 renovate:
   datasource: github-releases

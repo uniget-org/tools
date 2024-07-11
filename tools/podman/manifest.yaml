@@ -23,7 +23,7 @@ tags:
 - type/daemon
 - rootless
 - lang/go
-homepage: https://github.com/containers/podman
+repository: https://github.com/containers/podman
 description: Tool for managing OCI containers and pods
 renovate:
   datasource: github-releases

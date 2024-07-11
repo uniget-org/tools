@@ -16,7 +16,7 @@ tags:
 - lang/go
 - kubernetes
 - k8s
-homepage: https://github.com/crossplane/crossplane
+repository: https://github.com/crossplane/crossplane
 description: Cloud Native Control Planes
 renovate:
   datasource: github-releases

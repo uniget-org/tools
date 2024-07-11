@@ -7,7 +7,7 @@ tags:
 - category/terminal
 - type/cli
 - lang/rust
-homepage: https://github.com/BurntSushi/ripgrep
+repository: https://github.com/BurntSushi/ripgrep
 description: ripgrep recursively searches directories for a regex pattern while respecting your gitignore
 renovate:
   datasource: github-releases

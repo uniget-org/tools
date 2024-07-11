@@ -15,7 +15,7 @@ tags:
 - k8s
 - lang/go
 - docker
-homepage: https://github.com/Mirantis/cri-dockerd
+repository: https://github.com/Mirantis/cri-dockerd
 description: Shim for Docker Engine that lets you control Docker via the Kubernetes Container Runtime Interface
 messages:
   internals: |

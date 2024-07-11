@@ -12,7 +12,7 @@ tags:
 - type/daemon
 - kubernetes
 - k8s
-homepage: https://github.com/k0sproject/k0s
+repository: https://github.com/k0sproject/k0s
 description: Zero Friction Kubernetes
 renovate:
   datasource: github-releases

@@ -13,7 +13,7 @@ tags:
 - category/operations
 - lang/go
 - type/daemon
-homepage: https://github.com/adnanh/webhook
+repository: https://github.com/adnanh/webhook
 description: webhook is a lightweight incoming webhook server to run shell commandsiption
 renovate:
   datasource: github-releases

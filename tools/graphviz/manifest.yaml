@@ -10,7 +10,7 @@ tags:
 - category/development
 - lang/c
 - type/cli
-homepage: https://gitlab.com/graphviz/graphviz
+repository: https://gitlab.com/graphviz/graphviz
 description: Graph Visualization Tool
 renovate:
   datasource: gitlab-tags

@@ -12,7 +12,7 @@ tags:
 - type/cli
 - standard/git
 - git
-homepage: https://github.com/gittuf/gittuf
+repository: https://github.com/gittuf/gittuf
 description: Security layer for Git repositories
 renovate:
   datasource: github-releases

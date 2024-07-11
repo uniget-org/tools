@@ -10,7 +10,7 @@ tags:
 - category/development
 - lang/go
 - type/cli
-homepage: https://github.com/micro/micro
+repository: https://github.com/micro/micro
 description: API first development platform
 renovate:
   datasource: github-releases

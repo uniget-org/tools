@@ -9,7 +9,7 @@ tags:
 - lang/rust
 - type/cli
 - terminal
-homepage: https://github.com/ogham/exa
+repository: https://github.com/ogham/exa
 description: Modern replacement for 'ls'
 renovate:
   datasource: github-releases

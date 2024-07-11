@@ -16,7 +16,7 @@ tags:
 - type/cli
 - lang/go
 - standard/docker
-homepage: https://github.com/containers/buildah
+repository: https://github.com/containers/buildah
 description: Tool that facilitates building OCI images
 renovate:
   datasource: github-releases

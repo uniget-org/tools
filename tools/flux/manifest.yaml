@@ -11,7 +11,7 @@ tags:
 - category/monitoring
 - lang/go
 - type/cli
-homepage: https://github.com/influxdata/flux
+repository: https://github.com/influxdata/flux
 description: Lightweight scripting language for querying databases (like InfluxDB)
 renovate:
   datasource: github-releases

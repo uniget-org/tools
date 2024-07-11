@@ -9,7 +9,7 @@ tags:
 - type/cli
 - management
 - lang/c
-homepage: https://github.com/nelhage/reptyr
+repository: https://github.com/nelhage/reptyr
 description: Reparent a running program to a new terminal
 renovate:
   datasource: github-tags

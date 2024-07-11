@@ -13,7 +13,7 @@ tags:
 - category/security
 - type/daemon
 - lang/go
-homepage: https://github.com/google/trillian
+repository: https://github.com/google/trillian
 description: Transparent, highly scalable and cryptographically verifiable data store
 renovate:
   datasource: github-releases

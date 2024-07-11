@@ -10,7 +10,7 @@ tags:
 - category/development
 - lang/java
 - type/daemon
-homepage: https://github.com/neo4j/neo4j
+repository: https://github.com/neo4j/neo4j
 description: Graphs for Everyone
 renovate:
   datasource: github-tags

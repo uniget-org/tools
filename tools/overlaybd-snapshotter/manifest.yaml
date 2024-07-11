@@ -14,7 +14,7 @@ tags:
 - category/operations
 - lang/go
 - type/daemon
-homepage: https://github.com/containerd/accelerated-container-image
+repository: https://github.com/containerd/accelerated-container-image
 description: Production-ready remote container image format
 renovate:
   datasource: github-releases

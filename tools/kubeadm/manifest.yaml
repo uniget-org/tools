@@ -17,7 +17,7 @@ tags:
 - k8s
 - management
 - lang/go
-homepage: https://github.com/kubernetes/kubernetes
+repository: https://github.com/kubernetes/kubernetes
 description: Create a minimum viable Kubernetes cluster that conforms to best practices
 renovate:
   datasource: github-releases

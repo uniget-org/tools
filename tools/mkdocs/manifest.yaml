@@ -17,7 +17,7 @@ tags:
 - type/cli
 - website
 - format/markdown
-homepage: https://github.com/mkdocs/mkdocs
+repository: https://github.com/mkdocs/mkdocs
 description: Some description
 renovate:
   datasource: pypi

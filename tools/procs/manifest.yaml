@@ -8,7 +8,7 @@ tags:
 - category/operations
 - type/cli
 - lang/rust
-homepage: https://github.com/dalance/procs
+repository: https://github.com/dalance/procs
 description: Modern replacement for ps written in Rust
 renovate:
   datasource: github-releases

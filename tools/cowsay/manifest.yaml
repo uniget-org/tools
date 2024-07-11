@@ -8,7 +8,7 @@ tags:
 - lang/go
 - terminal
 - state/stale
-homepage: https://github.com/Code-Hex/Neo-cowsay
+repository: https://github.com/Code-Hex/Neo-cowsay
 description: Cowsay is reborn
 renovate:
   datasource: github-releases

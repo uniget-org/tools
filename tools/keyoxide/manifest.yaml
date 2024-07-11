@@ -14,7 +14,7 @@ tags:
 - category/security
 - lang/javascript
 - type/cli
-homepage: https://codeberg.org/keyoxide/keyoxide-cli
+repository: https://codeberg.org/keyoxide/keyoxide-cli
 description: CLI to locally verify online distributed identities, powered by the same method used by keyoxide.org
 renovate:
   datasource: npm

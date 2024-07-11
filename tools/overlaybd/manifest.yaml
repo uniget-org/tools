@@ -14,7 +14,7 @@ tags:
 - category/operations
 - lang/c
 - type/daemon
-homepage: https://github.com/containerd/overlaybd
+repository: https://github.com/containerd/overlaybd
 description: Block based remote image format
 renovate:
   datasource: github-releases

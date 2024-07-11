@@ -12,7 +12,7 @@ tags:
 - lang/rust
 - standard/jq
 - format/json
-homepage: https://github.com/01mf02/jaq
+repository: https://github.com/01mf02/jaq
 description: jq clone focussed on correctness, speed, and simplicity
 renovate:
   datasource: github-releases

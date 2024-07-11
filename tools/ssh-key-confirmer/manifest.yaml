@@ -10,7 +10,7 @@ tags:
 - state/onemanshow
 - ssh
 - component/network
-homepage: https://github.com/benjojo/ssh-key-confirmer
+repository: https://github.com/benjojo/ssh-key-confirmer
 description: Test SSH login key acceptance without having the private key
 renovate:
   datasource: github-releases

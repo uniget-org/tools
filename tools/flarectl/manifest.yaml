@@ -10,7 +10,7 @@ tags:
 - management
 - lang/go
 - org/cloudflare
-homepage: https://github.com/cloudflare/cloudflare-go/tree/master/cmd/flarectl
+repository: https://github.com/cloudflare/cloudflare-go/tree/master/cmd/flarectl
 description: CLI application for interacting with a Cloudflare account
 renovate:
   datasource: github-releases

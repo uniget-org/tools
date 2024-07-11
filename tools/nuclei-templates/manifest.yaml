@@ -9,7 +9,7 @@ platforms:
 - linux/arm64
 tags:
 - category/security
-homepage: https://github.com/projectdiscovery/nuclei-templates
+repository: https://github.com/projectdiscovery/nuclei-templates
 description: Community curated list of templates for the nuclei engine to find security vulnerabilities
 renovate:
   datasource: github-releases

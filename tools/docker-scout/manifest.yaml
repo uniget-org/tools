@@ -17,7 +17,7 @@ tags:
 - standard/vex
 - standard/spdx
 - standard/cyclonedx
-homepage: https://github.com/docker/scout-cli
+repository: https://github.com/docker/scout-cli
 description: Secure your supply chain at every layer
 renovate:
   datasource: github-releases

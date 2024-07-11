@@ -10,7 +10,7 @@ tags:
 - type/cli
 - state/stale
 - standard/rego
-homepage: https://github.com/fugue/fregot
+repository: https://github.com/fugue/fregot
 description: Fugue Rego Toolkit
 renovate:
   datasource: github-releases

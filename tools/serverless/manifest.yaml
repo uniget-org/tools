@@ -17,7 +17,7 @@ tags:
 - cloud/aws
 - cloud/azure
 - cloud/google
-homepage: https://github.com/serverless/serverless
+repository: https://github.com/serverless/serverless
 description: Build web, mobile and IoT applications with serverless architectures using AWS Lambda, Azure Functions, Google CloudFunctions & more
 renovate:
   datasource: npm

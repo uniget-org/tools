@@ -10,7 +10,7 @@ tags:
 - category/security
 - lang/go
 - type/cli
-homepage: https://github.com/csdev/ezghsa
+repository: https://github.com/csdev/ezghsa
 description: Command-line tool for summarizing and filtering vulnerability alerts on Github repositories
 renovate:
   datasource: github-releases

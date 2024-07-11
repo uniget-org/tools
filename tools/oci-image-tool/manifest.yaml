@@ -12,7 +12,7 @@ tags:
 - type/cli
 - lang/go
 - state/stale
-homepage: https://github.com/opencontainers/image-tools
+repository: https://github.com/opencontainers/image-tools
 description: OCI Image Tooling
 renovate:
   datasource: github-releases

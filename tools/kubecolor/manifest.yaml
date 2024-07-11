@@ -10,7 +10,7 @@ tags:
 - k8s
 - state/stale
 - state/deprecated
-homepage: https://github.com/hidetatz/kubecolor
+repository: https://github.com/hidetatz/kubecolor
 description: colorizes kubectl output
 renovate:
   datasource: github-releases

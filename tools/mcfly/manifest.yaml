@@ -7,7 +7,7 @@ tags:
 - terminal
 - lang/rust
 - category/operations
-homepage: https://github.com/cantino/mcfly
+repository: https://github.com/cantino/mcfly
 description: Fly through your shell history
 renovate:
   datasource: github-releases

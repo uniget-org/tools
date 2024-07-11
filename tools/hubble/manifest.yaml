@@ -9,7 +9,7 @@ tags:
 - ebpf
 - lang/go
 - cilium
-homepage: https://github.com/cilium/hubble
+repository: https://github.com/cilium/hubble
 description: Network, Service & Security Observability for Kubernetes using eBPF
 renovate:
   datasource: github-releases

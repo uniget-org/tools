@@ -10,7 +10,7 @@ tags:
 - lang/go
 - type/cli
 - container/build
-homepage: https://github.com/depot/cli
+repository: https://github.com/depot/cli
 description: Build your Docker images in the cloud
 renovate:
   datasource: github-releases

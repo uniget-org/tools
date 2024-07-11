@@ -8,7 +8,7 @@ tags:
 - category/development
 - lang/rust
 - type/cli
-homepage: https://github.com/denisidoro/navi
+repository: https://github.com/denisidoro/navi
 description: Interactive cheatsheet tool for the command-line
 renovate:
   datasource: github-releases

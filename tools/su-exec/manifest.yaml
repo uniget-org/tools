@@ -9,7 +9,7 @@ tags:
 - type/cli
 - lang/c
 - state/stale
-homepage: https://github.com/ncopa/su-exec
+repository: https://github.com/ncopa/su-exec
 description: Switch user and group id and exec
 renovate:
   datasource: github-tags

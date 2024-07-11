@@ -12,7 +12,7 @@ tags:
 - slides
 - presentation
 - font
-homepage: https://github.com/vercel/geist-font
+repository: https://github.com/vercel/geist-font
 description: Typeface specifically designed for developers and designers
 messages:
   update: |

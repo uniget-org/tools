@@ -8,7 +8,7 @@ tags:
 - lang/go
 - kubernetes
 - k8s
-homepage: https://github.com/Shopify/kubeaudit
+repository: https://github.com/Shopify/kubeaudit
 description: Audit your Kubernetes clusters against common security controls
 renovate:
   datasource: github-releases

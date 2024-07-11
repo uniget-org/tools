@@ -19,7 +19,7 @@ tags:
 - containerd
 - kubernetes
 - k8s
-homepage: https://github.com/deislabs/containerd-wasm-shims
+repository: https://github.com/deislabs/containerd-wasm-shims
 description: containerd shims for running WebAssembly workloads in Kubernetes
 renovate:
   datasource: github-releases

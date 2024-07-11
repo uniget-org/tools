@@ -10,7 +10,7 @@ tags:
 - type/cli
 - lang/go
 - state/stale
-homepage: https://github.com/muesli/duf
+repository: https://github.com/muesli/duf
 description: Disk Usage/Free Utility - a better 'df' alternative
 renovate:
   datasource: github-releases

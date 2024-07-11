@@ -11,7 +11,7 @@ tags:
 - type/cli
 - cnab
 - lang/go
-homepage: https://github.com/oras-project/oras
+repository: https://github.com/oras-project/oras
 description: ORAS CLI
 renovate:
   datasource: github-releases

@@ -13,7 +13,7 @@ tags:
 - type/cli
 - lang/c
 - category/operations
-homepage: https://github.com/stevegrubb/libcap-ng
+repository: https://github.com/stevegrubb/libcap-ng
 description: Library for Linux that makes using posix capabilities easy
 renovate:
   datasource: github-releases

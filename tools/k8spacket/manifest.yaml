@@ -14,7 +14,7 @@ tags:
 - kubernetes
 - k8s
 - ebpf
-homepage: https://github.com/k8spacket/k8spacket
+repository: https://github.com/k8spacket/k8spacket
 description: Traffic visualization for kubernetes
 renovate:
   datasource: github-releases

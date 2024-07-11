@@ -13,7 +13,7 @@ tags:
 - sbom
 - kubernetes
 - k8s
-homepage: https://github.com/ksoclabs/kbom
+repository: https://github.com/ksoclabs/kbom
 description: Kubernetes Bill of Materials
 renovate:
   datasource: github-releases

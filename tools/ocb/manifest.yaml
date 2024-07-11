@@ -10,7 +10,7 @@ tags:
 - category/operations
 - lang/go
 - type/cli
-homepage: https://github.com/open-telemetry/opentelemetry-collector
+repository: https://github.com/open-telemetry/opentelemetry-collector
 description: OpenTelemetry Collector Builder
 renovate:
   datasource: github-releases

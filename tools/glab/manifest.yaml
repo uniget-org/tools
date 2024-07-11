@@ -10,7 +10,7 @@ tags:
 - lang/go
 - standard/gitlab
 - cloud/gitlab
-homepage: https://gitlab.com/gitlab-org/cli
+repository: https://gitlab.com/gitlab-org/cli
 description: CLI tool bringing GitLab to your command line
 renovate:
   datasource: gitlab-releases

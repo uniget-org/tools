@@ -8,7 +8,7 @@ tags:
 - kubernetes
 - k8s
 - lang/go
-homepage: https://github.com/aquasecurity/kube-bench
+repository: https://github.com/aquasecurity/kube-bench
 description: Checks whether Kubernetes is deployed according to security best practices
 renovate:
   datasource: github-releases

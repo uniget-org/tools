@@ -15,7 +15,7 @@ tags:
 - category/operations
 - lang/c
 - type/library
-homepage: https://github.com/NVIDIA/libnvidia-container
+repository: https://github.com/NVIDIA/libnvidia-container
 description: NVIDIA container runtime library
 renovate:
   datasource: github-releases

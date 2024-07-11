@@ -12,7 +12,7 @@ tags:
 - sbom
 - state/stale
 - format/spdx
-homepage: https://github.com/opensbom-generator/spdx-sbom-generator
+repository: https://github.com/opensbom-generator/spdx-sbom-generator
 description: Support CI generation of SBOMs via golang tooling
 renovate:
   datasource: github-releases

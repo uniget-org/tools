@@ -6,7 +6,7 @@ tags:
 - type/cli
 - format/markdown
 - lang/go
-homepage: https://github.com/charmbracelet/glow
+repository: https://github.com/charmbracelet/glow
 description: Render markdown on the CLI
 renovate:
   datasource: github-releases

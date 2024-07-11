@@ -11,7 +11,7 @@ tags:
 - lang/go
 - type/cli
 - state/stale
-homepage: https://github.com/get-woke/woke
+repository: https://github.com/get-woke/woke
 description: Detect non-inclusive language in your source code
 renovate:
   datasource: github-releases

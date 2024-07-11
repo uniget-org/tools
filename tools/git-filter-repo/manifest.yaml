@@ -15,7 +15,7 @@ tags:
 - standard/git
 - git
 - state/stale
-homepage: https://github.com/newren/git-filter-repo
+repository: https://github.com/newren/git-filter-repo
 description: Quickly rewrite git repository history
 renovate:
   datasource: github-releases

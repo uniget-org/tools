@@ -11,7 +11,7 @@ tags:
 - type/daemon
 - cicd
 - lang/go
-homepage: https://github.com/woodpecker-ci/woodpecker
+repository: https://github.com/woodpecker-ci/woodpecker
 description: Community fork of the Drone CI system
 renovate:
   datasource: github-releases

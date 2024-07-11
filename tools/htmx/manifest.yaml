@@ -6,7 +6,7 @@ check: "" # No binary
 tags:
 - lang/javascript
 - type/library
-homepage: https://github.com/bigskysoftware/htmx
+repository: https://github.com/bigskysoftware/htmx
 description: High power tools for HTML
 renovate:
   datasource: github-releases

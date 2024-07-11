@@ -15,7 +15,7 @@ tags:
 - type/cli
 - type/configuration
 - type/documentation
-homepage: https://github.com/containers/storage
+repository: https://github.com/containers/storage
 description: Container Storage Library
 messages:
   update: |

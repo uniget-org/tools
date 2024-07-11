@@ -10,7 +10,7 @@ tags:
 - kubernetes
 - k8s
 - lang/go
-homepage: https://github.com/kubescape/kubescape
+repository: https://github.com/kubescape/kubescape
 description: Risk analysis, security compliance, RBAC visualizer and image vulnerabilities scanning
 renovate:
   datasource: github-releases

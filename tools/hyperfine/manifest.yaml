@@ -10,7 +10,7 @@ tags:
 - lang/rust
 - type/cli
 - console
-homepage: https://github.com/sharkdp/hyperfine
+repository: https://github.com/sharkdp/hyperfine
 description: Command-line benchmarking tool
 renovate:
   datasource: github-releases

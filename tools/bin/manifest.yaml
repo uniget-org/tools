@@ -10,7 +10,7 @@ tags:
 - package
 - management
 - lang/go
-homepage: https://github.com/marcosnils/bin
+repository: https://github.com/marcosnils/bin
 description: Effortless binary manager
 renovate:
   datasource: github-releases

@@ -7,7 +7,7 @@ tags:
 - category/development
 - lang/go
 - container/runtime
-homepage: https://github.com/abiosoft/colima
+repository: https://github.com/abiosoft/colima
 description: Container runtimes on macOS (and Linux) with minimal setup
 renovate:
   datasource: github-releases

@@ -9,7 +9,7 @@ tags:
 - category/monitoring
 - lang/go
 - type/daemon
-homepage: https://github.com/grafana/loki
+repository: https://github.com/grafana/loki
 description: Standalone app that audits the log-capturing performance of Grafana Loki
 renovate:
   datasource: github-releases

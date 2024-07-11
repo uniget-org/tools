@@ -13,7 +13,7 @@ tags:
 - lang/python
 - type/cli
 - cloud/google
-homepage: https://cloud.google.com/sdk/docs
+repository: https://cloud.google.com/sdk/docs
 description: Set of tools that you can use to manage resources and applications hosted on Google Cloud
 renovate:
   datasource: github-tags

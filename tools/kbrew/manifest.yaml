@@ -10,7 +10,7 @@ tags:
 - management
 - lang/go
 - state/stale
-homepage: https://github.com/kbrew-dev/kbrew
+repository: https://github.com/kbrew-dev/kbrew
 description: Homebrew for Kubernetes
 renovate:
   datasource: github-releases

@@ -13,7 +13,7 @@ tags:
 - gpg
 - gnupg
 - pgp
-homepage: https://github.com/rupor-github/win-gpg-agent
+repository: https://github.com/rupor-github/win-gpg-agent
 description: Windows helpers for GnuPG tools suite
 renovate:
   datasource: github-releases

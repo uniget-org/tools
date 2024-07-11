@@ -21,7 +21,7 @@ tags:
 - kubernetes
 - k8s
 - containerd
-homepage: https://github.com/containerd/runwasi
+repository: https://github.com/containerd/runwasi
 description: Facilitates running Wasm / WASI workloads managed by containerd
 renovate:
   datasource: github-releases

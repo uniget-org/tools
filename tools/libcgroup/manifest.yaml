@@ -10,7 +10,7 @@ tags:
 - type/cli
 - lang/c
 - category/operations
-homepage: https://github.com/libcgroup/libcgroup
+repository: https://github.com/libcgroup/libcgroup
 description: Library and tools to manage cgroups
 messages:
   update: |

@@ -13,7 +13,7 @@ tags:
 - type/cli
 - kubernetes
 - k8s
-homepage: https://github.com/kyverno/chainsaw
+repository: https://github.com/kyverno/chainsaw
 description: Declarative K8s e2e testing
 renovate:
   datasource: github-releases

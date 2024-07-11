@@ -9,7 +9,7 @@ tags:
 - lang/go
 - cicd
 - state/stale
-homepage: https://github.com/stepro/kdo
+repository: https://github.com/stepro/kdo
 description: Deployless Development on Kubernetes
 renovate:
   datasource: github-releases

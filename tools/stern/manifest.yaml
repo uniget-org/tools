@@ -9,7 +9,7 @@ tags:
 - troubleshooting
 - lang/go
 - observability/logs
-homepage: https://github.com/stern/stern
+repository: https://github.com/stern/stern
 description: Multi pod and container log tailing for Kubernetes
 renovate:
   datasource: github-releases

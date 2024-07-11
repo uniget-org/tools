@@ -8,7 +8,7 @@ tags:
 - container/runtime
 - type/cli
 - lang/c
-homepage: https://github.com/containers/crun
+repository: https://github.com/containers/crun
 description: Fast and lightweight fully featured OCI runtime
 messages:
   update: |

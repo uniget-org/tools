@@ -8,7 +8,7 @@ tags:
 - type/cli
 - cicd
 - lang/java
-homepage: https://github.com/gradle/gradle
+repository: https://github.com/gradle/gradle
 description: Adaptable, fast automation for all
 renovate:
   datasource: github-releases

@@ -15,7 +15,7 @@ tags:
 - type/cli
 - lang/python
 - docker
-homepage: https://github.com/docker/compose
+repository: https://github.com/docker/compose
 description: Define and run multi-container applications with Docker (v1)
 renovate:
   datasource: github-releases

@@ -7,7 +7,7 @@ tags:
 - type/daemon
 - cicd
 - lang/go
-homepage: https://github.com/concourse/concourse
+repository: https://github.com/concourse/concourse
 description: Container-based continuous thing-doer
 renovate:
   datasource: github-releases

@@ -8,7 +8,7 @@ tags:
 - cicd
 - lang/go
 - type/cli
-homepage: https://github.com/kubernetes-sigs/bom
+repository: https://github.com/kubernetes-sigs/bom
 description: generate SPDX-compliant Bill of Materials manifests
 renovate:
   datasource: github-releases

@@ -12,7 +12,7 @@ tags:
 - container/image
 - type/cli
 - lang/go
-homepage: https://github.com/google/go-containerregistry
+repository: https://github.com/google/go-containerregistry
 description: Go library and CLIs for working with container registries
 renovate:
   datasource: github-releases

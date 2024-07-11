@@ -12,7 +12,7 @@ tags:
 - lang/go
 - type/cli
 - cloud/civo
-homepage: https://github.com/civo/cli
+repository: https://github.com/civo/cli
 description: Command Line Interface (CLI) for interacting with your Civo resources
 renovate:
   datasource: github-releases

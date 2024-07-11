@@ -16,7 +16,7 @@ tags:
 - lang/go
 - standard/docker
 - docker
-homepage: https://github.com/google/gvisor
+repository: https://github.com/google/gvisor
 description: Application Kernel for Containers
 messages:
   update: |

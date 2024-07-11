@@ -12,7 +12,7 @@ tags:
 - category/operations
 - lang/go
 - type/cli
-homepage: https://github.com/caddyserver/xcaddy
+repository: https://github.com/caddyserver/xcaddy
 description: Build Caddy with plugins
 renovate:
   datasource: github-releases

@@ -17,7 +17,7 @@ tags:
 - lang/go
 - standard/git
 - git
-homepage: https://github.com/sigstore/gitsign
+repository: https://github.com/sigstore/gitsign
 description: Keyless Git signing using Sigstore
 messages:
   internals: |

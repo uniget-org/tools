@@ -15,7 +15,7 @@ tags:
 - category/development
 - lang/javascript
 - type/cli
-homepage: https://github.com/sass/sass
+repository: https://github.com/sass/sass
 description: Sass makes CSS fun
 renovate:
   datasource: npm
