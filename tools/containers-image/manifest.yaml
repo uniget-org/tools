@@ -18,7 +18,7 @@ description: Work with containers' images
 messages:
   update: |
     The following default configuration file(s) must be copied to the final locations:
-    - TARGET/etc/containers/registries.conf -> /etc/containers/
+    - {{ .Target }}/etc/containers/registries.conf -> /etc/containers/
 renovate:
   datasource: github-releases
   package: containers/image

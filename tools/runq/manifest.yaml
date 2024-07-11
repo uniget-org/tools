@@ -27,7 +27,7 @@ messages:
     {
         "runtimes": {
             "runq": {
-                "path": "\($target)/var/lib/runq/runq",
+                "path": "{{ .Target }}/var/lib/runq/runq",
                 "runtimeArgs": [
                     "--cpu", "1",
                     "--mem", "256",

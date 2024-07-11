@@ -17,10 +17,10 @@ description: Location for shared common files in github.com/containers repos
 messages:
   update: |
     The following default configuration files must be copied to the final locations:
-    - TARGET/etc/containers/policy.json -> /etc/containers/
-    - TARGET/etc/containers/registries.conf.d/shortnames.conf -> /etc/containers/registries.conf.d/
-    - TARGET/share/containers/containers.conf -> /usr/share/containers/
-    - TARGET/usr/share/containers/seccomp.json -> /usr/share/containers/
+    - {{ .Target }}/etc/containers/policy.json -> /etc/containers/
+    - {{ .Target }}/etc/containers/registries.conf.d/shortnames.conf -> /etc/containers/registries.conf.d/
+    - {{ .Target }}/share/containers/containers.conf -> /usr/share/containers/
+    - {{ .Target }}/usr/share/containers/seccomp.json -> /usr/share/containers/
 renovate:
   datasource: github-releases
   package: containers/common

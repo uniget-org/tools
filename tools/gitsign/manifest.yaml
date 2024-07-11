@@ -21,8 +21,8 @@ homepage: https://github.com/sigstore/gitsign
 description: Keyless Git signing using Sigstore
 messages:
   internals: |
-    - Copy gitsign-credential-cache.sh from TARGET/etc/profile.d to /etc/profile.d/ or ~/.local/etc/profile.d/
-    - Copy gitsign.service from TARGET/etc/systemd/user/ to /etc/systemd/user/ or ~/.config/systemd/user/
+    - Copy gitsign-credential-cache.sh from {{ .Target }}/etc/profile.d to /etc/profile.d/ or ~/.local/etc/profile.d/
+    - Copy gitsign.service from {{ .Target }}/etc/systemd/user/ to /etc/systemd/user/ or ~/.config/systemd/user/
     - Enable and start the systemd unit
 renovate:
   datasource: github-releases
