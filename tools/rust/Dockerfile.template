@@ -7,6 +7,10 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
+COPY <<EOF /uniget_bootstrap/etc/profile.d/rust.sh.go-template
+export CARGO_HOME="{{ .Target }}/cargo"
+export RUSTUP_HOME="{{ .Target }}/rustup"
+EOF
 RUN <<EOF
 rustup_version="$(
     curl --silent --fail --url https://api.github.com/repos/rust-lang/rustup/tags \

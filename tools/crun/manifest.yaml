@@ -10,6 +10,18 @@ tags:
 - lang/c
 homepage: https://github.com/containers/crun
 description: Fast and lightweight fully featured OCI runtime
+messages:
+  update: |
+    Add crun to Docker runtimes by merging the following into
+    /etc/docker/daemon.json:
+
+    {
+        "runtimes": {
+            "crun": {
+                "path": "TARGET/bin/crun"
+            }
+        }
+    }
 renovate:
   datasource: github-releases
   package: containers/crun

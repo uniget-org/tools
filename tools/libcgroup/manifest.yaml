@@ -12,6 +12,11 @@ tags:
 - category/operations
 homepage: https://github.com/libcgroup/libcgroup
 description: Library and tools to manage cgroups
+messages:
+  update: |
+    Please run the following command to update the library cache:
+
+    ldconfig
 renovate:
   datasource: github-releases
   package: libcgroup/libcgroup

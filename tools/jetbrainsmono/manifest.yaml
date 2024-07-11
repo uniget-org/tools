@@ -15,6 +15,9 @@ tags:
 - state/stale
 homepage: https://github.com/JetBrains/JetBrainsMono
 description: Free and open-source typeface for developers
+messages:
+  update: |
+    Please run: fc-cache -f -v
 renovate:
   datasource: github-releases
   package: JetBrains/JetBrainsMono

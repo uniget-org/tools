@@ -14,7 +14,8 @@ curl --silent --show-error --location --fail "https://cdn.teleport.dev/teleport-
     teleport/teleport \
     teleport/tbot \
     teleport/tsh
-curl --silent --show-error --location --fail --output "${prefix}/etc/systemd/system/teleport.service" \
+
+curl --silent --show-error --location --fail --output "${prefix}/etc/systemd/system/teleport.service.go-template" \
     "https://github.com/gravitational/teleport/blob/v${version}/examples/systemd/teleport.service"
-sed -i "s|ExecStart=/usr/local/bin/teleport|ExecStart=/bin/teleport|" "${prefix}/etc/systemd/system/teleport.service"
+sed -i "s|ExecStart=/usr/local/bin/teleport|ExecStart={{ .Target }}/bin/teleport|" "${prefix}/etc/systemd/system/teleport.service.go-template"
 EOF

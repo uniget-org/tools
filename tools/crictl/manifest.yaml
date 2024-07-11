@@ -15,6 +15,9 @@ tags:
 - lang/go
 homepage: https://github.com/kubernetes-sigs/cri-tools
 description: CLI and validation tools for Kubelet Container Runtime Interface
+messages:
+  update: |
+    See /etc/crictl.yaml for configuring your favorite endpoint.
 renovate:
   datasource: github-releases
   package: kubernetes-sigs/cri-tools

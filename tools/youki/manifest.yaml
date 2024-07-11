@@ -17,6 +17,18 @@ tags:
 - docker
 homepage: https://github.com/containers/youki
 description: Container runtime written in rust
+messages:
+  update: |
+    Add crun to Docker runtimes by merging the following into
+    /etc/docker/daemon.json:
+
+    {
+        "runtimes": {
+            "runsc": {
+                "path": "{{ .Target }}/bin/runsc"
+            }
+        }
+    }
 renovate:
   datasource: github-releases
   package: containers/youki

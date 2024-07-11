@@ -25,5 +25,5 @@ done
 EOF
 COPY policy.json /uniget_bootstrap/etc/containers/
 COPY shortnames.conf /uniget_bootstrap/etc/containers/registries.conf.d/
-COPY containers.conf /uniget_bootstrap/usr/share/containers/
-COPY seccomp.json /uniget_bootstrap/usr/share/containers/
+COPY containers.conf /uniget_bootstrap/share/containers/
+COPY seccomp.json /uniget_bootstrap/share/containers/

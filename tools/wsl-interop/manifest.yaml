@@ -15,3 +15,8 @@ messages:
   internals: |
     - This tool is a workaround for WSL interop issue described in microsoft/WSL/issues#8842
     - An alternative workaround is running the following commant manually: systemctl restart user@1000
+    - Enable this workaround by running the following commands:
+
+      systemctl daemon-reload
+      systemctl enable wslinterop-force.service wslinterop-monitor.path
+      systemctl start wslinterop-force.service wslinterop-monitor.path

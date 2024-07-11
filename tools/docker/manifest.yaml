@@ -35,7 +35,26 @@ messages:
     - Existing settings are not changed
     - For CLI plugins: mkdir -p ~/.docker && ln -sfr ~/.local/libexec/docker/cli-plugins ~/.docker/
   update: |
-    You need to restart the Docker daemon to apply an update
+    - If you require a custom address pool to avoid IP address conflict, merge the following
+      into /etc/docker/daemon.json after substituting your IP range and subnet size:
+
+      {
+          "default-address-pool": [
+              {
+                  "base": "172.16.0.0/12"
+                  "size": 24
+              }
+          ]
+      }
+    - If you require a registry mirror, merge the following into /etc/docker/daemon.json after
+      substituting your mirror URL:
+
+      {
+          "registry-mirrors": [
+              "https://mirror.example.com"
+          ]
+      }
+    - You need to restart the Docker daemon to apply an update
 renovate:
   datasource: github-tags
   package: moby/moby

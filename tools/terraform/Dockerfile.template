@@ -12,5 +12,7 @@ curl --silent --show-error --location --fail --remote-name "https://releases.has
 unzip -q -o -d "/tmp" "terraform_${version}_linux_${alt_arch}.zip"
 rm "terraform_${version}_linux_${alt_arch}.zip"
 mv "/tmp/terraform" "${prefix}/bin"
-echo "complete -C /bin/terraform terraform" >"${prefix}/etc/profile.d/terraform.sh"
+EOF
+COPY <<EOF /uniget_bootstrap/etc/profile.d/terraform.sh.go-template
+complete -C {{ .Target }}/bin/terraform terraform
 EOF

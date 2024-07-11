@@ -15,8 +15,11 @@ curl --silent --show-error --location --fail --output "${prefix}/bin/faasd" \
     "https://github.com/openfaas/faasd/releases/download/${version}/faasd"
 chmod +x "${prefix}/bin/faasd"
 
-curl --silent --show-error --location --fail --output "${prefix}/etc/systemd/system/faasd.service" \
+curl --silent --show-error --location --fail --output "${prefix}/etc/systemd/system/faasd.service.go-template" \
     "https://github.com/openfaas/faasd/raw/${version}/hack/faasd.service"
-curl --silent --show-error --location --fail --output "${prefix}/etc/systemd/system/faasd-provider.service" \
+sed -i -E 's|^ExecStart=/usr/local/bin/faasd|ExecStart={{ .Target }}/bin/faasd|' "${prefix}/etc/systemd/system/faasd.service.go-template"
+
+curl --silent --show-error --location --fail --output "${prefix}/etc/systemd/system/faasd-provider.service.go-template" \
     "https://github.com/openfaas/faasd/raw/${version}/hack/faasd-provider.service"
+sed -i -E 's|^ExecStart=/usr/local/bin/faasd|ExecStart={{ .Target }}/bin/faasd|' "${prefix}/etc/systemd/system/faasd-provider.service.go-template"
 EOF

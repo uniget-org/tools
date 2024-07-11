@@ -47,10 +47,14 @@ EOF
 RUN <<EOF
 mkdir -p \
     "${prefix}/etc/sysconfig"
-curl --silent --show-error --location --fail --output "${prefix}/etc/systemd/system/crio.service" \
+curl --silent --show-error --location --fail --output "${prefix}/etc/systemd/system/crio.service.go-template" \
     "https://github.com/cri-o/cri-o/raw/v${version}/contrib/systemd/crio.service"
-curl --silent --show-error --location --fail --output "${prefix}/etc/systemd/system/crio-wipe.service" \
+sed -i -E 's|^ExecStart=/usr/local/bin/crio|ExecStart={{ .Target }}/bin/crio|' "${prefix}/etc/systemd/system/crio.service.go-template"
+
+curl --silent --show-error --location --fail --output "${prefix}/etc/systemd/system/crio-wipe.service.go-template" \
     "https://github.com/cri-o/cri-o/raw/v${version}/contrib/systemd/crio-wipe.service"
+sed -i -E 's|^ExecStart=/usr/local/bin/crio|ExecStart={{ .Target }}/bin/crio|' "${prefix}/etc/systemd/system/crio-wipe.service.go-template"
+
 curl --silent --show-error --location --fail --output "${prefix}/etc/sysconfig/crio" \
     "https://github.com/cri-o/cri-o/raw/v${version}/contrib/sysconfig/crio"
 EOF

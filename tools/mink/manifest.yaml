@@ -13,6 +13,12 @@ tags:
 - k8s
 homepage: https://github.com/mattmoor/mink
 description: Minimal distribution of Knative and Tekton, and CLI
+messages:
+  update: |
+    You can make mink available as the knative plugin by running:
+
+    mkdir -p $HOME/.config/kn/plugins
+    ln -s {{ .Target }}/bin/mink $HOME/.config/kn/plugins/kn-im
 renovate:
   datasource: github-releases
   package: mattmoor/mink
