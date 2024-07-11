@@ -11,7 +11,7 @@ RUN <<EOF
 touch \
     "${prefix}/dummy"
 EOF
-COPY <<EOF /uniget_bootstrap/etc/profile.d/dummy
+COPY <<EOF /uniget_bootstrap/etc/profile.d/dummy.go-template
 echo "target={{ .Target }}"
 echo "prefix={{ .Prefix }}"
 echo "name={{ .Name }}"
