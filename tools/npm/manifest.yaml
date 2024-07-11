@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: npm
-version: "10.8.1"
+version: "10.8.2"
 binary: "false"
 check: "" # No binary
 build_dependencies:
