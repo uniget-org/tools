@@ -19,3 +19,21 @@ tags:
 - category/security
 homepage: https://github.com/gotoz/runq
 description: Run regular Docker images in KVM/Qemu
+messages:
+  update: |
+    Add crun to Docker runtimes by merging the following into
+    /etc/docker/daemon.json:
+
+    {
+        "runtimes": {
+            "runq": {
+                "path": "\($target)/var/lib/runq/runq",
+                "runtimeArgs": [
+                    "--cpu", "1",
+                    "--mem", "256",
+                    "--dns", "8.8.8.8,8.8.4.4",
+                    "--tmpfs", "/tmp" 
+                ]
+            }
+        }
+    }

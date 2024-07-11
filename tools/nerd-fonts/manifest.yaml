@@ -9,6 +9,9 @@ tags:
 - fonts
 homepage: https://github.com/ryanoasis/nerd-fonts
 description: Iconic font aggregator, collection, and patcher
+messages:
+  update: |
+    Please run: fc-cache -f -v
 renovate:
   datasource: github-releases
   package: ryanoasis/nerd-fonts

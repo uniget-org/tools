@@ -18,6 +18,18 @@ tags:
 - docker
 homepage: https://github.com/google/gvisor
 description: Application Kernel for Containers
+messages:
+  update: |
+    Add crun to Docker runtimes by merging the following into
+    /etc/docker/daemon.json:
+
+    {
+        "runtimes": {
+            "runsc": {
+                "path": "TARGET/bin/runsc"
+            }
+        }
+    }
 renovate:
   datasource: github-tags
   package: google/gvisor

@@ -13,8 +13,10 @@ curl --silent --show-error --location --fail "https://github.com/Mirantis/cri-do
 | tar --extract --gzip --directory="${prefix}/bin" --strip-components=1 --no-same-owner \
     cri-dockerd
 
-curl --silent --show-error --location --fail --output "${prefix}/etc/systemd/system/cri-docker.service" \
+curl --silent --show-error --location --fail --output "${prefix}/etc/systemd/system/cri-docker.service.go-template" \
     "https://github.com/Mirantis/cri-dockerd/raw/v${version}/packaging/systemd/cri-docker.service"
+sed -i -E 's|^ExecStart=/usr/bin/cri-dockerd|ExecStart={{ .Target }}/bin/cri-dockerd|' "${prefix}/etc/systemd/system/cri-docker.service.go-template"
+
 curl --silent --show-error --location --fail --output "${prefix}/etc/systemd/system/cri-docker.socket" \
     "https://github.com/Mirantis/cri-dockerd/raw/v${version}/packaging/systemd/cri-docker.socket"
 EOF

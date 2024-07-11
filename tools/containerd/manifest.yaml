@@ -22,6 +22,21 @@ tags:
 - lang/go
 homepage: https://github.com/containerd/containerd
 description: Open and reliable container runtime
+messages:
+  internals: |
+    - For a minimal configuration, see /etc/containerd/config.toml.template.
+      This also includes the correct path for CNI plugins
+    - For adding a registry mirror, please refer to the official documentation
+      (https://github.com/containerd/containerd/blob/main/docs/hosts.md#setup-a-local-mirror-for-docker).
+      TL;DR: Add the following to /etc/containerd/certs.d/docker.io/hosts.toml
+
+      server = "https://docker.io"
+      [host."https://my-mirror.company.com"]
+      capabilities = ["pull", "resolve"]
+    - When using crictl, please update the endpoint(s) in /etc/crictl.yaml:
+
+      runtime-endpoint: unix:///run/containerd/containerd.sock
+      image-endpoint: unix:///run/containerd/containerd.sock
 renovate:
   datasource: github-releases
   package: containerd/containerd

@@ -91,4 +91,4 @@ for file in \
     go-md2man -in "docs/${file}.md" -out "${prefix}/share/man/man5/${file}"
 done
 EOF
-COPY storage.conf /uniget_bootstrap/usr/share/containers/
+COPY storage.conf /uniget_bootstrap/share/containers/

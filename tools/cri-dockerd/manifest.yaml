@@ -17,6 +17,12 @@ tags:
 - docker
 homepage: https://github.com/Mirantis/cri-dockerd
 description: Shim for Docker Engine that lets you control Docker via the Kubernetes Container Runtime Interface
+messages:
+  internals: |
+    When using crictl, please update the endpoint(s) in /etc/crictl.yaml:
+
+    runtime-endpoint: unix:///var/run/cri-dockerd.sock
+    image-endpoint: unix:///var/run/cri-dockerd.sock
 renovate:
   datasource: github-releases
   package: Mirantis/cri-dockerd

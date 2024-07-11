@@ -19,8 +19,8 @@ COPY --link --from=make / /usr/local/
 RUN <<EOF
 mkdir -p "${prefix}/etc/ld.so.conf.d"
 EOF
-COPY <<EOF /uniget_bootstrap/etc/ld.so.conf.d/libcgroup.conf
-/lib
+COPY <<EOF /uniget_bootstrap/etc/ld.so.conf.d/libcgroup.conf.go-template
+{{ .Target }}/lib
 EOF
 WORKDIR /tmp/libcgroup
 ARG name

@@ -21,6 +21,16 @@ tags:
 - docker
 homepage: https://github.com/docker/buildx
 description: Docker CLI plugin for extended build capabilities with BuildKit
+messages:
+  internals: |
+    It is recommended to make buildx the default builder by adding the following
+    to you ~/.docker/config.json:
+
+        {
+            "aliases": {
+                "builder": "buildx"
+            }
+        }
 renovate:
   datasource: github-releases
   package: docker/buildx

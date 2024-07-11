@@ -14,6 +14,9 @@ tags:
 - font
 homepage: https://github.com/vercel/geist-font
 description: Typeface specifically designed for developers and designers
+messages:
+  update: |
+    Please run: fc-cache -f -v
 renovate:
   datasource: github-releases
   package: vercel/geist-font

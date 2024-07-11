@@ -14,6 +14,9 @@ description: Redistributable builds of Python
 messages:
   internals: |
     This dynamically linked Python requires dynamically linked libraries for executions.
+    Run the following command to update the library cache:
+
+    ldconfig
 renovate:
   datasource: github-releases
   package: uniget-org/renovate-custom

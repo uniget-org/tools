@@ -17,6 +17,10 @@ tags:
 - type/documentation
 homepage: https://github.com/containers/storage
 description: Container Storage Library
+messages:
+  update: |
+    The following default configuration file(s) must be copied to the final locations:
+    - TARGET/share/containers/storage.conf -> /usr/share/containers/
 renovate:
   datasource: github-releases
   package: containers/storage

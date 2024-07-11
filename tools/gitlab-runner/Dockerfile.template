@@ -7,7 +7,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-COPY gitlab-runner.service /uniget_bootstrap/etc/systemd/system/
+COPY gitlab-runner.service.go-template /uniget_bootstrap/etc/systemd/system/
 COPY config.toml /uniget_bootstrap/etc/gitlab-runner/
 RUN <<EOF
 curl --silent --show-error --location --fail --output "${prefix}/bin/gitlab-runner" \

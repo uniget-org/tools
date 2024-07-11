@@ -7,7 +7,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-COPY nerdctl.toml /uniget_bootstrap/etc/nerdctl/
+COPY nerdctl.toml.go-template /uniget_bootstrap/etc/nerdctl/
 RUN <<EOF
 check-github-release-asset "containerd/nerdctl" "v${version}" "nerdctl-${version}-linux-${alt_arch}.tar.gz"
 curl --silent --show-error --location --fail "https://github.com/containerd/nerdctl/releases/download/v${version}/nerdctl-${version}-linux-${alt_arch}.tar.gz" \

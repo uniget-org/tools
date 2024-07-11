@@ -13,14 +13,15 @@ ARG version
 COPY 10-containerd-net.conflist "/uniget_bootstrap/etc/cni/net.d/"
 COPY runtimes.toml "/uniget_bootstrap/etc/containerd/conf.d/runtimes.toml"
 COPY snapshotters.toml "/uniget_bootstrap/etc/containerd/conf.d/snapshotters.toml"
-COPY init-containerd "/uniget_bootstrap/etc/init.d/containerd"
+COPY init-containerd.go-template "/uniget_bootstrap/etc/init.d/containerd.go-template"
 RUN <<EOF
 check-github-release-asset "containerd/containerd" "v${version}" "containerd-${version}-linux-${alt_arch}.tar.gz"
 curl --silent --show-error --location --fail "https://github.com/containerd/containerd/releases/download/v${version}/containerd-${version}-linux-${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}" --no-same-owner
 
-curl --silent --show-error --location --fail --output "${prefix}/etc/systemd/system/containerd.service" \
+curl --silent --show-error --location --fail --output "${prefix}/etc/systemd/system/containerd.service.go-template" \
     "https://github.com/containerd/containerd/raw/v${version}/containerd.service"
+sed -i -E "s|^ExecStart=/usr/local/bin/containerd|ExecStart={{ .Target }}/bin/containerd|" "/etc/systemd/system/containerd.service.go-template"
 EOF
 RUN <<EOF
 curl --silent --show-error --location --fail --output "${prefix}/share/man/man8/containerd-config.8.md" \
@@ -36,4 +37,15 @@ go-md2man \
 rm \
     "${prefix}/share/man/man8/containerd-config.8.md" \
     "${prefix}/share/man/man5/containerd-config.toml.5.md"
+EOF
+RUN <<EOF
+mkdir -p \
+    /etc/containerd/conf.d \
+    /etc/containerd/certs.d
+
+"${prefix}/bin/containerd" config default \
+| sed "s|/opt/cni/bin|{{ .Target }}/libexec/cni|" \
+| sed 's|imports = \[\]|imports = [ "/etc/containerd/conf.d/*.toml" ]|' \
+| sed 's|config_path = ""|config_path = "/etc/containerd/certs.d"|' \
+>"/etc/containerd/config.toml.template.go-template"
 EOF

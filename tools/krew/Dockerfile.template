@@ -7,6 +7,9 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
+COPY <<"EOF" /uniget_bootstrap/etc/profile.d/krew.sh
+export PATH="${HOME}/.krew/bin:${PATH}"
+EOF
 RUN <<EOF
 check-github-release-asset "kubernetes-sigs/krew" "v${version}" "krew-linux_${alt_arch}.tar.gz"
 curl --silent --show-error --location --fail "https://github.com/kubernetes-sigs/krew/releases/download/v${version}/krew-linux_${alt_arch}.tar.gz" \

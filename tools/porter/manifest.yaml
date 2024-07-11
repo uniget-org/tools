@@ -10,6 +10,18 @@ tags:
 - category/operations
 homepage: https://github.com/getporter/porter
 description: Package your application artifact, client tools, configuration and deployment logic
+messages:
+  update: |
+    - Mixins are installed user-context:
+
+      porter mixin install exec
+      porter mixin install docker
+      porter mixin install docker-compose
+      porter mixin install kubernetes
+
+    - plugins are installed in user context:
+
+      porter plugins install kubernetes
 renovate:
   datasource: github-releases
   package: getporter/porter

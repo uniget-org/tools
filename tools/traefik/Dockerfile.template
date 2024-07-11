@@ -12,6 +12,7 @@ check-github-release-asset "traefik/traefik" "v${version}" "traefik_v${version}_
 curl --silent --show-error --location --fail "https://github.com/traefik/traefik/releases/download/v${version}/traefik_v${version}_linux_${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     traefik
-curl --silent --show-error --location --fail --output "${prefix}/etc/systemd/system/traefik.service" \
+curl --silent --show-error --location --fail --output "${prefix}/etc/systemd/system/traefik.service.go-template" \
     "https://github.com/traefik/traefik/raw/v${version}/contrib/systemd/traefik.service"
+sed -i -E 's|#ExecStart=/usr/bin/traefik|ExecStart={{ .Target }}/bin/traefik|' "${prefix}/etc/systemd/system/traefik.service.go-template"
 EOF

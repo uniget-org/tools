@@ -15,6 +15,11 @@ tags:
 - type/library
 homepage: https://git.musl-libc.org/cgit/musl
 description: An implementation of the standard library for Linux-based systems
+messages:
+  update: |
+    Please run the following command to update the library cache:
+
+    ldconfig
 renovate:
   datasource: git-tags
   package: https://git.musl-libc.org/cgit/musl.git
