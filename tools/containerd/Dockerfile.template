@@ -13,7 +13,6 @@ ARG version
 COPY 10-containerd-net.conflist "/uniget_bootstrap/etc/cni/net.d/"
 COPY runtimes.toml "/uniget_bootstrap/etc/containerd/conf.d/runtimes.toml"
 COPY snapshotters.toml "/uniget_bootstrap/etc/containerd/conf.d/snapshotters.toml"
-COPY init-containerd.go-template "/uniget_bootstrap/etc/init.d/containerd.go-template"
 RUN <<EOF
 check-github-release-asset "containerd/containerd" "v${version}" "containerd-${version}-linux-${alt_arch}.tar.gz"
 curl --silent --show-error --location --fail "https://github.com/containerd/containerd/releases/download/v${version}/containerd-${version}-linux-${alt_arch}.tar.gz" \

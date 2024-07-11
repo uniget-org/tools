@@ -7,7 +7,6 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-COPY init-buildkit.go-template "/uniget_bootstrap/etc/init.d/buildkit.go-template"
 RUN <<EOF
 check-github-release-asset "moby/buildkit" "v${version}" "buildkit-v${version}.linux-${alt_arch}.tar.gz"
 curl --silent --show-error --location --fail "https://github.com/moby/buildkit/releases/download/v${version}/buildkit-v${version}.linux-${alt_arch}.tar.gz" \
