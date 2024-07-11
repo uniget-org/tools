@@ -10,7 +10,7 @@ tags:
 - category/operations
 - lang/go
 - type/cli
-homepage: https://github.com/opcr-io/policy
+repository: https://github.com/opcr-io/policy
 description: CLI for building OPA policies into OCI images
 renovate:
   datasource: github-releases

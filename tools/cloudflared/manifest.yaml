@@ -8,7 +8,7 @@ tags:
 - tunneling
 - lang/go
 - org/cloudflare
-homepage: https://github.com/cloudflare/cloudflared
+repository: https://github.com/cloudflare/cloudflared
 description: Cloudflare Tunnel client (formerly Argo Tunnel)
 renovate:
   datasource: github-releases

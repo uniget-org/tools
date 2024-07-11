@@ -12,7 +12,7 @@ tags:
 - state/onemanshow
 - ssh
 - k8s
-homepage: https://github.com/little-angry-clouds/kubectl-ssh-proxy
+repository: https://github.com/little-angry-clouds/kubectl-ssh-proxy
 description: Kubectl plugin to launch a ssh socks proxy and use it
 renovate:
   datasource: github-releases

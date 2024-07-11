@@ -15,7 +15,7 @@ tags:
 - category/development
 - lang/python
 - type/cli
-homepage: https://github.com/pre-commit/pre-commit
+repository: https://github.com/pre-commit/pre-commit
 description: Framework for managing and maintaining multi-language pre-commit hooks
 renovate:
   datasource: pypi

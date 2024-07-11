@@ -10,7 +10,7 @@ tags:
 - category/development
 - lang/go
 - type/cli
-homepage: https://github.com/updatecli/updatecli
+repository: https://github.com/updatecli/updatecli
 description: Declarative Dependency Management
 renovate:
   datasource: github-releases

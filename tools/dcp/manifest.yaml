@@ -12,7 +12,7 @@ tags:
 - lang/rust
 - type/cli
 - state/stale
-homepage: https://github.com/exdx/dcp
+repository: https://github.com/exdx/dcp
 description: Some description
 renovate:
   datasource: github-releases

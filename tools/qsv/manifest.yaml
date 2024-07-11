@@ -10,7 +10,7 @@ tags:
 - category/development
 - lang/rust
 - type/cli
-homepage: https://github.com/jqnatividad/qsv
+repository: https://github.com/jqnatividad/qsv
 description: CSVs sliced, diced & analyzed
 renovate:
   datasource: github-releases

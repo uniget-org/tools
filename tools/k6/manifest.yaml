@@ -10,7 +10,7 @@ tags:
 - category/operations
 - lang/go
 - type/cli
-homepage: https://github.com/grafana/k6
+repository: https://github.com/grafana/k6
 description: Modern load testing tool, using Go and JavaScript
 renovate:
   datasource: github-releases

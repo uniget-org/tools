@@ -12,7 +12,7 @@ tags:
 - container/runtime
 - type/cli
 - lang/c
-homepage: https://github.com/containers/conmon
+repository: https://github.com/containers/conmon
 description: OCI container runtime monitor
 renovate:
   datasource: github-releases

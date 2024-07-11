@@ -10,7 +10,7 @@ tags:
 - category/security
 - lang/go
 - type/cli
-homepage: https://github.com/open-component-model/ocm
+repository: https://github.com/open-component-model/ocm
 description: Open Component Model (Software Bill of Delivery Toolset)
 renovate:
   datasource: github-releases

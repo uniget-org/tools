@@ -9,7 +9,7 @@ tags:
 - fun
 - lang/c
 - terminal
-homepage: http://www.figlet.org/
+repository: http://www.figlet.org/
 description: Making large letters out of ordinary text
 renovate:
   datasource: github-tags

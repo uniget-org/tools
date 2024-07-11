@@ -9,7 +9,7 @@ tags:
 - category/security
 - lang/c
 - type/cli
-homepage: https://github.com/falcosecurity/falco
+repository: https://github.com/falcosecurity/falco
 description: Cloud Native Runtime Security
 renovate:
   datasource: github-releases

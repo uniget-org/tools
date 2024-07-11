@@ -7,7 +7,7 @@ tags:
 - terminal
 - lang/go
 - terminal
-homepage: https://github.com/direnv/direnv/
+repository: https://github.com/direnv/direnv/
 description: Unclutter your .profile
 renovate:
   datasource: github-releases

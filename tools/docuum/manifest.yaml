@@ -13,7 +13,7 @@ tags:
 - management
 - lang/rust
 - docker
-homepage: https://github.com/stepchowfun/docuum
+repository: https://github.com/stepchowfun/docuum
 description: Performs least recently used eviction of Docker images
 renovate:
   datasource: github-releases

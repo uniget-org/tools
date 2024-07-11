@@ -13,7 +13,7 @@ tags:
 - type/cli
 - lang/go
 - component/network
-homepage: https://github.com/projectdiscovery/mapcidr
+repository: https://github.com/projectdiscovery/mapcidr
 description: Small utility program to perform multiple operations for a given subnet/CIDR ranges.
 renovate:
   datasource: github-releases

@@ -9,7 +9,7 @@ tags:
 - tunneling
 - lang/go
 - component/network
-homepage: https://github.com/gravitational/teleport
+repository: https://github.com/gravitational/teleport
 description: Easiest, most secure way to access infrastructure
 renovate:
   datasource: github-releases

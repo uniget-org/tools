@@ -13,7 +13,7 @@ tags:
 - kubernetes
 - k8s
 - management
-homepage: https://github.com/rancher/rke
+repository: https://github.com/rancher/rke
 description: Rancher Kubernetes Engine (RKE), an extremely simple, lightning fast Kubernetes distribution
 renovate:
   datasource: github-releases

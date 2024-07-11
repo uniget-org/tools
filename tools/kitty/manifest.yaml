@@ -12,7 +12,7 @@ tags:
 - lang/c
 - lang/go
 - type/cli
-homepage: https://github.com/kovidgoyal/kitty
+repository: https://github.com/kovidgoyal/kitty
 description: Cross-platform, fast, feature-rich, GPU based terminal
 messages:
   internals: |

@@ -7,7 +7,7 @@ tags:
 - component/network
 - type/cli
 - lang/go
-homepage: https://github.com/projectdiscovery/tlsx
+repository: https://github.com/projectdiscovery/tlsx
 description: Fast and configurable TLS grabber focused on TLS based data collection.
 renovate:
   datasource: github-releases

@@ -12,7 +12,7 @@ tags:
 - lang/go
 - lang/cue
 - standard/oci
-homepage: https://github.com/dagger/dagger
+repository: https://github.com/dagger/dagger
 description: Portable devkit for CI/CD pipelines
 renovate:
   datasource: github-releases

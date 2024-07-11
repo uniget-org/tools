@@ -15,7 +15,7 @@ tags:
 - category/development
 - lang/c
 - type/library
-homepage: https://gitlab.xiph.org/xiph/speexdsp
+repository: https://gitlab.xiph.org/xiph/speexdsp
 description: DSP library derived from speex
 renovate:
   datasource: gitlab-releases

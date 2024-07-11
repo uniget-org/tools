@@ -15,7 +15,7 @@ tags:
 - category/security
 - lang/python
 - type/cli
-homepage: https://github.com/productaize/bogrod
+repository: https://github.com/productaize/bogrod
 description: Manage security vulnerabilities in release notes
 renovate:
   datasource: pypi

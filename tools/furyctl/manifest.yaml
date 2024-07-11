@@ -8,7 +8,7 @@ tags:
 - k8s
 - management
 - lang/go
-homepage: https://github.com/sighupio/furyctl
+repository: https://github.com/sighupio/furyctl
 description: Multi-purpose command line tool for the Kubernetes Fury Distribution
 renovate:
   datasource: github-releases

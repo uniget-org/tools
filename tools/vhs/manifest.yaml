@@ -9,7 +9,7 @@ tags:
 - category/development
 - type/cli
 - lang/go
-homepage: https://github.com/charmbracelet/vhs
+repository: https://github.com/charmbracelet/vhs
 description: Your CLI home video recorder
 renovate:
   datasource: github-releases

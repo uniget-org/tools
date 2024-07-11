@@ -14,7 +14,7 @@ tags:
 - category/development
 - lang/php
 - type/cli
-homepage: https://github.com/phar-io/phive
+repository: https://github.com/phar-io/phive
 description: Phar Installation and Verification Environment
 renovate:
   datasource: github-releases

@@ -6,7 +6,7 @@ tags:
 - category/security
 - type/cli
 - lang/go
-homepage: https://github.com/ddosify/ddosify
+repository: https://github.com/ddosify/ddosify
 description: High-performance load testing tool
 renovate:
   datasource: github-releases

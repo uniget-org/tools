@@ -10,7 +10,7 @@ tags:
 - category/operations
 - lang/go
 - type/cli
-homepage: https://github.com/mudler/luet
+repository: https://github.com/mudler/luet
 description: 0-dependency Container-based Package Manager using SAT solver and QLearning
 renovate:
   datasource: github-releases

@@ -17,7 +17,7 @@ tags:
 - type/cli
 - category/visualization
 - format/markdown
-homepage: https://github.com/mermaid-js/mermaid-cli
+repository: https://github.com/mermaid-js/mermaid-cli
 description: Command line tool for the Mermaid library
 renovate:
   datasource: npm

@@ -14,7 +14,7 @@ tags:
 - management
 - lang/go
 - alpine
-homepage: https://github.com/chainguard-dev/melange
+repository: https://github.com/chainguard-dev/melange
 description: Build APKs from source code
 renovate:
   datasource: github-tags

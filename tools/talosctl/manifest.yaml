@@ -12,7 +12,7 @@ tags:
 - type/cli
 - kubernetes
 - k8s
-homepage: https://github.com/siderolabs/talos
+repository: https://github.com/siderolabs/talos
 description: Modern Linux distribution built for Kubernetes
 renovate:
   datasource: github-releases

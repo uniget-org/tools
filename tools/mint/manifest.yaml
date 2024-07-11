@@ -11,7 +11,7 @@ tags:
 - type/cli
 - container/image
 - standard/oci
-homepage: https://github.com/mintoolkit/mint
+repository: https://github.com/mintoolkit/mint
 description: Don't change anything in your container image and minify it by up to 30x
 messages:
   internal: |

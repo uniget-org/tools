@@ -10,7 +10,7 @@ tags:
 - state/stale
 - k8s
 - helm
-homepage: https://github.com/roboll/helmfile
+repository: https://github.com/roboll/helmfile
 description: Deploy Kubernetes Helm Charts
 renovate:
   datasource: github-releases

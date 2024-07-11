@@ -11,7 +11,7 @@ tags:
 - ssh
 - password
 - management
-homepage: https://github.com/clarkwang/passh
+repository: https://github.com/clarkwang/passh
 description: sshpass is broken by design
 renovate:
   datasource: github-tags

@@ -9,7 +9,7 @@ tags:
 - category/development
 - lang/scala
 - type/cli
-homepage: https://github.com/sbt/sbt
+repository: https://github.com/sbt/sbt
 description: The interactive build tool
 renovate:
   datasource: github-releases

@@ -13,7 +13,7 @@ tags:
 - category/development
 - lang/shell
 - type/cli
-homepage: https://github.com/binpash/try
+repository: https://github.com/binpash/try
 description: Inspect a command's effects before modifying your live system
 renovate:
   datasource: github-releases

@@ -7,7 +7,7 @@ tags:
 - terminal
 - lang/rust
 - category/terminal
-homepage: https://github.com/lsd-rs/lsd
+repository: https://github.com/lsd-rs/lsd
 description: Next gen ls command
 renovate:
   datasource: github-releases

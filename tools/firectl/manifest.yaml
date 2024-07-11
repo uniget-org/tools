@@ -11,7 +11,7 @@ tags:
 - vm
 - emulation
 - lang/go
-homepage: https://github.com/firecracker-microvm/firectl
+repository: https://github.com/firecracker-microvm/firectl
 description: Command-line tool to run Firecracker microVMs
 renovate:
   datasource: github-releases

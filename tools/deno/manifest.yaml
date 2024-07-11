@@ -10,7 +10,7 @@ tags:
 - category/development
 - lang/rust
 - type/cli
-homepage: https://github.com/denoland/deno
+repository: https://github.com/denoland/deno
 description: Modern runtime for JavaScript and TypeScript
 renovate:
   datasource: github-releases

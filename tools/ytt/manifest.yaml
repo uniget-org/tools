@@ -15,7 +15,7 @@ tags:
 - management
 - lang/go
 - format/yaml
-homepage: https://github.com/carvel-dev/ytt
+repository: https://github.com/carvel-dev/ytt
 description: YAML templating tool that works on YAML structure instead of text
 renovate:
   datasource: github-releases

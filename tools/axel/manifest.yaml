@@ -12,7 +12,7 @@ tags:
 - category/operations
 - lang/c
 - type/cli
-homepage: https://github.com/axel-download-accelerator/axel
+repository: https://github.com/axel-download-accelerator/axel
 description: Lightweight CLI download accelerator
 renovate:
   datasource: github-releases

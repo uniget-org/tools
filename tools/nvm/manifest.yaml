@@ -11,7 +11,7 @@ tags:
 - lang/shell
 - type/cli
 - management
-homepage: https://github.com/nvm-sh/nvm
+repository: https://github.com/nvm-sh/nvm
 description: Node Version Manager
 renovate:
   datasource: github-releases

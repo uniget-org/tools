@@ -6,7 +6,7 @@ tags:
 - category/serverless
 - type/cli
 - lang/go
-homepage: https://github.com/openfaas/faas-cli
+repository: https://github.com/openfaas/faas-cli
 description: Official CLI for OpenFaaS
 renovate:
   datasource: github-releases

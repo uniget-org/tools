@@ -9,7 +9,7 @@ tags:
 - category/development
 - lang/python
 - type/cli
-homepage: https://github.com/indygreg/python-build-standalone
+repository: https://github.com/indygreg/python-build-standalone
 description: Redistributable builds of Python
 messages:
   internals: |

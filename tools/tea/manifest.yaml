@@ -11,7 +11,7 @@ tags:
 - category/development
 - lang/go
 - type/cli
-homepage: https://gitea.com/gitea/tea
+repository: https://gitea.com/gitea/tea
 description: Command line tool to interact with Gitea servers
 renovate:
   datasource: gitea-releases

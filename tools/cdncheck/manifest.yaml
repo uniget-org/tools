@@ -10,7 +10,7 @@ tags:
 - category/operations
 - lang/go
 - type/cli
-homepage: https://github.com/projectdiscovery/cdncheck
+repository: https://github.com/projectdiscovery/cdncheck
 description: Detect various technology for a given IP address
 renovate:
   datasource: github-releases

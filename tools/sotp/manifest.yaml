@@ -9,7 +9,7 @@ tags:
 - category/security
 - lang/go
 - type/cli
-homepage: https://github.com/getsops/sotp
+repository: https://github.com/getsops/sotp
 description: Get TOTP from the command line using TOTP secrets in Sops encrypted files
 renovate:
   datasource: github-releases

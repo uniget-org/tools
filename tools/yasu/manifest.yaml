@@ -8,7 +8,7 @@ tags:
 - lang/go
 - category/operations
 - container/su
-homepage: https://github.com/crazy-max/yasu
+repository: https://github.com/crazy-max/yasu
 description: Yet Another Switch User
 renovate:
   datasource: github-releases

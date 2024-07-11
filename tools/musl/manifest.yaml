@@ -13,7 +13,7 @@ tags:
 - category/development
 - lang/c
 - type/library
-homepage: https://git.musl-libc.org/cgit/musl
+repository: https://git.musl-libc.org/cgit/musl
 description: An implementation of the standard library for Linux-based systems
 messages:
   update: |

@@ -10,7 +10,7 @@ tags:
 - lang/go
 - type/cli
 - container/init
-homepage: https://gitlab.com/tozd/dinit
+repository: https://gitlab.com/tozd/dinit
 description: Specialized init for Docker containers
 renovate:
   datasource: gitlab-releases

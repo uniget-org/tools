@@ -9,7 +9,7 @@ tags:
 - category/development
 - lang/go
 - type/daemon
-homepage: https://github.com/tarampampam/webhook-tester
+repository: https://github.com/tarampampam/webhook-tester
 description: The powerful tool to test webhooks and not only
 renovate:
   datasource: github-releases

@@ -13,7 +13,7 @@ tags:
 - category/development
 - lang/dart
 - type/cli
-homepage: https://github.com/sass/dart-sass
+repository: https://github.com/sass/dart-sass
 description: Reference implementation of Sass
 renovate:
   datasource: github-releases

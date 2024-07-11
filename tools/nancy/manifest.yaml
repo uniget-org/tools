@@ -11,7 +11,7 @@ tags:
 - category/development
 - lang/go
 - type/cli
-homepage: https://github.com/sonatype-nexus-community/nancy
+repository: https://github.com/sonatype-nexus-community/nancy
 description: Check for vulnerabilities in your Golang dependencies
 renovate:
   datasource: github-releases

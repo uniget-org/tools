@@ -14,7 +14,7 @@ tags:
 - cicd
 - lang/go
 - type/cli
-homepage: https://github.com/goreleaser/goreleaser
+repository: https://github.com/goreleaser/goreleaser
 description: Deliver Go binaries as fast and easily as possible
 renovate:
   datasource: github-releases

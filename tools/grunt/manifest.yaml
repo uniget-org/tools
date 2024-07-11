@@ -15,7 +15,7 @@ tags:
 - lang/javascript
 - type/cli
 - state/stale
-homepage: https://github.com/gruntjs/grunt
+repository: https://github.com/gruntjs/grunt
 description: The JavaScript Task Runner
 renovate:
   datasource: npm

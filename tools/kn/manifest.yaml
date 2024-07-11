@@ -8,7 +8,7 @@ tags:
 - lang/go
 - kubernetes
 - k8s
-homepage: https://github.com/knative/client
+repository: https://github.com/knative/client
 description: Knative developer experience, docs, reference Knative CLI implementation
 renovate:
   datasource: github-releases

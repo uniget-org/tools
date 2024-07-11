@@ -20,7 +20,7 @@ tags:
 - type/daemon
 - container/runtime
 - lang/go
-homepage: https://github.com/containerd/containerd
+repository: https://github.com/containerd/containerd
 description: Open and reliable container runtime
 messages:
   internals: |

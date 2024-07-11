@@ -10,7 +10,7 @@ tags:
 - management
 - lang/go
 - category/operations
-homepage: https://github.com/cyberark/kubeletctl
+repository: https://github.com/cyberark/kubeletctl
 description: Client for kubelet
 renovate:
   datasource: github-releases

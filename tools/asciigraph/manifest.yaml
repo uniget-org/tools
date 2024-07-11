@@ -8,7 +8,7 @@ tags:
 - lang/go
 - graph
 - plot
-homepage: https://github.com/guptarohit/asciigraph
+repository: https://github.com/guptarohit/asciigraph
 description: Make lightweight ASCII line graph in command line apps
 renovate:
   datasource: github-releases

@@ -14,7 +14,7 @@ tags:
 - sbom
 - format/spdx
 - format/cyclonedx
-homepage: https://github.com/interlynk-io/sbomgr
+repository: https://github.com/interlynk-io/sbomgr
 description: SBOM Grep - search through SBOMs
 renovate:
   datasource: github-releases

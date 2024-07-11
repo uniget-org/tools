@@ -8,7 +8,7 @@ tags:
 - category/operations
 - type/cli
 - lang/rust
-homepage: https://github.com/imsnif/bandwhich
+repository: https://github.com/imsnif/bandwhich
 description: Terminal bandwidth utilization tool
 renovate:
   datasource: github-releases

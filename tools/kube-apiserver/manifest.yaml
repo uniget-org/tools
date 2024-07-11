@@ -14,7 +14,7 @@ tags:
 - kubernetes
 - k8s
 - lang/go
-homepage: https://github.com/kubernetes/kubernetes
+repository: https://github.com/kubernetes/kubernetes
 description: Kubernetes API server
 renovate:
   datasource: github-releases

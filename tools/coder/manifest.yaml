@@ -10,7 +10,7 @@ tags:
 - category/operations
 - lang/go
 - type/cli
-homepage: https://github.com/coder/coder
+repository: https://github.com/coder/coder
 description: Provision remote development environments via Terraform
 renovate:
   datasource: github-releases

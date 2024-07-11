@@ -10,7 +10,7 @@ tags:
 - category/operations
 - lang/go
 - type/cli
-homepage: https://github.com/charmbracelet/pop
+repository: https://github.com/charmbracelet/pop
 description: Send emails from your terminal
 renovate:
   datasource: github-releases

@@ -11,7 +11,7 @@ tags:
 - lang/rust
 - state/stale
 - state/onemanshow
-homepage: https://github.com/stephenc/envsub
+repository: https://github.com/stephenc/envsub
 description: alternative envsubst that allows for ${foo:-default} expansion too
 renovate:
   datasource: github-releases

@@ -15,7 +15,7 @@ tags:
 - management
 - k8s
 - lang/go
-homepage: https://github.com/kubernetes/kubernetes
+repository: https://github.com/kubernetes/kubernetes
 description: Run commands against Kubernetes clusters
 renovate:
   datasource: github-releases

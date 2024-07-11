@@ -11,7 +11,7 @@ tags:
 - cloud/aws
 - lang/go
 - docker
-homepage: https://github.com/awslabs/amazon-ecr-credential-helper
+repository: https://github.com/awslabs/amazon-ecr-credential-helper
 description: Automatically gets credentials for Amazon ECR on docker push/pull
 renovate:
   datasource: github-releases

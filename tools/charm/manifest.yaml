@@ -11,7 +11,7 @@ tags:
 - category/operations
 - lang/go
 - type/cli
-homepage: https://github.com/charmbracelet/charm
+repository: https://github.com/charmbracelet/charm
 description: Charm Tool and Library
 renovate:
   datasource: github-releases

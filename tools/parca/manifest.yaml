@@ -12,7 +12,7 @@ tags:
 - lang/go
 - lang/javascript
 - observability/metrics
-homepage: https://github.com/parca-dev/parca
+repository: https://github.com/parca-dev/parca
 description: Continuous profiling for analysis of CPU and memory usage, down to the line number and throughout time. Saving infrastructure cost, improving performance, and increasing reliability.
 renovate:
   datasource: github-releases

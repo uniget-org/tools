@@ -16,7 +16,7 @@ tags:
 - category/development
 - lang/javascript
 - type/cli
-homepage: https://github.com/devcontainers/cli
+repository: https://github.com/devcontainers/cli
 description: Reference implementation for the specification that can create and configure a dev container from a devcontainer.json
 renovate:
   datasource: npm

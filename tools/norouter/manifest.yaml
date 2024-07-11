@@ -7,7 +7,7 @@ tags:
 - type/cli
 - lang/go
 - state/stale
-homepage: https://github.com/norouter/norouter
+repository: https://github.com/norouter/norouter
 description: IP-over-Stdio
 renovate:
   datasource: github-releases

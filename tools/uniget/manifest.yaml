@@ -12,7 +12,7 @@ tags:
 - package
 - management
 - standard/oci
-homepage: https://github.com/uniget-org/cli
+repository: https://github.com/uniget-org/cli
 description: Universal installer and updater for (container) tools
 renovate:
   datasource: github-releases

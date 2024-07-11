@@ -15,7 +15,7 @@ tags:
 - category/development
 - lang/python
 - type/cli
-homepage: https://github.com/linkchecker/linkchecker
+repository: https://github.com/linkchecker/linkchecker
 description: Check links in web documents or full websites
 renovate:
   datasource: pypi

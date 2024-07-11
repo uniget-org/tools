@@ -9,7 +9,7 @@ tags:
 - k8s
 - lang/go
 - state/stale
-homepage: https://github.com/chanwit/ekz
+repository: https://github.com/chanwit/ekz
 description: EKS-D Kubernetes distribution for desktop
 renovate:
   datasource: github-releases

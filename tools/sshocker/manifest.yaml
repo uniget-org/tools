@@ -9,7 +9,7 @@ tags:
 - type/cli
 - lang/go
 - ssh
-homepage: https://github.com/lima-vm/sshocker
+repository: https://github.com/lima-vm/sshocker
 description: SSH + reverse sshfs + port forwarder in Docker-like CLI
 renovate:
   datasource: github-releases

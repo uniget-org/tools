@@ -16,7 +16,7 @@ tags:
 - graph
 - plot
 - standard/dot
-homepage: https://github.com/goccy/go-graphviz
+repository: https://github.com/goccy/go-graphviz
 description: Go bindings for Graphviz
 renovate:
   datasource: github-releases

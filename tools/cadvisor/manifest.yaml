@@ -11,7 +11,7 @@ tags:
 - lang/go
 - type/daemon
 - observability/metrics
-homepage: https://github.com/google/cadvisor
+repository: https://github.com/google/cadvisor
 description: Analyzes resource usage and performance characteristics of running containers
 renovate:
   datasource: github-releases

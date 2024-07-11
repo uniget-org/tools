@@ -10,7 +10,7 @@ tags:
 - category/development
 - lang/go
 - type/cli
-homepage: https://github.com/charmbracelet/gum
+repository: https://github.com/charmbracelet/gum
 description: Tool for glamorous shell scripts 🎀
 renovate:
   datasource: github-releases

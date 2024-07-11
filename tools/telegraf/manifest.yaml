@@ -10,7 +10,7 @@ tags:
 - category/monitoring
 - lang/go
 - type/cli
-homepage: https://github.com/influxdata/telegraf
+repository: https://github.com/influxdata/telegraf
 description: Plugin-driven server agent for collecting & reporting metrics
 renovate:
   datasource: github-releases

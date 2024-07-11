@@ -13,7 +13,7 @@ tags:
 - type/cli
 - kubernetes
 - k8s
-homepage: https://github.com/kubernetes-sigs/kwok
+repository: https://github.com/kubernetes-sigs/kwok
 description: Kubernetes WithOut Kubelet simulates thousands of nodes and clusters
 renovate:
   datasource: github-releases

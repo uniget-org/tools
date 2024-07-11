@@ -8,7 +8,7 @@ tags:
 - lang/go
 - kubernetes
 - k8s
-homepage: https://github.com/bitnami-labs/sealed-secrets
+repository: https://github.com/bitnami-labs/sealed-secrets
 description: Kubernetes controller and tool for one-way encrypted Secrets
 renovate:
   datasource: github-releases

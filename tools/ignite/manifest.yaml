@@ -14,7 +14,7 @@ tags:
 - lang/go
 - state/stale
 - state/deprecated
-homepage: https://github.com/weaveworks/ignite
+repository: https://github.com/weaveworks/ignite
 description: Ignite a Firecracker microVM
 renovate:
   datasource: github-releases

@@ -10,7 +10,7 @@ tags:
 - kernel/namespaces
 - type/cli
 - lang/c
-homepage: https://github.com/shadow-maint/shadow
+repository: https://github.com/shadow-maint/shadow
 description: Programs to help use subuids
 renovate:
   datasource: github-releases

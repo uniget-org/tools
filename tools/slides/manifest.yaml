@@ -9,7 +9,7 @@ tags:
 - presentation
 - lang/go
 - category/visualization
-homepage: https://github.com/maaslalani/slides
+repository: https://github.com/maaslalani/slides
 description: Terminal based presentation tool
 renovate:
   datasource: github-releases

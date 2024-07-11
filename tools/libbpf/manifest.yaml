@@ -13,7 +13,7 @@ tags:
 - category/development
 - lang/c
 - type/library
-homepage: https://github.com/libbpf/libbpf
+repository: https://github.com/libbpf/libbpf
 description: libbpf
 renovate:
   datasource: github-releases

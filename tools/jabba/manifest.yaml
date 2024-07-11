@@ -8,7 +8,7 @@ tags:
 - lang/go
 - version
 - management
-homepage: https://github.com/Jabba-Team/jabba
+repository: https://github.com/Jabba-Team/jabba
 description: Java Version Manager
 renovate:
   datasource: github-releases

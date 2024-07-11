@@ -12,7 +12,7 @@ tags:
 - kubernetes
 - k8s
 - state/stale
-homepage: https://github.com/pan-net-security/kcount
+repository: https://github.com/pan-net-security/kcount
 description: Count Kubernetes objects across namespaces and clusters
 renovate:
   datasource: github-releases

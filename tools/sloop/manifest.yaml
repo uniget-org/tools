@@ -14,7 +14,7 @@ tags:
 - lang/go
 - category/operations
 - state/stale
-homepage: https://github.com/salesforce/sloop
+repository: https://github.com/salesforce/sloop
 description: Kubernetes History Visualization
 renovate:
   datasource: github-releases

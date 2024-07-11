@@ -10,7 +10,7 @@ tags:
 - lang/go
 - type/cli
 - standard/s3
-homepage: https://github.com/minio/warp
+repository: https://github.com/minio/warp
 description: S3 benchmarking tool
 renovate:
   datasource: github-releases

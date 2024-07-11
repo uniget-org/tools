@@ -9,7 +9,7 @@ tags:
 - category/operations
 - lang/zig
 - type/cli
-homepage: https://dev.yorhel.nl/ncdu
+repository: https://dev.yorhel.nl/ncdu
 description: Disk usage analyzer with an ncurses interface
 renovate:
   datasource: git-tags

@@ -9,7 +9,7 @@ tags:
 - category/development
 - type/cli
 - lang/go
-homepage: https://github.com/boyter/scc
+repository: https://github.com/boyter/scc
 description: Sloc, Cloc and Code scc is a very fast accurate code counter with complexity calculations and COCOMO estimates written in pure Go
 renovate:
   datasource: github-releases

@@ -11,7 +11,7 @@ tags:
 - state/deprecated
 - standard/docker
 - docker
-homepage: https://github.com/weaveworks/footloose
+repository: https://github.com/weaveworks/footloose
 description: Containers that look like Virtual Machines
 renovate:
   datasource: github-releases

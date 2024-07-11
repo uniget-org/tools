@@ -15,7 +15,7 @@ tags:
 - category/operations
 - lang/javascript
 - type/cli
-homepage: https://github.com/microsoft/inshellisense
+repository: https://github.com/microsoft/inshellisense
 description: IDE style command line auto complete
 renovate:
   datasource: npm

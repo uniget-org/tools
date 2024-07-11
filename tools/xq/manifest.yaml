@@ -8,7 +8,7 @@ tags:
 - lang/go
 - format/xml
 - standard/xpath
-homepage: https://github.com/sibprogrammer/xq
+repository: https://github.com/sibprogrammer/xq
 description: Command-line XML and HTML beautifier and content extractor
 renovate:
   datasource: github-releases

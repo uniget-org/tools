@@ -9,7 +9,7 @@ tags:
 - kubernetes
 - lang/go
 - standard/compose
-homepage: https://github.com/kubernetes/kompose
+repository: https://github.com/kubernetes/kompose
 description: Go from Docker Compose to Kubernetes
 renovate:
   datasource: github-releases

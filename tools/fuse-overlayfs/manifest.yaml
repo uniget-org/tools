@@ -11,7 +11,7 @@ tags:
 - component/storage
 - containerd
 - lang/c
-homepage: https://github.com/containers/fuse-overlayfs
+repository: https://github.com/containers/fuse-overlayfs
 description: FUSE implementation for overlayfs
 renovate:
   datasource: github-releases

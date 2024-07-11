@@ -16,7 +16,7 @@ tags:
 - category/operations
 - type/cli
 - lang/c
-homepage: https://www.netfilter.org/projects/nftables/index.html
+repository: https://www.netfilter.org/projects/nftables/index.html
 description: nftables replaces the popular iptables, arptables, ebtables
 renovate:
   datasource: git-tags

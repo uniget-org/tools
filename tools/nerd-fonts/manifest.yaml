@@ -7,7 +7,7 @@ tags:
 - slides
 - presentation
 - fonts
-homepage: https://github.com/ryanoasis/nerd-fonts
+repository: https://github.com/ryanoasis/nerd-fonts
 description: Iconic font aggregator, collection, and patcher
 messages:
   update: |

@@ -10,7 +10,7 @@ tags:
 - category/development
 - lang/go
 - type/cli
-homepage: https://github.com/ko-build/ko
+repository: https://github.com/ko-build/ko
 description: Build and deploy Go applications
 renovate:
   datasource: github-releases

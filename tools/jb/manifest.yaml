@@ -10,7 +10,7 @@ tags:
 - format/json
 - state/stale
 - standard/jsonnet
-homepage: https://github.com/jsonnet-bundler/jsonnet-bundler
+repository: https://github.com/jsonnet-bundler/jsonnet-bundler
 description: Jsonnet package manager
 renovate:
   datasource: github-releases

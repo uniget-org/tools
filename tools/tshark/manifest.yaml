@@ -13,7 +13,7 @@ tags:
 - category/operations
 - lang/c
 - type/cli
-homepage: https://gitlab.com/wireshark/wireshark
+repository: https://gitlab.com/wireshark/wireshark
 description: Traffic analyzer or sniffer
 messages:
   internals: |

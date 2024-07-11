@@ -13,7 +13,7 @@ tags:
 - type/cli
 - vm
 - standard/hcl
-homepage: https://github.com/hashicorp/packer
+repository: https://github.com/hashicorp/packer
 description: Tool for creating identical machine images for multiple platforms from a single source configuration
 renovate:
   datasource: github-releases

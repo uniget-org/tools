@@ -7,7 +7,7 @@ tags:
 - terminal
 - lang/rust
 - terminal
-homepage: https://github.com/sharkdp/bat
+repository: https://github.com/sharkdp/bat
 description: cat(1) clone with wings
 renovate:
   datasource: github-releases

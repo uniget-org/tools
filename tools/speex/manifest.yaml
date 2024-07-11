@@ -13,7 +13,7 @@ tags:
 - category/development
 - lang/c
 - type/library
-homepage: https://gitlab.xiph.org/xiph/speex
+repository: https://gitlab.xiph.org/xiph/speex
 description: Speex voice codec
 renovate:
   datasource: gitlab-releases

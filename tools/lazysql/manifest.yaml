@@ -10,7 +10,7 @@ tags:
 - category/development
 - lang/go
 - type/cli
-homepage: https://github.com/jorgerojas26/lazysql
+repository: https://github.com/jorgerojas26/lazysql
 description: Cross-platform TUI database management tool
 renovate:
   datasource: github-releases

@@ -9,7 +9,7 @@ tags:
 - compression
 - lang/c
 - category/operations
-homepage: https://github.com/madler/pigz
+repository: https://github.com/madler/pigz
 description: Parallel implementation of gzip for modern multi-processor, multi-core machines
 renovate:
   datasource: github-tags

@@ -15,7 +15,7 @@ tags:
 - category/development
 - lang/python
 - cloud/google
-homepage: https://github.com/GoogleCloudPlatform/gsutil
+repository: https://github.com/GoogleCloudPlatform/gsutil
 description: CLI for interacting with cloud storage services
 renovate:
   datasource: pypi
