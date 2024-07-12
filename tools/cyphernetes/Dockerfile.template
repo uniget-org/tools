@@ -1,0 +1,19 @@
+#syntax=docker/dockerfile:1.8.1
+
+FROM ghcr.io/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN <<EOF
+check-github-release-asset "AvitalTamir/cyphernetes" "v${version}" "cyphernetes-linux-amd64"
+curl --silent --show-error --location --fail --output "${prefix}/bin/cyphernetes" \
+    "https://github.com/AvitalTamir/cyphernetes/releases/download/v0.6.4-fix.0/cyphernetes-linux-amd64"
+chmod +x "${prefix}/bin/cyphernetes"
+
+"${prefix}/bin/cyphernetes" completion bash >"${prefix}/share/bash-completion/completions/cyphernetes"
+"${prefix}/bin/cyphernetes" completion fish >"${prefix}/share/fish/vendor_completions.d/cyphernetes.fish"
+"${prefix}/bin/cyphernetes" completion zsh >"${prefix}/share/zsh/vendor-completions/_cyphernetes"
+EOF
