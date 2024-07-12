@@ -15,6 +15,7 @@ tags:
 - category/?
 - lang/?
 - type/?
+homepage: https://www.google.de
 repository: https://www.google.de
 description: Some description
 renovate:
