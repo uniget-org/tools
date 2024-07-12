@@ -1,0 +1,34 @@
+#syntax=docker/dockerfile:1.8.1
+
+FROM ghcr.io/uniget-org/tools/rust:latest AS rust
+
+FROM ghcr.io/uniget-org/images/build-essential:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+COPY --link --from=rust / /usr/local/
+RUN <<EOF
+apt-get update
+apt-get -y install --no-install-recommends \
+    libssl-dev
+EOF
+WORKDIR /tmp/github.com/flox/flox
+ARG name
+ARG version
+RUN <<EOF
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/flox/flox .
+cd cli
+export CARGO_HOME=/usr/local/cargo
+export RUSTUP_HOME=/usr/local/rustup
+export RUSTFLAGS='-C target-feature=+crt-static'
+cargo build --release --target "${arch}-unknown-linux-gnu"
+cp "target/${arch}-unknown-linux-gnu/release/flox" "${prefix}/bin/"
+EOF
+
+# completion
+#RUN <<EOF
+#"${prefix}/bin/foo" completion bash >"${prefix}/share/bash-completion/completions/foo"
+#"${prefix}/bin/foo" completion fish >"${prefix}/share/fish/vendor_completions.d/foo.fish"
+#"${prefix}/bin/foo" completion zsh >"${prefix}/share/zsh/vendor-completions/_foo"
+#EOF

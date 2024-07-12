@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: flox
+version: "1.2.0"
+check: ""
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- category/development
+- lang/rust
+- type/cli
+homepage: https://flox.dev/
+repository: https://github.com/flox/flox
+description: Developer environments you can take with you
+renovate:
+  datasource: github-releases
+  package: flox/flox
+  extractVersion: ^v(?<version>.+)$
+  priority: low
