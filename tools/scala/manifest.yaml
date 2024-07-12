@@ -9,7 +9,7 @@ tags:
 - category/development
 - lang/scala
 - type/cli
-homepage: https://github.com/scala/scala
+homepage: https://www.scala-lang.org/
 repository: https://github.com/scala/scala
 description: Compiler and standard library
 renovate:

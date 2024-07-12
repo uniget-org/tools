@@ -6,7 +6,7 @@ tags:
 - type/cli
 - category/security
 - lang/go
-homepage: https://github.com/in-toto/witness
+homepage: https://witness.dev
 repository: https://github.com/in-toto/witness
 description: Pluggable framework for software supply chain risk management
 renovate:

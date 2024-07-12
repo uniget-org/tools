@@ -6,7 +6,7 @@ tags:
 - category/security
 - type/cli
 - lang/go
-homepage: https://github.com/projectdiscovery/dnsx
+homepage: https://docs.projectdiscovery.io/tools/dnsx
 repository: https://github.com/projectdiscovery/dnsx
 description: dnsx is a fast and multi-purpose DNS toolkit allow to run multiple DNS queries of your choice with a list of user-supplied resolvers.
 renovate:

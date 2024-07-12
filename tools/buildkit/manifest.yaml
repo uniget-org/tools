@@ -17,7 +17,7 @@ tags:
 - spdx
 - standard/docker
 - docker
-homepage: https://github.com/moby/buildkit
+homepage: https://github.com/moby/moby/issues/34227
 repository: https://github.com/moby/buildkit
 description: Concurrent, cache-efficient, and Dockerfile-agnostic builder toolkit
 renovate:

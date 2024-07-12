@@ -10,7 +10,7 @@ tags:
 - category/development
 - lang/rust
 - type/cli
-homepage: https://github.com/brimdata/zed
+homepage: https://zed.brimdata.io/
 repository: https://github.com/brimdata/zed
 description: Novel data lake based on super-structured data
 renovate:

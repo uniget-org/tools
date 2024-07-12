@@ -16,7 +16,7 @@ tags:
 - type/daemon
 - rootless
 - lang/go
-homepage: https://github.com/rootless-containers/bypass4netns
+homepage: https://medium.com/nttlabs/accelerating-rootless-container-network-29d0e908dda4
 repository: https://github.com/rootless-containers/bypass4netns
 description: Accelerates slirp4netns using SECCOMP_IOCTL_NOTIF_ADDFD
 renovate:

@@ -11,7 +11,7 @@ tags:
 - package
 - management
 - lang/go
-homepage: https://github.com/replicatedhq/kots
+homepage: https://kots.io
 repository: https://github.com/replicatedhq/kots
 description: Framework, tools and integrations that enable the delivery and management of 3rd-party Kubernetes applications
 renovate:

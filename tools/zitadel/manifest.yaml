@@ -12,7 +12,7 @@ tags:
 - category/security
 - lang/go
 - type/daemon
-homepage: https://github.com/zitadel/zitadel
+homepage: https://zitadel.com
 repository: https://github.com/zitadel/zitadel
 description: Identity infrastructure, simplified for you
 renovate:

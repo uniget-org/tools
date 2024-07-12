@@ -10,7 +10,7 @@ tags:
 - category/operations
 - lang/go
 - type/daemon
-homepage: https://github.com/cockroachdb/cockroach
+homepage: https://www.cockroachlabs.com
 repository: https://github.com/cockroachdb/cockroach
 description: open source, cloud-native distributed SQL database
 renovate:

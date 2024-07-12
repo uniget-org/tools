@@ -10,7 +10,7 @@ tags:
 - certificate
 - lang/go
 - org/cloudflare
-homepage: https://github.com/cloudflare/cfssl
+homepage: https://cfssl.org/
 repository: https://github.com/cloudflare/cfssl
 description: Cloudflare's PKI and TLS toolkit
 renovate:

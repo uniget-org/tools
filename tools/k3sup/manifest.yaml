@@ -10,7 +10,7 @@ tags:
 - management
 - lang/go
 - ssh
-homepage: https://github.com/alexellis/k3sup
+homepage: https://github.com/sponsors/alexellis
 repository: https://github.com/alexellis/k3sup
 description: Bootstrap Kubernetes with k3s over SSH
 renovate:

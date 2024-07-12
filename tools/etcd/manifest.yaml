@@ -11,7 +11,7 @@ tags:
 - kubernetes
 - k8s
 - lang/go
-homepage: https://github.com/etcd-io/etcd
+homepage: https://etcd.io
 repository: https://github.com/etcd-io/etcd
 description: Distributed reliable key-value store
 renovate:

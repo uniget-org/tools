@@ -7,7 +7,7 @@ tags:
 - type/cli
 - lang/c
 - state/stale
-homepage: https://github.com/Yelp/dumb-init
+homepage: https://engineeringblog.yelp.com/2016/01/dumb-init-an-init-for-docker.html
 repository: https://github.com/Yelp/dumb-init
 description: Minimal init system for Linux containers
 renovate:

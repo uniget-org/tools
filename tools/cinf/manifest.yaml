@@ -9,7 +9,7 @@ tags:
 - lang/go
 - state/stale
 - component/kernel
-homepage: https://github.com/mhausenblas/cinf
+homepage: http://containerz.info
 repository: https://github.com/mhausenblas/cinf
 description: Command line tool to view namespaces and cgroups
 renovate:

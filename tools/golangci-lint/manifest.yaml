@@ -10,7 +10,7 @@ tags:
 - category/development
 - lang/go
 - type/cli
-homepage: https://github.com/golangci/golangci-lint
+homepage: https://golangci-lint.run
 repository: https://github.com/golangci/golangci-lint
 description: Fast linters Runner for Go
 renovate:

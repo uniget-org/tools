@@ -15,7 +15,7 @@ tags:
 - lang/rust
 - standard/docker
 - docker
-homepage: https://github.com/containers/youki
+homepage: https://containers.github.io/youki/
 repository: https://github.com/containers/youki
 description: Container runtime written in rust
 messages:

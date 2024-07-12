@@ -12,7 +12,7 @@ tags:
 - kubernetes
 - k8s
 - management
-homepage: https://github.com/rancher/rke2
+homepage: https://docs.rke2.io/
 repository: https://github.com/rancher/rke2
 description: Rancher's next-generation Kubernetes distribution
 renovate:

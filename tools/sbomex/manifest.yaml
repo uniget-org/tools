@@ -14,7 +14,7 @@ tags:
 - sbom
 - format/spdx
 - format/cyclonedx
-homepage: https://github.com/interlynk-io/sbomex
+homepage: https://sbombenchmark.dev/
 repository: https://github.com/interlynk-io/sbomex
 description: Find & pull public SBOMs
 renovate:

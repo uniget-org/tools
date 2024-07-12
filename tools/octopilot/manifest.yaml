@@ -9,7 +9,7 @@ tags:
 - category/development
 - lang/go
 - type/cli
-homepage: https://github.com/dailymotion-oss/octopilot
+homepage: https://dailymotion-oss.github.io/octopilot/
 repository: https://github.com/dailymotion-oss/octopilot
 description: Automate your Gitops workflow by automatically creating/merging GitHub Pull Requests
 renovate:

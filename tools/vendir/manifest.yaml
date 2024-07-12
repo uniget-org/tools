@@ -8,7 +8,7 @@ tags:
 - type/cli
 - cicd
 - lang/go
-homepage: https://github.com/carvel-dev/vendir
+homepage: https://carvel.dev/vendir
 repository: https://github.com/carvel-dev/vendir
 description: Easy way to vendor declaratively
 renovate:

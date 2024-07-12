@@ -9,7 +9,7 @@ tags:
 - format/csv
 - format/man
 - lang/haskell
-homepage: https://github.com/jgm/pandoc
+homepage: https://pandoc.org
 repository: https://github.com/jgm/pandoc
 description: Universal markup converter
 renovate:

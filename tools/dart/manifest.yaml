@@ -11,7 +11,7 @@ tags:
 - category/development
 - lang/dart
 - type/cli
-homepage: https://github.com/dart-lang/sdk
+homepage: https://dart.dev
 repository: https://github.com/dart-lang/sdk
 description: Dart SDK, including the VM, dart2js, core libraries, and more
 renovate:

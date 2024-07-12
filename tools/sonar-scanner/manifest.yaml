@@ -12,7 +12,7 @@ tags:
 - type/cli
 - category/development
 - lang/java
-homepage: https://github.com/SonarSource/sonar-scanner-cli
+homepage: http://redirect.sonarsource.com/doc/install-configure-scanner.html
 repository: https://github.com/SonarSource/sonar-scanner-cli
 description: Scanner CLI for SonarQube and SonarCloud
 renovate:

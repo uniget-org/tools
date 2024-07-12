@@ -13,7 +13,7 @@ tags:
 - lang/rust
 - type/cli
 - ide
-homepage: https://github.com/microsoft/vscode
+homepage: https://code.visualstudio.com
 repository: https://github.com/microsoft/vscode
 description: Some description
 renovate:

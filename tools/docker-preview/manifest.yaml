@@ -17,7 +17,7 @@ tags:
 - stability/prerelease
 - lang/go
 - docker
-homepage: https://www.docker.com/
+homepage: https://mobyproject.org/
 repository: https://www.docker.com/
 description: The Docker CLI
 messages:

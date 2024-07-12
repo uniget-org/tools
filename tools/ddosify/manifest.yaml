@@ -6,7 +6,7 @@ tags:
 - category/security
 - type/cli
 - lang/go
-homepage: https://github.com/ddosify/ddosify
+homepage: https://getanteon.com
 repository: https://github.com/ddosify/ddosify
 description: High-performance load testing tool
 renovate:

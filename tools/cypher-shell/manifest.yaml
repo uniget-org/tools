@@ -11,7 +11,7 @@ tags:
 - lang/java
 - type/cli
 - graphdb
-homepage: https://github.com/neo4j/neo4j
+homepage: http://neo4j.com
 repository: https://github.com/neo4j/neo4j
 description: Run queries and perform administrative tasks against a Neo4j instance
 renovate:

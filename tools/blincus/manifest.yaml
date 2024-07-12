@@ -12,7 +12,7 @@ tags:
 - category/operations
 - lang/shell
 - type/cli
-homepage: https://github.com/ublue-os/blincus
+homepage: https://blincus.dev
 repository: https://github.com/ublue-os/blincus
 description: Rapid Development Environments With Incus
 renovate:

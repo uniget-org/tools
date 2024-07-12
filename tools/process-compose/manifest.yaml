@@ -10,7 +10,7 @@ tags:
 - category/operations
 - lang/go
 - type/cli
-homepage: https://github.com/F1bonacc1/process-compose
+homepage: https://f1bonacc1.github.io/process-compose/
 repository: https://github.com/F1bonacc1/process-compose
 description: Simple and flexible scheduler and orchestrator to manage non-containerized applications
 renovate:

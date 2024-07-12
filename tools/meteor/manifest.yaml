@@ -10,7 +10,7 @@ tags:
 - category/development
 - lang/go
 - type/daemon
-homepage: https://github.com/raystack/meteor
+homepage: https://raystack.github.io/meteor/
 repository: https://github.com/raystack/meteor
 description: Easy-to-use, plugin-driven metadata collection framework to extract data from different sources and sink to any data catalog
 renovate:

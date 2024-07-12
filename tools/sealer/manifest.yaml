@@ -11,7 +11,7 @@ tags:
 - type/cli
 - kubernetes
 - k8s
-homepage: https://github.com/sealerio/sealer
+homepage: http://sealer.cool
 repository: https://github.com/sealerio/sealer
 description: Build, Share and Run Both Your Kubernetes Cluster and Distributed Applications
 renovate:

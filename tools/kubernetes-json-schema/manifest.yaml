@@ -13,7 +13,7 @@ tags:
 - type/library
 - format/json
 - category/operations
-homepage: https://github.com/yannh/kubernetes-json-schema
+homepage: https://kubernetes.io
 repository: https://github.com/yannh/kubernetes-json-schema
 description: JSON Schemas for every version of every object in every version of Kubernetes
 renovate:

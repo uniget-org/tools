@@ -12,7 +12,7 @@ tags:
 - troubleshooting
 - lang/go
 - docker
-homepage: https://github.com/moncho/dry
+homepage: http://moncho.github.io/dry/
 repository: https://github.com/moncho/dry
 description: Docker manager for the terminal
 renovate:

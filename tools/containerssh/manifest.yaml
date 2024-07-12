@@ -9,7 +9,7 @@ tags:
 - category/security
 - lang/go
 - ssh
-homepage: https://github.com/ContainerSSH/ContainerSSH
+homepage: https://containerssh.io/
 repository: https://github.com/ContainerSSH/ContainerSSH
 description: Launch containers on demand
 renovate:

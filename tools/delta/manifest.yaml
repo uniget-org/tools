@@ -9,7 +9,7 @@ tags:
 - lang/rust
 - type/cli
 - terminal
-homepage: https://github.com/dandavison/delta
+homepage: https://dandavison.github.io/delta/
 repository: https://github.com/dandavison/delta
 description: Syntax-highlighting pager for git, diff, and grep output
 renovate:

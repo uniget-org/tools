@@ -6,7 +6,7 @@ tags:
 - category/security
 - lang/go
 - type/cli
-homepage: https://github.com/theupdateframework/go-tuf
+homepage: https://theupdateframework.com
 repository: https://github.com/theupdateframework/go-tuf
 description: The Update Framework (TUF)
 renovate:

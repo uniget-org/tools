@@ -9,7 +9,7 @@ tags:
 - lang/go
 - package
 - manager
-homepage: https://github.com/aquaproj/aqua
+homepage: https://aquaproj.github.io
 repository: https://github.com/aquaproj/aqua
 description: Declarative CLI Version manager written in Go. Support Lazy Install, Registry, and continuous update with Renovate. CLI version is switched seamlessly
 renovate:

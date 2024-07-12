@@ -19,7 +19,7 @@ tags:
 - type/plugin
 - lang/go
 - docker
-homepage: https://github.com/docker/compose
+homepage: https://docs.docker.com/compose/
 repository: https://github.com/docker/compose
 description: Define and run multi-container applications with Docker (v2)
 renovate:

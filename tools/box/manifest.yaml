@@ -14,7 +14,7 @@ tags:
 - category/development
 - lang/php
 - type/cli
-homepage: https://github.com/box-project/box
+homepage: https://box-project.github.io/box
 repository: https://github.com/box-project/box
 description: Fast, zero config application bundler with PHARs
 renovate:

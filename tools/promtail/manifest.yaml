@@ -11,7 +11,7 @@ tags:
 - type/daemon
 - type/cli
 - observability/metrics
-homepage: https://github.com/grafana/loki
+homepage: https://grafana.com/loki
 repository: https://github.com/grafana/loki
 description: Agent which ships the contents of local logs to Grafana Loki
 renovate:

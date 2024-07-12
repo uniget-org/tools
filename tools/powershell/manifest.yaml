@@ -10,7 +10,7 @@ tags:
 - category/operations
 - lang/c
 - type/cli
-homepage: https://github.com/PowerShell/PowerShell
+homepage: https://microsoft.com/PowerShell
 repository: https://github.com/PowerShell/PowerShell
 description: PowerShell for every system
 renovate:

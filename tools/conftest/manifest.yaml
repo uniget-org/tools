@@ -6,7 +6,7 @@ tags:
 - type/cli
 - kubernetes
 - lang/go
-homepage: https://github.com/open-policy-agent/conftest
+homepage: https://conftest.dev
 repository: https://github.com/open-policy-agent/conftest
 description: Write tests against structured configuration data
 renovate:
