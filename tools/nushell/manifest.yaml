@@ -11,6 +11,7 @@ tags:
 - category/development
 - lang/rust
 - type/cli
+homepage: https://github.com/nushell/nushell
 repository: https://github.com/nushell/nushell
 description: New type of shell
 renovate:

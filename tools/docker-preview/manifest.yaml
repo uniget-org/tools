@@ -17,6 +17,7 @@ tags:
 - stability/prerelease
 - lang/go
 - docker
+homepage: https://www.docker.com/
 repository: https://www.docker.com/
 description: The Docker CLI
 messages:

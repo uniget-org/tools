@@ -18,6 +18,7 @@ tags:
 - standard/compose
 - standard/docker
 - docker
+homepage: https://github.com/composerize/composerize
 repository: https://github.com/composerize/composerize
 description: Turns docker run commands into docker-compose files
 renovate:

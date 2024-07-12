@@ -8,6 +8,7 @@ tags:
 - kubernetes
 - k8s
 - lang/go
+homepage: https://github.com/controlplaneio/kubesec
 repository: https://github.com/controlplaneio/kubesec
 description: Security risk analysis for Kubernetes resources
 renovate:

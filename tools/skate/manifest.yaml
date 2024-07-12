@@ -11,6 +11,7 @@ tags:
 - category/operations
 - lang/go
 - type/cli
+homepage: https://github.com/charmbracelet/skate
 repository: https://github.com/charmbracelet/skate
 description: Personal key value store
 renovate:

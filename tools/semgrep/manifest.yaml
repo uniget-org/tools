@@ -15,6 +15,7 @@ tags:
 - category/development
 - lang/python
 - type/cli
+homepage: https://github.com/semgrep/semgrep
 repository: https://github.com/semgrep/semgrep
 description: Lightweight static analysis for many languages
 renovate:

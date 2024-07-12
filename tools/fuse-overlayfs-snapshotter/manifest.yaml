@@ -12,6 +12,7 @@ tags:
 - component/storage
 - type/daemon
 - lang/go
+homepage: https://github.com/containerd/fuse-overlayfs-snapshotter
 repository: https://github.com/containerd/fuse-overlayfs-snapshotter
 description: fuse-overlayfs plugin for rootless containerd
 renovate:

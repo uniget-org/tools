@@ -10,6 +10,7 @@ tags:
 - lang/rust
 - type/cli
 - terminal
+homepage: https://github.com/sharkdp/fd
 repository: https://github.com/sharkdp/fd
 description: Simple, fast and user-friendly alternative to 'find'
 renovate:

@@ -6,6 +6,7 @@ tags:
 - type/cli
 - terminal
 - lang/go
+homepage: https://github.com/junegunn/fzf
 repository: https://github.com/junegunn/fzf
 description: Command-line fuzzy finder
 renovate:

@@ -13,6 +13,7 @@ tags:
 - category/development
 - lang/php
 - type/cli
+homepage: https://github.com/composer/composer
 repository: https://github.com/composer/composer
 description: Some description
 renovate:

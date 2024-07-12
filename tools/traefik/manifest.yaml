@@ -13,6 +13,7 @@ tags:
 - kubernetes
 - k8s
 - management
+homepage: https://github.com/traefik/traefik
 repository: https://github.com/traefik/traefik
 description: Cloud Native Application Proxy
 renovate:

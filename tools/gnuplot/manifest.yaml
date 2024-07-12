@@ -13,6 +13,7 @@ tags:
 - graph
 - plot
 - visualization
+homepage: http://www.gnuplot.info
 repository: http://www.gnuplot.info
 description: Command-driven, interactive function plotting
 renovate:

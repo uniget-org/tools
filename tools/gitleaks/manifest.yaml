@@ -7,6 +7,7 @@ tags:
 - category/security
 - lang/go
 - standard/git
+homepage: https://github.com/gitleaks/gitleaks
 repository: https://github.com/gitleaks/gitleaks
 description: Protect and discover secrets using Gitleaks
 renovate:

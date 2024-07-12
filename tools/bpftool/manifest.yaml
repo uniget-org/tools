@@ -10,6 +10,7 @@ tags:
 - category/development
 - lang/c
 - type/cli
+homepage: https://github.com/libbpf/bpftool
 repository: https://github.com/libbpf/bpftool
 description: bpftool
 renovate:

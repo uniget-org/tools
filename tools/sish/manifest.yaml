@@ -9,6 +9,7 @@ tags:
 - lang/go
 - component/network
 - ssh
+homepage: https://github.com/antoniomika/sish
 repository: https://github.com/antoniomika/sish
 description: HTTP(S)/WS(S)/TCP Tunnels to localhost using only SSH
 renovate:

@@ -11,6 +11,7 @@ tags:
 - lang/go
 - kubernetes
 - k8s
+homepage: https://github.com/ckotzbauer/sbom-operator
 repository: https://github.com/ckotzbauer/sbom-operator
 description: Catalogue all images of a Kubernetes cluster to multiple targets with Syft
 renovate:

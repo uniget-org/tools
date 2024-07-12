@@ -10,6 +10,7 @@ tags:
 - k8s
 - policy
 - management
+homepage: https://github.com/kyverno/kyverno
 repository: https://github.com/kyverno/kyverno
 description: Kubernetes Native Policy Management
 renovate:

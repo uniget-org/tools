@@ -8,6 +8,7 @@ tags:
 - slides
 - presentation
 - lang/haskell
+homepage: https://github.com/jaspervdj/patat
 repository: https://github.com/jaspervdj/patat
 description: Terminal-based presentations using Pandoc
 renovate:

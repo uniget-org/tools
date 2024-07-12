@@ -10,6 +10,7 @@ tags:
 - category/development
 - lang/go
 - type/cli
+homepage: https://github.com/buildpacks/pack
 repository: https://github.com/buildpacks/pack
 description: CLI for building apps using Cloud Native Buildpacks
 renovate:

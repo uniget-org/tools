@@ -14,6 +14,7 @@ tags:
 - k8s
 - management
 - lang/go
+homepage: https://github.com/kubernetes-sigs/krew
 repository: https://github.com/kubernetes-sigs/krew
 description: Find and install kubectl plugins
 renovate:

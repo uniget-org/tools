@@ -16,6 +16,7 @@ tags:
 - lang/go
 - state/stale
 - state/deprecated
+homepage: https://github.com/vmware-archive/buildkit-cli-for-kubectl
 repository: https://github.com/vmware-archive/buildkit-cli-for-kubectl
 description: Tool for building container images with your Kubernetes cluster
 renovate:

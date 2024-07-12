@@ -13,6 +13,7 @@ tags:
 - category/operations
 - lang/rust
 - type/cli
+homepage: https://github.com/bensadeh/tailspin
 repository: https://github.com/bensadeh/tailspin
 description: Log file highlighter
 renovate:

@@ -8,6 +8,7 @@ tags:
 - category/operations
 - type/cli
 - lang/rust
+homepage: https://github.com/Byron/dua-cli
 repository: https://github.com/Byron/dua-cli
 description: View disk space usage and delete unwanted data, fast.
 renovate:

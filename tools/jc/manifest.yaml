@@ -14,6 +14,7 @@ tags:
 - category/operations
 - lang/python
 - type/cli
+homepage: https://github.com/kellyjonbrazil/jc
 repository: https://github.com/kellyjonbrazil/jc
 description: converts the output of popular command-line tools, file-types, and common strings to JSON, YAML, or dictionaries
 renovate:

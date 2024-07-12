@@ -9,6 +9,7 @@ tags:
 - observability/metrics
 - state/stale
 - prometheus
+homepage: https://github.com/nalbury/promql-cli
 repository: https://github.com/nalbury/promql-cli
 description: Prometheus Query CLI
 renovate:

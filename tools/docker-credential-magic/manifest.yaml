@@ -11,6 +11,7 @@ tags:
 - lang/go
 - state/stale
 - docker
+homepage: https://github.com/docker-credential-magic/docker-credential-magic
 repository: https://github.com/docker-credential-magic/docker-credential-magic
 description: Magic shim for Docker credential helpers
 renovate:

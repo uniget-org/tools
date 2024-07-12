@@ -12,6 +12,7 @@ tags:
 - lang/go
 - state/stale
 - docker
+homepage: https://github.com/chrismellard/docker-credential-acr-env
 repository: https://github.com/chrismellard/docker-credential-acr-env
 description: Alternative to the existing file store based ACR helper
 renovate:

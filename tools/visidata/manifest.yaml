@@ -14,6 +14,7 @@ tags:
 - category/development
 - lang/python
 - type/tui
+homepage: https://github.com/saulpw/visidata
 repository: https://github.com/saulpw/visidata
 description: terminal spreadsheet multitool for discovering and arranging data
 renovate:

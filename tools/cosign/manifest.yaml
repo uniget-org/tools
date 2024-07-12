@@ -17,6 +17,7 @@ tags:
 - lang/go
 - org/chainguard
 - org/sigstore
+homepage: https://github.com/sigstore/cosign
 repository: https://github.com/sigstore/cosign
 description: Container Signing
 renovate:

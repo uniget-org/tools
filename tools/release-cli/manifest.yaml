@@ -13,6 +13,7 @@ tags:
 - type/cli
 - cloud/gitlab
 - standard/gitlab
+homepage: https://gitlab.com/gitlab-org/release-cli
 repository: https://gitlab.com/gitlab-org/release-cli
 description: CLI to interact with GitLab's Releases API
 renovate:

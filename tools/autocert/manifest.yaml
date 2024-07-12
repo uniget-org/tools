@@ -13,6 +13,7 @@ tags:
 - lang/go
 - kubernetes
 - k8s
+homepage: https://github.com/smallstep/autocert
 repository: https://github.com/smallstep/autocert
 description: Kubernetes add-on that automatically injects TLS/HTTPS certificates into your containers
 renovate:

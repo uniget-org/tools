@@ -11,6 +11,7 @@ tags:
 - category/development
 - lang/rust
 - type/cli
+homepage: https://github.com/fermyon/spin
 repository: https://github.com/fermyon/spin
 description: Open source developer tool for building and running serverless applications powered by WebAssembly
 renovate:

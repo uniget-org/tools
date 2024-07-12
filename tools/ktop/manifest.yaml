@@ -12,6 +12,7 @@ tags:
 - k8s
 - observability/metrics
 - state/stale
+homepage: https://github.com/vladimirvivien/ktop
 repository: https://github.com/vladimirvivien/ktop
 description: top-like tool for your Kubernetes clusters
 renovate:

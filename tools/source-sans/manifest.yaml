@@ -9,6 +9,7 @@ platforms:
 #- linux/arm64
 tags:
 - font
+homepage: https://github.com/adobe-fonts/source-sans
 repository: https://github.com/adobe-fonts/source-sans
 description: Sans serif font family for user interface environments
 renovate:

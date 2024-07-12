@@ -15,6 +15,7 @@ tags:
 - lang/python
 - type/cli
 - management
+homepage: https://github.com/pypa/pipx/
 repository: https://github.com/pypa/pipx/
 description: Install and Run Python Applications in Isolated Environments
 renovate:

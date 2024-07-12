@@ -15,6 +15,7 @@ tags:
 - lang/javascript
 - type/cli
 - type/daemon
+homepage: https://github.com/n8n-io/n8n
 repository: https://github.com/n8n-io/n8n
 description: Free and source-available fair-code licensed workflow automation tool. Easily automate tasks across different services
 renovate:

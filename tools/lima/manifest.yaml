@@ -13,6 +13,7 @@ tags:
 - vm
 - management
 - containerd
+homepage: https://github.com/lima-vm/lima
 repository: https://github.com/lima-vm/lima
 description: Linux virtual machines, typically on macOS, for running containerd
 renovate:

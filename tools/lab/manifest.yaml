@@ -9,6 +9,7 @@ tags:
 - lang/go
 - cloud/gitlab
 - state/stale
+homepage: https://github.com/zaquestion/lab
 repository: https://github.com/zaquestion/lab
 description: Wraps Git or Hub, making it simple to clone, fork, and interact with repositories on GitLab
 renovate:

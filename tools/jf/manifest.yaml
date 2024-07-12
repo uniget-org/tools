@@ -9,6 +9,7 @@ tags:
 - management
 - lang/go
 - cicd
+homepage: https://github.com/jfrog/jfrog-cli
 repository: https://github.com/jfrog/jfrog-cli
 description: Client that provides a simple interface that automates access to the JFrog products
 renovate:

@@ -11,6 +11,7 @@ tags:
 - category/operations
 - lang/go
 - type/cli
+homepage: https://github.com/charmbracelet/freeze
 repository: https://github.com/charmbracelet/freeze
 description: Generate images of code and terminal output
 renovate:

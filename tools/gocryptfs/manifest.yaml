@@ -8,6 +8,7 @@ tags:
 - type/cli
 - category/security
 - lang/go
+homepage: https://github.com/rfjakob/gocryptfs
 repository: https://github.com/rfjakob/gocryptfs
 description: Encrypted overlay filesystem written in Go
 renovate:

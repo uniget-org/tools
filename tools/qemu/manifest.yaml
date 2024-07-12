@@ -11,6 +11,7 @@ tags:
 - vm
 - emulation
 - lang/c
+homepage: https://github.com/qemu/qemu
 repository: https://github.com/qemu/qemu
 description: Generic and open source machine & userspace emulator and virtualizer
 renovate:

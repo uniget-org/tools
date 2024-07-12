@@ -20,6 +20,7 @@ tags:
 - standard/compose
 - container/compose
 - docker
+homepage: https://github.com/safe-waters/docker-lock
 repository: https://github.com/safe-waters/docker-lock
 description: Automatically manage image digests in Dockerfiles, docker-compose files, and Kubernetes manifests by tracking them in a separate Lockfile
 renovate:

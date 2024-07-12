@@ -12,6 +12,7 @@ tags:
 - kubernetes
 - k8s
 - wireguard
+homepage: https://github.com/squat/kilo
 repository: https://github.com/squat/kilo
 description: Kilo is a multi-cloud network overlay built on WireGuard and designed for Kubernetes
 renovate:

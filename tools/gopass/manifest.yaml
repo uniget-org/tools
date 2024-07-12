@@ -10,6 +10,7 @@ tags:
 - lang/go
 - type/cli
 - standard/pass
+homepage: https://github.com/gopasspw/gopass
 repository: https://github.com/gopasspw/gopass
 description: Slightly more awesome standard unix password manager for teams
 renovate:

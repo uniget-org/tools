@@ -11,6 +11,7 @@ tags:
 - lang/javascript
 - type/daemon
 - ide
+homepage: https://github.com/coder/code-server
 repository: https://github.com/coder/code-server
 description: VS Code in the browser
 renovate:

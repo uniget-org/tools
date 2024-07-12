@@ -17,6 +17,7 @@ tags:
 - category/operations
 - lang/javascript
 - type/cli
+homepage: https://githubnext.com/projects/copilot-cli/
 repository: https://githubnext.com/projects/copilot-cli/
 description: Translates natural language into shell commands
 renovate:

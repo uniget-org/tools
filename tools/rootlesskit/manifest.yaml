@@ -10,6 +10,7 @@ tags:
 - type/cli
 - rootless
 - lang/go
+homepage: https://github.com/rootless-containers/rootlesskit
 repository: https://github.com/rootless-containers/rootlesskit
 description: Linux-native "fake root" for implementing rootless containers
 renovate:

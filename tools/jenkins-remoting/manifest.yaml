@@ -13,6 +13,7 @@ tags:
 - lang/java
 - type/daemon
 - cicd
+homepage: https://github.com/jenkinsci/remoting
 repository: https://github.com/jenkinsci/remoting
 description: Jenkins Remoting module
 renovate:

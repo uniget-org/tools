@@ -16,6 +16,7 @@ tags:
 - type/cli
 - dependency
 - management
+homepage: https://github.com/yarnpkg/yarn
 repository: https://github.com/yarnpkg/yarn
 description: Fast, reliable, and secure dependency management
 renovate:

@@ -8,6 +8,7 @@ tags:
 - cicd
 - lang/go
 - make
+homepage: https://github.com/go-task/task
 repository: https://github.com/go-task/task
 description: Task runner and simpler Make alternative written in Go
 renovate:

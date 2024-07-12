@@ -19,6 +19,7 @@ tags:
 - gitlab
 - standard/docker
 - docker
+homepage: https://gitlab.com/AdrianDC/gitlabci-local
 repository: https://gitlab.com/AdrianDC/gitlabci-local
 description: Launch .gitlab-ci.yml jobs locally
 renovate:

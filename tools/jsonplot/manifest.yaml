@@ -18,6 +18,7 @@ tags:
 - format/json
 - plot
 - graph
+homepage: https://github.com/sgreben/jp
 repository: https://github.com/sgreben/jp
 description: Dead simple terminal plots from JSON data
 renovate:

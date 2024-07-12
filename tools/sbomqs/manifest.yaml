@@ -14,6 +14,7 @@ tags:
 - sbom
 - format/spdx
 - format/cyclonedx
+homepage: https://github.com/interlynk-io/sbomqs
 repository: https://github.com/interlynk-io/sbomqs
 description: SBOM quality score - Quality metrics for your sboms
 renovate:

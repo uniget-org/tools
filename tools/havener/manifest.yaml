@@ -8,6 +8,7 @@ tags:
 - management
 - lang/go
 - monitoring
+homepage: https://github.com/homeport/havener
 repository: https://github.com/homeport/havener
 description: Think of it as a swiss army knife for Kubernetes tasks
 renovate:

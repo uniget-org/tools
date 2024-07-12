@@ -9,6 +9,7 @@ tags:
 - category/development
 - lang/java
 - type/cli
+homepage: https://github.com/structurizr/cli
 repository: https://github.com/structurizr/cli
 description: CLI for Structurizr
 renovate:

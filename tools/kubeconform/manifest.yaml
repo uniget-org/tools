@@ -10,6 +10,7 @@ tags:
 - lang/go
 - kubernetes
 - k8s
+homepage: https://github.com/yannh/kubeconform
 repository: https://github.com/yannh/kubeconform
 description: Kubernetes manifests validator, with support for Custom Resources!
 renovate:

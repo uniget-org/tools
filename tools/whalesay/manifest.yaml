@@ -12,5 +12,6 @@ tags:
 - category/operations
 - lang/go
 - type/cli
+homepage: https://github.com/docker/whalesay
 repository: https://github.com/docker/whalesay
 description: Docker's official whalesay

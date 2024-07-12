@@ -11,6 +11,7 @@ tags:
 - category/development
 - lang/c
 - type/cli
+homepage: https://www.gnu.org/software/make/
 repository: https://www.gnu.org/software/make/
 description: Tool which controls the generation of executables and other non-source files
 renovate:

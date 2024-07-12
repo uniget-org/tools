@@ -11,6 +11,7 @@ tags:
 - category/monitoring
 - lang/go
 - type/daemon
+homepage: https://github.com/grafana/agent
 repository: https://github.com/grafana/agent
 description: Telemetry agent for the LGTM stack
 renovate:

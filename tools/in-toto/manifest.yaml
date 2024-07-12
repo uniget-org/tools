@@ -10,6 +10,7 @@ tags:
 - category/security
 - sbom
 - lang/go
+homepage: https://github.com/in-toto/in-toto-golang
 repository: https://github.com/in-toto/in-toto-golang
 description: Framework to protect software supply chain integrity
 renovate:

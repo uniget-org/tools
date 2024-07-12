@@ -13,6 +13,7 @@ tags:
 - category/development
 - lang/javascript
 - type/cli
+homepage: https://github.com/nrwl/nx
 repository: https://github.com/nrwl/nx
 description: Smart, Fast and Extensible Build System
 renovate:

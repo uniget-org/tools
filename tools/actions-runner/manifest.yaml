@@ -10,6 +10,7 @@ tags:
 - type/daemon
 - cicd
 - cloud/azure
+homepage: https://github.com/actions/runner
 repository: https://github.com/actions/runner
 description: Runner for GitHub Actions
 renovate:

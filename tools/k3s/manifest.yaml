@@ -13,6 +13,7 @@ tags:
 - k8s
 - lang/go
 - k3s
+homepage: https://github.com/k3s-io/k3s
 repository: https://github.com/k3s-io/k3s
 description: Lightweight Kubernetes
 renovate:

@@ -13,6 +13,7 @@ tags:
 - kubernetes
 - k8s
 - troubleshooting
+homepage: https://github.com/vmware-tanzu/sonobuoy
 repository: https://github.com/vmware-tanzu/sonobuoy
 description: Sonobuoy is a diagnostic tool that makes it easier to understand the state of a Kubernetes cluster
 renovate:

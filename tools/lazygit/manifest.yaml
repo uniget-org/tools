@@ -9,6 +9,7 @@ tags:
 - lang/go
 - standard/git
 - git
+homepage: https://github.com/jesseduffield/lazygit
 repository: https://github.com/jesseduffield/lazygit
 description: Simple terminal UI for git commands
 renovate:

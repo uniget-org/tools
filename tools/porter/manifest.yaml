@@ -8,6 +8,7 @@ tags:
 - lang/go
 - cnab
 - category/operations
+homepage: https://github.com/getporter/porter
 repository: https://github.com/getporter/porter
 description: Package your application artifact, client tools, configuration and deployment logic
 messages:

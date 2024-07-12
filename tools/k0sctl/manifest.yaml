@@ -13,6 +13,7 @@ tags:
 - kubernetes
 - k8s
 - management
+homepage: https://github.com/k0sproject/k0sctl
 repository: https://github.com/k0sproject/k0sctl
 description: Bootstrapping and management tool for k0s clusters
 renovate:

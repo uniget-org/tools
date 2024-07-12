@@ -10,6 +10,7 @@ tags:
 - cicd
 - lang/c
 - state/stale
+homepage: https://github.com/stevegrubb/tasker
 repository: https://github.com/stevegrubb/tasker
 description: Parallelizes tasks from a list on stdin
 renovate:

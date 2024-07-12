@@ -13,5 +13,6 @@ tags:
 - password
 - management
 - standard/pass
+homepage: https://github.com/FiloSottile/passage
 repository: https://github.com/FiloSottile/passage
 description: Fork of password-store that uses age as backend

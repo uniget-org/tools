@@ -13,6 +13,7 @@ tags:
 - type/cli
 - terminal
 - state/deprecated
+homepage: https://github.com/a-j-wood/pv
 repository: https://github.com/a-j-wood/pv
 description: Monitor the progress of data through a pipe
 renovate:

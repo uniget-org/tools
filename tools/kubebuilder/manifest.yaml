@@ -13,6 +13,7 @@ tags:
 - type/cli
 - kubernetes
 - k8s
+homepage: https://github.com/kubernetes-sigs/kubebuilder
 repository: https://github.com/kubernetes-sigs/kubebuilder
 description: SDK for building Kubernetes APIs using CRDs
 renovate:

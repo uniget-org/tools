@@ -10,6 +10,7 @@ tags:
 - type/cli
 - lang/c
 - category/operations
+homepage: https://github.com/rd235/nsutils
 repository: https://github.com/rd235/nsutils
 description: Linux namespace utilities
 renovate:

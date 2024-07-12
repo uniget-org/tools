@@ -9,6 +9,7 @@ tags:
 - type/cli
 - lang/go
 - troubleshooting
+homepage: https://github.com/iximiuz/cdebug
 repository: https://github.com/iximiuz/cdebug
 description: cdebug - a swiss army knife of container debugging
 renovate:

@@ -7,6 +7,7 @@ tags:
 - org/redhat
 - type/configuration
 - state/stale
+homepage: https://github.com/containers/shortnames
 repository: https://github.com/containers/shortnames
 description: Collecting registry alias names for shortnames to fully specified container image names
 renovate:

@@ -11,6 +11,7 @@ tags:
 - container/compose
 - type/cli
 - lang/go
+homepage: https://github.com/mutagen-io/mutagen-compose
 repository: https://github.com/mutagen-io/mutagen-compose
 description: Compose with Mutagen integration
 renovate:
