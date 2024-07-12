@@ -8,7 +8,7 @@ tags:
 - lang/c
 - standard/git
 - git
-homepage: https://github.com/jonas/tig
+homepage: https://jonas.github.io/tig/
 repository: https://github.com/jonas/tig
 description: Text-mode interface for git
 renovate:

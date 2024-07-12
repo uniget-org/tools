@@ -16,7 +16,7 @@ tags:
 - format/csv
 - format/yaml
 - format/toml
-homepage: https://github.com/johnkerl/miller
+homepage: https://miller.readthedocs.io
 repository: https://github.com/johnkerl/miller
 description: Like awk, sed, cut, join, and sort for name-indexed data such as CSV, TSV, and tabular JSON
 renovate:

@@ -9,7 +9,7 @@ tags:
 - lang/rust
 - state/stale
 - component/network
-homepage: https://github.com/agrinman/tunnelto
+homepage: https://tunnelto.dev
 repository: https://github.com/agrinman/tunnelto
 description: Expose your local web server to the internet with a public URL
 renovate:

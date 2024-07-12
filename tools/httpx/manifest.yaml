@@ -7,7 +7,7 @@ tags:
 - type/cli
 - component/network
 - lang/go
-homepage: https://github.com/projectdiscovery/httpx
+homepage: https://docs.projectdiscovery.io/tools/httpx
 repository: https://github.com/projectdiscovery/httpx
 description: Fast and multi-purpose HTTP toolkit that allows running multiple probes using the retryablehttp library
 renovate:

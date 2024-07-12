@@ -11,9 +11,9 @@ tags:
 - lang/go
 - type/cli
 - certificate
-homepage: https://github.com/go-acme/lego
+homepage: https://go-acme.github.io/lego/
 repository: https://github.com/go-acme/lego
-description: Let's Encrypt/ACME client and library written in Go 
+description: Let's Encrypt/ACME client and library written in Go
 renovate:
   datasource: github-releases
   package: go-acme/lego

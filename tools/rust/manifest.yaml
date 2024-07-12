@@ -10,7 +10,7 @@ tags:
 - type/cli
 - category/development
 - lang/rust
-homepage: https://github.com/rust-lang/rust
+homepage: https://www.rust-lang.org
 repository: https://github.com/rust-lang/rust
 description: Empowering everyone to build reliable and efficient software
 renovate:

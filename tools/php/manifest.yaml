@@ -9,7 +9,7 @@ tags:
 - category/development
 - lang/c
 - type/cli
-homepage: https://github.com/php/php-src
+homepage: https://www.php.net
 repository: https://github.com/php/php-src
 description: PHP Interpreter
 renovate:

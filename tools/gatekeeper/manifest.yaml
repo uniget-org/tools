@@ -9,7 +9,7 @@ tags:
 - kubernetes
 - k8s
 - lang/go
-homepage: https://github.com/open-policy-agent/gatekeeper
+homepage: https://open-policy-agent.github.io/gatekeeper/
 repository: https://github.com/open-policy-agent/gatekeeper
 description: Policy Controller for Kubernetes
 renovate:

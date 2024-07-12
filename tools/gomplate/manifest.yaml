@@ -10,7 +10,7 @@ tags:
 - category/development
 - lang/go
 - type/cli
-homepage: https://github.com/hairyhenderson/gomplate
+homepage: https://gomplate.ca
 repository: https://github.com/hairyhenderson/gomplate
 description: flexible commandline tool for template rendering
 renovate:

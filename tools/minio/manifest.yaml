@@ -10,7 +10,7 @@ tags:
 - lang/go
 - type/daemon
 - standard/s3
-homepage: https://github.com/minio/minio
+homepage: https://min.io/download
 repository: https://github.com/minio/minio
 description: Multi-Cloud ☁️ Object Storage
 renovate:

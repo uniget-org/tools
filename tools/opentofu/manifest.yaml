@@ -13,7 +13,7 @@ tags:
 - lang/go
 - type/cli
 - standard/hcl
-homepage: https://github.com/opentofu/opentofu
+homepage: https://opentofu.org
 repository: https://github.com/opentofu/opentofu
 description: Declaratively manage your cloud infrastructure
 renovate:

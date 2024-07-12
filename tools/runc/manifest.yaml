@@ -14,7 +14,7 @@ tags:
 - container/runtime
 - type/cli
 - lang/go
-homepage: https://github.com/opencontainers/runc
+homepage: https://www.opencontainers.org/
 repository: https://github.com/opencontainers/runc
 description: CLI tool for spawning and running containers according to the OCI specification
 renovate:

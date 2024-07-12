@@ -11,7 +11,7 @@ tags:
 - category/operations
 - lang/c
 - type/cli
-homepage: https://github.com/ktock/container2wasm
+homepage: https://ktock.github.io/container2wasm-demo/
 repository: https://github.com/ktock/container2wasm
 description: Container to WASM converter
 renovate:

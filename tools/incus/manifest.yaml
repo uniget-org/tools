@@ -11,7 +11,7 @@ tags:
 - category/operations
 - lang/go
 - type/cli
-homepage: https://github.com/lxc/incus
+homepage: https://linuxcontainers.org/incus
 repository: https://github.com/lxc/incus
 description: Powerful system container and virtual machine manager
 renovate:

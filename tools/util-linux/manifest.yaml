@@ -8,7 +8,7 @@ tags:
 - type/cli
 - lang/c
 - category/operations
-homepage: https://github.com/util-linux/util-linux
+homepage: http://en.wikipedia.org/wiki/Util-linux
 repository: https://github.com/util-linux/util-linux
 description: Tools for managing namespaces
 renovate:

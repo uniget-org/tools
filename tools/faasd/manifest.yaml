@@ -9,7 +9,7 @@ tags:
 - category/serverless
 - type/daemon
 - lang/go
-homepage: https://github.com/openfaas/faasd
+homepage: https://store.openfaas.com/l/serverless-for-everyone-else
 repository: https://github.com/openfaas/faasd
 description: Lightweight & portable faas engine
 renovate:

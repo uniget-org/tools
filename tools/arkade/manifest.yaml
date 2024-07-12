@@ -12,7 +12,7 @@ tags:
 - package
 - management
 - lang/go
-homepage: https://github.com/alexellis/arkade
+homepage: https://blog.alexellis.io/kubernetes-marketplace-two-year-update/
 repository: https://github.com/alexellis/arkade
 description: Open Source Marketplace For Kubernetes
 renovate:

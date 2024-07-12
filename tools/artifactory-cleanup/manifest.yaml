@@ -9,7 +9,7 @@ tags:
 - lang/go
 - state/deprecated
 - state/stale
-homepage: https://github.com/crazy-max/artifactory-cleanup
+homepage: https://crazymax.dev/artifactory-cleanup/
 repository: https://github.com/crazy-max/artifactory-cleanup
 description: Cleanup artifacts on Jfrog Artifactory with advanced settings
 renovate:

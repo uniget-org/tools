@@ -11,7 +11,7 @@ tags:
 - type/daemon
 - management
 - lang/go
-homepage: https://github.com/containrrr/watchtower
+homepage: https://containrrr.dev/watchtower/
 repository: https://github.com/containrrr/watchtower
 description: Process for automating Docker container base image updates
 renovate:

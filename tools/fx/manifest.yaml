@@ -6,7 +6,7 @@ tags:
 - type/cli
 - format/json
 - lang/go
-homepage: https://github.com/antonmedv/fx
+homepage: https://fx.wtf
 repository: https://github.com/antonmedv/fx
 description: Terminal JSON viewer
 renovate:

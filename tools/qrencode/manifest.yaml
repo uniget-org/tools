@@ -12,7 +12,7 @@ tags:
 - category/development
 - lang/c
 - type/cli
-homepage: https://github.com/fukuchi/libqrencode
+homepage: https://fukuchi.org/works/qrencode/
 repository: https://github.com/fukuchi/libqrencode
 description: Fast and compact QR Code encoding library
 renovate:

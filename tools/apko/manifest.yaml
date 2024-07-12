@@ -19,7 +19,7 @@ tags:
 - alpine
 - container/image
 - standard/oci
-homepage: https://github.com/chainguard-dev/apko
+homepage: https://apko.dev
 repository: https://github.com/chainguard-dev/apko
 description: Build OCI images using APK directly without Dockerfile
 renovate:

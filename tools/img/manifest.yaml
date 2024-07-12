@@ -9,7 +9,7 @@ tags:
 - lang/go
 - state/stale
 - standard/docker
-homepage: https://github.com/genuinetools/img
+homepage: https://blog.jessfraz.com/post/building-container-images-securely-on-kubernetes/
 repository: https://github.com/genuinetools/img
 description: Standalone, daemon-less, unprivileged Dockerfile and OCI compatible container image builder
 renovate:

@@ -8,7 +8,7 @@ tags:
 - lang/go
 - k8s
 - category/operations
-homepage: https://github.com/zegl/kube-score
+homepage: https://kube-score.com
 repository: https://github.com/zegl/kube-score
 description: Kubernetes object analysis with recommendations for improved reliability and security
 renovate:

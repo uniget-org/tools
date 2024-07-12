@@ -10,7 +10,7 @@ tags:
 - category/security
 - lang/go
 - type/cli
-homepage: https://github.com/stacklok/minder
+homepage: https://minder-docs.stacklok.dev/
 repository: https://github.com/stacklok/minder
 description: Secure Software Supply Chain Platform
 renovate:

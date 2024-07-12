@@ -10,7 +10,7 @@ tags:
 - category/monitoring
 - lang/go
 - type/daemon
-homepage: https://github.com/influxdata/influxdb
+homepage: https://influxdata.com
 repository: https://github.com/influxdata/influxdb
 description: Scalable datastore for metrics, events, and real-time analytics
 renovate:

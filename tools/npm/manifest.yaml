@@ -14,7 +14,7 @@ tags:
 - category/development
 - lang/javascript
 - type/cli
-homepage: https://github.com/npm/cli
+homepage: https://docs.npmjs.com/cli/
 repository: https://github.com/npm/cli
 description: Node Package Manager
 renovate:

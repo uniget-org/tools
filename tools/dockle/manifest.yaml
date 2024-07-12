@@ -8,7 +8,7 @@ tags:
 - lang/go
 - standard/docker
 - cicd
-homepage: https://github.com/goodwithtech/dockle
+homepage: https://containers.goodwith.tech/
 repository: https://github.com/goodwithtech/dockle
 description: Container Image Linter for Security, Helping build the Best-Practice Docker Image, Easy to start
 renovate:

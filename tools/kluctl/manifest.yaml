@@ -9,7 +9,7 @@ tags:
 - lang/go
 - kubernetes
 - k8s
-homepage: https://github.com/kluctl/kluctl
+homepage: https://kluctl.io
 repository: https://github.com/kluctl/kluctl
 description: Missing glue to put together large Kubernetes deployments, composed of multiple smaller parts in a manageable and unified way
 renovate:

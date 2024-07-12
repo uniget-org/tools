@@ -13,7 +13,7 @@ tags:
 - format/markdown
 - slides
 - presentation
-homepage: https://github.com/mfontanini/presenterm
+homepage: https://mfontanini.github.io/presenterm/
 repository: https://github.com/mfontanini/presenterm
 description: Markdown terminal slideshow tool
 renovate:

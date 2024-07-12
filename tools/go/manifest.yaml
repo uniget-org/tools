@@ -9,7 +9,7 @@ tags:
 - type/cli
 - category/development
 - lang/go
-homepage: https://github.com/golang/go
+homepage: https://go.dev
 repository: https://github.com/golang/go
 description: Go programming language
 renovate:

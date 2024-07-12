@@ -8,7 +8,7 @@ tags:
 - tunneling
 - lang/go
 - org/cloudflare
-homepage: https://github.com/cloudflare/cloudflared
+homepage: https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/tunnel-guide
 repository: https://github.com/cloudflare/cloudflared
 description: Cloudflare Tunnel client (formerly Argo Tunnel)
 renovate:

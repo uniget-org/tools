@@ -10,7 +10,7 @@ tags:
 - category/operations
 - lang/c
 - type/daemon
-homepage: https://github.com/trapexit/mergerfs
+homepage: http://spawn.link
 repository: https://github.com/trapexit/mergerfs
 description: Featureful union filesystem
 renovate:

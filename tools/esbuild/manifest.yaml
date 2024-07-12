@@ -10,7 +10,7 @@ tags:
 - category/development
 - lang/javascript
 - type/cli
-homepage: https://github.com/evanw/esbuild
+homepage: https://esbuild.github.io/
 repository: https://github.com/evanw/esbuild
 description: Extremely fast bundler for the web
 renovate:

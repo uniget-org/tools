@@ -10,7 +10,7 @@ tags:
 - category/development
 - lang/php
 - type/cli
-homepage: https://github.com/crazywhalecc/static-php-cli
+homepage: https://static-php.dev
 repository: https://github.com/crazywhalecc/static-php-cli
 description: Build standalone PHP binary with popular extensions included
 renovate:

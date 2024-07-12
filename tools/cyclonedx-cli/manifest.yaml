@@ -11,7 +11,7 @@ tags:
 - lang/csharp
 - cyclonedx
 - org/cyclonedx
-homepage: https://github.com/CycloneDX/cyclonedx-cli
+homepage: https://cyclonedx.org/
 repository: https://github.com/CycloneDX/cyclonedx-cli
 description: CycloneDX CLI tool for SBOM analysis, merging, diffs and format conversions
 renovate:

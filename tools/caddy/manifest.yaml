@@ -10,9 +10,9 @@ tags:
 - category/operations
 - lang/go
 - type/daemon
-homepage: https://github.com/caddyserver/caddy
+homepage: https://caddyserver.com
 repository: https://github.com/caddyserver/caddy
-description: Fast and extensible multi-platform HTTP/1-2-3 web server with automatic HTTPS 
+description: Fast and extensible multi-platform HTTP/1-2-3 web server with automatic HTTPS
 renovate:
   datasource: github-releases
   package: caddyserver/caddy

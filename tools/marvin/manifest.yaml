@@ -12,7 +12,7 @@ tags:
 - type/cli
 - kubernetes
 - k8s
-homepage: https://github.com/undistro/marvin
+homepage: https://undistro.io/marvin/
 repository: https://github.com/undistro/marvin
 description: CLI tool that scans a k8s cluster by performing CEL expressions to report potential issues, misconfigurations and vulnerabilities
 renovate:

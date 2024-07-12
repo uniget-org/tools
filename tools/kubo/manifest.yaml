@@ -13,7 +13,7 @@ tags:
 - containerd
 - lang/go
 - category/operations
-homepage: https://github.com/ipfs/kubo
+homepage: https://docs.ipfs.tech/how-to/command-line-quick-start/
 repository: https://github.com/ipfs/kubo
 description: IPFS implementation in Go
 renovate:

@@ -9,7 +9,7 @@ tags:
 - state/stale
 - state/deprecated
 - cnab
-homepage: https://github.com/cnabio/duffle
+homepage: https://duffle.sh
 repository: https://github.com/cnabio/duffle
 description: CNAB installer
 renovate:

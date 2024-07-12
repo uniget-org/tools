@@ -14,7 +14,7 @@ tags:
 - management
 - lang/go
 - helm
-homepage: https://github.com/helm/helm
+homepage: https://helm.sh
 repository: https://github.com/helm/helm
 description: The Kubernetes Package Manager
 renovate:

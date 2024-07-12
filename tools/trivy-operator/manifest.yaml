@@ -11,7 +11,7 @@ tags:
 - lang/go
 - kubernetes
 - k8s
-homepage: https://github.com/aquasecurity/trivy-operator
+homepage: https://aquasecurity.github.io/trivy-operator/latest
 repository: https://github.com/aquasecurity/trivy-operator
 description: Kubernetes-native security toolkit
 renovate:

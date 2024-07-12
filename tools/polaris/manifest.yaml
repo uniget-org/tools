@@ -8,7 +8,7 @@ tags:
 - k8s
 - lang/go
 - category/operations
-homepage: https://github.com/FairwindsOps/polaris
+homepage: https://www.fairwinds.com/polaris
 repository: https://github.com/FairwindsOps/polaris
 description: Validation of best practices in your Kubernetes clusters
 renovate:

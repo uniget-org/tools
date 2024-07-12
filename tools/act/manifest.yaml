@@ -13,7 +13,7 @@ tags:
 - cloud/github
 - standard/github
 - docker
-homepage: https://github.com/nektos/act
+homepage: https://nektosact.com
 repository: https://github.com/nektos/act
 description: Run your GitHub Actions locally
 renovate:

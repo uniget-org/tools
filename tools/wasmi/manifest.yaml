@@ -14,7 +14,7 @@ tags:
 - type/cli
 - webassembly
 - wasm
-homepage: https://github.com/wasmi-labs/wasmi
+homepage: https://wasmi-labs.github.io/wasmi/
 repository: https://github.com/wasmi-labs/wasmi
 description: WebAssembly (Wasm) interpreter
 renovate:
