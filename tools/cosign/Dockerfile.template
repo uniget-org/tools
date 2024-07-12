@@ -1,4 +1,4 @@
-#syntax=docker/dockerfile:1.8.1
+#syntax=docker/dockerfile:1.9.0@sha256:fe40cf4e92cd0c467be2cfc30657a680ae2398318afd50b0c80585784c604f28
 
 FROM ghcr.io/uniget-org/images/ubuntu:24.04@sha256:178a01206383923b589ecfe3bace55431c4b8528086909ffcdc1ef88de4da10f AS cosign-bootstrap
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
