@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: daytona
+version: "0.21.3"
+check: ""
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/cli
+- type/daemon
+homepage: https://daytona.io/
+repository: https://github.com/daytonaio/daytona
+description: Open Source Dev Environment Manager
+renovate:
+  datasource: github-releases
+  package: daytonaio/daytona
+  extractVersion: ^v(?<version>.+)$
+  priority: low
