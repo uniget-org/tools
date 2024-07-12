@@ -1,0 +1,15 @@
+#syntax=docker/dockerfile:1.8.1
+
+FROM ghcr.io/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN <<EOF
+check-download "https://download.daytona.io/daytona/v${version}/daytona-linux-${alt_arch}"
+curl --silent --show-error --location --fail --output "${prefix}/bin/daytona" \
+    "https://download.daytona.io/daytona/v${version}/daytona-linux-${alt_arch}"
+chmod +x "${prefix}/bin/daytona"
+EOF
