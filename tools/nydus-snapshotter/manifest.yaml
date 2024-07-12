@@ -15,6 +15,7 @@ tags:
 - lang/go
 - type/plugin
 # https://nydus.dev
+homepage: https://github.com/containerd/nydus-snapshotter
 repository: https://github.com/containerd/nydus-snapshotter
 description: containerd snapshotter with data deduplication and lazy loading in P2P fashion
 renovate:

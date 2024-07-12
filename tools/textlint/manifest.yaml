@@ -15,6 +15,7 @@ tags:
 - category/development
 - lang/javascript
 - type/cli
+homepage: https://github.com/textlint/textlint
 repository: https://github.com/textlint/textlint
 description: Pluggable natural language linter for text and markdown
 renovate:

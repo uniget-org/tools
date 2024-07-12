@@ -12,6 +12,7 @@ tags:
 - category/development
 - lang/rust
 - type/tui
+homepage: https://github.com/YS-L/csvlens
 repository: https://github.com/YS-L/csvlens
 description: Command line csv viewer
 renovate:

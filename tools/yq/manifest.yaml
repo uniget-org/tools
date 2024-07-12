@@ -13,6 +13,7 @@ tags:
 - format/yaml
 - format/xml
 - format/csv
+homepage: https://github.com/mikefarah/yq
 repository: https://github.com/mikefarah/yq
 description: Portable command-line YAML, JSON, XML, CSV and properties processor
 renovate:

@@ -12,6 +12,7 @@ tags:
 - state/stale
 - standard/docker
 - docker
+homepage: https://github.com/hadolint/hadolint
 repository: https://github.com/hadolint/hadolint
 description: Dockerfile linter, validate inline bash
 renovate:

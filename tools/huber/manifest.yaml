@@ -11,6 +11,7 @@ tags:
 - package
 - management
 - state/stale
+homepage: https://github.com/innobead/huber
 repository: https://github.com/innobead/huber
 description: Package Manager for GitHub repos
 messages:

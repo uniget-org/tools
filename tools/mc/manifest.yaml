@@ -11,6 +11,7 @@ tags:
 - lang/go
 - type/cli
 - standard/s3
+homepage: https://github.com/minio/mc
 repository: https://github.com/minio/mc
 description: Simple | Fast tool to manage MinIO clusters ☁️
 renovate:

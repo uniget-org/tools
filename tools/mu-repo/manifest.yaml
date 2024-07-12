@@ -17,6 +17,7 @@ tags:
 - lang/python
 - type/cli
 - management
+homepage: https://github.com/fabioz/mu-repo/
 repository: https://github.com/fabioz/mu-repo/
 description: Help in dealing with multiple git repositories
 renovate:

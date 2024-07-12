@@ -19,6 +19,7 @@ tags:
 - container/build
 - spdx
 - docker
+homepage: https://github.com/docker/buildx
 repository: https://github.com/docker/buildx
 description: Docker CLI plugin for extended build capabilities with BuildKit
 messages:

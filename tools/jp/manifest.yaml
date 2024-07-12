@@ -9,6 +9,7 @@ tags:
 - format/json
 - state/stale
 - standard/jmespath
+homepage: https://github.com/jmespath/jp
 repository: https://github.com/jmespath/jp
 description: Command line interface to JMESPath
 renovate:

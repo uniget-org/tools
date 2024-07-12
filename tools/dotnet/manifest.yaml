@@ -10,6 +10,7 @@ tags:
 - category/development
 - lang/c
 - type/cli
+homepage: https://github.com/dotnet/sdk
 repository: https://github.com/dotnet/sdk
 description: Core functionality needed to create .NET Core projects
 renovate:

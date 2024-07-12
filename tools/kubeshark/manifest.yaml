@@ -8,6 +8,7 @@ tags:
 - lang/go
 - kubernetes
 - k8s
+homepage: https://github.com/kubeshark/kubeshark
 repository: https://github.com/kubeshark/kubeshark
 description: API traffic viewer for Kubernetes providing deep visibility into all API traffic and payloads going in, out and across containers and pods inside a Kubernetes cluster. Think TCPDump and Wireshark re-invented for Kubernetes
 renovate:

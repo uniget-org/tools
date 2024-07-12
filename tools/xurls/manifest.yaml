@@ -9,6 +9,7 @@ tags:
 - category/development
 - lang/go
 - type/cli
+homepage: https://github.com/mvdan/xurls
 repository: https://github.com/mvdan/xurls
 description: Extract urls from text
 renovate:

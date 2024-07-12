@@ -9,6 +9,7 @@ tags:
 - category/security
 - lang/go
 - type/cli
+homepage: https://github.com/securego/gosec
 repository: https://github.com/securego/gosec
 description: Golang security checker
 renovate:

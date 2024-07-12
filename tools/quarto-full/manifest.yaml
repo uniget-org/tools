@@ -13,6 +13,7 @@ tags:
 - category/development
 - lang/javascript
 - type/cli
+homepage: https://github.com/quarto-dev/quarto-cli
 repository: https://github.com/quarto-dev/quarto-cli
 description: Open-source scientific and technical publishing system built on Pandoc
 renovate:

@@ -13,6 +13,7 @@ tags:
 - type/daemon
 - container/sign
 - lang/go
+homepage: https://github.com/sigstore/rekor
 repository: https://github.com/sigstore/rekor
 description: Software Supply Chain Transparency Log
 renovate:

@@ -13,6 +13,7 @@ tags:
 - category/development
 - lang/go
 - type/cli
+homepage: https://github.com/ohler55/ojg
 repository: https://github.com/ohler55/ojg
 description: Optimized JSON for Go
 renovate:

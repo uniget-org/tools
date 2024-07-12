@@ -11,6 +11,7 @@ tags:
 - k8s
 - management
 - lang/go
+homepage: https://github.com/derailed/k9s
 repository: https://github.com/derailed/k9s
 description: CLI To Manage Your Clusters In Style
 renovate:

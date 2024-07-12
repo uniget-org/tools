@@ -17,6 +17,7 @@ messages:
     Please provide the following libraries:
     - libssl.so.1.1
     - libcrypto.so.1.1
+homepage: https://github.com/deislabs/wagi
 repository: https://github.com/deislabs/wagi
 description: Write HTTP handlers in WebAssembly with a minimal amount of work
 renovate:

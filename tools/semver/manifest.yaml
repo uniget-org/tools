@@ -8,6 +8,7 @@ tags:
 - cicd
 - lang/shell
 - state/stale
+homepage: https://github.com/fsaintjacques/semver-tool
 repository: https://github.com/fsaintjacques/semver-tool
 description: Semver bash implementation
 renovate:

@@ -12,6 +12,7 @@ tags:
 - type/cli
 - cicd
 - lang/java
+homepage: https://github.com/apache/maven
 repository: https://github.com/apache/maven
 description: Apache Maven
 renovate:

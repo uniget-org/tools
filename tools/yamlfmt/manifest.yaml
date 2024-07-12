@@ -12,6 +12,7 @@ tags:
 - lang/go
 - type/cli
 - format/yaml
+homepage: https://github.com/google/yamlfmt
 repository: https://github.com/google/yamlfmt
 description: Extensible command line tool or library to format yaml files
 renovate:

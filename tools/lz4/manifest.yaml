@@ -14,6 +14,7 @@ tags:
 - type/cli
 - type/library
 - compression
+homepage: https://github.com/lz4/lz4
 repository: https://github.com/lz4/lz4
 description: Extremely Fast Compression algorithm
 renovate:

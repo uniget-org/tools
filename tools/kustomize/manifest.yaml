@@ -14,6 +14,7 @@ tags:
 - templating
 - management
 - lang/go
+homepage: https://github.com/kubernetes-sigs/kustomize
 repository: https://github.com/kubernetes-sigs/kustomize
 description: Customization of kubernetes YAML configurations
 renovate:

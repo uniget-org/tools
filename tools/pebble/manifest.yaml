@@ -11,6 +11,7 @@ tags:
 - category/operations
 - lang/go
 - type/cli
+homepage: https://github.com/canonical/pebble
 repository: https://github.com/canonical/pebble
 description: Take control of your internal daemons
 renovate:

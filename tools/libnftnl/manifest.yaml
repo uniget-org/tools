@@ -16,6 +16,7 @@ tags:
 - category/operations
 - lang/c
 - type/library
+homepage: https://www.netfilter.org/projects/libnftnl/index.html
 repository: https://www.netfilter.org/projects/libnftnl/index.html
 description: Userspace library providing a low-level netlink programming interface to the in-kernel nf_tables subsystem
 renovate:

@@ -11,6 +11,7 @@ tags:
 - category/security
 - lang/go
 - standard/spiffe
+homepage: https://github.com/spiffe/spire
 repository: https://github.com/spiffe/spire
 description: SPIFFE Runtime Environment
 renovate:

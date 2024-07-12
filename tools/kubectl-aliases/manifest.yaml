@@ -11,5 +11,6 @@ tags:
 - type/cli
 - kubernetes
 - k8s
+homepage: https://github.com/ahmetb/kubectl-aliases
 repository: https://github.com/ahmetb/kubectl-aliases
 description: Programmatically generated handy kubectl aliases

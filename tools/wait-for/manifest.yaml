@@ -7,6 +7,7 @@ tags:
 - lang/go
 - type/cli
 - state/stale
+homepage: https://github.com/dnnrly/wait-for
 repository: https://github.com/dnnrly/wait-for
 description: Super simple tool to help with orchestration of commands on the CLI by waiting on networking resources
 renovate:

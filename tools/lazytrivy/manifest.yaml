@@ -10,6 +10,7 @@ tags:
 - lang/go
 - type/tui
 - state/stale
+homepage: https://github.com/owenrumney/lazytrivy
 repository: https://github.com/owenrumney/lazytrivy
 description: Vulnerability scanning just got lazier
 renovate:

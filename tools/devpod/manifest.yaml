@@ -9,6 +9,7 @@ tags:
 - category/development
 - lang/go
 - type/cli
+homepage: https://github.com/loft-sh/devpod
 repository: https://github.com/loft-sh/devpod
 description: Client-only tool to create developer environments based on a devcontainer.json on any backend
 renovate:

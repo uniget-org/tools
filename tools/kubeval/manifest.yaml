@@ -11,6 +11,7 @@ tags:
 - k8s
 - lang/go
 - state/stale
+homepage: https://github.com/instrumenta/kubeval
 repository: https://github.com/instrumenta/kubeval
 description: Validate your Kubernetes configuration files
 renovate:

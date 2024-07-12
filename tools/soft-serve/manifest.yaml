@@ -12,6 +12,7 @@ tags:
 - category/operations
 - lang/go
 - type/cli
+homepage: https://github.com/charmbracelet/soft-serve
 repository: https://github.com/charmbracelet/soft-serve
 description: Mighty, self-hostable Git server for the command line
 renovate:

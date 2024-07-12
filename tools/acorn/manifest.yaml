@@ -13,6 +13,7 @@ tags:
 - kubernetes
 - k8s
 - state/deprecated
+homepage: https://github.com/acorn-io/runtime
 repository: https://github.com/acorn-io/runtime
 description: Simple application deployment framework built on Kubernetes
 renovate:

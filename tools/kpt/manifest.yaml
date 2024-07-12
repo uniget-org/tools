@@ -11,6 +11,7 @@ tags:
 - type/cli
 - kubernetes
 - k8s
+homepage: https://github.com/kptdev/kpt
 repository: https://github.com/kptdev/kpt
 description: Automate Kubernetes Configuration Editing
 renovate:

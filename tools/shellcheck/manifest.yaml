@@ -8,6 +8,7 @@ tags:
 - type/cli
 - category/development
 - lang/haskell
+homepage: https://github.com/koalaman/shellcheck
 repository: https://github.com/koalaman/shellcheck
 description: Static analysis tool for shell scripts
 renovate:

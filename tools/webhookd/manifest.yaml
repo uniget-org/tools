@@ -6,6 +6,7 @@ tags:
 - category/development
 - type/daemon
 - lang/go
+homepage: https://github.com/ncarlier/webhookd
 repository: https://github.com/ncarlier/webhookd
 description: Very simple webhook server launching shell scripts
 renovate:

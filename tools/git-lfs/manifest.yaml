@@ -12,6 +12,7 @@ tags:
 - type/cli
 - standard/git
 - git
+homepage: https://github.com/git-lfs/git-lfs
 repository: https://github.com/git-lfs/git-lfs
 description: Git extension for versioning large files
 renovate:

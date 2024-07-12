@@ -13,6 +13,7 @@ tags:
 - type/tui
 - rootless
 - lang/go
+homepage: https://github.com/containers/podman-tui
 repository: https://github.com/containers/podman-tui
 description: Podman Terminal UI
 renovate:

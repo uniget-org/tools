@@ -13,6 +13,7 @@ tags:
 - lang/c
 - type/cli
 - ebpf
+homepage: https://github.com/aquasecurity/tracee
 repository: https://github.com/aquasecurity/tracee
 description: Linux Runtime Security and Forensics using eBPF
 renovate:

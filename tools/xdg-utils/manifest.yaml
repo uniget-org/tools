@@ -11,6 +11,7 @@ tags:
 - state/stale
 - type/cli
 - category/terminal
+homepage: https://www.freedesktop.org/wiki/Software/xdg-utils/
 repository: https://www.freedesktop.org/wiki/Software/xdg-utils/
 description: Desktop integration utilities
 renovate:

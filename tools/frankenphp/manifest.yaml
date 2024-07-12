@@ -10,6 +10,7 @@ tags:
 - category/development
 - lang/go
 - type/daemon
+homepage: https://github.com/dunglas/frankenphp
 repository: https://github.com/dunglas/frankenphp
 description: Modern PHP app server
 renovate:

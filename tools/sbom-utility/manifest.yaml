@@ -11,6 +11,7 @@ tags:
 - lang/go
 - type/cli
 - sbom
+homepage: https://github.com/CycloneDX/sbom-utility
 repository: https://github.com/CycloneDX/sbom-utility
 description: Provides an API platform for validating, querying, updating and managing standardized SBOMs
 renovate:

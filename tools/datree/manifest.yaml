@@ -11,6 +11,7 @@ tags:
 - k8s
 - cicd
 - lang/go
+homepage: https://github.com/datreeio/datree
 repository: https://github.com/datreeio/datree
 description: Prevent Kubernetes misconfigurations from reaching production
 renovate:

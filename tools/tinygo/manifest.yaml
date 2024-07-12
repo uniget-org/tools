@@ -9,6 +9,7 @@ tags:
 - category/development
 - lang/go
 - type/cli
+homepage: https://github.com/tinygo-org/tinygo
 repository: https://github.com/tinygo-org/tinygo
 description: Go compiler for small places
 renovate:

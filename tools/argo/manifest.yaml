@@ -10,6 +10,7 @@ tags:
 - lang/go
 - kubernetes
 - k8s
+homepage: https://github.com/argoproj/argo-workflows
 repository: https://github.com/argoproj/argo-workflows
 description: Workflow engine for Kubernetes
 renovate:

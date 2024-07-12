@@ -13,6 +13,7 @@ tags:
 - standard/oci
 - category/operations
 - state/stale
+homepage: https://github.com/stefanprodan/kustomizer
 repository: https://github.com/stefanprodan/kustomizer
 description: Experimental package manager for distributing Kubernetes configuration as OCI artifacts
 renovate:

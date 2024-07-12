@@ -9,6 +9,7 @@ tags:
 - category/security
 - lang/go
 - type/cli
+homepage: https://github.com/oligot/go-mod-upgrade
 repository: https://github.com/oligot/go-mod-upgrade
 description: Update outdated Go dependencies interactively
 renovate:

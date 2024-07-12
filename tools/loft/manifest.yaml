@@ -8,6 +8,7 @@ tags:
 - k8s
 - management
 - lang/go
+homepage: https://github.com/loft-sh/loft
 repository: https://github.com/loft-sh/loft
 description: Namespace & Virtual Cluster Manager for Kubernetes
 renovate:

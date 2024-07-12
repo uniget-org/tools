@@ -6,6 +6,7 @@ tags:
 - category/security
 - type/daemon
 - lang/go
+homepage: https://github.com/falcosecurity/falcosidekick
 repository: https://github.com/falcosecurity/falcosidekick
 description: Connect Falco to your ecosystem
 renovate:

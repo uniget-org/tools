@@ -10,6 +10,7 @@ tags:
 - kubernetes
 - k8s
 - gitops
+homepage: https://github.com/argoproj/argo-cd
 repository: https://github.com/argoproj/argo-cd
 description: Declarative continuous deployment for Kubernetes
 renovate:

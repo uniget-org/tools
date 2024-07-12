@@ -12,6 +12,7 @@ tags:
 - type/daemon
 - kubernetes
 - k8s
+homepage: https://github.com/iximiuz/kexp
 repository: https://github.com/iximiuz/kexp
 description: Kubernetes Explorer
 renovate:

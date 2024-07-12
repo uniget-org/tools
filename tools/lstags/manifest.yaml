@@ -12,6 +12,7 @@ tags:
 - container/image
 - container/registry
 - state/stale
+homepage: https://github.com/ivanilves/lstags
 repository: https://github.com/ivanilves/lstags
 description: Explore Docker registries and manipulate Docker images
 renovate:

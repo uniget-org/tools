@@ -8,6 +8,7 @@ tags:
 - lang/go
 - kubernetes
 - k8s
+homepage: https://github.com/getoutreach/localizer
 repository: https://github.com/getoutreach/localizer
 description: No-frills local development tool for service developers working in Kubernetes
 renovate:

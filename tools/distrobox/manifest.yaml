@@ -10,6 +10,7 @@ tags:
 - category/development
 - lang/shell
 - type/cli
+homepage: https://github.com/89luca89/distrobox
 repository: https://github.com/89luca89/distrobox
 description: Use any linux distribution inside your terminal
 renovate:

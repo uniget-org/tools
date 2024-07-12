@@ -7,6 +7,7 @@ tags:
 - type/cli
 - lang/c
 - kernel/namespaces
+homepage: https://github.com/netblue30/firejail
 repository: https://github.com/netblue30/firejail
 description: Linux namespaces and seccomp-bpf sandbox
 renovate:

@@ -9,6 +9,7 @@ tags:
 - category/development
 - lang/c
 - type/cli
+homepage: https://github.com/upx/upx
 repository: https://github.com/upx/upx
 description: The Ultimate Packer for eXecutables
 renovate:

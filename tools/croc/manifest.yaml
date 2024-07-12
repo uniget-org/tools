@@ -10,6 +10,7 @@ tags:
 - lang/go
 - type/cli
 - type/daemon
+homepage: https://github.com/schollz/croc
 repository: https://github.com/schollz/croc
 description: Easily and securely send things from one computer to another
 renovate:

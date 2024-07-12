@@ -13,6 +13,7 @@ tags:
 - capi
 - kubernetes
 - k8s
+homepage: https://github.com/kubernetes-sigs/cluster-api
 repository: https://github.com/kubernetes-sigs/cluster-api
 description: Home for Cluster API
 renovate:

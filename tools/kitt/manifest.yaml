@@ -17,6 +17,7 @@ tags:
 - type/cli
 - state/stale
 - state/onemanshow
+homepage: https://github.com/senges/kitt
 repository: https://github.com/senges/kitt
 description: Container based portable shell environment
 renovate:

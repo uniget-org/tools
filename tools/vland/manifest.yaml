@@ -15,6 +15,7 @@ tags:
 - management
 - state/stale
 - state/onemanshow
+homepage: https://github.com/parke/vland
 repository: https://github.com/parke/vland
 description: Virtual userland manager for lxroot
 renovate:

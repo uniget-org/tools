@@ -12,6 +12,7 @@ tags:
 - standard/oci
 - standard/docker
 - docker
+homepage: https://github.com/nginx-proxy/docker-gen
 repository: https://github.com/nginx-proxy/docker-gen
 description: Generate files from docker container meta-data
 renovate:

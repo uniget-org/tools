@@ -7,6 +7,7 @@ tags:
 - component/network
 - rootless
 - lang/c
+homepage: https://github.com/rootless-containers/slirp4netns
 repository: https://github.com/rootless-containers/slirp4netns
 description: User-mode networking for unprivileged network namespaces
 renovate:

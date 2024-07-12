@@ -13,6 +13,7 @@ tags:
 - type/cli
 - standard/docker
 - docker
+homepage: https://docs.docker.com/desktop/
 repository: https://docs.docker.com/desktop/
 description: Get a shell into any container or image
 message:

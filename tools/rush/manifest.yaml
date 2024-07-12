@@ -10,6 +10,7 @@ tags:
 - category/development
 - lang/go
 - type/cli
+homepage: https://github.com/shenwei356/rush
 repository: https://github.com/shenwei356/rush
 description: Cross-platform command-line tool for executing jobs in parallel
 renovate:

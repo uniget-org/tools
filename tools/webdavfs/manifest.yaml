@@ -13,6 +13,7 @@ tags:
 - category/operations
 - lang/go
 - type/cli
+homepage: https://github.com/miquels/webdavfs
 repository: https://github.com/miquels/webdavfs
 description: Linux / OSX FUSE webdav filesystem
 renovate:

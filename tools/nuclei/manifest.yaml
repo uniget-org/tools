@@ -12,6 +12,7 @@ tags:
 - category/security
 - lang/go
 - type/cli
+homepage: https://github.com/projectdiscovery/nuclei
 repository: https://github.com/projectdiscovery/nuclei
 description: Fast and customizable vulnerability scanner based on simple YAML based DSL
 renovate:

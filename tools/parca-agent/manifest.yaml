@@ -10,6 +10,7 @@ tags:
 - type/daemon
 - lang/go
 - observability/metrics
+homepage: https://github.com/parca-dev/parca-agent
 repository: https://github.com/parca-dev/parca-agent
 description: eBPF based always-on profiler auto-discovering targets in Kubernetes and systemd, zero code changes or restarts needed!
 renovate:

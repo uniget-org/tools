@@ -14,6 +14,7 @@ tags:
 - kubernetes
 - k8s
 - lang/go
+homepage: https://github.com/kubernetes/kubernetes
 repository: https://github.com/kubernetes/kubernetes
 description: Kubernetes primary node agent that runs on each node
 renovate:

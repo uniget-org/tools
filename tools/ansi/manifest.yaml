@@ -8,6 +8,7 @@ tags:
 - lang/shell
 - state/stale
 - bash
+homepage: https://github.com/fidian/ansi
 repository: https://github.com/fidian/ansi
 description: ANSI escape codes in pure bash
 renovate:

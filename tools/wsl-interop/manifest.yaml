@@ -9,6 +9,7 @@ platforms:
 - linux/arm64
 tags:
 - wsl
+homepage: https://github.com/microsoft/WSL/issues/8843
 repository: https://github.com/microsoft/WSL/issues/8843
 description: Workaround for WSL interop issue
 messages:

@@ -12,6 +12,7 @@ tags:
 - category/operations
 - lang/go
 - type/plugin
+homepage: https://github.com/awslabs/soci-snapshotter
 repository: https://github.com/awslabs/soci-snapshotter
 description: Some description
 renovate:

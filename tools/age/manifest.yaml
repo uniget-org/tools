@@ -11,6 +11,7 @@ tags:
 - lang/go
 - encryption
 - state/stale
+homepage: https://github.com/FiloSottile/age
 repository: https://github.com/FiloSottile/age
 description: Simple, modern and secure encryption tool
 renovate:

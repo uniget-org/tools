@@ -17,6 +17,7 @@ tags:
 - category/monitoring
 - observability/metrics
 - prometheus
+homepage: https://github.com/prometheus/prometheus/tree/main/cmd%2Fpromtool
 repository: https://github.com/prometheus/prometheus/tree/main/cmd%2Fpromtool
 description: Tooling for the Prometheus monitoring system
 renovate:

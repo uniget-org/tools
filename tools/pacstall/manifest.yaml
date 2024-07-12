@@ -10,6 +10,7 @@ tags:
 - category/operations
 - lang/shell
 - type/cli
+homepage: https://github.com/pacstall/pacstall
 repository: https://github.com/pacstall/pacstall
 description: An AUR-inspired package manager for Ubuntu
 messages:

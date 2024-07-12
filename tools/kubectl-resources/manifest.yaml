@@ -15,6 +15,7 @@ tags:
 - k8s
 - category/operations
 - observability/metrics
+homepage: https://github.com/howardjohn/kubectl-resources
 repository: https://github.com/howardjohn/kubectl-resources
 description: Access Kubernetes resource requests, limits, and usage
 renovate:

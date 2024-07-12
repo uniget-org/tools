@@ -13,6 +13,7 @@ tags:
 - type/plugin
 - lang/go
 - standard/cni
+homepage: https://github.com/containernetworking/plugins
 repository: https://github.com/containernetworking/plugins
 description: Some reference and example networking plugins
 renovate:

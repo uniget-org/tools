@@ -10,6 +10,7 @@ tags:
 - category/development
 - lang/go
 - type/cli
+homepage: https://github.com/reproducible-containers/diffoci
 repository: https://github.com/reproducible-containers/diffoci
 description: Some description
 renovate:

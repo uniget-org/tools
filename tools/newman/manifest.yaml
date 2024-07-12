@@ -14,6 +14,7 @@ tags:
 - category/development
 - lang/javascript
 - type/cli
+homepage: https://github.com/postmanlabs/newman
 repository: https://github.com/postmanlabs/newman
 description: The JavaScript Task Runner
 renovate:

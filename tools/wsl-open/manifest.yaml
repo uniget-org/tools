@@ -8,6 +8,7 @@ tags:
 - state/stale
 - type/cli
 - category/terminal
+homepage: https://github.com/4U6U57/wsl-open
 repository: https://github.com/4U6U57/wsl-open
 description: Open files with xdg-open on Bash for Windows in Windows applications
 renovate:

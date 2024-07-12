@@ -13,6 +13,7 @@ tags:
 - diagram
 - format/markdown
 - state/stale
+homepage: https://github.com/yuzutech/kroki-cli
 repository: https://github.com/yuzutech/kroki-cli
 description: Kroki CLI
 renovate:

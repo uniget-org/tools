@@ -8,6 +8,7 @@ tags:
 - type/cli
 - container/init
 - lang/c
+homepage: https://github.com/openSUSE/catatonit
 repository: https://github.com/openSUSE/catatonit
 description: Container init that is so simple it's effectively brain-dead
 renovate:

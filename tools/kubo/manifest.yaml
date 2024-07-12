@@ -13,6 +13,7 @@ tags:
 - containerd
 - lang/go
 - category/operations
+homepage: https://github.com/ipfs/kubo
 repository: https://github.com/ipfs/kubo
 description: IPFS implementation in Go
 renovate:

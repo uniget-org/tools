@@ -15,6 +15,7 @@ tags:
 - category/operations
 - lang/c
 - type/library
+homepage: https://www.netfilter.org/projects/libmnl/index.html
 repository: https://www.netfilter.org/projects/libmnl/index.html
 description: Minimalistic user-space library oriented to Netlink developers
 renovate:

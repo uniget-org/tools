@@ -8,6 +8,7 @@ tags:
 - management
 - lang/c
 - alpine
+homepage: https://gitlab.alpinelinux.org/alpine/apk-tools
 repository: https://gitlab.alpinelinux.org/alpine/apk-tools
 description: Alpine package manager
 renovate:

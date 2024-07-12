@@ -15,6 +15,7 @@ tags:
 - category/development
 - lang/python
 - type/cli
+homepage: https://github.com/laixintao/flameshow
 repository: https://github.com/laixintao/flameshow
 description: Terminal flamegraph viewer
 renovate:

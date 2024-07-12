@@ -10,6 +10,7 @@ tags:
 - category/operations
 - lang/go
 - type/cli
+homepage: https://github.com/kubernetes-sigs/etcdadm
 repository: https://github.com/kubernetes-sigs/etcdadm
 description: Command-line tool for operating an etcd cluster
 renovate:

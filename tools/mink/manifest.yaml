@@ -11,6 +11,7 @@ tags:
 - state/stale
 - kubernetes
 - k8s
+homepage: https://github.com/mattmoor/mink
 repository: https://github.com/mattmoor/mink
 description: Minimal distribution of Knative and Tekton, and CLI
 messages:

@@ -16,6 +16,7 @@ tags:
 - category/security
 - type/plugin
 - lang/go
+homepage: https://github.com/containerd/imgcrypt
 repository: https://github.com/containerd/imgcrypt
 description: OCI Image Encryption Package
 renovate:

@@ -12,6 +12,7 @@ tags:
 - type/cli
 - kubernetes
 - k8s
+homepage: https://github.com/rancher/fleet
 repository: https://github.com/rancher/fleet
 description: Manage large fleets of Kubernetes clusters
 renovate:

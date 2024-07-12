@@ -18,6 +18,7 @@ tags:
 - sbom
 - format/spdx
 - format/cyclonedx
+homepage: https://github.com/sbomtools/sbomtools
 repository: https://github.com/sbomtools/sbomtools
 description: Add, delete, and search for entries in either SPDX or CycloneDX
 renovate:

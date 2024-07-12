@@ -10,6 +10,7 @@ tags:
 - lang/rust
 - format/json
 - standard/jwt
+homepage: https://github.com/mike-engel/jwt-cli
 repository: https://github.com/mike-engel/jwt-cli
 description: Super fast CLI tool to decode and encode JWTs
 renovate:
