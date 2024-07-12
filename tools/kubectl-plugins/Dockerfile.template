@@ -39,6 +39,7 @@ plugins=(
     assert
     blame
     bulk-action
+    capture
     cert-manager
     cilium
     cyclonus
@@ -65,8 +66,9 @@ plugins=(
     ingress-nginx
     images
     janitor
+    klock
+    kluster-capacity
     konfig
-    capture
     kubesec-scan
     kurt
     lineage
