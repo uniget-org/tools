@@ -16,3 +16,5 @@ renovate:
   datasource: github-releases
   package: jgm/pandoc
   priority: low
+license:
+  name: Other

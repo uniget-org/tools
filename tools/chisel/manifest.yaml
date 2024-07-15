@@ -15,3 +15,6 @@ renovate:
   package: jpillora/chisel
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/jpillora/chisel/blob/master/LICENSE

@@ -21,3 +21,6 @@ renovate:
   package: rancher/rke
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/rancher/rke/blob/release/v1.6/LICENSE

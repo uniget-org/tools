@@ -16,3 +16,6 @@ renovate:
   package: firecracker-microvm/firecracker
   extractVersion: ^v(?<version>.+)$
   priority: medium
+license:
+  name: Apache License 2.0
+  link: https://github.com/firecracker-microvm/firecracker/blob/main/LICENSE

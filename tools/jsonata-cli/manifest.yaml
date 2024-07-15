@@ -24,3 +24,6 @@ renovate:
   datasource: npm
   package: jsonata-cli
   priority: low
+license:
+  name: MIT license
+  link: https://github.com/rubystream/jsonata-cli/blob/main/LICENSE

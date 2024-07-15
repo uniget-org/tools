@@ -4,14 +4,14 @@ name: skate
 version: "0.2.2"
 check: ${binary} --version | cut -d' ' -f3 | tr -d v
 platforms:
-  - linux/amd64
-  - linux/arm64
+- linux/amd64
+- linux/arm64
 tags:
-  - org/charmbracelet
-  - category/operations
-  - lang/go
-  - type/cli
-  - state/stale
+- org/charmbracelet
+- category/operations
+- lang/go
+- type/cli
+- state/stale
 homepage: https://github.com/charmbracelet/skate
 repository: https://github.com/charmbracelet/skate
 description: Personal key value store
@@ -20,3 +20,6 @@ renovate:
   package: charmbracelet/skate
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/charmbracelet/skate/blob/main/LICENSE

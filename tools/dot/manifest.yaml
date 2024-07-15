@@ -24,3 +24,6 @@ renovate:
   package: goccy/go-graphviz
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/goccy/go-graphviz/blob/master/LICENSE

@@ -21,3 +21,6 @@ renovate:
   datasource: github-releases
   package: portainer/portainer
   priority: medium
+license:
+  name: zlib License
+  link: https://github.com/portainer/portainer/blob/develop/LICENSE

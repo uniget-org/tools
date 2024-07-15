@@ -17,3 +17,6 @@ renovate:
   datasource: github-releases
   package: trapexit/mergerfs
   priority: low
+license:
+  name: Other
+  link: https://github.com/trapexit/mergerfs/blob/latest-release/LICENSE

@@ -22,3 +22,6 @@ renovate:
   datasource: npm
   package: alex
   priority: low
+license:
+  name: MIT license
+  link: https://github.com/get-alex/alex/blob/main/license

@@ -23,3 +23,6 @@ renovate:
   datasource: pypi
   package: yamale
   priority: low
+license:
+  name: MIT license
+  link: https://github.com/23andMe/Yamale/blob/master/LICENSE

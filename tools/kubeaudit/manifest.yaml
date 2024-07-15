@@ -16,3 +16,6 @@ renovate:
   package: Shopify/kubeaudit
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/Shopify/kubeaudit/blob/main/LICENSE

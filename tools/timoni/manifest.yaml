@@ -22,3 +22,6 @@ renovate:
   package: stefanprodan/timoni
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/stefanprodan/timoni/blob/main/LICENSE

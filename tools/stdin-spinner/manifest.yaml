@@ -20,3 +20,6 @@ renovate:
   datasource: github-releases
   package: sgreben/stdin-spinner
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/sgreben/stdin-spinner/blob/master/LICENSE

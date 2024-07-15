@@ -21,3 +21,6 @@ renovate:
   package: anchore/syft
   extractVersion: ^v(?<version>.+)$
   priority: high
+license:
+  name: Apache License 2.0
+  link: https://github.com/anchore/syft/blob/main/LICENSE

@@ -16,3 +16,6 @@ renovate:
   datasource: github-releases
   package: jmespath/jp
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/jmespath/jp/blob/master/LICENSE

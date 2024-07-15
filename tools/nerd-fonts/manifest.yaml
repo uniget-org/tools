@@ -18,3 +18,6 @@ renovate:
   package: ryanoasis/nerd-fonts
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Other
+  link: https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE

@@ -17,3 +17,5 @@ renovate:
   package: oligot/go-mod-upgrade
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License

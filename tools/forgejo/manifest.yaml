@@ -22,3 +22,5 @@ renovate:
   extractVersion: ^v(?<version>\d+\.\d+\.\d+-\d+)$
   versioning: regex:^(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-(?<build>\d+)$
   priority: low
+license:
+  link: https://codeberg.org/forgejo/forgejo/src/branch/forgejo/LICENSE

@@ -22,3 +22,6 @@ renovate:
   package: containernetworking/cni
   extractVersion: ^v(?<version>.+)$
   priority: high
+license:
+  name: Apache License 2.0
+  link: https://github.com/containernetworking/cni/blob/main/LICENSE

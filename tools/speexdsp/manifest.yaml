@@ -24,3 +24,6 @@ renovate:
   api: https://gitlab.xiph.org/xiph/speexdsp/api/v4/projects/xdg%2fxdg-utils/repository/tags?per_page=100
   extractVersion: ^SpeexDSP-(?<version>.+)$
   priority: low
+license:
+  name: BSD 3-Clause "New" or "Revised" License
+  link: https://gitlab.xiph.org/xiph/speexdsp/-/blob/master/COPYING?ref_type=heads

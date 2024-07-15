@@ -3,14 +3,14 @@ name: ktop
 version: "0.3.5"
 check: "" # No version parameter
 tags:
-  - type/tui
-  - kubernetes
-  - management
-  - troubleshooting
-  - lang/go
-  - category/monitoring
-  - k8s
-  - observability/metrics
+- type/tui
+- kubernetes
+- management
+- troubleshooting
+- lang/go
+- category/monitoring
+- k8s
+- observability/metrics
 homepage: https://github.com/vladimirvivien/ktop
 repository: https://github.com/vladimirvivien/ktop
 description: top-like tool for your Kubernetes clusters
@@ -19,3 +19,6 @@ renovate:
   package: vladimirvivien/ktop
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/vladimirvivien/ktop/blob/main/LICENSE

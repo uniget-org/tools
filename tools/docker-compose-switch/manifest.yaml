@@ -25,3 +25,6 @@ renovate:
   package: docker/compose-switch
   extractVersion: ^v(?<version>.+)$
   priority: high
+license:
+  name: Apache License 2.0
+  link: https://github.com/docker/compose-switch/blob/master/LICENSE

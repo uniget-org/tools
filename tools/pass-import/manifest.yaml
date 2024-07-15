@@ -23,3 +23,6 @@ renovate:
   datasource: pypi
   package: pass-import
   priority: low
+license:
+  name: GPLv3
+  link: https://github.com/roddhjav/pass-import/blob/master/LICENSE

@@ -28,3 +28,6 @@ renovate:
   package: safe-waters/docker-lock
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/safe-waters/docker-lock/blob/master/LICENSE

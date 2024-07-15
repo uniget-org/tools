@@ -17,3 +17,6 @@ renovate:
   package: hashicorp/vault
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Other
+  link: https://github.com/hashicorp/vault/blob/main/LICENSE

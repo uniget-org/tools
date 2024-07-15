@@ -20,3 +20,6 @@ renovate:
   package: moncho/dry
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/moncho/dry/blob/master/LICENSE

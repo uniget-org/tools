@@ -18,3 +18,6 @@ renovate:
   package: hidetatz/kubecolor
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/hidetatz/kubecolor/blob/main/LICENSE

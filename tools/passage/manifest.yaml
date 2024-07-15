@@ -16,3 +16,6 @@ tags:
 homepage: https://github.com/FiloSottile/passage
 repository: https://github.com/FiloSottile/passage
 description: Fork of password-store that uses age as backend
+license:
+  name: GPLv2
+  link: https://github.com/FiloSottile/passage/blob/main/COPYING

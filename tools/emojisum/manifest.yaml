@@ -20,3 +20,6 @@ renovate:
   extractVersion: ^draft\+(?<version>.+)$
   versioning: loose
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/emojisum/emojisum/blob/master/LICENSE

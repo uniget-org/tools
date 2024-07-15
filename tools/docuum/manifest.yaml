@@ -21,3 +21,5 @@ renovate:
   package: stepchowfun/docuum
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Other

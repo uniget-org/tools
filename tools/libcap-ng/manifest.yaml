@@ -21,3 +21,5 @@ renovate:
   package: stevegrubb/libcap-ng
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: GNU General Public License v2.0

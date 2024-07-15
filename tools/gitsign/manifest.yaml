@@ -30,3 +30,6 @@ renovate:
   package: sigstore/gitsign
   extractVersion: ^v(?<version>.+)$
   priority: high
+license:
+  name: Other
+  link: https://github.com/sigstore/gitsign/blob/main/LICENSE

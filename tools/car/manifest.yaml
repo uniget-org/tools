@@ -4,14 +4,14 @@ name: car
 version: "1.0.1"
 check: "" # No version parameter
 platforms:
-  - linux/amd64
-  - linux/arm64
+- linux/amd64
+- linux/arm64
 tags:
-  - category/development
-  - lang/go
-  - type/cli
-  - container/image
-  - state/stale
+- category/development
+- lang/go
+- type/cli
+- container/image
+- state/stale
 homepage: https://github.com/tetratelabs/car
 repository: https://github.com/tetratelabs/car
 description: Like tar, but for containers
@@ -20,3 +20,6 @@ renovate:
   package: tetratelabs/car
   extractVersion: ^v(?<version>.+)$
   priority: medium
+license:
+  name: Apache License 2.0
+  link: https://github.com/tetratelabs/car/blob/master/LICENSE

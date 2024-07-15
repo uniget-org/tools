@@ -15,3 +15,6 @@ renovate:
   datasource: github-releases
   package: FairwindsOps/polaris
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/FairwindsOps/polaris/blob/master/LICENSE

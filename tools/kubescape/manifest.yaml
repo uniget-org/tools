@@ -18,3 +18,6 @@ renovate:
   package: kubescape/kubescape
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/kubescape/kubescape/blob/master/LICENSE

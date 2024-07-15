@@ -19,3 +19,6 @@ renovate:
   package: xyproto/botsay
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: BSD 3-Clause "New" or "Revised" License
+  link: https://github.com/xyproto/botsay/blob/main/LICENSE

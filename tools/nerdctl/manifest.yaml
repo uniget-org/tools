@@ -26,3 +26,6 @@ renovate:
   package: containerd/nerdctl
   extractVersion: ^v(?<version>.+)$
   priority: high
+license:
+  name: Apache License 2.0
+  link: https://github.com/containerd/nerdctl/blob/main/LICENSE

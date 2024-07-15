@@ -17,3 +17,6 @@ renovate:
   datasource: github-releases
   package: crazywhalecc/static-php-cli
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/crazywhalecc/static-php-cli/blob/main/LICENSE

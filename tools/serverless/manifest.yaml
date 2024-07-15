@@ -17,10 +17,13 @@ tags:
 - cloud/aws
 - cloud/azure
 - cloud/google
-homepage: https://github.com/serverless/serverless
+homepage: https://serverless.com/
 repository: https://github.com/serverless/serverless
 description: Build web, mobile and IoT applications with serverless architectures using AWS Lambda, Azure Functions, Google CloudFunctions & more
 renovate:
   datasource: npm
   package: serverless
   priority: low
+license:
+  name: MIT license
+  link: https://github.com/serverless/serverless/blob/main/LICENSE

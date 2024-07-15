@@ -20,3 +20,6 @@ renovate:
   package: docker/docker-credential-helpers
   extractVersion: ^v(?<version>.+)$
   priority: medium
+license:
+  name: MIT License
+  link: https://github.com/docker/docker-credential-helpers/blob/master/LICENSE

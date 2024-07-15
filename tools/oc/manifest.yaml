@@ -16,3 +16,6 @@ renovate:
   package: openshift/origin
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/openshift/origin/blob/master/LICENSE

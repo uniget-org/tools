@@ -3,11 +3,11 @@ name: jsonnet
 version: "0.20.0"
 check: ${binary} --version | cut -d' ' -f6 | tr -d v
 tags:
-  - org/google
-  - templating
-  - lang/go
-  - format/json
-  - standard/jsonnet
+- org/google
+- templating
+- lang/go
+- format/json
+- standard/jsonnet
 homepage: https://github.com/google/go-jsonnet
 repository: https://github.com/google/go-jsonnet
 description: Data templating language. Implementation of Jsonnet in pure Go
@@ -16,3 +16,6 @@ renovate:
   package: google/go-jsonnet
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/google/go-jsonnet/blob/master/LICENSE

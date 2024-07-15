@@ -24,3 +24,6 @@ renovate:
   datasource: pypi
   package: mkdocs
   priority: low
+license:
+  name: BSD 2-Clause "Simplified" License
+  link: https://github.com/mkdocs/mkdocs/blob/master/LICENSEs

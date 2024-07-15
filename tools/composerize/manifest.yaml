@@ -25,3 +25,6 @@ renovate:
   datasource: npm
   package: composerize
   priority: medium
+license:
+  name: MIT license
+  link: https://github.com/composerize/composerize/blob/master/LICENSE

@@ -19,3 +19,6 @@ renovate:
   package: errata-ai/vale
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/errata-ai/vale/blob/v3/LICENSE

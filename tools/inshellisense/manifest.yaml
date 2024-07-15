@@ -22,3 +22,6 @@ renovate:
   datasource: npm
   package: "@microsoft/inshellisense"
   priority: low
+license:
+  name: MIT license
+  link: https://github.com/microsoft/inshellisense/blob/main/LICENSE

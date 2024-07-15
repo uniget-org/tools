@@ -17,3 +17,6 @@ renovate:
   datasource: github-releases
   package: ufoscout/docker-compose-wait
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/ufoscout/docker-compose-wait/blob/master/LICENSE

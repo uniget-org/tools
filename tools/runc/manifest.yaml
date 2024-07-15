@@ -22,3 +22,6 @@ renovate:
   package: opencontainers/runc
   extractVersion: ^v(?<version>.+)$
   priority: high
+license:
+  name: Apache License 2.0
+  link: https://github.com/opencontainers/runc/blob/main/LICENSE

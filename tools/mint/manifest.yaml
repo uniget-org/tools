@@ -21,3 +21,6 @@ renovate:
   datasource: github-releases
   package: mintoolkit/mint
   priority: medium
+license:
+  name: Apache License 2.0
+  link: https://github.com/mintoolkit/mint/blob/master/LICENSE

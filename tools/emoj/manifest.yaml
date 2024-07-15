@@ -21,3 +21,6 @@ renovate:
   datasource: npm
   package: emoj
   priority: low
+license:
+  name: MIT license
+  link: https://github.com/sindresorhus/emoj/blob/main/license

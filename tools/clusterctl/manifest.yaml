@@ -21,3 +21,6 @@ renovate:
   package: kubernetes-sigs/cluster-api
   extractVersion: ^v(?<version>.+)$
   priority: medium
+license:
+  name: Apache License 2.0
+  link: https://github.com/kubernetes-sigs/cluster-api/blob/main/LICENSE

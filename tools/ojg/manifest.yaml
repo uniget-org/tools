@@ -21,3 +21,6 @@ renovate:
   package: ohler55/ojg
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/ohler55/ojg/blob/develop/LICENSE

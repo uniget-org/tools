@@ -20,3 +20,6 @@ renovate:
   package: go-gitea/gitea
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/go-gitea/gitea/blob/main/LICENSE

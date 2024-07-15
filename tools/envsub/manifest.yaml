@@ -18,3 +18,5 @@ renovate:
   datasource: github-releases
   package: stephenc/envsub
   priority: low
+license:
+  name: Apache License 2.0

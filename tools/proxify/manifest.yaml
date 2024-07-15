@@ -15,3 +15,5 @@ renovate:
   package: projectdiscovery/proxify
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License

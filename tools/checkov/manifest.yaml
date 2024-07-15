@@ -21,3 +21,6 @@ renovate:
   datasource: pypi
   package: checkov
   priority: low
+license:
+  name: Apache-2.0
+  link: https://github.com/bridgecrewio/checkov/blob/main/LICENSE

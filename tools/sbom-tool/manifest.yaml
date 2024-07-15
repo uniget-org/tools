@@ -16,3 +16,6 @@ renovate:
   package: microsoft/sbom-tool
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/microsoft/sbom-tool/blob/main/LICENSE

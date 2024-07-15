@@ -16,3 +16,6 @@ renovate:
   package: loft-sh/loft
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Other
+  link: https://github.com/loft-sh/loft/blob/master/LICENSE

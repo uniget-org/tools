@@ -23,3 +23,6 @@ renovate:
   package: https://git.netfilter.org/libmnl/
   extractVersion: ^libmnl-(?<version>.+)$
   priority: low
+license:
+  name: LGPL-2.1
+  link: https://git.netfilter.org/libmnl/tree/COPYING

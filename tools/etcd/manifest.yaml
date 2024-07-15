@@ -19,3 +19,6 @@ renovate:
   package: etcd-io/etcd
   extractVersion: ^v(?<version>.+)$
   priority: medium
+license:
+  name: Apache License 2.0
+  link: https://github.com/etcd-io/etcd/blob/main/LICENSE

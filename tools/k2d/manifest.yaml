@@ -24,3 +24,6 @@ renovate:
   datasource: github-releases
   package: portainer/k2d
   priority: low
+license:
+  name: Other
+  link: https://github.com/portainer/k2d/blob/develop/LICENSE

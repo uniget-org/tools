@@ -21,3 +21,5 @@ renovate:
   package: traefik/traefik
   extractVersion: ^v(?<version>.+)$
   priority: high
+license:
+  name: MIT License

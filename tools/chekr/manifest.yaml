@@ -18,3 +18,6 @@ renovate:
   datasource: github-releases
   package: ckotzbauer/chekr
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/ckotzbauer/chekr/blob/main/LICENSE

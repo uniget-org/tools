@@ -4,16 +4,16 @@ name: git-filter-repo
 version: "2.38.0"
 check: "" # No version parameter
 runtime_dependencies:
-  - python
+- python
 platforms:
-  - linux/amd64
-  - linux/arm64
+- linux/amd64
+- linux/arm64
 tags:
-  - category/development
-  - lang/python
-  - type/cli
-  - standard/git
-  - git
+- category/development
+- lang/python
+- type/cli
+- standard/git
+- git
 homepage: https://github.com/newren/git-filter-repo
 repository: https://github.com/newren/git-filter-repo
 description: Quickly rewrite git repository history
@@ -22,3 +22,5 @@ renovate:
   package: newren/git-filter-repo
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Other

@@ -18,3 +18,6 @@ renovate:
   package: projectdiscovery/cvemap
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/projectdiscovery/cvemap/blob/main/LICENSE

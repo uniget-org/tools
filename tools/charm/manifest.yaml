@@ -19,3 +19,6 @@ renovate:
   package: charmbracelet/charm
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/charmbracelet/charm/blob/main/LICENSE

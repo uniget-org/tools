@@ -28,3 +28,5 @@ renovate:
   extractVersion: ^docker-desktop/(?<version>.+)$
   versioning: loose
   priority: low
+license:
+  name: null

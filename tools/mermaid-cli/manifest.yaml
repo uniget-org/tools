@@ -24,3 +24,6 @@ renovate:
   datasource: npm
   package: "@mermaid-js/mermaid-cli"
   priority: low
+license:
+  name: MIT license
+  link: https://github.com/mermaid-js/mermaid-cli/blob/master/LICENSE

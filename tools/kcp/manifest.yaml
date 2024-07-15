@@ -17,3 +17,6 @@ renovate:
   package: kcp-dev/kcp
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/kcp-dev/kcp/blob/main/LICENSE

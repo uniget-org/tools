@@ -13,3 +13,6 @@ renovate:
   datasource: github-releases
   package: openfaas/faas-cli
   priority: medium
+license:
+  name: Other
+  link: https://github.com/openfaas/faas-cli/blob/master/LICENSE

@@ -17,3 +17,6 @@ renovate:
   datasource: github-releases
   package: alexellis/k3sup
   priority: medium
+license:
+  name: Other
+  link: https://github.com/alexellis/k3sup/blob/master/LICENSE

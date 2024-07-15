@@ -18,3 +18,6 @@ renovate:
   package: charmbracelet/mods
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/charmbracelet/mods/blob/main/LICENSE

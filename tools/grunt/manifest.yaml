@@ -22,3 +22,5 @@ renovate:
   datasource: npm
   package: grunt
   priority: low
+license:
+  link: https://github.com/gruntjs/grunt/blob/main/LICENSE

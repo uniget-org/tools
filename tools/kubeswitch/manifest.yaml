@@ -16,3 +16,6 @@ renovate:
   package: danielb42/kubeswitch
   extractVersion: ^v(?<version>.+)$
   priority: high
+license:
+  name: MIT License
+  link: https://github.com/danielb42/kubeswitch/blob/master/LICENSE

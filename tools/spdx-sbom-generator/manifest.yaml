@@ -20,3 +20,5 @@ renovate:
   package: opensbom-generator/spdx-sbom-generator
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  link: https://github.com/opensbom-generator/spdx-sbom-generator/tree/main/LICENSES

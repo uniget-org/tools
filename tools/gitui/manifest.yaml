@@ -19,3 +19,5 @@ renovate:
   package: extrawurst/gitui
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License

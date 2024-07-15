@@ -37,3 +37,6 @@ renovate:
   package: NVIDIA/nvidia-container-toolkit
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/NVIDIA/nvidia-container-toolkit/blob/main/LICENSE

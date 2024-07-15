@@ -22,3 +22,6 @@ renovate:
   datasource: pypi
   package: yamllint
   priority: low
+license:
+  name: GPL-v3
+  link: https://github.com/adrienverge/yamllint/blob/master/LICENSE

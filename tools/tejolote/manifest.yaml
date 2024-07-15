@@ -21,3 +21,6 @@ renovate:
   package: kubernetes-sigs/tejolote
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/kubernetes-sigs/tejolote/blob/main/LICENSE

@@ -20,3 +20,5 @@ renovate:
   package: 01mf02/jaq
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License

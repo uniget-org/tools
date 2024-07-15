@@ -26,3 +26,5 @@ renovate:
   package: languitar/pass-git-helper
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: GNU Lesser General Public License v3.0

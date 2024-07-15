@@ -16,3 +16,6 @@ renovate:
   package: kubeshark/kubeshark
   versioning: loose
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/kubeshark/kubeshark/blob/master/LICENSE

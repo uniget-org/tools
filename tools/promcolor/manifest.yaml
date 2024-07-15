@@ -22,3 +22,6 @@ renovate:
   package: fhemberger/promcolor
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/fhemberger/promcolor/blob/master/LICENSE

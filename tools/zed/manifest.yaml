@@ -18,3 +18,5 @@ renovate:
   package: brimdata/zed
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: BSD 3-Clause "New" or "Revised" License

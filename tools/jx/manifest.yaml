@@ -21,3 +21,6 @@ renovate:
   package: jenkins-x/jx
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/jenkins-x/jx/blob/main/LICENSE

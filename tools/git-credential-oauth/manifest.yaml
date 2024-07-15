@@ -20,3 +20,5 @@ renovate:
   package: hickford/git-credential-oauth
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0

@@ -20,3 +20,6 @@ renovate:
   package: siderolabs/talos
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Mozilla Public License 2.0
+  link: https://github.com/siderolabs/talos/blob/main/LICENSE

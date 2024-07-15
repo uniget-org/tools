@@ -19,3 +19,6 @@ renovate:
   package: instrumenta/kubeval
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Other
+  link: https://github.com/instrumenta/kubeval/blob/master/LICENSE

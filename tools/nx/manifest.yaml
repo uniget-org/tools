@@ -20,3 +20,6 @@ renovate:
   datasource: npm
   package: nx
   priority: low
+license:
+  name: MIT license
+  link: https://github.com/nrwl/nx/blob/master/LICENSE

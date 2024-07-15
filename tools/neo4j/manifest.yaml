@@ -17,3 +17,5 @@ renovate:
   datasource: github-tags
   package: neo4j/neo4j
   priority: low
+license:
+  name: GNU General Public License v3.0

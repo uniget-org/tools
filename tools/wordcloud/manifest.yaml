@@ -15,7 +15,7 @@ tags:
 - category/development
 - lang/python
 - type/cli
-homepage: https://github.com/amueller/word_cloud
+homepage: https://amueller.github.io/word_cloud
 repository: https://github.com/amueller/word_cloud
 description: Little word cloud generator in Python
 renovate:
@@ -23,3 +23,6 @@ renovate:
   package: wordcloud
   versioning: loose
   priority: low
+license:
+  name: MIT license
+  link: https://github.com/amueller/word_cloud/blob/main/LICENSE

@@ -15,3 +15,5 @@ tags:
 homepage: https://github.com/docker/whalesay
 repository: https://github.com/docker/whalesay
 description: Docker's official whalesay
+license:
+  link: https://github.com/docker/whalesay/blob/master/LICENSE

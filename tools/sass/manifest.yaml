@@ -15,10 +15,13 @@ tags:
 - category/development
 - lang/javascript
 - type/cli
-homepage: https://github.com/sass/sass
+homepage: https://sass-lang.com/
 repository: https://github.com/sass/sass
 description: Sass makes CSS fun
 renovate:
   datasource: npm
   package: sass
   priority: low
+license:
+  name: MIT license
+  link: https://github.com/sass/sass/blob/main/LICENSE

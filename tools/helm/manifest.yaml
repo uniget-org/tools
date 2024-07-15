@@ -22,3 +22,6 @@ renovate:
   package: helm/helm
   extractVersion: ^v(?<version>.+)$
   priority: high
+license:
+  name: Apache License 2.0
+  link: https://github.com/helm/helm/blob/main/LICENSE

@@ -16,3 +16,6 @@ renovate:
   package: sibprogrammer/xq
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/sibprogrammer/xq/blob/master/LICENSE

@@ -23,3 +23,6 @@ renovate:
   package: howardjohn/kubectl-resources
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/howardjohn/kubectl-resources/blob/master/LICENSE

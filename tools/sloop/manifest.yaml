@@ -23,3 +23,5 @@ renovate:
   extractVersion: ^v(?<version>.+)$
   versioning: loose
   priority: low
+license:
+  name: BSD 3-Clause "New" or "Revised" License

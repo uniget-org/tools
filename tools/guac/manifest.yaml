@@ -21,3 +21,6 @@ renovate:
   package: guacsec/guac
   extractVersion: ^v(?<version>.+)$
   priority: medium
+license:
+  name: Apache License 2.0
+  link: https://github.com/guacsec/guac/blob/main/LICENSE

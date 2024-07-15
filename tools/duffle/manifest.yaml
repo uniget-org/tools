@@ -16,3 +16,6 @@ renovate:
   datasource: github-releases
   package: cnabio/duffle
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/cnabio/duffle/blob/main/LICENSE

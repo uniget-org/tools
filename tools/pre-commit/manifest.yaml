@@ -22,3 +22,6 @@ renovate:
   datasource: pypi
   package: pre-commit
   priority: low
+license:
+  name: MIT license
+  link: https://github.com/pre-commit/pre-commit/blob/main/LICENSE

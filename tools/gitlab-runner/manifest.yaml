@@ -20,3 +20,6 @@ renovate:
   package: gitlab-org/gitlab-runner
   extractVersion: ^v(?<version>.+)$
   priority: medium
+license:
+  name: MIT license
+  link: https://gitlab.com/gitlab-org/gitlab-runner/-/blob/main/LICENSE?ref_type=heads

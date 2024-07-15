@@ -22,3 +22,6 @@ renovate:
   package: kubernetes/kubernetes
   extractVersion: ^v(?<version>.+)$
   priority: medium
+license:
+  name: Apache License 2.0
+  link: https://github.com/kubernetes/kubernetes/blob/master/LICENSE

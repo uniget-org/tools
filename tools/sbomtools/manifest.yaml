@@ -25,3 +25,6 @@ renovate:
   datasource: pypi
   package: sbomtools
   priority: low
+license:
+  name: BSD 3-Clause License
+  link: https://github.com/sbomtools/sbomtools/blob/main/LICENSE.txt

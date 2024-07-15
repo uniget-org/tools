@@ -17,3 +17,6 @@ renovate:
   datasource: github-releases
   package: petrgazarov/salami
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/petrgazarov/salami/blob/main/LICENSE

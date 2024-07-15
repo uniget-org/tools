@@ -20,3 +20,6 @@ renovate:
   api: https://gitlab.freedesktop.org/api/v4/projects/xdg%2fxdg-utils/repository/tags?per_page=100
   extractVersion: ^v(?<version>\d+\.\d+(\.\d+)?)$
   priority: low
+license:
+  name: MIT license
+  link: https://gitlab.freedesktop.org/xdg/xdg-utils/-/blob/master/LICENSE?ref_type=heads

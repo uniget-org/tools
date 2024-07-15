@@ -25,3 +25,6 @@ renovate:
   package: docker/index-cli-plugin
   extractVersion: ^v(?<version>.+)$
   priority: medium
+license:
+  name: Apache License 2.0
+  link: https://github.com/docker/index-cli-plugin/blob/main/LICENSE

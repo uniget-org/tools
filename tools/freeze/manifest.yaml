@@ -19,3 +19,6 @@ renovate:
   package: charmbracelet/freeze
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/charmbracelet/freeze/blob/main/LICENSE

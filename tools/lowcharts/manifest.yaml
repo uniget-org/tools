@@ -17,3 +17,6 @@ renovate:
   package: juan-leon/lowcharts
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/juan-leon/lowcharts/blob/main/LICENSE

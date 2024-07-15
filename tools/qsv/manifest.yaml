@@ -17,3 +17,5 @@ renovate:
   datasource: github-releases
   package: jqnatividad/qsv
   priority: low
+license:
+  name: The Unlicense

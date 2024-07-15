@@ -21,3 +21,6 @@ renovate:
   package: kyverno/chainsaw
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/kyverno/chainsaw/blob/main/LICENSE

@@ -18,3 +18,5 @@ renovate:
   package: dotnet/sdk
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License

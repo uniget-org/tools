@@ -15,3 +15,6 @@ renovate:
   package: FiloSottile/mkcert
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: BSD 3-Clause "New" or "Revised" License
+  link: https://github.com/FiloSottile/mkcert/blob/master/LICENSE

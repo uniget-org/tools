@@ -17,3 +17,6 @@ renovate:
   package: lima-vm/sshocker
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/lima-vm/sshocker/blob/master/LICENSE

@@ -24,3 +24,6 @@ renovate:
   package: https://git.netfilter.org/libnftnl/
   extractVersion: ^libnftnl-(?<version>.+)$
   priority: low
+license:
+  name: GPLv2+
+  link: https://git.netfilter.org/libnftnl/tree/COPYING

@@ -21,3 +21,6 @@ renovate:
   package: k0sproject/k0sctl
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Other
+  link: https://github.com/k0sproject/k0sctl/blob/main/LICENSE

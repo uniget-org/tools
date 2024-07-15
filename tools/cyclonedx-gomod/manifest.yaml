@@ -20,3 +20,6 @@ renovate:
   package: CycloneDX/cyclonedx-gomod
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/CycloneDX/cyclonedx-gomod/blob/main/LICENSE

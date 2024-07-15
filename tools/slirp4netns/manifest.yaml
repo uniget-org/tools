@@ -15,3 +15,5 @@ renovate:
   package: rootless-containers/slirp4netns
   extractVersion: ^v(?<version>.+)$
   priority: high
+license:
+  name: GNU General Public License v2.0

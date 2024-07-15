@@ -21,3 +21,6 @@ renovate:
   package: kubernetes-sigs/ingress2gateway
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/kubernetes-sigs/ingress2gateway/blob/main/LICENSE

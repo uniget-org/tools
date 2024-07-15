@@ -17,3 +17,6 @@ renovate:
   package: golang/go
   extractVersion: ^go(?<version>.+)$
   priority: medium
+license:
+  name: BSD 3-Clause "New" or "Revised" License
+  link: https://github.com/golang/go/blob/master/LICENSE

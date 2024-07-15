@@ -21,3 +21,6 @@ renovate:
   datasource: npm
   package: keyoxide
   priority: low
+license:
+  name: GNU AFFERO GENERAL PUBLIC LICENSE
+  link: https://codeberg.org/keyoxide/keyoxide-cli/src/branch/main/LICENSE

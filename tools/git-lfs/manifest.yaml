@@ -20,3 +20,5 @@ renovate:
   package: git-lfs/git-lfs
   extractVersion: ^v(?<version>.+)$
   priority: medium
+license:
+  name: Other

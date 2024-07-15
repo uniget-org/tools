@@ -17,3 +17,6 @@ renovate:
   package: iximiuz/cdebug
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/iximiuz/cdebug/blob/main/LICENSE

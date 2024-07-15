@@ -17,3 +17,6 @@ renovate:
   package: aquaproj/aqua
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: null
+  link: https://github.com/aquaproj/aqua/blob/main/LICENSE

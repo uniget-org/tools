@@ -19,3 +19,6 @@ renovate:
   package: arttor/helmify
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/arttor/helmify/blob/main/LICENSE

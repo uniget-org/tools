@@ -16,3 +16,6 @@ renovate:
   package: kubernetes-sigs/zeitgeist
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/kubernetes-sigs/zeitgeist/blob/master/LICENSE

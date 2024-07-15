@@ -19,3 +19,6 @@ renovate:
   package: openvex/vexctl
   extractVersion: ^v(?<version>.+)$
   priority: medium
+license:
+  name: Apache License 2.0
+  link: https://github.com/openvex/vexctl/blob/main/LICENSE

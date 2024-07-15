@@ -38,3 +38,6 @@ messages:
             }
         }
     }
+license:
+  name: Apache-2.0
+  link: https://github.com/gotoz/runq/blob/master/LICENSE

@@ -20,3 +20,6 @@ renovate:
   package: CAFxX/mgo
   extractVersion: ^v(?<version>.+)$
   priority: medium
+license:
+  name: MIT License
+  link: https://github.com/CAFxX/mgo/blob/main/LICENSE

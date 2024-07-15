@@ -15,10 +15,13 @@ tags:
 - category/development
 - lang/javascript
 - type/cli
-homepage: https://github.com/faressoft/terminalizer
+homepage: https://terminalizer.com/
 repository: https://github.com/faressoft/terminalizer
 description: Record your terminal and generate animated gif images or share a web player
 renovate:
   datasource: npm
   package: terminalizer
   priority: low
+license:
+  name: MIT license
+  link: https://github.com/faressoft/terminalizer/blob/master/LICENSE

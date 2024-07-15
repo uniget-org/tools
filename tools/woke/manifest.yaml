@@ -19,3 +19,6 @@ renovate:
   package: get-woke/woke
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/get-woke/woke/blob/main/LICENSE

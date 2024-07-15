@@ -17,3 +17,6 @@ renovate:
   package: loft-sh/devpod
   extractVersion: ^v(?<version>.+)$
   priority: medium
+license:
+  name: Mozilla Public License 2.0
+  link: https://github.com/loft-sh/devpod/blob/main/LICENSE

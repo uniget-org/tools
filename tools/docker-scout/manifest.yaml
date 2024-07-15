@@ -25,3 +25,6 @@ renovate:
   package: docker/scout-cli
   extractVersion: ^v(?<version>.+)$
   priority: high
+license:
+  name: Other
+  link: https://github.com/docker/scout-cli/blob/main/LICENSE

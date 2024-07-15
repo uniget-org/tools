@@ -17,3 +17,6 @@ renovate:
   package: buildpacks-community/kpack-cli
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Other
+  link: https://github.com/buildpacks-community/kpack-cli/blob/main/LICENSE

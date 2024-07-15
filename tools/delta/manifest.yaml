@@ -16,3 +16,6 @@ renovate:
   datasource: github-releases
   package: dandavison/delta
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/dandavison/delta/blob/main/LICENSE

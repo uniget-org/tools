@@ -25,3 +25,5 @@ renovate:
   extractVersion: ^v(?<version>.+)$
   versioning: loose
   priority: low
+license:
+  name: SIL Open Font License 1.1

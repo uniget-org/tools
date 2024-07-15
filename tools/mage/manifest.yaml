@@ -3,14 +3,14 @@ name: mage
 version: "1.15.0"
 check: ${binary} --version | grep ^Mage | cut -d' ' -f4
 platforms:
-  - linux/amd64
-  - linux/arm64
+- linux/amd64
+- linux/arm64
 tags:
-  - category/development
-  - lang/go
-  - type/cli
-  - make
-  - state/stale
+- category/development
+- lang/go
+- type/cli
+- make
+- state/stale
 homepage: https://magefile.org
 repository: https://github.com/magefile/mage
 description: Make/rake-like dev tool using Go
@@ -19,3 +19,6 @@ renovate:
   package: magefile/mage
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/magefile/mage/blob/master/LICENSE

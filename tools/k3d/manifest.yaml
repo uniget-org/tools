@@ -19,3 +19,6 @@ renovate:
   package: k3d-io/k3d
   extractVersion: ^v(?<version>.+)$
   priority: medium
+license:
+  name: MIT License
+  link: https://github.com/k3d-io/k3d/blob/main/LICENSE

@@ -17,3 +17,6 @@ renovate:
   extractVersion: ^v(?<version>.+)$
   versioning: loose
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/rfjakob/gocryptfs/blob/master/LICENSE

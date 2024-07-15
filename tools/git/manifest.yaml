@@ -21,3 +21,5 @@ renovate:
   package: git/git
   extractVersion: ^v(?<version>.+)$
   priority: high
+license:
+  name: Other

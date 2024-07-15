@@ -23,3 +23,6 @@ renovate:
   package: carvel-dev/ytt
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/carvel-dev/ytt/blob/develop/LICENSE

@@ -17,3 +17,6 @@ renovate:
   package: Trendyol/kink
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/Trendyol/kink/blob/main/LICENSE

@@ -20,3 +20,6 @@ renovate:
   package: exdx/dcp
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/exdx/dcp/blob/main/LICENSE

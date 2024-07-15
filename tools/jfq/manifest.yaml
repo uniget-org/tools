@@ -22,3 +22,6 @@ renovate:
   datasource: npm
   package: jfq
   priority: low
+license:
+  name: MIT license
+  link: https://github.com/blgm/jfq/blob/main/LICENSE

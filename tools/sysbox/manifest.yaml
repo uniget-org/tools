@@ -23,3 +23,6 @@ renovate:
   package: nestybox/sysbox
   extractVersion: ^v(?<version>.+)$
   priority: high
+license:
+  name: Apache License 2.0
+  link: https://github.com/nestybox/sysbox/blob/master/LICENSE

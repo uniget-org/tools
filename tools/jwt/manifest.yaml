@@ -17,3 +17,5 @@ renovate:
   datasource: github-releases
   package: mike-engel/jwt-cli
   priority: low
+license:
+  name: MIT License

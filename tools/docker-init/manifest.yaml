@@ -28,3 +28,5 @@ renovate:
   extractVersion: ^docker-init/(?<version>.+)$
   versioning: loose
   priority: low
+license:
+  name: null

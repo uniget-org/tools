@@ -13,3 +13,5 @@ renovate:
   datasource: github-releases
   package: cheat/cheat
   priority: low
+license:
+  name: MIT License

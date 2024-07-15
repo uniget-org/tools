@@ -25,3 +25,5 @@ renovate:
   datasource: pypi
   package: runlike
   priority: low
+license:
+  link: https://github.com/lavie/runlike/blob/master/LICENSE.txt

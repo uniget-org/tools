@@ -22,3 +22,6 @@ renovate:
   package: npm/cli
   extractVersion: ^v(?<version>.+)$
   priority: medium
+license:
+  name: Other
+  link: https://github.com/npm/cli/blob/latest/LICENSE

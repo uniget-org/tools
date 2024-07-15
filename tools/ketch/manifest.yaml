@@ -3,12 +3,12 @@ name: ketch
 version: "0.7.0"
 check: "" # No version parameter
 tags:
-  - type/cli
-  - cicd
-  - lang/go
-  - kubernetes
-  - k8s
-  - state/stale
+- type/cli
+- cicd
+- lang/go
+- kubernetes
+- k8s
+- state/stale
 homepage: https://github.com/theketchio/ketch
 repository: https://github.com/theketchio/ketch
 description: Application delivery framework that facilitates the deployment and management of applications on Kubernetes using a simple command line interface
@@ -17,3 +17,6 @@ renovate:
   package: theketchio/ketch
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/theketchio/ketch/blob/main/LICENSE

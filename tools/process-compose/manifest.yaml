@@ -18,3 +18,6 @@ renovate:
   package: F1bonacc1/process-compose
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/F1bonacc1/process-compose/blob/main/LICENSE

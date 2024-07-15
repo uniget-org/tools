@@ -21,3 +21,6 @@ renovate:
   package: binpash/try
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/binpash/try/blob/main/LICENSE

@@ -22,3 +22,6 @@ renovate:
   package: ynqa/jnv
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/ynqa/jnv/blob/main/LICENSE

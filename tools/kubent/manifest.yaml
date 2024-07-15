@@ -16,3 +16,6 @@ renovate:
   datasource: github-releases
   package: doitintl/kube-no-trouble
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/doitintl/kube-no-trouble/blob/master/LICENSE

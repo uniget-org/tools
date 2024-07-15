@@ -12,9 +12,12 @@ tags:
 - type/cli
 homepage: https://github.com/charmbracelet/gum
 repository: https://github.com/charmbracelet/gum
-description: Tool for glamorous shell scripts 🎀
+description: "Tool for glamorous shell scripts \U0001F380"
 renovate:
   datasource: github-releases
   package: charmbracelet/gum
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/charmbracelet/gum/blob/main/LICENSE

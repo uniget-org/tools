@@ -21,3 +21,5 @@ renovate:
   package: xiph/speex
   extractVersion: ^Speex-(?<version>.+)$
   priority: low
+license:
+  link: https://gitlab.xiph.org/xiph/speex/-/blob/master/COPYING?ref_type=heads

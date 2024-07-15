@@ -18,3 +18,6 @@ renovate:
   package: UKHomeOffice/kd
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/UKHomeOffice/kd/blob/master/LICENSE

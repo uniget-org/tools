@@ -17,3 +17,6 @@ renovate:
   package: kdabir/has
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/kdabir/has/blob/master/LICENSE

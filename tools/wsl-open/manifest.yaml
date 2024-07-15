@@ -16,3 +16,6 @@ renovate:
   package: 4U6U57/wsl-open
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/4U6U57/wsl-open/blob/master/LICENSE

@@ -25,3 +25,6 @@ renovate:
   package: prometheus/prometheus
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/prometheus/prometheus/blob/main/LICENSE

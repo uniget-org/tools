@@ -20,3 +20,6 @@ renovate:
   package: estesp/manifest-tool
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/estesp/manifest-tool/blob/main/LICENSE

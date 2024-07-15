@@ -16,3 +16,6 @@ renovate:
   datasource: github-releases
   package: jetify-com/devbox
   priority: medium
+license:
+  name: Apache License 2.0
+  link: https://github.com/jetify-com/devbox/blob/main/LICENSE

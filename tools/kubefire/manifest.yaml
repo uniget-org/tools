@@ -3,15 +3,15 @@ name: kubefire
 version: "0.3.10"
 check: ${binary} version | grep "^Version:" | cut -d' ' -f2 | tr -d v
 tags:
-  - type/cli
-  - kubernetes
-  - kvm
-  - management
-  - vm
-  - emulation
-  - lang/go
-  - k8s
-  - state/stale
+- type/cli
+- kubernetes
+- kvm
+- management
+- vm
+- emulation
+- lang/go
+- k8s
+- state/stale
 homepage: https://github.com/innobead/kubefire
 repository: https://github.com/innobead/kubefire
 description: Creates and manages Kubernetes Clusters using Firecracker microVMs
@@ -20,3 +20,6 @@ renovate:
   package: innobead/kubefire
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/innobead/kubefire/blob/main/LICENSE

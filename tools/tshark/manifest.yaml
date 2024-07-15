@@ -31,3 +31,6 @@ renovate:
   package: wireshark/wiresharkar
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: GNU General Public License v2.0 or later
+  link: https://gitlab.com/wireshark/wireshark/-/blob/master/COPYING

@@ -22,3 +22,5 @@ renovate:
   extractVersion: ^jq-(?<version>.+)$
   versioning: loose
   priority: low
+license:
+  name: Other

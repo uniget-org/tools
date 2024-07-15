@@ -4,15 +4,15 @@ name: proot
 version: "5.4.0"
 check: "" # Too complicated to parse ASCII art
 build_dependencies:
-  - make
+- make
 platforms:
-  - linux/amd64
-  - linux/arm64
+- linux/amd64
+- linux/arm64
 tags:
-  - category/operations
-  - lang/c
-  - type/cli
-  - state/stale
+- category/operations
+- lang/c
+- type/cli
+- state/stale
 homepage: https://proot-me.github.io
 repository: https://github.com/proot-me/proot
 description: chroot, mount --bind, and binfmt_misc without privilege/setup for Linux
@@ -21,3 +21,5 @@ renovate:
   package: proot-me/proot
   extractVersion: ^v(?<version>.+)$
   priority: high
+license:
+  name: GNU General Public License v2.0

@@ -24,3 +24,5 @@ renovate:
   package: quarto-dev/quarto-cli
   extractVersion: ^v(?<version>.+)$
   priority: medium
+license:
+  name: Other

@@ -24,3 +24,6 @@ renovate:
   package: containers/buildah
   extractVersion: ^v(?<version>.+)$
   priority: high
+license:
+  name: Apache License 2.0
+  link: https://github.com/containers/buildah/blob/main/LICENSE

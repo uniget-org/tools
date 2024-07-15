@@ -24,3 +24,6 @@ renovate:
   datasource: pypi
   package: httpie
   priority: medium
+license:
+  name: BSD 3-Clause "New" or "Revised" License
+  link: https://github.com/httpie/cli/blob/master/LICENSE

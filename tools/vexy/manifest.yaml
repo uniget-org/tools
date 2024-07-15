@@ -24,3 +24,6 @@ renovate:
   datasource: pypi
   package: vexy
   priority: medium
+license:
+  name: Apache-2.0
+  link: https://github.com/madpah/vexy/blob/main/LICENSE

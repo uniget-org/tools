@@ -20,3 +20,6 @@ renovate:
   package: bcicen/ctop
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/bcicen/ctop/blob/master/LICENSE

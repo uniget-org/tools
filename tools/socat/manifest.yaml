@@ -17,3 +17,6 @@ renovate:
   extractVersion: ^tag-(?<version>\d+\.\d+\.\d+(\.\d+)?)$
   versioning: loose
   priority: low
+license:
+  name: GPL-2
+  link: https://repo.or.cz/socat.git/blob/HEAD:/COPYING

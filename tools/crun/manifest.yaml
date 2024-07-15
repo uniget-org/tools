@@ -29,3 +29,5 @@ renovate:
   extractVersion: ^(?<version>\\d+\\.\\d+(\\.\\d+)?)$
   versioning: loose
   priority: high
+license:
+  name: GNU General Public License v2.0

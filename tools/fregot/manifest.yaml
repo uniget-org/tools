@@ -18,3 +18,6 @@ renovate:
   package: fugue/fregot
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/fugue/fregot/blob/main/LICENSE

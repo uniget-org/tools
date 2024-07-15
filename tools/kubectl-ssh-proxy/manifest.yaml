@@ -19,3 +19,6 @@ renovate:
   datasource: github-releases
   package: little-angry-clouds/kubectl-ssh-proxy
   priority: low
+license:
+  name: GNU General Public License v3.0
+  link: https://github.com/little-angry-clouds/kubectl-ssh-proxy/blob/master/LICENSE

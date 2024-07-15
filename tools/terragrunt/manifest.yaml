@@ -18,3 +18,5 @@ renovate:
   package: gruntwork-io/terragrunt
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License

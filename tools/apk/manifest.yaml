@@ -16,3 +16,6 @@ renovate:
   package: alpinelinux/apk-tools
   extractVersion: ^v(?<version>.+)$
   priority: medium
+license:
+  name: GNU General Public License v2.0
+  link: https://github.com/alpinelinux/apk-tools/blob/master/LICENSE

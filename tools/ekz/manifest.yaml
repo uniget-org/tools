@@ -16,3 +16,6 @@ renovate:
   datasource: github-releases
   package: chanwit/ekz
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/chanwit/ekz/blob/main/LICENSE

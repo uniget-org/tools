@@ -16,3 +16,5 @@ renovate:
   package: jonas/tig
   extractVersion: ^tig-(?<version>.+)$
   priority: low
+license:
+  name: GNU General Public License v2.0

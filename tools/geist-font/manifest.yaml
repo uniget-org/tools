@@ -22,3 +22,5 @@ renovate:
   datasource: github-releases
   package: vercel/geist-font
   priority: low
+license:
+  name: SIL Open Font License 1.1

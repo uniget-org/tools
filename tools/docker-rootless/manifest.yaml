@@ -41,3 +41,6 @@ renovate:
   package: moby/moby
   extractVersion: ^v(?<version>.+)$
   priority: high
+license:
+  name: Apache License 2.0
+  link: https://github.com/moby/moby/blob/master/LICENSE

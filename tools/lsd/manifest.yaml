@@ -14,3 +14,6 @@ renovate:
   datasource: github-releases
   package: lsd-rs/lsd
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/lsd-rs/lsd/blob/master/LICENSE

@@ -15,3 +15,6 @@ renovate:
   package: cue-lang/cue
   extractVersion: ^v(?<version>.+)$
   priority: medium
+license:
+  name: Apache License 2.0
+  link: https://github.com/cue-lang/cue/blob/master/LICENSE

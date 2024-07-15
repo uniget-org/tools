@@ -24,3 +24,6 @@ renovate:
   datasource: pypi
   package: shell-gpt
   priority: low
+license:
+  name: MIT license
+  link: https://github.com/TheR1D/shell_gpt/blob/main/LICENSE

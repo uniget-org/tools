@@ -3,16 +3,16 @@ name: k8spacket
 version: "2.0.4"
 check: "" # No version parameter
 platforms:
-  - linux/amd64
+- linux/amd64
 #- linux/arm64
 tags:
-  - troubleshooting
-  - component/network
-  - lang/go
-  - type/daemon
-  - kubernetes
-  - k8s
-  - ebpf
+- troubleshooting
+- component/network
+- lang/go
+- type/daemon
+- kubernetes
+- k8s
+- ebpf
 homepage: https://github.com/k8spacket/k8spacket
 repository: https://github.com/k8spacket/k8spacket
 description: Traffic visualization for kubernetes
@@ -21,3 +21,6 @@ renovate:
   package: k8spacket/k8spacket
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/k8spacket/k8spacket/blob/master/LICENSE

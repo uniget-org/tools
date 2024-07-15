@@ -23,3 +23,6 @@ renovate:
   url: https://git.zx2c4.com/password-store
   versioning: loose
   priority: low
+license:
+  name: GPL-2.0
+  link: https://git.zx2c4.com/password-store/tree/COPYING

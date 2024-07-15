@@ -4,12 +4,12 @@ version: "1.6.6"
 binary: npiperelay.exe
 check: "" # TODO
 runtime_dependencies:
-  - socat
+- socat
 tags:
-  - type/cli
-  - wsl
-  - lang/go
-  - ssh
+- type/cli
+- wsl
+- lang/go
+- ssh
 homepage: https://github.com/rupor-github/wsl-ssh-agent
 repository: https://github.com/rupor-github/wsl-ssh-agent
 description: Helper to interface with Windows ssh-agent.exe service from Windows Subsystem for Linux (WSL)
@@ -18,3 +18,6 @@ renovate:
   package: rupor-github/wsl-ssh-agent
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: GNU General Public License v3.0
+  link: https://github.com/rupor-github/wsl-ssh-agent/blob/master/LICENSE

@@ -19,3 +19,6 @@ renovate:
   package: wasmerio/wasmer
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/wasmerio/wasmer/blob/main/LICENSE

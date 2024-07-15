@@ -20,3 +20,5 @@ renovate:
   datasource: github-tags
   package: twistedpair/google-cloud-sdk
   priority: low
+license:
+  name: null

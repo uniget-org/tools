@@ -18,3 +18,6 @@ renovate:
   package: argoproj/argo-cd
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/argoproj/argo-cd/blob/master/LICENSE

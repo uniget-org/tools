@@ -22,3 +22,6 @@ renovate:
   package: interlynk-io/sbomex
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Other
+  link: https://github.com/interlynk-io/sbomex/blob/main/LICENSE

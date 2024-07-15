@@ -19,3 +19,5 @@ renovate:
   package: nvm-sh/nvm
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License

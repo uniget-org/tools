@@ -17,3 +17,6 @@ renovate:
   package: cilium/hubble
   extractVersion: ^v(?<version>.+)$
   priority: medium
+license:
+  name: Apache License 2.0
+  link: https://github.com/cilium/hubble/blob/main/LICENSE

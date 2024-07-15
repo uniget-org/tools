@@ -17,3 +17,6 @@ renovate:
   package: dailymotion-oss/octopilot
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/dailymotion-oss/octopilot/blob/master/LICENSE

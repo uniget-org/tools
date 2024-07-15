@@ -16,3 +16,6 @@ renovate:
   package: philips-labs/spiffe-vault
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/philips-labs/spiffe-vault/blob/main/LICENSE

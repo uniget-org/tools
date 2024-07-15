@@ -17,3 +17,6 @@ renovate:
   package: charmbracelet/vhs
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/charmbracelet/vhs/blob/main/LICENSE

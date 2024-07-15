@@ -16,3 +16,6 @@ renovate:
   package: loft-sh/vcluster
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/loft-sh/vcluster/blob/main/LICENSE

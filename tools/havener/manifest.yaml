@@ -16,3 +16,6 @@ renovate:
   package: homeport/havener
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/homeport/havener/blob/main/LICENSE

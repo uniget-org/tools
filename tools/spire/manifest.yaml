@@ -19,3 +19,6 @@ renovate:
   package: spiffe/spire
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/spiffe/spire/blob/main/LICENSE

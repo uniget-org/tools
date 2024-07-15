@@ -18,3 +18,5 @@ renovate:
   package: evanw/esbuild
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License

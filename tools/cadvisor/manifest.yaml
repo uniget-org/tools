@@ -19,3 +19,6 @@ renovate:
   package: google/cadvisor
   extractVersion: ^v(?<version>.+)$
   priority: medium
+license:
+  name: Other
+  link: https://github.com/google/cadvisor/blob/master/LICENSE

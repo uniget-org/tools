@@ -22,3 +22,6 @@ renovate:
   datasource: npm
   package: decktape
   priority: low
+license:
+  name: MIT license
+  link: https://github.com/astefanutti/decktape/blob/master/LICENSE

@@ -22,3 +22,6 @@ renovate:
   package: interlynk-io/sbomgr
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/interlynk-io/sbomgr/blob/main/LICENSE

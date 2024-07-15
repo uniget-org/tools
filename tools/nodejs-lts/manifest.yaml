@@ -18,3 +18,5 @@ renovate:
   package: uniget-org/renovate-custom
   extractVersion: ^nodejs-lts/(?<version>.+)$
   priority: low
+license:
+  name: null

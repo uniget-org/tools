@@ -18,3 +18,5 @@ renovate:
   package: PowerShell/PowerShell
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License

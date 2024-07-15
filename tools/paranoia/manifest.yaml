@@ -3,10 +3,10 @@ name: paranoia
 version: "0.2.1"
 check: "" # No version parameter
 tags:
-  - category/security
-  - type/cli
-  - lang/go
-  - state/stale
+- category/security
+- type/cli
+- lang/go
+- state/stale
 homepage: https://github.com/jetstack/paranoia
 repository: https://github.com/jetstack/paranoia
 description: Inspect certificate authorities in container images
@@ -15,3 +15,5 @@ renovate:
   package: jetstack/paranoia
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0

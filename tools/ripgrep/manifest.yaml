@@ -14,3 +14,5 @@ renovate:
   datasource: github-releases
   package: BurntSushi/ripgrep
   priority: low
+license:
+  name: The Unlicense

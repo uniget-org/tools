@@ -21,3 +21,6 @@ renovate:
   package: mikefarah/yq
   extractVersion: ^v(?<version>.+)$
   priority: high
+license:
+  name: MIT License
+  link: https://github.com/mikefarah/yq/blob/master/LICENSE

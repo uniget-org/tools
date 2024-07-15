@@ -16,10 +16,13 @@ tags:
 - type/cli
 - dependency
 - management
-homepage: https://github.com/yarnpkg/yarn
+homepage: https://classic.yarnpkg.com/
 repository: https://github.com/yarnpkg/yarn
 description: Fast, reliable, and secure dependency management
 renovate:
   datasource: npm
   package: yarn
   priority: low
+license:
+  name: BSD-2-Clause license
+  link: https://github.com/yarnpkg/yarn/blob/master/LICENSE

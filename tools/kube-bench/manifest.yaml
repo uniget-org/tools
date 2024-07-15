@@ -16,3 +16,6 @@ renovate:
   package: aquasecurity/kube-bench
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/aquasecurity/kube-bench/blob/main/LICENSE

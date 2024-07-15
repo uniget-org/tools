@@ -21,3 +21,6 @@ renovate:
   datasource: pypi
   package: jc
   priority: low
+license:
+  name: MIT license
+  link: https://github.com/kellyjonbrazil/jc/blob/master/LICENSE.md

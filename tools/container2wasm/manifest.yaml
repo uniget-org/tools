@@ -19,3 +19,6 @@ renovate:
   package: ktock/container2wasm
   extractVersion: ^v(?<version>.+)$
   priority: high
+license:
+  name: Apache License 2.0
+  link: https://github.com/ktock/container2wasm/blob/main/LICENSE

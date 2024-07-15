@@ -16,3 +16,6 @@ renovate:
   datasource: github-releases
   package: mlange-42/git-igitt
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/mlange-42/git-igitt/blob/master/LICENSE

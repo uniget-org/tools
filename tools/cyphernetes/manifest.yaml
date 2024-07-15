@@ -4,12 +4,12 @@ name: cyphernetes
 version: "0.6.4-fix.0"
 check: "" # No version parameter
 platforms:
-  - linux/amd64
+- linux/amd64
 tags:
-  - category/operations
-  - lang/go
-  - type/cli
-  - state/onemanshow
+- category/operations
+- lang/go
+- type/cli
+- state/onemanshow
 homepage: https://github.com/AvitalTamir/cyphernetes
 repository: https://github.com/AvitalTamir/cyphernetes
 description: Kubernetes CLI and library for complex operations using a Cypher-inspired query language
@@ -18,3 +18,6 @@ renovate:
   package: AvitalTamir/cyphernetes
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/AvitalTamir/cyphernetes/blob/main/LICENSE

@@ -15,3 +15,5 @@ renovate:
   package: concourse/concourse
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0

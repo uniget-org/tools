@@ -22,3 +22,6 @@ renovate:
   package: makocchi-git/kubectl-free
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/makocchi-git/kubectl-free/blob/master/LICENSE

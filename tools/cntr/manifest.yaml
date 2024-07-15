@@ -16,3 +16,5 @@ renovate:
   datasource: github-releases
   package: Mic92/cntr
   priority: low
+license:
+  name: MIT License

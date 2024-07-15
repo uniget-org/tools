@@ -4,15 +4,15 @@ name: nms
 version: "1.0.1"
 check: ${binary} -v | cut -d' ' -f3
 build_dependencies:
-  - make
+- make
 platforms:
-  - linux/amd64
-  - linux/arm64
+- linux/amd64
+- linux/arm64
 tags:
-  - category/development
-  - lang/c
-  - type/cli
-  - state/stale
+- category/development
+- lang/c
+- type/cli
+- state/stale
 homepage: https://github.com/bartobri/no-more-secrets
 repository: https://github.com/bartobri/no-more-secrets
 description: command line tool that recreates the famous data decryption effect seen in the 1992 movie Sneakers
@@ -21,3 +21,6 @@ renovate:
   package: bartobri/no-more-secrets
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: GNU General Public License v3.0
+  link: https://github.com/bartobri/no-more-secrets/blob/master/LICENSE

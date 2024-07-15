@@ -21,3 +21,6 @@ renovate:
   package: yuzutech/kroki-cli
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/yuzutech/kroki-cli/blob/master/LICENSE

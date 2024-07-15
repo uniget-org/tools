@@ -18,3 +18,6 @@ renovate:
   package: dunglas/frankenphp
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT license
+  link: https://github.com/dunglas/frankenphp/blob/main/LICENSE

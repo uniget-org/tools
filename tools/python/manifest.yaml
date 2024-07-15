@@ -24,3 +24,6 @@ renovate:
   extractVersion: ^python/(?<version>.+)$
   versioning: loose
   priority: low
+license:
+  name: Python Software Foundation License Version 2
+  link: https://github.com/python/cpython/blob/main/LICENSE

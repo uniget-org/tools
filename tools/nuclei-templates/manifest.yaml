@@ -17,3 +17,5 @@ renovate:
   package: projectdiscovery/nuclei-templates
   extractVersion: ^v(?<version>.+)$
   priority: high
+license:
+  name: MIT License

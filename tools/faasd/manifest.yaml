@@ -16,3 +16,6 @@ renovate:
   datasource: github-releases
   package: openfaas/faasd
   priority: medium
+license:
+  name: MIT License
+  link: https://github.com/openfaas/faasd/blob/master/LICENSE

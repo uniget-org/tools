@@ -24,3 +24,6 @@ renovate:
   datasource: pypi
   package: gita
   priority: low
+license:
+  name: MIT license
+  link: https://github.com/nosarthur/gita/blob/master/LICENSE

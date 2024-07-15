@@ -3,14 +3,14 @@ name: hadolint
 version: "2.12.0"
 check: ${binary} --version | cut -d' ' -f4 | cut -d- -f1
 tags:
-  - container/build
-  - category/development
-  - type/cli
-  - troubleshooting
-  - cicd
-  - lang/haskell
-  - standard/docker
-  - docker
+- container/build
+- category/development
+- type/cli
+- troubleshooting
+- cicd
+- lang/haskell
+- standard/docker
+- docker
 homepage: https://github.com/hadolint/hadolint
 repository: https://github.com/hadolint/hadolint
 description: Dockerfile linter, validate inline bash
@@ -19,3 +19,6 @@ renovate:
   package: hadolint/hadolint
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: GNU General Public License v3.0
+  link: https://github.com/hadolint/hadolint/blob/master/LICENSE

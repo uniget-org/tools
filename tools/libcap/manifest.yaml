@@ -19,3 +19,6 @@ renovate:
   extractVersion: ^libcap-(?<version>\d+\.\d+)$
   versioning: loose
   priority: low
+license:
+  name: BSD-3-Clause OR GPL-2.0-only
+  link: https://git.kernel.org/pub/scm/libs/libcap/libcap.git/tree/License

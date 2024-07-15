@@ -21,3 +21,6 @@ renovate:
   package: hashicorp/packer
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Other
+  link: https://github.com/hashicorp/packer/blob/main/LICENSE

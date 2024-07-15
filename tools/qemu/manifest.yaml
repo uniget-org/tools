@@ -19,3 +19,6 @@ renovate:
   package: qemu/qemu
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Other
+  link: https://github.com/qemu/qemu/blob/master/LICENSE

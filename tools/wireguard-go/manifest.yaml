@@ -22,3 +22,5 @@ renovate:
   package: wireguard-go
   url: https://git.zx2c4.com/wireguard-go
   priority: low
+license:
+  link: https://git.zx2c4.com/wireguard-go/tree/LICENSE

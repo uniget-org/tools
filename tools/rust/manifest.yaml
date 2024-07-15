@@ -17,3 +17,5 @@ renovate:
   datasource: github-releases
   package: rust-lang/rust
   priority: low
+license:
+  name: Other

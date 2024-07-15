@@ -19,3 +19,6 @@ renovate:
   package: derailed/popeye
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Other
+  link: https://github.com/derailed/popeye/blob/master/LICENSE

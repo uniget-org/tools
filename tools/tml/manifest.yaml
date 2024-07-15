@@ -19,3 +19,6 @@ renovate:
   package: liamg/tml
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: The Unlicense
+  link: https://github.com/liamg/tml/blob/master/LICENSE

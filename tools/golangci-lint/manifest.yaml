@@ -18,3 +18,6 @@ renovate:
   package: golangci/golangci-lint
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: GNU General Public License v3.0
+  link: https://github.com/golangci/golangci-lint/blob/master/LICENSE

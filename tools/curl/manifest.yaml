@@ -10,7 +10,7 @@ tags:
 - type/cli
 - component/network
 - lang/c
-homepage: https://github.com/curl/curl
+homepage: https://curl.se/
 repository: https://github.com/curl/curl
 description: Tool and library for transferring data with URL syntax
 renovate:

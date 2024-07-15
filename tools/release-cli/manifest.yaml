@@ -21,3 +21,6 @@ renovate:
   package: gitlab-org/release-cli
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT license
+  link: https://gitlab.com/gitlab-org/release-cli/-/blob/master/LICENSE?ref_type=heads

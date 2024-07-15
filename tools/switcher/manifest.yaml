@@ -17,3 +17,6 @@ renovate:
   datasource: github-releases
   package: danielfoehrKn/kubeswitch
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/danielfoehrKn/kubeswitch/blob/master/LICENSE

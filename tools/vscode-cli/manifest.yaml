@@ -20,3 +20,5 @@ renovate:
   datasource: github-releases
   package: microsoft/vscode
   priority: low
+license:
+  name: MIT License

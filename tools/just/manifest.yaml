@@ -13,3 +13,6 @@ renovate:
   datasource: github-releases
   package: casey/just
   priority: low
+license:
+  name: Creative Commons Zero v1.0 Universal
+  link: https://github.com/casey/just/blob/master/LICENSE

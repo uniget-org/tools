@@ -16,3 +16,6 @@ description: Graph Visualization Tool
 renovate:
   datasource: gitlab-tags
   package: graphviz/graphviz
+license:
+  name: Eclipse Public License 1.0
+  link: https://gitlab.com/graphviz/graphviz/-/blob/main/LICENSE?ref_type=heads

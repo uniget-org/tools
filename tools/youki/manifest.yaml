@@ -35,3 +35,6 @@ renovate:
   package: containers/youki
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/containers/youki/blob/main/LICENSE

@@ -17,3 +17,6 @@ renovate:
   extractVersion: ^v(?<version>.+)$
   versioning: loose
   priority: low
+license:
+  name: GNU General Public License v3.0
+  link: https://github.com/sahsanu/lectl/blob/master/LICENSE

@@ -19,3 +19,6 @@ renovate:
   package: EnvCLI/EnvCLI
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/EnvCLI/EnvCLI/blob/main/LICENSE

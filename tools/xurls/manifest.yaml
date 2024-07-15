@@ -17,3 +17,6 @@ renovate:
   package: mvdan/xurls
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: BSD 3-Clause "New" or "Revised" License
+  link: https://github.com/mvdan/xurls/blob/master/LICENSE

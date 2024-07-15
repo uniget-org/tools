@@ -17,3 +17,6 @@ renovate:
   package: boyter/scc
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/boyter/scc/blob/master/LICENSE

@@ -22,3 +22,6 @@ renovate:
   datasource: npm
   package: n8n
   priority: low
+license:
+  name: Sustainable Use License 1.0
+  link: https://github.com/n8n-io/n8n/blob/master/LICENSE.md

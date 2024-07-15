@@ -22,3 +22,6 @@ renovate:
   datasource: pypi
   package: bogrod
   priority: low
+license:
+  name: MIT license
+  link: https://github.com/productaize/bogrod/blob/master/LICENSE

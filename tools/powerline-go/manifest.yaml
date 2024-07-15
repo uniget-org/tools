@@ -18,3 +18,5 @@ renovate:
   package: justjanne/powerline-go
   extractVersion: ^v(?<version>.+)$
   priority: high
+license:
+  name: GNU General Public License v3.0

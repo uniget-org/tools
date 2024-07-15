@@ -20,3 +20,6 @@ renovate:
   package: crazy-max/diun
   extractVersion: ^v(?<version>.+)$
   priority: medium
+license:
+  name: MIT License
+  link: https://github.com/crazy-max/diun/blob/master/LICENSE

@@ -16,3 +16,6 @@ renovate:
   datasource: github-releases
   package: falcosecurity/falco
   priority: medium
+license:
+  name: Apache License 2.0
+  link: https://github.com/falcosecurity/falco/blob/master/LICENSE

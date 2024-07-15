@@ -17,3 +17,6 @@ renovate:
   package: upx/upx
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Other
+  link: https://github.com/upx/upx/blob/devel/LICENSE

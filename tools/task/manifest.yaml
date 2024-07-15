@@ -16,3 +16,6 @@ renovate:
   package: go-task/task
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/go-task/task/blob/main/LICENSE

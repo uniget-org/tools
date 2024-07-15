@@ -22,3 +22,6 @@ renovate:
   package: prometheus-community/json_exporter
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/prometheus-community/json_exporter/blob/master/LICENSE

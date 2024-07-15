@@ -24,3 +24,5 @@ renovate:
   package: johnkerl/miller
   extractVersion: ^v(?<version>.+)$
   priority: medium
+license:
+  name: Other

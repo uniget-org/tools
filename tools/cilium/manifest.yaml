@@ -21,3 +21,6 @@ renovate:
   package: cilium/cilium-cli
   extractVersion: ^v(?<version>.+)$
   priority: medium
+license:
+  name: Apache License 2.0
+  link: https://github.com/cilium/cilium-cli/blob/main/LICENSE

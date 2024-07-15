@@ -18,3 +18,6 @@ renovate:
   package: TomWright/dasel
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/TomWright/dasel/blob/master/LICENSE

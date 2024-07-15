@@ -19,3 +19,6 @@ renovate:
   package: docker-credential-magic/docker-credential-magic
   extractVersion: ^v(?<version>.+)$
   priority: medium
+license:
+  name: Apache License 2.0
+  link: https://github.com/docker-credential-magic/docker-credential-magic/blob/main/LICENSE

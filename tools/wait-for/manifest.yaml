@@ -15,3 +15,6 @@ renovate:
   package: dnnrly/wait-for
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/dnnrly/wait-for/blob/main/LICENSE

@@ -16,3 +16,6 @@ renovate:
   package: containers/bubblewrap
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Other
+  link: https://github.com/containers/bubblewrap/blob/main/LICENSE

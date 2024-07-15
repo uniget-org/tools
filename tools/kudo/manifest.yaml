@@ -22,3 +22,6 @@ renovate:
   package: kudobuilder/kudo
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/kudobuilder/kudo/blob/main/LICENSE

@@ -15,3 +15,6 @@ renovate:
   datasource: github-releases
   package: stackrox/kube-linter
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/stackrox/kube-linter/blob/main/LICENSE

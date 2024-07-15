@@ -19,3 +19,6 @@ renovate:
   package: gabotechs/dep-tree
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/gabotechs/dep-tree/blob/main/LICENSE

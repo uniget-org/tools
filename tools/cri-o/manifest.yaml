@@ -27,3 +27,6 @@ renovate:
   package: cri-o/cri-o
   extractVersion: ^v(?<version>.+)$
   priority: high
+license:
+  name: Apache License 2.0
+  link: https://github.com/cri-o/cri-o/blob/main/LICENSE

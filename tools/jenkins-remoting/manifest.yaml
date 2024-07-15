@@ -21,3 +21,5 @@ renovate:
   package: jenkinsci/remoting
   versioning: loose
   priority: low
+license:
+  name: MIT License

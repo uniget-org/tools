@@ -20,3 +20,6 @@ renovate:
   package: wfxr/forgit
   versioning: loose
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/wfxr/forgit/blob/master/LICENSE

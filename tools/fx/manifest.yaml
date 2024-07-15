@@ -13,3 +13,6 @@ renovate:
   datasource: github-releases
   package: antonmedv/fx
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/antonmedv/fx/blob/master/LICENSE

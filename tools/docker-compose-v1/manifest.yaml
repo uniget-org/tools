@@ -23,3 +23,6 @@ renovate:
   package: docker/compose
   extractVersion: ^(?<version>1\.\d+\.\d+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/docker/compose/blob/main/LICENSE

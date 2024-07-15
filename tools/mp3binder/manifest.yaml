@@ -15,3 +15,6 @@ renovate:
   package: crra/mp3binder
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/crra/mp3binder/blob/main/LICENSE

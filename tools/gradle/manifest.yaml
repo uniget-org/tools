@@ -16,3 +16,6 @@ renovate:
   package: gradle/gradle
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/gradle/gradle/blob/master/LICENSE

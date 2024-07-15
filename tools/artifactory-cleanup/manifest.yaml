@@ -17,3 +17,6 @@ renovate:
   package: crazy-max/artifactory-cleanup
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/crazy-max/artifactory-cleanup/blob/master/LICENSE

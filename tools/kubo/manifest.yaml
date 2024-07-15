@@ -21,3 +21,6 @@ renovate:
   package: ipfs/kubo
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Other
+  link: https://github.com/ipfs/kubo/blob/master/LICENSE

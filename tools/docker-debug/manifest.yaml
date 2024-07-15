@@ -29,3 +29,5 @@ renovate:
   extractVersion: ^docker-debug/(?<version>.+)$
   versioning: loose
   priority: low
+license:
+  name: null

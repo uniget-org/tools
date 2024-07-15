@@ -22,3 +22,6 @@ renovate:
   datasource: pypi
   package: azure-cli
   priority: medium
+license:
+  name: MIT license
+  link: https://github.com/Azure/azure-cli/blob/dev/LICENSE

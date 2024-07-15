@@ -3,11 +3,11 @@ name: kdo
 version: "0.8.0"
 check: ${binary} --version | cut -d' ' -f3
 tags:
-  - type/cli
-  - kubernetes
-  - k8s
-  - lang/go
-  - cicd
+- type/cli
+- kubernetes
+- k8s
+- lang/go
+- cicd
 homepage: https://stepro.github.io/kdo/
 repository: https://github.com/stepro/kdo
 description: Deployless Development on Kubernetes
@@ -16,3 +16,6 @@ renovate:
   package: stepro/kdo
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/stepro/kdo/blob/master/LICENSE

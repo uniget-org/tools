@@ -4,13 +4,13 @@ name: ezghsa
 version: "0.3.0"
 check: "" # No useful output
 platforms:
-  - linux/amd64
-  - linux/arm64
+- linux/amd64
+- linux/arm64
 tags:
-  - category/security
-  - lang/go
-  - type/cli
-  - state/onemanshow
+- category/security
+- lang/go
+- type/cli
+- state/onemanshow
 homepage: https://github.com/csdev/ezghsa
 repository: https://github.com/csdev/ezghsa
 description: Command-line tool for summarizing and filtering vulnerability alerts on Github repositories
@@ -19,3 +19,5 @@ renovate:
   package: csdev/ezghsa
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License

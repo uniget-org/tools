@@ -22,3 +22,5 @@ renovate:
   package: vitobotta/hetzner-k3s
   extractVersion: ^v(?<version>.+)$
   priority: medium
+license:
+  name: MIT License

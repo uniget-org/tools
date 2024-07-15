@@ -49,3 +49,6 @@ renovate:
   extractVersion: ^linux-msft-wsl-(?<version>5\..+)$
   versioning: loose
   priority: low
+license:
+  name: GPL-2.0
+  link: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/COPYING

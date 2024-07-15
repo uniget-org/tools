@@ -17,3 +17,6 @@ renovate:
   package: sbt/sbt
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/sbt/sbt/blob/1.10.x/LICENSE

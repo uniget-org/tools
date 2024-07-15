@@ -16,3 +16,6 @@ renovate:
   datasource: github-tags
   package: cmatsuoka/figlet
   priority: low
+license:
+  name: BSD 3-Clause "New" or "Revised" License
+  link: https://github.com/cmatsuoka/figlet/blob/master/LICENSE

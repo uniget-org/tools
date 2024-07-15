@@ -23,3 +23,6 @@ renovate:
   datasource: npm
   package: kubebox
   priority: low
+license:
+  name: MIT license
+  link: https://github.com/astefanutti/kubebox/blob/master/LICENSE

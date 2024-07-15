@@ -21,3 +21,6 @@ renovate:
   datasource: github-releases
   package: box-project/box
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/box-project/box/blob/main/LICENSE

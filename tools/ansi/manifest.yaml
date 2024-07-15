@@ -15,3 +15,5 @@ renovate:
   datasource: github-tags
   package: fidian/ansi
   priority: low
+license:
+  name: Other

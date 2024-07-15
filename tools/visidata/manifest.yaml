@@ -22,3 +22,5 @@ renovate:
   package: saulpw/visidata
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: GNU General Public License v3.0

@@ -18,3 +18,5 @@ renovate:
   package: 89luca89/distrobox
   versioning: loose
   priority: medium
+license:
+  name: GNU General Public License v3.0

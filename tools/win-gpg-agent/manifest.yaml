@@ -21,3 +21,6 @@ renovate:
   package: rupor-github/win-gpg-agent
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/rupor-github/win-gpg-agent/blob/main/LICENSE

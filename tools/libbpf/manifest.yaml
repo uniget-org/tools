@@ -21,3 +21,6 @@ renovate:
   package: libbpf/libbpf
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Other
+  link: https://github.com/libbpf/libbpf/blob/master/LICENSE

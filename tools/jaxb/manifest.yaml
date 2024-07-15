@@ -22,3 +22,5 @@ renovate:
   package: eclipse-ee4j/jaxb-ri
   extractVersion: ^(?<version>.+)-RI$
   priority: low
+license:
+  name: BSD 3-Clause "New" or "Revised" License

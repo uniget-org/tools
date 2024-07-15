@@ -23,3 +23,6 @@ renovate:
   datasource: npm
   package: markdownlint-cli
   priority: low
+license:
+  name: MIT license
+  link: https://github.com/igorshubovych/markdownlint-cli/blob/master/LICENSE

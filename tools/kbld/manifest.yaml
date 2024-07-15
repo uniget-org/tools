@@ -17,3 +17,6 @@ renovate:
   package: carvel-dev/kbld
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/carvel-dev/kbld/blob/develop/LICENSE

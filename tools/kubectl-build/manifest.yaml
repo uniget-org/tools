@@ -24,3 +24,6 @@ renovate:
   package: vmware-archive/buildkit-cli-for-kubectl
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Other
+  link: https://github.com/vmware-archive/buildkit-cli-for-kubectl/blob/main/LICENSE

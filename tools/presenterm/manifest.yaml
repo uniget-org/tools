@@ -21,3 +21,6 @@ renovate:
   package: mfontanini/presenterm
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: BSD 2-Clause "Simplified" License
+  link: https://github.com/mfontanini/presenterm/blob/master/LICENSE

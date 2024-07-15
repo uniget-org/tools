@@ -18,3 +18,6 @@ renovate:
   package: cube2222/octosql
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Mozilla Public License 2.0
+  link: https://github.com/cube2222/octosql/blob/main/LICENSE

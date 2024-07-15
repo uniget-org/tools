@@ -17,3 +17,6 @@ renovate:
   package: wader/fq
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Other
+  link: https://github.com/wader/fq/blob/master/LICENSE

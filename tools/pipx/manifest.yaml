@@ -22,3 +22,6 @@ renovate:
   datasource: pypi
   package: pipx
   priority: medium
+license:
+  name: MIT license
+  link: https://github.com/pypa/pipx/blob/main/LICENSE

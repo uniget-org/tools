@@ -3,15 +3,15 @@ name: datree
 version: "1.9.19"
 check: ${binary} version
 runtime_dependencies:
-  - kubernetes-json-schema
+- kubernetes-json-schema
 tags:
-  - category/security
-  - type/cli
-  - kubernetes
-  - k8s
-  - cicd
-  - lang/go
-  - state/deprecated
+- category/security
+- type/cli
+- kubernetes
+- k8s
+- cicd
+- lang/go
+- state/deprecated
 homepage: https://datree.io
 repository: https://github.com/datreeio/datree
 description: Prevent Kubernetes misconfigurations from reaching production
@@ -19,3 +19,5 @@ renovate:
   datasource: github-releases
   package: datreeio/datree
   priority: low
+license:
+  name: Apache License 2.0

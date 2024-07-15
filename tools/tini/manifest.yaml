@@ -18,3 +18,6 @@ renovate:
   package: krallin/tini
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/krallin/tini/blob/master/LICENSE

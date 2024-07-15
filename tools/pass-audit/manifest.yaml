@@ -22,3 +22,6 @@ renovate:
   datasource: pypi
   package: pass-audit
   priority: low
+license:
+  name: GPLv3
+  link: https://github.com/roddhjav/pass-audit/blob/master/LICENSE

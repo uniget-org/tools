@@ -21,3 +21,6 @@ renovate:
   package: eksctl-io/eksctl
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Other
+  link: https://github.com/eksctl-io/eksctl/blob/main/LICENSE

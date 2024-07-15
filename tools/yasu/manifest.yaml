@@ -16,3 +16,6 @@ renovate:
   package: crazy-max/yasu
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/crazy-max/yasu/blob/master/LICENSE

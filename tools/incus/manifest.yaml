@@ -19,3 +19,5 @@ renovate:
   package: lxc/incus
   extractVersion: ^v(?<version>.+)$
   priority: high
+license:
+  name: Apache License 2.0

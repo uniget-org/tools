@@ -25,3 +25,6 @@ renovate:
   datasource: github-releases
   package: sgreben/jp
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/sgreben/jp/blob/master/LICENSE

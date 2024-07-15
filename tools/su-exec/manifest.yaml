@@ -18,3 +18,6 @@ renovate:
   extractVersion: ^v(?<version>.+)$
   versioning: loose
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/ncopa/su-exec/blob/master/LICENSE

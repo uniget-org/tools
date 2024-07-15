@@ -23,3 +23,5 @@ renovate:
   package: libcgroup/libcgroup
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: GNU Lesser General Public License v2.1

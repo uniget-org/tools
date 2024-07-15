@@ -17,3 +17,6 @@ renovate:
   datasource: github-releases
   package: dominikh/go-tools
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/dominikh/go-tools/blob/master/LICENSE

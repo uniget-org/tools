@@ -21,3 +21,6 @@ renovate:
   extractVersion: ^v(?<version>.+)$
   versioning: loose
   priority: low
+license:
+  name: Other
+  link: https://github.com/k0sproject/k0s/blob/main/LICENSE

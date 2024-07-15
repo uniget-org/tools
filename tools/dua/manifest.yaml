@@ -16,3 +16,6 @@ renovate:
   package: Byron/dua-cli
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/Byron/dua-cli/blob/main/LICENSE

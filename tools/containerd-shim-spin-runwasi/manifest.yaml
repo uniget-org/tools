@@ -29,3 +29,6 @@ renovate:
   package: deislabs/containerd-wasm-shims
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/deislabs/containerd-wasm-shims/blob/main/LICENSE

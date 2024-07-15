@@ -17,3 +17,6 @@ renovate:
   package: tinygo-org/tinygo
   extractVersion: ^v(?<version>.+)$
   priority: medium
+license:
+  name: Other
+  link: https://github.com/tinygo-org/tinygo/blob/release/LICENSE

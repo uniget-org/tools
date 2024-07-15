@@ -17,3 +17,6 @@ renovate:
   package: antoniomika/sish
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/antoniomika/sish/blob/main/LICENSE

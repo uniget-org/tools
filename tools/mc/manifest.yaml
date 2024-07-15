@@ -20,3 +20,6 @@ renovate:
   extractVersion: ^RELEASE.(?<version>.+)$
   versioning: loose
   priority: low
+license:
+  name: GNU Affero General Public License v3.0
+  link: https://github.com/minio/mc/blob/master/LICENSE

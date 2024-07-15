@@ -16,3 +16,6 @@ renovate:
   package: kubernetes-sigs/bom
   extractVersion: ^v(?<version>.+)$
   priority: medium
+license:
+  name: Apache License 2.0
+  link: https://github.com/kubernetes-sigs/bom/blob/main/LICENSE

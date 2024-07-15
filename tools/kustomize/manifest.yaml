@@ -22,3 +22,6 @@ renovate:
   package: kubernetes-sigs/kustomize
   extractVersion: ^kustomize/v(?<version>.+)$
   priority: medium
+license:
+  name: Apache License 2.0
+  link: https://github.com/kubernetes-sigs/kustomize/blob/master/LICENSE

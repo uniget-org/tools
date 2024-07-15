@@ -18,3 +18,6 @@ renovate:
   package: marcosnils/bin
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/marcosnils/bin/blob/master/LICENSE

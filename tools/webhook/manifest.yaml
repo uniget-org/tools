@@ -20,3 +20,6 @@ renovate:
   datasource: github-releases
   package: adnanh/webhook
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/adnanh/webhook/blob/master/LICENSE

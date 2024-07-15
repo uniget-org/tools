@@ -23,3 +23,6 @@ renovate:
   package: wagoodman/dive
   extractVersion: ^v(?<version>.+)$
   priority: high
+license:
+  name: MIT License
+  link: https://github.com/wagoodman/dive/blob/main/LICENSE

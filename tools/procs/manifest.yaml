@@ -16,3 +16,6 @@ renovate:
   package: dalance/procs
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/dalance/procs/blob/master/LICENSE

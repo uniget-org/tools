@@ -20,3 +20,6 @@ renovate:
   extractVersion: ^v(?<version>.+)$
   versioning: loose
   priority: low
+license:
+  name: Other
+  link: https://github.com/mutagen-io/mutagen-compose/blob/main/LICENSE

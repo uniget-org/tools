@@ -15,3 +15,6 @@ renovate:
   package: projectdiscovery/tlsx
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/projectdiscovery/tlsx/blob/main/LICENSE

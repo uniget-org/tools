@@ -21,3 +21,6 @@ renovate:
   package: fluxcd/flux2
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/fluxcd/flux2/blob/main/LICENSE

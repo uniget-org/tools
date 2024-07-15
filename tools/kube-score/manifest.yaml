@@ -16,3 +16,6 @@ renovate:
   package: zegl/kube-score
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License
+  link: https://github.com/zegl/kube-score/blob/master/LICENSE

@@ -16,3 +16,5 @@ renovate:
   package: imsnif/bandwhich
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License

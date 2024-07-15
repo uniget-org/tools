@@ -22,3 +22,5 @@ renovate:
   package: goreleaser/goreleaser
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: MIT License

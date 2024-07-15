@@ -29,3 +29,6 @@ renovate:
   package: akazukin5151/kpxhs
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: GNU General Public License v3.0
+  link: https://github.com/akazukin5151/kpxhs/blob/master/LICENSE
