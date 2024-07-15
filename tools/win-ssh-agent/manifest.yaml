@@ -4,14 +4,12 @@ version: "1.6.6"
 binary: npiperelay.exe
 check: "" # TODO
 runtime_dependencies:
-- socat
+  - socat
 tags:
-- type/cli
-- wsl
-- lang/go
-- state/stale
-- state/deprecated
-- ssh
+  - type/cli
+  - wsl
+  - lang/go
+  - ssh
 homepage: https://github.com/rupor-github/wsl-ssh-agent
 repository: https://github.com/rupor-github/wsl-ssh-agent
 description: Helper to interface with Windows ssh-agent.exe service from Windows Subsystem for Linux (WSL)

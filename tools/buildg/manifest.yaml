@@ -3,16 +3,17 @@ name: buildg
 version: "0.4.1"
 check: ${binary} version | cut -d' ' -f2 | tr -d v
 runtime_dependencies:
-- runc
-- cni
+  - runc
+  - cni
 tags:
-- standard/oci
-- container/build
-- category/development
-- type/cli
-- lang/go
-- standard/docker
-- docker
+  - standard/oci
+  - container/build
+  - category/development
+  - type/cli
+  - lang/go
+  - standard/docker
+  - docker
+  - state/stale
 homepage: https://github.com/ktock/buildg
 repository: https://github.com/ktock/buildg
 description: Interactive debugger for Dockerfile

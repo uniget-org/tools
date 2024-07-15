@@ -3,12 +3,13 @@ name: exa
 version: "0.10.1"
 check: ${binary} --version | grep ^v | cut -d' ' -f1 | tr -d v
 platforms:
-- linux/amd64
+  - linux/amd64
 tags:
-- category/development
-- lang/rust
-- type/cli
-- terminal
+  - category/development
+  - lang/rust
+  - type/cli
+  - terminal
+  - state/stale
 homepage: https://the.exa.website/
 repository: https://github.com/ogham/exa
 description: Modern replacement for 'ls'

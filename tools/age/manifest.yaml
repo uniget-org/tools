@@ -3,14 +3,13 @@ name: age
 version: "1.2.0"
 check: ${binary} --version | tr -d v
 platforms:
-- linux/amd64
-- linux/arm64
+  - linux/amd64
+  - linux/arm64
 tags:
-- category/security
-- type/cli
-- lang/go
-- encryption
-- state/stale
+  - category/security
+  - type/cli
+  - lang/go
+  - encryption
 homepage: https://age-encryption.org
 repository: https://github.com/FiloSottile/age
 description: Simple, modern and secure encryption tool

@@ -4,16 +4,17 @@ name: phive
 version: "0.15.2"
 check: ""
 build_dependencies:
-- php
+  - php
 runtime_dependencies:
-- php
+  - php
 platforms:
-- linux/amd64
-- linux/arm64
+  - linux/amd64
+  - linux/arm64
 tags:
-- category/development
-- lang/php
-- type/cli
+  - category/development
+  - lang/php
+  - type/cli
+  - state/stale
 homepage: https://phar.io
 repository: https://github.com/phar-io/phive
 description: Phar Installation and Verification Environment

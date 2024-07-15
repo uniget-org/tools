@@ -4,12 +4,14 @@ name: k8senv
 version: "1.0.2"
 check: ${binary} version | cut -d, -f2 | cut -d'"' -f4 | tr -d v
 platforms:
-- linux/amd64
-- linux/arm64
+  - linux/amd64
+  - linux/arm64
 tags:
-- category/operations
-- lang/go
-- type/cli
+  - category/operations
+  - lang/go
+  - type/cli
+  - state/stale
+  - state/onemanshow
 homepage: https://github.com/navilg/k8senv
 repository: https://github.com/navilg/k8senv
 description: Version manager to manage multiple versions of kubectl, helm and velero clients on same system/jumpbox/bastion

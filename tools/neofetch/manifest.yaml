@@ -3,11 +3,12 @@ name: neofetch
 version: "7.1.0"
 check: ${binary} --version | cut -d' ' -f2
 tags:
-- type/cli
-- fun
-- lang/shell
-- state/stale
-- category/operations
+  - type/cli
+  - fun
+  - lang/shell
+  - state/stale
+  - category/operations
+  - state/deprecated
 homepage: https://github.com/dylanaraps/neofetch
 repository: https://github.com/dylanaraps/neofetch
 description: Command-line system information tool written in bash 3.2+

@@ -4,14 +4,15 @@ name: qrencode
 version: "4.1.1"
 check: ${binary} --version | grep ^qrencode | cut -d' ' -f3
 build_dependencies:
-- make
+  - make
 platforms:
-- linux/amd64
-- linux/arm64
+  - linux/amd64
+  - linux/arm64
 tags:
-- category/development
-- lang/c
-- type/cli
+  - category/development
+  - lang/c
+  - type/cli
+  - state/stale
 homepage: https://fukuchi.org/works/qrencode/
 repository: https://github.com/fukuchi/libqrencode
 description: Fast and compact QR Code encoding library
