@@ -10,7 +10,9 @@ SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=make / /usr/local/
 RUN <<EOF
 apk update
-apk add gettext
+apk add \
+    gettext \
+    gettext-dev
 EOF
 WORKDIR /tmp/pv
 ARG name
