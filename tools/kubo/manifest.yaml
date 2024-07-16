@@ -22,5 +22,5 @@ renovate:
   extractVersion: ^v(?<version>.+)$
   priority: low
 license:
-  name: Other
+  name: Custom
   link: https://github.com/ipfs/kubo/blob/master/LICENSE

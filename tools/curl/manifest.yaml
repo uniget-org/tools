@@ -19,3 +19,6 @@ renovate:
   datasourceTramsformJsonata: "{ \"releases\": [ $[].{ \"version\": $replace( $substring( tag_name, 5 ), '_', '.' ) } ] }"
   package: curl/curl
   priority: low
+license:
+  name: curl
+  link: https://curl.se/docs/copyright.html

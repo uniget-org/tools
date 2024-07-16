@@ -25,5 +25,5 @@ renovate:
   package: httpie
   priority: medium
 license:
-  name: BSD 3-Clause "New" or "Revised" License
+  name: BSD 3-Clause License
   link: https://github.com/httpie/cli/blob/master/LICENSE

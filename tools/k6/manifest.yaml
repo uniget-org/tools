@@ -19,4 +19,4 @@ renovate:
   extractVersion: ^v(?<version>.+)$
   priority: low
 license:
-  name: GNU Affero General Public License v3.0
+  name: AGPLv3

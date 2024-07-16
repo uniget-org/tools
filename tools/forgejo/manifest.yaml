@@ -23,4 +23,5 @@ renovate:
   versioning: regex:^(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-(?<build>\d+)$
   priority: low
 license:
+  name: Custom
   link: https://codeberg.org/forgejo/forgejo/src/branch/forgejo/LICENSE

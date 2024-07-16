@@ -13,7 +13,7 @@ tags:
 - type/cli
 - standard/git
 - git
-homepage: https://github.com/git/git
+homepage: https://git-scm.com/
 repository: https://github.com/git/git
 description: Distributed version control system
 renovate:
@@ -22,4 +22,5 @@ renovate:
   extractVersion: ^v(?<version>.+)$
   priority: high
 license:
-  name: Other
+  name: GPLv2
+  link: https://github.com/git/git/blob/master/COPYING

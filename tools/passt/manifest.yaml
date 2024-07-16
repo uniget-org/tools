@@ -22,3 +22,6 @@ renovate:
   extractVersion: ^(?<version>\d+_\d+_\d+\.\w+)$
   versioning: loose
   priority: low
+license:
+  name: BSD 3-Clause License OR GPLv2+
+  link: https://passt.top/passt/tree/LICENSES

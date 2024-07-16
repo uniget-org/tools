@@ -25,5 +25,5 @@ renovate:
   package: "@mermaid-js/mermaid-cli"
   priority: low
 license:
-  name: MIT license
+  name: MIT License
   link: https://github.com/mermaid-js/mermaid-cli/blob/master/LICENSE

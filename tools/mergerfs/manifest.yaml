@@ -18,5 +18,5 @@ renovate:
   package: trapexit/mergerfs
   priority: low
 license:
-  name: Other
+  name: Custom
   link: https://github.com/trapexit/mergerfs/blob/latest-release/LICENSE

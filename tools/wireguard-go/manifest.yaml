@@ -23,4 +23,5 @@ renovate:
   url: https://git.zx2c4.com/wireguard-go
   priority: low
 license:
+  name: Custom
   link: https://git.zx2c4.com/wireguard-go/tree/LICENSE

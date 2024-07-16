@@ -22,3 +22,5 @@ renovate:
   datasource: github-releases
   package: segersniels/supdock
   priority: medium
+license:
+  name: Unknown

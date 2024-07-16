@@ -23,5 +23,5 @@ renovate:
   package: gsutil
   priority: low
 license:
-  name: Apache-2.0
+  name: Apache License 2.0
   link: https://github.com/GoogleCloudPlatform/gsutil/blob/master/LICENSE

@@ -14,5 +14,5 @@ renovate:
   package: openfaas/faas-cli
   priority: medium
 license:
-  name: Other
+  name: Custom
   link: https://github.com/openfaas/faas-cli/blob/master/LICENSE

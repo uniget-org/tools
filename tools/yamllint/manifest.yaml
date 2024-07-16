@@ -23,5 +23,5 @@ renovate:
   package: yamllint
   priority: low
 license:
-  name: GPL-v3
+  name: GPLv3
   link: https://github.com/adrienverge/yamllint/blob/master/LICENSE

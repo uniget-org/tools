@@ -18,5 +18,5 @@ renovate:
   package: mudler/luet
   priority: low
 license:
-  name: GNU General Public License v3.0
+  name: GPLv3
   link: https://github.com/mudler/luet/blob/master/LICENSE

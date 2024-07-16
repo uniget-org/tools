@@ -19,5 +19,5 @@ renovate:
   package: osquery/osquery
   priority: low
 license:
-  name: Other
+  name: Custom
   link: https://github.com/osquery/osquery/blob/master/LICENSE

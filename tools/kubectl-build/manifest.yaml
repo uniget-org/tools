@@ -25,5 +25,5 @@ renovate:
   extractVersion: ^v(?<version>.+)$
   priority: low
 license:
-  name: Other
+  name: Apache License 2.0
   link: https://github.com/vmware-archive/buildkit-cli-for-kubectl/blob/main/LICENSE

@@ -23,5 +23,5 @@ renovate:
   extractVersion: ^v(?<version>.+)$
   priority: low
 license:
-  name: Other
+  name: None
   link: https://github.com/interlynk-io/sbomex/blob/main/LICENSE

@@ -22,5 +22,5 @@ renovate:
   extractVersion: ^v(?<version>.+)$
   priority: low
 license:
-  name: Other
+  name: Apache License 2.0
   link: https://github.com/k0sproject/k0sctl/blob/main/LICENSE

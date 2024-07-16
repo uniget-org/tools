@@ -21,4 +21,5 @@ renovate:
   extractVersion: ^v(?<version>.+)$
   priority: low
 license:
+  name: Apache License 2.0
   link: https://github.com/opensbom-generator/spdx-sbom-generator/tree/main/LICENSES

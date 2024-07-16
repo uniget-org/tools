@@ -25,5 +25,5 @@ renovate:
   extractVersion: ^SpeexDSP-(?<version>.+)$
   priority: low
 license:
-  name: BSD 3-Clause "New" or "Revised" License
+  name: BSD 3-Clause License
   link: https://gitlab.xiph.org/xiph/speexdsp/-/blob/master/COPYING?ref_type=heads

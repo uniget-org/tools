@@ -23,5 +23,5 @@ renovate:
   package: pipx
   priority: medium
 license:
-  name: MIT license
+  name: MIT License
   link: https://github.com/pypa/pipx/blob/main/LICENSE

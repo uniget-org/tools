@@ -27,5 +27,5 @@ renovate:
   versioning: regex:^(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)$
   priority: low
 license:
-  name: MIT license
+  name: MIT License
   link: https://git.musl-libc.org/cgit/musl/tree/COPYRIGHT

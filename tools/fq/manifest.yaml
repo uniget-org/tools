@@ -18,5 +18,5 @@ renovate:
   extractVersion: ^v(?<version>.+)$
   priority: low
 license:
-  name: Other
+  name: MIT License
   link: https://github.com/wader/fq/blob/master/LICENSE

@@ -26,4 +26,5 @@ renovate:
   package: runlike
   priority: low
 license:
+  name: Custom
   link: https://github.com/lavie/runlike/blob/master/LICENSE.txt

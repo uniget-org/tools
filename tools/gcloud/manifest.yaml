@@ -21,4 +21,5 @@ renovate:
   package: twistedpair/google-cloud-sdk
   priority: low
 license:
-  name: null
+  name: Apache License 2.0
+  link: https://github.com/twistedpair/google-cloud-sdk/blob/master/google-cloud-sdk/LICENSE

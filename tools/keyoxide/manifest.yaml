@@ -22,5 +22,5 @@ renovate:
   package: keyoxide
   priority: low
 license:
-  name: GNU AFFERO GENERAL PUBLIC LICENSE
+  name: AGPL
   link: https://codeberg.org/keyoxide/keyoxide-cli/src/branch/main/LICENSE

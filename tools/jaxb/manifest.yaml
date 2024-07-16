@@ -23,4 +23,4 @@ renovate:
   extractVersion: ^(?<version>.+)-RI$
   priority: low
 license:
-  name: BSD 3-Clause "New" or "Revised" License
+  name: BSD 3-Clause License

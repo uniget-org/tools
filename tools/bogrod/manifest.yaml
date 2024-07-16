@@ -23,5 +23,5 @@ renovate:
   package: bogrod
   priority: low
 license:
-  name: MIT license
+  name: MIT License
   link: https://github.com/productaize/bogrod/blob/master/LICENSE

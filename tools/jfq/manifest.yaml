@@ -23,5 +23,5 @@ renovate:
   package: jfq
   priority: low
 license:
-  name: MIT license
+  name: MIT License
   link: https://github.com/blgm/jfq/blob/main/LICENSE

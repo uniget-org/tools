@@ -13,11 +13,14 @@ tags:
 - sbom
 - kubernetes
 - k8s
-homepage: https://github.com/ksoclabs/kbom
-repository: https://github.com/ksoclabs/kbom
+homepage: https://github.com/rad-security/kbom
+repository: https://github.com/rad-security/kbom
 description: Kubernetes Bill of Materials
 renovate:
   datasource: github-releases
-  package: ksoclabs/kbom
+  package: rad-security/kbom
   extractVersion: ^v(?<version>.+)$
   priority: medium
+license:
+  name: Apache License 2.0
+  link: https://github.com/rad-security/kbom/blob/main/LICENSE

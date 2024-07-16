@@ -20,5 +20,5 @@ renovate:
   versioning: loose
   priority: low
 license:
-  name: GNU General Public License v3.0
+  name: GPLv3
   link: https://github.com/stevegrubb/tasker/blob/main/LICENSE

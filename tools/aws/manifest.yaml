@@ -23,5 +23,5 @@ renovate:
   package: awscli
   priority: medium
 license:
-  name: Apache-2.0
+  name: Apache License 2.0
   link: https://github.com/aws/aws-cli/blob/develop/LICENSE.txt

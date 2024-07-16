@@ -18,4 +18,5 @@ renovate:
   package: rust-lang/rust
   priority: low
 license:
-  name: Other
+  name: Custom
+  link: https://github.com/rust-lang/rust

@@ -22,4 +22,5 @@ renovate:
   extractVersion: ^v(?<version>.+)$
   priority: low
 license:
-  name: Other
+  name: Custom
+  link: https://github.com/superbrothers/ksort/blob/master/LICENSE.txt

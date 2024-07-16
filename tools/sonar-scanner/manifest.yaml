@@ -21,4 +21,4 @@ renovate:
   versioning: loose
   priority: low
 license:
-  name: GNU Lesser General Public License v3.0
+  name: LGPLv3

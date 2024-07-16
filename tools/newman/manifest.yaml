@@ -14,10 +14,13 @@ tags:
 - category/development
 - lang/javascript
 - type/cli
-homepage: https://github.com/postmanlabs/newman
+homepage: https://www.postman.com/
 repository: https://github.com/postmanlabs/newman
 description: The JavaScript Task Runner
 renovate:
   datasource: npm
   package: newman
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/postmanlabs/newman/blob/develop/LICENSE.md

@@ -24,5 +24,5 @@ renovate:
   package: kubebox
   priority: low
 license:
-  name: MIT license
+  name: MIT License
   link: https://github.com/astefanutti/kubebox/blob/master/LICENSE

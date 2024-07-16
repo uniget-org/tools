@@ -27,5 +27,5 @@ renovate:
   package: gitlabci-local
   priority: low
 license:
-  name: Apache-2.0
+  name: Apache License 2.0
   link: https://gitlab.com/AdrianDC/gitlabci-local/-/blob/master/LICENSE?ref_type=heads

@@ -30,4 +30,5 @@ renovate:
   versioning: loose
   priority: low
 license:
-  name: null
+  name: Docker Subscription Service Agreement
+  link: https://www.docker.com/legal/docker-subscription-service-agreement/

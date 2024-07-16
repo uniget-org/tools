@@ -23,5 +23,5 @@ renovate:
   package: textlint
   priority: low
 license:
-  name: MIT license
+  name: MIT License
   link: https://github.com/textlint/textlint/blob/master/LICENSE

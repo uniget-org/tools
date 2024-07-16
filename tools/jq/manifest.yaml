@@ -23,4 +23,5 @@ renovate:
   versioning: loose
   priority: low
 license:
-  name: Other
+  name: Custom
+  link: https://github.com/jqlang/jq/blob/master/COPYING

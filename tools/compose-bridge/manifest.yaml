@@ -28,5 +28,5 @@ renovate:
   extractVersion: ^v(?<version>.+)$
   priority: low
 license:
-  name: Other
-  link: https://github.com/docker/compose-bridge-binaries/blob/main/LICENSE
+  name: Docker Subscription Service Agreement
+  link: https://www.docker.com/legal/docker-subscription-service-agreement

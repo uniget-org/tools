@@ -18,5 +18,5 @@ renovate:
   extractVersion: ^php-(?<version>\d+\.\d+\.\d+)$
   priority: low
 license:
-  name: Other
+  name: Custom
   link: https://github.com/php/php-src/blob/master/LICENSE

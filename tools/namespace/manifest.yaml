@@ -19,3 +19,5 @@ renovate:
   package: uniget-org/renovate-custom
   extractVersion: ^namespace/(?<version>.+)$
   priority: low
+license:
+  name: Unknown

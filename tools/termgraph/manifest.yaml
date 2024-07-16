@@ -27,5 +27,5 @@ renovate:
   package: termgraph
   priority: low
 license:
-  name: MIT license
+  name: MIT License
   link: https://github.com/mkaz/termgraph/blob/main/LICENSE.txt

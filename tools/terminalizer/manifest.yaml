@@ -23,5 +23,5 @@ renovate:
   package: terminalizer
   priority: low
 license:
-  name: MIT license
+  name: MIT License
   link: https://github.com/faressoft/terminalizer/blob/master/LICENSE

@@ -23,5 +23,5 @@ renovate:
   package: phar-io/phive
   priority: low
 license:
-  name: BSD 3-Clause "New" or "Revised" License
+  name: BSD 3-Clause License
   link: https://github.com/phar-io/phive/blob/master/LICENSE

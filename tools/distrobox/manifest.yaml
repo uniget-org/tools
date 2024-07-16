@@ -19,4 +19,4 @@ renovate:
   versioning: loose
   priority: medium
 license:
-  name: GNU General Public License v3.0
+  name: GPLv3

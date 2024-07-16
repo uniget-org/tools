@@ -25,4 +25,5 @@ renovate:
   extractVersion: ^v(?<version>.+)$
   priority: medium
 license:
-  name: Other
+  name: MIT License
+  link: https://github.com/quarto-dev/quarto-cli/blob/main/COPYING.md

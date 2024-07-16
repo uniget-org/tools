@@ -19,5 +19,5 @@ renovate:
   versioning: loose
   priority: low
 license:
-  name: GNU General Public License v2.0
+  name: GPLv2
   link: https://github.com/openjdk/jdk/blob/master/LICENSE

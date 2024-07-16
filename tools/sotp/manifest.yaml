@@ -16,3 +16,5 @@ renovate:
   datasource: github-releases
   package: getsops/sotp
   priority: low
+license:
+  name: None

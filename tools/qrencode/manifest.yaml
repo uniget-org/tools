@@ -22,4 +22,4 @@ renovate:
   extractVersion: ^v(?<version>.+)$
   priority: low
 license:
-  name: GNU Lesser General Public License v2.1
+  name: LGPLv2.1

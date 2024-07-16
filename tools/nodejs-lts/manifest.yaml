@@ -19,4 +19,5 @@ renovate:
   extractVersion: ^nodejs-lts/(?<version>.+)$
   priority: low
 license:
-  name: null
+  name: MIT License
+  link: https://github.com/nodejs/node/blob/main/LICENSE

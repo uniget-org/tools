@@ -26,5 +26,5 @@ renovate:
   package: composerize
   priority: medium
 license:
-  name: MIT license
+  name: MIT License
   link: https://github.com/composerize/composerize/blob/master/LICENSE

@@ -23,5 +23,5 @@ renovate:
   package: pre-commit
   priority: low
 license:
-  name: MIT license
+  name: MIT License
   link: https://github.com/pre-commit/pre-commit/blob/main/LICENSE

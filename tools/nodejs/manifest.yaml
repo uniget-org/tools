@@ -19,5 +19,5 @@ renovate:
   extractVersion: ^v(?<version>.+)$
   priority: medium
 license:
-  name: Other
+  name: Custom
   link: https://github.com/nodejs/node/blob/main/LICENSE

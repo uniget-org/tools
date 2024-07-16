@@ -25,5 +25,5 @@ renovate:
   package: shell-gpt
   priority: low
 license:
-  name: MIT license
+  name: MIT License
   link: https://github.com/TheR1D/shell_gpt/blob/main/LICENSE

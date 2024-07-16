@@ -25,5 +25,5 @@ renovate:
   package: sbomdiff
   priority: low
 license:
-  name: Apache-2.0
+  name: Apache License 2.0
   link: https://github.com/anthonyharrison/sbomdiff/blob/main/LICENSE

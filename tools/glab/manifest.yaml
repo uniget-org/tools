@@ -19,5 +19,5 @@ renovate:
   extractVersion: ^v(?<version>.+)$
   priority: medium
 license:
-  name: MIT license
+  name: MIT License
   link: https://gitlab.com/gitlab-org/cli/-/blob/main/LICENSE?ref_type=heads

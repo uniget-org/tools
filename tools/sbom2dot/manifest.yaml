@@ -27,3 +27,6 @@ renovate:
   datasource: pypi
   package: sbom2dot
   priority: low
+license:
+  name: Apache License 2.0
+  link: https://github.com/anthonyharrison/sbom2dot/blob/main/README.md#licence

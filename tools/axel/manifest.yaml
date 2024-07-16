@@ -21,4 +21,4 @@ renovate:
   extractVersion: ^v(?<version>.+)$
   priority: medium
 license:
-  name: GNU General Public License v2.0
+  name: GPLv2

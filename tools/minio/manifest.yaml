@@ -20,5 +20,5 @@ renovate:
   versioning: loose
   priority: low
 license:
-  name: GNU Affero General Public License v3.0
+  name: AGPLv3
   link: https://github.com/minio/minio/blob/master/LICENSE

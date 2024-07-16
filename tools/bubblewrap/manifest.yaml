@@ -17,5 +17,5 @@ renovate:
   extractVersion: ^v(?<version>.+)$
   priority: low
 license:
-  name: Other
-  link: https://github.com/containers/bubblewrap/blob/main/LICENSE
+  name: LGPLv2
+  link: https://github.com/containers/bubblewrap/blob/main/COPYING

@@ -18,5 +18,5 @@ renovate:
   package: darxkies/k8s-tew
   priority: low
 license:
-  name: GNU General Public License v3.0
+  name: GPLv3
   link: https://github.com/darxkies/k8s-tew/blob/master/LICENSE

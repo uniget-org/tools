@@ -19,4 +19,5 @@ renovate:
   package: aws/aws-cli
   priority: medium
 license:
-  name: Other
+  name: Apache License 2.0
+  link: https://github.com/aws/aws-cli/blob/develop/LICENSE.txt

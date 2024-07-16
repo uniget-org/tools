@@ -22,5 +22,5 @@ renovate:
   extractVersion: ^v(?<version>.+)$
   priority: low
 license:
-  name: GNU General Public License v3.0
+  name: GPLv3
   link: https://github.com/bartobri/no-more-secrets/blob/master/LICENSE

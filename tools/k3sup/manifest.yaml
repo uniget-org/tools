@@ -18,5 +18,5 @@ renovate:
   package: alexellis/k3sup
   priority: medium
 license:
-  name: Other
+  name: MIT License
   link: https://github.com/alexellis/k3sup/blob/master/LICENSE

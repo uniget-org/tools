@@ -28,5 +28,5 @@ renovate:
   package: tern
   priority: low
 license:
-  name: BSD 2-Clause "Simplified" License
+  name: BSD 2-Clause License
   link: https://github.com/tern-tools/tern/blob/main/LICENSE.txt

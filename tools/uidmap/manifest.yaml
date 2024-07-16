@@ -19,4 +19,5 @@ renovate:
   extractVersion: ^v(?<version>.+)$
   priority: low
 license:
-  name: Other
+  name: BSD 3-Clause License
+  link: https://github.com/shadow-maint/shadow/blob/master/COPYING

@@ -21,3 +21,5 @@ messages:
       systemctl daemon-reload
       systemctl enable wslinterop-force.service wslinterop-monitor.path
       systemctl start wslinterop-force.service wslinterop-monitor.path
+license:
+  name: None

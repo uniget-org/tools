@@ -14,3 +14,6 @@ tags:
 homepage: https://github.com/ahmetb/kubectl-aliases
 repository: https://github.com/ahmetb/kubectl-aliases
 description: Programmatically generated handy kubectl aliases
+license:
+  name: Apache License 2.0
+  link: https://github.com/ahmetb/kubectl-aliases/blob/master/LICENSE

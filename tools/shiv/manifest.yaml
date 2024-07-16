@@ -20,5 +20,5 @@ renovate:
   package: linkedin/shiv
   priority: medium
 license:
-  name: BSD 2-Clause "Simplified" License
+  name: BSD 2-Clause License
   link: https://github.com/linkedin/shiv/blob/main/LICENSE

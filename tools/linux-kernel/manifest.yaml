@@ -23,5 +23,5 @@ renovate:
   extractVersion: ^v(?<version>.+)$
   priority: low
 license:
-  name: GPL-2.0
+  name: GPLv2
   link: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/COPYING

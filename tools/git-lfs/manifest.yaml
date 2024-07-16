@@ -21,4 +21,5 @@ renovate:
   extractVersion: ^v(?<version>.+)$
   priority: medium
 license:
-  name: Other
+  name: Custom
+  link: https://github.com/git-lfs/git-lfs/blob/main/LICENSE.md

@@ -25,5 +25,5 @@ renovate:
   package: portainer/k2d
   priority: low
 license:
-  name: Other
+  name: Custom
   link: https://github.com/portainer/k2d/blob/develop/LICENSE

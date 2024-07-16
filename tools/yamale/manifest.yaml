@@ -24,5 +24,5 @@ renovate:
   package: yamale
   priority: low
 license:
-  name: MIT license
+  name: MIT License
   link: https://github.com/23andMe/Yamale/blob/master/LICENSE

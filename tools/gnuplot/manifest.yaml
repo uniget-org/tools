@@ -21,3 +21,6 @@ renovate:
   package: https://git.code.sf.net/p/gnuplot/gnuplot-main.git
   extractVersion: ^\d+\.\d*[02468]\.\d+$
   priority: low
+license:
+  name: Custom
+  link: https://sourceforge.net/p/gnuplot/gnuplot-main/ci/master/tree/Copyright

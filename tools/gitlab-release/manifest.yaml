@@ -27,5 +27,5 @@ renovate:
   package: gitlab-release
   priority: low
 license:
-  name: MIT license
+  name: MIT License
   link: https://gitlab.com/alelec/gitlab-release/-/blob/master/LICENSE?ref_type=heads

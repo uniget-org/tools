@@ -25,5 +25,5 @@ renovate:
   package: gita
   priority: low
 license:
-  name: MIT license
+  name: MIT License
   link: https://github.com/nosarthur/gita/blob/master/LICENSE

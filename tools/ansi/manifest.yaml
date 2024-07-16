@@ -16,4 +16,5 @@ renovate:
   package: fidian/ansi
   priority: low
 license:
-  name: Other
+  name: Custom
+  link: https://github.com/fidian/ansi/blob/master/LICENSE.md

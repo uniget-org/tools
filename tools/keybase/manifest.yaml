@@ -17,5 +17,5 @@ renovate:
   extractVersion: ^v(?<version>.+)$
   priority: low
 license:
-  name: BSD 3-Clause "New" or "Revised" License
+  name: BSD 3-Clause License
   link: https://github.com/keybase/client/blob/master/LICENSE

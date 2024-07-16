@@ -25,5 +25,5 @@ renovate:
   package: jsonata-cli
   priority: low
 license:
-  name: MIT license
+  name: MIT License
   link: https://github.com/rubystream/jsonata-cli/blob/main/LICENSE

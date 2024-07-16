@@ -19,5 +19,5 @@ renovate:
   extractVersion: ^v(?<version>.+)$
   priority: low
 license:
-  name: MIT license
+  name: MIT License
   link: https://github.com/dunglas/frankenphp/blob/main/LICENSE

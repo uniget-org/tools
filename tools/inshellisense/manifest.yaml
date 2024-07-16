@@ -23,5 +23,5 @@ renovate:
   package: "@microsoft/inshellisense"
   priority: low
 license:
-  name: MIT license
+  name: MIT License
   link: https://github.com/microsoft/inshellisense/blob/main/LICENSE

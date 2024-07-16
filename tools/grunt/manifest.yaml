@@ -23,4 +23,5 @@ renovate:
   package: grunt
   priority: low
 license:
+  name: Custom
   link: https://github.com/gruntjs/grunt/blob/main/LICENSE

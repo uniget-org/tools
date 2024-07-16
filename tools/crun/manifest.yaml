@@ -30,4 +30,4 @@ renovate:
   versioning: loose
   priority: high
 license:
-  name: GNU General Public License v2.0
+  name: GPLv2

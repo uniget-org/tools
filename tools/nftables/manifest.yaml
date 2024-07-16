@@ -17,10 +17,13 @@ tags:
 - type/cli
 - lang/c
 homepage: https://www.netfilter.org/projects/nftables/index.html
-repository: https://www.netfilter.org/projects/nftables/index.html
+repository: https://git.netfilter.org/nftables/
 description: nftables replaces the popular iptables, arptables, ebtables
 renovate:
   datasource: git-tags
   package: https://git.netfilter.org/nftables/
   extractVersion: ^v(?<version>.+)$
   priority: low
+license:
+  name: GPLv2
+  link: https://git.netfilter.org/nftables/tree/COPYING

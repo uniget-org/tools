@@ -17,4 +17,5 @@ renovate:
   package: jgm/pandoc
   priority: low
 license:
-  name: Other
+  name: GPLv2
+  link: https://github.com/jgm/pandoc/blob/main/COPYING.md

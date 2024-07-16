@@ -22,3 +22,5 @@ renovate:
   datasource: pypi
   package: flameshow
   priority: low
+license:
+  name: None

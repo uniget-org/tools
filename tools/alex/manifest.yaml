@@ -23,5 +23,5 @@ renovate:
   package: alex
   priority: low
 license:
-  name: MIT license
+  name: MIT License
   link: https://github.com/get-alex/alex/blob/main/license

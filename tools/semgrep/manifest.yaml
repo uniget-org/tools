@@ -23,5 +23,5 @@ renovate:
   package: semgrep
   priority: low
 license:
-  name: LGPL-2.1
+  name: LGPLv2.1
   link: https://github.com/semgrep/semgrep/blob/develop/LICENSE
