@@ -1,26 +1,26 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
-name: github-copilot-cli
-version: "0.1.36"
+name: gh-copilot
+version: "1.0.4"
 check: ${binary} --version
 build_dependencies:
-- nodejs
-- npm
+- gh
 runtime_dependencies:
-- nodejs
+- gh
 platforms:
 - linux/amd64
-#- linux/arm64
+- linux/arm64
 tags:
 - org/microsoft
 - org/github
 - category/operations
-- lang/javascript
+- lang/go
 - type/cli
-homepage: https://githubnext.com/projects/copilot-cli/
-repository: https://githubnext.com/projects/copilot-cli/
+homepage: https://docs.github.com/en/copilot/github-copilot-in-the-cli
+repository: https://github.com/github/gh-copilot
 description: Translates natural language into shell commands
 renovate:
-  datasource: npm
-  package: "@githubnext/github-copilot-cli"
+  datasource: github-releases
+  package: github/gh-copilot
+  extractVersion: ^v(?<version>.+)$
   priority: low
