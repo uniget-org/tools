@@ -14,7 +14,7 @@ ARG version
 # Static linking causes "undefined refererence to printf
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://codeberg.org/a-j-wood/pv .
-./generate.sh
+autoreconf -is
 ./configure --prefix="${prefix}"
 make -j$(nproc) #LDFLAGS=-static
 make install
