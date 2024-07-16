@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: pv
-version: "1.7.24"
+version: "1.8.10"
 check: ${binary} --version | grep ^pv | cut -d' ' -f2
 build_dependencies:
 - make
@@ -14,12 +14,13 @@ tags:
 - terminal
 - state/deprecated
 homepage: https://www.ivarch.com/programs/pv.shtml
-repository: https://github.com/a-j-wood/pv
+repository: https://codeberg.org/a-j-wood/pv
 description: Monitor the progress of data through a pipe
 renovate:
-  datasource: github-releases
+  datasource: git-tags
   package: a-j-wood/pv
-  extractVersion: ^v(?<version>.+)$
+  url: https://codeberg.org/a-j-wood/pv
+  extractVersion: ^v(?<version>\d+\.\d+\.\d+-\d+)$
   priority: low
 license:
   name: GPLv3
