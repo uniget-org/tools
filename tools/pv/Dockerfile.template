@@ -8,6 +8,10 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=make / /usr/local/
+RUN <<EOF
+apk update
+apk add gettext
+EOF
 WORKDIR /tmp/pv
 ARG name
 ARG version
