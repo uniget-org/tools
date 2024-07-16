@@ -2,7 +2,8 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: gh-copilot
 version: "1.0.4"
-check: ${binary} --version
+binary: ${target}/share/gh/extensions/gh-copilot/gh-copilot
+check: ${binary} --version | cut -d' ' -f2
 build_dependencies:
 - gh
 runtime_dependencies:
