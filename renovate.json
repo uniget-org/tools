@@ -6700,15 +6700,16 @@
     },
     {
       "customType": "regex",
-      "datasourceTemplate": "github-releases",
+      "datasourceTemplate": "git-tags",
       "depNameTemplate": "a-j-wood/pv",
-      "extractVersionTemplate": "^v(?<version>.+)$",
+      "extractVersionTemplate": "^v(?<version>\\d+\\.\\d+\\.\\d+-\\d+)$",
       "fileMatch": [
         "^tools/pv/manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
-      ]
+      ],
+      "packageNameTemplate": "https://codeberg.org/a-j-wood/pv"
     },
     {
       "customType": "regex",
