@@ -3381,7 +3381,7 @@
       "depNameTemplate": "bigskysoftware/htmx",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
-        "^tools//manifest.yaml$"
+        "^tools/htmx/manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
@@ -4063,7 +4063,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "ksoclabs/kbom",
+      "depNameTemplate": "rad-security/kbom",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kbom/manifest.yaml$"
