@@ -17,7 +17,7 @@ RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch master https://github.com/yannh/openapi2jsonschema .
 EOF
 RUN <<EOF
-pip install --requirement requirements.txt --no-build-isolation .
+pip install --requirement requirements.txt --no-build-isolation --break-system-packages .
 EOF
 ARG name
 ARG version
