@@ -19,7 +19,7 @@ jobs:
     name: Collect tools
     permissions:
       pull-requests: read
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     outputs:
       tools: ${{ steps.collect.outputs.tools }}
     steps:
@@ -68,7 +68,7 @@ jobs:
         tool: ${{ fromJSON(needs.collect.outputs.tools) }}
     permissions:
       packages: write
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
 
     - name: Checkout code
@@ -99,7 +99,7 @@ jobs:
         make ${{ matrix.tool }}--push
 
     - name: Store logs
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       if: always()
       with:
         name: logs.zip
@@ -109,7 +109,7 @@ jobs:
     name: Build container images successfully
     needs:
     - build
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
     - run: |
         true
@@ -131,7 +131,7 @@ jobs:
     name: Collect versions for tools
     needs:
     - collect
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     outputs:
       tools_with_version: ${{ steps.extract_versions.outputs.tools_with_version }}
     env:
@@ -200,7 +200,7 @@ jobs:
     needs:
     - collect_versions
     - success
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
       matrix:
