@@ -1,6 +1,9 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: foo
+license:
+  name: Unknown
+  link: ""
 version: "0.1.2"
 check: ""
 build_dependencies:
