@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: bicep
+license:
+  name: MIT License
+  link: https://github.com/Azure/bicep/blob/main/LICENSE
+version: "0.28.1"
+check: ${binary} --version | cut -d' ' -f4
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/microsoft
+- category/development
+- lang/dotnet
+- type/cli
+homepage: https://github.com/Azure/bicep
+repository: https://github.com/Azure/bicep
+description: Declarative language for describing and deploying Azure resources
+messages:
+  usage: |
+    Bicep requires libicu to be installed. A workaround is to enable the 
+    invariant code by running:
+
+    export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
+renovate:
+  datasource: github-releases
+  package: Azure/bicep
+  extractVersion: ^v(?<version>.+)$
+  priority: low
