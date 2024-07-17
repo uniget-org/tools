@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: regal
+license:
+  name: Apache License 2.0
+  link: https://github.com/StyraInc/regal/blob/main/LICENSE
+version: "0.24.0"
+check: ${binary} version | grep ^Version | tr -s ' ' | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/cli
+homepage: https://docs.styra.com/regal
+repository: https://github.com/StyraInc/regal
+description: Linter for Rego, with the goal of making your Rego magnificent
+renovate:
+  datasource: github-releases
+  package: StyraInc/regal
+  extractVersion: ^v(?<version>.+)$
+  priority: low
