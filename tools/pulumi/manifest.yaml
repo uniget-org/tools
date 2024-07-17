@@ -2,7 +2,7 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: pulumi
 version: "3.124.0"
-check: ""
+check: ${binary} version | tr -d v
 platforms:
 - linux/amd64
 #- linux/arm64
