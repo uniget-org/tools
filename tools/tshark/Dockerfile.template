@@ -59,7 +59,3 @@ cmake . \
 make -j$(nproc)
 make install
 EOF
-
-RUN <<EOF
-touch "${prefix}/foo"
-EOF

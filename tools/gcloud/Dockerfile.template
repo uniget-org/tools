@@ -15,7 +15,7 @@ curl --silent --show-error --location --fail "https://dl.google.com/dl/cloudsdk/
 ln --symbolic --relative --force "${prefix}/opt/gcloud/bin/gcloud" "${prefix}/bin/gcloud"
 ln --symbolic --relative --force "${prefix}/opt/gcloud/bin/bq" "${prefix}/bin/bq"
 
-cp "${prefix}/opt/gcloud/path.bash.inc" "${prefix}/share/bash-completion/completions/foo"
-cp "${prefix}/opt/gcloud/path.fish.inc" "${prefix}/share/fish/vendor_completions.d/foo.fish"
-cp "${prefix}/opt/gcloud/path.zsh.inc"  "${prefix}/share/zsh/vendor-completions/_foo"
+cp "${prefix}/opt/gcloud/path.bash.inc" "${prefix}/share/bash-completion/completions/gcloud"
+cp "${prefix}/opt/gcloud/path.fish.inc" "${prefix}/share/fish/vendor_completions.d/gcloud.fish"
+cp "${prefix}/opt/gcloud/path.zsh.inc"  "${prefix}/share/zsh/vendor-completions/_gcloud"
 EOF

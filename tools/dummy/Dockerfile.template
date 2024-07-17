@@ -16,6 +16,5 @@ echo "target={{ .Target }}"
 echo "prefix={{ .Prefix }}"
 echo "name={{ .Name }}"
 echo "version={{ .Version }}"
-echo "contrib={{ .Contrib }}"
 echo "foo={{ .Foo }}"
 EOF
