@@ -8,11 +8,11 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
-check-github-release-asset "ksoclabs/kbom" "v${version}" "kbom_${version}_linux_${alt_arch}.tar.gz"
-curl --silent --show-error --location --fail "https://github.com/ksoclabs/kbom/releases/download/v${version}/kbom_${version}_linux_${alt_arch}.tar.gz" \
+check-github-release-asset "rad-security/kbom" "v${version}" "kbom_${version}_linux_${alt_arch}.tar.gz"
+curl --silent --show-error --location --fail "https://github.com/rad-security/kbom/releases/download/v${version}/kbom_${version}_linux_${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     kbom
-    
+
 "${prefix}/bin/kbom" completion bash >"${prefix}/share/bash-completion/completions/kbom"
 "${prefix}/bin/kbom" completion fish >"${prefix}/share/fish/vendor_completions.d/kbom.fish"
 "${prefix}/bin/kbom" completion zsh >"${prefix}/share/zsh/vendor-completions/_kbom"
