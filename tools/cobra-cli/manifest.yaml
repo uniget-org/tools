@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: cobra-cli
+license:
+  name: Apache License 2.0
+  link: https://github.com/spf13/cobra-cli/blob/main/LICENSE.txt
+version: "1.3.0"
+check: ""
+build_dependencies:
+- go
+- make
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/cli
+homepage: https://cobra.dev/
+repository: https://github.com/spf13/cobra-cli
+description: Cobra CLI tool to generate applications and commands
+renovate:
+  datasource: github-releases
+  package: spf13/cobra-cli
+  extractVersion: ^v(?<version>.+)$
+  priority: low
