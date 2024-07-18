@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: air
+license:
+  name: GPLv3
+  link: https://github.com/air-verse/air/blob/master/LICENSE
+version: "1.52.3"
+check: ${binary} -v | grep "built with Go" | cut -d, -f1 | cut -d' ' -f5
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/cli
+homepage: https://github.com/air-verse/air
+repository: https://github.com/air-verse/air
+description: Live reload for Go apps
+renovate:
+  datasource: github-releases
+  package: air-verse/air
+  extractVersion: ^v(?<version>.+)$
+  priority: low
