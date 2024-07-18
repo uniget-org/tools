@@ -1,0 +1,24 @@
+#syntax=docker/dockerfile:1.9.0@sha256:fe40cf4e92cd0c467be2cfc30657a680ae2398318afd50b0c80585784c604f28
+
+FROM ghcr.io/uniget-org/tools/make:latest AS make
+FROM ghcr.io/uniget-org/tools/go:latest AS go
+
+FROM ghcr.io/uniget-org/images/build-base:3.20 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+COPY --link --from=go / /usr/local/
+COPY --link --from=make / /usr/local/
+WORKDIR /go/src/github.com/saschagrunert/go-modiff
+RUN <<EOF
+check-clone "https://github.com/saschagrunert/go-modiff" "v${version}"
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/saschagrunert/go-modiff .
+sed -E -i "s/^(\s+app\.Version\s=\s)\"\d+\.\d+\.\d+\"$/\1\"${version}\"/" cmd/go-modiff/main.go
+go build \
+    -ldflags '-s -w -linkmode external -extldflags "-static -lm"' \
+    -o "${prefix}/bin/go-modiff" \
+    ./cmd/go-modiff
+EOF

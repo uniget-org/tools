@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: go-modiff
+license:
+  name: MIT License
+  link: https://github.com/saschagrunert/go-modiff/blob/main/LICENSE
+version: "1.3.5"
+check: ${binary} --version | cut -d' ' -f3
+build_dependencies:
+- make
+- go
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/cli
+homepage: https://github.com/saschagrunert/go-modiff
+repository: https://github.com/saschagrunert/go-modiff
+description: Command line tool for diffing go module dependency changes between versions
+renovate:
+  datasource: github-releases
+  package: saschagrunert/go-modiff
+  extractVersion: ^v(?<version>.+)$
+  priority: low
