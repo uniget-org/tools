@@ -8,10 +8,11 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
-check-github-release-asset "kubeshark/kubeshark" "${version}" "kubeshark_linux_${alt_arch}"
+check-github-release-asset "kubeshark/kubeshark" "v${version}" "kubeshark_linux_${alt_arch}"
 curl --silent --show-error --location --fail --output "${prefix}/bin/kubeshark" \
-    "https://github.com/kubeshark/kubeshark/releases/download/${version}/kubeshark_linux_${alt_arch}"
+    "https://github.com/kubeshark/kubeshark/releases/download/v${version}/kubeshark_linux_${alt_arch}"
 chmod +x "${prefix}/bin/kubeshark"
+
 "${prefix}/bin/kubeshark" completion bash >"${prefix}/share/bash-completion/completions/kubeshark"
 "${prefix}/bin/kubeshark" completion fish >"${prefix}/share/fish/vendor_completions.d/kubeshark.fish"
 "${prefix}/bin/kubeshark" completion zsh >"${prefix}/share/zsh/vendor-completions/_kubeshark"

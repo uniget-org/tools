@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kubeshark
-version: "v52.3.69"
+version: "52.3.69"
 check: ${binary} version 2>&1 | cut -d' ' -f2
 tags:
 - category/security
@@ -14,6 +14,7 @@ description: API traffic viewer for Kubernetes providing deep visibility into al
 renovate:
   datasource: github-releases
   package: kubeshark/kubeshark
+  extractVersion: ^v(?<version>.+)$
   versioning: loose
   priority: low
 license:

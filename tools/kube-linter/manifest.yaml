@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kube-linter
-version: "v0.6.8"
+version: "0.6.8"
 check: ${binary} version | cut -d- -f1
 tags:
 - type/cli
@@ -14,6 +14,7 @@ description: static analysis tool that checks Kubernetes YAML files and Helm cha
 renovate:
   datasource: github-releases
   package: stackrox/kube-linter
+  extractVersion: ^v(?<version>.+)$
   priority: low
 license:
   name: Apache License 2.0

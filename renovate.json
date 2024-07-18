@@ -4518,6 +4518,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "stackrox/kube-linter",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kube-linter/manifest.yaml$"
       ],
@@ -4839,6 +4840,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "kubeshark/kubeshark",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kubeshark/manifest.yaml$"
       ],
@@ -5275,6 +5277,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "lsd-rs/lsd",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/lsd/manifest.yaml$"
       ],
