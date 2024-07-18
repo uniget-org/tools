@@ -4,7 +4,6 @@ FROM ghcr.io/uniget-org/tools/make:latest AS make
 FROM ghcr.io/uniget-org/tools/go:latest AS go
 
 FROM ghcr.io/uniget-org/images/ubuntu:24.04 AS prepare
-#FROM ghcr.io/uniget-org/images/build-essential:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -16,15 +15,10 @@ ARG name
 ARG version
 RUN <<EOF
 check-clone "https://github.com/spf13/cobra-cli" "v${version}"
-git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/spf13/cobra-cli .
+git clone -q --config advice.detachedHead=false --depth 1 https://github.com/spf13/cobra-cli .
 go build -o "${prefix}/bin/cobra-cli" .
-"${prefix}/bin/cobra-cli" --help
-"${prefix}/bin/cobra-cli" --version
-EOF
 
-# completion
-#RUN <<EOF
-#"${prefix}/bin/foo" completion bash >"${prefix}/share/bash-completion/completions/foo"
-#"${prefix}/bin/foo" completion fish >"${prefix}/share/fish/vendor_completions.d/foo.fish"
-#"${prefix}/bin/foo" completion zsh >"${prefix}/share/zsh/vendor-completions/_foo"
-#EOF
+"${prefix}/bin/cobra-cli" completion bash >"${prefix}/share/bash-completion/completions/cobra-cli"
+"${prefix}/bin/cobra-cli" completion fish >"${prefix}/share/fish/vendor_completions.d/cobra-cli.fish"
+"${prefix}/bin/cobra-cli" completion zsh >"${prefix}/share/zsh/vendor-completions/_cobra-cli"
+EOF
