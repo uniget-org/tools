@@ -5572,6 +5572,18 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "grafana/mimir",
+      "extractVersionTemplate": "^mimir-(?<version>.+)$",
+      "fileMatch": [
+        "^tools/mimirtool/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "stacklok/minder",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
