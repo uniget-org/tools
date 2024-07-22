@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: krr
+license:
+  name: MIT License
+  link: https://github.com/robusta-dev/krr/blob/main/LICENSE
+version: "1.11.0"
+check: ""
+build_dependencies:
+- python
+- shiv
+runtime_dependencies:
+- python
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/python
+- type/cli
+homepage: https://github.com/robusta-dev/krr
+repository: https://github.com/robusta-dev/krr
+description: Prometheus-based Kubernetes Resource Recommendations
+renovate:
+  datasource: github-releases
+  package: robusta-dev/krr
+  extractVersion: ^v(?<version>.+)$
+  priority: low
