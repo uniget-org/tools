@@ -1787,7 +1787,7 @@
     },
     {
       "customType": "regex",
-      "datasourceTemplate": "github-tags",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "moby/moby",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
