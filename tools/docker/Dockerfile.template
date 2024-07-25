@@ -50,6 +50,7 @@ COPY <<EOF /uniget_bootstrap/etc/docker/daemon.json
     "features":{
         "buildkit": true,
         "containerd-snapshotter": true
-    }
+    },
+    "log-driver": "journald"
 }
 EOF
