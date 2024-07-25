@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: systemd-docker
+license:
+  name: Apache License 2.0
+  link: https://github.com/oxin-ros/systemd-docker/blob/master/LICENSE
+version: "0.3.0"
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/go
+- type/cli
+homepage: https://github.com/oxin-ros/systemd-docker
+repository: https://github.com/oxin-ros/systemd-docker
+description: Wrapper for "docker run" to handle systemd quirks
+renovate:
+  datasource: github-releases
+  package: oxin-ros/systemd-docker
+  extractVersion: ^v(?<version>.+)$
+  priority: low
