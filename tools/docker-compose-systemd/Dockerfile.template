@@ -7,31 +7,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-COPY <<EOF /uniget_bootstrap/etc/systemd/system/docker-compose@.service
-[Unit]
-Description=docker-compose %i service
-Requires=docker.service network-online.target
-After=docker.service network-online.target
-
-[Service]
-WorkingDirectory=/etc/docker-compose/%i
-Type=simple
-TimeoutStartSec=15min
-Restart=always
-
-ExecStartPre=/usr/local/bin/docker-compose pull --quiet --ignore-pull-failures
-ExecStartPre=/usr/local/bin/docker-compose build --pull
-
-ExecStart=/usr/local/bin/docker-compose up --remove-orphans
-
-ExecStop=/usr/local/bin/docker-compose down --remove-orphans
-
-ExecReload=/usr/local/bin/docker-compose pull --quiet --ignore-pull-failures
-ExecReload=/usr/local/bin/docker-compose build --pull
-
-[Install]
-WantedBy=multi-user.target
-EOF
+COPY docker-compose@.service /uniget_bootstrap/etc/systemd/system/
 COPY <<EOF /uniget_bootstrap/etc/docker-compose
 Please see usage notes
 EOF

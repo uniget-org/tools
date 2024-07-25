@@ -4,10 +4,9 @@ After=docker.service
 
 [Service]
 Type=oneshot
-ExecStart={{ .Target }}/kind create cluster
-ExecStop={{ .Target }}/kind delete cluster
-StandardOutput=file:%h/.local/var/log/kind.stdout
-StandardError=file:%h/.local/var/log/kind.stderr
+RemainAfterExit=yes
+ExecStart={{ .Target }}/kind create cluster --config /etc/kind/config.yaml
+ExecStop={{ .Target }}/kind delete cluster --config /etc/kind/config.yaml
 
 [Install]
 WantedBy=multi-user.target
