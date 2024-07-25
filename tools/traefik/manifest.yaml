@@ -1,5 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: traefik
+license:
+  name: MIT License
 version: "3.1.0"
 check: ${binary} version | grep ^Version | tr -s ' ' | cut -d' ' -f2
 platforms:
@@ -21,5 +23,7 @@ renovate:
   package: traefik/traefik
   extractVersion: ^v(?<version>.+)$
   priority: high
-license:
-  name: MIT License
+messages:
+  usage: |
+    - Set DOMAIN by creating an override:
+          systemctl --user edit docker-compose@traefik

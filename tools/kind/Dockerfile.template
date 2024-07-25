@@ -16,3 +16,5 @@ chmod +x "${prefix}/bin/kind"
 "${prefix}/bin/kind" completion fish >"${prefix}/share/fish/vendor_completions.d/kind.fish"
 "${prefix}/bin/kind" completion zsh >"${prefix}/share/zsh/vendor-completions/_kind"
 EOF
+COPY kind.service.go-template /uniget_bootstrap/etc/systemd/system/
+COPY config.yaml /uniget_bootstrap/etc/kind/
