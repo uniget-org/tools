@@ -6,6 +6,7 @@ platforms:
 - linux/amd64
 - linux/arm64
 tags:
+- org/uniget
 - category/operations
 - lang/go
 - type/cli
