@@ -32,6 +32,6 @@ ExecReload=/usr/local/bin/docker-compose build --pull
 [Install]
 WantedBy=multi-user.target
 EOF
-RUN <<EOF
-mkdir -p "${prefix}/etc/docker-compose"
+COPY <<EOF /uniget_bootstrap/etc/docker-compose
+Please see usage notes
 EOF

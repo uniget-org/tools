@@ -1,0 +1,13 @@
+[Unit]
+Description=Kubernetes-In-Docker (KinD)
+After=docker.service
+
+[Service]
+Type=oneshot
+ExecStart={{ .Target }}/kind create cluster
+ExecStop={{ .Target }}/kind delete cluster
+StandardOutput=file:%h/.local/var/log/kind.stdout
+StandardError=file:%h/.local/var/log/kind.stderr
+
+[Install]
+WantedBy=multi-user.target
