@@ -17,8 +17,8 @@ services:
     - 80:80
     - 443:443
     volumes:
-    - /etc/traefik:/etc/traefik:ro
-    - /etc/ssl:/etc/ssl:ro
+    - /etc/traefik:/etc/traefik/conf.d:ro
+    - /etc/ssl:/etc/traefik/ssl:ro
     - /var/run/docker.sock:/var/run/docker.sock:ro
     - /etc/localtime:/etc/localtime:ro
     restart: unless-stopped
@@ -32,4 +32,4 @@ services:
       traefik.enable: "true"
       traefik.http.routers.traefik.entrypoints: http
       traefik.http.routers.traefik.service: api@internal
-      traefik.http.routers.traefik.rule: Host(`traefik.${DOMAIN?You must set DOMAIN}`)
+      traefik.http.routers.traefik.rule: HostRegexp(`^traefik\.`)
