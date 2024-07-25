@@ -1,0 +1,34 @@
+#syntax=docker/dockerfile:1.9.0@sha256:fe40cf4e92cd0c467be2cfc30657a680ae2398318afd50b0c80585784c604f28
+
+FROM ghcr.io/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+COPY <<docker-cleanup.timer <<docker-cleanup.service /uniget_bootstrap/etc/systemd/system/
+[Unit]
+Description=Docker cleanup timer
+
+[Timer]
+OnUnitInactiveSec=12h
+
+[Install]
+WantedBy=timers.target
+docker-cleanup.timer
+[Unit]
+Description=Docker cleanup
+Requires=docker.service
+After=docker.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=/tmp
+User=root
+Group=root
+ExecStart=/usr/bin/docker system prune --all --force
+
+[Install]
+WantedBy=multi-user.target
+docker-cleanup.service

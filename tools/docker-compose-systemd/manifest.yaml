@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: docker-compose-systemd
+license:
+  name: MIT License
+  link: https://github.com/uniget-org/tools/blob/main/LICENSE
+version: "0.1.0"
+binary: "false"
+check: "" # No binary to check
+runtime_dependencies:
+- docker-compose
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/uniget
+- category/operations
+- lang/yaml
+- standard/docker
+- container/compose
+- standard/compose
+- type/configuration
+homepage: https://uniget.dev
+repository: https://github.com/uniget-org/tools
+description: Run multiple service using docker compose and systemd
+messages:
+  usage: |
+    - Run the following command to start using the systemd unit template:
+          systemctl daemon-reload
+    - Make sure, Docker is running
+    - For a new service, create a new directory in /etc/docker-compose/
+    - Place a file compose.yaml in the directory
+    - Optionally, add accompanying files
+    - Enable a service using:
+          systemctl enable docker-compose@<service-name>.service
+    - Start a service using:
+          systemctl start docker-compose@<service-name>.service

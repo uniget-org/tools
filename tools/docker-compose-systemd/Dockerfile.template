@@ -1,0 +1,37 @@
+#syntax=docker/dockerfile:1.9.0@sha256:fe40cf4e92cd0c467be2cfc30657a680ae2398318afd50b0c80585784c604f28
+
+FROM ghcr.io/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+COPY <<EOF /uniget_bootstrap/etc/systemd/system/docker-compose@.service
+[Unit]
+Description=docker-compose %i service
+Requires=docker.service network-online.target
+After=docker.service network-online.target
+
+[Service]
+WorkingDirectory=/etc/docker-compose/%i
+Type=simple
+TimeoutStartSec=15min
+Restart=always
+
+ExecStartPre=/usr/local/bin/docker-compose pull --quiet --ignore-pull-failures
+ExecStartPre=/usr/local/bin/docker-compose build --pull
+
+ExecStart=/usr/local/bin/docker-compose up --remove-orphans
+
+ExecStop=/usr/local/bin/docker-compose down --remove-orphans
+
+ExecReload=/usr/local/bin/docker-compose pull --quiet --ignore-pull-failures
+ExecReload=/usr/local/bin/docker-compose build --pull
+
+[Install]
+WantedBy=multi-user.target
+EOF
+RUN <<EOF
+mkdir -p "${prefix}/etc/docker-compose"
+EOF
