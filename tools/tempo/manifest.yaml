@@ -7,7 +7,6 @@ license:
 version: "2.5.0"
 check: ${binary} --version | grep ^tempo | cut -d' ' -f3
 runtime_dependencies:
-- tempo-cli
 - docker-compose-systemd
 platforms:
 - linux/amd64
