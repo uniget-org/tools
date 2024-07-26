@@ -7,7 +7,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-COPY docker-compose@.service /uniget_bootstrap/etc/systemd/system/
+COPY docker-compose@.service.go-template /uniget_bootstrap/etc/systemd/system/
 COPY <<EOF /uniget_bootstrap/etc/docker-compose
 Please see usage notes
 EOF
