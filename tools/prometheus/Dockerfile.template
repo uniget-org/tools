@@ -11,5 +11,6 @@ RUN <<EOF
 check-github-release-asset "prometheus/prometheus" "v${version}" "prometheus-${version}.linux-${alt_arch}.tar.gz"
 curl --silent --show-error --location --fail "https://github.com/prometheus/prometheus/releases/download/v${version}/prometheus-${version}.linux-${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
-    "prometheus-${version}.linux-${alt_arch}/promtool"
+    "prometheus-${version}.linux-${alt_arch}/prometheus"
 EOF
+COPY compose.yaml.go-template /uniget_bootstrap/etc/docker-compose/prometheus/

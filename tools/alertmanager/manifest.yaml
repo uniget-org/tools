@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: alertmanager
+license:
+  name: Apache License 2.0
+  link: https://github.com/prometheus/alertmanager/blob/main/LICENSE
+version: "0.27.0"
+check: ${binary} --version | grep ^alertmanager | cut -d' ' -f3
+runtime_dependencies:
+- docker-compose-systemd
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/prometheus
+- category/operations
+- lang/go
+- type/daemon
+homepage: https://prometheus.io/
+repository: https://github.com/prometheus/alertmanager
+description: Prometheus Alertmanager
+messages:
+  usage: |
+    - A compose.yaml file is provided in /etc/docker-compose/alertmanager/
+    - Start the service using:
+          systemctl start docker-compose@alertmanager
+    - Enable the service using:
+          systemctl enable docker-compose@alertmanager
+    - Configure alertmanager using environment variables:
+          systemctl edit docker-compose@alertmanager
+renovate:
+  datasource: github-releases
+  package: prometheus/alertmanager
+  extractVersion: ^v(?<version>.+)$
+  priority: low

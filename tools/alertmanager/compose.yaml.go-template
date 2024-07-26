@@ -1,0 +1,8 @@
+services:
+  alertmanager:
+    image: prom/alertmanager:v{{ .Version }}
+    command:
+    - '--storage.path=/alertmanager'
+    restart: always
+    ports:
+    - 9093:9093
