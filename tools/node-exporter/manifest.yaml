@@ -5,6 +5,7 @@ license:
   name: Apache License 2.0
   link: https://github.com/prometheus/node_exporter/blob/master/LICENSE
 version: "1.8.2"
+binary: node_exporter
 check: ${binary} --version | grep ^node_exporter | cut -d' ' -f3
 runtime_dependencies:
 - docker-compose-systemd
