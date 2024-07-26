@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: grafana
+license:
+  name: AGPLv3
+  link: https://github.com/grafana/grafana/blob/main/LICENSE
+version: "11.1.2"
+check: ${binary} --version | cut -d' ' -f3
+runtime_dependencies:
+- docker-compose-systemd
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/grafana
+- category/operations
+- lang/go
+- type/daemon
+homepage: https://grafana.com/
+repository: https://github.com/grafana/grafana
+description: Open and composable observability and data visualization platform
+messages:
+  usage: |
+    - A compose.yaml file is provided in /etc/docker-compose/grafana/
+    - Start the service using:
+          systemctl start docker-compose@grafana
+    - Enable the service using:
+          systemctl enable docker-compose@grafana
+    - Configure grafana using environment variables:
+          systemctl edit docker-compose@grafana
+renovate:
+  datasource: github-releases
+  package: grafana/grafana
+  extractVersion: ^v(?<version>.+)$
+  priority: low
