@@ -1,0 +1,25 @@
+version: "3.5"
+
+services:
+  runner:
+    restart: always
+    image: registry.gitlab.com/gitlab-org/gitlab-runner:v{{ .Version }}
+    volumes:
+    - /etc/gitlab-runner:/etc/gitlab-runner:z
+
+  register-runner:
+    restart: 'no'
+    image: registry.gitlab.com/gitlab-org/gitlab-runner:v{{ .Version }}
+    command:
+    - register
+    - --non-interactive
+    - --locked=false
+    - --name=${RUNNER_NAME}
+    - --executor=docker
+    - --docker-image=docker:20-dind
+    - --docker-volumes=/var/run/docker.sock:/var/run/docker.sock
+    environment:
+      CI_SERVER_URL: ${CI_SERVER_URL}
+      REGISTRATION_TOKEN: ${REGISTRATION_TOKEN}
+    volumes:
+    - ./config:/etc/gitlab-runner:z

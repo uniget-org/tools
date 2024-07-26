@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: gitlab-runner
+license:
+  name: MIT License
+  link: https://gitlab.com/gitlab-org/gitlab-runner/-/blob/main/LICENSE?ref_type=heads
 version: "17.2.1"
 check: ${binary} --version | grep ^Version | tr -s ' ' | cut -d' ' -f2
+runtime_dependencies:
+- docker-compose-systemd
 platforms:
 - linux/amd64
 - linux/arm64
@@ -15,11 +20,17 @@ tags:
 homepage: https://gitlab.com/gitlab-org/gitlab-runner
 repository: https://gitlab.com/gitlab-org/gitlab-runner
 description: open source project to run your CI/CD jobs and send the results back to GitLab
+messages:
+  usage: |
+    - A compose.yaml file is provided in /etc/docker-compose/gitlab-runner/
+    - Start the service using:
+          systemctl start docker-compose@gitlab-runner
+    - Enable the service using:
+          systemctl enable docker-compose@gitlab-runner
+    - Configure gitlab-runner using environment variables:
+          systemctl edit docker-compose@gitlab-runner
 renovate:
   datasource: gitlab-releases
   package: gitlab-org/gitlab-runner
   extractVersion: ^v(?<version>.+)$
   priority: medium
-license:
-  name: MIT License
-  link: https://gitlab.com/gitlab-org/gitlab-runner/-/blob/main/LICENSE?ref_type=heads

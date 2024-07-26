@@ -1,0 +1,21 @@
+services:
+  # Since the Loki containers are running as user 10001 and the mounted data volume is owned by root,
+  # Loki would not have permissions to create the directories.
+  # Therefore the init container changes permissions of the mounted directory.
+  init:
+    image: grafana/loki:{{ .Version }}
+    user: root
+    entrypoint:
+    - "chown"
+    - "10001:10001"
+    - "/loki"
+    volumes:
+    - ./loki:/loki
+      
+  loki:
+    image: grafana/loki:{{ .Version }}
+    command: -config.file=/etc/loki/local-config.yaml
+    volumes:
+    - ./config/loki.yaml:/etc/loki/config.yaml
+    ports:
+    - "127.0.0.1:3100:3100"
