@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: node-exporter
+license:
+  name: Apache License 2.0
+  link: https://github.com/prometheus/node_exporter/blob/master/LICENSE
+version: "1.8.2"
+check: ${binary} --version | grep ^node_exporter | cut -d' ' -f3
+runtime_dependencies:
+- docker-compose-systemd
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/prometheus
+- category/operations
+- lang/go
+- type/daemon
+homepage: https://prometheus.io/
+repository: https://github.com/prometheus/node_exporter
+description: Exporter for machine metrics
+messages:
+  usage: |
+    - A compose.yaml file is provided in /etc/docker-compose/node-exporter/
+    - Start the service using:
+          systemctl start docker-compose@node-exporter
+    - Enable the service using:
+          systemctl enable docker-compose@node-exporter
+    - Configure node-exporter using environment variables:
+          systemctl edit docker-compose@node-exporter
+renovate:
+  datasource: github-releases
+  package: prometheus/node_exporter
+  extractVersion: ^v(?<version>.+)$
+  priority: low

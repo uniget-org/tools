@@ -13,3 +13,4 @@ curl --silent --show-error --location --fail --output "${prefix}/bin/cadvisor" \
     "https://github.com/google/cadvisor/releases/download/v${version}/cadvisor-v${version}-linux-${alt_arch}"
 chmod +x "${prefix}/bin/cadvisor"
 EOF
+COPY compose.yaml.go-template /etc/docker-compose/cadvisor/

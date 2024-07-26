@@ -1,10 +1,11 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: promtool
+license:
+  name: Apache License 2.0
+  link: https://github.com/prometheus/prometheus/blob/main/LICENSE
 version: "2.53.1"
-check: "" # No version parameter
-build_dependencies:
-- go
+check: ${binary} --version | grep ^prometheus | cut -d' ' -f3
 platforms:
 - linux/amd64
 - linux/arm64
@@ -25,6 +26,3 @@ renovate:
   package: prometheus/prometheus
   extractVersion: ^v(?<version>.+)$
   priority: low
-license:
-  name: Apache License 2.0
-  link: https://github.com/prometheus/prometheus/blob/main/LICENSE
