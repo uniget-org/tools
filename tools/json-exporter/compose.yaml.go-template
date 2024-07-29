@@ -1,0 +1,5 @@
+services:
+  json_exporter:
+    image: quay.io/prometheuscommunity/json-exporter:v{{ .Version }}
+    ports:
+    - "127.0.0.1:7979:7979"

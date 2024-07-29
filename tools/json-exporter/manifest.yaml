@@ -1,8 +1,14 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: json-exporter
+license:
+  name: Apache License 2.0
+  link: https://github.com/prometheus-community/json_exporter/blob/master/LICENSE
 version: "0.6.0"
-check: "" # No version parameter
+binary: json_exporter
+check: ${binary} --config.file=/dev/null --version 2>&1 | grep ^json_exporter | cut -d' ' -f3
+runtime_dependencies:
+- docker-compose-systemd
 platforms:
 - linux/amd64
 - linux/arm64
@@ -17,11 +23,17 @@ tags:
 homepage: https://github.com/prometheus-community/json_exporter
 repository: https://github.com/prometheus-community/json_exporter
 description: Prometheus exporter which scrapes remote JSON by JSONPath
+messages:
+  usage: |
+    - A compose.yaml file is provided in /etc/docker-compose/json-exporter/
+    - Start the service using:
+          systemctl start docker-compose@json-exporter
+    - Enable the service using:
+          systemctl enable docker-compose@json-exporter
+    - Configure json-exporter using environment variables:
+          systemctl edit docker-compose@json-exporter
 renovate:
   datasource: github-releases
   package: prometheus-community/json_exporter
   extractVersion: ^v(?<version>.+)$
   priority: low
-license:
-  name: Apache License 2.0
-  link: https://github.com/prometheus-community/json_exporter/blob/master/LICENSE
