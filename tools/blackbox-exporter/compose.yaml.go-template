@@ -1,0 +1,6 @@
+services:
+  pushgateway:
+    image: prom/pushgateway:v{{ .Version }}
+    restart: always
+    ports:
+    - "127.0.0.1:9091:9091"
