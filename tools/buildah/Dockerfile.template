@@ -4,7 +4,7 @@ FROM ghcr.io/uniget-org/tools/go:latest AS go
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 FROM ghcr.io/uniget-org/tools/go-md2man:latest AS go-md2man
 
-FROM ghcr.io/uniget-org/images/build-essential:24.04 AS prepare
+FROM ghcr.io/uniget-org/images/build-base:3.20 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -15,24 +15,26 @@ COPY --from=go-md2man / /usr/local/
 ARG name
 ARG version
 RUN <<EOF
-apt-get update
-apt-get -y install --no-install-recommends \
+apk update
+apk add \
     bats \
-    btrfs-progs \
     libassuan-dev \
+    libassuan-static \
     libapparmor-dev \
-    libdevmapper-dev \
-    libglib2.0-dev \
-    libgpgme11-dev \
+    glib-dev \
+    glib-static \
+    gpgme-dev \
     libgpg-error-dev \
+    libgpg-error-static \
     libseccomp-dev \
-    libselinux1-dev
+    libseccomp-static \
+    libselinux-dev
 EOF
 WORKDIR /tmp/buildah
 RUN git clone --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/containers/buildah .
 ENV CFLAGS='-static -pthread' \
     LDFLAGS='-s -w -static-libgcc -static' \
-    EXTRA_LDFLAGS='-s -w -linkmode external -extldflags "-static -lm"' \
+    EXTRA_LDFLAGS='-s -w -linkmode external -extldflags "-static -lm -lgpgme -lgpg-error -lassuan"' \
     BUILDTAGS='static netgo osusergo exclude_graphdriver_btrfs exclude_graphdriver_devicemapper seccomp apparmor selinux' \
     CGO_ENABLED=1
 RUN <<EOF
