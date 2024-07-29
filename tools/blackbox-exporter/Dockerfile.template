@@ -8,9 +8,10 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
-check-github-release-asset "prometheus/pushgateway" "v${version}" "pushgateway-${version}.linux-${alt_arch}.tar.gz"
-curl --silent --show-error --location --fail "https://github.com/prometheus/pushgateway/releases/download/v${version}/pushgateway-${version}.linux-${alt_arch}.tar.gz" \
+check-github-release-asset "prometheus/blackbox_exporter" "v${version}" "blackbox_exporter-${version}.linux-${alt_arch}.tar.gz"
+curl --silent --show-error --location --fail "https://github.com/prometheus/blackbox_exporter/releases/download/v${version}/blackbox_exporter-${version}.linux-${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
-    "pushgateway-${version}.linux-${alt_arch}/pushgateway"
+    "blackbox_exporter-${version}.linux-${alt_arch}/blackbox_exporter"
 EOF
-COPY compose.yaml.go-template /uniget_bootstrap/etc/docker-compose/pushgateway/
+COPY compose.yaml.go-template /uniget_bootstrap/etc/docker-compose/blackbox-exporter/
+COPY blackbox.yaml /uniget_bootstrap/etc/docker-compose/blackbox-exporter/config/
