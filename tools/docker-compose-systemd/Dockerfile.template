@@ -11,3 +11,7 @@ COPY docker-compose@.service.go-template /uniget_bootstrap/etc/systemd/system/
 COPY <<EOF /uniget_bootstrap/etc/docker-compose
 Please see usage notes
 EOF
+COPY docker-compose@.service.go-template /uniget_bootstrap/etc/systemd/user/
+RUN <<EOF
+sed -i "s|WorkingDirectory=/etc/docker-compose/%i|WorkingDirectory=%h/.config/docker-compose/%i|g" "${prefix}/etc/systemd/user/docker-compose@.service.go-template"
+EOF
