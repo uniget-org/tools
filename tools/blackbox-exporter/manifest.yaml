@@ -3,10 +3,10 @@ $schema: https://tools.uniget.dev/schema.yaml
 name: blackbox-exporter
 license:
   name: Apache License 2.0
-  link: https://github.com/prometheus/pushgateway/blob/master/LICENSE
-version: "1.9.0"
+  link: https://github.com/prometheus/blackbox_exporter/blob/master/LICENSE
+version: "0.25.0"
 binary: blackbox_exporter
-check: ${binary} --version | grep ^pushgateway | cut -d' ' -f3
+check: ${binary} --version | grep ^blackbox_exporter | cut -d' ' -f3
 runtime_dependencies:
 - docker-compose-systemd
 platforms:
@@ -17,20 +17,20 @@ tags:
 - category/operations
 - lang/go
 - type/daemon
-homepage: https://github.com/prometheus/pushgateway
-repository: https://github.com/prometheus/pushgateway
+homepage: https://prometheus.io/
+repository: https://github.com/prometheus/blackbox_exporter
 description: Push acceptor for ephemeral and batch jobs
 messages:
   usage: |
-    - A compose.yaml file is provided in /etc/docker-compose/pushgateway/
+    - A compose.yaml file is provided in /etc/docker-compose/blackbox-exporter/
     - Start the service using:
-          systemctl start docker-compose@pushgateway
+          systemctl start docker-compose@blackbox-exporter
     - Enable the service using:
-          systemctl enable docker-compose@pushgateway
-    - Configure pushgateway using environment variables:
-          systemctl edit docker-compose@pushgateway
+          systemctl enable docker-compose@blackbox-exporter
+    - Configure blackbox-exporter using environment variables:
+          systemctl edit docker-compose@blackbox-exporter
 renovate:
   datasource: github-releases
-  package: prometheus/pushgateway
+  package: prometheus/blackbox_exporter
   extractVersion: ^v(?<version>.+)$
   priority: low

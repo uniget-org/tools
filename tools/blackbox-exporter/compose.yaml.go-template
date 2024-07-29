@@ -1,6 +1,9 @@
 services:
-  pushgateway:
-    image: prom/pushgateway:v{{ .Version }}
-    restart: always
+  blackbox-exporter:
+    image: prom/blackbox-exporter:${BLACKBOX_EXPORTER_TAG}
+    command:
+    - --config.file=/etc/blackbox/blackbox.yaml
+    volumes:
+    - ./config/blackbox.yaml:/etc/blackbox/blackbox.yaml
     ports:
-    - "127.0.0.1:9091:9091"
+    - "127.0.0.1:9115:9115"
