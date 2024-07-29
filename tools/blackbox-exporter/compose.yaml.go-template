@@ -1,6 +1,6 @@
 services:
   blackbox-exporter:
-    image: prom/blackbox-exporter:${BLACKBOX_EXPORTER_TAG}
+    image: prom/blackbox-exporter:v{{ .Version }}
     command:
     - --config.file=/etc/blackbox/blackbox.yaml
     volumes:
