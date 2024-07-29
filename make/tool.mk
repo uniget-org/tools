@@ -42,7 +42,13 @@ $(addsuffix /Dockerfile,$(ALL_TOOLS)):$(TOOLS_DIR)/%/Dockerfile: \
 	echo >>$@; \
 	echo >>$@; \
 	if test -f $(TOOLS_DIR)/$*/post_install.sh; then echo 'COPY post_install.sh /uniget_bootstrap/var/lib/uniget/post_install/$*.sh' >>$@; fi; \
-	cat $(TOOLS_DIR)/Dockerfile.tail >>$@
+	cat $(TOOLS_DIR)/Dockerfile.tail >>$@; \
+	if test -f ca.pem; then \
+		sed -i '/ AS prepare/a RUN update-ca-certificates' $@; \
+		sed -i '/ AS prepare/a EOF' $@; \
+		sed -i '/ AS prepare/r ca.pem' $@; \
+		sed -i '/ AS prepare/a COPY <<EOF /usr/local/share/ca-certificates/custom.pem' $@; \
+	fi
 
 .PHONY:
 install: \
