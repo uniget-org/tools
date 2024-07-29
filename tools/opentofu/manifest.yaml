@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: opentofu
-version: "1.7.3"
+version: "1.8.0"
 binary: tofu
 check: ${binary} version | grep ^OpenTofu | cut -dv -f2
 platforms:
