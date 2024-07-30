@@ -4,6 +4,8 @@ version: "0.54.0"
 check: ${binary} --version | grep ^Version | cut -d' ' -f2
 build_dependencies:
 - cosign
+runtime_dependencies:
+- docker-compose-systemd
 platforms:
 - linux/amd64
 - linux/arm64
