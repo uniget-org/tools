@@ -1,0 +1,41 @@
+server:
+  log_level: debug
+
+metrics:
+  global:
+    scrape_interval: 60s
+    remote_write:
+    - url: http://${REMOTE_WRITE_HOST:-localhost:9009}/api/v1/push
+  configs:
+  - name: default
+    scrape_configs:
+    - job_name: avalanche
+      static_configs:
+      - targets: ['${AVALANCHE_HOST:-localhost:9001}']
+
+logs:
+  configs:
+  - name: default
+    clients:
+      - url: http://${LOKI_HOST:-localhost:3100}/loki/api/v1/push
+    positions:
+      filename: /tmp/positions.yaml
+    scrape_configs:
+    ## Uncomment to read logs from /var/log
+    - job_name: system
+      static_configs:
+      - targets: [localhost]
+        labels:
+          job: varlogs
+          __path__: /var/log/*log
+
+traces:
+  configs:
+  - name: default
+    remote_write:
+      - endpoint: ${TEMPO_HOST:-localhost:4317}
+        insecure: true
+    receivers:
+      jaeger:
+        protocols:
+          thrift_http:

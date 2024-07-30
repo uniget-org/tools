@@ -1,0 +1,20 @@
+services:
+  grafana-agent:
+    image: grafana/agent:v{{ .Version }}
+    entrypoint:
+    - /bin/grafana-agent
+    - -server.http.address=0.0.0.0:12345
+    - -config.file=/etc/agent-config/agent.yaml
+    - -metrics.wal-directory=/tmp/agent/wal
+    - -enable-features=integrations-next
+    - -config.expand-env
+    - -config.enable-read-api
+    environment:
+      HOSTNAME: agent
+      REMOTE_WRITE_HOST: mimir:9009
+      LOKI_HOST: loki:3100
+      TEMPO_HOST: tempo:4317
+    volumes:
+    - ./config:/etc/agent-config
+    ports:
+    - "127.0.0.1:12345:12345"

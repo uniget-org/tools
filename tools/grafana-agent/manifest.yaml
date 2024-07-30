@@ -2,6 +2,8 @@
 name: grafana-agent
 version: "0.42.0"
 check: ${binary} --version | head -1 | cut -d' ' -f3 | tr -d v
+runtime_dependencies:
+- docker-compose-systemd
 tags:
 - org/grafana
 - observability/metrics
