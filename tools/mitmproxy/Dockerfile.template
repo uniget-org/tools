@@ -16,3 +16,4 @@ curl --silent --show-error --location --fail "https://downloads.mitmproxy.org/${
     mitmdump \
     mitmweb
 EOF
+COPY compose.yaml.go-template /uniget_bootstrap/etc/docker-compose/mitmproxy/
