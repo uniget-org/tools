@@ -2,6 +2,8 @@
 name: gitlab-ci-pipelines-exporter
 version: "0.5.8"
 check: ${binary} --version | cut -d' ' -f3
+runtime_dependencies:
+- docker-compose-systemd
 platforms:
 - linux/amd64
 - linux/arm64
@@ -11,6 +13,7 @@ tags:
 - type/cli
 - gitlab
 - standard/prometheus
+- exporter
 homepage: https://github.com/mvisonneau/gitlab-ci-pipelines-exporter
 repository: https://github.com/mvisonneau/gitlab-ci-pipelines-exporter
 description: Prometheus / OpenMetrics exporter for GitLab CI pipelines insights
