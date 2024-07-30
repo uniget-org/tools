@@ -18,7 +18,8 @@ tags:
 - type/cli
 - format/json
 - standard/jsonpath
-- prometheus
+- exporter
+- standard/prometheus
 - exporter
 homepage: https://github.com/prometheus-community/json_exporter
 repository: https://github.com/prometheus-community/json_exporter

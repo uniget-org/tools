@@ -17,6 +17,8 @@ tags:
 - category/operations
 - lang/go
 - type/daemon
+- standard/prometheus
+- exporter
 homepage: https://prometheus.io/
 repository: https://github.com/prometheus/blackbox_exporter
 description: Push acceptor for ephemeral and batch jobs

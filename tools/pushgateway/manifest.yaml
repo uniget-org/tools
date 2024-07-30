@@ -16,6 +16,8 @@ tags:
 - category/operations
 - lang/go
 - type/daemon
+- standard/prometheus
+- exporter
 homepage: https://github.com/prometheus/pushgateway
 repository: https://github.com/prometheus/pushgateway
 description: Push acceptor for ephemeral and batch jobs
