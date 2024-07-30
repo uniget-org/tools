@@ -1,0 +1,6 @@
+services:
+  trivy-server:
+    image: aquasec/trivy:{{ .Version }}
+    entrypoint: trivy server --skip-update --listen "0.0.0.0:4030"
+    ports:
+    - "127.0.0.1:4030:4030"
