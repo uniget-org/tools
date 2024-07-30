@@ -1,0 +1,16 @@
+#syntax=docker/dockerfile:1.9.0@sha256:fe40cf4e92cd0c467be2cfc30657a680ae2398318afd50b0c80585784c604f28
+
+FROM ghcr.io/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN <<EOF
+echo "### Setting architecture string for ${TARGETPLATFORM}"
+check-github-release-asset "Versent/saml2aws" "v${version}" "saml2aws_${version}_linux_${alt_arch}.tar.gz"
+curl --silent --show-error --location --fail "https://github.com/Versent/saml2aws/releases/download/v${version}/saml2aws_${version}_linux_${alt_arch}.tar.gz" \
+| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
+    saml2aws
+EOF
