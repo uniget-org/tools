@@ -14,4 +14,4 @@ curl --silent --show-error --location --fail "https://github.com/prometheus/blac
     "blackbox_exporter-${version}.linux-${alt_arch}/blackbox_exporter"
 EOF
 COPY compose.yaml.go-template /uniget_bootstrap/etc/docker-compose/blackbox-exporter/
-COPY blackbox.yaml /uniget_bootstrap/etc/docker-compose/blackbox-exporter/config/
+COPY blackbox.yaml /uniget_bootstrap/etc/blackbox/

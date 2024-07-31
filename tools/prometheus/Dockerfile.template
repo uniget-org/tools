@@ -14,3 +14,4 @@ curl --silent --show-error --location --fail "https://github.com/prometheus/prom
     "prometheus-${version}.linux-${alt_arch}/prometheus"
 EOF
 COPY compose.yaml.go-template /uniget_bootstrap/etc/docker-compose/prometheus/
+COPY prometheus.yaml /uniget_bootstrap/etc/prometheus/

@@ -1,0 +1,10 @@
+services:
+  grafana:
+    image: grafana/grafana-oss:11.1.3
+    restart: always 
+    volumes:
+    - grafana-storage:/var/lib/grafana
+    network_mode: host
+
+volumes:
+  grafana-storage:

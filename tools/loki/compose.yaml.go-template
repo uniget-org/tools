@@ -16,6 +16,5 @@ services:
     image: grafana/loki:{{ .Version }}
     command: -config.file=/etc/loki/local-config.yaml
     volumes:
-    - ./config/loki.yaml:/etc/loki/config.yaml
-    ports:
-    - "127.0.0.1:3100:3100"
+    - /etc/loki/config.yaml:/etc/loki/config.yaml
+    network_mode: host

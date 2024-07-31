@@ -13,9 +13,7 @@ services:
     - --providers.file.directory=/etc/traefik/conf.d
     - --providers.docker=true
     - --providers.docker.exposedByDefault=false
-    ports:
-    - 80:80
-    - 443:443
+    network_mode: host
     volumes:
     - /etc/traefik:/etc/traefik/conf.d:ro
     - /etc/ssl:/etc/traefik/ssl:ro

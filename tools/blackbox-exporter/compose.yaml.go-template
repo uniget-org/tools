@@ -4,6 +4,5 @@ services:
     command:
     - --config.file=/etc/blackbox/blackbox.yaml
     volumes:
-    - ./config/blackbox.yaml:/etc/blackbox/blackbox.yaml
-    ports:
-    - "127.0.0.1:9115:9115"
+    - /etc/blackbox/:/etc/blackbox/
+    network_mode: host
