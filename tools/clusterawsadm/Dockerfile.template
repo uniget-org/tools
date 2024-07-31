@@ -10,14 +10,14 @@ ARG name
 ARG version
 
 RUN <<EOF
-check-github-release-asset "kubernetes-sigs/cluster-api-provider-aws" "v${version}" "clusterawsadm_v${version}_linux_${alt_arch}"
+check-github-release-asset "kubernetes-sigs/cluster-api-provider-aws" "v${version}" "clusterawsadm-linux-${alt_arch}"
 curl --silent --show-error --location --fail --output "${prefix}/bin/clusterawsadm" \
-    "https://github.com/kubernetes-sigs/cluster-api-provider-aws/releases/download/v${version}/clusterawsadm_v${version}_linux_${alt_arch}"
+    "https://github.com/kubernetes-sigs/cluster-api-provider-aws/releases/download/v${version}/clusterawsadm-linux-${alt_arch}"
 chmod +x "${prefix}/bin/clusterawsadm"
 
-check-github-release-asset "kubernetes-sigs/cluster-api-provider-aws" "v${version}" "clusterctl-aws_v${version}_linux_${alt_arch}"
+check-github-release-asset "kubernetes-sigs/cluster-api-provider-aws" "v${version}" "clusterctl-aws-linux-${alt_arch}"
 curl --silent --show-error --location --fail --output "${prefix}/bin/clusterctl-aws" \
-    "https://github.com/kubernetes-sigs/cluster-api-provider-aws/releases/download/v${version}/clusterctl-aws_v${version}_linux_${alt_arch}"
+    "https://github.com/kubernetes-sigs/cluster-api-provider-aws/releases/download/v${version}/clusterctl-aws-linux-${alt_arch}"
 chmod +x "${prefix}/bin/clusterctl-aws"
 
 "${prefix}/bin/clusterawsadm" completion bash >"${prefix}/share/bash-completion/completions/clusterawsadm"
