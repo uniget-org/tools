@@ -1,13 +1,16 @@
 services:
   prometheus:
-    image: prom/prometheus:v{{ .Version }}
+    image: prom/prometheus:v2.53.1
     command:
-    - '--config.file=/etc/prometheus/prometheus.yaml'
+    - '--config.file=/etc/prometheus/prometheus.yml'
     - '--storage.tsdb.path=/prometheus'
     - '--web.console.libraries=/usr/share/prometheus/console_libraries'
     - '--web.console.templates=/usr/share/prometheus/consoles'
     restart: always
     volumes:
-    - /etc/prometheus/:/etc/prometheus/
-    - /var/lib/prometheus:/prometheus
+    - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    - prometheus_data:/prometheus
     network_mode: host
+
+volumes:
+  prometheus_data:

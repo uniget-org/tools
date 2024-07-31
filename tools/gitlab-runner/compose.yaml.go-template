@@ -6,6 +6,7 @@ services:
     image: registry.gitlab.com/gitlab-org/gitlab-runner:v{{ .Version }}
     volumes:
     - /etc/gitlab-runner:/etc/gitlab-runner:z
+    network_mode: host
 
   register-runner:
     restart: 'no'
@@ -23,3 +24,4 @@ services:
       REGISTRATION_TOKEN: ${REGISTRATION_TOKEN}
     volumes:
     - ./config:/etc/gitlab-runner:z
+    network_mode: host
