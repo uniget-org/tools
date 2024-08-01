@@ -21,7 +21,10 @@ apk add \
     openssl-libs-static \
     zlib \
     zlib-dev \
-    zlib-static
+    zlib-static \
+    zstd \
+    zstd-dev \
+    zstd-static
 EOF
 WORKDIR /tmp/mysql
 ARG name
