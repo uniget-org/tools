@@ -4,7 +4,7 @@ name: mysql-client
 license:
   name: Unknown
   link: ""
-version: "8.4.2"
+version: "8.3.0"
 check: ""
 platforms:
 - linux/amd64
