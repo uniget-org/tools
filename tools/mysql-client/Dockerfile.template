@@ -18,7 +18,10 @@ apk add \
     libfido2-dev \
     openssl \
     openssl-dev \
-    openssl-libs-static
+    openssl-libs-static \
+    zlib \
+    zlib-dev \
+    zlib-static
 EOF
 WORKDIR /tmp/mysql
 ARG name
