@@ -24,7 +24,10 @@ apk add \
     zlib-static \
     zstd \
     zstd-dev \
-    zstd-static
+    zstd-static \
+    libedit \
+    libedit-dev \
+    libedit-static
 EOF
 WORKDIR /tmp/mysql
 ARG name
