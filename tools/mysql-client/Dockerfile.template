@@ -1,0 +1,52 @@
+#syntax=docker/dockerfile:1.9.0@sha256:fe40cf4e92cd0c467be2cfc30657a680ae2398318afd50b0c80585784c604f28
+
+FROM ghcr.io/uniget-org/images/build-base:3.20 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+RUN <<EOF
+apk update
+apk add \
+    cmake \
+    clang \
+    bison \
+    libevent \
+    libevent-dev \
+    libevent-static \
+    libfido2 \
+    libfido2-dev \
+    openssl \
+    openssl-dev \
+    openssl-libs-static
+EOF
+WORKDIR /tmp/mysql
+ARG name
+ARG version
+RUN <<EOF
+MINOR_VERSION="$(echo "${version}" | cut -d. -f1-2)"
+curl --silent --show-error --location --fail "https://cdn.mysql.com/Downloads/MySQL-${MINOR_VERSION}/mysql-boost-${version}.tar.gz" \
+| tar --extract --gzip --strip-components=1 --no-same-owner
+
+cmake -S . -B build \
+    -DFORCE_INSOURCE_BUILD=1 \
+    -DCOMPILATION_COMMENT=uniget \
+    -DDEFAULT_CHARSET=utf8mb4 \
+    -DDEFAULT_COLLATION=utf8mb4_general_ci \
+    -DINSTALL_DOCDIR=share/doc/mysql-client \
+    -DINSTALL_INCLUDEDIR=include/mysql \
+    -DINSTALL_INFODIR=share/info \
+    -DINSTALL_MANDIR=share/man \
+    -DINSTALL_MYSQLSHAREDIR=share/mysql \
+    -DWITH_BOOST=boost \
+    -DWITH_EDITLINE=system \
+    -DWITH_FIDO=system \
+    -DWITH_LIBEVENT=system \
+    -DWITH_ZLIB=system \
+    -DWITH_ZSTD=system \
+    -DWITH_SSL=yes \
+    -DWITH_UNIT_TESTS=OFF \
+    -DWITHOUT_SERVER=ON
+cmake --build build
+cmake --install build
+EOF

@@ -5835,6 +5835,18 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "github-tags",
+      "depNameTemplate": "mysql/mysql-server",
+      "extractVersionTemplate": "^mysql-(?<version>\\d*[02468]\\..+)$",
+      "fileMatch": [
+        "^tools/mysql-client/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "npm",
       "depNameTemplate": "n8n",
       "fileMatch": [
