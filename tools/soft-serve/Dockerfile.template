@@ -25,10 +25,10 @@ echo "    Using ${arch_suffix}"
 
 check-github-release-asset "charmbracelet/soft-serve" "v${version}" "soft-serve_${version}_Linux_${arch_suffix}.tar.gz"
 curl --silent --show-error --location --fail "https://github.com/charmbracelet/soft-serve/releases/download/v${version}/soft-serve_${version}_Linux_${arch_suffix}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
-    soft \
-    completions \
-    manpages
+| tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
+    "soft-serve_${version}_Linux_${arch_suffix}/soft" \
+    "soft-serve_${version}_Linux_${arch_suffix}/completions" \
+    "soft-serve_${version}_Linux_${arch_suffix}/manpages"
 
 mv "${prefix}/bin/manpages/soft-serve.1.gz" "${prefix}/share/man/man1/"
 rmdir "${prefix}/bin/manpages"
