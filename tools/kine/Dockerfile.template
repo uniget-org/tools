@@ -1,0 +1,27 @@
+#syntax=docker/dockerfile:1.9.0@sha256:fe40cf4e92cd0c467be2cfc30657a680ae2398318afd50b0c80585784c604f28
+
+FROM ghcr.io/uniget-org/tools/make:latest AS make
+FROM ghcr.io/uniget-org/tools/go:latest AS go
+
+FROM ghcr.io/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+COPY --link --from=go / /usr/local/
+COPY --link --from=make / /usr/local/
+WORKDIR /go/src/github.com/k3s-io/kine
+RUN <<EOF
+check-clone "https://github.com/k3s-io/kine" "v${version}"
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/k3s-io/kine .
+
+OTHER_LINKFLAGS="-extldflags -static -s"
+commit="$(git rev-parse --short HEAD)"
+LINKFLAGS="-X github.com/k3s-io/kine/pkg/version.Version=${version}"
+LINKFLAGS="-X github.com/k3s-io/kine/pkg/version.GitCommit=${commit} $LINKFLAGS"
+
+export CGO_CFLAGS="-DSQLITE_ENABLE_DBSTAT_VTAB=1 -DSQLITE_USE_ALLOCA=1"
+go build -ldflags "$LINKFLAGS $OTHER_LINKFLAGS" -tags nats -o "${prefix}/bin/kine"
+EOF
