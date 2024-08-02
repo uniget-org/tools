@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: kine
+license:
+  name: Apache License 2.0
+  link: https://github.com/k3s-io/kine/blob/master/LICENSE
+version: "0.11.12"
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/go
+- type/daemon
+homepage: https://github.com/k3s-io/kine
+repository: https://github.com/k3s-io/kine
+description: Run Kubernetes on MySQL, Postgres, sqlite, dqlite, not etcd. Kine is not etcd.
+renovate:
+  datasource: github-releases
+  package: k3s-io/kine
+  extractVersion: ^v(?<version>.+)$
+  priority: low
