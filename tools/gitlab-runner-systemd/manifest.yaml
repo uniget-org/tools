@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+name: gitlab-runner-systemd
+license:
+  name: MIT License
+  link: https://gitlab.com/gitlab-org/gitlab-runner/-/blob/main/LICENSE?ref_type=heads
+version: "0.1.0"
+binary: "false"
+check: "" # No binary to check
+runtime_dependencies:
+- gitlab-runner
+- docker-compose-systemd
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/gitlab
+- category/development
+- type/daemon
+- cicd
+- lang/go
+- gitlab
+homepage: https://uniget.dev
+repository: https://github.com/uniget-org/tools
+description: compose file for gitlab-runner with systemd
+messages:
+  usage: |
+    - A compose.yaml file is provided in /etc/docker-compose/gitlab-runner/
+    - Start the service using:
+          systemctl start docker-compose@gitlab-runner
+    - Enable the service using:
+          systemctl enable docker-compose@gitlab-runner
+    - Configure gitlab-runner using environment variables:
+          systemctl edit docker-compose@gitlab-runner

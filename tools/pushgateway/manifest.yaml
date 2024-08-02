@@ -6,8 +6,6 @@ license:
   link: https://github.com/prometheus/pushgateway/blob/master/LICENSE
 version: "1.9.0"
 check: ${binary} --version | grep ^pushgateway | cut -d' ' -f3
-runtime_dependencies:
-- docker-compose-systemd
 platforms:
 - linux/amd64
 - linux/arm64
@@ -21,15 +19,6 @@ tags:
 homepage: https://github.com/prometheus/pushgateway
 repository: https://github.com/prometheus/pushgateway
 description: Push acceptor for ephemeral and batch jobs
-messages:
-  usage: |
-    - A compose.yaml file is provided in /etc/docker-compose/pushgateway/
-    - Start the service using:
-          systemctl start docker-compose@pushgateway
-    - Enable the service using:
-          systemctl enable docker-compose@pushgateway
-    - Configure pushgateway using environment variables:
-          systemctl edit docker-compose@pushgateway
 renovate:
   datasource: github-releases
   package: prometheus/pushgateway

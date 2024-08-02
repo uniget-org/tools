@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+name: portainer-systemd
+license:
+  name: MIT License
+  link: https://github.com/uniget-org/tools/blob/develop/LICENSE
+version: "0.1.0"
+binary: "false"
+check: "" # No binary to check
+runtime_dependencies:
+- portainer
+- docker-compose-systemd
+tags:
+- org/portainer
+- standard/docker
+- docker
+- type/daemon
+- kubernetes
+- k8s
+- management
+- lang/go
+homepage: https://uniget.dev
+repository: https://github.com/uniget-org/tools
+description: compose file for portainer with systemd
+messages:
+  usage: |
+    This package provides a compose file for running portainer with SystemD:
+    - A compose.yaml file is provided in /etc/docker-compose/portainer/
+    - Start the service using:
+          systemctl start docker-compose@portainer
+    - Enable the service using:
+          systemctl enable docker-compose@portainer

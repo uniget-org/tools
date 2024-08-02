@@ -8,7 +8,6 @@ version: "2.13.0"
 check: ${binary} --version | cut -d' ' -f3
 runtime_dependencies:
 - mimirtool
-- docker-compose-systemd
 platforms:
 - linux/amd64
 - linux/arm64
@@ -20,15 +19,6 @@ tags:
 homepage: https://grafana.com/
 repository: https://github.com/grafana/mimir
 description: Horizontally scalable, highly available, multi-tenant, long-term storage for Prometheus
-messages:
-  usage: |
-    - A compose.yaml file is provided in /etc/docker-compose/mimir/
-    - Start the service using:
-          systemctl start docker-compose@mimir
-    - Enable the service using:
-          systemctl enable docker-compose@mimir
-    - Configure mimir using environment variables:
-          systemctl edit docker-compose@mimir
 renovate:
   datasource: github-releases
   package: grafana/mimir

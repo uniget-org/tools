@@ -8,7 +8,6 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 COPY portainer.service.go-template /uniget_bootstrap/etc/systemd/system/
-COPY compose.yaml.go-template /uniget_bootstrap/etc/docker-compose/
 RUN <<EOF
 check-github-release-asset "portainer/portainer" "${version}" "portainer-${version}-linux-${alt_arch}.tar.gz"
 curl --silent --show-error --location --fail "https://github.com/portainer/portainer/releases/download/${version}/portainer-${version}-linux-${alt_arch}.tar.gz" \

@@ -1,9 +1,10 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: gitlab-ci-pipelines-exporter
+license:
+  name: Apache License 2.0
+  link: https://github.com/mvisonneau/gitlab-ci-pipelines-exporter/blob/main/LICENSE
 version: "0.5.8"
 check: ${binary} --version | cut -d' ' -f3
-runtime_dependencies:
-- docker-compose-systemd
 platforms:
 - linux/amd64
 - linux/arm64
@@ -22,6 +23,3 @@ renovate:
   package: mvisonneau/gitlab-ci-pipelines-exporter
   extractVersion: ^v(?<version>.+)$
   priority: medium
-license:
-  name: Apache License 2.0
-  link: https://github.com/mvisonneau/gitlab-ci-pipelines-exporter/blob/main/LICENSE

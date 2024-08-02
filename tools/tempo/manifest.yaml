@@ -6,8 +6,6 @@ license:
   link: https://github.com/grafana/tempo/blob/main/LICENSE
 version: "2.5.0"
 check: ${binary} --version | grep ^tempo | cut -d' ' -f3
-runtime_dependencies:
-- docker-compose-systemd
 platforms:
 - linux/amd64
 - linux/arm64
@@ -19,15 +17,6 @@ tags:
 homepage: https://grafana.com/
 repository: https://github.com/grafana/tempo
 description: High volume, minimal dependency distributed tracing backend
-messages:
-  usage: |
-    - A compose.yaml file is provided in /etc/docker-compose/tempo/
-    - Start the service using:
-          systemctl start docker-compose@tempo
-    - Enable the service using:
-          systemctl enable docker-compose@tempo
-    - Configure tempo using environment variables:
-          systemctl edit docker-compose@tempo
 renovate:
   datasource: github-releases
   package: grafana/tempo

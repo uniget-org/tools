@@ -15,4 +15,3 @@ curl --silent --show-error --location --fail --remote-name "${url}"
 unzip -q -o -d "${prefix}/bin" "${filename}"
 mv "${prefix}/bin/promtail-linux-${alt_arch}" "${prefix}/bin/promtail"
 EOF
-COPY compose.yaml.go-template /uniget_bootstrap/etc/docker-compose/promtail/

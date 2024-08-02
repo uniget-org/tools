@@ -1,9 +1,10 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: grafana-agent
+license:
+  name: Apache License 2.0
+  link: https://github.com/grafana/agent/blob/main/LICENSE
 version: "0.42.0"
 check: ${binary} --version | head -1 | cut -d' ' -f3 | tr -d v
-runtime_dependencies:
-- docker-compose-systemd
 tags:
 - org/grafana
 - observability/metrics
@@ -22,6 +23,3 @@ renovate:
   package: grafana/agent
   extractVersion: ^v(?<version>.+)$
   priority: low
-license:
-  name: Apache License 2.0
-  link: https://github.com/grafana/agent/blob/main/LICENSE

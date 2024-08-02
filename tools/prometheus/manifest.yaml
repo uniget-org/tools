@@ -8,7 +8,6 @@ version: "2.53.1"
 check: ${binary} --version | grep ^prometheus | cut -d' ' -f3
 runtime_dependencies:
 - promtool
-- docker-compose-systemd
 platforms:
 - linux/amd64
 - linux/arm64
@@ -21,15 +20,6 @@ tags:
 homepage: https://prometheus.io/
 repository: https://github.com/prometheus/prometheus
 description: Monitoring system and time series database
-messages:
-  usage: |
-    - A compose.yaml file is provided in /etc/docker-compose/prometheus/
-    - Start the service using:
-          systemctl start docker-compose@prometheus
-    - Enable the service using:
-          systemctl enable docker-compose@prometheus
-    - Configure prometheus using environment variables:
-          systemctl edit docker-compose@prometheus
 renovate:
   datasource: github-releases
   package: prometheus/prometheus

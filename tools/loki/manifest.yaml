@@ -1,9 +1,10 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: loki
+license:
+  name: AGPLv3
+  link: https://github.com/grafana/loki/blob/main/LICENSE
 version: "3.1.0"
 check: "" # Wrong version
-runtime_dependencies:
-- docker-compose-systemd
 tags:
 - org/grafana
 - observability/logs
@@ -19,6 +20,3 @@ renovate:
   package: grafana/loki
   extractVersion: ^v(?<version>.+)$
   priority: low
-license:
-  name: AGPLv3
-  link: https://github.com/grafana/loki/blob/main/LICENSE

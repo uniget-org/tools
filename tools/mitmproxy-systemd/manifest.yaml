@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+name: mitmproxy
+license:
+  name: MIT License
+  link: https://github.com/uniget-org/tools/blob/main/LICENSE
+version: "0.1.0"
+binary: "false"
+check: "" # No binary to check
+runtime_dependencies:
+- mitmproxy
+- docker-compose-systemd
+tags:
+- component/network
+- type/cli
+- troubleshooting
+- lang/python
+homepage: https://uniget.dev
+repository: https://github.com/uniget-org/tools
+description: compose file for mitmproxy with systemd
+messages:
+  usage: |
+    - A compose.yaml file is provided in /etc/docker-compose/mitmproxy/
+    - Start the service using:
+          systemctl start docker-compose@mitmproxy
+    - Enable the service using:
+          systemctl enable docker-compose@mitmproxy
+    - Configure mitmproxy using environment variables:
+          systemctl edit docker-compose@mitmproxy

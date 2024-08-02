@@ -13,6 +13,5 @@ curl --silent --show-error --location --fail --output "${prefix}/bin/mimir" \
     "https://github.com/grafana/mimir/releases/download/mimir-${version}/mimir-linux-${alt_arch}"
 chmod +x "${prefix}/bin/mimir"
 EOF
-COPY compose.yaml.go-template /uniget_bootstrap/etc/docker-compose/mimir/
 COPY mimir.yaml /uniget_bootstrap/etc/mimir/
 COPY nginx.conf /uniget_bootstrap/etc/mimir/

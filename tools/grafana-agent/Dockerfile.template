@@ -26,5 +26,4 @@ mv "${prefix}/bin/grafana-agentctl-linux-${alt_arch}" "${prefix}/bin/grafana-age
 "${prefix}/bin/grafana-agentctl" completion fish >"${prefix}/share/fish/vendor_completions.d/grafana-agentctl.fish"
 "${prefix}/bin/grafana-agentctl" completion zsh >"${prefix}/share/zsh/vendor-completions/_grafana-agentctl"
 EOF
-COPY compose.yaml.go-template /uniget_bootstrap/etc/docker-compose/grafana-agent/
 COPY agent.yaml /uniget_bootstrap/etc/grafana-agent/

@@ -13,4 +13,3 @@ curl --silent --show-error --location --fail "https://github.com/prometheus-comm
 | tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
     "json_exporter-${version}.linux-${alt_arch}/json_exporter"
 EOF
-COPY compose.yaml.go-template /uniget_bootstrap/etc/docker-compose/json-exporter/

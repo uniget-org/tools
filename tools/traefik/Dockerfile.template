@@ -7,7 +7,6 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-COPY compose.yaml.go-template /uniget_bootstrap/etc/docker-compose/traefik/
 RUN <<EOF
 check-github-release-asset "traefik/traefik" "v${version}" "traefik_v${version}_linux_${alt_arch}.tar.gz"
 curl --silent --show-error --location --fail "https://github.com/traefik/traefik/releases/download/v${version}/traefik_v${version}_linux_${alt_arch}.tar.gz" \

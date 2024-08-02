@@ -14,4 +14,3 @@ curl --silent --show-error --location --fail "https://github.com/prometheus/aler
     "alertmanager-${version}.linux-${alt_arch}/alertmanager" \
     "alertmanager-${version}.linux-${alt_arch}/amtool"
 EOF
-COPY compose.yaml.go-template /uniget_bootstrap/etc/docker-compose/alertmanager/

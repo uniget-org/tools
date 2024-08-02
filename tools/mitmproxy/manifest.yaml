@@ -1,9 +1,10 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: mitmproxy
+license:
+  name: MIT License
+  link: https://github.com/mitmproxy/mitmproxy/blob/main/LICENSE
 version: "10.4.1"
 check: ${binary} --version | grep ^Mitmproxy | cut -d' ' -f2
-runtime_dependencies:
-- docker-compose-systemd
 tags:
 - component/network
 - type/cli
@@ -17,6 +18,3 @@ renovate:
   package: mitmproxy/mitmproxy
   extractVersion: ^v(?<version>.+)$
   priority: low
-license:
-  name: MIT License
-  link: https://github.com/mitmproxy/mitmproxy/blob/main/LICENSE
