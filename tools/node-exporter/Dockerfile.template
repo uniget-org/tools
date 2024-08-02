@@ -13,4 +13,3 @@ curl --silent --show-error --location --fail "https://github.com/prometheus/node
 | tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
     "node_exporter-${version}.linux-${alt_arch}/node_exporter"
 EOF
-COPY compose.yaml.go-template /uniget_bootstrap/etc/docker-compose/node-exporter/

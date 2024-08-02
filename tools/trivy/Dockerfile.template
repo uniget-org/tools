@@ -75,4 +75,3 @@ echo "### Installing SonarQube template for trivy ${version}"
 curl --silent --show-error --location --fail --output "${prefix}/share/trivy/contrib/sonarqube.tpl" \
       https://github.com/mendhak/trivy-template-output-to-sonarqube/raw/master/sonarqube.tpl
 EOF
-COPY compose.yaml.go-template /uniget_bootstrap/etc/docker-compose/trivy/

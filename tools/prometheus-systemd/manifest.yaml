@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: prometheus-systemd
+license:
+  name: MIT License
+  link: https://github.com/uniget-org/tools/blob/main/LICENSE
+version: "0.1.0"
+binary: "false"
+check: "" # No binary to check
+runtime_dependencies:
+- prometheus
+- docker-compose-systemd
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/prometheus
+- category/operations
+- lang/go
+- type/daemon
+- standard/prometheus
+homepage: https://uniget.dev
+repository: https://github.com/uniget-org/tools
+description: compose file for prometheus with systemd
+messages:
+  usage: |
+    - A compose.yaml file is provided in /etc/docker-compose/prometheus/
+    - Start the service using:
+          systemctl start docker-compose@prometheus
+    - Enable the service using:
+          systemctl enable docker-compose@prometheus
+    - Configure prometheus using environment variables:
+          systemctl edit docker-compose@prometheus

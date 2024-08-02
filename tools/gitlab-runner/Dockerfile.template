@@ -14,5 +14,3 @@ curl --silent --show-error --location --fail --output "${prefix}/bin/gitlab-runn
     "https://gitlab-runner-downloads.s3.amazonaws.com/v${version}/binaries/gitlab-runner-linux-${alt_arch}"
 chmod +x "${prefix}/bin/gitlab-runner"
 EOF
-COPY compose.yaml.go-template /uniget_bootstrap/etc/docker-compose/gitlab-runner/
-COPY config.toml /uniget_bootstrap/etc/gitlab-runner/

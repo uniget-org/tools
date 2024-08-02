@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: blackbox-exporter-systemd
+license:
+  name: MIT License
+  link: https://github.com/uniget-org/tools/blob/master/LICENSE
+version: "0.1.0"
+binary: "false"
+check: "" # No binary to check
+runtime_dependencies:
+- blackbox-exporter
+- docker-compose-systemd
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/prometheus
+- category/operations
+- lang/go
+- type/daemon
+- standard/prometheus
+- exporter
+homepage: https://uniget.dev
+repository: https://github.com/uniget-org/tools
+description: compose file for blackbox-exporter with systemd unit template
+messages:
+  usage: |
+    - A compose.yaml file is provided in /etc/docker-compose/blackbox-exporter/
+    - Start the service using:
+          systemctl start docker-compose@blackbox-exporter
+    - Enable the service using:
+          systemctl enable docker-compose@blackbox-exporter
+    - Configure blackbox-exporter using environment variables:
+          systemctl edit docker-compose@blackbox-exporter

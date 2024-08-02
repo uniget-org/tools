@@ -13,4 +13,3 @@ curl --silent --show-error --location --fail "https://github.com/prometheus/push
 | tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
     "pushgateway-${version}.linux-${alt_arch}/pushgateway"
 EOF
-COPY compose.yaml.go-template /uniget_bootstrap/etc/docker-compose/pushgateway/

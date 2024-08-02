@@ -17,15 +17,6 @@ tags:
 homepage: https://github.com/google/cadvisor
 repository: https://github.com/google/cadvisor
 description: Analyzes resource usage and performance characteristics of running containers
-messages:
-  usage: |
-    - A compose.yaml file is provided in /etc/docker-compose/cadvisor/
-    - Start the service using:
-          systemctl start docker-compose@cadvisor
-    - Enable the service using:
-          systemctl enable docker-compose@cadvisor
-    - Configure cadvisor using environment variables:
-          systemctl edit docker-compose@cadvisor
 renovate:
   datasource: github-releases
   package: google/cadvisor

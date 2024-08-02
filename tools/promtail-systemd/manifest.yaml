@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+name: promtail-systremd
+license:
+  name: MIT License
+  link: https://github.com/uniget-org/tools/blob/main/LICENSE
+version: "0.1.0"
+binary: "false"
+check: "" # No binary to check
+runtime_dependencies:
+- promtail
+- docker-compose-systemd
+tags:
+- org/grafana
+- observability/logs
+- o11y
+- category/monitoring
+- lang/go
+- type/daemon
+- type/cli
+- observability/metrics
+homepage: https://uniget.dev
+repository: https://github.com/uniget-org/tools
+description: compose file for promtail with systemd
+messages:
+  usage: |
+    - A compose.yaml file is provided in /etc/docker-compose/promtail/
+    - Start the service using:
+          systemctl start docker-compose@promtail
+    - Enable the service using:
+          systemctl enable docker-compose@promtail
+    - Configure promtail using environment variables:
+          systemctl edit docker-compose@promtail

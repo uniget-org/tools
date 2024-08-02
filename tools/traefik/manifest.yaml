@@ -18,13 +18,6 @@ tags:
 homepage: https://traefik.io
 repository: https://github.com/traefik/traefik
 description: Cloud Native Application Proxy
-messages:
-  usage: |
-    - A compose.yaml file is provided in /etc/docker-compose/traefik/
-    - Start the service using:
-          systemctl start docker-compose@traefik
-    - Enable the service using:
-          systemctl enable docker-compose@traefik
 renovate:
   datasource: github-releases
   package: traefik/traefik

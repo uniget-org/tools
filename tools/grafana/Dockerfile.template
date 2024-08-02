@@ -13,4 +13,3 @@ curl --silent --show-error --location --fail "https://dl.grafana.com/oss/release
 | tar --extract --gzip --directory="${prefix}/bin/" --strip-components=2 --no-same-owner \
     "grafana-v${version}/bin/grafana"
 EOF
-COPY compose.yaml.go-template /uniget_bootstrap/etc/docker-compose/grafana/

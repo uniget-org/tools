@@ -14,5 +14,4 @@ curl --silent --show-error --location --fail "https://github.com/grafana/tempo/r
     tempo \
     tempo-query
 EOF
-COPY compose.yaml.go-template /uniget_bootstrap/etc/docker-compose/tempo/
 COPY tempo.yaml /uniget_bootstrap/etc/tempo/

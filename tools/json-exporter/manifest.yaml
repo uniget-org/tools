@@ -8,7 +8,6 @@ version: "0.6.0"
 binary: json_exporter
 check: ${binary} --config.file=/dev/null --version 2>&1 | grep ^json_exporter | cut -d' ' -f3
 runtime_dependencies:
-- docker-compose-systemd
 platforms:
 - linux/amd64
 - linux/arm64
@@ -24,15 +23,6 @@ tags:
 homepage: https://github.com/prometheus-community/json_exporter
 repository: https://github.com/prometheus-community/json_exporter
 description: Prometheus exporter which scrapes remote JSON by JSONPath
-messages:
-  usage: |
-    - A compose.yaml file is provided in /etc/docker-compose/json-exporter/
-    - Start the service using:
-          systemctl start docker-compose@json-exporter
-    - Enable the service using:
-          systemctl enable docker-compose@json-exporter
-    - Configure json-exporter using environment variables:
-          systemctl edit docker-compose@json-exporter
 renovate:
   datasource: github-releases
   package: prometheus-community/json_exporter

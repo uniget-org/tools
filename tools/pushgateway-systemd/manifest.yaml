@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: pushgateway-systemd
+license:
+  name: MIT License
+  link: https://github.com/uniget-org/tools/blob/master/LICENSE
+version: "1.9.0"
+check: ${binary} --version | grep ^pushgateway | cut -d' ' -f3
+runtime_dependencies:
+- docker-compose-systemd
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/prometheus
+- category/operations
+- lang/go
+- type/daemon
+- standard/prometheus
+- exporter
+homepage: https://uniget.dev
+repository: https://github.com/uniget-org/tools
+description: compose file for running pushgateway using systemd
+messages:
+  usage: |
+    - A compose.yaml file is provided in /etc/docker-compose/pushgateway/
+    - Start the service using:
+          systemctl start docker-compose@pushgateway
+    - Enable the service using:
+          systemctl enable docker-compose@pushgateway
+    - Configure pushgateway using environment variables:
+          systemctl edit docker-compose@pushgateway

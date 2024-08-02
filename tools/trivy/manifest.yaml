@@ -1,11 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: trivy
+license:
+  name: Apache License 2.0
+  link: https://github.com/aquasecurity/trivy/blob/main/LICENSE
 version: "0.54.1"
 check: ${binary} --version | grep ^Version | cut -d' ' -f2
 build_dependencies:
 - cosign
-runtime_dependencies:
-- docker-compose-systemd
 platforms:
 - linux/amd64
 - linux/arm64
@@ -27,6 +28,3 @@ renovate:
   package: aquasecurity/trivy
   extractVersion: ^v(?<version>.+)$
   priority: high
-license:
-  name: Apache License 2.0
-  link: https://github.com/aquasecurity/trivy/blob/main/LICENSE

@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: json-exporter-systemd
+license:
+  name: MIT License
+  link: https://github.com/uniget-org/tools/blob/master/LICENSE
+version: "0.1.0"
+binary: "false"
+check: "" # No binary to check
+runtime_dependencies:
+- json-exporter
+- docker-compose-systemd
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/go
+- type/cli
+- format/json
+- standard/jsonpath
+- exporter
+- standard/prometheus
+- exporter
+homepage: https://uniget.dev
+repository: https://github.com/uniget-org/tools
+description: compose file for json-exporter with systemd
+messages:
+  usage: |
+    - A compose.yaml file is provided in /etc/docker-compose/json-exporter/
+    - Start the service using:
+          systemctl start docker-compose@json-exporter
+    - Enable the service using:
+          systemctl enable docker-compose@json-exporter
+    - Configure json-exporter using environment variables:
+          systemctl edit docker-compose@json-exporter

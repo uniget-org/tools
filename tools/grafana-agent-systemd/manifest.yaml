@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+name: grafana-agent-systemd
+license:
+  name: MIT License
+  link: https://github.com/uniget-org/tools/blob/main/LICENSE
+version: "0.1.0"
+binary: "false"
+check: "" # No binary to check
+runtime_dependencies:
+- grafana-agent
+- docker-compose-systemd
+tags:
+- org/grafana
+- observability/metrics
+- observability/logs
+- observability/traces
+- o11y
+- category/monitoring
+- lang/go
+- type/daemon
+- standard/prometheus
+homepage: https://uniget.dev
+repository: https://github.com/uniget-org/tools
+description: compose file for grafana-agent with systemd
