@@ -7879,6 +7879,19 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "ColinIanKing/stress-ng",
+      "extractVersionTemplate": "^V(?<version>.+)$",
+      "fileMatch": [
+        "^tools/stress-ng/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ],
+      "versioningTemplate": "loose"
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "structurizr/cli",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
