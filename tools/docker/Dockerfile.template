@@ -44,13 +44,4 @@ sed -i -n '/Type=notify/!p' "${prefix}/etc/systemd/system/${name}.service.go-tem
 sed -i -n '/Requires=docker.socket/!p' "${prefix}/etc/systemd/system/${name}.service.go-template"
 EOF
 
-COPY <<EOF /uniget_bootstrap/etc/docker/daemon.json
-{
-    "default-runtime": "runc",
-    "features":{
-        "buildkit": true,
-        "containerd-snapshotter": true
-    },
-    "log-driver": "journald"
-}
-EOF
+COPY daemon.json /uniget_bootstrap/etc/docker/
