@@ -16,7 +16,7 @@ tags:
 - type/cli
 homepage: https://grafana.com/oss/mimir/
 repository: https://github.com/grafana/mimir
-description: Some description
+description: CLI for mimir
 renovate:
   datasource: github-releases
   package: grafana/mimir

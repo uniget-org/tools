@@ -16,7 +16,7 @@ tags:
 - type/cli
 homepage: https://github.com/wolfi-dev/wolfictl
 repository: https://github.com/wolfi-dev/wolfictl
-description: Some description
+description: CLI used to work with the Wolfi OSS project
 renovate:
   datasource: github-tags
   package: wolfi-dev/wolfictl

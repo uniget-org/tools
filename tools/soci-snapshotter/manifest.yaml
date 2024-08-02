@@ -14,7 +14,7 @@ tags:
 - type/plugin
 homepage: https://github.com/awslabs/soci-snapshotter
 repository: https://github.com/awslabs/soci-snapshotter
-description: Some description
+description: containerd snapshotter plugin which enables standard OCI images to be lazily loaded without requiring a build-time conversion step
 renovate:
   datasource: github-releases
   package: awslabs/soci-snapshotter

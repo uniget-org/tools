@@ -14,7 +14,7 @@ tags:
 - state/stale
 homepage: https://github.com/exdx/dcp
 repository: https://github.com/exdx/dcp
-description: Some description
+description: docker cp made easy
 renovate:
   datasource: github-releases
   package: exdx/dcp

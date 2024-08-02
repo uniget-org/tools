@@ -15,7 +15,7 @@ tags:
 - ide
 homepage: https://code.visualstudio.com
 repository: https://github.com/microsoft/vscode
-description: Some description
+description: command-line interface that lets you control how you launch the editor
 renovate:
   datasource: github-releases
   package: microsoft/vscode

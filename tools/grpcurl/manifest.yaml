@@ -15,7 +15,7 @@ tags:
 - type/cli
 homepage: https://github.com/fullstorydev/grpcurl
 repository: https://github.com/fullstorydev/grpcurl
-description: Some description
+description: Like cURL, but for gRPC
 renovate:
   datasource: github-releases
   package: fullstorydev/grpcurl

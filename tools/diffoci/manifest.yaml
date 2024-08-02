@@ -12,7 +12,7 @@ tags:
 - type/cli
 homepage: https://github.com/reproducible-containers/diffoci
 repository: https://github.com/reproducible-containers/diffoci
-description: Some description
+description: diff for Docker and OCI container images
 renovate:
   datasource: github-releases
   package: reproducible-containers/diffoci

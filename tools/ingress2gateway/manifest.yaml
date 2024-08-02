@@ -15,7 +15,7 @@ tags:
 - k8s
 homepage: https://github.com/kubernetes-sigs/ingress2gateway
 repository: https://github.com/kubernetes-sigs/ingress2gateway
-description: Some description
+description: Convert Ingress resources to Gateway API resources
 renovate:
   datasource: github-releases
   package: kubernetes-sigs/ingress2gateway
