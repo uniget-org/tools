@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: pacstall
-version: "5.3.3"
+version: "5.4.0"
 check: ""
 platforms:
 - linux/amd64
