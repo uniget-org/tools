@@ -24,11 +24,16 @@ case "${arch}" in
 esac
 echo "    Using ${arch_suffix}"
 
-check-github-release-asset "k3s-io/k3s" "v${version}" "k3s${arch_suffix}"
+real_version="$(
+    echo "${version}" \
+    | sed -E 's/^([[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+)\.([[:digit:]]+)$/\1+k3s\2/'
+)"
 
-echo "### Downloading ${name} ${version}"
+check-github-release-asset "k3s-io/k3s" "v${real_version}" "k3s${arch_suffix}"
+
+echo "### Downloading ${name} ${real_version}"
 curl --silent --show-error --location --fail --output "${prefix}/bin/k3s" \
-    "https://github.com/k3s-io/k3s/releases/download/v${version}/k3s${arch_suffix}"
+    "https://github.com/k3s-io/k3s/releases/download/v${real_version}/k3s${arch_suffix}"
 chmod +x "${prefix}/bin/k3s"
 "${prefix}/bin/k3s" completion bash >"${prefix}/share/bash-completion/completions/k3s"
 "${prefix}/bin/k3s" completion zsh >"${prefix}/share/zsh/vendor-completions/_k3s"
