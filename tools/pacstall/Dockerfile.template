@@ -15,12 +15,17 @@ curl --silent --show-error --location --fail --output "${prefix}/bin/pacstall" \
 chmod +x "${prefix}/bin/pacstall"
 
 curl --silent --show-error --location --fail --output "${prefix}/share/man/man8/pacstall.8" \
-    "https://github.com/pacstall/pacstall/raw/${version}/misc/pacstall.8"
+    "https://github.com/pacstall/pacstall/raw/${version}/misc/man/pacstall.8"
+curl --silent --show-error --location --fail --output "${prefix}/share/man/man5/pacstall.5" \
+    "https://github.com/pacstall/pacstall/raw/${version}/misc/man/pacstall.5"
 
-for script in error-log add-repo search dep-tree version-constraints checks get-pacscript package fetch-sources build upgrade remove update query-info quality-assurance bwrap; do
-    curl --silent --show-error --location --fail --output "${prefix}/share/pacstall/scripts/${script}.sh" --create-dirs \
-        "https://github.com/pacstall/pacstall/raw/${version}/misc/scripts/${script}.sh"
-    chmod +x "${prefix}/share/pacstall/scripts/${script}.sh"
+scripts="$(
+    curl --silent --show-error --location --fail "https://api.github.com/repos/pacstall/pacstall/contents/misc/scripts?ref=${version}" | jq --raw-output '.[].name'
+)"
+for script in ${scripts}; do
+    curl --silent --show-error --location --fail --output "${prefix}/share/pacstall/scripts/${script}" --create-dirs \
+        "https://github.com/pacstall/pacstall/raw/${version}/misc/scripts/${script}"
+    chmod +x "${prefix}/share/pacstall/scripts/${script}"
 done
 
 curl --silent --show-error --location --fail --output "${prefix}/share/bash-completion/completions/pacstall" --create-dirs \
