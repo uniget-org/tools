@@ -20,14 +20,12 @@ export uniget_cache=/var/cache/uniget
 export uniget_lib=/var/lib/uniget
 export uniget_contrib="${uniget_lib}/contrib"
 export uniget_manifests="${uniget_lib}/manifests"
-export uniget_post_install="${uniget_lib}/post_install"
 export prefix=/uniget_bootstrap
 
 mkdir -p \
     "${prefix}${uniget_cache}" \
     "${prefix}${uniget_contrib}" \
     "${prefix}${uniget_manifests}" \
-    "${prefix}${uniget_post_install}" \
     "${prefix}/etc/profile.d" \
     "${prefix}/etc/systemd/system" \
     "${prefix}/bin" \
