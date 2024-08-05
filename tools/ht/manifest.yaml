@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: ht
+license:
+  name: Apache License 2.0
+  link: https://github.com/andyk/ht/blob/main/LICENSE
+version: "0.3.0"
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/rust
+- type/cli
+homepage: https://github.com/andyk/ht
+repository: https://github.com/andyk/ht
+description: Some description
+renovate:
+  datasource: github-releases
+  package: andyk/ht
+  extractVersion: ^v(?<version>.+)$
+  priority: low
