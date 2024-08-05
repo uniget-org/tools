@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: bento
+license:
+  name: Custom
+  link: https://github.com/warpstreamlabs/bento/blob/main/LICENSE
+version: "1.1.0"
+check: ${binary} --version | grep ^Version | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/daemon
+homepage: https://warpstreamlabs.github.io/bento/
+repository: https://github.com/warpstreamlabs/bento
+description: Fancy stream processing made operationally mundane
+renovate:
+  datasource: github-releases
+  package: foo/bar
+  extractVersion: ^v(?<version>.+)$
+  priority: low
