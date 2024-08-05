@@ -22,4 +22,5 @@ make -j$(nproc) install \
     BASHCOMPDIR="/share/bash-completion/completions" \
     FISHCOMPDIR="/share/fish/vendor_completions.d" \
     ZSHCOMPDIR="/share/zsh/vendor-completions"
+ln --symbolic --relative --force "${prefix}/bin/passage" "${prefix}/bin/pass"
 EOF
