@@ -22,10 +22,10 @@ ARG version
 #echo "### Setting architecture string for ${TARGETPLATFORM}"
 #case "${arch}" in
 #    x86_64)
-#        export arch_suffix=64bit
+#        export arch_suffix="${arch}"
 #        ;;
 #    aarch64)
-#        export arch_suffix=ARM64
+#        export arch_suffix="${alt_arch}"
 #        ;;
 #    *)
 #        echo "ERROR: Unsupported architecture ${arch}."
@@ -45,10 +45,10 @@ ARG version
 #echo "### Setting architecture string for ${TARGETPLATFORM}"
 #case "${arch}" in
 #    x86_64)
-#        export arch_suffix=64bit
+#        export arch_suffix="${arch}"
 #        ;;
 #    aarch64)
-#        export arch_suffix=ARM64
+#        export arch_suffix="${alt_arch}"
 #        ;;
 #    *)
 #        echo "ERROR: Unsupported architecture ${arch}."
@@ -69,10 +69,10 @@ ARG version
 #echo "### Setting architecture string for ${TARGETPLATFORM}"
 #case "${arch}" in
 #    x86_64)
-#        export arch_suffix=64bit
+#        export arch_suffix="${arch}"
 #        ;;
 #    aarch64)
-#        export arch_suffix=ARM64
+#        export arch_suffix="${alt_arch}"
 #        ;;
 #    *)
 #        echo "ERROR: Unsupported architecture ${arch}."
