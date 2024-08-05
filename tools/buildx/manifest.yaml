@@ -32,6 +32,10 @@ messages:
                 "builder": "buildx"
             }
         }
+    
+    If you are planning multi-architecture builds, please enable the emulation:
+
+        docker container run --privileged --rm tonistiigi/binfmt --install all
 renovate:
   datasource: github-releases
   package: docker/buildx
