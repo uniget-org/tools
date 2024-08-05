@@ -1,0 +1,30 @@
+#syntax=docker/dockerfile:1.9.0@sha256:fe40cf4e92cd0c467be2cfc30657a680ae2398318afd50b0c80585784c604f28
+
+FROM ghcr.io/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN <<EOF
+echo "### Setting architecture string for ${TARGETPLATFORM}"
+case "${arch}" in
+    x86_64)
+        export arch_suffix=""
+        ;;
+    aarch64)
+        export arch_suffix="-${alt_arch}"
+        ;;
+    *)
+        echo "ERROR: Unsupported architecture ${arch}."
+        exit 1
+        ;;
+esac
+echo "    Using ${arch_suffix}"
+
+check-github-release-asset "self-actuated/actions-usage" "v${version}" "actions-usage${arch_suffix}"
+curl --silent --show-error --location --fail --output "${prefix}/bin/actions-usage" \
+    "https://github.com/self-actuated/actions-usage/releases/download/v0.1.1/actions-usage${arch_suffix}"
+chmod +x "${prefix}/bin/actions-usage"
+EOF
