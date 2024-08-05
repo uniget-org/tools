@@ -25,6 +25,6 @@ echo "    Using ${arch_suffix}"
 
 check-github-release-asset "mr-karan/doggo" "v${version}" "doggo_${version}_Linux_${arch_suffix}.tar.gz"
 curl --silent --show-error --location --fail "https://github.com/mr-karan/doggo/releases/download/v${version}/doggo_${version}_Linux_${arch_suffix}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
+| tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
     "doggo_${version}_Linux_${arch_suffix}/doggo"
 EOF
