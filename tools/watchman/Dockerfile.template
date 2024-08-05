@@ -1,0 +1,72 @@
+#syntax=docker/dockerfile:1.9.0@sha256:fe40cf4e92cd0c467be2cfc30657a680ae2398318afd50b0c80585784c604f28
+
+#FROM ghcr.io/uniget-org/tools/make:latest AS make
+#FROM ghcr.io/uniget-org/tools/go:latest AS go
+#FROM ghcr.io/uniget-org/tools/rust:latest AS rust
+#FROM ghcr.io/uniget-org/tools/python:latest AS python
+#FROM ghcr.io/uniget-org/tools/shiv:latest AS shiv
+#FROM ghcr.io/uniget-org/tools/nodejs:latest AS nodejs
+#FROM ghcr.io/uniget-org/tools/npm:latest AS npm
+
+FROM ghcr.io/uniget-org/images/build-essential:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+RUN <<EOF
+apt-get update
+apt-get -y install --no-install-recommends \
+    cmake
+#depends_on "cmake" => :build
+#depends_on "cpptoml" => :build
+#depends_on "googletest" => :build
+#depends_on "pkg-config" => :build
+#depends_on "python-setuptools" => :build
+#depends_on "rust" => :build
+#depends_on "boost"
+#depends_on "edencommon"
+#depends_on "fb303"
+#depends_on "fbthrift"
+#depends_on "fmt"
+#depends_on "folly"
+#depends_on "gflags"
+#depends_on "glog"
+#depends_on "libevent"
+#depends_on "openssl@3"
+#depends_on "pcre2"
+#depends_on "python@3.12"
+EOF
+WORKDIR /tmp/watchman
+ARG name
+ARG version
+RUN <<EOF
+git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" https://github.com/facebook/watchman .
+# Fix "Process terminated due to timeout" by allowing a longer timeout.
+#inreplace "CMakeLists.txt", /gtest_discover_tests\((.*)\)/, "gtest_discover_tests(\\1 DISCOVERY_TIMEOUT 60)"
+# Use the upstream default for WATCHMAN_STATE_DIR by unsetting it.
+#args = %W[
+#    -DENABLE_EDEN_SUPPORT=ON
+#    -DPython3_EXECUTABLE=#{which("python3.12")}
+#    -DWATCHMAN_VERSION_OVERRIDE=#{version}
+#    -DWATCHMAN_BUILDINFO_OVERRIDE=#{tap&.user || "Homebrew"}
+#    -DWATCHMAN_STATE_DIR=
+#  ]
+# Avoid overlinking with libsodium and mvfst
+#args << "-DCMAKE_EXE_LINKER_FLAGS=-Wl,-dead_strip_dylibs" if OS.mac?
+#
+#system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+#system "cmake", "--build", "build"
+#system "cmake", "--install", "build"
+#
+#path = Pathname.new(File.join(prefix, HOMEBREW_PREFIX))
+#bin.install (path/"bin").children
+#lib.install (path/"lib").children
+#rm_r(path)
+EOF
+
+# completion
+#RUN <<EOF
+#"${prefix}/bin/foo" completion bash >"${prefix}/share/bash-completion/completions/foo"
+#"${prefix}/bin/foo" completion fish >"${prefix}/share/fish/vendor_completions.d/foo.fish"
+#"${prefix}/bin/foo" completion zsh >"${prefix}/share/zsh/vendor-completions/_foo"
+#EOF
