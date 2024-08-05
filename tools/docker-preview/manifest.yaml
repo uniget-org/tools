@@ -22,13 +22,14 @@ repository: https://www.docker.com/
 description: The Docker CLI
 messages:
   internals: |
-    This is a preview release of the Docker CLI
-    Is is installed side-by-side with the stable Docker CLI
-    The CLI is called docker-preview
-    Binaries (except docker-preview) are installed into ${prefix}${target}/libexec/docker-preview/bin
-    Working directory is ${prefix}/var/lib/docker-preview
-    Settings are stored in ${prefix}/etc/docker-preview
-    IPTables is disabled to prevent interference with the stable Docker CLI => port publishings are not working
+    - This is a preview release of the Docker CLI
+    - Please also check the notes for Docker: uniget describe docker
+    - Is is installed side-by-side with the stable Docker CLI
+    - The CLI is called docker-preview
+    - Binaries (except docker-preview) are installed into ${prefix}${target}/libexec/docker-preview/bin
+    - Working directory is ${prefix}/var/lib/docker-preview
+    - Settings are stored in ${prefix}/etc/docker-preview
+    - IPTables is disabled to prevent interference with the stable Docker CLI => port publishings are not working
 renovate:
   datasource: github-tags
   package: moby/moby
