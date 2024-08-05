@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
-name: sdx
+name: sd
 license:
   name: MIT License
   link: https://github.com/chmln/sd/blob/master/LICENSE
