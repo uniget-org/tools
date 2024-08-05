@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: jj
+license:
+  name: Apache License 2.0
+  link: https://github.com/martinvonz/jj/blob/main/LICENSE
+version: "0.19.0"
+check: ${binary} --version | cut -d' ' -f2 | cut -d- -f1
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/rust
+- type/cli
+homepage: https://martinvonz.github.io/jj/
+repository: https://github.com/martinvonz/jj
+description: Git-compatible VCS that is both simple and powerful
+renovate:
+  datasource: github-releases
+  package: martinvonz/jj
+  extractVersion: ^v(?<version>.+)$
+  priority: low
