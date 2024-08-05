@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: rage
+license:
+  name: MIT License OR Apache License 2.0
+  link: https://github.com/str4d/rage
+version: "0.10.0"
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/rust
+- type/cli
+homepage: https://github.com/str4d/rage
+repository: https://github.com/str4d/rage
+description: Simple, secure and modern file encryption tool (and Rust library) with small explicit keys, no config options, and UNIX-style composability
+renovate:
+  datasource: github-releases
+  package: str4d/rage
+  extractVersion: ^v(?<version>.+)$
+  priority: low
