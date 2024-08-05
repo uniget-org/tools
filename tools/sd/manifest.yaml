@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: sdx
+license:
+  name: MIT License
+  link: https://github.com/chmln/sd/blob/master/LICENSE
+version: "1.0.0"
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/rust
+- type/cli
+homepage: https://github.com/chmln/sd
+repository: https://github.com/chmln/sd
+description: Some description
+renovate:
+  datasource: github-releases
+  package: chmln/sd
+  extractVersion: ^v(?<version>.+)$
+  priority: low
