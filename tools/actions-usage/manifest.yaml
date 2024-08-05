@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: actions-usage
+license:
+  name: MIT License
+  link: https://github.com/self-actuated/actions-usage/blob/master/LICENSE
+version: "0.1.1"
+check: "" # No version parameter
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/go
+- type/cli
+homepage: https://github.com/self-actuated/actions-usage
+repository: https://github.com/self-actuated/actions-usage
+description: Find your total usage on GitHub Actions
+renovate:
+  datasource: github-releases
+  package: self-actuated/actions-usage
+  extractVersion: ^v(?<version>.+)$
+  priority: low
