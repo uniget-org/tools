@@ -8,8 +8,13 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
-check-github-release-asset "rancher/rke2" "v${version}" "rke2.linux-${alt_arch}.tar.gz"
-curl --silent --show-error --location --fail "https://github.com/rancher/rke2/releases/download/v${version}/rke2.linux-${alt_arch}.tar.gz" \
+real_version="$(
+    echo "${version}" \
+    | sed -E 's/^([[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+)\.([[:digit:]]+)$/\1+rke2r\2/'
+)"
+
+check-github-release-asset "rancher/rke2" "v${real_version}" "rke2.linux-${alt_arch}.tar.gz"
+curl --silent --show-error --location --fail "https://github.com/rancher/rke2/releases/download/v${real_version}/rke2.linux-${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}" --no-same-owner \
     bin/rke2 \
     lib

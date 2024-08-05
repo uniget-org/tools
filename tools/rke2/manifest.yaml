@@ -1,6 +1,9 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: rke2
-version: "1.30.2+rke2r1"
+license:
+  name: Apache License 2.0
+  link: https://github.com/rancher/rke2/blob/master/LICENSE
+version: "1.30.2.1"
 check: ${binary} --version | grep ^rke2 | cut -d' ' -f3 | tr -d v
 platforms:
 - linux/amd64
@@ -21,6 +24,8 @@ renovate:
   extractVersion: ^v(?<version>.+)$
   versioning: loose
   priority: low
-license:
-  name: Apache License 2.0
-  link: https://github.com/rancher/rke2/blob/master/LICENSE
+renovate:
+  datasource: github-releases
+  package: uniget-org/renovate-custom
+  extractVersion: ^rke2/(?<version>.+)$
+  versioning: loose

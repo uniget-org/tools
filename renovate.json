@@ -4065,8 +4065,8 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "k3s-io/k3s",
-      "extractVersionTemplate": "^v(?<version>.+)$",
+      "depNameTemplate": "uniget-org/renovate-custom",
+      "extractVersionTemplate": "^k3s/(?<version>.+)$",
       "fileMatch": [
         "^tools/k3s/manifest.yaml$"
       ],
@@ -6538,6 +6538,19 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "uniget-org/renovate-custom",
+      "extractVersionTemplate": "^passage/(?<version>.+)$",
+      "fileMatch": [
+        "^tools/passage/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ],
+      "versioningTemplate": "loose"
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "clarkwang/passh",
       "extractVersionTemplate": "^v(?<version>.+)$",
@@ -7125,8 +7138,8 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "rancher/rke2",
-      "extractVersionTemplate": "^v(?<version>.+)$",
+      "depNameTemplate": "uniget-org/renovate-custom",
+      "extractVersionTemplate": "^rke2/(?<version>.+)$",
       "fileMatch": [
         "^tools/rke2/manifest.yaml$"
       ],

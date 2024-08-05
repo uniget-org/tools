@@ -12,9 +12,11 @@ WORKDIR /tmp/pass
 ARG name
 ARG version
 RUN <<EOF
-curl --silent --show-error --location --fail --remote-name https://github.com/FiloSottile/passage/archive/refs/heads/main.zip
-unzip main.zip
-cd passage-main
+COMMIT="$(
+    echo "${version}" \
+    | cut -d. -f2
+)"
+git
 make -j$(nproc) install \
     DESTDIR="${prefix}" \
     PREFIX="" \
