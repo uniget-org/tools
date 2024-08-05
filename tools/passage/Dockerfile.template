@@ -16,7 +16,8 @@ COMMIT="$(
     echo "${version}" \
     | cut -d. -f2
 )"
-git
+git clone https://github.com/FiloSottile/passage .
+git reset --hard "${COMMIT}"
 make -j$(nproc) install \
     DESTDIR="${prefix}" \
     PREFIX="" \
