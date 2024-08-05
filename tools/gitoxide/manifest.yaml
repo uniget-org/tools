@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: gitoxide
+license:
+  name: MIT License OR Apache License 2.0
+  link: https://github.com/Byron/gitoxide
+version: "0.37.0"
+binary: gix
+check: "" # Empty version
+platforms:
+- linux/amd64
+tags:
+- category/development
+- lang/rust
+- type/cli
+homepage: https://github.com/Byron/gitoxide
+repository: https://github.com/Byron/gitoxide
+description: Idiomatic, lean, fast & safe pure Rust implementation of Git
+renovate:
+  datasource: github-releases
+  package: Byron/gitoxide
+  extractVersion: ^v(?<version>.+)$
+  priority: low
