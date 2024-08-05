@@ -13,6 +13,7 @@ tags:
 - category/operations
 - lang/go
 - type/cli
+- filter
 homepage: https://github.com/catatsuy/purl
 repository: https://github.com/catatsuy/purl
 description: Streamlining Text Processing

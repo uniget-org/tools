@@ -13,6 +13,9 @@ tags:
 - category/operations
 - lang/go
 - type/cli
+- cloud/github
+- monitoring
+- cicd
 homepage: https://github.com/self-actuated/actions-usage
 repository: https://github.com/self-actuated/actions-usage
 description: Find your total usage on GitHub Actions

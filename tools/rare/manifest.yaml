@@ -13,6 +13,9 @@ tags:
 - category/operations
 - lang/go
 - type/cli
+- graph
+- plot
+- visualization
 homepage: https://rare.zdyn.net/
 repository: https://github.com/zix99/rare
 description: Create console histograms, bar graphs, tables, heatmaps and more in realtime using regex and expressions

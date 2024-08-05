@@ -13,6 +13,7 @@ tags:
 - category/development
 - lang/rust
 - type/cli
+- standard/git
 homepage: https://martinvonz.github.io/jj/
 repository: https://github.com/martinvonz/jj
 description: Git-compatible VCS that is both simple and powerful

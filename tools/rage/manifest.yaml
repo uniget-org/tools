@@ -10,9 +10,11 @@ platforms:
 - linux/amd64
 - linux/arm64
 tags:
-- category/operations
+- category/security
 - lang/rust
 - type/cli
+- encryption
+- standard/age
 homepage: https://github.com/str4d/rage
 repository: https://github.com/str4d/rage
 description: Simple, secure and modern file encryption tool (and Rust library) with small explicit keys, no config options, and UNIX-style composability

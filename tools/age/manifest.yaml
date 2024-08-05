@@ -9,6 +9,7 @@ tags:
 - category/security
 - type/cli
 - lang/go
+- standard/age
 - encryption
 homepage: https://age-encryption.org
 repository: https://github.com/FiloSottile/age

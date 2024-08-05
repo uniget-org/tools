@@ -13,6 +13,8 @@ tags:
 - category/development
 - lang/rust
 - type/cli
+- standard/git
+- git
 homepage: https://github.com/Byron/gitoxide
 repository: https://github.com/Byron/gitoxide
 description: Idiomatic, lean, fast & safe pure Rust implementation of Git
