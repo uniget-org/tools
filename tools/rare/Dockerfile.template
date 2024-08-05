@@ -25,9 +25,9 @@ echo "    Using ${arch_suffix}"
 
 check-github-release-asset "zix99/rare" "${version}" "rare_${version}_Linux_${arch_suffix}.tar.gz"
 curl --silent --show-error --location --fail "https://github.com/zix99/rare/releases/download/${version}/rare_${version}_Linux_${arch_suffix}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
-    rare \
-    rare-pcre \
-    rare.1.gz
+| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner
+rm -f \
+    "${prefix}/bin/README.md" \
+    "${prefix}/bin/LICENSE"
 mv "${prefix}/bin/rare.1.gz" "${prefix}/share/man/man1/"
 EOF
