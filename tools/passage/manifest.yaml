@@ -6,6 +6,8 @@ build_dependencies:
 - make
 runtime_dependencies:
 - age
+conflicts_with:
+- pass
 tags:
 - category/security
 - lang/shell
