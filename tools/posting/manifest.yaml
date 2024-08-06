@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: posting
+license:
+  name: Apache License 2.0
+  link: https://github.com/darrenburns/posting/blob/main/LICENSE
+version: "1.10.1"
+check: "" # No version parameter
+build_dependencies:
+- python
+- shiv
+runtime_dependencies:
+- python
+platforms:
+- linux/amd64
+tags:
+- category/development
+- lang/python
+- type/tui
+homepage: https://github.com/darrenburns/posting
+repository: https://github.com/darrenburns/posting
+description: Modern API client that lives in your terminal
+renovate:
+  datasource: github-releases
+  package: darrenburns/posting
+  priority: low
