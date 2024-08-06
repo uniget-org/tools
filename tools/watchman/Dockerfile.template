@@ -17,18 +17,17 @@ apk add \
     gtest \
     gtest-dev \
     glog \
-    glog-dev
+    glog-dev \
+    boost \
+    boost-dev
 #depends_on "cpptoml" => :build
-#depends_on "googletest" => :build
 #depends_on "python-setuptools" => :build
-#depends_on "boost"
 #depends_on "edencommon"
 #depends_on "fb303"
 #depends_on "fbthrift"
 #depends_on "fmt"
 #depends_on "folly"
 #depends_on "gflags"
-#depends_on "glog"
 #depends_on "libevent"
 #depends_on "openssl@3"
 #depends_on "pcre2"
