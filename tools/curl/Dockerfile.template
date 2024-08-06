@@ -4,54 +4,53 @@ FROM ghcr.io/uniget-org/images/build-base:3.20 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 ENV CC=clang
 RUN <<EOF
 apk add --update-cache --no-cache \
     clang \
-    openssl-dev \
+    gnutls-dev \
     nghttp2-dev \
-    nghttp2-static \
+    nghttp3-dev \
+    ngtcp2-dev \
     libssh2-dev \
-    libssh2-static \
-    openssl-libs-static \
-    zlib-static \
     libpsl-dev \
-    libpsl-static \
     c-ares-dev \
-    c-ares-static \
     curl \
     ca-certificates \
     bash \
     findutils \
-    perl
+    perl \
+    brotli-dev \
+    zstd-dev \
+    libpsl-dev
 EOF
-SHELL [ "bash", "-clo", "errexit" ]
 WORKDIR /tmp/curl
 ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "curl/curl" "curl-${version//./_}" "curl-${version}.tar.gz"
 curl --silent --show-error --location --fail "https://github.com/curl/curl/releases/download/curl-${version//./_}/curl-${version}.tar.gz" \
-| tar --extract --gzip --strip-components=1
-LDFLAGS="-static" \
-PKG_CONFIG="pkg-config --static" \
-    ./configure \
-        --prefix="${prefix}" \
-        --with-zsh-functions-dir="${prefix}/share/zsh/vendor-completions" \
-        --with-fish-functions-dir="${prefix}/share/fish/vendor_completions.d" \
-        --enable-static \
-        --enable-shared \
-		--enable-ares \
-        --enable-ipv6 \
-        --enable-unix-sockets \
-        --disable-ldap \
-		--with-libidn2 \
-		--with-nghttp2 \
-		--with-openssl \
-        --with-ssl \
-        --without-libssh2 \
-		--with-pic \
-        --without-libpsl
-make -j$(nproc) V=1 LDFLAGS="-static -all-static"
+| tar --extract --gzip --strip-components=1 --no-same-owner
+./configure \
+    --prefix="${prefix}" \
+    --with-zsh-functions-dir="${prefix}/share/zsh/vendor-completions" \
+    --with-fish-functions-dir="${prefix}/share/fish/vendor_completions.d" \
+    --enable-ares \
+    --enable-ipv6 \
+    --enable-unix-sockets \
+    --disable-ldap \
+    --with-libidn2 \
+    --with-nghttp2 \
+    --with-ngtcp2 \
+    --with-nghttp3 \
+    --with-gnutls \
+    --with-libssh2 \
+    --with-pic \
+    --with-libpsl \
+    --enable-websockets \
+    --with-brotli \
+    --with-zstd
+make -j$(nproc)
 make install
 EOF
