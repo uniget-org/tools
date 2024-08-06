@@ -35,6 +35,8 @@ WORKDIR /tmp/watchman
 ARG name
 ARG version
 RUN <<EOF
+export CARGO_HOME=/usr/local/cargo
+export RUSTUP_HOME=/usr/local/rustup
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/facebook/watchman .
 # Fix "Process terminated due to timeout" by allowing a longer timeout.
 #inreplace "CMakeLists.txt", /gtest_discover_tests\((.*)\)/, "gtest_discover_tests(\\1 DISCOVERY_TIMEOUT 60)"
