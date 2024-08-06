@@ -6827,6 +6827,17 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "darrenburns/posting",
+      "fileMatch": [
+        "^tools/posting/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "justjanne/powerline-go",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
