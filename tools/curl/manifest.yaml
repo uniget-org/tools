@@ -1,5 +1,8 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: curl
+license:
+  name: curl
+  link: https://curl.se/docs/copyright.html
 version: "8.12.1"
 check: ${binary} --version | grep ^curl | cut -d' ' -f2
 platforms:
@@ -13,12 +16,12 @@ tags:
 homepage: https://curl.se/
 repository: https://github.com/curl/curl
 description: Tool and library for transferring data with URL syntax
+messages:
+  update: |
+    XXX libraries
 renovate:
   datasource: custom.curl
   datasourceUrl: https://api.github.com/repos/curl/curl/releases
   datasourceTramsformJsonata: "{ \"releases\": [ $[].{ \"version\": $replace( $substring( tag_name, 5 ), '_', '.' ) } ] }"
   package: curl/curl
   priority: low
-license:
-  name: curl
-  link: https://curl.se/docs/copyright.html
