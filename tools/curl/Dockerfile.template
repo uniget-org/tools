@@ -4,27 +4,27 @@ FROM registry.gitlab.com/uniget-org/images/build-base:3.21 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 ENV CC=clang
 RUN --mount=type=cache,target=/var/cache/apk <<EOF
 apk add --update-cache \
     clang \
-    openssl-dev \
+    gnutls-dev \
     nghttp2-dev \
-    nghttp2-static \
+    nghttp3-dev \
+    ngtcp2-dev \
     libssh2-dev \
-    libssh2-static \
-    openssl-libs-static \
-    zlib-static \
     libpsl-dev \
-    libpsl-static \
     c-ares-dev \
     curl \
     ca-certificates \
     bash \
     findutils \
-    perl
+    perl \
+    brotli-dev \
+    zstd-dev \
+    libpsl-dev
 EOF
-SHELL [ "bash", "-clo", "errexit" ]
 WORKDIR /tmp/curl
 ARG name
 ARG version
@@ -52,11 +52,15 @@ PKG_CONFIG="pkg-config --static" \
         --disable-ldap \
 		--with-libidn2 \
 		--with-nghttp2 \
-		--with-openssl \
-        --with-ssl \
-        --without-libssh2 \
+        --with-ngtcp2 \
+        --with-nghttp3 \
+        --with-gnutls \
+        --with-libssh2 \
 		--with-pic \
-        --without-libpsl
+        --without-libpsl \
+        --enable-websockets \
+        --with-brotli \
+        --with-zstd
 make -j$(nproc) V=1 LDFLAGS="-static -all-static"
 make install
 EOF
