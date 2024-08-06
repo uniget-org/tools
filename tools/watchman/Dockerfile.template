@@ -15,7 +15,9 @@ apk add \
     cmake \
     gmock \
     gtest \
-    gtest-dev
+    gtest-dev \
+    glog \
+    glog-dev
 #depends_on "cpptoml" => :build
 #depends_on "googletest" => :build
 #depends_on "python-setuptools" => :build
