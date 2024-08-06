@@ -19,7 +19,9 @@ apk add \
     glog \
     glog-dev \
     boost \
-    boost-dev
+    boost-dev \
+    libunwind \
+    libunwind-dev
 #depends_on "cpptoml" => :build
 #depends_on "python-setuptools" => :build
 #depends_on "edencommon"
