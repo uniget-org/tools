@@ -12,7 +12,8 @@ SHELL [ "bash", "-clo", "errexit" ]
 RUN <<EOF
 apk update
 apk add \
-    cmake
+    cmake \
+    gmock
 #depends_on "cpptoml" => :build
 #depends_on "googletest" => :build
 #depends_on "python-setuptools" => :build
