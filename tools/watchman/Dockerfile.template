@@ -33,6 +33,7 @@ apk add \
 EOF
 COPY --link --from=make / /user/local/
 COPY --link --from=python / /usr/local/
+COPY --link --from=rust / /usr/local/
 WORKDIR /tmp/watchman
 ARG name
 ARG version
