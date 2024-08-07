@@ -1,0 +1,34 @@
+#syntax=docker/dockerfile:1.9.0@sha256:fe40cf4e92cd0c467be2cfc30657a680ae2398318afd50b0c80585784c604f28
+
+FROM ghcr.io/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN <<EOF
+echo "### Setting architecture string for ${TARGETPLATFORM}"
+case "${arch}" in
+    x86_64)
+        export arch_suffix="${arch}"
+        ;;
+    aarch64)
+        export arch_suffix="${alt_arch}"
+        ;;
+    *)
+        echo "ERROR: Unsupported architecture ${arch}."
+        exit 1
+        ;;
+esac
+echo "    Using ${arch_suffix}"
+
+check-github-release-asset "getsavvyinc/savvy-cli" "${version}" "savvy_linux_x86_64"
+curl --silent --show-error --location --fail --output "${prefix}/bin/savvy" \
+    "https://github.com/getsavvyinc/savvy-cli/releases/download/0.14.5/savvy_linux_x86_64"
+chmod +x "${prefix}/bin/savvy"
+
+"${prefix}/bin/savvy" completion bash >"${prefix}/share/bash-completion/completions/savvy"
+"${prefix}/bin/savvy" completion fish >"${prefix}/share/fish/vendor_completions.d/savvy.fish"
+"${prefix}/bin/savvy" completion zsh >"${prefix}/share/zsh/vendor-completions/_savvy"
+EOF

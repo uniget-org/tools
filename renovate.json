@@ -7396,6 +7396,17 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "getsavvyinc/savvy-cli",
+      "fileMatch": [
+        "^tools/savvy/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "ckotzbauer/sbom-operator",
       "fileMatch": [
         "^tools/sbom-operator/manifest.yaml$"
