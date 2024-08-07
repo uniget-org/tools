@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: tz
+license:
+  name: GPLv3
+  link: https://github.com/oz/tz/blob/main/COPYING
+version: "0.7.0"
+check: ${binary} -v | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/terminal
+- lang/go
+- type/cli
+homepage: https://github.com/oz/tz
+repository: https://github.com/oz/tz
+description: Time zone helper
+renovate:
+  datasource: github-releases
+  package: oz/tz
+  extractVersion: ^v(?<version>.+)$
+  priority: low
