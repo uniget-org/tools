@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: tgpt
+license:
+  name: GPLv3
+  link: https://github.com/aandrew-me/tgpt/blob/main/LICENSE
+version: "2.8.0"
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/cli
+homepage: https://github.com/aandrew-me/tgpt
+repository: https://github.com/aandrew-me/tgpt
+description: AI Chatbots in terminal without needing API keys
+renovate:
+  datasource: github-releases
+  package: aandrew-me/tgpt
+  extractVersion: ^v(?<version>.+)$
+  priority: low
