@@ -23,9 +23,9 @@ case "${arch}" in
 esac
 echo "    Using ${arch_suffix}"
 
-check-github-release-asset "getsavvyinc/savvy-cli" "${version}" "savvy_linux_x86_64"
+check-github-release-asset "getsavvyinc/savvy-cli" "${version}" "savvy_linux_${arch_suffix}"
 curl --silent --show-error --location --fail --output "${prefix}/bin/savvy" \
-    "https://github.com/getsavvyinc/savvy-cli/releases/download/0.14.5/savvy_linux_x86_64"
+    "https://github.com/getsavvyinc/savvy-cli/releases/download/${version}/savvy_linux_${arch_suffix}"
 chmod +x "${prefix}/bin/savvy"
 
 "${prefix}/bin/savvy" completion bash >"${prefix}/share/bash-completion/completions/savvy"
