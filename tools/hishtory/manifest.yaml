@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: hishtory
+license:
+  name: MIT License
+  link: https://github.com/ddworken/hishtory/blob/master/LICENSE
+version: "0.302"
+check: ${binary} --version | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/cli
+- type/daemon
+homepage: https://hishtory.dev/
+repository: https://github.com/ddworken/hishtory
+description: Your shell history - synced, queryable, and in context
+renovate:
+  datasource: github-releases
+  package: ddworken/hishtory
+  extractVersion: ^v(?<version>.+)$
+  versioning: loose
+  priority: low
