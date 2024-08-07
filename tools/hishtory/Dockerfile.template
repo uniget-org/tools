@@ -21,8 +21,4 @@ chmod +x "${prefix}/bin/hishtory-server"
 "${prefix}/bin/hishtory" completion bash >"${prefix}/share/bash-completion/completions/hishtory"
 "${prefix}/bin/hishtory" completion fish >"${prefix}/share/fish/vendor_completions.d/hishtory.fish"
 "${prefix}/bin/hishtory" completion zsh >"${prefix}/share/zsh/vendor-completions/_hishtory"
-
-"${prefix}/bin/hishtory-server" completion bash >"${prefix}/share/bash-completion/completions/hishtory-server"
-"${prefix}/bin/hishtory-server" completion fish >"${prefix}/share/fish/vendor_completions.d/hishtory-server.fish"
-"${prefix}/bin/hishtory-server" completion zsh >"${prefix}/share/zsh/vendor-completions/_hishtory-server"
 EOF
