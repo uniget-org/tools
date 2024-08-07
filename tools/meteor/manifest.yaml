@@ -3,6 +3,8 @@ $schema: https://tools.uniget.dev/schema.yaml
 name: meteor
 version: "0.10.1"
 check: ${binary} version | tr -d v
+conflicts_with:
+- meteor-commit
 platforms:
 - linux/amd64
 - linux/arm64
