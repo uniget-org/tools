@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN <<EOF
 check-github-release-asset "catatsuy/purl" "v${version}" "purl-linux-amd64.tar.gz"
-curl --silent --show-error --location --fail "https://github.com/catatsuy/purl/releases/download/v0.0.5/purl-linux-amd64.tar.gz" \
+curl --silent --show-error --location --fail "https://github.com/catatsuy/purl/releases/download/v${version}/purl-linux-amd64.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     purl
 EOF

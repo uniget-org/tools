@@ -25,6 +25,6 @@ echo "    Using ${arch_suffix}"
 
 check-github-release-asset "self-actuated/actions-usage" "v${version}" "actions-usage${arch_suffix}"
 curl --silent --show-error --location --fail --output "${prefix}/bin/actions-usage" \
-    "https://github.com/self-actuated/actions-usage/releases/download/v0.1.1/actions-usage${arch_suffix}"
+    "https://github.com/self-actuated/actions-usage/releases/download/v${version}/actions-usage${arch_suffix}"
 chmod +x "${prefix}/bin/actions-usage"
 EOF
