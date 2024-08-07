@@ -3,6 +3,8 @@ name: glow
 version: "1.5.1"
 check: ${binary} --version | cut -d' ' -f3
 tags:
+- org/charmbracelet
+- category/operations
 - type/cli
 - format/markdown
 - lang/go
