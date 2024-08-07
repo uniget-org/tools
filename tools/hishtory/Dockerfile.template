@@ -1,0 +1,28 @@
+#syntax=docker/dockerfile:1.9.0@sha256:fe40cf4e92cd0c467be2cfc30657a680ae2398318afd50b0c80585784c604f28
+
+FROM ghcr.io/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN <<EOF
+check-github-release-asset "ddworken/hishtory" "v${version}" "hishtory-linux-${alt_arch}"
+curl --silent --show-error --location --fail --output "${prefix}/bin/hishtory" \
+    "https://github.com/ddworken/hishtory/releases/download/v${version}/hishtory-linux-${alt_arch}"
+chmod +x "${prefix}/bin/hishtory"
+
+check-github-release-asset "ddworken/hishtory" "v${version}" "hishtory-server-linux-${alt_arch}"
+curl --silent --show-error --location --fail --output "${prefix}/bin/hishtory-server" \
+    "https://github.com/ddworken/hishtory/releases/download/v${version}/hishtory-server-linux-${alt_arch}"
+chmod +x "${prefix}/bin/hishtory-server"
+
+"${prefix}/bin/hishtory" completion bash >"${prefix}/share/bash-completion/completions/hishtory"
+"${prefix}/bin/hishtory" completion fish >"${prefix}/share/fish/vendor_completions.d/hishtory.fish"
+"${prefix}/bin/hishtory" completion zsh >"${prefix}/share/zsh/vendor-completions/_hishtory"
+
+"${prefix}/bin/hishtory-server" completion bash >"${prefix}/share/bash-completion/completions/hishtory-server"
+"${prefix}/bin/hishtory-server" completion fish >"${prefix}/share/fish/vendor_completions.d/hishtory-server.fish"
+"${prefix}/bin/hishtory-server" completion zsh >"${prefix}/share/zsh/vendor-completions/_hishtory-server"
+EOF
