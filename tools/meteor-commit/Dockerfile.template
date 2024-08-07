@@ -8,8 +8,8 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
-check-github-release-asset "stefanlogue/meteor" "v${version}" "meteor-linux-amd64"
+check-github-release-asset "stefanlogue/meteor" "v${version}" "meteor-linux-${alt_arch}"
 curl --silent --show-error --location --fail --output "${prefix}/bin/meteor" \
-    "https://github.com/stefanlogue/meteor/releases/download/v0.22.0/meteor-linux-amd64"
+    "https://github.com/stefanlogue/meteor/releases/download/v${version}/meteor-linux-${alt_arch}"
 chmod +x "${prefix}/bin/meteor"
 EOF
