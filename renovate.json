@@ -8651,6 +8651,18 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "oz/tz",
+      "extractVersionTemplate": "^v(?<version>.+)$",
+      "fileMatch": [
+        "^tools/tz/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "shadow-maint/shadow",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
