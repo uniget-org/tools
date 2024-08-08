@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: goyacc
+license:
+  name: BSD 3-Clause License
+  link: https://github.com/golang/tools/blob/master/LICENSE
+version: "0.24.0"
+check: "" # No version parameter
+build_dependencies:
+- go
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/cli
+homepage: https://pkg.go.dev/golang.org/x/tools/cmd/goyacc
+repository: https://github.com/golang/tools
+description: yacc for Go
+renovate:
+  datasource: github-releases
+  package: golang/tools
+  extractVersion: ^v(?<version>.+)$
+  priority: low
