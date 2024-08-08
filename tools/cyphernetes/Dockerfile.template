@@ -1,17 +1,23 @@
 #syntax=docker/dockerfile:1.9.0@sha256:fe40cf4e92cd0c467be2cfc30657a680ae2398318afd50b0c80585784c604f28
 
-FROM ghcr.io/uniget-org/images/ubuntu:24.04 AS prepare
+FROM ghcr.io/uniget-org/tools/go:latest AS go
+FROM ghcr.io/uniget-org/tools/goyacc:latest AS goyacc
+
+FROM ghcr.io/uniget-org/images/build-base:3.20 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
+COPY --link --from=go / /usr/local/
+COPY --link --from=goyacc / /usr/local/
+WORKDIR /go/src/github.com/AvitalTamir/cyphernetes
 ARG name
 ARG version
 RUN <<EOF
-check-github-release-asset "AvitalTamir/cyphernetes" "v${version}" "cyphernetes-linux-amd64"
-curl --silent --show-error --location --fail --output "${prefix}/bin/cyphernetes" \
-    "https://github.com/AvitalTamir/cyphernetes/releases/download/v0.6.4-fix.0/cyphernetes-linux-amd64"
-chmod +x "${prefix}/bin/cyphernetes"
+check-clone "https://github.com/AvitalTamir/cyphernetes" "v${version}"
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/AvitalTamir/cyphernetes .
+goyacc -o pkg/parser/cyphernetes.go -p "yy" grammar/cyphernetes.y
+go build -ldflags "-s -w -linkmode=external -extldflags=-static" -o "${prefix}/bin/cyphernetes" ./cmd/cyphernetes
 
 "${prefix}/bin/cyphernetes" completion bash >"${prefix}/share/bash-completion/completions/cyphernetes"
 "${prefix}/bin/cyphernetes" completion fish >"${prefix}/share/fish/vendor_completions.d/cyphernetes.fish"
