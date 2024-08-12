@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: perl
+license:
+  name: GPL
+  link: https://github.com/Perl/perl5/blob/blead/Copying
+version: "5.40.0"
+check: ""
+build_dependencies:
+- make
+runtime_dependencies:
+- musl
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- org/perl
+- category/development
+- lang/c
+- type/cli
+homepage: https://dev.perl.org/perl5/
+repository: https://github.com/Perl/perl5
+description: Perl programming language
+renovate:
+  datasource: github-tags
+  package: Perl/perl5
+  extractVersion: ^v(?<version>\d+\.\d*[02468]\.\d+)$
+  priority: low

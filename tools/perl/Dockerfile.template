@@ -1,0 +1,29 @@
+#syntax=docker/dockerfile:1.9.0@sha256:fe40cf4e92cd0c467be2cfc30657a680ae2398318afd50b0c80585784c604f28
+
+FROM ghcr.io/uniget-org/tools/make:latest AS make
+
+FROM ghcr.io/uniget-org/images/build-base:3.20 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+COPY --link --from=make / /usr/local/
+WORKDIR /tmp/perl
+ARG name
+ARG version
+COPY <<EOF /etc/staticperlrc
+EMAIL="contact@uniget.dev"
+PERL_VERSION="${version}"
+PERL_PREFIX="/uniget_bootstrap"
+CPAN="https://www.cpan.org"
+EOF
+RUN <<EOF
+curl --silent --show-error --location --fail --output "/usr/local/bin/staticperl" \
+    http://cvs.schmorp.de/App-Staticperl/bin/staticperl
+chmod +x "${prefix}/bin/staticperl"
+
+"${prefix}/bin/staticperl" fetch
+"${prefix}/bin/staticperl" configure
+"${prefix}/bin/staticperl" build
+"${prefix}/bin/staticperl" install
+EOF
