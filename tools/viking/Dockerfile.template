@@ -1,0 +1,163 @@
+#syntax=docker/dockerfile:1.9.0@sha256:fe40cf4e92cd0c467be2cfc30657a680ae2398318afd50b0c80585784c604f28
+
+#FROM ghcr.io/uniget-org/tools/make:latest AS make
+#FROM ghcr.io/uniget-org/tools/go:latest AS go
+#FROM ghcr.io/uniget-org/tools/rust:latest AS rust
+#FROM ghcr.io/uniget-org/tools/python:latest AS python
+#FROM ghcr.io/uniget-org/tools/shiv:latest AS shiv
+#FROM ghcr.io/uniget-org/tools/nodejs:latest AS nodejs
+#FROM ghcr.io/uniget-org/tools/npm:latest AS npm
+
+FROM ghcr.io/uniget-org/images/ubuntu:24.04 AS prepare
+#FROM ghcr.io/uniget-org/images/build-essential:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+
+# tarball
+RUN <<EOF
+echo "### Setting architecture string for ${TARGETPLATFORM}"
+case "${arch}" in
+    x86_64)
+        export arch_suffix="${arch}"
+        ;;
+    aarch64)
+        export arch_suffix="${alt_arch}"
+        ;;
+    *)
+        echo "ERROR: Unsupported architecture ${arch}."
+        exit 1
+        ;;
+esac
+echo "    Using ${arch_suffix}"
+
+check-github-release-asset "d3witt/viking" "v${version}" "viking_Linux_${arch_suffix}.tar.gz"
+#check-download ""
+curl --silent --show-error --location --fail "https://github.com/d3witt/viking/releases/download/v${version}/viking_Linux_${arch_suffix}.tar.gz" \
+| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
+    viking
+EOF
+
+# executable
+#RUN <<EOF
+#echo "### Setting architecture string for ${TARGETPLATFORM}"
+#case "${arch}" in
+#    x86_64)
+#        export arch_suffix="${arch}"
+#        ;;
+#    aarch64)
+#        export arch_suffix="${alt_arch}"
+#        ;;
+#    *)
+#        echo "ERROR: Unsupported architecture ${arch}."
+#        exit 1
+#        ;;
+#esac
+#echo "    Using ${arch_suffix}"
+#
+#check-github-release-asset "foo/bar" "v${version}" "foo-${version}-linux-amd64.tar.gz"
+#check-download ""
+#curl --silent --show-error --location --fail --output "${prefix}/bin/foo" \
+#    ""
+#chmod +x "${prefix}/bin/foo"
+#EOF
+
+# zip
+#RUN <<EOF
+#echo "### Setting architecture string for ${TARGETPLATFORM}"
+#case "${arch}" in
+#    x86_64)
+#        export arch_suffix="${arch}"
+#        ;;
+#    aarch64)
+#        export arch_suffix="${alt_arch}"
+#        ;;
+#    *)
+#        echo "ERROR: Unsupported architecture ${arch}."
+#        exit 1
+#        ;;
+#esac
+#echo "    Using ${arch_suffix}"
+#
+#check-github-release-asset "foo/bar" "v${version}" "foo-${version}-linux-amd64.tar.gz"
+#check-download ""
+#url=""
+#filename="$(basename "${url}")"
+#curl --silent --show-error --location --fail --remote-name "${url}"
+#unzip -q -o -d "${prefix}/bin" "${filename}"
+#EOF
+
+# go
+#COPY --link --from=go / /usr/local/
+#COPY --link --from=make / /usr/local/
+#WORKDIR /go/src/github.com/foo/bar
+#RUN <<EOF
+#check-clone "https://github.com/foo/bar" "v${version}"
+#git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/foo/bar .
+#make
+#cp foo "${prefix}/bin/"
+#EOF
+
+# rust
+#COPY --link --from=rust / /usr/local/
+#WORKDIR /tmp/github.com/foo/bar
+#RUN <<EOF
+#git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" https://github.com/foo/bar .
+#export CARGO_HOME=/usr/local/cargo
+#export RUSTUP_HOME=/usr/local/rustup
+#export RUSTFLAGS='-C target-feature=+crt-static'
+#cargo build --release --target "${arch}-unknown-linux-gnu"
+#cp "target/${arch}-unknown-linux-gnu/release/foo" "${prefix}/bin/"
+#EOF
+
+# python
+#COPY --link --from=python / /usr/local/
+#COPY --link --from=shiv / /usr/local/
+#RUN <<EOF
+#apt-get update
+#apt-get -y install --no-install-recommends \
+#    python3-pip \
+#    python3-venv \
+#    python-is-python3
+#EOF
+#RUN <<EOF
+#shiv --output-file "${prefix}/bin/foo" --console-script foo "foo==${version}"
+#EOF
+
+# node
+#COPY --link --from=nodejs / /usr/local/
+#COPY --link --from=npm / /usr/local/
+#WORKDIR /uniget_bootstrap/libexec/foo
+#ARG name
+#ARG version
+#RUN <<EOF
+#npm install \
+#    --omit=dev \
+#    "foo@${version}"
+#ln --symbolic --relative --force "${prefix}/libexec/foo/node_modules/.bin/foo" "${prefix}/bin/"
+#EOF
+
+# c
+#COPY --link --from=make / /usr/local/
+#WORKDIR /tmp/foo
+#RUN <<EOF
+#git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" https://github.com/foo/bar .
+#./configure --prefix="${prefix}"
+#make LDFLAGS=-static
+#make install
+#EOF
+
+# dummy for testing
+#RUN <<EOF
+#touch "${prefix}/foo"
+#EOF
+
+# completion
+#RUN <<EOF
+#"${prefix}/bin/foo" completion bash >"${prefix}/share/bash-completion/completions/foo"
+#"${prefix}/bin/foo" completion fish >"${prefix}/share/fish/vendor_completions.d/foo.fish"
+#"${prefix}/bin/foo" completion zsh >"${prefix}/share/zsh/vendor-completions/_foo"
+#EOF

@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: viking
+license:
+  name: MIT License
+  link: https://github.com/d3witt/viking/blob/main/LICENSE
+version: "0.1.3"
+check: "" # No proper output
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/go
+- type/cli
+homepage: https://github.com/d3witt/viking
+repository: https://github.com/d3witt/viking
+description: Some description
+renovate:
+  datasource: github-releases
+  package: d3witt/viking
+  extractVersion: ^v(?<version>.+)$
+  priority: low
