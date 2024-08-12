@@ -20,10 +20,10 @@ EOF
 RUN <<EOF
 curl --silent --show-error --location --fail --output "/usr/local/bin/staticperl" \
     http://cvs.schmorp.de/App-Staticperl/bin/staticperl
-chmod +x "${prefix}/bin/staticperl"
+chmod +x "/usr/local/bin/staticperl"
 
-"${prefix}/bin/staticperl" fetch
-"${prefix}/bin/staticperl" configure
-"${prefix}/bin/staticperl" build
-"${prefix}/bin/staticperl" install
+staticperl fetch
+staticperl configure
+staticperl build
+staticperl install
 EOF
