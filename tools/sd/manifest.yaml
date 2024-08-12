@@ -16,7 +16,7 @@ tags:
 - filter
 homepage: https://github.com/chmln/sd
 repository: https://github.com/chmln/sd
-description: Some description
+description: Intuitive find & replace CLI (sed alternative)
 renovate:
   datasource: github-releases
   package: chmln/sd

@@ -15,7 +15,7 @@ tags:
 - type/cli
 homepage: https://github.com/andyk/ht
 repository: https://github.com/andyk/ht
-description: Some description
+description: headless terminal - wrap any binary with a terminal interface for easy programmatic access
 renovate:
   datasource: github-releases
   package: andyk/ht

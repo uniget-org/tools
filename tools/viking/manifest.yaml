@@ -15,7 +15,7 @@ tags:
 - type/cli
 homepage: https://github.com/d3witt/viking
 repository: https://github.com/d3witt/viking
-description: Some description
+description: Simple way to manage your remote machines and SSH keys
 renovate:
   datasource: github-releases
   package: d3witt/viking
