@@ -1,5 +1,8 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: tuf
+license:
+  name: Apache License 2.0
+  link: https://github.com/theupdateframework/go-tuf/blob/master/LICENSE
 version: "0.7.0"
 check: "" # No version parameter
 tags:
@@ -12,8 +15,5 @@ description: The Update Framework (TUF)
 renovate:
   datasource: github-releases
   package: theupdateframework/go-tuf
-  extractVersion: ^v(?<version>.+)$
+  extractVersion: ^v(?<version>1\..+)$
   priority: low
-license:
-  name: Apache License 2.0
-  link: https://github.com/theupdateframework/go-tuf/blob/master/LICENSE

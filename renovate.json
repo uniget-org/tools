@@ -8629,7 +8629,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "theupdateframework/go-tuf",
-      "extractVersionTemplate": "^v(?<version>.+)$",
+      "extractVersionTemplate": "^v(?<version>1\\..+)$",
       "fileMatch": [
         "^tools/tuf/manifest.yaml$"
       ],
