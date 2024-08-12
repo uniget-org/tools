@@ -1,16 +1,24 @@
 #syntax=docker/dockerfile:1.9.0@sha256:fe40cf4e92cd0c467be2cfc30657a680ae2398318afd50b0c80585784c604f28
 
+FROM ghcr.io/uniget-org/tools/go:latest AS go
+FROM ghcr.io/uniget-org/tools/goreleaser:latest AS goreleaser
+
 FROM ghcr.io/uniget-org/images/ubuntu:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-
+COPY --link --from=go / /usr/local/
+COPY --link --from=goreleaser / /usr/local/
+WORKDIR /go/src/github.com/GoogleCloudPlatform/docker-credential-gcr
 ARG name
 ARG version
-
 RUN <<EOF
-curl --silent --show-error --location --fail "https://github.com/GoogleCloudPlatform/docker-credential-gcr/releases/download/v${version}/docker-credential-gcr_linux_${alt_arch}-${version}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin" --no-same-owner \
-    docker-credential-gcr
+check-clone "https://github.com/GoogleCloudPlatform/docker-credential-gcr" "v${version}"
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/GoogleCloudPlatform/docker-credential-gcr .
+export CGO_ENABLED=0
+go build \
+    -ldflags "-s -w -X github.com/GoogleCloudPlatform/docker-credential-gcr/v2/config.Version=${version}" \
+    -o "${prefix}/bin/docker-credential-gcr" \
+    .
 EOF
