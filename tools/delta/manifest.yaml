@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: delta
-version: "0.18.0"
+version: "0.18.1"
 check: ${binary} --version | cut -d' ' -f2
 build_dependencies:
 - rust
