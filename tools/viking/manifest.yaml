@@ -4,7 +4,7 @@ name: viking
 license:
   name: MIT License
   link: https://github.com/d3witt/viking/blob/main/LICENSE
-version: "0.1.6"
+version: "0.2.1"
 check: "" # No proper output
 platforms:
 - linux/amd64
