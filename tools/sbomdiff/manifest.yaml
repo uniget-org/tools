@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: sbomdiff
-version: "0.5.4"
+version: "0.5.5"
 check: ${binary} --version
 build_dependencies:
 - python
