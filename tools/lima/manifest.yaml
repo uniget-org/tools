@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: lima
-version: "0.22.0"
+version: "0.23.2"
 check: limactl --version | cut -d' ' -f3
 build_dependencies:
 - yasu
