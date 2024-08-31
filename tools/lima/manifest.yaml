@@ -2,10 +2,6 @@
 name: lima
 version: "0.23.2"
 check: limactl --version | cut -d' ' -f3
-build_dependencies:
-- yasu
-runtime_dependencies:
-- yasu
 tags:
 - type/cli
 - category/development
