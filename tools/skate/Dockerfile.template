@@ -25,16 +25,12 @@ echo "    Using ${arch_suffix}"
 
 check-github-release-asset "charmbracelet/skate" "v${version}" "skate_${version}_Linux_${arch_suffix}.tar.gz"
 curl --silent --show-error --location --fail "https://github.com/charmbracelet/skate/releases/download/v${version}/skate_${version}_Linux_${arch_suffix}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
-    skate \
-    completions \
-    manpages
+| tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
+    "skate_${version}_Linux_${arch_suffix}/skate"
 
-mv "${prefix}/bin/manpages/skate.1.gz" "${prefix}/share/man/man1/"
-rmdir "${prefix}/bin/manpages"
+"${prefix}/bin/skate" man >"${prefix}/share/man/man1/skate.1"
 
-mv "${prefix}/bin/completions/skate.bash" "${prefix}/share/bash-completion/completions/skate"
-mv "${prefix}/bin/completions/skate.fish" "${prefix}/share/fish/vendor_completions.d/skate.fish"
-mv "${prefix}/bin/completions/skate.zsh" "${prefix}/share/zsh/vendor-completions/_skate"
-rmdir "${prefix}/bin/completions"
+"${prefix}/bin/skate" completion bash >"${prefix}/share/bash-completion/completions/skate"
+"${prefix}/bin/skate" completion fish >"${prefix}/share/fish/vendor_completions.d/skate.fish"
+"${prefix}/bin/skate" completion zsh >"${prefix}/share/zsh/vendor-completions/_skate"
 EOF
