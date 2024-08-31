@@ -16,20 +16,20 @@ curl --silent --show-error --location --fail "https://github.com/kcp-dev/kcp/rel
 EOF
 
 RUN <<EOF
-check-github-release-asset "kcp-dev/kcp" "v${version}" "kubectl-kcp-plugin_${version}_linux_${alt_arch}.tar.gz"
-curl --silent --show-error --location --fail "https://github.com/kcp-dev/kcp/releases/download/v${version}/kubectl-kcp-plugin_${version}_linux_${alt_arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin" --strip-components=1 --no-same-owner \
-    bin/kubectl-kcp \
-    bin/kubectl-workspace \
-    bin/kubectl-workspaces \
-    bin/kubectl-ws
+for plugin in kcp ws create-workspace; do
+    echo "Installing plugin ${plugin}"
+    check-github-release-asset "kcp-dev/kcp" "v${version}" "kubectl-${plugin}-plugin_${version}_linux_${alt_arch}.tar.gz"
+    curl --silent --show-error --location --fail "https://github.com/kcp-dev/kcp/releases/download/v${version}/kubectl-${plugin}-plugin_${version}_linux_${alt_arch}.tar.gz" \
+    | tar --extract --gzip --directory="${prefix}/bin" --strip-components=1 --no-same-owner \
+        "bin/kubectl-${plugin}"
+done
 EOF
 
 RUN <<EOF
-for binary_name in kcp kubectl-kcp kubectl-ws kubectl-workspaces; do
-    echo "Install completion for ${binary_name}"
-    "${prefix}/bin/${binary_name}" completion bash >"${prefix}/share/bash-completion/completions/${binary_name}"
-    "${prefix}/bin/${binary_name}" completion fish >"${prefix}/share/fish/vendor_completions.d/${binary_name}.fish"
-    "${prefix}/bin/${binary_name}" completion zsh >"${prefix}/share/zsh/vendor-completions/_${binary_name}"
+for plugin in kcp ws; do
+    echo "Installing completion for plugin ${plugin}"
+    "${prefix}/bin/kubectl-${plugin}" completion bash >"${prefix}/share/bash-completion/completions/kubectl-${plugin}"
+    "${prefix}/bin/kubectl-${plugin}" completion fish >"${prefix}/share/fish/vendor_completions.d/kubectl-${plugin}.fish"
+    "${prefix}/bin/kubectl-${plugin}" completion zsh >"${prefix}/share/zsh/vendor-completions/_kubectl-${plugin}"
 done
 EOF
