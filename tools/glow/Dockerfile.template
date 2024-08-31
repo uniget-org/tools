@@ -8,8 +8,33 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
-check-github-release-asset "charmbracelet/glow" "v${version}" "glow_Linux_${arch}.tar.gz"
-curl --silent --show-error --location --fail "https://github.com/charmbracelet/glow/releases/download/v${version}/glow_Linux_${arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin" --no-same-owner \
-    glow
+echo "### Setting architecture string for ${TARGETPLATFORM}"
+case "${arch}" in
+    x86_64)
+        export arch_suffix="${arch}"
+        ;;
+    aarch64)
+        export arch_suffix="${alt_arch}"
+        ;;
+    *)
+        echo "ERROR: Unsupported architecture ${arch}."
+        exit 1
+        ;;
+esac
+echo "    Using ${arch_suffix}"
+
+check-github-release-asset "charmbracelet/glow" "v${version}" "glow_${version}_Linux_${arch_suffix}.tar.gz"
+curl --silent --show-error --location --fail "https://github.com/charmbracelet/glow/releases/download/v${version}/glow_${version}_Linux_${arch_suffix}.tar.gz" \
+| tar --extract --gzip --directory="${prefix}/bin" --strip-components=1 --no-same-owner \
+    "glow_${version}_Linux_${arch_suffix}/glow" \
+    "glow_${version}_Linux_${arch_suffix}/manpages" \
+    "glow_${version}_Linux_${arch_suffix}/completions"
+
+mv "${prefix}/bin/manpages/glow.1.gz" "${prefix}/share/man/man1/"
+rmdir "${prefix}/bin/manpages"
+
+mv "${prefix}/bin/completions/glow.bash" "${prefix}/share/bash-completion/completions/glow"
+mv "${prefix}/bin/completions/glow.fish" "${prefix}/share/fish/vendor_completions.d/glow.fish"
+mv "${prefix}/bin/completions/glow.zsh"  "${prefix}/share/zsh/vendor-completions/_glow"
+rmdir "${prefix}/bin/completions"
 EOF
