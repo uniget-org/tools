@@ -3,7 +3,7 @@ name: passage
 license:
   name: GPLv2
   link: https://github.com/FiloSottile/passage/blob/main/COPYING
-version: "524.42cb195"
+version: "526.4e4c5ae"
 check: ${binary} version 2>/dev/null | tr -s ' ' | grep "^= v" | cut -d' ' -f2 | tr -d v
 build_dependencies:
 - make
