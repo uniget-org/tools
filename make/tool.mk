@@ -5,7 +5,7 @@ $(addsuffix --vim,$(ALL_TOOLS_RAW)):%--vim: ## ???
 	@vim -o2 $(TOOLS_DIR)/$*/manifest.yaml  $(TOOLS_DIR)/$*/Dockerfile.template
 
 $(addsuffix --vscode,$(ALL_TOOLS_RAW)):%--vscode: ## ???
-	@code --add $(TOOLS_DIR)/$*
+	@code --goto $(TOOLS_DIR)/$*/manifest.yaml --goto $(TOOLS_DIR)/$*/Dockerfile.template
 
 $(addsuffix --logs,$(ALL_TOOLS_RAW)):%--logs: ## ???
 	@less $(TOOLS_DIR)/$*/build.log
