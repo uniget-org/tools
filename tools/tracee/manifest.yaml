@@ -10,7 +10,7 @@ runtime_dependencies:
 - musl
 platforms:
 - linux/amd64
-- linux/arm64
+#- linux/arm64
 tags:
 - org/aquasecurity
 - category/security
