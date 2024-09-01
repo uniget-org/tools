@@ -17,6 +17,7 @@ export arch
 export alt_arch
 
 export uniget_cache=/var/cache/uniget
+export uniget_cache_download="${uniget_cache}/download"
 export uniget_lib=/var/lib/uniget
 export uniget_contrib="${uniget_lib}/contrib"
 export uniget_manifests="${uniget_lib}/manifests"
