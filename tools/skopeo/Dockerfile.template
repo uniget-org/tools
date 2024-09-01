@@ -8,11 +8,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --link --from=go / /usr/local/
-COPY --link --from=go-md2man / /usr/local/
-ARG name
-ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/apt <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
     git \
@@ -35,10 +31,14 @@ apt-get -y install --no-install-recommends \
     iptables \
     bash
 EOF
+COPY --link --from=go / /usr/local/
+COPY --link --from=go-md2man / /usr/local/
 WORKDIR $GOPATH/src/github.com/containers/skopeo
+ARG name
+ARG version
 RUN git clone --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/containers/skopeo.git .
 ENV CGO_ENABLED=0
-RUN <<EOF
+RUN --mount=type=cache,target=/root/.cache/pip <<EOF
 mkdir -p "${prefix}/share/man/man1"
 make -j$(nproc) bin/skopeo EXTRA_LDFLAGS="-s -w -extldflags '-static'" BUILDTAGS=containers_image_openpgp GO_DYN_FLAGS=
 make -j$(nproc) docs GOMD2MAN=go-md2man

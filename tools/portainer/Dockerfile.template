@@ -8,10 +8,16 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 COPY portainer.service.go-template /uniget_bootstrap/etc/systemd/system/
-RUN <<EOF
-check-github-release-asset "portainer/portainer" "${version}" "portainer-${version}-linux-${alt_arch}.tar.gz"
-curl --silent --show-error --location --fail "https://github.com/portainer/portainer/releases/download/${version}/portainer-${version}-linux-${alt_arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin" --strip-components=1 --no-same-owner \
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/portainer/portainer/releases/download/${version}/portainer-${version}-linux-${alt_arch}.tar.gz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "portainer/portainer" "${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin" --strip-components=1 --no-same-owner \
     portainer/portainer
 
 mkdir -p "${prefix}/share/portainer"

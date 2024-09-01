@@ -5,16 +5,20 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-
 ARG name
 ARG version
-
 COPY <<vault.sh /uniget_bootstrap/share/bash-completion/completions/
 complete -C /bin/vault vault
 vault.sh
 
-RUN <<EOF
-curl --silent --show-error --location --fail --remote-name "https://releases.hashicorp.com/vault/${version}/vault_${version}_linux_${alt_arch}.zip"
-unzip -q -o -d "${prefix}/bin" "vault_${version}_linux_${alt_arch}.zip"
-rm "vault_${version}_linux_${alt_arch}.zip"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://releases.hashicorp.com/vault/${version}/vault_${version}_linux_${alt_arch}.zip"
+filename="$(basename "${url}")"
+
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+unzip -t "${uniget_cache_download}/${filename}"
+unzip -q -o -d "${prefix}/bin" "${uniget_cache_download}/${filename}"
 EOF

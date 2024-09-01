@@ -7,9 +7,16 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "ufoscout/docker-compose-wait" "${version}" "wait_${arch}"
-curl --silent --show-error --location --fail --output "${prefix}/bin/wait" \
-    "https://github.com/ufoscout/docker-compose-wait/releases/download/${version}/wait_${arch}"
-chmod +x "${prefix}/bin/wait"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/ufoscout/docker-compose-wait/releases/download/${version}/wait_${arch}"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "ufoscout/docker-compose-wait" "${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/wait"
+
 EOF

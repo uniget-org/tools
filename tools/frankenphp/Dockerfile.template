@@ -7,11 +7,18 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "dunglas/frankenphp" "v${version}" "frankenphp-linux-${arch}"
-curl --silent --show-error --location --fail --output "${prefix}/bin/frankenphp" \
-    "https://github.com/dunglas/frankenphp/releases/download/v${version}/frankenphp-linux-${arch}"
-chmod +x "${prefix}/bin/frankenphp"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/dunglas/frankenphp/releases/download/v${version}/frankenphp-linux-${arch}"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "dunglas/frankenphp" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/frankenphp"
+
 
 "${prefix}/bin/frankenphp" completion bash >"${prefix}/share/bash-completion/completions/frankenphp"
 "${prefix}/bin/frankenphp" completion fish >"${prefix}/share/fish/vendor_completions.d/frankenphp.fish"

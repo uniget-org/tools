@@ -8,10 +8,16 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 ARG commit_sha=0cbc58b
-RUN <<EOF
-check-github-release-asset "openshift/origin" "v${version}" "openshift-origin-client-tools-v${version}-${commit_sha}-linux-64bit.tar.gz"
-curl --silent --show-error --location --fail "https://github.com/openshift/origin/releases/download/v${version}/openshift-origin-client-tools-v${version}-${commit_sha}-linux-64bit.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin" --strip-components=1 --wildcards \
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/openshift/origin/releases/download/v${version}/openshift-origin-client-tools-v${version}-${commit_sha}-linux-64bit.tar.gz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "openshift/origin" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin" --strip-components=1 --wildcards \
     */oc
 
 "${prefix}/bin/oc" completion bash >"${prefix}/share/bash-completion/completions/oc"

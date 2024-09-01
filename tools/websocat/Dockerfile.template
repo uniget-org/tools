@@ -7,9 +7,16 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "vi/websocat" "v${version}" "websocat.x86_64-unknown-linux-musl"
-curl --silent --show-error --location --fail --output "${prefix}/bin/websocat" \
-    "https://github.com/vi/websocat/releases/download/v${version}/websocat.x86_64-unknown-linux-musl"
-chmod +x "${prefix}/bin/websocat"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/vi/websocat/releases/download/v${version}/websocat.x86_64-unknown-linux-musl"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "vi/websocat" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/websocat"
+
 EOF

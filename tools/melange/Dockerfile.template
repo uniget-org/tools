@@ -13,7 +13,7 @@ COPY --link --from=make / /usr/local/
 WORKDIR /go/src/github.com/chainguard-dev/melange
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
 check-clone https://github.com/chainguard-dev/melange "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/chainguard-dev/melange .
 make -j$(nproc) melange

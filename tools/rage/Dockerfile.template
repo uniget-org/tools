@@ -7,15 +7,15 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --link --from=jq / /usr/local/
-ARG name
-ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/apt <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
     binutils
 EOF
-RUN <<EOF
+COPY --link --from=jq / /usr/local/
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 echo "### Setting architecture string for ${TARGETPLATFORM}"
 case "${arch}" in
     x86_64)
@@ -31,24 +31,26 @@ case "${arch}" in
 esac
 echo "    Using ${arch_suffix}"
 
-ASSET="$(
+url="$(
     curl --silent --show-error --location --fail "https://api.github.com/repos/str4d/rage/releases/tags/v${version}" \
     | jq --raw-output --arg arch "${alt_arch}" '
         .assets[] | 
         select(.name | contains($arch)) | 
         select(.name | contains("musl")) | 
         select(.name | endswith(".deb")) | 
-        .name
+        .browser_download_url
     '
 )"
-if test -z "${ASSET}"; then
+if test -z "${url}"; then
     echo "ERROR: Unable to determine asset for ${alt_arch}."
     exit 1
 fi
+filename="$(basename "${url}")"
 
-curl --silent --show-error --location --fail --remote-name "https://github.com/str4d/rage/releases/download/v${version}/${ASSET}"
-ar -x "${ASSET}"
-tar --extract --xz --directory="${prefix}" --file="data.tar.xz" --strip-components=1 --no-same-owner \
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+ar -x "${uniget_cache_download}/${filename}"
+tar --file="data.tar.xz" --extract --xz --directory="${prefix}" --strip-components=1 --no-same-owner \
     usr/bin \
     usr/share/man \
     usr/share/bash-completion \

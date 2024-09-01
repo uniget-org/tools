@@ -7,9 +7,16 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "tianon/gosu" "${version}" "gosu-${alt_arch}"
-curl --silent --show-error --location --fail --output "${prefix}/bin/gosu" \
-    "https://github.com/tianon/gosu/releases/download/${version}/gosu-${alt_arch}"
-chmod +x "${prefix}/bin/gosu"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/tianon/gosu/releases/download/${version}/gosu-${alt_arch}"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "tianon/gosu" "${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/gosu"
+
 EOF

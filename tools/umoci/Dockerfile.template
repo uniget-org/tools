@@ -7,9 +7,16 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "opencontainers/umoci" "v${version}" "umoci.${alt_arch}"
-curl --silent --show-error --location --fail --output "${prefix}/bin/umoci" \
-    "https://github.com/opencontainers/umoci/releases/download/v${version}/umoci.${alt_arch}"
-chmod +x "${prefix}/bin/umoci"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/opencontainers/umoci/releases/download/v${version}/umoci.${alt_arch}"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "opencontainers/umoci" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/umoci"
+
 EOF

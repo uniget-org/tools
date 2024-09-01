@@ -8,9 +8,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --link --from=make / /usr/local/
-COPY --link --from=go / /usr/local/
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/apt <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
     dh-make \
@@ -18,6 +16,8 @@ apt-get -y install --no-install-recommends \
     devscripts \
     lsb-release
 EOF
+COPY --link --from=make / /usr/local/
+COPY --link --from=go / /usr/local/
 WORKDIR /tmp/nvidia-container-toolkit
 ARG name
 ARG version

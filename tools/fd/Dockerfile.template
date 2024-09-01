@@ -7,7 +7,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 case "${alt_arch}" in
     amd64)
         export arch_suffix="musl"
@@ -22,11 +22,15 @@ case "${alt_arch}" in
 esac
 echo "    Using ${arch_suffix}"
 
-check-github-release-asset "sharkdp/fd" "v${version}" "fd-v${version}-${arch}-unknown-linux-${arch_suffix}.tar.gz"
+url="https://github.com/sharkdp/fd/releases/download/v${version}/fd-v${version}-${arch}-unknown-linux-${arch_suffix}.tar.gz"
+filename="$(basename "${url}")"
 
-echo "### Downloading fd ${version}"
-curl --silent --show-error --location --fail "https://github.com/sharkdp/fd/releases/download/v${version}/fd-v${version}-${arch}-unknown-linux-${arch_suffix}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
+check-github-release-asset "sharkdp/fd" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
     "fd-v${version}-${arch}-unknown-linux-${arch_suffix}/fd" \
     "fd-v${version}-${arch}-unknown-linux-${arch_suffix}/fd.1" \
     "fd-v${version}-${arch}-unknown-linux-${arch_suffix}/autocomplete"

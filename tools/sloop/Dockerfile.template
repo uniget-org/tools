@@ -16,7 +16,7 @@ ARG version
 ENV CGO_ENABLED=0 \
     GO111MODULE=auto \
     GOBIN=${prefix}/bin
-RUN <<EOF
+RUN --mount=type=cache,target=/root/.cache/pip <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/salesforce/sloop .
 make -j$(nproc)
 EOF

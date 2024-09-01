@@ -7,8 +7,14 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-curl --silent --show-error --location --fail --output "${prefix}/bin/minio" \
-    "https://dl.min.io/server/minio/release/linux-${alt_arch}/minio.RELEASE.${version}"
-chmod +x "${prefix}/bin/minio"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://dl.min.io/server/minio/release/linux-${alt_arch}/minio.RELEASE.${version}"
+filename="$(basename "${url}")"
+
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/minio"
 EOF

@@ -9,14 +9,9 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --from=go / /usr/local/
-COPY --from=make / /usr/local/
-COPY --from=go-md2man / /usr/local/
-ARG name
-ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/apk <<EOF
 apk update
-apk add \
+apk add --update-cache \
     bats \
     libassuan-dev \
     libassuan-static \
@@ -30,7 +25,12 @@ apk add \
     libseccomp-static \
     libselinux-dev
 EOF
+COPY --link --from=go / /usr/local/
+COPY --link --from=make / /usr/local/
+COPY --from=go-md2man / /usr/local/
 WORKDIR /tmp/buildah
+ARG name
+ARG version
 RUN git clone --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/containers/buildah .
 ENV CFLAGS='-static -pthread' \
     LDFLAGS='-s -w -static-libgcc -static' \

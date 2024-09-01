@@ -7,10 +7,16 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-check-download "https://gitlab.alpinelinux.org/api/v4/projects/5/packages/generic//v${version}/${arch}/apk.static"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://gitlab.alpinelinux.org/api/v4/projects/5/packages/generic//v${version}/${arch}/apk.static"
+filename="$( basename "${url}" )"
 
-curl --silent --show-error --location --fail --output "${prefix}/bin/apk" \
-    "https://gitlab.alpinelinux.org/api/v4/projects/5/packages/generic//v${version}/${arch}/apk.static"
-chmod +x "${prefix}/bin/apk"
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/apk"
+
 EOF

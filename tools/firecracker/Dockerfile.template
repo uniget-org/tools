@@ -5,14 +5,18 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-
 ARG name
 ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/firecracker-microvm/firecracker/releases/download/v${version}/firecracker-v${version}-${arch}.tgz"
+filename="$( basename "${url}" )"
 
-RUN <<EOF
-check-github-release-asset "firecracker-microvm/firecracker" "v${version}" "firecracker-v${version}-${arch}.tgz"
-curl --silent --show-error --location --fail "https://github.com/firecracker-microvm/firecracker/releases/download/v${version}/firecracker-v${version}-${arch}.tgz" \
-| tar --extract --gzip --directory="${prefix}/bin" --strip-components=1 --no-same-owner \
+check-github-release-asset "firecracker-microvm/firecracker" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin" --strip-components=1 --no-same-owner \
     release-v${version}-${arch}/firecracker-v${version}-${arch} \
     release-v${version}-${arch}/jailer-v${version}-${arch} \
     release-v${version}-${arch}/seccompiler-bin-v${version}-${arch}

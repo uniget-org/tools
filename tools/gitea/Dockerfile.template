@@ -7,7 +7,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 check-github-release-asset "go-gitea/gitea" "v${version}" "gitea-${version}-linux-${alt_arch}.xz"
 curl --silent --show-error --location --fail "https://github.com/go-gitea/gitea/releases/download/v${version}/gitea-${version}-linux-${alt_arch}.xz" \
 | xz --decompress >"${prefix}/bin/gitea"

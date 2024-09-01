@@ -7,7 +7,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 case "${alt_arch}" in
     amd64)
         export arch_suffix=x64
@@ -22,10 +22,15 @@ case "${alt_arch}" in
 esac
 echo "    Using ${arch_suffix}"
 
-echo "### Downloading node.js ${version}"
-check-download "https://nodejs.org/dist/v${version}/node-v${version}-linux-${arch_suffix}.tar.xz"
-curl --silent --show-error --location --fail "https://nodejs.org/dist/v${version}/node-v${version}-linux-${arch_suffix}.tar.xz" \
-| tar --extract --xz --directory="${prefix}" --strip-components=1 --no-same-owner \
+url="https://nodejs.org/dist/v${version}/node-v${version}-linux-${arch_suffix}.tar.xz"
+filename="$(basename "${url}")"
+
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --xz --directory="${prefix}" --strip-components=1 --no-same-owner \
     "node-v${version}-linux-${arch_suffix}/bin" \
     "node-v${version}-linux-${arch_suffix}/include" \
     "node-v${version}-linux-${arch_suffix}/lib" \

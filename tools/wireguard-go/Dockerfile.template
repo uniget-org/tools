@@ -13,7 +13,7 @@ COPY --link --from=make / /usr/local/
 WORKDIR /go/src/git.zx2c4.com/wireguard-go
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
 check-clone https://git.zx2c4.com/wireguard-go "${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" https://git.zx2c4.com/wireguard-go .
 make -j$(nproc)

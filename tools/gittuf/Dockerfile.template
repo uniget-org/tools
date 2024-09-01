@@ -7,11 +7,18 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "gittuf/gittuf" "v${version}" "gittuf_${version}_linux_${alt_arch}"
-curl --silent --show-error --location --fail --output "${prefix}/bin/gittuf" \
-    "https://github.com/gittuf/gittuf/releases/download/v${version}/gittuf_${version}_linux_${alt_arch}"
-chmod +x "${prefix}/bin/gittuf"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/gittuf/gittuf/releases/download/v${version}/gittuf_${version}_linux_${alt_arch}"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "gittuf/gittuf" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/gittuf"
+
 
 "${prefix}/bin/gittuf" completion bash >"${prefix}/share/bash-completion/completions/gittuf"
 "${prefix}/bin/gittuf" completion fish >"${prefix}/share/fish/vendor_completions.d/gittuf.fish"

@@ -7,9 +7,16 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "squat/kilo" "${version}" "kgctl-linux-${alt_arch}"
-curl --silent --show-error --location --fail --output "${prefix}/bin/kgctl" \
-    "https://github.com/squat/kilo/releases/download/${version}/kgctl-linux-${alt_arch}"
-chmod +x "${prefix}/bin/kgctl"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/squat/kilo/releases/download/${version}/kgctl-linux-${alt_arch}"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "squat/kilo" "${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/kgctl"
+
 EOF

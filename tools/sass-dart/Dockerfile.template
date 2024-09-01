@@ -7,7 +7,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 echo "### Setting architecture string for ${TARGETPLATFORM}"
 case "${arch}" in
     x86_64)
@@ -23,10 +23,16 @@ case "${arch}" in
 esac
 echo "    Using ${arch_suffix}"
 
-check-github-release-asset "sass/dart-sass" "${version}" "dart-sass-${version}-linux-${arch_suffix}-musl.tar.gz"
+url="https://github.com/sass/dart-sass/releases/download/${version}/dart-sass-${version}-linux-${arch_suffix}-musl.tar.gz"
+filename="$(basename "${url}")"
+
+check-github-release-asset "sass/dart-sass" "${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
 mkdir -p "${prefix}/libexec/dart-sass"
-curl --silent --show-error --location --fail "https://github.com/sass/dart-sass/releases/download/${version}/dart-sass-${version}-linux-${arch_suffix}-musl.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/libexec/dart-sass" --strip-components=2 --no-same-owner \
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/libexec/dart-sass" --strip-components=2 --no-same-owner \
     dart-sass/src/sass.snapshot
 EOF
 COPY --chmod=0755 <<EOF /uniget_bootstrap/bin/sass

@@ -7,7 +7,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 echo "### Setting architecture string for ${TARGETPLATFORM}"
 case "${arch}" in
     x86_64)
@@ -23,12 +23,17 @@ case "${arch}" in
 esac
 echo "    Using ${arch_suffix}"
 
-check-github-release-asset "alexellis/arkade" "${version}" "arkade${arch_suffix}"
+url="https://github.com/alexellis/arkade/releases/download/${version}/arkade${arch_suffix}"
+filename="$( basename "${url}" )"
 
-echo "### Downloading arkade ${version}"
-curl --silent --show-error --location --fail --output "${prefix}/bin/arkade" \
-    "https://github.com/alexellis/arkade/releases/download/${version}/arkade${arch_suffix}"
-chmod +x "${prefix}/bin/arkade"
+check-github-release-asset "alexellis/arkade" "${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/arkade"
+
 
 "${prefix}/bin/arkade" completion bash >"${prefix}/share/bash-completion/completions/arkade"
 "${prefix}/bin/arkade" completion fish >"${prefix}/share/fish/vendor_completions.d/arkade.fish"

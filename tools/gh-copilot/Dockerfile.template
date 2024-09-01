@@ -10,7 +10,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=gh / /usr/local/
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 check-github-release-asset "github/gh-copilot" "v${version}" "linux-${alt_arch}"
 mkdir -p "${prefix}/share/gh/extensions/gh-copilot"
 curl --silent --show-error --location --fail --output "${prefix}/share/gh/extensions/gh-copilot/gh-copilot" \

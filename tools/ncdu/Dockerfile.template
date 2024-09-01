@@ -7,8 +7,14 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-check-download "https://dev.yorhel.nl/download/ncdu-${version}-linux-${arch}.tar.gz"
-curl --silent --show-error --location --fail "https://dev.yorhel.nl/download/ncdu-${version}-linux-${arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://dev.yorhel.nl/download/ncdu-${version}-linux-${arch}.tar.gz"
+filename="$( basename "${url}" )"
+
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin/" --no-same-owner
 EOF

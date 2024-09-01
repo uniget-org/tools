@@ -7,11 +7,18 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "kubernetes/minikube" "v${version}" "minikube-linux-${alt_arch}"
-curl --silent --show-error --location --fail --output "${prefix}/bin/minikube" \
-    "https://github.com/kubernetes/minikube/releases/download/v${version}/minikube-linux-${alt_arch}"
-chmod +x "${prefix}/bin/minikube"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/kubernetes/minikube/releases/download/v${version}/minikube-linux-${alt_arch}"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "kubernetes/minikube" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/minikube"
+
 "${prefix}/bin/minikube" completion bash >"${prefix}/share/bash-completion/completions/minikube"
 "${prefix}/bin/minikube" completion fish >"${prefix}/share/fish/vendor_completions.d/minikube.fish"
 "${prefix}/bin/minikube" completion zsh >"${prefix}/share/zsh/vendor-completions/_minikube"

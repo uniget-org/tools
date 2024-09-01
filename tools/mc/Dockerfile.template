@@ -7,17 +7,20 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://dl.min.io/client/mc/release/linux-${alt_arch}/mc.RELEASE.${version}"
+filename="$(basename "${url}")"
 
-RUN <<EOF
-curl --silent --show-error --location --fail --output "${prefix}/bin/mc" \
-    "https://dl.min.io/client/mc/release/linux-${alt_arch}/mc.RELEASE.${version}"
-chmod +x "${prefix}/bin/mc"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/mc"
 EOF
-
 COPY <<EOF /uniget_bootstrap/share/bash-completion/completions/mc
 complete -C /bin/mc mc
 EOF
-
 COPY <<EOF /uniget_bootstrap/share/fish/vendor_completions.d/mc.fish
 function __complete_mc
     set -lx COMP_LINE (commandline -cp)

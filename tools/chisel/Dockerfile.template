@@ -7,7 +7,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 check-github-release-asset "jpillora/chisel" "v${version}" "chisel_${version}_linux_${alt_arch}.gz"
 curl --silent --show-error --location --fail "https://github.com/jpillora/chisel/releases/download/v${version}/chisel_${version}_linux_${alt_arch}.gz" \
 | gunzip \

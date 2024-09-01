@@ -7,10 +7,16 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "mutagen-io/mutagen" "v${version}" "mutagen_linux_${alt_arch}_v${version}.tar.gz"
-curl --silent --show-error --location --fail "https://github.com/mutagen-io/mutagen/releases/download/v${version}/mutagen_linux_${alt_arch}_v${version}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin" --no-same-owner
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/mutagen-io/mutagen/releases/download/v${version}/mutagen_linux_${alt_arch}_v${version}.tar.gz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "mutagen-io/mutagen" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin" --no-same-owner
 ${prefix}/bin/mutagen generate \
     "--bash-completion-script=${prefix}/share/bash-completion/completions/${name}" \
     "--fish-completion-script=${prefix}/share/fish/vendor_completions.d/${name}.fish" \
@@ -18,7 +24,7 @@ ${prefix}/bin/mutagen generate \
 
 mkdir -p "${prefix}/libexec/mutagen"
 tar --extract --gzip \
-    --file "${prefix}/bin/mutagen-agents.tar.gz" \
-    --directory "${prefix}/libexec/mutagen"
+    --file="${prefix}/bin/mutagen-agents.tar.gz" \
+    --directory="${prefix}/libexec/mutagen"
 rm "${prefix}/bin/mutagen-agents.tar.gz"
 EOF

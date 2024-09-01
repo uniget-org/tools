@@ -7,7 +7,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
+RUN <<EOF # download cache
 check-download "https://binaries.cockroachdb.com/cockroach-v${version}.linux-${alt_arch}.tgz"
 curl --silent --show-error --location --fail "https://binaries.cockroachdb.com/cockroach-v${version}.linux-${alt_arch}.tgz" \
 | tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner

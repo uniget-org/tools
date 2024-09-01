@@ -5,10 +5,17 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
+WORKDIR /uniget_bootstrap/opt/jenkins
 ARG name
 ARG version
-RUN <<EOF
-mkdir -p "${prefix}/opt/jenkins"
-curl --silent --show-error --location --fail --output "${prefix}/opt/jenkins/remoting.jar" \
-    "https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/${version}/remoting-${version}.jar"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/${version}/remoting-${version}.jar"
+filename="$(basename "${url}")"
+
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0644 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/opt/jenkins/${filename}"
 EOF

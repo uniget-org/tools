@@ -5,15 +5,20 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-
 ARG name
 ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/project-zot/zot/releases/download/v${version}/zot-linux-${alt_arch}"
+filename="$( basename "${url}" )"
 
-RUN <<EOF
-check-github-release-asset "project-zot/zot" "v${version}" "zot-linux-${alt_arch}"
-curl --silent --show-error --location --fail --output "${prefix}/bin/zot" \
-    "https://github.com/project-zot/zot/releases/download/v${version}/zot-linux-${alt_arch}"
-chmod +x "${prefix}/bin/zot"
+check-github-release-asset "project-zot/zot" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/zot"
+
 "${prefix}/bin/zot" completion bash >"${prefix}/share/bash-completion/completions/zot"
 "${prefix}/bin/zot" completion fish >"${prefix}/share/fish/vendor_completions.d/zot.fish"
 "${prefix}/bin/zot" completion zsh >"${prefix}/share/zsh/vendor-completions/_zot"

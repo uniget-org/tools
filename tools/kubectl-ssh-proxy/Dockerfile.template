@@ -7,10 +7,16 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "little-angry-clouds/kubectl-ssh-proxy" "${version}" "kubectl-ssh-proxy-linux-amd64.tar.gz"
-curl --silent --show-error --location --fail "https://github.com/little-angry-clouds/kubectl-ssh-proxy/releases/download/${version}/kubectl-ssh-proxy-linux-amd64.tar.gz" \
-| tar --extract --gzip --directory="${prefix}" --no-same-owner
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/little-angry-clouds/kubectl-ssh-proxy/releases/download/${version}/kubectl-ssh-proxy-linux-amd64.tar.gz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "little-angry-clouds/kubectl-ssh-proxy" "${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}" --no-same-owner
 mv "${prefix}/bin/kubectl-ssh_proxy-linux-amd64" "${prefix}/bin/kubectl-ssh_proxy"
 mv "${prefix}/bin/kube-ssh-proxy-ssh-bin-linux-amd64" "${prefix}/bin/kube-ssh-proxy-ssh-bin"
 EOF

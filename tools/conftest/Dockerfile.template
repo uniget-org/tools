@@ -5,14 +5,18 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-
 ARG name
 ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/open-policy-agent/conftest/releases/download/v${version}/conftest_${version}_Linux_${arch}.tar.gz"
+filename="$( basename "${url}" )"
 
-RUN <<EOF
-check-github-release-asset "open-policy-agent/conftest" "v${version}" "conftest_${version}_Linux_${arch}.tar.gz"
-curl --silent --show-error --location --fail "https://github.com/open-policy-agent/conftest/releases/download/v${version}/conftest_${version}_Linux_${arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin" --no-same-owner \
+check-github-release-asset "open-policy-agent/conftest" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin" --no-same-owner \
     conftest
 "${prefix}/bin/conftest" completion bash >"${prefix}/share/bash-completion/completions/conftest"
 "${prefix}/bin/conftest" completion fish >"${prefix}/share/fish/vendor_completions.d/conftest.fish"

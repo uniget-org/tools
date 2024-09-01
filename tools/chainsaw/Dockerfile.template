@@ -10,26 +10,29 @@ SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=cosign / /usr/local/
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "kyverno/chainsaw" "v${version}" "chainsaw_linux_amd64.tar.gz"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/kyverno/chainsaw/releases/download/v${version}/chainsaw_linux_${alt_arch}.tar.gz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "kyverno/chainsaw" "v${version}" "${filename}"
 echo "### Downloading chainsaw ${version}"
-curl --silent --show-error --location --fail --remote-name \
-      "https://github.com/kyverno/chainsaw/releases/download/v${version}/chainsaw_linux_${alt_arch}.tar.gz"
-echo "    - SHA256: $(cat chainsaw_linux_${alt_arch}.tar.gz | sha256sum  | cut -d' ' -f1)"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+echo "    - SHA256: $(cat ${uniget_cache_download}/${filename} | sha256sum  | cut -d' ' -f1)"
 
 echo "### Checking keyless signature for chainsaw ${version}"
-curl --silent --show-error --location --fail --remote-name \
-      "https://github.com/kyverno/chainsaw/releases/download/v${version}/chainsaw_linux_${alt_arch}.tar.gz.pem"
-curl --silent --show-error --location --fail --remote-name \
-      "https://github.com/kyverno/chainsaw/releases/download/v${version}/chainsaw_linux_${alt_arch}.tar.gz.sig"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.pem" \
+      "${url}.pem"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.sig" \
+      "${url}.sig"
 SHA="$(
     git ls-remote --tags https://github.com/kyverno/chainsaw "v${version}^{}" \
     | cut -f1
 )"
 echo "    - SHA: ${SHA}"
 COSIGN_EXPERIMENTAL=1 cosign verify-blob \
-    --cert "chainsaw_linux_${alt_arch}.tar.gz.pem" \
-    --signature "chainsaw_linux_${alt_arch}.tar.gz.sig" \
+    --cert "${uniget_cache_download}/${filename}.pem" \
+    --signature "${uniget_cache_download}/${filename}.sig" \
     --certificate-oidc-issuer "https://token.actions.githubusercontent.com" \
     --certificate-identity "https://github.com/kyverno/chainsaw/.github/workflows/release.yaml@refs/tags/v${version}" \
     --certificate-github-workflow-name "Release" \
@@ -37,12 +40,12 @@ COSIGN_EXPERIMENTAL=1 cosign verify-blob \
     --certificate-github-workflow-repository "kyverno/chainsaw" \
     --certificate-github-workflow-sha "${SHA}" \
     --certificate-github-workflow-trigger push \
-    "chainsaw_linux_${alt_arch}.tar.gz"
+    "${uniget_cache_download}/${filename}"
 
 echo "### Installing chainsaw ${version}"
-tar --extract --gzip --directory="${prefix}/bin" --file "chainsaw_linux_${alt_arch}.tar.gz" \
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin" \
     chainsaw
-rm -f "chainsaw_linux_${alt_arch}.tar.gz"
 
 "${prefix}/bin/chainsaw" completion bash >"${prefix}/share/bash-completion/completions/chainsaw"
 "${prefix}/bin/chainsaw" completion fish >"${prefix}/share/fish/vendor_completions.d/chainsaw.fish"

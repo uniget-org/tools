@@ -5,12 +5,16 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-
 ARG name
 ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://amazon-ecr-credential-helper-releases.s3.us-east-2.amazonaws.com/${version}/linux-${alt_arch}/docker-credential-ecr-login"
+filename="$(basename "${url}")"
 
-RUN <<EOF
-curl --silent --show-error --location --fail --output "${prefix}/bin/docker-credential-ecr-login" \
-    "https://amazon-ecr-credential-helper-releases.s3.us-east-2.amazonaws.com/${version}/linux-${alt_arch}/docker-credential-ecr-login"
-chmod +x "${prefix}/bin/docker-credential-ecr-login"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/docker-credential-ecr-login"
 EOF

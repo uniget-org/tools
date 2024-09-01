@@ -8,9 +8,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --link --from=go / /usr/local/
-COPY --link --from=make / /usr/local/
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/apt <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
     apt-utils \
@@ -32,6 +30,8 @@ apt-get -y install --no-install-recommends \
     pkg-config \
     xz-utils
 EOF
+COPY --link --from=go / /usr/local/
+COPY --link --from=make / /usr/local/
 WORKDIR /tmp/libnvidia-container
 ARG name
 ARG version

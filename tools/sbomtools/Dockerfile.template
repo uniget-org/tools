@@ -12,7 +12,7 @@ COPY --link --from=python / /usr/local/
 COPY --link --from=shiv / /usr/local/
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/root/.cache/pip <<EOF
 for BINARY in sbomgrep sbomls sbomrm sbomupdate; do
     shiv --output-file "${prefix}/bin/${BINARY}" --console-script "${BINARY}" "sbomtools==${version}"
 done

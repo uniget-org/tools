@@ -7,10 +7,17 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-curl --silent --show-error --location --fail "https://dl.influxdata.com/influxdb/releases/influxdb2-client-${version}-linux-${alt_arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin/" --strip-component=1 --no-same-owner \
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://dl.influxdata.com/influxdb/releases/influxdb2-client-${version}-linux-${alt_arch}.tar.gz"
+filename="$(basename "${url}")"
+
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin/" --strip-component=1 --no-same-owner \
     "./influx"
+
 "${prefix}/bin/influx" completion bash >"${prefix}/share/bash-completion/completions/influx"
 "${prefix}/bin/influx" completion zsh >"${prefix}/share/zsh/vendor-completions/_influx"
 EOF

@@ -7,7 +7,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 case "${alt_arch}" in
     amd64)
         export suffix="musl"
@@ -21,15 +21,18 @@ case "${alt_arch}" in
         ;;
 esac
 
-check-github-release-asset "sharkdp/hyperfine" "v${version}" "hyperfine-v${version}-${arch}-unknown-linux-${suffix}.tar.gz"
+url="https://github.com/sharkdp/hyperfine/releases/download/v${version}/hyperfine-v${version}-${arch}-unknown-linux-${suffix}.tar.gz"
+filename="$(basename "${url}")"
 
-echo "### Downloading hyperfine ${version}"
-curl --silent --show-error --location --fail "https://github.com/sharkdp/hyperfine/releases/download/v${version}/hyperfine-v${version}-${arch}-unknown-linux-${suffix}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
+check-github-release-asset "sharkdp/hyperfine" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
     "hyperfine-v${version}-${arch}-unknown-linux-${suffix}/hyperfine" \
     "hyperfine-v${version}-${arch}-unknown-linux-${suffix}/autocomplete"
 
-echo "### Installing completion"
 cp "${prefix}/bin/autocomplete/hyperfine.bash" "${prefix}/share/bash-completion/completions/hyperfine"
 cp "${prefix}/bin/autocomplete/hyperfine.fish" "${prefix}/share/fish/vendor_completions.d/hyperfine.fish"
 cp "${prefix}/bin/autocomplete/_hyperfine" "${prefix}/share/zsh/vendor-completions/_hyperfine"

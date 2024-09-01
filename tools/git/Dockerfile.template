@@ -5,8 +5,8 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-RUN <<EOF
-apk add \
+RUN --mount=type=cache,target=/var/cache/apk <<EOF
+apk add --update-cache \
     curl-static \
     expat-static \
     gettext-static \

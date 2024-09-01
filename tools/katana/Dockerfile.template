@@ -7,11 +7,15 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "projectdiscovery/katana" "v${version}" "katana_${version}_linux_${alt_arch}.zip"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 url="https://github.com/projectdiscovery/katana/releases/download/v${version}/katana_${version}_linux_${alt_arch}.zip"
-filename="$(basename "${url}")"
-curl --silent --show-error --location --fail --remote-name "${url}"
-unzip -q -o -d "${prefix}/bin" "${filename}" \
+filename="$( basename "${url}" )"
+
+check-github-release-asset "projectdiscovery/katana" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+unzip -t "${uniget_cache_download}/${filename}"
+unzip -q -o -d "${prefix}/bin" "${uniget_cache_download}/${filename}" \
     katana
 EOF

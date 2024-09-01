@@ -7,7 +7,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 check-github-release-asset "argoproj/argo-workflows" "v${version}" "argo-linux-${alt_arch}.gz"
 curl --silent --show-error --location --fail "https://github.com/argoproj/argo-workflows/releases/download/v${version}/argo-linux-${alt_arch}.gz" \
 | gunzip \

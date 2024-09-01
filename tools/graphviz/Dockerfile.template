@@ -6,8 +6,8 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
 ARG DEBIAN_FRONTEND=noninteractive
-RUN <<EOF
-apk add --update-cache --no-cache \
+RUN --mount=type=cache,target=/var/cache/apk <<EOF
+apk add --update-cache \
     python3 \
     libltdl \
     libltdl-static \
@@ -18,10 +18,17 @@ EOF
 WORKDIR /tmp/graphviz
 ARG name
 ARG version
-RUN <<EOF
-check-download "https://gitlab.com/graphviz/graphviz/-/archive/${version}/graphviz-${version}.tar.gz"
-curl --silent --show-error --location --fail "https://gitlab.com/graphviz/graphviz/-/archive/${version}/graphviz-${version}.tar.gz" \
-| tar --extract --gzip --strip-components=1
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://gitlab.com/graphviz/graphviz/-/archive/${version}/graphviz-${version}.tar.gz"
+filename="$( basename "${url}" )"
+
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --strip-components=1
+
 ./autogen.sh
 ./configure \
     --prefix="${prefix}" \

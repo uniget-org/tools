@@ -5,10 +5,8 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-
 ARG name
 ARG version
-
 COPY docker /uniget_bootstrap/libexec/podman/
 RUN <<EOF
 ln --symbolic --relative --force "${prefix}/libexec/podman/docker" "/bin/docker"

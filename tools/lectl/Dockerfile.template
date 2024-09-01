@@ -5,12 +5,16 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-
 ARG name
 ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/sahsanu/lectl/raw/v${version}/lectl"
+filename="$(basename "${url}")"
 
-RUN <<EOF
-curl --silent --show-error --location --fail --output "${prefix}/bin/lectl" \
-    "https://github.com/sahsanu/lectl/raw/v${version}/lectl"
-chmod +x "${prefix}/bin/lectl"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/lectl"
 EOF

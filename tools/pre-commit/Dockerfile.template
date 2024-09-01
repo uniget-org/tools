@@ -12,6 +12,6 @@ COPY --link --from=python / /usr/local/
 COPY --link --from=shiv / /usr/local/
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/root/.cache/pip <<EOF
 shiv --output-file "${prefix}/bin/pre-commit" --console-script pre-commit "pre-commit==${version}"
 EOF

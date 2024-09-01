@@ -7,11 +7,15 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 url="https://github.com/opentofu/opentofu/releases/download/v${version}/tofu_${version}_linux_${alt_arch}.zip"
-check-github-release-asset "opentofu/opentofu" "v${version}" "tofu_${version}_linux_${alt_arch}.zip"
 filename="$(basename "${url}")"
-curl --silent --show-error --location --fail --remote-name "${url}"
-unzip -q -o -d "${prefix}/bin" "${filename}" \
+
+check-github-release-asset "opentofu/opentofu" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+unzip -t "${uniget_cache_download}/${filename}"
+unzip -q -o -d "${prefix}/bin" "${uniget_cache_download}/${filename}" \
     tofu
 EOF

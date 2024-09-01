@@ -354,7 +354,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "foo/bar",
+      "depNameTemplate": "warpstreamlabs/bento",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/bento/manifest.yaml$"
@@ -2025,18 +2025,6 @@
         "version: \"?(?<currentValue>.*?)\"?\\n"
       ],
       "versioningTemplate": "loose"
-    },
-    {
-      "customType": "regex",
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "safe-waters/docker-lock",
-      "extractVersionTemplate": "^v(?<version>.+)$",
-      "fileMatch": [
-        "^tools/docker-lock/manifest.yaml$"
-      ],
-      "matchStrings": [
-        "version: \"?(?<currentValue>.*?)\"?\\n"
-      ]
     },
     {
       "customType": "regex",

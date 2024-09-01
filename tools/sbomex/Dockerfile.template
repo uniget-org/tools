@@ -7,11 +7,18 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "interlynk-io/sbomex" "v${version}" "sbomex-linux-${alt_arch}"
-curl --silent --show-error --location --fail --output "${prefix}/bin/sbomex" \
-    "https://github.com/interlynk-io/sbomex/releases/download/v${version}/sbomex-linux-${alt_arch}"
-chmod +x "${prefix}/bin/sbomex"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/interlynk-io/sbomex/releases/download/v${version}/sbomex-linux-${alt_arch}"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "interlynk-io/sbomex" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/sbomex"
+
 
 "${prefix}/bin/sbomex" completion bash >"${prefix}/share/bash-completion/completions/sbomex"
 "${prefix}/bin/sbomex" completion fish >"${prefix}/share/fish/vendor_completions.d/sbomex.fish"

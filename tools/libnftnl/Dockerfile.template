@@ -10,8 +10,8 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=make / /usr/local/
 COPY --link --from=libmnl / /usr/local/
-RUN <<EOF
-apk add --update-cache --no-cache \
+RUN --mount=type=cache,target=/var/cache/apk <<EOF
+apk add --update-cache \
     linux-headers
 EOF
 WORKDIR /tmp/libnftnl

@@ -7,9 +7,16 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "Yelp/dumb-init" "v${version}" "dumb-init_${version}_${arch}"
-curl --silent --show-error --location --fail --output "${prefix}/bin/dumb-init" \
-    "https://github.com/Yelp/dumb-init/releases/download/v${version}/dumb-init_${version}_${arch}"
-chmod +x "${prefix}/bin/dumb-init"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/Yelp/dumb-init/releases/download/v${version}/dumb-init_${version}_${arch}"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "Yelp/dumb-init" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/dumb-init"
+
 EOF

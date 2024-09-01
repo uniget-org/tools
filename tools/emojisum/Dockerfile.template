@@ -11,8 +11,7 @@ COPY --link --from=go / /usr/local/
 WORKDIR /go/src/github.com/emojisum/emojisum
 ARG name
 ARG version
-RUN <<EOF
-set -x
+RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
 check-clone https://github.com/emojisum/emojisum "draft+${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "draft+${version}" https://github.com/emojisum/emojisum .
 export CGO_ENABLED=0

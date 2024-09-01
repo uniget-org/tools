@@ -7,11 +7,18 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "open-telemetry/opentelemetry-collector" "cmd%2Fbuilder%2Fv${version}" "ocb_${version}_linux_${alt_arch}"
-curl --silent --show-error --location --fail --output "${prefix}/bin/ocb" \
-    "https://github.com/open-telemetry/opentelemetry-collector/releases/download/cmd%2Fbuilder%2Fv${version}/ocb_${version}_linux_${alt_arch}"
-chmod +x "${prefix}/bin/ocb"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/open-telemetry/opentelemetry-collector/releases/download/cmd%2Fbuilder%2Fv${version}/ocb_${version}_linux_${alt_arch}"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "open-telemetry/opentelemetry-collector" "cmd%2Fbuilder%2Fv${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/ocb"
+
 
 "${prefix}/bin/ocb" completion bash >"${prefix}/share/bash-completion/completions/ocb"
 "${prefix}/bin/ocb" completion fish >"${prefix}/share/fish/vendor_completions.d/ocb.fish"

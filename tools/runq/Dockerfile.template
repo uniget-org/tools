@@ -9,22 +9,22 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --link --from=go / /usr/local/
-COPY --link --from=make / /usr/local/
-COPY --link --from=tini / /usr/local/
-RUN <<EOF
-apk add --update-cache --no-cache \
+RUN --mount=type=cache,target=/var/cache/apk <<EOF
+apk add --update-cache \
     libseccomp-dev \
     libseccomp-static
 EOF
+COPY --link --from=go / /usr/local/
+COPY --link --from=make / /usr/local/
+COPY --link --from=tini / /usr/local/
 WORKDIR /go/src/github.com/gotoz/runq
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" --recurse-submodules https://github.com/gotoz/runq .
 make -j$(nproc)
 EOF
-RUN <<EOF
+RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
 mkdir -p /var/lib/runq/qemu
 mv /usr/local/bin/tini /usr/bin/docker-init
 export QEMU_ROOT="${prefix}/var/lib/runq"

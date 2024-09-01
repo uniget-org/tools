@@ -7,9 +7,8 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 check-github-release-asset "marcosnils/bin" "v${version}" "bin_${version}_linux_${alt_arch}"
-
 echo "### Downloading bin ${version}"
 curl --silent --show-error --location --fail --output "${prefix}/bin/bin" \
     "https://github.com/marcosnils/bin/releases/download/v${version}/bin_${version}_linux_${alt_arch}"

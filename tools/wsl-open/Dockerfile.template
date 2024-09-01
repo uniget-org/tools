@@ -5,15 +5,20 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-
 ARG name
 ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/4U6U57/wsl-open/raw/v${version}/wsl-open.sh"
+filename="$( basename "${url}" )"
 
-RUN <<EOF
-check-download "https://github.com/4U6U57/wsl-open/raw/v${version}/wsl-open.sh"
-curl --silent --show-error --location --fail --output "${prefix}/bin/wsl-open" \
-    "https://github.com/4U6U57/wsl-open/raw/v${version}/wsl-open.sh"
-chmod +x "${prefix}/bin/wsl-open"
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/wsl-open"
+
 
 check-download "https://github.com/4U6U57/wsl-open/raw/v${version}/wsl-open.1"
 curl --silent --show-error --location --fail --output "${prefix}/share/man/man1/wsl-open.1" \

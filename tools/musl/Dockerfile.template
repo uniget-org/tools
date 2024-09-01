@@ -17,14 +17,22 @@ EOF
 COPY <<"EOF" /uniget_bootstrap/etc/ld.so.conf.d/musl.conf.go-template
 {{ .Target }}/lib
 EOF
-RUN <<EOF
-curl --silent --show-error --location --fail https://musl.libc.org/releases/musl-${version}.tar.gz \
-| tar --extract --gzip --strip-components=1 --no-same-owner
-# install to lib/x86_64-linux-musl?
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://musl.libc.org/releases/musl-${version}.tar.gz"
+filename="$(basename "${url}")"
+
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --strip-components=1 --no-same-owner
+
 ./configure --prefix="${prefix}"
 make -j"$(nproc)"
 make install
 ln --symbolic --relative --force "${prefix}/lib/libc.so" "${prefix}/lib/libc.musl-x86_64.so.1"
+
 # fix paths in bin/musl-gcc
 # fix paths in lib/musl-gcc.specs
 EOF

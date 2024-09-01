@@ -5,14 +5,18 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-
 ARG name
 ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/ContainerSSH/ContainerSSH/releases/download/v${version}/containerssh_${version}_linux_${alt_arch}.tar.gz"
+filename="$( basename "${url}" )"
 
-RUN <<EOF
-check-github-release-asset "ContainerSSH/ContainerSSH" "v${version}" "containerssh_${version}_linux_${alt_arch}.tar.gz"
-curl --silent --show-error --location --fail "https://github.com/ContainerSSH/ContainerSSH/releases/download/v${version}/containerssh_${version}_linux_${alt_arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin" --no-same-owner \
+check-github-release-asset "ContainerSSH/ContainerSSH" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin" --no-same-owner \
     containerssh \
     containerssh-auditlog-decoder \
     containerssh-testauthconfigserver

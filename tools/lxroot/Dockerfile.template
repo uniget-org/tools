@@ -5,9 +5,9 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/apk <<EOF
 apk update
-apk add \
+apk add --update-cache \
     wget
 EOF
 WORKDIR /tmp/lxroot

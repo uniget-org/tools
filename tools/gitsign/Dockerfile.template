@@ -11,26 +11,27 @@ COPY --link --from=cosign / /usr/local/
 ARG name
 ARG version
 COPY gitsign-credential-cache.sh /uniget_bootstrap/etc/profile.d/
-RUN <<EOF
-check-github-release-asset "sigstore/gitsign" "v${version}" "gitsign_${version}_linux_${alt_arch}"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/sigstore/gitsign/releases/download/v${version}/gitsign_${version}_linux_${alt_arch}"
+filename="$( basename "${url}" )"
 
+check-github-release-asset "sigstore/gitsign" "v${version}" "${filename}"
 echo "### Installing gitsign ${version}"
-curl --silent --show-error --location --fail --output "${prefix}/bin/gitsign" \
-    "https://github.com/sigstore/gitsign/releases/download/v${version}/gitsign_${version}_linux_${alt_arch}"
-chmod +x "${prefix}/bin/gitsign"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
 
 echo "### Checking keyless signature for gitsign ${version}"
-curl --silent --show-error --location --fail --output "gitsign_${version}_linux_${alt_arch}.pem" \
-    "https://github.com/sigstore/gitsign/releases/download/v${version}/gitsign_${version}_linux_${alt_arch}.pem"
-curl --silent --show-error --location --fail --output "gitsign_${version}_linux_${alt_arch}.sig" \
-    "https://github.com/sigstore/gitsign/releases/download/v${version}/gitsign_${version}_linux_${alt_arch}.sig"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.pem" \
+    "${url}.pem"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.sig" \
+    "${url}.sig"
 SHA="$(
     git ls-remote --tags https://github.com/sigstore/gitsign "v${version}^{}" \
     | cut -f1
 )"
 COSIGN_EXPERIMENTAL=1 cosign verify-blob \
-    --cert "gitsign_${version}_linux_${alt_arch}.pem" \
-    --signature "gitsign_${version}_linux_${alt_arch}.sig" \
+    --cert "${uniget_cache_download}/${filename}.pem" \
+    --signature "${uniget_cache_download}/${filename}.sig" \
     --certificate-oidc-issuer https://token.actions.githubusercontent.com \
     --certificate-identity "https://github.com/sigstore/gitsign/.github/workflows/release.yml@refs/tags/v${version}" \
     --certificate-github-workflow-name release \
@@ -38,25 +39,30 @@ COSIGN_EXPERIMENTAL=1 cosign verify-blob \
     --certificate-github-workflow-repository "sigstore/gitsign" \
     --certificate-github-workflow-sha "${SHA}" \
     --certificate-github-workflow-trigger push \
+    "${uniget_cache_download}/${filename}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
     "${prefix}/bin/gitsign"
-rm -f "gitsign_${version}_linux_${alt_arch}.pem" "gitsign_${version}_linux_${alt_arch}.sig"
 EOF
-RUN <<EOF
-check-github-release-asset "sigstore/gitsign" "v${version}" "gitsign-credential-cache_${version}_linux_${alt_arch}"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/sigstore/gitsign/releases/download/v${version}/gitsign-credential-cache_${version}_linux_${alt_arch}"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "sigstore/gitsign" "v${version}" "${filename}"
 
 echo "### Installing gitsign-credential-cache ${version}"
-curl --silent --show-error --location --fail --output "${prefix}/bin/gitsign-credential-cache" \
-    "https://github.com/sigstore/gitsign/releases/download/v${version}/gitsign-credential-cache_${version}_linux_${alt_arch}"
-chmod +x "${prefix}/bin/gitsign-credential-cache"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
 
 echo "### Checking keyless signature for gitsign-credential-cache ${version}"
-curl --silent --show-error --location --fail --output "gitsign-credential-cache_${version}_linux_${alt_arch}.pem" \
-    "https://github.com/sigstore/gitsign/releases/download/v${version}/gitsign-credential-cache_${version}_linux_${alt_arch}.pem"
-curl --silent --show-error --location --fail --output "gitsign-credential-cache_${version}_linux_${alt_arch}.sig" \
-    "https://github.com/sigstore/gitsign/releases/download/v${version}/gitsign-credential-cache_${version}_linux_${alt_arch}.sig"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.pem" \
+    "${url}.pem"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.sig" \
+    "${url}.sig"
 COSIGN_EXPERIMENTAL=1 cosign verify-blob \
-    --cert "gitsign-credential-cache_${version}_linux_${alt_arch}.pem" \
-    --signature "gitsign-credential-cache_${version}_linux_${alt_arch}.sig" \
+    --cert "${uniget_cache_download}/${filename}.pem" \
+    --signature "${uniget_cache_download}/${filename}.sig" \
     --certificate-oidc-issuer https://token.actions.githubusercontent.com \
     --certificate-identity "https://github.com/sigstore/gitsign/.github/workflows/release.yml@refs/tags/v${version}" \
     --certificate-github-workflow-name release \
@@ -64,8 +70,11 @@ COSIGN_EXPERIMENTAL=1 cosign verify-blob \
     --certificate-github-workflow-repository "sigstore/gitsign" \
     --certificate-github-workflow-sha "${SHA}" \
     --certificate-github-workflow-trigger push \
+    "${uniget_cache_download}/${filename}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
     "${prefix}/bin/gitsign-credential-cache"
-rm -f "gitsign-credential-cache_${version}_linux_${alt_arch}.pem" "gitsign-credential-cache_${version}_linux_${alt_arch}.sig"
 EOF
 RUN <<EOF
 "${prefix}/bin/gitsign" completion bash >"${prefix}/share/bash-completion/completions/gitsign"

@@ -5,15 +5,20 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-
 ARG name
 ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/openfaas/faasd/releases/download/${version}/faasd"
+filename="$( basename "${url}" )"
 
-RUN <<EOF
-check-github-release-asset "openfaas/faasd" "${version}" "faasd"
-curl --silent --show-error --location --fail --output "${prefix}/bin/faasd" \
-    "https://github.com/openfaas/faasd/releases/download/${version}/faasd"
-chmod +x "${prefix}/bin/faasd"
+check-github-release-asset "openfaas/faasd" "${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/faasd"
+
 
 curl --silent --show-error --location --fail --output "${prefix}/etc/systemd/system/faasd.service.go-template" \
     "https://github.com/openfaas/faasd/raw/${version}/hack/faasd.service"

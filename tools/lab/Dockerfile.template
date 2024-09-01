@@ -7,10 +7,16 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "zaquestion/lab" "v${version}" "lab_${version}_linux_${alt_arch}.tar.gz"
-curl --silent --show-error --location --fail "https://github.com/zaquestion/lab/releases/download/v${version}/lab_${version}_linux_${alt_arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin" --no-same-owner \
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/zaquestion/lab/releases/download/v${version}/lab_${version}_linux_${alt_arch}.tar.gz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "zaquestion/lab" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin" --no-same-owner \
     lab
 "${prefix}/bin/lab" completion bash >"${prefix}/share/bash-completion/completions/lab"
 "${prefix}/bin/lab" completion fish >"${prefix}/share/fish/vendor_completions.d/lab.fish"

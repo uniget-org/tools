@@ -7,18 +7,32 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-check-download "https://get.namespace.so/packages/nsc/v${version}/nsc_${version}_linux_${alt_arch}.tar.gz"
-curl --silent --show-error --location --fail "https://get.namespace.so/packages/nsc/v${version}/nsc_${version}_linux_${alt_arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://get.namespace.so/packages/nsc/v${version}/nsc_${version}_linux_${alt_arch}.tar.gz"
+filename="$( basename "${url}" )"
+
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     nsc \
     docker-credential-nsc
+EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://get.namespace.so/packages/ns/v${version}/ns_${version}_linux_${alt_arch}.tar.gz"
+filename="$( basename "${url}" )"
 
-check-download "https://get.namespace.so/packages/ns/v${version}/ns_${version}_linux_${alt_arch}.tar.gz"
-curl --silent --show-error --location --fail "https://get.namespace.so/packages/ns/v${version}/ns_${version}_linux_${alt_arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     ns
-    
+EOF
+RUN <<EOF    
 "${prefix}/bin/nsc" completion bash >"${prefix}/share/bash-completion/completions/nsc"
 "${prefix}/bin/nsc" completion fish >"${prefix}/share/fish/vendor_completions.d/nsc.fish"
 "${prefix}/bin/nsc" completion zsh >"${prefix}/share/zsh/vendor-completions/_nsc"

@@ -7,11 +7,14 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "andreazorzetto/yh" "v${version}" "yh-linux-amd64.zip"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 url="https://github.com/andreazorzetto/yh/releases/download/v${version}/yh-linux-amd64.zip"
-filename="$(basename "${url}")"
-echo "Downloading ${filename} from ${url}."
-curl --silent --show-error --location --fail --remote-name "${url}"
-unzip -q -o -d "${prefix}/bin" "${filename}"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "andreazorzetto/yh" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+unzip -t "${uniget_cache_download}/${filename}"
+unzip -q -o -d "${prefix}/bin" "${uniget_cache_download}/${filename}"
 EOF

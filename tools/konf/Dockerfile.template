@@ -17,10 +17,16 @@ case "\$(basename "\${SHELL}")" in
         ;;
 esac
 EOF
-RUN <<EOF
-check-github-release-asset "SimonTheLeg/konf-go" "v${version}" "konf-go_${version}_linux_${alt_arch}.tar.gz"
-curl --silent --show-error --location --fail "https://github.com/SimonTheLeg/konf-go/releases/download/v${version}/konf-go_${version}_linux_${alt_arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/SimonTheLeg/konf-go/releases/download/v${version}/konf-go_${version}_linux_${alt_arch}.tar.gz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "SimonTheLeg/konf-go" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     konf-go
 "${prefix}/bin/konf-go" completion bash >"${prefix}/share/bash-completion/completions/konf"
 "${prefix}/bin/konf-go" completion zsh >"${prefix}/share/zsh/vendor-completions/_konf"

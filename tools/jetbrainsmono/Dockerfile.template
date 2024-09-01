@@ -8,12 +8,16 @@ SHELL [ "bash", "-clo", "errexit" ]
 WORKDIR /tmp/jetbrainsmono
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "JetBrains/JetBrainsMono" "v${version}" "JetBrainsMono-2.304.zip"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 url="https://github.com/JetBrains/JetBrainsMono/releases/download/v2.304/JetBrainsMono-2.304.zip"
 filename="$(basename "${url}")"
-curl --silent --show-error --location --fail --remote-name "${url}"
-unzip -q -o "${filename}"
+
+check-github-release-asset "JetBrains/JetBrainsMono" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+unzip -t "${uniget_cache_download}/${filename}"
+unzip -q -o "${uniget_cache_download}/${filename}"
 
 mkdir -p \
     "${prefix}/share/jetbrainsmono" \

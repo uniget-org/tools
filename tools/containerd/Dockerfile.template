@@ -13,10 +13,16 @@ ARG version
 COPY 10-containerd-net.conflist "/uniget_bootstrap/etc/cni/net.d/"
 COPY runtimes.toml "/uniget_bootstrap/etc/containerd/conf.d/runtimes.toml"
 COPY snapshotters.toml "/uniget_bootstrap/etc/containerd/conf.d/snapshotters.toml"
-RUN <<EOF
-check-github-release-asset "containerd/containerd" "v${version}" "containerd-${version}-linux-${alt_arch}.tar.gz"
-curl --silent --show-error --location --fail "https://github.com/containerd/containerd/releases/download/v${version}/containerd-${version}-linux-${alt_arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}" --no-same-owner
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/containerd/containerd/releases/download/v${version}/containerd-${version}-linux-${alt_arch}.tar.gz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "containerd/containerd" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}" --no-same-owner
 
 curl --silent --show-error --location --fail --output "${prefix}/etc/systemd/system/containerd.service.go-template" \
     "https://github.com/containerd/containerd/raw/v${version}/containerd.service"

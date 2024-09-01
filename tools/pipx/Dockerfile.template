@@ -12,10 +12,6 @@ COPY --link --from=python / /usr/local/
 COPY --link --from=shiv / /usr/local/
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/root/.cache/pip <<EOF
 shiv --output-file "${prefix}/bin/pipx" --console-script pipx "pipx==${version}"
-
-#register-python-argcomplete              pipx >"${prefix}/share/bash-completion/completions/pipx"
-#register-python-argcomplete --shell fish pipx >"${prefix}/share/fish/vendor_completions.d/pipx.fish"
-#register-python-argcomplete              pipx >"${prefix}/share/zsh/vendor-completions/_pipx"
 EOF

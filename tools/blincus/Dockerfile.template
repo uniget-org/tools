@@ -7,11 +7,18 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-check-download "https://github.com/ublue-os/blincus/raw/${version}/blincus"
-curl --silent --show-error --location --fail --output "${prefix}/bin/blincus" \
-    "https://github.com/ublue-os/blincus/raw/${version}/blincus"
-chmod +x "${prefix}/bin/blincus"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/ublue-os/blincus/raw/${version}/blincus"
+filename="$( basename "${url}" )"
+
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/blincus"
+
 
 curl --silent --show-error --location --fail --output "${prefix}/share/bash-completion/completions/blincus" \
     "https://github.com/ublue-os/blincus/raw/${version}/completions/blincus"

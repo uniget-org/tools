@@ -5,8 +5,8 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 ENV CC=clang
-RUN <<EOF
-apk add --update-cache --no-cache \
+RUN --mount=type=cache,target=/var/cache/apk <<EOF
+apk add --update-cache \
     clang \
     openssl-dev \
     nghttp2-dev \
@@ -29,10 +29,16 @@ SHELL [ "bash", "-clo", "errexit" ]
 WORKDIR /tmp/curl
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "curl/curl" "curl-${version//./_}" "curl-${version}.tar.gz"
-curl --silent --show-error --location --fail "https://github.com/curl/curl/releases/download/curl-${version//./_}/curl-${version}.tar.gz" \
-| tar --extract --gzip --strip-components=1
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/curl/curl/releases/download/curl-${version//./_}/curl-${version}.tar.gz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "curl/curl" "curl-${version//./_}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --strip-components=1
 LDFLAGS="-static" \
 PKG_CONFIG="pkg-config --static" \
     ./configure \

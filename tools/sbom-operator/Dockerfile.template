@@ -10,21 +10,26 @@ SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=cosign / /usr/local/
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "ckotzbauer/sbom-operator" "${version}" "sbom-operator_${version}_linux_${alt_arch}.tar.gz"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/ckotzbauer/sbom-operator/releases/download/${version}/sbom-operator_${version}_linux_${alt_arch}.tar.gz"
+filename="$(basename "${url}")"
 
-echo "### Downloading sbom-operator ${version}"
-curl --silent --show-error --location --fail --remote-name "https://github.com/ckotzbauer/sbom-operator/releases/download/${version}/sbom-operator_${version}_linux_${alt_arch}.tar.gz"
-echo "    SHA256 checksum: $(sha256sum sbom-operator_${version}_linux_${alt_arch}.tar.gz | cut -d' ' -f1)"
+echo "### Downloading sbom-operator ${version} for ${alt_arch}"
+check-github-release-asset "ckotzbauer/sbom-operator" "${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+echo "    SHA256 checksum: $(sha256sum ${uniget_cache_download}/${filename} | cut -d' ' -f1)"
 
 echo "### Downloading signature and certificate"
-curl --silent --show-error --location --fail --remote-name "https://github.com/ckotzbauer/sbom-operator/releases/download/${version}/sbom-operator_${version}_linux_${alt_arch}.tar.gz.sig"
-curl --silent --show-error --location --fail --remote-name "https://github.com/ckotzbauer/sbom-operator/releases/download/${version}/sbom-operator_${version}_linux_${alt_arch}.tar.gz.pem"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.sig" \
+    "${url}.sig"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.pem" \
+    "${url}.pem"
 
 echo "### Verifying signature"
-COSIGN_EXPERIMENTAL=1 cosign verify-blob "sbom-operator_${version}_linux_${alt_arch}.tar.gz" \
-    --certificate "sbom-operator_${version}_linux_${alt_arch}.tar.gz.pem" \
-    --signature "sbom-operator_${version}_linux_${alt_arch}.tar.gz.sig" \
+COSIGN_EXPERIMENTAL=1 cosign verify-blob "${uniget_cache_download}/${filename}" \
+    --certificate "${uniget_cache_download}/${filename}.pem" \
+    --signature "${uniget_cache_download}/${filename}.sig" \
     --certificate-oidc-issuer https://token.actions.githubusercontent.com \
     --certificate-identity-regexp 'https://github.com/ckotzbauer/actions-toolkit/.github/workflows/toolkit-release-goreleaser.yml@.+' \
     --certificate-github-workflow-repository ckotzbauer/sbom-operator \
@@ -32,6 +37,8 @@ COSIGN_EXPERIMENTAL=1 cosign verify-blob "sbom-operator_${version}_linux_${alt_a
     --certificate-github-workflow-ref refs/heads/main \
     --certificate-github-workflow-trigger workflow_dispatch
 
-tar --extract --gzip --file "sbom-operator_${version}_linux_${alt_arch}.tar.gz" --directory="${prefix}/bin/" --no-same-owner \
+echo "### Installing sbom-operator ${version}"
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     sbom-operator
 EOF

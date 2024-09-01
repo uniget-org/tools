@@ -5,10 +5,8 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-
 ARG name
 ARG version
-
 RUN <<EOF
 mkdir -p "${prefix}/libexec/${name}/bin"
 EOF
@@ -21,14 +19,28 @@ export DOCKER_HOST=unix:///var/run/docker-preview.sock
 exec /libexec/${name}/bin/docker "\$@"
 EOF
 
-RUN <<EOF
-check-download "https://download.docker.com/linux/static/test/${arch}/docker-${version}.tgz"
-curl --silent --show-error --location --fail "https://download.docker.com/linux/static/test/${arch}/docker-${version}.tgz" \
-| tar --extract --gzip --directory="${prefix}/libexec/${name}/bin" --no-same-owner --strip-components=1
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://download.docker.com/linux/static/test/${arch}/docker-${version}.tgz"
+filename="$( basename "${url}" )"
 
-check-download "https://download.docker.com/linux/static/test/${arch}/docker-rootless-extras-${version}.tgz"
-curl --silent --show-error --location --fail "https://download.docker.com/linux/static/stable/${arch}/docker-rootless-extras-${version}.tgz" \
-| tar --extract --gzip --directory="${prefix}/libexec/${name}/bin" --no-same-owner --strip-components=1
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/libexec/${name}/bin" --no-same-owner --strip-components=1
+EOF
+
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://download.docker.com/linux/static/test/${arch}/docker-rootless-extras-${version}.tgz"
+filename="$( basename "${url}" )"
+
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/libexec/${name}/bin" --no-same-owner --strip-components=1
 EOF
 
 RUN <<EOF

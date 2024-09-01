@@ -8,11 +8,9 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --link --from=go / /usr/local/
-COPY --link --from=make / /usr/local/
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/apk <<EOF
 apk update
-apk add \
+apk add --update-cache \
     clang \
     linux-headers \
     elfutils-dev \
@@ -21,10 +19,12 @@ apk add \
     zlib-dev \
     zlib-static
 EOF
+COPY --link --from=go / /usr/local/
+COPY --link --from=make / /usr/local/
 WORKDIR /go/src/github.com/aquasecurity/tracee
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
 check-clone "https://github.com/aquasecurity/tracee" "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/aquasecurity/tracee .
 STATIC=1 make all

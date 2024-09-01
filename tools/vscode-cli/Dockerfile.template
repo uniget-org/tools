@@ -7,7 +7,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 echo "### Setting architecture string for ${TARGETPLATFORM}"
 case "${arch}" in
     x86_64)
@@ -23,8 +23,13 @@ case "${arch}" in
 esac
 echo "    Using ${arch_suffix}"
 
-check-download "https://update.code.visualstudio.com/${version}/cli-linux-${arch_suffix}/stable"
+url="https://update.code.visualstudio.com/${version}/cli-linux-${arch_suffix}/stable"
+filename="$(basename "${url}")"
 
-curl --silent --show-error --location --fail "https://update.code.visualstudio.com/${version}/cli-linux-${arch_suffix}/stable" \
-| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin/" --no-same-owner
 EOF

@@ -7,8 +7,13 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-curl --silent --show-error --location --fail --output "${prefix}/bin/dinit" \
-    "https://gitlab.com/tozd/dinit/-/releases/v${version}/downloads/linux-${alt_arch}/dinit"
-chmod +x "${prefix}/bin/dinit"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://gitlab.com/tozd/dinit/-/releases/v${version}/downloads/linux-${alt_arch}/dinit"
+filename="$(basename "${url}")"
+
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/dinit"
 EOF

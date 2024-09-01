@@ -7,7 +7,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 echo "### Setting architecture string for ${TARGETPLATFORM}"
 case "${arch}" in
     x86_64)
@@ -23,8 +23,14 @@ case "${arch}" in
 esac
 echo "    Using ${arch_suffix}"
 
-check-github-release-asset "sonatype-nexus-community/nancy" "v${version}" "nancy-v${version}-linux-${alt_arch}.tar.gz"
-curl --silent --show-error --location --fail "https://github.com/sonatype-nexus-community/nancy/releases/download/v${version}/nancy-v${version}-linux-${alt_arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
+url="https://github.com/sonatype-nexus-community/nancy/releases/download/v${version}/nancy-v${version}-linux-${alt_arch}.tar.gz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "sonatype-nexus-community/nancy" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     nancy
 EOF

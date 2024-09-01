@@ -7,13 +7,19 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 fixed_version="${version}"
 test "${version:0-2}" == ".0" && fixed_version="${version:0:-2}"
 url="https://services.gradle.org/distributions/gradle-${fixed_version}-bin.zip"
 filename="$(basename "${url}")"
-curl --silent --show-error --location --fail --remote-name "${url}"
-unzip -q -o -d "${prefix}/opt" "${filename}"
+
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+unzip -t "${uniget_cache_download}/${filename}"
+unzip -q -o -d "${prefix}/opt" "${uniget_cache_download}/${filename}"
+
 mv "${prefix}/opt/gradle-${fixed_version}" "${prefix}/opt/gradle"
 ln --symbolic --relative --force "${prefix}/opt/gradle/bin/gradle" "${prefix}/bin/gradle"
 EOF

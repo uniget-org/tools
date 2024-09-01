@@ -7,7 +7,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 echo "### Setting architecture string for ${TARGETPLATFORM}"
 case "${arch}" in
     x86_64)
@@ -23,10 +23,15 @@ case "${arch}" in
 esac
 echo "    Using ${arch_suffix}"
 
-check-github-release-asset "segersniels/supdock" "${version}" "supdock-${arch_suffix}-linux"
+url="https://github.com/segersniels/supdock/releases/download/${version}/supdock-${arch_suffix}-linux"
+filename="$( basename "${url}" )"
 
-echo "### Downloading supdock"
-curl --silent --show-error --location --fail --output "${prefix}/bin/supdock" \
-    "https://github.com/segersniels/supdock/releases/download/${version}/supdock-${arch_suffix}-linux"
-chmod +x "${prefix}/bin/supdock"
+check-github-release-asset "segersniels/supdock" "${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/supdock"
+
 EOF
