@@ -1,21 +1,37 @@
 #syntax=docker/dockerfile:1.9.0@sha256:fe40cf4e92cd0c467be2cfc30657a680ae2398318afd50b0c80585784c604f28
 
-FROM ghcr.io/uniget-org/images/ubuntu:24.04 AS prepare
+FROM ghcr.io/uniget-org/tools/make:latest AS make
+FROM ghcr.io/uniget-org/tools/go:latest AS go
+
+FROM ghcr.io/uniget-org/images/build-base:3.20 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
+COPY --link --from=go / /usr/local/
+COPY --link --from=make / /usr/local/
+RUN <<EOF
+apk update
+apk add \
+    clang \
+    linux-headers \
+    elfutils-dev \
+    zstd-dev \
+    zstd-static \
+    zlib-dev \
+    zlib-static
+EOF
+WORKDIR /go/src/github.com/aquasecurity/tracee
 ARG name
 ARG version
 RUN <<EOF
-check-github-release-asset "aquasecurity/tracee" "v${version}" "tracee-${arch}.v${version}.tar.gz"
-curl --silent --show-error --location --fail "https://github.com/aquasecurity/tracee/releases/download/v${version}/tracee-${arch}.v${version}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin/" --strip-components=2 --no-same-owner \
-    ./dist/
-mv "${prefix}/bin/tracee-static" "${prefix}/bin/tracee"
-mv "${prefix}/bin/tracee-ebpf-static" "${prefix}/bin/tracee-ebpf"
-
-"${prefix}/bin/tracee" completion bash >"${prefix}/share/bash-completion/completions/tracee"
-"${prefix}/bin/tracee" completion fish >"${prefix}/share/fish/vendor_completions.d/tracee.fish"
-"${prefix}/bin/tracee" completion zsh >"${prefix}/share/zsh/vendor-completions/_tracee"
+check-clone "https://github.com/aquasecurity/tracee" "v${version}"
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/aquasecurity/tracee .
+STATIC=1 make all
+cp \
+    dist/tracee \
+    dist/tracee-rules \
+    dist/tracee-ebpf \
+    "${prefix}/bin/"
+find docs/man/ -type f -name \*.1 | xargs -I{} cp {} "${prefix}/share/man/man1/"
 EOF
