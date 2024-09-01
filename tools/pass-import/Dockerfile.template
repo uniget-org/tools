@@ -12,7 +12,7 @@ COPY --link --from=python / /usr/local/
 COPY --link --from=pipx / /usr/local/
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/root/.cache/pip <<EOF
 export PIPX_HOME="${prefix}/libexec/pipx"
 export PIPX_BIN_DIR="${prefix}/bin"
 pipx install pass-import
@@ -20,10 +20,16 @@ ln --symbolic --relative --force "${prefix}/libexec/pipx/venvs/pass-import/bin/p
 sed -i "s|#\!${prefix}/|#\!/|" "${prefix}/libexec/pipx/venvs/pass-import/bin/pimport"
 EOF
 WORKDIR /tmp
-RUN <<EOF
-check-github-release-asset "roddhjav/pass-import" "v${version}" "pass-import-${version}.tar.gz"
-curl --silent --show-error --location --fail "https://github.com/roddhjav/pass-import/releases/download/v${version}/pass-import-${version}.tar.gz" \
-| tar --extract --gzip --strip-components=1 \
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/roddhjav/pass-import/releases/download/v${version}/pass-import-${version}.tar.gz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "roddhjav/pass-import" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --strip-components=1 \
     "pass-import-${version}/import.bash" \
     "pass-import-${version}/share/man/man1" \
     "pass-import-${version}/share/bash-completion" \

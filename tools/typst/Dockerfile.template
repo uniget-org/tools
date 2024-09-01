@@ -7,9 +7,15 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "typst/typst" "v${version}" "typst-${arch}-unknown-linux-musl.tar.xz"
-curl --silent --show-error --location --fail "https://github.com/typst/typst/releases/download/v${version}/typst-${arch}-unknown-linux-musl.tar.xz" \
-| tar --extract --xz --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/typst/typst/releases/download/v${version}/typst-${arch}-unknown-linux-musl.tar.xz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "typst/typst" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --xz --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
     "typst-${arch}-unknown-linux-musl/typst"
 EOF

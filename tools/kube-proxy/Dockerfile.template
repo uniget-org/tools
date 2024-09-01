@@ -7,25 +7,30 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --from=cosign / /usr/local/
+COPY --link --from=cosign / /usr/local/
 ARG name
 ARG version
-RUN <<EOF
-curl --silent --show-error --location --fail --output "${prefix}/bin/kube-proxy" \
-    "https://dl.k8s.io/release/v${version}/bin/linux/${alt_arch}/kube-proxy"
-chmod +x "${prefix}/bin/kube-proxy"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://dl.k8s.io/release/v${version}/bin/linux/${alt_arch}/kube-proxy"
+filename="$( basename "${url}" )"
+
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
 
 echo "Verifying keyless signature for kube-proxy"
-curl --silent --show-error --location --fail --output "/tmp/kube-proxy.sig" \
-    "https://dl.k8s.io/release/v${version}/bin/linux/${alt_arch}/kube-proxy.sig"
-curl --silent --show-error --location --fail --output "/tmp/kube-proxy.cert" \
-    "https://dl.k8s.io/release/v${version}/bin/linux/${alt_arch}/kube-proxy.cert"
-COSIGN_EXPERIMENTAL=1 cosign verify-blob "${prefix}/bin/kube-proxy" \
-    --signature "/tmp/kube-proxy.sig" \
-    --certificate "/tmp/kube-proxy.cert" \
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.sig" \
+    "${url}.sig"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.cert" \
+    "${url}.cert"
+
+COSIGN_EXPERIMENTAL=1 cosign verify-blob "${uniget_cache_download}/${filename}" \
+    --signature "${uniget_cache_download}/${filename}.sig" \
+    --certificate "${uniget_cache_download}/${filename}.cert" \
     --certificate-oidc-issuer https://accounts.google.com \
     --certificate-identity krel-staging@k8s-releng-prod.iam.gserviceaccount.com
-rm -f \
-    "/tmp/kube-proxy.sig" \
-    "/tmp/kube-proxy.cert"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/kube-proxy"
 EOF

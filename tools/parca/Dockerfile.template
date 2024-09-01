@@ -7,7 +7,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 case "${alt_arch}" in
     amd64)
         export arch_suffix="${arch}"
@@ -21,8 +21,14 @@ case "${alt_arch}" in
         ;;
 esac
 
-check-github-release-asset "parca-dev/parca" "v${version}" "parca_${version}_Linux_${arch_suffix}.tar.gz"
-curl --silent --show-error --location --fail "https://github.com/parca-dev/parca/releases/download/v${version}/parca_${version}_Linux_${arch_suffix}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
+url="https://github.com/parca-dev/parca/releases/download/v${version}/parca_${version}_Linux_${arch_suffix}.tar.gz"
+filename="$(basename "${url}")"
+
+check-github-release-asset "parca-dev/parca" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     parca
 EOF

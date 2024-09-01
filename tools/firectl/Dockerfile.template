@@ -5,13 +5,18 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-
 ARG name
 ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/firecracker-microvm/firectl/releases/download/v${version}/firectl-v${version}"
+filename="$( basename "${url}" )"
 
-RUN <<EOF
-check-github-release-asset "firecracker-microvm/firectl" "v${version}" "firectl-v${version}"
-curl --silent --show-error --location --fail --output "${prefix}/bin/firectl" \
-    "https://github.com/firecracker-microvm/firectl/releases/download/v${version}/firectl-v${version}"
-chmod +x "${prefix}/bin/firectl"
+check-github-release-asset "firecracker-microvm/firectl" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/firectl"
+
 EOF

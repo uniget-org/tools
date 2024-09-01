@@ -5,7 +5,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/apt <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
     python3-pip \
@@ -16,7 +16,7 @@ WORKDIR /tmp/openapi2jsonschema
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch master https://github.com/yannh/openapi2jsonschema .
 EOF
-RUN <<EOF
+RUN --mount=type=cache,target=/root/.cache/pip <<EOF
 pip install --requirement requirements.txt --no-build-isolation --break-system-packages .
 EOF
 ARG name

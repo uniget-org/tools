@@ -7,26 +7,31 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --from=cosign / /usr/local/
+COPY --link --from=cosign / /usr/local/
 ARG name
 ARG version
 COPY kubelet.service.go-template /uniget_bootstrap/etc/systemd/system/
-RUN <<EOF
-curl --silent --show-error --location --fail --output "${prefix}/bin/kubelet" \
-    "https://dl.k8s.io/release/v${version}/bin/linux/${alt_arch}/kubelet"
-chmod +x "${prefix}/bin/kubelet"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://dl.k8s.io/release/v${version}/bin/linux/${alt_arch}/kubelet"
+filename="$( basename "${url}" )"
+
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
 
 echo "Verifying keyless signature for kubelet"
-curl --silent --show-error --location --fail --output "/tmp/kubelet.sig" \
-    "https://dl.k8s.io/release/v${version}/bin/linux/${alt_arch}/kubelet.sig"
-curl --silent --show-error --location --fail --output "/tmp/kubelet.cert" \
-    "https://dl.k8s.io/release/v${version}/bin/linux/${alt_arch}/kubelet.cert"
-COSIGN_EXPERIMENTAL=1 cosign verify-blob "${prefix}/bin/kubelet" \
-    --signature "/tmp/kubelet.sig" \
-    --certificate "/tmp/kubelet.cert" \
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.sig" \
+    "${url}.sig"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.cert" \
+    "${url}.cert"
+
+COSIGN_EXPERIMENTAL=1 cosign verify-blob "${uniget_cache_download}/${filename}" \
+    --signature "${uniget_cache_download}/${filename}.sig" \
+    --certificate "${uniget_cache_download}/${filename}.cert" \
     --certificate-oidc-issuer https://accounts.google.com \
     --certificate-identity krel-staging@k8s-releng-prod.iam.gserviceaccount.com
-rm -f \
-    "/tmp/kubelet.sig" \
-    "/tmp/kubelet.cert"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/kubelet"
 EOF

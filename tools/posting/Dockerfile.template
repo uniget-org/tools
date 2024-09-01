@@ -8,10 +8,10 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-ARG name
-ARG version
 COPY --link --from=python / /usr/local/
 COPY --link --from=shiv / /usr/local/
-RUN <<EOF
+ARG name
+ARG version
+RUN --mount=type=cache,target=/root/.cache/pip <<EOF
 shiv --output-file "${prefix}/bin/posting" --console-script posting "posting==${version}"
 EOF

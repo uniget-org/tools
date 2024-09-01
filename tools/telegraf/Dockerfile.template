@@ -7,10 +7,17 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://dl.influxdata.com/telegraf/releases/telegraf-${version}_linux_${alt_arch}.tar.gz"
+filename="$(basename "${url}")"
+
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
 mkdir -p "${prefix}/share/telegraf"
-curl --silent --show-error --location --fail "https://dl.influxdata.com/telegraf/releases/telegraf-${version}_linux_${alt_arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/share/telegraf" --strip-components=2 --no-same-owner
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/share/telegraf" --strip-components=2 --no-same-owner
 mv "${prefix}/share/telegraf/usr/bin/telegraf" "${prefix}/bin/telegraf"
 mv "${prefix}/share/telegraf/usr/lib/telegraf/scripts" "${prefix}/share/telegraf/"
 rm -rf \

@@ -7,10 +7,15 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "crra/mp3binder" "v${version}" "linux_${alt_arch}.zip"
-curl --silent --show-error --location --fail --remote-name "https://github.com/crra/mp3binder/releases/download/v${version}/linux_${alt_arch}.zip"
-unzip -q -o -d "/tmp" "linux_${alt_arch}.zip"
-rm "linux_${alt_arch}.zip"
-mv "/tmp/mp3binder" "${prefix}/bin"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/crra/mp3binder/releases/download/v${version}/linux_${alt_arch}.zip"
+filename="$(basename "${url}")"
+
+check-github-release-asset "crra/mp3binder" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+unzip -t "${uniget_cache_download}/${filename}"
+unzip -q -o -d "${prefix}/bin" "${uniget_cache_download}/${filename}" \
+    mp3binder
 EOF

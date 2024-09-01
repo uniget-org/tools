@@ -10,12 +10,8 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --link --from=go / /usr/local/
-COPY --link --from=make / /usr/local/
-COPY --link --from=go-md2man / /usr/local/
-COPY --link --from=cni / /usr/local/
-RUN <<EOF
-apk add --update-cache --no-cache \
+RUN --mount=type=cache,target=/var/cache/apk <<EOF
+apk add --update-cache \
     musl-dev \
 	btrfs-progs \
     btrfs-progs-dev \
@@ -36,17 +32,23 @@ apk add --update-cache --no-cache \
 	bash \
     grep \
     mandoc
+EOF
+COPY --link --from=go / /usr/local/
+COPY --link --from=make / /usr/local/
+COPY --link --from=go-md2man / /usr/local/
+COPY --link --from=cni / /usr/local/
+RUN <<EOF
 cp -r /usr/local/libexec/cni/ /usr/lib/
 EOF
 WORKDIR /tmp/podman
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
 git clone --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/containers/podman .
 go get -u github.com/mattn/go-sqlite3
 go mod vendor
 EOF
-RUN <<EOF
+RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
 export CGO_ENABLED=1
 make -j$(nproc) LDFLAGS_PODMAN="-s -w -extldflags '-static'" BUILDTAGS='seccomp selinux apparmor exclude_graphdriver_devicemapper containers_image_openpgp'
 EOF

@@ -5,12 +5,17 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
+WORKDIR /uniget_bootstrap/share/nuclei-templates
 ARG name
 ARG version
-RUN <<EOF
-check-download "https://github.com/projectdiscovery/nuclei-templates/archive/refs/tags/v${version}.tar.gz"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/projectdiscovery/nuclei-templates/archive/refs/tags/v${version}.tar.gz"
+filename="$( basename "${url}" )"
 
-mkdir -p "${prefix}/share/nuclei-templates/"
-curl --silent --show-error --location --fail "https://github.com/projectdiscovery/nuclei-templates/archive/refs/tags/v${version}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/share/nuclei-templates/" --strip-components=1 --no-same-owner
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --strip-components=1 --no-same-owner
 EOF

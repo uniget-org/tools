@@ -5,6 +5,7 @@ check: "" # Expect to reach local server
 build_dependencies:
 - python
 - shiv
+- rust
 runtime_dependencies:
 - python
 platforms:

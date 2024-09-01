@@ -13,7 +13,7 @@ ARG name
 ARG version
 ENV GOPATH=/go \
     GO111MODULE=auto
-RUN <<EOF
+RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" https://github.com/sgreben/jp .
 rm -rf vendor
 go mod init github.com/sgreben/jp

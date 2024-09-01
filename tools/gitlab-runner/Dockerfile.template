@@ -9,8 +9,14 @@ ARG name
 ARG version
 COPY gitlab-runner.service.go-template /uniget_bootstrap/etc/systemd/system/
 COPY config.toml /uniget_bootstrap/etc/gitlab-runner/
-RUN <<EOF
-curl --silent --show-error --location --fail --output "${prefix}/bin/gitlab-runner" \
-    "https://gitlab-runner-downloads.s3.amazonaws.com/v${version}/binaries/gitlab-runner-linux-${alt_arch}"
-chmod +x "${prefix}/bin/gitlab-runner"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://gitlab-runner-downloads.s3.amazonaws.com/v${version}/binaries/gitlab-runner-linux-${alt_arch}"
+filename="$(basename "${url}")"
+
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+    
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/gitlab-runner"
 EOF

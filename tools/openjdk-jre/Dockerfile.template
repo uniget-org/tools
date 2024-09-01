@@ -7,7 +7,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 echo "### Setting architecture string for ${TARGETPLATFORM}"
 case "${arch}" in
     x86_64)
@@ -27,10 +27,16 @@ MAJOR_VERSION="$(echo "${version}" | sed -E 's/^([0-9]+)(\.[0-9]\.[0-9]+)?\+([0-
 version_url_encoded="$(echo "${version}" | sed 's/+/%2B/g')"
 version_filename="$(echo "${version}" | sed 's/+/_/g')"
 
-check-github-release-asset "adoptium/temurin${MAJOR_VERSION}-binaries" "jdk-${version}" "OpenJDK${MAJOR_VERSION}U-jre_x64_alpine-linux_hotspot_${version_filename}.tar.gz"
+url="https://github.com/adoptium/temurin${MAJOR_VERSION}-binaries/releases/download/jdk-${version_url_encoded}/OpenJDK${MAJOR_VERSION}U-jre_x64_alpine-linux_hotspot_${version_filename}.tar.gz"
+filename="$(basename "${url}")"
+
+check-github-release-asset "adoptium/temurin${MAJOR_VERSION}-binaries" "jdk-${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
 mkdir -p "${prefix}/opt/openjdk-jre"
-curl --silent --show-error --location --fail "https://github.com/adoptium/temurin${MAJOR_VERSION}-binaries/releases/download/jdk-${version_url_encoded}/OpenJDK${MAJOR_VERSION}U-jre_x64_alpine-linux_hotspot_${version_filename}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/opt/openjdk-jre" --strip-components=1 --no-same-owner
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/opt/openjdk-jre" --strip-components=1 --no-same-owner
 
 cd "${prefix}/opt/openjdk-jre/bin"
 find . -type f -executable \

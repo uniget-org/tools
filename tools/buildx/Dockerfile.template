@@ -7,11 +7,18 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "docker/buildx" "v${version}" "buildx-v${version}.linux-${alt_arch}"
-curl --silent --show-error --location --fail --output "${prefix}/libexec/docker/cli-plugins/docker-buildx" \
-    "https://github.com/docker/buildx/releases/download/v${version}/buildx-v${version}.linux-${alt_arch}"
-chmod +x "${prefix}/libexec/docker/cli-plugins/docker-buildx"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/docker/buildx/releases/download/v${version}/buildx-v${version}.linux-${alt_arch}"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "docker/buildx" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/libexec/docker/cli-plugins/docker-buildx"
+
 "${prefix}/libexec/docker/cli-plugins/docker-buildx" completion bash | sed "s|${prefix}||g" >"${prefix}/share/bash-completion/completions/docker-buildx"
 "${prefix}/libexec/docker/cli-plugins/docker-buildx" completion fish | sed "s|${prefix}||g" >"${prefix}/share/fish/vendor_completions.d/docker-buildx.fish"
 "${prefix}/libexec/docker/cli-plugins/docker-buildx" completion zsh  | sed "s|${prefix}||g" >"${prefix}/share/zsh/vendor-completions/_docker-buildx"

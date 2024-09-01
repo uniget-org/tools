@@ -7,7 +7,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 case "${arch}" in
     x86_64)
         export arch_suffix=x64
@@ -24,8 +24,14 @@ echo "    Using ${arch_suffix}"
 
 url="https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${version}-linux-${arch_suffix}.zip"
 filename="$(basename "${url}")"
-curl --silent --show-error --location --fail --remote-name "${url}"
-unzip -q -o -d "${prefix}/opt" "${filename}"
+
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+unzip -t "${uniget_cache_download}/${filename}"
+unzip -q -o -d "${prefix}/opt" "${uniget_cache_download}/${filename}"
+
 mv "${prefix}/opt/sonar-scanner-${version}-linux-${arch_suffix}" "${prefix}/opt/sonar-scanner"
 sed -i 's/use_embedded_jre=true/use_embedded_jre=false/' "${prefix}/opt/sonar-scanner/bin/sonar-scanner"
 rm -rf "${prefix}/opt/sonar-scanner/jre"

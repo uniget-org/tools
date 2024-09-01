@@ -5,14 +5,17 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-
 ARG name
 ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/rupor-github/win-gpg-agent/releases/download/v${version}/win-gpg-agent.zip"
+filename="$(basename "${url}")"
 
-RUN <<EOF
-check-github-release-asset "rupor-github/win-gpg-agent" "v${version}" "win-gpg-agent.zip"
-curl --silent --show-error --location --fail --remote-name "https://github.com/rupor-github/win-gpg-agent/releases/download/v${version}/win-gpg-agent.zip"
-unzip -q -o -d "/tmp" "win-gpg-agent.zip"
-rm "win-gpg-agent.zip"
-mv "/tmp/sorelay.exe" "${prefix}/bin"
+check-github-release-asset "rupor-github/win-gpg-agent" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+unzip -t "${uniget_cache_download}/${filename}"
+unzip -q -o -d "${prefix}/bin" "${uniget_cache_download}/${filename}" \
+    sorelay.exe
 EOF

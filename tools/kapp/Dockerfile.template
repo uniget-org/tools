@@ -7,11 +7,18 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "carvel-dev/kapp" "v${version}" "kapp-linux-${alt_arch}"
-curl --silent --show-error --location --fail --output "${prefix}/bin/kapp" \
-    "https://github.com/carvel-dev/kapp/releases/download/v${version}/kapp-linux-${alt_arch}"
-chmod +x "${prefix}/bin/kapp"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/carvel-dev/kapp/releases/download/v${version}/kapp-linux-${alt_arch}"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "carvel-dev/kapp" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/kapp"
+
 "${prefix}/bin/kapp" completion bash >"${prefix}/share/bash-completion/completions/kapp"
 "${prefix}/bin/kapp" completion fish >"${prefix}/share/fish/vendor_completions.d/kapp.fish"
 "${prefix}/bin/kapp" completion zsh >"${prefix}/share/zsh/vendor-completions/_kapp"

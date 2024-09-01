@@ -7,9 +7,16 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-check-download "https://download.daytona.io/daytona/v${version}/daytona-linux-${alt_arch}"
-curl --silent --show-error --location --fail --output "${prefix}/bin/daytona" \
-    "https://download.daytona.io/daytona/v${version}/daytona-linux-${alt_arch}"
-chmod +x "${prefix}/bin/daytona"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://download.daytona.io/daytona/v${version}/daytona-linux-${alt_arch}"
+filename="$( basename "${url}" )"
+
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/daytona"
+
 EOF

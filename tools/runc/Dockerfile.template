@@ -10,11 +10,18 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 COPY --link --from=go-md2man / /usr/local/
-RUN <<EOF
-check-github-release-asset "opencontainers/runc" "v${version}" "runc.${alt_arch}"
-curl --silent --show-error --location --fail --output "${prefix}/bin/runc" \
-    "https://github.com/opencontainers/runc/releases/download/v${version}/runc.${alt_arch}"
-chmod +x "${prefix}/bin/runc"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/opencontainers/runc/releases/download/v${version}/runc.${alt_arch}"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "opencontainers/runc" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/runc"
+
 EOF
 RUN <<EOF
 curl --silent --show-error --location --fail --output "${prefix}/share/man/man8/runc-checkpoint.8.md" \

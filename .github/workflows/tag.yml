@@ -68,7 +68,7 @@ jobs:
             CHANGED_TOOLS="$(
                 git log --pretty=format: --name-only --diff-filter=d ${OLD_COMMIT_SHA}..${GITHUB_SHA} \
                 | sort \
-                | grep -E "^tools/[^/]+/" \
+                | grep "^tools/" \
                 | cut -d/ -f2 \
                 | uniq \
                 | while read -r TOOL; do test -d "tools/${TOOL}" && echo "${TOOL}"; done \

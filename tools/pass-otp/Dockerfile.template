@@ -5,7 +5,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/apt <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
     make
@@ -13,10 +13,16 @@ EOF
 WORKDIR /tmp/pass-otp
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "tadfisher/pass-otp" "v${version}" "pass-otp-${version}.tar.gz"
-curl --silent --show-error --location --fail "https://github.com/tadfisher/pass-otp/releases/download/v${version}/pass-otp-${version}.tar.gz" \
-| tar --extract --gzip --strip-components=1 --no-same-owner
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/tadfisher/pass-otp/releases/download/v${version}/pass-otp-${version}.tar.gz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "tadfisher/pass-otp" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --strip-components=1 --no-same-owner
 make -j$(nproc) install \
     DESTDIR="${prefix}" \
     PREFIX="" \

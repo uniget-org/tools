@@ -7,22 +7,29 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --from=make / /usr/local/
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/apt <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
     python3-pip \
     python3-venv \
     python-is-python3
 EOF
+COPY --link --from=make / /usr/local/
 WORKDIR /tmp/kpxhs
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "akazukin5151/kpxhs" "v${version}" "kpxhs-linux"
-curl --silent --show-error --location --fail --output "${prefix}/bin/kpxhs" \
-    "https://github.com/akazukin5151/kpxhs/releases/download/v${version}/kpxhs-linux"
-chmod +x "${prefix}/bin/kpxhs"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/akazukin5151/kpxhs/releases/download/v${version}/kpxhs-linux"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "akazukin5151/kpxhs" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/kpxhs"
+
 
 check-github-release-asset "akazukin5151/kpxhs" "v${version}" "kpxhs.1"
 curl --silent --show-error --location --fail --output "${prefix}/share/man/man1/kpxhs.1" \

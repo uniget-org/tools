@@ -5,7 +5,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/apt <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
     make
@@ -13,9 +13,17 @@ EOF
 WORKDIR /tmp/pass-tail
 ARG name
 ARG version
-RUN <<EOF
-curl --silent --show-error --location --fail "https://github.com/palortoff/pass-extension-tail/archive/refs/tags/v${version}.tar.gz" \
-| tar --extract --gzip --strip-components=1 --no-same-owner
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/palortoff/pass-extension-tail/archive/refs/tags/v${version}.tar.gz"
+filename="$(basename "${url}")"
+
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --strip-components=1 --no-same-owner
+
 make -j$(nproc) install \
     DESTDIR="${prefix}" \
     PREFIX="" \

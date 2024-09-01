@@ -13,27 +13,34 @@ COPY --from=go-md2man / /usr/local/
 ARG name
 ARG version
 COPY crio.conf /uniget_bootstrap/etc/crio.conf
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://storage.googleapis.com/cri-o/artifacts/cri-o.${alt_arch}.v${version}.tar.gz"
+filename="$( basename "${url}" )"
+
 echo "### Downloading cri-o ${version}"
-check-download "https://storage.googleapis.com/cri-o/artifacts/cri-o.${alt_arch}.v${version}.tar.gz"
-curl --silent --show-error --location --fail --remote-name "https://storage.googleapis.com/cri-o/artifacts/cri-o.${alt_arch}.v${version}.tar.gz"
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
 
 echo "### Checking keyless signature for cri-o ${version}"
-curl --silent --show-error --location --fail --remote-name "https://storage.googleapis.com/cri-o/artifacts/cri-o.${alt_arch}.v${version}.tar.gz.sig"
-curl --silent --show-error --location --fail --remote-name "https://storage.googleapis.com/cri-o/artifacts/cri-o.${alt_arch}.v${version}.tar.gz.cert"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.sig" \
+    "${url}.sig"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.cert" \
+    "${url}.cert"
 SHA="$(
     git ls-remote --tags https://github.com/cri-o/cri-o "v${version}" \
     | cut -f1
 )"
 COSIGN_EXPERIMENTAL=1 cosign verify-blob \
-    --cert "cri-o.${alt_arch}.v${version}.tar.gz.cert" \
-    --signature "cri-o.${alt_arch}.v${version}.tar.gz.sig" \
+    --cert "${uniget_cache_download}/${filename}.cert" \
+    --signature "${uniget_cache_download}/${filename}.sig" \
     --certificate-oidc-issuer https://token.actions.githubusercontent.com \
     --certificate-identity https://github.com/cri-o/packaging/.github/workflows/obs.yml@refs/heads/main \
-    "cri-o.${alt_arch}.v${version}.tar.gz"
+    "${uniget_cache_download}/${filename}"
 
 echo "### Installing cri-o ${version}"
-tar --file "cri-o.${alt_arch}.v${version}.tar.gz" --extract --gzip --directory="${prefix}" --strip-components=1 --no-same-owner \
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}" --strip-components=1 --no-same-owner \
     cri-o/bin/crio
 EOF
 RUN <<EOF

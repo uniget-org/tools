@@ -8,14 +8,21 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 
-RUN <<EOF
-check-github-release-asset "innobead/kubefire" "v${version}" "kubefire-linux-${alt_arch}"
-curl --silent --show-error --location --fail --output "${prefix}/bin/kubefire" \
-    "https://github.com/innobead/kubefire/releases/download/v${version}/kubefire-linux-${alt_arch}"
-chmod +x "${prefix}/bin/kubefire"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/innobead/kubefire/releases/download/v${version}/kubefire-linux-${alt_arch}"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "innobead/kubefire" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/kubefire"
+
 EOF
 
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 check-github-release-asset "innobead/kubefire" "v${version}" "kubefire-linux-${alt_arch}"
 curl --silent --show-error --location --fail --output "${prefix}/libexec/cni/host-local-rev" --create-dirs \
     "https://github.com/innobead/kubefire/releases/download/v${version}/host-local-rev-linux-${alt_arch}"

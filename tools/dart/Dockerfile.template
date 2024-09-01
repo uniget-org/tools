@@ -7,7 +7,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 echo "### Setting architecture string for ${TARGETPLATFORM}"
 case "${arch}" in
     x86_64)
@@ -24,12 +24,16 @@ esac
 echo "    Using ${arch_suffix}"
 
 url="https://storage.googleapis.com/dart-archive/channels/stable/release/${version}/sdk/dartsdk-linux-${arch_suffix}-release.zip"
-check-download "${url}"
 filename="$(basename "${url}")"
-curl --silent --show-error --location --fail --remote-name "${url}"
+
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
 mkdir -p "${prefix}/opt"
-unzip -q -o -d "${prefix}/opt/" "${filename}"
-rm "${filename}"
+unzip -t "${uniget_cache_download}/${filename}"
+unzip -q -o -d "${prefix}/opt/" "${uniget_cache_download}/${filename}"
+
 mv "${prefix}/opt/dart-sdk" "${prefix}/opt/dart"
 
 ln --symbolic --relative --force \

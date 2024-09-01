@@ -7,8 +7,8 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --from=spc / /usr/local/
-RUN <<EOF
+COPY --link --from=spc / /usr/local/
+RUN --mount=type=cache,target=/var/cache/apt <<EOF
 apt-get update
 apt-get -y install \
     re2c
@@ -28,8 +28,8 @@ mkdir -p \
     buildroot/sources/php-src \
     source/php-src
 curl --silent --show-error --location --fail --output "downloads/php-${version}.tar.gz" "https://github.com/php/php-src/archive/refs/tags/php-${version}.tar.gz"
-tar --extract --gzip --file "downloads/php-${version}.tar.gz" --directory buildroot/sources/php-src/ --strip-components=1 --no-same-owner
-tar --extract --gzip --file "downloads/php-${version}.tar.gz" --directory source/php-src/ --strip-components=1 --no-same-owner
+tar --extract --gzip --file="downloads/php-${version}.tar.gz" --directory=buildroot/sources/php-src/ --strip-components=1 --no-same-owner
+tar --extract --gzip --file="downloads/php-${version}.tar.gz" --directory=source/php-src/ --strip-components=1 --no-same-owner
 
 spc download \
     --with-php="${PHP_MINOR_VERSION}" \

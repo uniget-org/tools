@@ -7,12 +7,16 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "jeremylong/DependencyCheck" "v${version}" "dependency-check-${version}-release.zip"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 url="https://github.com/jeremylong/DependencyCheck/releases/download/v${version}/dependency-check-${version}-release.zip"
-filename="$(basename "${url}")"
-curl --silent --show-error --location --fail --remote-name "${url}"
-unzip -q -o -d "${prefix}/opt" "${filename}"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "jeremylong/DependencyCheck" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+unzip -t "${uniget_cache_download}/${filename}"
+unzip -q -o -d "${prefix}/opt" "${uniget_cache_download}/${filename}"
 ln --symbolic --relative --force "/opt/dependency-check/bin/dependency-check.sh" "${prefix}/bin/dependency-check.sh"
 mv "${prefix}/opt/dependency-check/bin/completion-for-dependency-check.sh" "${prefix}/share/bash-completion/completions/dependency-check.sh"
 EOF

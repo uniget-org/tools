@@ -5,14 +5,18 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-
 ARG name
 ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/fidian/ansi/raw/${version}/ansi"
+filename="$( basename "${url}" )"
 
-RUN <<EOF
-check-download "https://github.com/fidian/ansi/raw/${version}/ansi"
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
 
-curl --silent --show-error --location --fail --output "${prefix}/bin/ansi" \
-    "https://github.com/fidian/ansi/raw/${version}/ansi"
-chmod +x "${prefix}/bin/ansi"
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/ansi"
+
 EOF

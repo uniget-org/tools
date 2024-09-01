@@ -7,10 +7,16 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "newren/git-filter-repo" "v${version}" "git-filter-repo-${version}.tar.xz"
-curl --silent --show-error --location --fail "https://github.com/newren/git-filter-repo/releases/download/v${version}/git-filter-repo-${version}.tar.xz" \
-| tar --extract --xz --directory="/tmp/" --strip-components=1 --no-same-owner \
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/newren/git-filter-repo/releases/download/v${version}/git-filter-repo-${version}.tar.xz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "newren/git-filter-repo" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --xz --directory="/tmp/" --strip-components=1 --no-same-owner \
     "git-filter-repo-${version}/git-filter-repo" \
     "git-filter-repo-${version}/Documentation/man1/git-filter-repo.1" \
     "git-filter-repo-${version}/Documentation/html/git-filter-repo.html"

@@ -7,10 +7,14 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "PaulJuliusMartinez/jless" "v${version}" "jless-v${version}-x86_64-unknown-linux-gnu.zip"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 url="https://github.com/PaulJuliusMartinez/jless/releases/download/v${version}/jless-v${version}-x86_64-unknown-linux-gnu.zip"
-filename="$(basename "${url}")"
-curl --silent --show-error --location --fail --remote-name "${url}"
-unzip -q -o -d "${prefix}/bin" "${filename}"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "PaulJuliusMartinez/jless" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+unzip -t "${uniget_cache_download}/${filename}"
+unzip -q -o -d "${prefix}/bin" "${uniget_cache_download}/${filename}"
 EOF

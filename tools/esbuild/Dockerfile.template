@@ -7,7 +7,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 echo "### Setting architecture string for ${TARGETPLATFORM}"
 case "${arch}" in
     x86_64)
@@ -23,8 +23,14 @@ case "${arch}" in
 esac
 echo "    Using ${arch_suffix}"
 
-check-download "https://registry.npmjs.org/@esbuild/linux-${arch_suffix}/-/linux-${arch_suffix}-${version}.tgz"
-curl --silent --show-error --location --fail "https://registry.npmjs.org/@esbuild/linux-${arch_suffix}/-/linux-${arch_suffix}-${version}.tgz" \
-| tar --extract --gzip --directory="${prefix}" --strip-components=1 --no-same-owner \
+url="https://registry.npmjs.org/@esbuild/linux-${arch_suffix}/-/linux-${arch_suffix}-${version}.tgz"
+filename="$(basename "${url}")"
+
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}" --strip-components=1 --no-same-owner \
     package/bin/esbuild
 EOF

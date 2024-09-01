@@ -7,8 +7,8 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-RUN <<EOF
-apk add --update-cache --no-cache \
+RUN --mount=type=cache,target=/var/cache/apk <<EOF
+apk add --update-cache \
     gettext \
     bison
 EOF

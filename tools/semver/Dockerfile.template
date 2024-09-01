@@ -7,8 +7,15 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-curl --silent --show-error --location --fail --output "${prefix}/bin/semver" \
-    "https://github.com/fsaintjacques/semver-tool/raw/${version}/src/semver"
-chmod +x "${prefix}/bin/semver"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/fsaintjacques/semver-tool/raw/${version}/src/semver"
+filename="$(basename "${url}")"
+
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/semver"
 EOF

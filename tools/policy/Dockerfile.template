@@ -7,7 +7,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 echo "### Setting architecture string for ${TARGETPLATFORM}"
 case "${arch}" in
     x86_64)
@@ -23,9 +23,14 @@ case "${arch}" in
 esac
 echo "    Using ${arch_suffix}"
 
-check-github-release-asset "opcr-io/policy" "v${version}" "policy${version}_linux_${arch_suffix}.zip"
 url="https://github.com/opcr-io/policy/releases/download/v${version}/policy${version}_linux_${arch_suffix}.zip"
 filename="$(basename "${url}")"
-curl --silent --show-error --location --fail --remote-name "${url}"
-unzip -q -o -d "${prefix}/bin" "${filename}"
+
+check-github-release-asset "opcr-io/policy" "v${version}" "${filename}"
+
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+unzip -t "${uniget_cache_download}/${filename}"
+unzip -q -o -d "${prefix}/bin" "${uniget_cache_download}/${filename}"
 EOF

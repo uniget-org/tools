@@ -7,9 +7,16 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "theketchio/ketch" "v${version}" "ketch-linux-amd64"
-curl --silent --show-error --location --fail --output "${prefix}/bin/ketch" \
-    "https://github.com/theketchio/ketch/releases/download/v${version}/ketch-linux-amd64"
-chmod +x "${prefix}/bin/ketch"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/theketchio/ketch/releases/download/v${version}/ketch-linux-amd64"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "theketchio/ketch" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/ketch"
+
 EOF

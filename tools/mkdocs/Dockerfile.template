@@ -13,7 +13,7 @@ COPY --link --from=shiv / /usr/local/
 ARG name
 ARG version
 WORKDIR /uniget_bootstrap/libexec/mkdocs
-RUN <<EOF
+RUN --mount=type=cache,target=/root/.cache/pip <<EOF
 shiv --output-file "${prefix}/bin/mkdocs" --console-script mkdocs \
     "mkdocs==${version}" \
     mkdocs-material \

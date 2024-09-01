@@ -8,7 +8,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 WORKDIR /uniget_bootstrap/opt/actions-runner
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 echo "### Setting architecture string for ${TARGETPLATFORM}"
 case "${arch}" in
     x86_64)
@@ -24,9 +24,13 @@ case "${arch}" in
 esac
 echo "    Using ${arch_suffix}"
 
-check-github-release-asset "actions/runner" "v${version}" "actions-runner-linux-${arch_suffix}-${version}.tar.gz"
+url="https://github.com/actions/runner/releases/download/v${version}/actions-runner-linux-${arch_suffix}-${version}.tar.gz"
+filename="$( basename "${url}" )"
 
-echo "### Downloading actions-runner ${version}"
-curl --silent --show-error --location --fail "https://github.com/actions/runner/releases/download/v${version}/actions-runner-linux-${arch_suffix}-${version}.tar.gz" \
-| tar --extract --gzip --no-same-owner
+check-github-release-asset "actions/runner" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --no-same-owner
 EOF

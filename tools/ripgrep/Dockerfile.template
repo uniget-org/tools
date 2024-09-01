@@ -7,10 +7,16 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "BurntSushi/ripgrep" "${version}" "ripgrep-${version}-${arch}-unknown-linux-musl.tar.gz"
-curl --silent --show-error --location --fail "https://github.com/BurntSushi/ripgrep/releases/download/${version}/ripgrep-${version}-${arch}-unknown-linux-musl.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/BurntSushi/ripgrep/releases/download/${version}/ripgrep-${version}-${arch}-unknown-linux-musl.tar.gz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "BurntSushi/ripgrep" "${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
     "ripgrep-${version}-x86_64-unknown-linux-musl/rg" \
     "ripgrep-${version}-x86_64-unknown-linux-musl/doc/rg.1" \
     "ripgrep-${version}-x86_64-unknown-linux-musl/complete"
@@ -22,8 +28,3 @@ rm -rf \
     "${prefix}/bin/doc" \
     "${prefix}/bin/complete"
 EOF
-#RUN <<EOF
-#"${prefix}/bin/ripgrep" completion bash >"${prefix}/share/bash-completion/completions/ripgrep"
-#"${prefix}/bin/ripgrep" completion fish >"${prefix}/share/fish/vendor_completions.d/ripgrep.fish"
-#"${prefix}/bin/ripgrep" completion zsh >"${prefix}/share/zsh/vendor-completions/_ripgrep"
-#EOF

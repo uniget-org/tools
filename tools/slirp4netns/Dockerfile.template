@@ -7,11 +7,18 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "rootless-containers/slirp4netns" "v${version}" "slirp4netns-${arch}"
-curl --silent --show-error --location --fail --output "${prefix}/bin/slirp4netns" \
-    "https://github.com/rootless-containers/slirp4netns/releases/download/v${version}/slirp4netns-${arch}"
-chmod +x "${prefix}/bin/slirp4netns"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/rootless-containers/slirp4netns/releases/download/v${version}/slirp4netns-${arch}"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "rootless-containers/slirp4netns" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/slirp4netns"
+
 curl --silent --show-error --location --fail --output "${prefix}/share/man/man1/slirp4netns.1" \
     "https://github.com/rootless-containers/slirp4netns/raw/v${version}/slirp4netns.1"
 EOF

@@ -25,6 +25,7 @@ export prefix=/uniget_bootstrap
 
 mkdir -p \
     "${prefix}${uniget_cache}" \
+    "${prefix}${uniget_cache_download}" \
     "${prefix}${uniget_contrib}" \
     "${prefix}${uniget_manifests}" \
     "${prefix}/etc/profile.d" \

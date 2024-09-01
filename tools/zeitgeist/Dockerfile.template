@@ -7,11 +7,18 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "kubernetes-sigs/zeitgeist" "v${version}" "zeitgeist-${alt_arch}-linux"
-curl --silent --show-error --location --fail --output "${prefix}/bin/zeitgeist" \
-    "https://github.com/kubernetes-sigs/zeitgeist/releases/download/v${version}/zeitgeist-${alt_arch}-linux"
-chmod +x "${prefix}/bin/zeitgeist"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/kubernetes-sigs/zeitgeist/releases/download/v${version}/zeitgeist-${alt_arch}-linux"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "kubernetes-sigs/zeitgeist" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/zeitgeist"
+
 "${prefix}/bin/zeitgeist" completion bash >"${prefix}/share/bash-completion/completions/zeitgeist"
 "${prefix}/bin/zeitgeist" completion fish >"${prefix}/share/fish/vendor_completions.d/zeitgeist.fish"
 "${prefix}/bin/zeitgeist" completion zsh >"${prefix}/share/zsh/vendor-completions/_zeitgeist"

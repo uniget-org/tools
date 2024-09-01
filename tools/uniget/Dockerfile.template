@@ -7,7 +7,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 check-github-release-asset "uniget-org/cli" "v${version}" "uniget_Linux_${arch}.tar.gz"
 curl --silent --show-error --location --fail \
     "https://github.com/uniget-org/cli/releases/download/v${version}/uniget_Linux_${arch}.tar.gz" \

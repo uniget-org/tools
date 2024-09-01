@@ -8,12 +8,12 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-ARG name
-ARG version
 COPY --link --from=go / /usr/local/
 COPY --link --from=make / /usr/local/
 WORKDIR /go/src/github.com/ohler55/ojg
-RUN <<EOF
+ARG name
+ARG version
+RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
 check-clone "https://github.com/ohler55/ojg" "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/ohler55/ojg .
 make -C cmd/oj build

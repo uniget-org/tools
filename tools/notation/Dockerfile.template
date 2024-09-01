@@ -7,10 +7,15 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "notaryproject/notation" "v${version}" "notation_${version}_linux_${alt_arch}.tar.gz"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/notaryproject/notation/releases/download/v${version}/notation_${version}_linux_${alt_arch}.tar.gz"
+filename="$( basename "${url}" )"
 
-curl --silent --show-error --location --fail "https://github.com/notaryproject/notation/releases/download/v${version}/notation_${version}_linux_${alt_arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin" --no-same-owner \
+check-github-release-asset "notaryproject/notation" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin" --no-same-owner \
     notation
 EOF

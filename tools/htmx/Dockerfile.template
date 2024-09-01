@@ -5,11 +5,18 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
+WORKDIR /uniget_bootstrap/share/htmx
 ARG name
 ARG version
-RUN <<EOF
-check-download "https://github.com/bigskysoftware/htmx/blob/v${version}/dist/htmx.min.js"
-mkdir -p "${prefix}/share/htmx"
-curl --silent --show-error --location --fail --output "${prefix}/share/htmx/htmx.min.js" \
-    "https://github.com/bigskysoftware/htmx/blob/v${version}/dist/htmx.min.js"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/bigskysoftware/htmx/blob/v${version}/dist/htmx.min.js"
+filename="$( basename "${url}" )"
+
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0644 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/share/htmx/htmx.min.js"
 EOF

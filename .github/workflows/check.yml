@@ -24,6 +24,11 @@ jobs:
       tools: ${{ steps.collect.outputs.tools }}
     steps:
 
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
     - name: Install uniget
       uses: uniget-org/uniget-action@v1
       with:
@@ -56,7 +61,51 @@ jobs:
             | helper/usr/local/bin/jq --slurp --compact-output '.'
         )"
         echo "    JSON: ${TOOLS_JSON}"
+
+        TOOLS_JSON_LEN="$(
+            echo -n "${TOOLS_JSON}" \
+            | jq 'length'
+        )"
+        echo "    TOOLS_JSON_LEN=${TOOLS_JSON_LEN}"
+
+        if test "${TOOLS_JSON_LEN}" -ge 256; then
+            echo "### Too many tools to process: ${TOOLS_JSON_LEN}."
+            echo "### Fallback to last commit"
+
+            TOOLS="$(
+                git log -1 --pretty=format: --name-only --diff-filter=d \
+                | grep ^tools/ \
+                | cut -d/ -f2 \
+                | sort \
+                | uniq \
+                | xargs echo
+            )"
+            echo "### Got tools=${TOOLS}."
+            
+            if test -z "${TOOLS}"; then
+                echo "### No tools to process."
+                TOOLS_JSON="[]"
+                TOOLS_JSON_LEN=0
+            
+            else
+                TOOLS_JSON="$(
+                    echo -n "${TOOLS}" \
+                    | tr ' ' '\n' \
+                    | helper/usr/local/bin/jq --raw-input '.' \
+                    | helper/usr/local/bin/jq --slurp --compact-output '.'
+                )"
+                echo "    JSON: ${TOOLS_JSON}"
+
+                TOOLS_JSON_LEN="$(
+                    echo -n "${TOOLS_JSON}" \
+                    | jq 'length'
+                )"
+                echo "    TOOLS_JSON_LEN=${TOOLS_JSON_LEN}"
+            fi
+        fi
+
         echo "tools=${TOOLS_JSON}" >>"${GITHUB_OUTPUT}"
+        echo "tools_len=${TOOLS_JSON_LEN}" >>"${GITHUB_OUTPUT}"
 
   build:
     name: Build container image

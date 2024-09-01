@@ -7,7 +7,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 echo "### Setting architecture string for ${TARGETPLATFORM}"
 case "${arch}" in
     x86_64)
@@ -23,8 +23,15 @@ case "${arch}" in
 esac
 echo "    Using ${arch_suffix}"
 
-check-github-release-asset "self-actuated/actions-usage" "v${version}" "actions-usage${arch_suffix}"
-curl --silent --show-error --location --fail --output "${prefix}/bin/actions-usage" \
-    "https://github.com/self-actuated/actions-usage/releases/download/v${version}/actions-usage${arch_suffix}"
-chmod +x "${prefix}/bin/actions-usage"
+url="https://github.com/self-actuated/actions-usage/releases/download/v${version}/actions-usage${arch_suffix}"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "self-actuated/actions-usage" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/actions-usage"
+
 EOF

@@ -7,7 +7,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 check-github-release-asset "go-acme/lego" "v${version}" "lego_v${version}_linux_${alt_arch}.tar.gz"
 curl --silent --location --fail "https://github.com/go-acme/lego/releases/download/v${version}/lego_v${version}_linux_${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}${target}/bin/" --no-same-owner \

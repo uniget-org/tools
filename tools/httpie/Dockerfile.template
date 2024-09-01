@@ -12,7 +12,7 @@ COPY --link --from=python / /usr/local/
 COPY --link --from=shiv / /usr/local/
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/root/.cache/pip <<EOF
 shiv --output-file "${prefix}/bin/http" --console-script http "httpie==${version}"
 
 curl --silent --show-error --location --fail --output "${prefix}/share/bash-completion/completions/http" \

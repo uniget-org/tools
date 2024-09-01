@@ -8,9 +8,16 @@ SHELL [ "bash", "-clo", "errexit" ]
 WORKDIR /tmp/distrobox
 ARG name
 ARG version
-RUN <<EOF
-curl --silent --show-error --location --fail "https://github.com/89luca89/distrobox/archive/refs/tags/${version}.tar.gz" \
-| tar --extract --gzip --strip-components=1 --no-same-owner
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/89luca89/distrobox/archive/refs/tags/${version}.tar.gz"
+filename="$(basename "${url}")"
+
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --strip-components=1 --no-same-owner
+
 ./install --prefix="${prefix}"
 mv "${prefix}/share/zsh/site-functions/" "${prefix}/share/zsh/vendor-completions/"
 EOF

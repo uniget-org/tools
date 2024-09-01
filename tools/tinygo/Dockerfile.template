@@ -7,9 +7,8 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 check-github-release-asset "tinygo-org/tinygo" "v${version}" "tinygo${version}.linux-${alt_arch}.tar.gz"
-
 mkdir -p "${prefix}/opt"
 curl --silent --show-error --location --fail "https://github.com/tinygo-org/tinygo/releases/download/v${version}/tinygo${version}.linux-${alt_arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/opt/" --no-same-owner

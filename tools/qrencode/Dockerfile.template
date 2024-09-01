@@ -7,17 +7,17 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-ARG name
-ARG version
-COPY --link --from=make / /usr/local/
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/apk <<EOF
 apk update
-apk add \
+apk add --update-cache \
     libpng-dev \
     libpng-static \
     zlib-static
 EOF
+COPY --link --from=make / /usr/local/
 WORKDIR /tmp/qrencode
+ARG name
+ARG version
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/fukuchi/libqrencode .
 ./autogen.sh

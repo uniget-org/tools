@@ -5,14 +5,19 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-
 ARG name
 ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://gitlab.com/gitlab-org/cli/-/releases/v${version}/downloads/glab_${version}_Linux_x86_64.tar.gz"
+filename="$(basename "${url}")"
 
-RUN <<EOF
-curl --silent --show-error --location --fail "https://gitlab.com/gitlab-org/cli/-/releases/v${version}/downloads/glab_${version}_Linux_x86_64.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin" --strip-components=1 --no-same-owner \
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin" --strip-components=1 --no-same-owner \
     bin/glab
+
 "${prefix}/bin/glab" completion -s bash >"${prefix}/share/bash-completion/completions/glab"
 "${prefix}/bin/glab" completion -s fish >"${prefix}/share/fish/vendor_completions.d/glab.fish"
 "${prefix}/bin/glab" completion -s zsh >"${prefix}/share/zsh/vendor-completions/_glab"

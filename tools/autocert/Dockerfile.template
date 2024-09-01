@@ -10,24 +10,27 @@ SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=cosign / /usr/local/
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "smallstep/autocert" "v${version}" "autocert_linux_${version}_amd64.tar.gz"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/smallstep/autocert/releases/download/v${version}/autocert_linux_${version}_${alt_arch}.tar.gz"
+filename="$(basename "${url}")"
+
+check-github-release-asset "smallstep/autocert" "v${version}" "${filename}"
 echo "### Downloading autocert ${version}"
-curl --silent --show-error --location --fail --remote-name \
-    "https://github.com/smallstep/autocert/releases/download/v${version}/autocert_linux_${version}_amd64.tar.gz"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
 
 echo "### Checking keyless signature for autocert ${version}"
-curl --silent --show-error --location --fail --remote-name \
-    "https://github.com/smallstep/autocert/releases/download/v${version}/autocert_linux_${version}_amd64.tar.gz.pem"
-curl --silent --show-error --location --fail --remote-name \
-    "https://github.com/smallstep/autocert/releases/download/v${version}/autocert_linux_${version}_amd64.tar.gz.sig"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.pem" \
+    "${url}.pem"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.sig" \
+    "${url}.sig"
 SHA="$(
     git ls-remote --tags https://github.com/smallstep/autocert "v${version}" \
     | cut -f1
 )"
 COSIGN_EXPERIMENTAL=1 cosign verify-blob \
-    --cert "autocert_linux_${version}_amd64.tar.gz.pem" \
-    --signature "autocert_linux_${version}_amd64.tar.gz.sig" \
+    --cert "${uniget_cache_download}/${filename}.pem" \
+    --signature "${uniget_cache_download}/${filename}.sig" \
     --certificate-oidc-issuer https://token.actions.githubusercontent.com \
     --certificate-identity "https://github.com/smallstep/workflows/.github/workflows/goreleaser.yml@refs/heads/main" \
     --certificate-github-workflow-name "Create Release & Upload Assets" \
@@ -35,9 +38,9 @@ COSIGN_EXPERIMENTAL=1 cosign verify-blob \
     --certificate-github-workflow-repository "smallstep/autocert" \
     --certificate-github-workflow-sha "${SHA}" \
     --certificate-github-workflow-trigger push \
-    "autocert_linux_${version}_amd64.tar.gz"
+    "${uniget_cache_download}/${filename}"
 
-tar --extract --gzip --directory="${prefix}/bin/" --file "autocert_linux_${version}_amd64.tar.gz" --strip-components=1 --no-same-owner \
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
     "autocert_${version}/autocert"
-#rm "autocert_linux_${version}_amd64.tar.gz"
 EOF

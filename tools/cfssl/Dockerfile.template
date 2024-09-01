@@ -8,11 +8,15 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 ARG BINARIES="cfssl-bundle cfssl-certinfo cfssl-newkey cfssl-scan cfssljson cfssl mkbundle multirootca"
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 for BINARY in ${BINARIES}; do
-    check-github-release-asset "cloudflare/cfssl" "v${version}" "${BINARY}_${version}_linux_amd64"
-    curl --silent --show-error --location --fail --output "${prefix}/bin/${BINARY}" \
-        "https://github.com/cloudflare/cfssl/releases/download/v${version}/${BINARY}_${version}_linux_amd64"
-    chmod +x "${prefix}/bin/${BINARY}"
+    url="https://github.com/cloudflare/cfssl/releases/download/v${version}/${BINARY}_${version}_linux_amd64"
+    filename="$(basename "${url}")"
+    check-github-release-asset "cloudflare/cfssl" "v${version}" "${filename}"
+    curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+        "${url}"
+    install --mode=0755 \
+        "${uniget_cache_download}/${filename}" \
+        "${prefix}/bin/${BINARY}"
 done
 EOF

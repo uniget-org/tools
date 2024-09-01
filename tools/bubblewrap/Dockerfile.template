@@ -5,8 +5,8 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-RUN <<EOF
-apk add --update-cache --no-cache \
+RUN --mount=type=cache,target=/var/cache/apk <<EOF
+apk add --update-cache \
     xz \
     libcap-dev \
     libcap-static
@@ -14,10 +14,16 @@ EOF
 WORKDIR /tmp/bwrap
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "containers/bubblewrap" "v${version}" "bubblewrap-${version}.tar.xz"
-curl --silent --show-error --location --fail "https://github.com/containers/bubblewrap/releases/download/v${version}/bubblewrap-${version}.tar.xz" \
-| tar --extract --xz --strip-components=1
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/containers/bubblewrap/releases/download/v${version}/bubblewrap-${version}.tar.xz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "containers/bubblewrap" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --xz --strip-components=1
 ./autogen.sh
 make LDFLAGS=-static -j$(nproc)
 make install DESTDIR="${prefix}" prefix=""

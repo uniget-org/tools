@@ -12,7 +12,7 @@ ARG name
 ARG version
 COPY ct_server.service.go-template /uniget_bootstrap/etc/systemd/system/
 WORKDIR /go/src/github.com/google/certificate-transparency-go
-RUN <<EOF
+RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/google/certificate-transparency-go .
 export CGO_ENABLED=0
 go build -ldflags "-w -s" -o "${prefix}/bin/ct_server" ./trillian/ctfe/ct_server

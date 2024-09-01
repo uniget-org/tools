@@ -5,15 +5,20 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-
 ARG name
 ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/abiosoft/colima/releases/download/v${version}/colima-Linux-${arch}"
+filename="$( basename "${url}" )"
 
-RUN <<EOF
-check-github-release-asset "abiosoft/colima" "v${version}" "colima-Linux-${arch}"
-curl --silent --show-error --location --fail --output "${prefix}/bin/colima" \
-    "https://github.com/abiosoft/colima/releases/download/v${version}/colima-Linux-${arch}"
-chmod +x "${prefix}/bin/colima"
+check-github-release-asset "abiosoft/colima" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/colima"
+
 "${prefix}/bin/colima" completion bash >"${prefix}/share/bash-completion/completions/colima"
 "${prefix}/bin/colima" completion fish >"${prefix}/share/fish/vendor_completions.d/colima.fish"
 "${prefix}/bin/colima" completion zsh >"${prefix}/share/zsh/vendor-completions/_colima"

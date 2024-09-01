@@ -7,7 +7,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 echo "### Setting architecture string for ${TARGETPLATFORM}"
 case "${arch}" in
     x86_64)
@@ -23,10 +23,17 @@ case "${arch}" in
 esac
 echo "    Using ${arch_suffix}"
 
-check-github-release-asset "getsavvyinc/savvy-cli" "${version}" "savvy_linux_${arch_suffix}"
-curl --silent --show-error --location --fail --output "${prefix}/bin/savvy" \
-    "https://github.com/getsavvyinc/savvy-cli/releases/download/${version}/savvy_linux_${arch_suffix}"
-chmod +x "${prefix}/bin/savvy"
+url="https://github.com/getsavvyinc/savvy-cli/releases/download/${version}/savvy_linux_${arch_suffix}"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "getsavvyinc/savvy-cli" "${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/savvy"
+
 
 "${prefix}/bin/savvy" completion bash >"${prefix}/share/bash-completion/completions/savvy"
 "${prefix}/bin/savvy" completion fish >"${prefix}/share/fish/vendor_completions.d/savvy.fish"

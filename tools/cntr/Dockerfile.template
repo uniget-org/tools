@@ -7,9 +7,16 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "Mic92/cntr" "${version}" "cntr-bin-${version}-${arch}-unknown-linux-musl"
-curl --silent --show-error --location --fail --output "${prefix}/bin/cntr" \
-    "https://github.com/Mic92/cntr/releases/download/${version}/cntr-bin-${version}-${arch}-unknown-linux-musl"
-chmod +x "${prefix}/bin/cntr"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/Mic92/cntr/releases/download/${version}/cntr-bin-${version}-${arch}-unknown-linux-musl"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "Mic92/cntr" "${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/cntr"
+
 EOF

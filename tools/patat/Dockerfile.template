@@ -5,14 +5,18 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-
 ARG name
 ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/jaspervdj/patat/releases/download/v${version}/patat-v${version}-linux-${arch}.tar.gz"
+filename="$( basename "${url}" )"
 
-RUN <<EOF
-check-github-release-asset "jaspervdj/patat" "v${version}" "patat-v${version}-linux-${arch}.tar.gz"
-curl --silent --show-error --location --fail "https://github.com/jaspervdj/patat/releases/download/v${version}/patat-v${version}-linux-${arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin" --strip-components=1 --no-same-owner \
+check-github-release-asset "jaspervdj/patat" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin" --strip-components=1 --no-same-owner \
     patat-v${version}-linux-${arch}/patat
 
 curl --silent --show-error --location --fail "https://github.com/jaspervdj/patat/releases/download/v${version}/patat-v${version}-linux-${arch}.tar.gz" \

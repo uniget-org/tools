@@ -7,10 +7,10 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --from=musl / /usr/local
+COPY --link --from=musl / /usr/local
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 echo "### Setting architecture string for ${TARGETPLATFORM}"
 case "${arch}" in
     x86_64)
@@ -26,8 +26,15 @@ case "${arch}" in
 esac
 echo "    Using ${arch_suffix}"
 
-check-github-release-asset "Azure/bicep" "v${version}" "bicep-linux-${arch_suffix}"
-curl --silent --show-error --location --fail --output "${prefix}/bin/bicep" \
-    "https://github.com/Azure/bicep/releases/download/v${version}/bicep-linux-${arch_suffix}"
-chmod +x "${prefix}/bin/bicep"
+url="https://github.com/Azure/bicep/releases/download/v${version}/bicep-linux-${arch_suffix}"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "Azure/bicep" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/bicep"
+
 EOF

@@ -7,10 +7,16 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "kptdev/kpt" "v${version}" "kpt_linux_${alt_arch}-${version}.tar.gz"
-curl --silent --show-error --location --fail "https://github.com/kptdev/kpt/releases/download/v${version}/kpt_linux_${alt_arch}-${version}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/kptdev/kpt/releases/download/v${version}/kpt_linux_${alt_arch}-${version}.tar.gz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "kptdev/kpt" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     kpt
     
 "${prefix}/bin/kpt" completion bash >"${prefix}/share/bash-completion/completions/kpt"

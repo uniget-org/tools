@@ -9,43 +9,56 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-COPY --from=cosign / /usr/local/
+COPY --link --from=cosign / /usr/local/
 COPY kubectl.sh /uniget_bootstrap/etc/profile.d/
-RUN <<EOF
-curl --silent --show-error --location --fail --output "${prefix}/bin/kubectl" \
-    "https://dl.k8s.io/release/v${version}/bin/linux/${alt_arch}/kubectl"
-chmod +x "${prefix}/bin/kubectl"
-echo "Verifying keyless signature for kubectl"
-curl --silent --show-error --location --fail --output "/tmp/kubectl.sig" \
-    "https://dl.k8s.io/release/v${version}/bin/linux/${alt_arch}/kubectl.sig"
-curl --silent --show-error --location --fail --output "/tmp/kubectl.cert" \
-    "https://dl.k8s.io/release/v${version}/bin/linux/${alt_arch}/kubectl.cert"
-COSIGN_EXPERIMENTAL=1 cosign verify-blob "${prefix}/bin/kubectl" \
-    --signature "/tmp/kubectl.sig" \
-    --certificate "/tmp/kubectl.cert" \
-    --certificate-oidc-issuer https://accounts.google.com \
-    --certificate-identity krel-staging@k8s-releng-prod.iam.gserviceaccount.com
-rm -f \
-    "/tmp/kubectl.sig" \
-    "/tmp/kubectl.cert"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://dl.k8s.io/release/v${version}/bin/linux/${alt_arch}/kubectl"
+filename="$( basename "${url}" )"
 
-curl --silent --show-error --location --fail --output "${prefix}/bin/kubectl-convert" \
-    "https://dl.k8s.io/release/v${version}/bin/linux/${alt_arch}/kubectl-convert"
-chmod +x "${prefix}/bin/kubectl-convert"
-echo "Verifying keyless signature for kubectl-convert"
-curl --silent --show-error --location --fail --output "/tmp/kubectl-convert.sig" \
-    "https://dl.k8s.io/release/v${version}/bin/linux/${alt_arch}/kubectl-convert.sig"
-curl --silent --show-error --location --fail --output "/tmp/kubectl-convert.cert" \
-    "https://dl.k8s.io/release/v${version}/bin/linux/${alt_arch}/kubectl-convert.cert"
-COSIGN_EXPERIMENTAL=1 cosign verify-blob "${prefix}/bin/kubectl-convert" \
-    --signature "/tmp/kubectl-convert.sig" \
-    --certificate "/tmp/kubectl-convert.cert" \
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+echo "Verifying keyless signature for kubectl"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.sig" \
+    "${url}.sig"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.cert" \
+    "${url}.cert"
+
+COSIGN_EXPERIMENTAL=1 cosign verify-blob "${uniget_cache_download}/${filename}" \
+    --signature "${uniget_cache_download}/${filename}.sig" \
+    --certificate "${uniget_cache_download}/${filename}.cert" \
     --certificate-oidc-issuer https://accounts.google.com \
     --certificate-identity krel-staging@k8s-releng-prod.iam.gserviceaccount.com
-rm -f \
-    "/tmp/kubectl-convert.sig" \
-    "/tmp/kubectl-convert.cert"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/kubectl"
 
 "${prefix}/bin/kubectl" completion bash >"${prefix}/share/bash-completion/completions/kubectl"
 "${prefix}/bin/kubectl" completion zsh >"${prefix}/share/zsh/vendor-completions/_kubectl"
+EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://dl.k8s.io/release/v${version}/bin/linux/${alt_arch}/kubectl-convert"
+filename="$( basename "${url}" )"
+
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+echo "Verifying keyless signature for kubectl-convert"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.sig" \
+    "${url}.sig"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.cert" \
+    "${url}.cert"
+
+COSIGN_EXPERIMENTAL=1 cosign verify-blob "${uniget_cache_download}/${filename}" \
+    --signature "${uniget_cache_download}/${filename}.sig" \
+    --certificate "${uniget_cache_download}/${filename}.cert" \
+    --certificate-oidc-issuer https://accounts.google.com \
+    --certificate-identity krel-staging@k8s-releng-prod.iam.gserviceaccount.com
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/kubectl-convert"
 EOF

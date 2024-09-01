@@ -5,13 +5,18 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-
 ARG name
 ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/docker/machine/releases/download/v${version}/docker-machine-Linux-${arch}"
+filename="$( basename "${url}" )"
 
-RUN <<EOF
-check-github-release-asset "docker/machine" "v${version}" "docker-machine-Linux-${arch}"
-curl --silent --show-error --location --fail --output "${prefix}/bin/docker-machine" \
-    "https://github.com/docker/machine/releases/download/v${version}/docker-machine-Linux-${arch}"
-chmod +x "${prefix}/bin/docker-machine"
+check-github-release-asset "docker/machine" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/docker-machine"
+
 EOF

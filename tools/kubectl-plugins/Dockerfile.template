@@ -14,7 +14,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --from=krew / /usr/local/
+COPY --link --from=krew / /usr/local/
 ARG name
 ARG version
 COPY --chmod=755 <<EOF /uniget_bootstrap/bin/krew-uniget
@@ -90,7 +90,6 @@ plugins=(
     resource-snapshot
     rolesum
     score
-    skew
     slice
     sniff
     socks5-proxy

@@ -8,10 +8,17 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 WORKDIR /uniget_bootstrap/opt/gcloud
-RUN <<EOF
-check-download "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-${version}-linux-${arch}.tar.gz"
-curl --silent --show-error --location --fail "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-${version}-linux-${arch}.tar.gz" \
-| tar --extract --gzip --strip-components=1 --no-same-owner
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-${version}-linux-${arch}.tar.gz"
+filename="$( basename "${url}" )"
+
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --strip-components=1 --no-same-owner
+
 ln --symbolic --relative --force "${prefix}/opt/gcloud/bin/gcloud" "${prefix}/bin/gcloud"
 ln --symbolic --relative --force "${prefix}/opt/gcloud/bin/bq" "${prefix}/bin/bq"
 

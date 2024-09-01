@@ -7,11 +7,18 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "knative/client" "knative-v${version}" "kn-linux-${alt_arch}"
-curl --silent --show-error --location --fail --output "${prefix}/bin/kn" \
-    "https://github.com/knative/client/releases/download/knative-v${version}/kn-linux-${alt_arch}"
-chmod +x "${prefix}/bin/kn"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/knative/client/releases/download/knative-v${version}/kn-linux-${alt_arch}"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "knative/client" "knative-v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/kn"
+
 "${prefix}/bin/kn" completion bash >"${prefix}/share/bash-completion/completions/kn"
 "${prefix}/bin/kn" completion zsh >"${prefix}/share/zsh/vendor-completions/_kn"
 EOF

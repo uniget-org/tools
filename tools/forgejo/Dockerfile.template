@@ -7,7 +7,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 url="$(
     curl --silent --show-error --location --fail "https://codeberg.org/api/v1/repos/forgejo/forgejo/releases" \
     | jq --raw-output --arg version "${version}" --arg alt_arch "${alt_arch}" '
@@ -19,8 +19,12 @@ url="$(
     '
 )"
 test -n "${url}"
+filename="$(basename "${url}")"
+
 check-download "${url}"
-curl --silent --show-error --location --fail "${url}" \
-| xz --decompress >"${prefix}/bin/forgejo"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+xz --decompress "${uniget_cache_download}/${filename}" >"${prefix}/bin/forgejo"
 chmod +x "${prefix}/bin/forgejo"
 EOF

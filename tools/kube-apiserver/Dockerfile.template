@@ -7,25 +7,30 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --from=cosign / /usr/local/
+COPY --link --from=cosign / /usr/local/
 ARG name
 ARG version
-RUN <<EOF
-curl --silent --show-error --location --fail --output "${prefix}/bin/kube-apiserver" \
-    "https://dl.k8s.io/release/v${version}/bin/linux/${alt_arch}/kube-apiserver"
-chmod +x "${prefix}/bin/kube-apiserver"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://dl.k8s.io/release/v${version}/bin/linux/${alt_arch}/kube-apiserver"
+filename="$( basename "${url}" )"
+
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
 
 echo "Verifying keyless signature for kube-apiserver"
-curl --silent --show-error --location --fail --output "/tmp/kube-apiserver.sig" \
-    "https://dl.k8s.io/release/v${version}/bin/linux/${alt_arch}/kube-apiserver.sig"
-curl --silent --show-error --location --fail --output "/tmp/kube-apiserver.cert" \
-    "https://dl.k8s.io/release/v${version}/bin/linux/${alt_arch}/kube-apiserver.cert"
-COSIGN_EXPERIMENTAL=1 cosign verify-blob "${prefix}/bin/kube-apiserver" \
-    --signature "/tmp/kube-apiserver.sig" \
-    --certificate "/tmp/kube-apiserver.cert" \
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.sig" \
+    "${url}.sig"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.cert" \
+    "${url}.cert"
+
+COSIGN_EXPERIMENTAL=1 cosign verify-blob "${uniget_cache_download}/${filename}" \
+    --signature "${uniget_cache_download}/${filename}.sig" \
+    --certificate "${uniget_cache_download}/${filename}.cert" \
     --certificate-oidc-issuer https://accounts.google.com \
     --certificate-identity krel-staging@k8s-releng-prod.iam.gserviceaccount.com
-rm -f \
-    "/tmp/kube-apiserver.sig" \
-    "/tmp/kube-apiserver.cert"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/kube-apiserver"
 EOF

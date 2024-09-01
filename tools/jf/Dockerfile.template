@@ -5,14 +5,19 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-
 ARG name
 ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://releases.jfrog.io/artifactory/jfrog-cli/v2-jf/${version}/jfrog-cli-linux-${alt_arch}/jf"
+filename="$(basename "${url}")"
 
-RUN <<EOF
-curl --silent --show-error --location --fail --output "${prefix}/bin/jf" \
-    "https://releases.jfrog.io/artifactory/jfrog-cli/v2-jf/${version}/jfrog-cli-linux-${alt_arch}/jf"
-chmod +x "${prefix}/bin/jf"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/jf"
+
 "${prefix}/bin/jf" completion bash >"${prefix}/share/bash-completion/completions/jf"
 "${prefix}/bin/jf" completion fish >"${prefix}/share/fish/vendor_completions.d/jf.fish"
 "${prefix}/bin/jf" completion zsh >"${prefix}/share/zsh/vendor-completions/_jf"

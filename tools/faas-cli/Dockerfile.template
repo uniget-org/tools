@@ -5,13 +5,18 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-
 ARG name
 ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/openfaas/faas-cli/releases/download/${version}/faas-cli"
+filename="$( basename "${url}" )"
 
-RUN <<EOF
-check-github-release-asset "openfaas/faas-cli" "${version}" "faas-cli"
-curl --silent --show-error --location --fail --output "${prefix}/bin/faas-cli" \
-    "https://github.com/openfaas/faas-cli/releases/download/${version}/faas-cli"
-chmod +x "${prefix}/bin/faas-cli"
+check-github-release-asset "openfaas/faas-cli" "${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/faas-cli"
+
 EOF

@@ -7,11 +7,18 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-check-download "https://storage.googleapis.com/gvisor/releases/release/${version}/${arch}/runsc"
-curl --silent --show-error --location --fail --output "${prefix}/bin/runsc" \
-    "https://storage.googleapis.com/gvisor/releases/release/${version}/${arch}/runsc"
-chmod +x "${prefix}/bin/runsc"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://storage.googleapis.com/gvisor/releases/release/${version}/${arch}/runsc"
+filename="$( basename "${url}" )"
+
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/runsc"
+
 
 check-download "https://storage.googleapis.com/gvisor/releases/release/${version}/${arch}/containerd-shim-runsc-v1"
 curl --silent --show-error --location --fail --output "${prefix}/bin/containerd-shim-runsc-v1" \

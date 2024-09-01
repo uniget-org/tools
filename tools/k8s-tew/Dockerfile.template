@@ -7,11 +7,18 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "darxkies/k8s-tew" "${version}" "k8s-tew"
-curl --silent --show-error --location --fail --output "${prefix}/bin/k8s-tew" \
-    "https://github.com/darxkies/k8s-tew/releases/download/${version}/k8s-tew"
-chmod +x "${prefix}/bin/k8s-tew"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/darxkies/k8s-tew/releases/download/${version}/k8s-tew"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "darxkies/k8s-tew" "${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/k8s-tew"
+
 
 "${prefix}/bin/k8s-tew" completion bash >"${prefix}/share/bash-completion/completions/k8s-tew"
 "${prefix}/bin/k8s-tew" completion zsh >"${prefix}/share/zsh/vendor-completions/_k8s-tew"

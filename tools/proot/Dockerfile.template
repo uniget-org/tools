@@ -9,8 +9,8 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-apk add --update-cache --no-cache \
+RUN --mount=type=cache,target=/var/cache/apk <<EOF
+apk add --update-cache \
     talloc-dev \
     talloc-static \
     linux-headers \

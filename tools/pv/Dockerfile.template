@@ -7,13 +7,13 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --link --from=make / /usr/local/
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/apk <<EOF
 apk update
-apk add \
+apk add --update-cache \
     gettext \
     gettext-dev
 EOF
+COPY --link --from=make / /usr/local/
 WORKDIR /tmp/pv
 ARG name
 ARG version

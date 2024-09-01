@@ -7,10 +7,18 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-curl --silent --show-error --location --fail --output "${prefix}/bin/neofetch" \
-    "https://github.com/dylanaraps/neofetch/raw/${version}/neofetch"
-chmod +x "${prefix}/bin/neofetch"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/dylanaraps/neofetch/raw/${version}/neofetch"
+filename="$(basename "${url}")"
+
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/neofetch"
+
 curl --silent --show-error --location --fail --output "${prefix}/share/man/man1/neofetch.1" \
     "https://github.com/dylanaraps/neofetch/raw/${version}/neofetch.1"
 EOF

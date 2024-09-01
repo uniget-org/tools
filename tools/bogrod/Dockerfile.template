@@ -12,8 +12,6 @@ COPY --link --from=python / /usr/local/
 COPY --link --from=shiv / /usr/local/
 ARG name
 ARG version
-RUN <<EOF
-which python3
-ldd /usr/local/bin/python3
+RUN --mount=type=cache,target=/root/.cache/pip <<EOF
 shiv --output-file "${prefix}/bin/bogrod" --console-script bogrod "bogrod==${version}" pyyaml tabulate
 EOF

@@ -7,10 +7,17 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-curl --silent --show-error --location --fail "https://get.helm.sh/helm-v${version}-linux-${alt_arch}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin" --strip-components=1 --no-same-owner \
-    linux-${alt_arch}/helm
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://get.helm.sh/helm-v${version}-linux-${alt_arch}.tar.gz"
+filename="$(basename "${url}")"
+
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin" --strip-components=1 --no-same-owner \
+    "linux-${alt_arch}/helm"
+
 "${prefix}/bin/helm" completion bash >"${prefix}/share/bash-completion/completions/helm"
 "${prefix}/bin/helm" completion fish >"${prefix}/share/fish/vendor_completions.d/helm.fish"
 "${prefix}/bin/helm" completion zsh >"${prefix}/share/zsh/vendor-completions/_helm"

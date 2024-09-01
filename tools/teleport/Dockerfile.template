@@ -7,9 +7,16 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-curl --silent --show-error --location --fail "https://cdn.teleport.dev/teleport-v${version}-linux-${alt_arch}-bin.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://cdn.teleport.dev/teleport-v${version}-linux-${alt_arch}-bin.tar.gz"
+filename="$(basename "${url}")"
+
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
     teleport/tctl \
     teleport/teleport \
     teleport/tbot \

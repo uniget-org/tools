@@ -7,10 +7,16 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "git-lfs/git-lfs" "v${version}" "git-lfs-linux-${alt_arch}-v${version}.tar.gz"
-curl --silent --show-error --location --fail "https://github.com/git-lfs/git-lfs/releases/download/v${version}/git-lfs-linux-${alt_arch}-v${version}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/share/" --strip-components=1 --no-same-owner \
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/git-lfs/git-lfs/releases/download/v${version}/git-lfs-linux-${alt_arch}-v${version}.tar.gz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "git-lfs/git-lfs" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/share/" --strip-components=1 --no-same-owner \
     git-lfs-${version}/git-lfs \
     git-lfs-${version}/man
 mv "${prefix}/share/git-lfs" "${prefix}/bin/"

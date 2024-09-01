@@ -7,10 +7,16 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "weaveworks/wksctl" "v${version}" "wksctl-${version}-linux-x86_64.tar.gz"
-curl --silent --show-error --location --fail "https://github.com/weaveworks/wksctl/releases/download/v${version}/wksctl-${version}-linux-x86_64.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/share/" --no-same-owner
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/weaveworks/wksctl/releases/download/v${version}/wksctl-${version}-linux-x86_64.tar.gz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "weaveworks/wksctl" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/share/" --no-same-owner
 mv "${prefix}/share/wksctl" "${prefix}/bin/"
 mv "${prefix}/share/examples" "${prefix}/share/wksctl/"
 "${prefix}/bin/wksctl" bash-completions >"${prefix}/share/bash-completion/completions/wksctl"

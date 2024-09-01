@@ -18,6 +18,6 @@ repository: https://github.com/warpstreamlabs/bento
 description: Fancy stream processing made operationally mundane
 renovate:
   datasource: github-releases
-  package: foo/bar
+  package: warpstreamlabs/bento
   extractVersion: ^v(?<version>.+)$
   priority: low

@@ -12,7 +12,7 @@ COPY --link --from=go / /usr/local/
 WORKDIR /go/src/github.com/authelia/gox
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
 check-clone "https://github.com/authelia/gox" "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/authelia/gox .
 go build -o "${prefix}/bin/gox" .

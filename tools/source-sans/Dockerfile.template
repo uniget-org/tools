@@ -7,20 +7,24 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 mkdir -p "${prefix}/share/source-sans"
 
 url="https://github.com/adobe-fonts/source-sans/releases/download/${version}R/WOFF-source-sans-${version}R.zip"
-check-github-release-asset "adobe-fonts/source-sans" "${version}R" "WOFF-source-sans-${version}R.zip"
 filename="$(basename "${url}")"
-curl --silent --show-error --location --fail --remote-name "${url}"
-unzip -q -o -d "${prefix}/share/source-sans" "${filename}"
+check-github-release-asset "adobe-fonts/source-sans" "${version}R" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+unzip -t "${uniget_cache_download}/${filename}"
+unzip -q -o -d "${prefix}/share/source-sans" "${uniget_cache_download}/${filename}"
 
 url="https://github.com/adobe-fonts/source-sans/releases/download/${version}R/WOFF2-source-sans-${version}R.zip"
-check-github-release-asset "adobe-fonts/source-sans" "${version}R" "WOFF2-source-sans-${version}R.zip"
 filename="$(basename "${url}")"
-curl --silent --show-error --location --fail --remote-name "${url}"
-unzip -q -o -d "${prefix}/share/source-sans" "${filename}"
+check-github-release-asset "adobe-fonts/source-sans" "${version}R" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+unzip -t "${uniget_cache_download}/${filename}"
+unzip -q -o -d "${prefix}/share/source-sans" "${uniget_cache_download}/${filename}"
 
 rm -rf "${prefix}/share/source-sans/__MACOSX"
 find "${prefix}/share/source-sans" -type f -name \.DS_Store -delete

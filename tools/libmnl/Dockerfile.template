@@ -7,11 +7,11 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --link --from=make / /usr/local/
-RUN <<EOF
-apk add --update-cache --no-cache \
+RUN --mount=type=cache,target=/var/cache/apk <<EOF
+apk add --update-cache \
     linux-headers
 EOF
+COPY --link --from=make / /usr/local/
 WORKDIR /tmp/libmnl
 ARG name
 ARG version

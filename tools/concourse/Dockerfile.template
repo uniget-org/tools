@@ -5,14 +5,18 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-
 ARG name
 ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/concourse/concourse/releases/download/v${version}/fly-${version}-linux-amd64.tgz"
+filename="$( basename "${url}" )"
 
-RUN <<EOF
-check-github-release-asset "concourse/concourse" "v${version}" "fly-${version}-linux-amd64.tgz"
-curl --silent --show-error --location --fail "https://github.com/concourse/concourse/releases/download/v${version}/fly-${version}-linux-amd64.tgz" \
-| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner
+check-github-release-asset "concourse/concourse" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin/" --no-same-owner
 
 check-github-release-asset "concourse/concourse" "v${version}" "concourse-${version}-linux-amd64.tgz"
 curl --silent --show-error --location --fail "https://github.com/concourse/concourse/releases/download/v${version}/concourse-${version}-linux-amd64.tgz" \

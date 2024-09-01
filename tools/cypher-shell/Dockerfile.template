@@ -7,12 +7,17 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-mkdir -p "${prefix}/opt"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 url="https://dist.neo4j.org/cypher-shell/cypher-shell-${version}.zip"
 filename="$(basename "${url}")"
-curl --silent --show-error --location --fail --remote-name "${url}"
-unzip -q -o -d "${prefix}/opt/" "${filename}"
+
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+mkdir -p "${prefix}/opt"
+unzip -t "${uniget_cache_download}/${filename}"
+unzip -q -o -d "${prefix}/opt/" "${uniget_cache_download}/${filename}"
+
 mv "${prefix}/opt/cypher-shell-${version}" "${prefix}/opt/cypher-shell"
 ln --symbolic --relative --force "/opt/cypher-shell/bin/cypher-shell" "${prefix}/bin/"
 EOF

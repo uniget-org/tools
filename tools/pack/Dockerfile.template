@@ -7,7 +7,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 echo "### Setting architecture string for ${TARGETPLATFORM}"
 case "${arch}" in
     x86_64)
@@ -23,9 +23,15 @@ case "${arch}" in
 esac
 echo "    Using ${arch_suffix}"
 
-check-github-release-asset "buildpacks/pack" "v${version}" "pack-v${version}-linux${arch_suffix}.tgz"
-curl --silent --show-error --location --fail "https://github.com/buildpacks/pack/releases/download/v${version}/pack-v${version}-linux${arch_suffix}.tgz" \
-| tar --extract --gzip --directory="${prefix}/bin/" --no-same-owner
+url="https://github.com/buildpacks/pack/releases/download/v${version}/pack-v${version}-linux${arch_suffix}.tgz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "buildpacks/pack" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin/" --no-same-owner
 
 "${prefix}/bin/pack" completion bash >"${prefix}/share/bash-completion/completions/pack"
 "${prefix}/bin/pack" completion fish >"${prefix}/share/fish/vendor_completions.d/pack.fish"

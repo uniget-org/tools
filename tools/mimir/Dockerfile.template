@@ -7,11 +7,18 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN <<EOF
-check-github-release-asset "grafana/mimir" "mimir-${version}" "mimir-linux-${alt_arch}"
-curl --silent --show-error --location --fail --output "${prefix}/bin/mimir" \
-    "https://github.com/grafana/mimir/releases/download/mimir-${version}/mimir-linux-${alt_arch}"
-chmod +x "${prefix}/bin/mimir"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/grafana/mimir/releases/download/mimir-${version}/mimir-linux-${alt_arch}"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "grafana/mimir" "mimir-${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/mimir"
+
 EOF
 COPY mimir.yaml /uniget_bootstrap/etc/mimir/
 COPY nginx.conf /uniget_bootstrap/etc/mimir/
