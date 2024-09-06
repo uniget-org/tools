@@ -15,8 +15,7 @@ curl --silent --show-error --location --fail "https://github.com/dragonflyoss/Dr
     dfcache \
     dfstore \
     scheduler \
-    manager \
-    trainer
+    manager
 
 # https://github.com/dragonflyoss/Dragonfly2/raw/v${version}/build/package/nfpm/systemd/dfget-daemon.service
 # https://github.com/dragonflyoss/Dragonfly2/raw/v${version}/build/package/nfpm/systemd/fix.dfget-daemon.cpuset.sh
@@ -43,8 +42,4 @@ curl --silent --show-error --location --fail "https://github.com/dragonflyoss/Dr
 "${prefix}/bin/scheduler" completion bash >"${prefix}/share/bash-completion/completions/scheduler"
 "${prefix}/bin/scheduler" completion fish >"${prefix}/share/fish/vendor_completions.d/scheduler.fish"
 "${prefix}/bin/scheduler" completion zsh >"${prefix}/share/zsh/vendor-completions/_scheduler"
-
-"${prefix}/bin/trainer" completion bash >"${prefix}/share/bash-completion/completions/trainer"
-"${prefix}/bin/trainer" completion fish >"${prefix}/share/fish/vendor_completions.d/trainer.fish"
-"${prefix}/bin/trainer" completion zsh >"${prefix}/share/zsh/vendor-completions/_trainer"
 EOF
