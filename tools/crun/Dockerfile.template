@@ -1,6 +1,6 @@
 #syntax=docker/dockerfile:1.9.0@sha256:fe40cf4e92cd0c467be2cfc30657a680ae2398318afd50b0c80585784c604f28
 
-FROM nixos/nix:2.24.5@sha256:4ad79a0ab633944869a37921f096d35a3f2c7a0275d98b7bfa0cd3cba5a6b96e AS build
+FROM nixos/nix:2.24.6@sha256:95ce012fbc5e3af2e8f6bf93dddbf3f438c682056dbcf9c2ce71a7b1e9a77960 AS build
 ARG name
 ARG version
 WORKDIR /tmp/crun
