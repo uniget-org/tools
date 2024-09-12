@@ -8,23 +8,9 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
-echo "### Setting architecture string for ${TARGETPLATFORM}"
-case "${arch}" in
-    x86_64)
-        export arch_suffix=x64
-        ;;
-    aarch64)
-        export arch_suffix="${alt_arch}"
-        ;;
-    *)
-        echo "ERROR: Unsupported architecture ${arch}."
-        exit 1
-        ;;
-esac
-echo "    Using ${arch_suffix}"
-check-github-release-asset "k0sproject/k0sctl" "v${version}" "k0sctl-linux-${arch_suffix}"
+check-github-release-asset "k0sproject/k0sctl" "v${version}" "k0sctl-linux-${alt_arch}"
 curl --silent --show-error --location --fail --output "${prefix}/bin/k0sctl" \
-    "https://github.com/k0sproject/k0sctl/releases/download/v${version}/k0sctl-linux-${arch_suffix}"
+    "https://github.com/k0sproject/k0sctl/releases/download/v${version}/k0sctl-linux-${alt_arch}"
 chmod +x "${prefix}/bin/k0sctl"
 
 "${prefix}/bin/k0sctl" completion bash >"${prefix}/share/bash-completion/completions/k0sctl"
