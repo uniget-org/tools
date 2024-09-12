@@ -12,7 +12,7 @@ ARG name
 ARG version
 RUN <<EOF
 curl --silent --show-error --location --fail --output "${prefix}/bin/kube-controller-manager" \
-    "https://storage.googleapis.com/kubernetes-release/release/v${version}/bin/linux/${alt_arch}/kube-controller-manager"
+    "https://dl.k8s.io/release/v${version}/bin/linux/${alt_arch}/kube-controller-manager"
 chmod +x "${prefix}/bin/kube-controller-manager"
 
 echo "Verifying keyless signature for kube-controller-manager"
