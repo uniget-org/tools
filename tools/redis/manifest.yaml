@@ -5,8 +5,8 @@ license:
   name: Redis Source Available License 2.0
   link: https://github.com/redis/redis/blob/unstable/LICENSE.txt
 version: "7.4.0"
-binary: redis-cli --version | cut -d' ' -f2
-check: ${binary} 
+binary: redis-cli
+check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
 #- linux/arm64

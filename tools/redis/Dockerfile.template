@@ -33,7 +33,3 @@ make install \
     PREFIX="${prefix}" \
     prefix=""
 EOF
-
-RUN <<EOF
-touch "${prefix}/foo"
-EOF
