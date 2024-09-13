@@ -1,0 +1,39 @@
+#syntax=docker/dockerfile:1.10.0@sha256:865e5dd094beca432e8c0a1d5e1c465db5f998dca4e439981029b3b81fb39ed5
+
+FROM ghcr.io/uniget-org/images/build-base:3.20 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+RUN <<EOF
+apk add --update-cache --no-cache \
+    jemalloc-dev \
+    openssl-dev \
+    openssl-libs-static
+EOF
+WORKDIR /tmp/redis
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/redis/redis/archive/refs/tags/${version}.tar.gz"
+filename="$(basename "${url}")"
+
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --strip-components=1
+
+make -j$(nproc) \
+    BUILD_TLS=yes \
+    CFLAGS="-static" \
+    LDFLAGS="-static"
+make install \
+    PREFIX="${prefix}" \
+    prefix=""
+EOF
+
+RUN <<EOF
+touch "${prefix}/foo"
+EOF
