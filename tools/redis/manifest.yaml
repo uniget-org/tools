@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: redis
+license:
+  name: Redis Source Available License 2.0
+  link: https://github.com/redis/redis/blob/unstable/LICENSE.txt
+version: "7.4.0"
+binary: redis-cli --version | cut -d' ' -f2
+check: ${binary} 
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- org/redis
+- category/development
+- lang/c
+- type/daemon
+- type/cli
+homepage: http://redis.io/
+repository: https://github.com/redis/redis
+description: In-memory key-value database that persists on disk
+renovate:
+  datasource: github-releases
+  package: redis/redis
+  priority: low
