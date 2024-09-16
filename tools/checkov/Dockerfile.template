@@ -2,6 +2,7 @@
 
 FROM ghcr.io/uniget-org/tools/python:latest AS python
 FROM ghcr.io/uniget-org/tools/shiv:latest AS shiv
+FROM ghcr.io/uniget-org/tools/rust:latest AS rust
 
 FROM ghcr.io/uniget-org/images/ubuntu:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
@@ -10,8 +11,11 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=python / /usr/local/
 COPY --link --from=shiv / /usr/local/
+COPY --link --from=rust / /usr/local/
 ARG name
 ARG version
 RUN <<EOF
+export CARGO_HOME=/usr/local/cargo
+export RUSTUP_HOME=/usr/local/rustup
 shiv --output-file "${prefix}/bin/checkov" --console-script checkov "checkov==${version}"
 EOF
