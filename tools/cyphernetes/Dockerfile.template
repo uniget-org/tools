@@ -13,7 +13,7 @@ COPY --link --from=goyacc / /usr/local/
 WORKDIR /go/src/github.com/AvitalTamir/cyphernetes
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 url="https://github.com/AvitalTamir/cyphernetes/releases/download/v${version}/cyphernetes-linux-${alt_arch}"
 filename="$(basename "${url}")"
 
