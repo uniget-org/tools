@@ -14,10 +14,16 @@ WORKDIR /go/src/github.com/AvitalTamir/cyphernetes
 ARG name
 ARG version
 RUN <<EOF
-check-clone "https://github.com/AvitalTamir/cyphernetes" "v${version}"
-git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/AvitalTamir/cyphernetes .
-goyacc -o pkg/parser/cyphernetes.go -p "yy" grammar/cyphernetes.y
-go build -ldflags "-s -w -linkmode=external -extldflags=-static" -o "${prefix}/bin/cyphernetes" ./cmd/cyphernetes
+url="https://github.com/AvitalTamir/cyphernetes/releases/download/v${version}/cyphernetes-linux-${ald_arch}"
+filename="$(basename "${url}")"
+
+check-github-release-asset "AvitalTamir/cyphernetes" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/cyphernetes"
 
 "${prefix}/bin/cyphernetes" completion bash >"${prefix}/share/bash-completion/completions/cyphernetes"
 "${prefix}/bin/cyphernetes" completion fish >"${prefix}/share/fish/vendor_completions.d/cyphernetes.fish"
