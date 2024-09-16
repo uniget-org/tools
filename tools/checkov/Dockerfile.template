@@ -12,6 +12,11 @@ SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=python / /usr/local/
 COPY --link --from=shiv / /usr/local/
 COPY --link --from=rust / /usr/local/
+RUN <<EOF
+apt-get update
+apt-get -y install --no-install-recommands \
+    clang
+EOF
 ARG name
 ARG version
 RUN <<EOF
