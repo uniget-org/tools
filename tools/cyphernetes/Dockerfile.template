@@ -14,7 +14,7 @@ WORKDIR /go/src/github.com/AvitalTamir/cyphernetes
 ARG name
 ARG version
 RUN <<EOF
-url="https://github.com/AvitalTamir/cyphernetes/releases/download/v${version}/cyphernetes-linux-${ald_arch}"
+url="https://github.com/AvitalTamir/cyphernetes/releases/download/v${version}/cyphernetes-linux-${alt_arch}"
 filename="$(basename "${url}")"
 
 check-github-release-asset "AvitalTamir/cyphernetes" "v${version}" "${filename}"
