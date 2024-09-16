@@ -14,7 +14,7 @@ COPY --link --from=shiv / /usr/local/
 COPY --link --from=rust / /usr/local/
 RUN <<EOF
 apt-get update
-apt-get -y install --no-install-recommands \
+apt-get -y install --no-install-recommends \
     clang
 EOF
 ARG name
