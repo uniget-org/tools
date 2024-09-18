@@ -30,7 +30,7 @@ version_filename="$(echo "${version}" | sed 's/+/_/g')"
 check-github-release-asset "adoptium/temurin${MAJOR_VERSION}-binaries" "jdk-${version}" "OpenJDK${MAJOR_VERSION}U-jre_x64_alpine-linux_hotspot_${version_filename}.tar.gz"
 mkdir -p "${prefix}/opt/openjdk-jre"
 curl --silent --show-error --location --fail "https://github.com/adoptium/temurin${MAJOR_VERSION}-binaries/releases/download/jdk-${version_url_encoded}/OpenJDK${MAJOR_VERSION}U-jre_x64_alpine-linux_hotspot_${version_filename}.tar.gz" \
-| tar --extract --gzip --directory="${prefix}/opt/openjdk" --no-same-owner
+| tar --extract --gzip --directory="${prefix}/opt/openjdk" --strip-components=1 --no-same-owner
 
 cd "${prefix}/opt/openjdk-jre"
 find . -type f -executable \
