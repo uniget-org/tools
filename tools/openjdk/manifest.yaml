@@ -1,6 +1,9 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: openjdk
-version: "22"
+license:
+  name: GPLv2
+  link: https://github.com/openjdk/jdk/blob/master/LICENSE
+version: "22.0.2+9"
 binary: javac
 check: ${binary} -version | cut -d' ' -f2
 build_dependencies:
@@ -9,15 +12,12 @@ tags:
 - type/cli
 - category/development
 - lang/java
-homepage: https://github.com/openjdk
-repository: https://github.com/openjdk
+homepage: https://adoptium.net/de/temurin/
+repository: https://github.com/adoptium
 description: OpenJDK
 renovate:
-  datasource: github-tags
-  package: openjdk/jdk
-  extractVersion: ^jdk-(?<version>.+)-ga$
+  datasource: github-releases
+  package: uniget-org/renovate-custom
+  extractVersion: ^openjdk/(?<version>.+)$
   versioning: loose
   priority: low
-license:
-  name: GPLv2
-  link: https://github.com/openjdk/jdk/blob/master/LICENSE

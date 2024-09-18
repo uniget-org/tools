@@ -1,17 +1,37 @@
 #syntax=docker/dockerfile:1.10.0@sha256:865e5dd094beca432e8c0a1d5e1c465db5f998dca4e439981029b3b81fb39ed5
 
-FROM ghcr.io/uniget-org/tools/jabba:latest AS jabba
-
 FROM ghcr.io/uniget-org/images/ubuntu:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --from=jabba / /usr/local/
 ARG name
 ARG version
 RUN <<EOF
-jabba install --output "${prefix}/opt/openjdk/" openjdk@1.${version}
+echo "### Setting architecture string for ${TARGETPLATFORM}"
+case "${arch}" in
+    x86_64)
+        export arch_suffix="x64"
+        ;;
+    aarch64)
+        export arch_suffix="${arch}"
+        ;;
+    *)
+        echo "ERROR: Unsupported architecture ${arch}."
+        exit 1
+        ;;
+esac
+echo "    Using ${arch_suffix}"
+
+MAJOR_VERSION="$(echo "${version}" | cut -d. -f1)"
+version_url_encoded="$(echo "${version}" | sed 's/+/%2B/g')"
+version_filename="$(echo "${version}" | sed 's/+/_/g')"
+
+check-github-release-asset "adoptium/temurin${MAJOR_VERSION}-binaries" "jdk-${version}" "OpenJDK${MAJOR_VERSION}U-jdk_x64_alpine-linux_hotspot_${version_filename}.tar.gz"
+mkdir -p "${prefix}/opt/openjdk"
+curl --silent --show-error --location --fail "https://github.com/adoptium/temurin${MAJOR_VERSION}-binaries/releases/download/jdk-${version_url_encoded}/OpenJDK${MAJOR_VERSION}U-jdk_x64_alpine-linux_hotspot_${version_filename}.tar.gz" \
+| tar --extract --gzip --directory="${prefix}/opt/openjdk" --strip-components=1 --no-same-owner
+
 cd "${prefix}/opt/openjdk/bin"
 find . -type f -executable \
 | while read -r BINARY; do
