@@ -28,13 +28,13 @@ version_url_encoded="$(echo "${version}" | sed 's/+/%2B/g')"
 version_filename="$(echo "${version}" | sed 's/+/_/g')"
 
 check-github-release-asset "adoptium/temurin${MAJOR_VERSION}-binaries" "jdk-${version}" "OpenJDK${MAJOR_VERSION}U-jre_x64_alpine-linux_hotspot_${version_filename}.tar.gz"
-mkdir -p "${prefix}/opt/openjdk"
+mkdir -p "${prefix}/opt/openjdk-jre"
 curl --silent --show-error --location --fail "https://github.com/adoptium/temurin${MAJOR_VERSION}-binaries/releases/download/jdk-${version_url_encoded}/OpenJDK${MAJOR_VERSION}U-jre_x64_alpine-linux_hotspot_${version_filename}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/opt/openjdk" --no-same-owner
 
-cd "${prefix}/opt/openjdk"
+cd "${prefix}/opt/openjdk-jre"
 find . -type f -executable \
 | while read -r BINARY; do
-    ln --symbolic --relative --force "${prefix}/opt/openjdk/bin/${BINARY:2}" "${prefix}/bin/${BINARY:2}"
+    ln --symbolic --relative --force "${prefix}/opt/openjdk-jre/bin/${BINARY:2}" "${prefix}/bin/${BINARY:2}"
 done
 EOF

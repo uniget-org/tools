@@ -32,6 +32,7 @@ mkdir -p "${prefix}/opt/openjdk"
 curl --silent --show-error --location --fail "https://github.com/adoptium/temurin${MAJOR_VERSION}-binaries/releases/download/jdk-${version_url_encoded}/OpenJDK${MAJOR_VERSION}U-jdk_x64_alpine-linux_hotspot_${version_filename}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/opt/openjdk" --no-same-owner
 
+cd "${prefix}/opt/openjdk"
 find . -type f -executable \
 | while read -r BINARY; do
     ln --symbolic --relative --force "${prefix}/opt/openjdk/bin/${BINARY:2}" "${prefix}/bin/${BINARY:2}"
