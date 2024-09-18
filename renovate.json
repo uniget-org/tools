@@ -6408,9 +6408,9 @@
     },
     {
       "customType": "regex",
-      "datasourceTemplate": "github-tags",
-      "depNameTemplate": "openjdk/jdk",
-      "extractVersionTemplate": "^jdk-(?<version>.+)-ga$",
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "uniget-org/renovate-custom",
+      "extractVersionTemplate": "^openjdk/(?<version>.+)$",
       "fileMatch": [
         "^tools/openjdk/manifest.yaml$"
       ],
@@ -6421,9 +6421,9 @@
     },
     {
       "customType": "regex",
-      "datasourceTemplate": "github-tags",
-      "depNameTemplate": "openjdk/jdk",
-      "extractVersionTemplate": "^jdk-(?<version>.+)-ga$",
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "uniget-org/renovate-custom",
+      "extractVersionTemplate": "^openjdk/(?<version>.+)$",
       "fileMatch": [
         "^tools/openjdk-jre/manifest.yaml$"
       ],
