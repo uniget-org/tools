@@ -18,6 +18,7 @@ metadata.json--build: \
 			--builder uniget \
 			--file @metadata/Dockerfile \
 			--build-arg commit=$(GIT_COMMIT_SHA) \
+			--platform linux/amd64,linux/arm64 \
 			--tag $(REGISTRY)/$(REPOSITORY_PREFIX)metadata:$(DOCKER_TAG) \
 			--push=$(or $(PUSH), false) \
 			--provenance=false \
