@@ -13,9 +13,15 @@ COPY --link --from=make / /usr/local/
 WORKDIR /go/src/github.com/warpstreamlabs/bento
 ARG name
 ARG version
-RUN <<EOF
-check-clone "https://github.com/warpstreamlabs/bento" "v${version}"
-git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/warpstreamlabs/bento .
-make all
-cp target/bin/bento "${prefix}/bin/"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/warpstreamlabs/bento/releases/download/v${version}/bento_${version}_linux_${alt_arch}.tar.gz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "warpstreamlabs/bento" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin" --no-same-owner \
+    bento
 EOF
