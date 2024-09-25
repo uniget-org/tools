@@ -8,7 +8,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 COPY docker-compose@.service.go-template /uniget_bootstrap/etc/systemd/system/
-COPY <<EOF /uniget_bootstrap/etc/docker-compose
+COPY <<EOF /uniget_bootstrap/etc/docker-compose/README
 Please see usage notes
 EOF
 COPY docker-compose@.service.go-template /uniget_bootstrap/etc/systemd/user/
