@@ -11,10 +11,12 @@ COPY --link --from=rust / /usr/local/
 WORKDIR /tmp/github.com/stephenc/envsub
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/target \
+    --mount=type=cache,target=/usr/local/cargo/registry <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" https://github.com/stephenc/envsub .
 export CARGO_HOME=/usr/local/cargo
+export CARGO_TARGET_DIR=/target
 export RUSTUP_HOME=/usr/local/rustup
-cargo build --release --target x86_64-unknown-linux-gnu
-cp target/x86_64-unknown-linux-gnu/release/envsub "${prefix}/bin/"
+cargo build --release --target "${arch}-unknown-linux-gnu"
+cp "/target/${arch}-unknown-linux-gnu/release/envsub" "${prefix}/bin/"
 EOF
