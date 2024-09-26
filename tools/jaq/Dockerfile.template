@@ -11,13 +11,15 @@ COPY --link --from=rust / /usr/local/
 WORKDIR /tmp/github.com/01mf02/jaq
 ARG name
 ARG version
-RUN <<EOF
+RUN --mount=type=cache,target=/target \
+    --mount=type=cache,target=/usr/local/cargo/registry <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/01mf02/jaq .
 export CARGO_HOME=/usr/local/cargo
+export CARGO_TARGET_DIR=/target
 export RUSTUP_HOME=/usr/local/rustup
 export RUSTFLAGS='-C target-feature=+crt-static'
-cargo build --release --target x86_64-unknown-linux-gnu
-cp target/x86_64-unknown-linux-gnu/release/jaq "${prefix}/bin/"
+cargo build --release --target "${arch}-unknown-linux-gnu"
+cp "/target/${arch}-unknown-linux-gnu/release/jaq" "${prefix}/bin/"
 
 ln --symbolic --relative --force "${prefix}/bin/jaq" "${prefix}/bin/jq"
 EOF
