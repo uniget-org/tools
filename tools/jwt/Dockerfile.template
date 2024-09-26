@@ -17,7 +17,7 @@ git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" 
 export CARGO_HOME=/usr/local/cargo
 export CARGO_TARGET_DIR=/target
 export RUSTUP_HOME=/usr/local/rustup
-export RUSTFLAGS='-C target-feature=+crt-static'
+#export RUSTFLAGS='-C target-feature=+crt-static'
 cargo build --release --target "${arch}-unknown-linux-gnu/release"
 cp "/target/${arch}-unknown-linux-gnu/release/jwt" "${prefix}/bin/"
 EOF
