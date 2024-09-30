@@ -1,0 +1,28 @@
+#syntax=docker/dockerfile:1.10.0@sha256:865e5dd094beca432e8c0a1d5e1c465db5f998dca4e439981029b3b81fb39ed5
+
+FROM ghcr.io/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/int128/kubelogin/releases/download/v${version}/kubelogin_linux_${alt_arch}.zip"
+filename="$(basename "${url}")"
+
+check-download "${url}"
+check-github-release-asset "int128/kubelogin" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+unzip -t "${uniget_cache_download}/${filename}"
+unzip -q -o -d "${prefix}/bin" "${uniget_cache_download}/${filename}" \
+    kubelogin
+mv "${prefix}/bin/kubelogin" "${prefix}/bin/kubectl-oidc_login"
+
+export PATH="${prefix}/bin:${PATH}"
+"${prefix}/bin/kubectl-oidc_login" completion bash >"${prefix}/share/bash-completion/completions/kubectl-oidc-login"
+"${prefix}/bin/kubectl-oidc_login" completion fish >"${prefix}/share/fish/vendor_completions.d/kubectl-oidc-login.fish"
+"${prefix}/bin/kubectl-oidc_login" completion zsh >"${prefix}/share/zsh/vendor-completions/_kubectl-oidc-login"
+EOF
