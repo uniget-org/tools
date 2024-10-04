@@ -8,7 +8,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://gitlab.com/gitlab-org/cli/-/releases/v${verison}/downloads/glab_${verison}_linux_${alt_arch}.tar.gz"
+url="https://gitlab.com/gitlab-org/cli/-/releases/v${version}/downloads/glab_${verison}_linux_${alt_arch}.tar.gz"
 filename="$(basename "${url}")"
 
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
