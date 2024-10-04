@@ -9,7 +9,7 @@ ARG TARGETPLATFORM
 # renovate: datasource=github-releases depName=sigstore/cosign extractVersion=^v(?<version>.+?)$
 ARG COSIGN_VERSION=2.2.3
 COPY checksums.txt .
-RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+RUN --mount=type=cache,id=cosign_bootstrap,target=/var/cache/uniget/download <<EOF
 url="https://github.com/sigstore/cosign/releases/download/v${COSIGN_VERSION}/cosign-linux-${alt_arch}"
 filename="$( basename "${url}" )"
 
