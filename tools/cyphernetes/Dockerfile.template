@@ -1,5 +1,6 @@
 #syntax=docker/dockerfile:1.10.0@sha256:865e5dd094beca432e8c0a1d5e1c465db5f998dca4e439981029b3b81fb39ed5
 
+FROM ghcr.io/uniget-org/tools/make:latest AS make
 FROM ghcr.io/uniget-org/tools/go:latest AS go
 FROM ghcr.io/uniget-org/tools/goyacc:latest AS goyacc
 
@@ -10,20 +11,16 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=go / /usr/local/
 COPY --link --from=goyacc / /usr/local/
+COPY --link --from=make / /usr/local/
 WORKDIR /go/src/github.com/AvitalTamir/cyphernetes
 ARG name
 ARG version
-RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://github.com/AvitalTamir/cyphernetes/releases/download/v${version}/cyphernetes-linux-${alt_arch}"
-filename="$(basename "${url}")"
-
-check-github-release-asset "AvitalTamir/cyphernetes" "v${version}" "${filename}"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
-    "${url}"
-
-install --mode=0755 \
-    "${uniget_cache_download}/${filename}" \
-    "${prefix}/bin/cyphernetes"
+RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
+check-clone "https://github.com/AvitalTamir/cyphernetes" "v${version}"
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/AvitalTamir/cyphernetes .
+export CGO_ENABLED=0
+make build
+cp dist/cyphernetes "${prefix}/bin/"
 
 "${prefix}/bin/cyphernetes" completion bash >"${prefix}/share/bash-completion/completions/cyphernetes"
 "${prefix}/bin/cyphernetes" completion fish >"${prefix}/share/fish/vendor_completions.d/cyphernetes.fish"
