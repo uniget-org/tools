@@ -1,0 +1,40 @@
+#syntax=docker/dockerfile:1.10.0@sha256:865e5dd094beca432e8c0a1d5e1c465db5f998dca4e439981029b3b81fb39ed5
+
+FROM ghcr.io/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+echo "### Setting architecture string for ${TARGETPLATFORM}"
+case "${arch}" in
+    x86_64)
+        export arch_suffix="${arch}"
+        ;;
+    aarch64)
+        export arch_suffix="${alt_arch}"
+        ;;
+    *)
+        echo "ERROR: Unsupported architecture ${arch}."
+        exit 1
+        ;;
+esac
+echo "    Using ${arch_suffix}"
+
+url="https://github.com/harshalranjhani/genie/releases/download/v${version}/genie_Linux_${arch_suffix}.tar.gz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "harshalranjhani/genie" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin" --no-same-owner \
+    genie
+
+"${prefix}/bin/genie" completion bash >"${prefix}/share/bash-completion/completions/genie"
+"${prefix}/bin/genie" completion fish >"${prefix}/share/fish/vendor_completions.d/genie.fish"
+"${prefix}/bin/genie" completion zsh >"${prefix}/share/zsh/vendor-completions/_genie"
+EOF
