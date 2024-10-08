@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: tabby
+license:
+  name: Apache License 2.0
+  link: https://github.com/TabbyML/tabby/blob/main/LICENSE
+version: "0.18.0"
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+tags:
+- category/development
+- lang/rust
+- type/daemon
+homepage: https://tabby.tabbyml.com/
+repository: https://github.com/TabbyML/tabby
+description: Self-hosted AI coding assistant
+messages:
+  usage: |
+    Please install libgomp.so.1.
+    - For Ubuntu: sudo apt install libgomp1
+    - For Alpine: apk add libgomp
+renovate:
+  datasource: github-releases
+  package: TabbyML/tabby
+  extractVersion: ^v(?<version>.+)$
+  priority: low

@@ -1,0 +1,24 @@
+#syntax=docker/dockerfile:1.10.0@sha256:865e5dd094beca432e8c0a1d5e1c465db5f998dca4e439981029b3b81fb39ed5
+
+FROM ghcr.io/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/TabbyML/tabby/releases/download/v${version}/tabby_${arch}-manylinux2014.zip"
+filename="$(basename "${url}")"
+
+check-github-release-asset "TabbyML/tabby" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+unzip -q -o -d "/tmp" "${uniget_cache_download}/${filename}"
+install --mode=0755 \
+    "/tmp/dist/tabby_x86_64-manylinux2014/tabby" \
+    "/tmp/dist/tabby_x86_64-manylinux2014/llama-server" \
+    "${prefix}/bin/"
+EOF
