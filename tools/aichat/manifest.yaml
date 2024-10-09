@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: aichat
+license:
+  name: Apache License 2.0, MIT License
+  link: https://github.com/sigoden/aichat
+version: "0.22.0"
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/rust
+- type/cli
+homepage: https://github.com/sigoden/aichat
+repository: https://github.com/sigoden/aichat
+description: Some description
+renovate:
+  datasource: github-releases
+  package: sigoden/aichat
+  extractVersion: ^v(?<version>.+)$
+  priority: low
