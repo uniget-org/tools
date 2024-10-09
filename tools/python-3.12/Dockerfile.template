@@ -1,0 +1,40 @@
+#syntax=docker/dockerfile:1.10.0@sha256:865e5dd094beca432e8c0a1d5e1c465db5f998dca4e439981029b3b81fb39ed5
+
+FROM ghcr.io/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+PYTHON_VERSION="$( echo "${version}" | cut -d. -f1-3 )"
+RELEASE_TAG="$( echo "${version}" | cut -d. -f4 )"
+
+case "${arch}" in
+    x86_64)
+        OPT_TAG="pgo+lto"
+        ;;
+    aarch64)
+        OPT_TAG="lto"
+        ;;
+    *)
+        echo "Unsupported arch: ${arch}" >&2
+        exit 1
+        ;;
+esac
+
+url="https://github.com/indygreg/python-build-standalone/releases/download/${RELEASE_TAG}/cpython-${PYTHON_VERSION}+${RELEASE_TAG}-${arch}-unknown-linux-gnu-${OPT_TAG}-full.tar.zst"
+filename="$(basename "${url}")"
+
+check-github-release-asset \
+    "indygreg/python-build-standalone" \
+    "${RELEASE_TAG}" \
+    "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --zstd --directory="${prefix}/" --strip-components=2 --no-same-owner \
+    python/install
+EOF

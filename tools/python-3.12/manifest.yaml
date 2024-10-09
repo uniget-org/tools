@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+name: python
+version: "3.12.7.20241002"
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/python
+- type/cli
+homepage: https://github.com/indygreg/python-build-standalone
+repository: https://github.com/indygreg/python-build-standalone
+description: Redistributable builds of Python
+messages:
+  internals: |
+    This dynamically linked Python requires dynamically linked libraries for executions.
+    Run the following command to update the library cache:
+
+    ldconfig
+renovate:
+  datasource: github-releases
+  package: uniget-org/renovate-custom
+  extractVersion: ^python-3.12/(?<version>.+)$
+  versioning: loose
+  priority: low
+license:
+  name: Python Software Foundation License Version 2
+  link: https://github.com/python/cpython/blob/main/LICENSE
