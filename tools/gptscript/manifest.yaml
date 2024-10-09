@@ -10,6 +10,9 @@ tags:
 - category/development
 - lang/go
 - type/cli
+- ai
+- gpt
+- code
 homepage: https://gptscript.ai
 repository: https://github.com/gptscript-ai/gptscript
 description: Natural Language Programming

@@ -10,6 +10,9 @@ tags:
 - lang/go
 - type/cli
 - ai
+- iac
+- infrastructure
+- code
 homepage: https://github.com/gofireflyio/aiac
 repository: https://github.com/gofireflyio/aiac
 description: Artificial Intelligence Infrastructure-as-Code Generator

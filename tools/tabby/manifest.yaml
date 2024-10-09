@@ -12,6 +12,9 @@ tags:
 - category/development
 - lang/rust
 - type/daemon
+- ai
+- code
+- completion
 homepage: https://tabby.tabbyml.com/
 repository: https://github.com/TabbyML/tabby
 description: Self-hosted AI coding assistant

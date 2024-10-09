@@ -18,6 +18,8 @@ tags:
 - category/development
 - lang/python
 - type/cli
+- ai
+- code
 homepage: https://aider.chat/
 repository: https://github.com/Aider-AI/aider
 description: AI pair programming in your terminal

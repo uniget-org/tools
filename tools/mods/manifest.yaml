@@ -11,6 +11,7 @@ tags:
 - category/development
 - lang/go
 - type/cli
+- ai
 homepage: https://github.com/charmbracelet/mods
 repository: https://github.com/charmbracelet/mods
 description: AI on the command line
