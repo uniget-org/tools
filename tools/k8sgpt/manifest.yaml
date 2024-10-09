@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: k8sgpt
+license:
+  name: Apache License 2.0
+  link: https://github.com/k8sgpt-ai/k8sgpt/blob/main/LICENSE
+version: "0.3.41"
+check: ${binary} version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/go
+- type/cli
+- ai
+- k8s
+- kubernetes
+homepage: http://k8sgpt.ai/
+repository: https://github.com/k8sgpt-ai/k8sgpt
+description: Giving Kubernetes Superpowers to everyone
+renovate:
+  datasource: github-releases
+  package: k8sgpt-ai/k8sgpt
+  extractVersion: ^v(?<version>.+)$
+  priority: low
