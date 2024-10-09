@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: local-ai
+license:
+  name: MIT License
+  link: https://github.com/mudler/LocalAI/blob/master/LICENSE
+version: "2.21.1"
+check: ${binary} --help | grep ^Version | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- lang/c
+- type/cli
+- type/daemon
+- ai
+homepage: https://localai.io/
+repository: https://github.com/mudler/LocalAI
+description: Alternative to OpenAI, Claude and others. Self-hosted and local-first. Drop-in replacement for OpenAI, running on consumer-grade hardware. No GPU required
+renovate:
+  datasource: github-releases
+  package: mudler/LocalAI
+  extractVersion: ^v(?<version>.+)$
+  priority: low
