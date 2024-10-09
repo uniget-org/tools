@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: fabric
+license:
+  name: MIT License
+  link: https://github.com/danielmiessler/fabric/blob/main/LICENSE
+version: "1.4.54"
+check: ${binary} --version | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/cli
+homepage: https://danielmiessler.com/p/fabric-origin-story
+repository: https://github.com/danielmiessler/fabric
+description: Some description
+renovate:
+  datasource: github-releases
+  package: danielmiessler/fabric
+  extractVersion: ^v(?<version>.+)$
+  priority: low
