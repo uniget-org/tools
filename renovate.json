@@ -7278,7 +7278,7 @@
     {
       "customType": "regex",
       "fileMatch": [
-        "^tools/python/manifest.yaml$"
+        "^tools/python-3.12/manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
