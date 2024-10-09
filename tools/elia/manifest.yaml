@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: elia
+license:
+  name: Apache License 2.0
+  link: https://github.com/darrenburns/elia/blob/main/LICENSE
+version: "1.10.0"
+check: ""
+build_dependencies:
+- bar
+runtime_dependencies:
+- baz
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- org/?
+- category/?
+- lang/?
+- type/?
+homepage: https://github.com/darrenburns/elia
+repository: https://github.com/darrenburns/elia
+description: Snappy, keyboard-centric terminal user interface for interacting with large language models
+renovate:
+  datasource: github-releases
+  package: darrenburns/elia
+  extractVersion: ^v(?<version>.+)$
+  priority: low
