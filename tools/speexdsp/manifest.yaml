@@ -4,6 +4,8 @@ name: speexdsp
 version: "1.2.1"
 binary: "false"
 check: ""
+build_dependencies:
+- make
 platforms:
 - linux/amd64
 - linux/arm64

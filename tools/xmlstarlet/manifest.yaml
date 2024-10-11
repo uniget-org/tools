@@ -4,6 +4,8 @@ name: xmlstarlet
 version: "1.6.1"
 binary: xml
 check: ${binary} --version | head -n 1
+build_dependencies:
+- make
 platforms:
 - linux/amd64
 #- linux/arm64

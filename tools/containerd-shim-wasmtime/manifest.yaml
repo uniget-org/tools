@@ -5,8 +5,8 @@ version: "0.4.0"
 binary: containerd-shim-wasmtime-v1
 check: "" # No version parameter
 build_dependencies:
-- rust
 - make
+- rust
 runtime_dependencies:
 - containerd
 platforms:

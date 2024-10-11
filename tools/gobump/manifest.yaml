@@ -7,8 +7,8 @@ license:
 version: "0.8.0"
 check: ${binary} version | grep GitVersion | tr -s ' ' | cut -d' ' -f2 | tr -d v
 build_dependencies:
-- go
 - make
+- go
 platforms:
 - linux/amd64
 - linux/arm64

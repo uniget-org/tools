@@ -5,8 +5,8 @@ check: ${binary} --version | cut -d' ' -f3
 build_dependencies:
 - go
 - make
-- conmon
-- runc
+- go-md2man
+- cni
 runtime_dependencies:
 - conmon
 - runc

@@ -4,6 +4,9 @@ name: ojg
 version: "1.24.1"
 binary: oj
 check: ${binary} --version | cut -d' ' -f2 | tr -d v
+build_dependencies:
+- make
+- go
 platforms:
 - linux/amd64
 - linux/arm64

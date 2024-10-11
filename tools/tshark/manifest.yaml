@@ -5,6 +5,7 @@ version: "4.2.2"
 check: ""
 build_dependencies:
 - make
+- speexdsp
 platforms:
 - linux/amd64
 #- linux/arm64

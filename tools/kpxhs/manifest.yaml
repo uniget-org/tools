@@ -3,6 +3,8 @@ $schema: https://tools.uniget.dev/schema.yaml
 name: kpxhs
 version: "1.11"
 check: ${binary} --version | tr -d '"'
+build_dependencies:
+- make
 platforms:
 - linux/amd64
 tags:

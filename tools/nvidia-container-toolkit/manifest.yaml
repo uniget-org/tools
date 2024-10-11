@@ -5,8 +5,8 @@ version: "1.16.2"
 binary: nvidia-ctk
 check: ${binary} --version | grep ^NVIDIA | cut -d' ' -f6
 build_dependencies:
-- go
 - make
+- go
 runtime_dependencies:
 - docker
 platforms:

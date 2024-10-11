@@ -6,6 +6,8 @@ license:
   link: https://github.com/Azure/bicep/blob/main/LICENSE
 version: "0.30.23"
 check: ${binary} --version | cut -d' ' -f4
+build_dependencies:
+- musl
 platforms:
 - linux/amd64
 - linux/arm64

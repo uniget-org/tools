@@ -3,6 +3,8 @@ $schema: https://tools.uniget.dev/schema.yaml
 name: bpftool
 version: "7.4.0"
 check: ${binary} --version | grep ^bpftool | cut -d' ' -f2 | tr -d v
+build_dependencies:
+- make
 platforms:
 - linux/amd64
 - linux/arm64

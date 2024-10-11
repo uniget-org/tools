@@ -6,6 +6,8 @@ license:
   link: https://github.com/str4d/rage
 version: "0.10.0"
 check: ${binary} --version | cut -d' ' -f2
+build_dependencies:
+- jq
 platforms:
 - linux/amd64
 - linux/arm64

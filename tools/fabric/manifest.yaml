@@ -6,6 +6,9 @@ license:
   link: https://github.com/danielmiessler/fabric/blob/main/LICENSE
 version: "1.4.55"
 check: ${binary} --version | tr -d v
+build_dependencies:
+- make
+- go
 platforms:
 - linux/amd64
 - linux/arm64
