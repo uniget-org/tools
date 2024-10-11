@@ -6,6 +6,8 @@ license:
   link: https://github.com/oxin-ros/systemd-docker/blob/master/LICENSE
 version: "0.3.0"
 check: ${binary} --version | cut -d' ' -f3
+build_dependencies:
+- go
 platforms:
 - linux/amd64
 - linux/arm64

@@ -3,6 +3,8 @@ $schema: https://tools.uniget.dev/schema.yaml
 name: php
 version: "8.3.12"
 check: ${binary} --version | grep ^PHP | cut -d' ' -f2
+build_dependencies:
+- spc
 platforms:
 - linux/amd64
 tags:

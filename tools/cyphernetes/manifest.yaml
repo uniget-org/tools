@@ -3,6 +3,10 @@ $schema: https://tools.uniget.dev/schema.yaml
 name: cyphernetes
 version: "0.12.1"
 check: "" # No version parameter
+build_dependencies:
+- make
+- go
+- goyacc
 platforms:
 - linux/amd64
 tags:

@@ -5,8 +5,8 @@ version: "0.13.1"
 binary: containerd-shim-spin-v2
 check: ""
 build_dependencies:
-- rust
 - make
+- rust
 conflicts_with:
 - containerd-shim-spin-runwasi
 platforms:

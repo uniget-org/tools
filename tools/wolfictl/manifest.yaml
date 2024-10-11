@@ -4,8 +4,8 @@ name: wolfictl
 version: "0.24.3"
 check: ${version} version | grep ^GitVersion | cut -dv -f2
 build_dependencies:
-- go
 - make
+- go
 platforms:
 - linux/amd64
 - linux/arm64

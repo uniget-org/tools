@@ -4,6 +4,8 @@ name: terminalizer
 version: "0.12.0"
 check: ${binary} --version
 build_dependencies:
+- make
+- python
 - nodejs
 - npm
 runtime_dependencies:

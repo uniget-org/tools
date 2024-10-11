@@ -4,8 +4,8 @@ name: tracee
 version: "0.22.2"
 check: ${binary} version | cut -d' ' -f3 | tr -d v
 build_dependencies:
-- go
 - make
+- go
 runtime_dependencies:
 - musl
 platforms:

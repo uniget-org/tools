@@ -6,6 +6,9 @@ license:
   link: https://github.com/k3s-io/kine/blob/master/LICENSE
 version: "0.13.0"
 check: ${binary} --version | cut -d' ' -f3
+build_dependencies:
+- make
+- go
 platforms:
 - linux/amd64
 - linux/arm64

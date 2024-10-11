@@ -7,7 +7,6 @@ license:
 version: "0.59.0"
 check: ${binary} --version | grep ^aider | cut -d' ' -f2
 build_dependencies:
-- python
 - shiv
 runtime_dependencies:
 - python
