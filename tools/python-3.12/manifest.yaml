@@ -1,7 +1,10 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: python-3.12
 version: "3.12.7.20241008"
+binary: python
 check: ${binary} --version | cut -d' ' -f2
+conflicts_with:
+- python
 platforms:
 - linux/amd64
 - linux/arm64
@@ -11,7 +14,7 @@ tags:
 - type/cli
 homepage: https://github.com/indygreg/python-build-standalone
 repository: https://github.com/indygreg/python-build-standalone
-description: Redistributable builds of Python
+description: Redistributable builds of Python 3.12
 messages:
   internals: |
     This dynamically linked Python requires dynamically linked libraries for executions.
