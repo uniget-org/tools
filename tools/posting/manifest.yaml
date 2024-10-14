@@ -7,7 +7,7 @@ license:
 version: "1.13.0"
 check: "" # No version parameter
 build_dependencies:
-- python
+- python-3.12
 - shiv
 runtime_dependencies:
 - python
