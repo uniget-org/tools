@@ -16,6 +16,9 @@ ARG version
 RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
 check-clone https://git.zx2c4.com/wireguard-go "${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" https://git.zx2c4.com/wireguard-go .
+go get -u golang.org/x/sys
+go get -u golang.org/x/net
+go mod tidy
 make -j$(nproc)
 mv wireguard-go "${prefix}/bin/"
 EOF
