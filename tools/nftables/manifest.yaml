@@ -7,6 +7,10 @@ build_dependencies:
 - make
 - libmnl
 - libnftnl
+runtime_dependencies:
+- musl
+- libmnl
+- libnftnl
 platforms:
 - linux/amd64
 #- linux/arm64
