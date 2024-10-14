@@ -7,7 +7,6 @@ check: ${binary} --version | cut -d, -f1 | cut -d' ' -f3
 runtime_dependencies:
 - fuse-overlayfs
 - docker-manpages
-- jq
 platforms:
 - linux/amd64
 - linux/arm64
@@ -36,9 +35,16 @@ messages:
     - Existing settings are not changed
     - For CLI plugins: mkdir -p ~/.docker && ln -sfr ~/.local/libexec/docker/cli-plugins ~/.docker/
   update: |
-    - If you want to make Docker available to users, create a group named docker and add users to it:
+    - You need to create a group to delegate the Docker socket to users:
 
           groupadd --system --force docker
+
+    - Because of socket activation you need to configure the units:
+  
+            systemctl daemon-reload
+            systemctl disable docker.service
+            systemctl enable docker.socket
+            systemctl start docker.socket
 
     - If you require a custom address pool to avoid IP address conflict, merge the following
       into /etc/docker/daemon.json after substituting your IP range and subnet size:
@@ -61,7 +67,7 @@ messages:
               ]
           }
 
-    - You need to restart the Docker daemon to apply an update
+    - You need to restart the Docker daemon to apply chages to daemon.json
 renovate:
   datasource: github-releases
   package: moby/moby
