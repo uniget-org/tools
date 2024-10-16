@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: parca-agent
-version: "0.33.1"
+version: "0.34.0"
 check: "" # No version parameter
 platforms:
 - linux/amd64
