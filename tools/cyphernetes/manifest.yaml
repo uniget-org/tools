@@ -7,6 +7,8 @@ build_dependencies:
 - make
 - go
 - goyacc
+- nodejs
+- pnpm
 platforms:
 - linux/amd64
 tags:
