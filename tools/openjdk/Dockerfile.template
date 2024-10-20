@@ -27,7 +27,7 @@ MAJOR_VERSION="$(echo "${version}" | sed -E 's/^([0-9]+)(\.[0-9]\.[0-9]+)?\+([0-
 version_url_encoded="$(echo "${version}" | sed 's/+/%2B/g')"
 version_filename="$(echo "${version}" | sed 's/+/_/g')"
 
-url="https://github.com/adoptium/temurin${MAJOR_VERSION}-binaries/releases/download/jdk-${version_url_encoded}/OpenJDK${MAJOR_VERSION}U-jdk_x64_alpine-linux_hotspot_${version_filename}.tar.gz"
+url="https://github.com/adoptium/temurin23-binaries/releases/download/jdk-${version_url_encoded}/OpenJDK${MAJOR_VERSION}U-jdk_${arch_suffix}_linux_hotspot_${version_filename}.tar.gz"
 filename="$(basename "${url}")"
 
 check-github-release-asset "adoptium/temurin${MAJOR_VERSION}-binaries" "jdk-${version}" "${filename}"
@@ -37,6 +37,8 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
 mkdir -p "${prefix}/opt/openjdk"
 tar --file="${uniget_cache_download}/${filename}" --list
 tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/opt/openjdk" --strip-components=1 --no-same-owner
+
+exit
 
 cd "${prefix}/opt/openjdk/bin"
 find . -type f -executable \
