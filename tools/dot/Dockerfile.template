@@ -16,5 +16,6 @@ ARG version
 RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
 check-clone https://github.com/goccy/go-graphviz "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/goccy/go-graphviz .
-go build -ldflags '-extldflags "-static"' -o "${prefix}/bin/dot" ./cmd/dot
+cd cmd/dot
+go build -ldflags '-extldflags "-static"' -o "${prefix}/bin/dot" .
 EOF
