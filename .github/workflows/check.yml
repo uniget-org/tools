@@ -244,7 +244,7 @@ jobs:
       DOCKERHUB_USER: ${{ secrets.DOCKERHUB_USER }}
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
 
-  test:
+  version:
     name: Test version extraction
     needs:
     - collect_versions
@@ -270,3 +270,30 @@ jobs:
         export TOOL
         export VERSION
         bash scripts/test.sh
+
+  test:
+    name: Smoke test
+    needs:
+    - collect_versions
+    - success
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        tool_with_version: ${{ fromJSON(needs.collect_versions.outputs.tools_with_version) }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Smoke test
+      run: |
+        TOOL_WITH_VERSION="${{ matrix.tool_with_version }}"
+        TOOL="$( echo "${TOOL_WITH_VERSION}" | cut -d: -f1 )"
+        VERSION="$( echo "${TOOL_WITH_VERSION}" | cut -d: -f2 )"
+
+        if ! test -f "tools/${TOOL}/test.sh"; then
+            echo "No test script for ${TOOL}."
+            exit 0
+        fi
+
+        export VERSION
+        "tools/${TOOL}/test.sh"

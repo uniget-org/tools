@@ -1,11 +1,6 @@
 #!/bin/bash
-set -o errexit
 
-image=$1
-if test -z "${image}"; then
-    echo "ERROR: Image name not specified."
-    exit 1
-fi
+: "${UNIGET_VERSION:=latest}"
 
 container="$(mktemp --dry-run | cut -d. -f2)"
 
@@ -16,12 +11,37 @@ function cleanup() {
 trap cleanup EXIT
 
 echo "### Creating container ${container}"
-docker run --detach --rm --name "${container}" --privileged "${image}" sh -c 'while true; do sleep 10; done'
+docker run \
+    --name "${container}" \
+    --detach \
+    --privileged \
+    --cgroupns=host \
+    --volume /sys/fs/cgroup:/sys/fs/cgroup:rw \
+    --pull always \
+    ghcr.io/uniget-org/cli:${UNIGET_VERSION} \
+        sleep infinity
+        
+if ! time docker exec --interactive "${container}" bash -xe <<EOF
+uniget --version
 
-echo "### Executing tests in ${container}"
-docker exec --interactive --privileged "${container}" bash <<EOF
-set -o errexit
-/etc/init.d/docker start
-timeout 10 bash -c 'while ! docker version >/dev/null 2>&1; do sleep 1; done'
-docker run -i --rm alpine true
+apt-get update
+apt-get -y install iptables
+groupadd --system docker
+
+uniget install docker
+ls -l /etc/systemd/system/
+systemctl daemon-reload
+systemctl disable docker.service
+systemctl enable docker.socket
+systemctl start docker.socket
+docker version
 EOF
+then 
+    echo "### Failed to test docker"
+    sleep 10
+    docker exec --interactive "${container}" bash -xe <<EOF
+ps faux
+journalctl -xe
+EOF
+    exit 1
+fi
