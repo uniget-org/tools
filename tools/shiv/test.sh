@@ -38,7 +38,8 @@ uniget update
 uniget install jq
 mv /var/cache/uniget/metadata.json /var/cache/uniget/metadata.json.bak
 jq --arg name "${name}" --arg version "${version}" '(.tools[] | select(.name == "\($name)") | .version) |= "\($version)"' /var/cache/uniget/metadata.json.bak > /var/cache/uniget/metadata.json
-SHIV_VERSION="$( jq -r --arg name "${name}" '.tools[] | select(.name == "\($name)") | .version' /var/cache/uniget/metadata.json )"
+TOOL_VERSION="$( jq -r --arg name "${name}" '.tools[] | select(.name == "\($name)") | .version' /var/cache/uniget/metadata.json )"
+echo "tool version in uniget: ${TOOL_VERSION}"
 
 uniget install shiv
 shiv --version
