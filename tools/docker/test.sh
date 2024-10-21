@@ -1,4 +1,5 @@
 #!/bin/bash
+set -o errexit -o xtrace
 
 if test -z "${name}" || test -z "${version}"; then
     echo "Usage: name=... version=... $0"
