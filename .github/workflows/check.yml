@@ -295,5 +295,4 @@ jobs:
             exit 0
         fi
 
-        export VERSION
-        bash "tools/${TOOL}/test.sh"
+        name="${TOOL}" version="${VERSION}" bash "tools/${TOOL}/test.sh"
