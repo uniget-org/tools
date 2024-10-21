@@ -296,4 +296,4 @@ jobs:
         fi
 
         export VERSION
-        "tools/${TOOL}/test.sh"
+        bash "tools/${TOOL}/test.sh"
