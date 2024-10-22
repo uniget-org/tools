@@ -43,8 +43,8 @@ echo "tool version in uniget: ${TOOL_VERSION}"
 
 uniget install shiv
 shiv --version
-shiv --output-file=/usr/local/bin/semgrep --console-script=semgrep semgrep
-semgrep --version
+shiv --output-file=/usr/local/bin/http --console-script=http httpie
+http --version
 EOF
 then
     echo "### Failed to complete test"
