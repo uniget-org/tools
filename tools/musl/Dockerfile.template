@@ -37,8 +37,14 @@ ln --symbolic --relative --force "${prefix}/lib/libc.so" "${prefix}/lib/libc.mus
 ln --symbolic --relative --force "${prefix}/lib/libc.so" "${prefix}/lib/ld-musl-x86_64.so.1"
 
 mv "${prefix}/bin/musl-gcc" "${prefix}/bin/musl-gcc.go-template"
-sed -i -E "s|${prefix}|\${{ .Target }}|" "${prefix}/bin/musl-gcc.go-template"
+sed -i -E "s|${prefix}|{{ .Target }}|" "${prefix}/bin/musl-gcc.go-template"
 
 mv "${prefix}/lib/musl-gcc.specs" "${prefix}/lib/musl-gcc.specs.go-template"
-sed -i -E "s|${prefix}|\${{ .Target }}|" "${prefix}/lib/musl-gcc.specs.go-template"
+sed -i -E "s|${prefix}|{{ .Target }}|" "${prefix}/lib/musl-gcc.specs.go-template"
+EOF
+COPY <<EOF /uniget_bootstrap/etc/ld-musl-x86_64.path.go-template
+{{ Target }}/lib
+EOF
+COPY <<EOF /uniget_bootstrap/etc/ld-musl-aarch64.path.go-template
+{{ Target }}/lib
 EOF
