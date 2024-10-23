@@ -5463,6 +5463,18 @@
     {
       "customType": "regex",
       "fileMatch": [
+        "^tools/libnfnetlink/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ],
+      "depNameTemplate": "https://git.netfilter.org/libnfnetlink/",
+      "datasourceTemplate": "git-tags",
+      "extractVersionTemplate": "^libnfnetlink-(?<version>.+)$"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": [
         "^tools/libnftnl/manifest.yaml$"
       ],
       "matchStrings": [
