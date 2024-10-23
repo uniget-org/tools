@@ -5,11 +5,15 @@ FROM ghcr.io/uniget-org/tools/libmnl:latest AS libmnl
 FROM ghcr.io/uniget-org/tools/libnftnl:latest AS libnftnl
 FROM ghcr.io/uniget-org/tools/libnfnetlink:latest AS libnfnetlink
 
-FROM ghcr.io/uniget-org/images/build-essential:24.04 AS prepare
+FROM ghcr.io/uniget-org/images/build-base:3.20 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
+RUN --mount=type=cache,target=/var/cache/apk <<EOF
+apk add --update-cache \
+    linux-headers
+EOF
 COPY --link --from=make / /usr/local/
 COPY --link --from=libmnl / /usr/local/
 COPY --link --from=libnftnl / /usr/local/
@@ -20,10 +24,11 @@ ARG version
 RUN <<EOF
 check-clone "https://git.netfilter.org/iptables/" "v${version}"
 git clone --config advice.detachedHead=false --depth 1 --branch "v${version}" git://git.netfilter.org/iptables .
-EOF
-RUN <<EOF
 ./autogen.sh
-./configure --prefix="${prefix}"
+./configure \
+    --prefix="${prefix}" \
+    --enable-shared \
+    --enable-static
 make -j$(nproc)
 make install
 EOF

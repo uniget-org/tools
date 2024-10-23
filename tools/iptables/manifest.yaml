@@ -12,6 +12,7 @@ runtime_dependencies:
 - libmnl
 - libnftnl
 - libnfnetlink
+- musl
 platforms:
 - linux/amd64
 #- linux/arm64

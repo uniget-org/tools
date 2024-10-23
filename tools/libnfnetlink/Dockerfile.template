@@ -2,29 +2,26 @@
 
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 
-FROM ghcr.io/uniget-org/images/build-essential:24.04 AS prepare
+FROM ghcr.io/uniget-org/images/build-base:3.20 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-ARG name
-ARG version
-#RUN --mount=type=cache,target=/var/cache/apt <<EOF
-#apt-get update
-#apt-get -y install --no-install-recommends \
-#    foo
-#EOF
-#RUN --mount=type=cache,target=/var/cache/apk <<EOF
-#apk add --update-cache \
-#    foo
-#EOF
+RUN --mount=type=cache,target=/var/cache/apk <<EOF
+apk add --update-cache \
+    linux-headers
+EOF
 COPY --link --from=make / /usr/local/
 WORKDIR /tmp/libnfnetlink
+ARG name
+ARG version
 RUN <<EOF
+check-clone "https://git.netfilter.org/libnfnetlink/" "libnfnetlink-${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "libnfnetlink-${version}" git://git.netfilter.org/libnfnetlink .
 ./autogen.sh
 ./configure \
     --prefix="${prefix}" \
+    --enable-shared \
     --enable-static
 make install
 EOF

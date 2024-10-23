@@ -2,11 +2,15 @@
 
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 
-FROM ghcr.io/uniget-org/images/build-essential:24.04 AS prepare
+FROM ghcr.io/uniget-org/images/build-base:3.20 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
+RUN --mount=type=cache,target=/var/cache/apk <<EOF
+apk add --update-cache \
+    linux-headers
+EOF
 COPY --link --from=make / /usr/local/
 WORKDIR /tmp/libmnl
 ARG name
@@ -17,7 +21,10 @@ git clone --config advice.detachedHead=false --depth 1 --branch "libmnl-${versio
 EOF
 RUN <<EOF
 ./autogen.sh
-./configure --prefix="${prefix}" --enable-static=yes --enable-shared=yes
+./configure \
+    --prefix="${prefix}" \
+    --enable-static=yes \
+    --enable-shared=yes
 make -j$(nproc)
 make install
 EOF

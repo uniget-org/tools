@@ -3,11 +3,15 @@
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 FROM ghcr.io/uniget-org/tools/libmnl:latest AS libmnl
 
-FROM ghcr.io/uniget-org/images/build-essential:24.04 AS prepare
+FROM ghcr.io/uniget-org/images/build-base:3.20 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
+RUN --mount=type=cache,target=/var/cache/apk <<EOF
+apk add --update-cache \
+    linux-headers
+EOF
 COPY --link --from=make / /usr/local/
 COPY --link --from=libmnl / /usr/local/
 WORKDIR /tmp/libnftnl
@@ -20,7 +24,10 @@ EOF
 RUN <<EOF
 export PKG_CONFIG_PATH="/lib/pkgconfig:${PKG_CONFIG_PATH}"
 ./autogen.sh
-./configure --prefix="${prefix}" --enable-static=yes --enable-shared=yes
+./configure \
+    --prefix="${prefix}" \
+    --enable-static=yes \
+    --enable-shared=yes
 make -j$(nproc)
 make install
 EOF

@@ -6,6 +6,8 @@ license:
   link: https://git.netfilter.org/libnfnetlink/tree/COPYING
 version: "1.0.2"
 check: grep ^Version "${target}/lib/pkgconfig/libnfnetlink.pc" | cut -d' ' -f2
+build_dependencies:
+- make
 platforms:
 - linux/amd64
 #- linux/arm64

@@ -2,7 +2,7 @@
 
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 
-FROM ghcr.io/uniget-org/images/build-essential:24.04 AS prepare
+FROM ghcr.io/uniget-org/images/build-base:3.20 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -12,9 +12,13 @@ WORKDIR /tmp/libjansson
 ARG name
 ARG version
 RUN <<EOF
+check-clone "https://github.com/akheron/jansson" "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/akheron/jansson .
 autoreconf -i
-./configure --prefix="${prefix}" --enable-static
+./configure \
+    --prefix="${prefix}" \
+    --enable-shared \
+    --enable-static
 make -j$(nproc)
 make install
 EOF
