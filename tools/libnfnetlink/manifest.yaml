@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: libnfnetlink
+license:
+  name: GPLv2
+  link: https://git.netfilter.org/libnfnetlink/tree/COPYING
+version: "1.0.2"
+check: ""
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- org/netfilter
+- component/network
+- category/operations
+- type/cli
+- lang/c
+homepage: https://www.netfilter.org/projects/libnfnetlink/index.html
+repository: https://www.netfilter.org/projects/libnfnetlink/index.html
+description: Low-level library for netfilter related kernel/userspace communication
+renovate:
+  datasource: git-tags
+  package: https://git.netfilter.org/libnfnetlink/
+  extractVersion: ^libnfnetlink-(?<version>.+)$
+  priority: low
