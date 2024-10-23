@@ -43,8 +43,8 @@ mv "${prefix}/lib/musl-gcc.specs" "${prefix}/lib/musl-gcc.specs.go-template"
 sed -i -E "s|${prefix}|{{ .Target }}|" "${prefix}/lib/musl-gcc.specs.go-template"
 EOF
 COPY <<EOF /uniget_bootstrap/etc/ld-musl-x86_64.path.go-template
-{{ Target }}/lib
+{{ .Target }}/lib
 EOF
 COPY <<EOF /uniget_bootstrap/etc/ld-musl-aarch64.path.go-template
-{{ Target }}/lib
+{{ .Target }}/lib
 EOF
