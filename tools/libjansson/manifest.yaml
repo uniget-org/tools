@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
-name: libjsnsson
+name: libjansson
 license:
   name: MIT License
   link: https://github.com/akheron/jansson#License-1-ov-file

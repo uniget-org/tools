@@ -5438,7 +5438,7 @@
     {
       "customType": "regex",
       "fileMatch": [
-        "^tools/libjsnsson/manifest.yaml$"
+        "^tools/libjansson/manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
