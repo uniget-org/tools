@@ -14,7 +14,7 @@ ARG version
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/akheron/jansson .
 autoreconf -i
-./configure --prefix="${prefix}"
+./configure --prefix="${prefix}" --enable-static
 make -j$(nproc)
 make install
 EOF
