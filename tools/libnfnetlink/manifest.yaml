@@ -5,7 +5,7 @@ license:
   name: GPLv2
   link: https://git.netfilter.org/libnfnetlink/tree/COPYING
 version: "1.0.2"
-check: ""
+check: grep ^Version "${target}/lib/pkgconfig/libnfnetlink.pc" | cut -d' ' -f2
 platforms:
 - linux/amd64
 #- linux/arm64

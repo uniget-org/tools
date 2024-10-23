@@ -42,7 +42,6 @@ TOOL_VERSION="$( jq -r --arg name "${name}" '.tools[] | select(.name == "\($name
 echo "tool version in uniget: ${TOOL_VERSION}"
 
 uniget install nftables
-ldconfig
 which nft
 ldd $(which nft)
 nft --version
