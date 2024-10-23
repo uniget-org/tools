@@ -3,28 +3,30 @@
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 FROM ghcr.io/uniget-org/tools/libmnl:latest AS libmnl
 FROM ghcr.io/uniget-org/tools/libnftnl:latest AS libnftnl
+FROM ghcr.io/uniget-org/tools/iptables:latest AS iptables
+FROM ghcr.io/uniget-org/tools/libjansson:latest AS libjansson
+FROM ghcr.io/uniget-org/tools/musl:latest AS musl
 
-FROM ghcr.io/uniget-org/images/build-base:3.20 AS prepare
+FROM ghcr.io/uniget-org/images/build-essential:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-RUN --mount=type=cache,target=/var/cache/apk <<EOF
-apk add --update-cache \
+RUN --mount=type=cache,target=/var/cache/apt <<EOF
+apt-get update
+apt-get -y install --no-install-recommends \
     bison \
     flex \
     asciidoc \
-    libnfnetlink-dev \
-    gmp-dev \
-    readline-dev \
-    readline-static \
-    jansson-dev \
-    jansson-static \
-    linux-headers
+    libgmp-dev \
+    libreadline-dev
 EOF
 COPY --link --from=make / /usr/local/
 COPY --link --from=libmnl / /usr/local/
 COPY --link --from=libnftnl / /usr/local/
+COPY --link --from=iptables / /usr/local/
+COPY --link --from=libjansson / /usr/local/
+COPY --link --from=musl / /usr/local/
 WORKDIR /tmp/nftables
 ARG name
 ARG version
@@ -33,9 +35,14 @@ check-clone "https://git.netfilter.org/nftables/" "v${version}"
 git clone --config advice.detachedHead=false --depth 1 --branch "v${version}" git://git.netfilter.org/nftables .
 EOF
 RUN <<EOF
-export PKG_CONFIG_PATH="/lib/pkgconfig:${PKG_CONFIG_PATH}"
+#export PKG_CONFIG_PATH="/lib/pkgconfig:${PKG_CONFIG_PATH}"
 ./autogen.sh
-./configure --prefix="${prefix}" --enable-static=yes --with-cli=readline
+./configure \
+    --prefix="${prefix}" \
+    --enable-static=yes \
+    --with-xtables \
+    --with-json \
+    --with-cli=readline
 make -j$(nproc)
 make install
 EOF

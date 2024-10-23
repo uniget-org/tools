@@ -7,10 +7,14 @@ build_dependencies:
 - make
 - libmnl
 - libnftnl
+- iptables
+- libjansson
 runtime_dependencies:
 - musl
 - libmnl
 - libnftnl
+- iptables
+- libjansson
 platforms:
 - linux/amd64
 #- linux/arm64
