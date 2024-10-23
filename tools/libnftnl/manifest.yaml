@@ -7,6 +7,8 @@ check: ""
 build_dependencies:
 - make
 - libmnl
+runtime_dependencies:
+- libmnl
 platforms:
 - linux/amd64
 #- linux/arm64
