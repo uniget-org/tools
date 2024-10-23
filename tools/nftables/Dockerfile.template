@@ -35,7 +35,7 @@ EOF
 RUN <<EOF
 export PKG_CONFIG_PATH="/lib/pkgconfig:${PKG_CONFIG_PATH}"
 ./autogen.sh
-./configure --prefix="${prefix}" --enable-static=yes --with-json --with-cli=readline
+./configure --prefix="${prefix}" --enable-static=yes --with-cli=readline
 make -j$(nproc)
 make install
 EOF
