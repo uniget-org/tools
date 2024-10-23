@@ -1,5 +1,4 @@
 #!/bin/bash
-set -o errexit -o xtrace
 
 if test -z "${name}" || test -z "${version}"; then
     echo "Usage: name=... version=... $0"
@@ -40,25 +39,18 @@ uniget install jq
 mv /var/cache/uniget/metadata.json /var/cache/uniget/metadata.json.bak
 jq --arg name "${name}" --arg version "${version}" '(.tools[] | select(.name == "\($name)") | .version) |= "\($version)"' /var/cache/uniget/metadata.json.bak > /var/cache/uniget/metadata.json
 TOOL_VERSION="$( jq -r --arg name "${name}" '.tools[] | select(.name == "\($name)") | .version' /var/cache/uniget/metadata.json )"
-echo "tool version in uniget now: ${TOOL_VERSION}"
+echo "tool version in uniget: ${TOOL_VERSION}"
 
-groupadd --system docker
-uniget install docker nftables
-#ldconfig
+uniget install iptables
+ldconfig
+ln -sfr /usr/local/bin/ld-musl-x86_64.so.1 /lib/ld-musl-x86_64.so.1
+ls -l /lib/
 
-ls -l /etc/systemd/system/
-systemctl daemon-reload
-systemctl disable docker.service
-systemctl enable docker.socket
-systemctl start docker.socket
-docker version
+which iptables
+ldd $(which iptables)
+iptables -V
 EOF
-then 
+then
     echo "### Failed to complete test"
-    sleep 10
-    docker exec --interactive "${container}" bash -xe <<EOF
-ps faux
-journalctl -xe
-EOF
     exit 1
 fi
