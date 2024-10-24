@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: libgmp
+license:
+  name: LGPLv2, GPLv2
+  link: https://gmplib.org/
+version: "6.3.0"
+check: ""
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- category/development
+- lang/c
+- type/library
+homepage: https://gmplib.org/
+repository: https://gmplib.org/repo/
+description: Library for arbitrary precision arithmetic
+#renovate:
+#  datasource: github-releases
+#  package: foo/bar
+#  extractVersion: ^v(?<version>.+)$
+#  priority: low
