@@ -31,4 +31,5 @@ git clone --config advice.detachedHead=false --depth 1 --branch "v${version}" gi
     --enable-static
 make -j$(nproc)
 make install
+ln --symbolic --relative --force "${prefix}/sbin/iptables-legacy-multi" "${prefix}/bin/iptables-xml"
 EOF
