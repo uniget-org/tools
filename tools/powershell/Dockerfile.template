@@ -1,27 +1,54 @@
 #syntax=docker/dockerfile:1.11.1@sha256:10c699f1b6c8bdc8f6b4ce8974855dd8542f1768c26eb240237b8f1c9c6c9976
 
-FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+FROM ghcr.io/uniget-org/tools/dotnet-runtime:latest AS dotnet-runtime
+
+FROM ghcr.io/uniget-org/images/ubuntu:rolling AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN --mount=type=cache,target=/var/cache/apt <<EOF
-apt-get update
-apt-get -y install --no-install-recommends \
-    libicu74
-EOF
+COPY --from=dotnet-runtime / /usr/local/
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://github.com/PowerShell/PowerShell/releases/download/v${version}/powershell_${version}-1.deb_amd64.deb"
-filename="$( basename "${url}" )"
+echo "### Setting architecture string for ${TARGETPLATFORM}"
+case "${arch}" in
+    x86_64)
+        export arch_suffix="x64"
+        ;;
+    aarch64)
+        export arch_suffix="${alt_arch}"
+        ;;
+    *)
+        echo "ERROR: Unsupported architecture ${arch}."
+        exit 1
+        ;;
+esac
+echo "    Using ${arch_suffix}"
+
+url="https://github.com/PowerShell/PowerShell/releases/download/v${version}/powershell-${version}-linux-${arch_suffix}.tar.gz"
+filename="$(basename "${url}")"
 
 check-github-release-asset "PowerShell/PowerShell" "v${version}" "${filename}"
-curl --silent --show-error --location --output "${uniget_cache_download}/${filename}" \
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
     "${url}"
 
-dpkg -i "${uniget_cache_download}/${filename}"
-mkdir -p "${prefix}/opt/microsoft"
-mv /opt/microsoft/ "${prefix}/opt/"
+tar --file="${uniget_cache_download}/${filename}" --list
+mkdir -p "${prefix}/opt/microsoft/powershell/7"
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/opt/microsoft/powershell/7" --no-same-owner
+EOF
+RUN <<EOF
+chmod +x "${prefix}/opt/microsoft/powershell/7/pwsh"
 ln --symbolic --relative --force "${prefix}/opt/microsoft/powershell/7/pwsh" "${prefix}/bin/pwsh"
+EOF
+COPY --chmod=0755 <<"EOF" /uniget_bootstrap/bin/pwsh.go-template
+#!/bin/bash
+
+export DOTNET_ROOT={{ .Target }}/share/dotnet
+
+if ! ldconfig --print-cache | grep -q libicu; then
+    export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
+fi
+
+exec {{ .Target }}/opt/microsoft/powershell/7/pwsh "$@"
 EOF
