@@ -9,11 +9,13 @@ build_dependencies:
 - libnftnl
 - iptables
 - libjansson
+- libgmp
 runtime_dependencies:
 - libmnl
 - libnftnl
 - iptables
 - libjansson
+- libgmp
 - musl
 platforms:
 - linux/amd64

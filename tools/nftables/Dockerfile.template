@@ -5,6 +5,7 @@ FROM ghcr.io/uniget-org/tools/libmnl:latest AS libmnl
 FROM ghcr.io/uniget-org/tools/libnftnl:latest AS libnftnl
 FROM ghcr.io/uniget-org/tools/iptables:latest AS iptables
 FROM ghcr.io/uniget-org/tools/libjansson:latest AS libjansson
+FROM ghcr.io/uniget-org/tools/libgmp:latest AS libgmp
 
 FROM ghcr.io/uniget-org/images/build-base:3.20 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
@@ -16,9 +17,6 @@ apk add --update-cache \
     bison \
     flex \
     asciidoc \
-    gmp-dev \
-    readline-dev \
-    readline-static \
     linux-headers
 EOF
 COPY --link --from=make / /usr/local/
@@ -26,6 +24,7 @@ COPY --link --from=libmnl / /usr/local/
 COPY --link --from=libnftnl / /usr/local/
 COPY --link --from=iptables / /usr/local/
 COPY --link --from=libjansson / /usr/local/
+COPY --link --from=libgmp / /usr/local/
 WORKDIR /tmp/nftables
 ARG name
 ARG version
@@ -39,7 +38,7 @@ git clone --config advice.detachedHead=false --depth 1 --branch "v${version}" gi
     --enable-static \
     --with-xtables \
     --with-json \
-    --with-cli=readline
+    --without-cli
 make -j$(nproc)
 make install
 EOF
