@@ -8,7 +8,7 @@ version: "6.3.0"
 check: cat ${target}/lib/pkgconfig/gmp.pc | grep Version | cut -d' ' -f2
 platforms:
 - linux/amd64
-#- linux/arm64
+- linux/arm64
 tags:
 - category/development
 - lang/c
@@ -16,8 +16,8 @@ tags:
 homepage: https://gmplib.org/
 repository: https://gmplib.org/repo/
 description: Library for arbitrary precision arithmetic
-#renovate:
-#  datasource: github-releases
-#  package: foo/bar
-#  extractVersion: ^v(?<version>.+)$
-#  priority: low
+renovate:
+  datasource: github-releases
+  package: foo/bar
+  extractVersion: ^v(?<version>.+)$
+  priority: low
