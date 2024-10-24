@@ -1,21 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
-name: powershell
-version: "7.4.6"
-binary: pwsh
-check: ${binary} -Version | cut -d' ' -f2
-runtime_dependencies:
-- dotnet-runtime
+name: dotnet-sdk
+license:
+  name: MIT License
+  link: https://github.com/dotnet/sdk/blob/main/LICENSE.TXT
+version: "8.0.400"
+binary: ${target}/opt/dotnet/dotnet
+check: ${binary} --version
 platforms:
 - linux/amd64
 - linux/arm64
 tags:
 - org/microsoft
-- category/operations
+- category/development
 - lang/c
 - type/cli
-homepage: https://microsoft.com/PowerShell
-repository: https://github.com/PowerShell/PowerShell
-description: PowerShell for every system
+homepage: https://dot.net/core
+repository: https://github.com/dotnet/sdk
+description: Core functionality needed to create .NET Core projects
 messages:
   internals: |
     dotnet programs require libicu for globalization. To avoid this
@@ -39,8 +40,6 @@ messages:
     Read more here: https://github.com/dotnet/designs/blob/main/accepted/2020/install-locations.md
 renovate:
   datasource: github-releases
-  package: PowerShell/PowerShell
+  package: dotnet/sdk
   extractVersion: ^v(?<version>.+)$
   priority: low
-license:
-  name: MIT License
