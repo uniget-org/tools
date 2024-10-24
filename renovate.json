@@ -2275,7 +2275,19 @@
     {
       "customType": "regex",
       "fileMatch": [
-        "^tools/dotnet/manifest.yaml$"
+        "^tools/dotnet-runtime/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ],
+      "depNameTemplate": "dotnet/runtime",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^v(?<version>.+)$"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": [
+        "^tools/dotnet-sdk/manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"

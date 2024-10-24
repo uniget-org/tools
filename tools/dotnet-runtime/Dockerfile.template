@@ -1,0 +1,21 @@
+#syntax=docker/dockerfile:1.10.0@sha256:865e5dd094beca432e8c0a1d5e1c465db5f998dca4e439981029b3b81fb39ed5
+
+FROM ghcr.io/uniget-org/images/ubuntu:rolling AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN <<EOF
+curl --silent --show-error --location --fail --remote-name "https://dot.net/v1/dotnet-install.sh"
+bash dotnet-install.sh \
+    --channel STS \
+    --runtime dotnet \
+    --version "${version}" \
+    --install-dir "${prefix}/share/dotnet"
+ln --symbolic --relative --force "${prefix}/share/dotnet/dotnet" "${prefix}/bin/dotnet"
+EOF
+COPY <<EOF /uniget_bootstrap/etc/dotnet/install_location.go-template
+{{ .Target }}/share/dotnet
+EOF
