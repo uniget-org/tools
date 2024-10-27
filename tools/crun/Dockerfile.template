@@ -12,7 +12,7 @@ cp -rfp ./result/bin/crun /usr/local/bin/
 cp *.1 /usr/local/share/man/man1/
 EOF
 
-FROM ghcr.io/uniget-org/images/ubuntu:24.04 AS prepare
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/

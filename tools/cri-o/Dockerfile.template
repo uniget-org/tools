@@ -3,7 +3,7 @@
 FROM ghcr.io/uniget-org/tools/cosign:latest AS cosign
 FROM ghcr.io/uniget-org/tools/go-md2man:latest AS go-md2man
 
-FROM ghcr.io/uniget-org/images/ubuntu:24.04 AS prepare
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
