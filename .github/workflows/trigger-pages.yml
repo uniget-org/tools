@@ -6,6 +6,8 @@ on:
     secrets:
       BOT_GITHUB_TOKEN:
         required: true
+      GITLAB_TRIGGER_TOOLS:
+        required: true
 
 jobs:
 
@@ -14,13 +16,24 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
 
+    #- name: Trigger
+    #  env:
+    #    GITHUB_TOKEN: ${{ secrets.BOT_GITHUB_TOKEN }}
+    #  run: |
+    #    curl --silent --verbose --show-error --fail \
+    #        --request POST \
+    #        --url https://api.github.com/repos/uniget-org/tools.uniget.dev/dispatches \
+    #        --header "Authorization: token ${GITHUB_TOKEN}" \
+    #        --header "Accept: application/vnd.github.v3+json" \
+    #        --data '{"event_type": "pages"}'
+
     - name: Trigger
       env:
-        GITHUB_TOKEN: ${{ secrets.BOT_GITHUB_TOKEN }}
+        GITLAB_TRIGGER_TOOLS: ${{ secrets.GITLAB_TRIGGER_TOOLS }}
       run: |
-        curl --silent --verbose --show-error --fail \
+        curl \
             --request POST \
-            --url https://api.github.com/repos/uniget-org/tools.uniget.dev/dispatches \
-            --header "Authorization: token ${GITHUB_TOKEN}" \
-            --header "Accept: application/vnd.github.v3+json" \
-            --data '{"event_type": "pages"}'
+            --fail \
+            --form "token=${GITLAB_TRIGGER_TOOLS}" \
+            --form "ref=main" \
+            --url https://gitlab.com/api/v4/projects/62817103/trigger/pipeline

@@ -280,3 +280,4 @@ jobs:
     uses: ./.github/workflows/trigger-pages.yml
     secrets:
       BOT_GITHUB_TOKEN: ${{ secrets.BOT_GITHUB_TOKEN }}
+      GITLAB_TRIGGER_TOOLS: ${{ secrets.GITLAB_TRIGGER_TOOLS }}
