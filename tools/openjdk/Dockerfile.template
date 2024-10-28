@@ -23,14 +23,23 @@ case "${arch}" in
 esac
 echo "    Using ${arch_suffix}"
 
-MAJOR_VERSION="$(echo "${version}" | sed -E 's/^([0-9]+)(\.[0-9]\.[0-9]+)?\+([0-9]+)$/\1/')"
-version_url_encoded="$(echo "${version}" | sed 's/+/%2B/g')"
-version_filename="$(echo "${version}" | sed 's/+/_/g')"
+real_version="$(
+    echo "${version}" \
+    | sed -E 's/^([[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+)-([[:digit:]]+)$/\1+\2/'
+)"
+echo "### Using OpenJDK version ${real_version}"
+
+MAJOR_VERSION="$(echo "${real_version}" | sed -E 's/^([0-9]+)(\.[0-9]\.[0-9]+)?\+([0-9]+)$/\1/')"
+echo "    Major version: ${MAJOR_VERSION}"
+version_url_encoded="$(echo "${real_version}" | sed 's/+/%2B/g')"
+echo "    URL encoded version: ${version_url_encoded}"
+version_filename="$(echo "${real_version}" | sed 's/+/_/g')"
+echo "    Filename version: ${version_filename}"
 
 url="https://github.com/adoptium/temurin23-binaries/releases/download/jdk-${version_url_encoded}/OpenJDK${MAJOR_VERSION}U-jdk_${arch_suffix}_linux_hotspot_${version_filename}.tar.gz"
 filename="$(basename "${url}")"
 
-check-github-release-asset "adoptium/temurin${MAJOR_VERSION}-binaries" "jdk-${version}" "${filename}"
+check-github-release-asset "adoptium/temurin${MAJOR_VERSION}-binaries" "jdk-${real_version}" "${filename}"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
     "${url}"
 
