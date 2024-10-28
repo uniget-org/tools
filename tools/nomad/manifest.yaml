@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: nomad
+license:
+  name: BSL-1.1
+  link: https://github.com/hashicorp/nomad/blob/main/LICENSE
+version: "1.9.1"
+check: ""
+runtime_dependencies:
+- cni
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/hashicorp
+- category/operations
+- lang/go
+- type/daemon
+- type/cli
+homepage: https://www.nomadproject.io/
+repository: https://github.com/hashicorp/nomad
+description: Easy-to-use, flexible, and performant workload orchestrator
+renovate:
+  datasource: github-releases
+  package: hashicorp/nomad
+  extractVersion: ^v(?<version>.+)$
+  priority: low

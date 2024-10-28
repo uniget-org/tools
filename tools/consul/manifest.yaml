@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: consul
+license:
+  name: BSL-1.1
+  link: https://github.com/hashicorp/consul/blob/main/LICENSE
+version: "1.20.0"
+check: ""
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/hashicorp
+- category/operations
+- lang/go
+- type/daemon
+- type/cli
+homepage: https://www.consul.io/
+repository: https://github.com/hashicorp/consul
+description: Distributed, highly available, and data center aware solution to connect and configure applications across dynamic, distributed infrastructure
+renovate:
+  datasource: github-releases
+  package: hashicorp/consul
+  priority: low
