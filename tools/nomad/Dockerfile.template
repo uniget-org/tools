@@ -15,6 +15,6 @@ check-download "${url}"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
     "${url}"
 
-unzip -q -o -d "${prefix}/bin" "${uniget_cache_download}/${filename}"
+unzip -q -o -d "${prefix}/bin" "${uniget_cache_download}/${filename}" \
     nomad
 EOF
