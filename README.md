@@ -11,6 +11,8 @@
 
 The container tools installer and updater
 
+⚠️ uniget is in the process of being migrated [to GitLab](https://gitlab.com/uniget-org). The migration is being tracked [here](https://gitlab.com/uniget-org/migration-gh2gl). There is only one thing, you need to do: regularly update the uniget CLI using `uniget self-update`. ⚠️
+
 ## Contents
 
 This repository contains the source code for creating container images for all tools supported by uniget.
