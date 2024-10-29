@@ -2,7 +2,7 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: pacstall
 version: "5.5.0"
-check: ""
+check: grep ^version_number ${binary} | cut -d= -f2 | tr -d '"'
 platforms:
 - linux/amd64
 - linux/arm64

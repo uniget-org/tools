@@ -2,7 +2,7 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: lz4
 version: "1.10.0"
-check: ""
+check: ${binary} -V | cut -d' ' -f3 | tr -d v
 build_dependencies:
 - make
 platforms:

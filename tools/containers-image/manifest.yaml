@@ -3,7 +3,7 @@ $schema: https://tools.uniget.dev/schema.yaml
 name: containers-image
 version: "5.32.2"
 binary: "false"
-check: ""
+check: "" # No binary
 build_dependencies:
 - go-md2man
 platforms:

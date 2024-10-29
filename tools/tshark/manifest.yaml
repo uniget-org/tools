@@ -2,7 +2,7 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: tshark
 version: "4.2.2"
-check: ""
+check: "" # Missing shared libraries
 build_dependencies:
 - make
 - speexdsp

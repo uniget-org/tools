@@ -2,7 +2,7 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: phive
 version: "0.15.3"
-check: ""
+check: ${binary} version | grep ^Phive | cut -d' ' -f2
 build_dependencies:
 - php
 runtime_dependencies:

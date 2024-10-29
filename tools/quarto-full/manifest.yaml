@@ -3,7 +3,7 @@ $schema: https://tools.uniget.dev/schema.yaml
 name: quarto-full
 version: "1.5.57"
 binary: ${target}/opt/quarto/bin/quarto
-check: ""
+check: ${binary} --version
 conflicts_with:
 - quarto
 platforms:

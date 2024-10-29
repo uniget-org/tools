@@ -2,7 +2,7 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: kitty
 version: "0.36.4"
-check: ""
+check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
 - linux/arm64

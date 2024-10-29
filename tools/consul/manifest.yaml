@@ -5,7 +5,7 @@ license:
   name: BSL-1.1
   link: https://github.com/hashicorp/consul/blob/main/LICENSE
 version: "1.20.0"
-check: ""
+check: ${binary} --version | grep Consul | cut -d' ' -f2 | tr -d v
 platforms:
 - linux/amd64
 - linux/arm64

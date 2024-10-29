@@ -2,7 +2,7 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: gnuplot
 version: "5.4.8"
-check: ""
+check: ${binary} --version | cut -d' ' -f2- | tr '[a-z ]' '.' | tr -s .
 platforms:
 - linux/amd64
 #- linux/arm64

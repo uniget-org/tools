@@ -2,7 +2,8 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: whalesay
 version: "0.0.1"
-check: ""
+binary: "false"
+check: "" # No binary
 runtime_dependencies:
 - cowsay
 platforms:

@@ -2,7 +2,7 @@
 name: wordcloud
 version: "1.9.3"
 binary: wordcloud_cli
-check: ""
+check: ${binary} --version | cut -d' ' -f2
 build_dependencies:
 - python
 - shiv

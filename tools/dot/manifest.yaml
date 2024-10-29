@@ -2,7 +2,7 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: dot
 version: "0.2.9"
-check: ""
+check: "" # No version parameter
 build_dependencies:
 - go
 - make

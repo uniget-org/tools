@@ -3,7 +3,7 @@ $schema: https://tools.uniget.dev/schema.yaml
 name: linux-kernel-wsl
 version: "6.6.36.6"
 binary: "false"
-check: ""
+check: "" # No binary
 platforms:
 - linux/amd64
 tags:

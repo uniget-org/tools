@@ -2,7 +2,7 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: overlaybd-snapshotter
 version: "1.2.3"
-check: ""
+check: "" # No version parameter
 build_dependencies:
 - go
 - make

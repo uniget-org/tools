@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: wagi
 version: "0.8.1"
-check: ""
+check: "" # Missing shared libraries
 platforms:
 - linux/amd64
 - linux/arm64
