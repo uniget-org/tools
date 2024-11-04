@@ -1,0 +1,26 @@
+--- meson.build.orig
++++ meson.build
+@@ -65,13 +65,14 @@
+   python = find_program(get_option('python'))
+ endif
+
+-libcap_dep = dependency('libcap', required : true)
++libcap_dep = dependency('libcap', required : true, static : true)
+
+ selinux_dep = dependency(
+   'libselinux',
+   version : '>=2.1.9',
+   # if disabled, Meson will behave as though libselinux was not found
+   required : get_option('selinux'),
++  static : true,
+ )
+
+ cdata = configuration_data()
+@@ -121,6 +122,7 @@
+   install_dir : bwrapdir,
+   install_rpath : get_option('install_rpath'),
+   dependencies : [selinux_dep, libcap_dep],
++  link_args : [ '-static' ],
+ )
+
+ manpages_xsl = 'http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl'
