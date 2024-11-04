@@ -1,6 +1,6 @@
 #syntax=docker/dockerfile:1.11.0@sha256:1f2be5a2aa052cbd9aedf893d17c63277c3d1c51b3fb0f3b029c6b34f658d057
 
-FROM registry.gitlab.com/uniget-org/images/ubuntu:22.04 AS prepare
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -10,11 +10,17 @@ ARG version
 RUN --mount=type=cache,target=/var/cache/apt <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
-    libicu70
-curl --silent --show-error --location --remote-name \
-    "https://github.com/PowerShell/PowerShell/releases/download/v${version}/powershell_${version}-1.deb_amd64.deb"
-dpkg -i "powershell_${version}-1.deb_amd64.deb"
-rm "powershell_${version}-1.deb_amd64.deb"
+    libicu74
+EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/PowerShell/PowerShell/releases/download/v${version}/powershell_${version}-1.deb_amd64.deb"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "PowerShell/PowerShell" "v${version}" "${filename}"
+curl --silent --show-error --location --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+dpkg -i "${uniget_cache_download}/${filename}"
 mkdir -p "${prefix}/opt/microsoft"
 mv /opt/microsoft/ "${prefix}/opt/"
 ln --symbolic --relative --force "${prefix}/opt/microsoft/powershell/7/pwsh" "${prefix}/bin/pwsh"
