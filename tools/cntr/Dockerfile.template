@@ -1,22 +1,23 @@
 #syntax=docker/dockerfile:1.11.0@sha256:1f2be5a2aa052cbd9aedf893d17c63277c3d1c51b3fb0f3b029c6b34f658d057
 
-FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+FROM ghcr.io/uniget-org/tools/rust:latest AS rust
+
+FROM registry.gitlab.com/uniget-org/images/build-essential:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
+COPY --link --from=rust / /usr/local/
+WORKDIR /tmp/github.com/Mic92/cntr
 ARG name
 ARG version
-RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://github.com/Mic92/cntr/releases/download/${version}/cntr-bin-${version}-${arch}-unknown-linux-musl"
-filename="$( basename "${url}" )"
-
-check-github-release-asset "Mic92/cntr" "${version}" "${filename}"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
-    "${url}"
-
-install --mode=0755 \
-    "${uniget_cache_download}/${filename}" \
-    "${prefix}/bin/cntr"
-
+RUN <<EOF
+git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" https://github.com/Mic92/cntr .
+EOF
+RUN <<EOF
+export CARGO_HOME=/usr/local/cargo
+export RUSTUP_HOME=/usr/local/rustup
+#export RUSTFLAGS='-C target-feature=+crt-static'
+cargo build --release
+cp "target/release/cntr" "${prefix}/bin/"
 EOF
