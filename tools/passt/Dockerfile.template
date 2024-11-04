@@ -15,8 +15,10 @@ COPY --link --from=make / /usr/local/
 WORKDIR /tmp/passt
 ARG name
 ARG version
+COPY include-linux-types.h.patch /tmp
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --branch "${version}" https://passt.top/passt/ .
+patch -p1 <../include-linux-types.h.patch
 make -j$(nproc) static
 make install DESTDIR="${prefix}" prefix=""
 EOF
