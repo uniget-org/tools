@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: valyent
+license:
+  name: Apache License 2.0
+  link: https://github.com/valyentdev/cli/blob/main/LICENSE
+version: "0.0.1"
+check: ""
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/valyent
+- category/operations
+- lang/go
+- type/cli
+homepage: https://valyent.dev/
+repository: https://github.com/valyentdev/cli
+description: Interact with Valyent's API from your terminal
+renovate:
+  datasource: github-releases
+  package: valyentdev/cli
+  extractVersion: ^v(?<version>.+)$
+  priority: low
