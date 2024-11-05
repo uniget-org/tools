@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: ravel
+license:
+  name: Apache License 2.0
+  link: https://github.com/valyentdev/ravel/blob/main/LICENSE
+version: "0.0.2"
+check: "" # No version parameter
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- org/valyent
+- category/operations
+- lang/go
+- type/daemon
+homepage: https://valyent.cloud/
+repository: https://github.com/valyentdev/ravel
+description: Open-source containers-as-microVMs orchestrator
+renovate:
+  datasource: github-releases
+  package: valyentdev/ravel
+  extractVersion: ^v(?<version>.+)$
+  priority: low
