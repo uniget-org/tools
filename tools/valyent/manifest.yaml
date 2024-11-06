@@ -5,7 +5,7 @@ license:
   name: Apache License 2.0
   link: https://github.com/valyentdev/cli/blob/main/LICENSE
 version: "0.0.1"
-check: ""
+check: "" # No version parameter
 platforms:
 - linux/amd64
 - linux/arm64

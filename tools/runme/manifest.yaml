@@ -5,7 +5,7 @@ license:
   name: Apache License 2.0
   link: https://github.com/stateful/runme/blob/main/LICENSE
 version: "3.9.2"
-check: ""
+check: ${binary} --version | cut -d' ' -f3
 platforms:
 - linux/amd64
 - linux/arm64
