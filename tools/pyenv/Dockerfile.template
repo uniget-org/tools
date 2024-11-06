@@ -1,0 +1,32 @@
+#syntax=docker/dockerfile:1.11.0@sha256:1f2be5a2aa052cbd9aedf893d17c63277c3d1c51b3fb0f3b029c6b34f658d057
+
+FROM ghcr.io/uniget-org/tools/make:latest AS make
+
+FROM registry.gitlab.com/uniget-org/images/build-essential:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+COPY --link --from=make / /usr/local/
+
+WORKDIR /uniget_bootstrap/libexec/pyenv
+ARG name
+ARG version
+RUN <<EOF
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/pyenv/pyenv .
+src/configure
+make -C src
+EOF
+
+RUN <<EOF
+cp man/man1/pyenv.1 "${prefix}/share/man/man1/"
+ln --symbolic --relative --force "${prefix}/libexec/pyenv/bin/pyenv" "${prefix}/bin/pyenv"
+cp completions/pyenv.bash "${prefix}/share/bash-completion/completions/pyenv"
+cp completions/pyenv.fish "${prefix}/share/fish/vendor_completions.d/pyenv.fish"
+cp completions/pyenv.zsh "${prefix}/share/zsh/vendor-completions/_pyenv"
+EOF
+
+RUN <<EOF
+git clone https://github.com/pyenv/pyenv-doctor.git "${prefix}/libexec/pyenv/plugins/pyenv-doctor"
+git clone https://github.com/pyenv/pyenv-virtualenv.git "${prefix}/libexec/pyenv/plugins/pyenv-virtualenv"
+EOF
