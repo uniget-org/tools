@@ -1,0 +1,34 @@
+#syntax=docker/dockerfile:1.11.1@sha256:1f2be5a2aa052cbd9aedf893d17c63277c3d1c51b3fb0f3b029c6b34f658d057
+
+FROM registry.gitlab.com/uniget-org/tools/nodejs:latest AS nodejs
+FROM registry.gitlab.com/uniget-org/tools/npm:latest AS npm
+FROM registry.gitlab.com/uniget-org/tools/python:latest AS python
+FROM registry.gitlab.com/uniget-org/tools/make:latest AS make
+
+FROM registry.gitlab.com/uniget-org/images/build-essential:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+COPY --link --from=nodejs / /usr/local/
+COPY --link --from=npm / /usr/local/
+COPY --link --from=python / /usr/local/
+COPY --link --from=make / /usr/local/
+WORKDIR /uniget_bootstrap/libexec/hopp
+ARG name
+ARG version
+RUN <<EOF
+npm install \
+    --omit=dev \
+    "@hoppscotch/cli@${version}"
+ln --symbolic --relative --force "${prefix}/libexec/hopp/node_modules/.bin/hopp" "${prefix}/bin/"
+EOF
+
+# completion
+#RUN <<EOF
+#"${prefix}/bin/foo" completion bash >"${prefix}/share/bash-completion/completions/foo"
+#"${prefix}/bin/foo" completion fish >"${prefix}/share/fish/vendor_completions.d/foo.fish"
+#"${prefix}/bin/foo" completion zsh >"${prefix}/share/zsh/vendor-completions/_foo"
+#EOF

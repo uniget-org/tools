@@ -3666,6 +3666,17 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "npm",
+      "depNameTemplate": "@hoppscotch/cli",
+      "fileMatch": [
+        "^tools/hopp/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "andyk/ht",
       "extractVersionTemplate": "^v(?<version>.+)$",
