@@ -19,8 +19,8 @@ tags:
 - gitlab
 - standard/docker
 - docker
-homepage: https://gitlab.com/AdrianDC/gitlabci-local
-repository: https://gitlab.com/AdrianDC/gitlabci-local
+homepage: https://radiandevcore.gitlab.io/tools/gcil
+repository: https://gitlab.com/RadianDevCore/tools/gcil
 description: Launch .gitlab-ci.yml jobs locally
 renovate:
   datasource: pypi

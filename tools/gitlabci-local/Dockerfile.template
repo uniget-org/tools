@@ -14,4 +14,5 @@ ARG name
 ARG version
 RUN --mount=type=cache,target=/root/.cache/pip <<EOF
 shiv --output-file "${prefix}/bin/gitlabci-local" --console-script gitlabci-local "gitlabci-local==${version}"
+ln --symbolic --relative --force "${prefix}/bin/gitlabci-local" "${prefix}/bin/gcil"
 EOF
