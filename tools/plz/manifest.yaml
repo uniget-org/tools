@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: plz
+license:
+  name: MIT License
+  link: https://github.com/m1guelpf/plz-cli/blob/main/LICENSE
+version: "0.1.8"
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+tags:
+- category/development
+- lang/rust
+- type/cli
+- copilot
+homepage: https://github.com/m1guelpf/plz-cli
+repository: https://github.com/m1guelpf/plz-cli
+description: Copilot for your terminal - generate shell scripts from a human readable description
+renovate:
+  datasource: github-releases
+  package: m1guelpf/plz-cli
+  extractVersion: ^v(?<version>.+)$
+  priority: low
