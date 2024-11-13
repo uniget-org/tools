@@ -3,7 +3,7 @@
 FROM ghcr.io/uniget-org/tools/go:latest AS go
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 
-FROM registry.gitlab.com/uniget-org/images/build-essential:24.04@sha256:763459acb3fdb5c0dc947b211fe8815cde4d06ec1535125db0d7c0e22a357abd AS prepare
+FROM registry.gitlab.com/uniget-org/images/build-essential:24.04@sha256:b3c2524a8641bd3050256e4ad15c569501781e71e9f1e133dde08bec5f9f86f1 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
