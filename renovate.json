@@ -7171,6 +7171,18 @@
     {
       "customType": "regex",
       "fileMatch": [
+        "^tools/ollama/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ],
+      "depNameTemplate": "ollama/ollama",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^v(?<version>.+)$"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": [
         "^tools/opa/manifest.yaml$"
       ],
       "matchStrings": [

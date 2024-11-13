@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: ollama
+license:
+  name: MIT License
+  link: https://github.com/ollama/ollama/blob/main/LICENSE
+version: "0.4.1"
+check: ""
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/?
+homepage: https://ollama.com/
+repository: https://github.com/ollama/ollama
+description: Get up and running with Llama 3.2, Mistral, Gemma 2, and other large language models
+messages:
+  update: |
+    If you are planning to run the systemd unit:
+    - useradd -r -s /bin/false -U -m -d /usr/share/ollama ollama
+    - usermod -a -G ollama $(whoami)
+renovate:
+  datasource: github-releases
+  package: ollama/ollama
+  extractVersion: ^v(?<version>.+)$
+  priority: low
