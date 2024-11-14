@@ -5,7 +5,7 @@ FROM ghcr.io/uniget-org/tools/nodejs:latest AS nodejs
 FROM ghcr.io/uniget-org/tools/npm:latest AS npm
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 
-FROM registry.gitlab.com/uniget-org/images/build-essential:24.04@sha256:b3c2524a8641bd3050256e4ad15c569501781e71e9f1e133dde08bec5f9f86f1 AS prepare
+FROM registry.gitlab.com/uniget-org/images/build-essential:24.04@sha256:38b3693fa4e9fcfc0cb764d68e7038c809bb3d72f6fd27c522701647b30a6fae AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
