@@ -4,7 +4,7 @@ name: plz
 license:
   name: MIT License
   link: https://github.com/m1guelpf/plz-cli/blob/main/LICENSE
-version: "0.1.8"
+version: "0.1.9"
 check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
