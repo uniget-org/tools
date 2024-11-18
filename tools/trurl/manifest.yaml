@@ -1,8 +1,8 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: trurl
-version: "0.13"
-check: ""
+version: "0.16"
+check: ${binary} --version | grep ^trurl | cut -d' ' -f3
 build_dependencies:
 - make
 - curl
