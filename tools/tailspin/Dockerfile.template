@@ -2,7 +2,7 @@
 
 FROM ghcr.io/uniget-org/tools/rust:latest AS rust
 
-FROM registry.gitlab.com/uniget-org/images/build-essential:24.04@sha256:38b3693fa4e9fcfc0cb764d68e7038c809bb3d72f6fd27c522701647b30a6fae AS prepare
+FROM registry.gitlab.com/uniget-org/images/build-essential:24.04@sha256:56a2ccde1ca1b71355c009245d0811ff3a9ce945124f9fbe7a21f317b5d0cf4a AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
