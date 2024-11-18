@@ -1,0 +1,27 @@
+#syntax=docker/dockerfile:1.11.1@sha256:10c699f1b6c8bdc8f6b4ce8974855dd8542f1768c26eb240237b8f1c9c6c9976
+
+FROM ghcr.io/uniget-org/tools/make:latest AS make
+FROM ghcr.io/uniget-org/tools/go:latest AS go
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+COPY --link --from=go / /usr/local/
+COPY --link --from=make / /usr/local/
+WORKDIR /go/src/github.com/prometheus-operator/poctl
+ARG name
+ARG version
+RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
+check-clone "https://github.com/prometheus-operator/poctl" "v${version}"
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/prometheus-operator/poctl .
+make poctl
+cp poctl "${prefix}/bin/"
+RUN <<EOF
+"${prefix}/bin/poctl" completion bash >"${prefix}/share/bash-completion/completions/poctl"
+"${prefix}/bin/poctl" completion fish >"${prefix}/share/fish/vendor_completions.d/poctl.fish"
+"${prefix}/bin/poctl" completion zsh >"${prefix}/share/zsh/vendor-completions/_poctl"
+EOF
