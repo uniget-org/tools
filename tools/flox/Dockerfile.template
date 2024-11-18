@@ -18,12 +18,24 @@ ARG name
 ARG version
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/flox/flox .
-cd cli
-export CARGO_HOME=/usr/local/cargo
-export RUSTUP_HOME=/usr/local/rustup
-export RUSTFLAGS='-C target-feature=+crt-static'
-cargo build --release --target "${arch}-unknown-linux-gnu"
-cp "target/${arch}-unknown-linux-gnu/release/flox" "${prefix}/bin/"
+curl -sSLf https://releases.nixos.org/nix/nix-2.25.2/nix-2.25.2-x86_64-linux.tar.xz \
+| tar -xJC /tmp
+EOF
+RUN <<EOF
+/tmp/nix-2.25.2-x86_64-linux/install-multi-user
+EOF
+RUN <<EOF
+#nix develop -L --no-update-lock-file \
+#    --extra-experimental-features nix-command \
+#    --extra-experimental-features flakes \
+#    --command \
+#        just \
+#            build-pkgdb \
+#            build-cli
+nix profile install \
+    --experimental-features "nix-command flakes" \
+    --accept-flake-config \
+    github:flox/flox/v${version}
 EOF
 
 # completion
