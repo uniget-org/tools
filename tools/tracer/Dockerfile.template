@@ -30,5 +30,5 @@ RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
 ./install-capstone.sh
 make -j$(nproc) bpf
 make -j$(nproc) build
-touch "${prefix}/foo"
+cp tracer "${prefix}/bin/"
 EOF
