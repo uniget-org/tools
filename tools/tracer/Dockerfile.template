@@ -3,7 +3,7 @@
 FROM ghcr.io/uniget-org/tools/go:latest AS go
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 
-FROM ghcr.io/uniget-org/images/build-essential:22.04 AS prepare
+FROM ghcr.io/uniget-org/images/build-essential:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -25,6 +25,9 @@ ARG name
 ARG version
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/kubeshark/tracer .
+EOF
+RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
+./install-capstone.sh
 make -j$(nproc) bpf
 make -j$(nproc) build
 touch "${prefix}/foo"
