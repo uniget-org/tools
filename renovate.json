@@ -6865,6 +6865,17 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "github-tags",
+      "depNameTemplate": "NixOS/nix",
+      "fileMatch": [
+        "^tools/nix/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "bartobri/no-more-secrets",
       "extractVersionTemplate": "^v(?<version>.+)$",
