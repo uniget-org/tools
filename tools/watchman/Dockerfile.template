@@ -4,59 +4,159 @@ FROM ghcr.io/uniget-org/tools/make:latest AS make
 FROM ghcr.io/uniget-org/tools/python:latest AS python
 FROM ghcr.io/uniget-org/tools/rust:latest AS rust
 
-FROM ghcr.io/uniget-org/images/build-base:3.20 AS prepare
+FROM ghcr.io/uniget-org/images/build-essential:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
 RUN <<EOF
-apk update
-apk add \
+apt-get update
+apt-get -y install \
     cmake \
-    gmock \
-    gtest \
-    gtest-dev \
-    glog \
-    glog-dev \
-    boost \
-    boost-dev \
-    libunwind \
+    libgmock-dev \
+    libgtest-dev \
+    libgoogle-glog-dev \
+    libboost-all-dev \
     libunwind-dev \
-    libevent \
     libevent-dev \
-    double-conversion \
-    double-conversion-dev \
-    openssl \
-    openssl-dev
+    libdouble-conversion-dev \
+    libssl-dev \
+    libfmt-dev
 #depends_on "cpptoml" => :build
 #depends_on "python-setuptools" => :build
 #depends_on "fb303"
 #depends_on "fbthrift"
-#depends_on "fmt"
 #depends_on "gflags"
 #depends_on "pcre2"
 EOF
 COPY --link --from=make / /user/local/
 COPY --link --from=python / /usr/local/
 COPY --link --from=rust / /usr/local/
+
+WORKDIR /tmp/fastfloat
+ARG FASTFLOAT_VERSION=6.1.6
+RUN <<EOF
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${FASTFLOAT_VERSION}" https://github.com/fastfloat/fast_float .
+mkdir -p build
+cd build
+cmake .. \
+    -DFASTFLOAT_TEST=OFF \
+    -DFASTFLOAT_SANITIZE=OFF
+make -j$(nproc)
+make install
+EOF
+
 WORKDIR /tmp/folly
-ARG FOLLY_VERSION=2024.08.05.00
+ARG FOLLY_VERSION=2024.11.11.00
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${FOLLY_VERSION}" https://github.com/facebook/folly .
+mkdir -p build
+cd build
+cmake ..
+make -j$(nproc)
+make install
+EOF
+
+WORKDIR /tmp/liboqs
+ARG LIBOQS_VERSION=0.11.0
+RUN <<EOF
+apt-get -y install \
+    ninja-build
+git clone -q --config advice.detachedHead=false --depth 1 --branch "${LIBOQS_VERSION}" https://github.com/open-quantum-safe/liboqs .
+mkdir -p build
+cd build
+cmake -GNinja ..
+ninja
+EOF
+RUN <<EOF
+cd build
+ninja install
+EOF
+
+WORKDIR /tmp/libaegis
+ARG LIBAEGIS_VERSION=0.1.25
+RUN <<EOF
+git clone -q --config advice.detachedHead=false --depth 1 --branch "${LIBAEGIS_VERSION}" https://github.com/aegis-aead/libaegis .
 mkdir build
 cd build
 cmake ..
-make
 make install
 EOF
+
+WORKDIR /tmp/fizz
+ARG FIZZ_VERSION=2024.11.11.00
+RUN <<EOF
+apt-get -y install \
+    libsodium-dev \
+    libzstd-dev
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${FIZZ_VERSION}" https://github.com/facebookincubator/fizz .
+cmake fizz -DBUILD_TESTS=OFF -DBUILD_EXAMPLES=OFF
+cmake --build .
+cmake --install .
+EOF
+
+WORKDIR /tmp/wangle
+ARG WANGLE_VERSION=2024.11.11.00
+RUN <<EOF
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${WANGLE_VERSION}" https://github.com/facebook/wangle .
+cd wangle
+cmake .
+make -j$(nproc)
+make install
+EOF
+
+WORKDIR /tmp/mvfst
+ARG MVFST_VERSION=2024.11.11.00
+RUN <<EOF
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${MVFST_VERSION}" https://github.com/facebook/mvfst .
+cd build
+cmake ..
+make -j$(nproc)
+make install
+EOF
+
+WORKDIR /tmp/fbthrift
+ARG FBTHRIFT_VERSION=2024.11.18.00
+RUN <<EOF
+apt-get -y install \
+    bison \
+    flex \
+    libxxhash-dev
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${FBTHRIFT_VERSION}" https://github.com/facebook/fbthrift .
+cmake .
+cmake --build .
+cmake --install .
+EOF
+
+WORKDIR /tmp/fb303
+ARG FB303_VERSION=2024.11.11.00
+RUN <<EOF
+apt-get -y install \
+    libgflags-dev
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${FB303_VERSION}" https://github.com/facebook/fb303 .
+cmake -S . -B build
+cmake --build build
+cmake --install build
+EOF
+
 WORKDIR /tmp/edencommon
-ARG EDENCOMMON_VERSION=2024.08.05.00
+ARG EDENCOMMON_VERSION=2024.11.11.00
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${EDENCOMMON_VERSION}" https://github.com/facebookexperimental/edencommon .
 cmake -S . -B build
 cmake --build build
 cmake --install build
 EOF
+
+WORKDIR /tmp/cpptoml
+ARG CPPTOML_VERSION=0.1.2
+RUN <<EOF
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${CPPTOML_VERSION}" https://github.com/chadaustin/cpptoml .
+cmake -S . -B build
+cmake --build build
+cmake --install build
+EOF
+
 WORKDIR /tmp/watchman
 ARG name
 ARG version
