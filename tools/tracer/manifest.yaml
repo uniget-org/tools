@@ -2,7 +2,7 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: tracer
 version: "52.3.89"
-check: ""
+check: "" # No version parameter
 platforms:
 - linux/amd64
 #- linux/arm64
