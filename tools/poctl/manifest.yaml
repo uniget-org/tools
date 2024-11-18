@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: poctl
+license:
+  name: Apache License 2.0
+  link: https://github.com/prometheus-operator/poctl/blob/main/LICENSE
+version: "0.1.0"
+check: "" # No version parameter
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/prometheus-operator
+- category/operations
+- lang/go
+- type/cli
+homepage: https://github.com/prometheus-operator/poctl
+repository: https://github.com/prometheus-operator/poctl
+description: Manage, troubleshoot and validate Prometheus-Operator resources
+renovate:
+  datasource: github-releases
+  package: prometheus-operator/poctl
+  extractVersion: ^v(?<version>.+)$
+  priority: low
