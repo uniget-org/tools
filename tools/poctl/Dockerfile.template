@@ -20,6 +20,7 @@ check-clone "https://github.com/prometheus-operator/poctl" "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/prometheus-operator/poctl .
 make poctl
 cp poctl "${prefix}/bin/"
+EOF
 RUN <<EOF
 "${prefix}/bin/poctl" completion bash >"${prefix}/share/bash-completion/completions/poctl"
 "${prefix}/bin/poctl" completion fish >"${prefix}/share/fish/vendor_completions.d/poctl.fish"
