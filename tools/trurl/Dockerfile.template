@@ -1,15 +1,21 @@
 #syntax=docker/dockerfile:1.8.1
 
 FROM ghcr.io/uniget-org/tools/make:latest AS make
-FROM ghcr.io/uniget-org/tools/curl:latest AS curl
+#FROM ghcr.io/uniget-org/tools/curl:latest AS curl
 
 FROM ghcr.io/uniget-org/images/build-base:3.20 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
+RUN --mount=type=cache,target=/var/cache/apk <<EOF
+apk update
+apk add \
+    curl-dev \
+    curl-static
+EOF
 COPY --link --from=make / /usr/local/
-COPY --link --from=curl / /usr/
+#COPY --link --from=curl / /usr/
 WORKDIR /tmp/trurl
 ARG name
 ARG version
