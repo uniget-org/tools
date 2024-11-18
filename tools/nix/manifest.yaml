@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: nix
+license:
+  name: LGPL-2.1
+  link: https://github.com/NixOS/nix/blob/master/COPYING
+version: "2.25.2"
+check: ""
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/nixos
+- category/development
+- lang/c
+- type/cli
+homepage: https://nixos.org/
+repository: https://github.com/NixOS/nix
+description: The purely functional package manager
+messages:
+  internals: |
+    - This package must be installed to /
+    - Create a group called `nixbld`: groupadd nixbld
+    - Add user allowed to manage packages: usermod -aG nixbld $(whoami)
+    - See https://nix.dev/manual/nix/2.18/installation/multi-user
+renovate:
+  datasource: github-tags
+  package: NixOS/nix
+  priority: low
