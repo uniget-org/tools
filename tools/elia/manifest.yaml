@@ -7,17 +7,17 @@ license:
 version: "1.10.0"
 check: ""
 build_dependencies:
-- bar
+- python
+- shiv
 runtime_dependencies:
-- baz
+- python
 platforms:
 - linux/amd64
 #- linux/arm64
 tags:
-- org/?
-- category/?
-- lang/?
-- type/?
+- category/development
+- lang/python
+- type/cli
 homepage: https://github.com/darrenburns/elia
 repository: https://github.com/darrenburns/elia
 description: Snappy, keyboard-centric terminal user interface for interacting with large language models
