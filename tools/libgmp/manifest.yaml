@@ -17,7 +17,7 @@ homepage: https://gmplib.org/
 repository: https://gmplib.org/repo/
 description: Library for arbitrary precision arithmetic
 renovate:
-  datasource: github-releases
-  package: foo/bar
-  extractVersion: ^v(?<version>.+)$
+  datasource: gitlab-releases
+  package: uniget-org/renovate-custom
+  extractVersion: ^libgmp/(?<version>.+)$
   priority: low
