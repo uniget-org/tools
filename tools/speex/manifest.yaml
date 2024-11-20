@@ -19,6 +19,7 @@ description: Speex voice codec
 renovate:
   datasource: gitlab-releases
   package: xiph/speex
+  api: https://gitlab.xiph.org
   extractVersion: ^Speex-(?<version>.+)$
   priority: low
 license:

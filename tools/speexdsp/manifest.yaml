@@ -19,7 +19,7 @@ description: DSP library derived from speex
 renovate:
   datasource: gitlab-releases
   package: xiph/speexdsp
-  api: https://gitlab.xiph.org/xiph/speexdsp/api/v4/projects/xdg%2fxdg-utils/repository/tags?per_page=100
+  api: https://gitlab.xiph.org
   extractVersion: ^SpeexDSP-(?<version>.+)$
   priority: low
 license:

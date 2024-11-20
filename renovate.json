@@ -5683,7 +5683,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "git-tags",
-      "depNameTemplate": "https://git.savannah.gnu.org/cgit/make.git",
+      "depNameTemplate": "https://git.savannah.gnu.org/git/make.git",
       "fileMatch": [
         "^tools/make/manifest.yaml$"
       ],
@@ -6076,7 +6076,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "git-tags",
-      "depNameTemplate": "https://git.musl-libc.org/cgit/musl.git",
+      "depNameTemplate": "https://git.musl-libc.org/git/musl",
       "fileMatch": [
         "^tools/musl/manifest.yaml$"
       ],
@@ -8233,7 +8233,8 @@
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
-      ]
+      ],
+      "registryUrlTemplate": "https://gitlab.xiph.org"
     },
     {
       "customType": "regex",
@@ -8246,7 +8247,7 @@
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
       ],
-      "registryUrlTemplate": "https://gitlab.xiph.org/xiph/speexdsp/api/v4/projects/xdg%2fxdg-utils/repository/tags?per_page=100"
+      "registryUrlTemplate": "https://gitlab.xiph.org"
     },
     {
       "customType": "regex",
