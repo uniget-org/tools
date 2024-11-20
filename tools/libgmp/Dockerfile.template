@@ -12,7 +12,9 @@ WORKDIR /tmp/libgmp
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://gmplib.org/download/gmp/gmp-${version}.tar.xz"
+# Primary site has banned GitHub actions
+#url="https://gmplib.org/download/gmp/gmp-${version}.tar.xz"
+url="https://ftp.gnu.org/gnu/gmp/gmp-${verson}.tar.xz"
 filename="$(basename "${url}")"
 
 check-download "${url}"
