@@ -4,6 +4,7 @@ license:
   name: MIT License
   link: https://github.com/dotnet/runtime/blob/main/LICENSE.TXT
 version: "8.0.11"
+binary: dotnet
 check: ${binary} --version
 platforms:
 - linux/amd64
