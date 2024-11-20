@@ -14,7 +14,7 @@ ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 # Primary site has banned GitHub actions
 #url="https://gmplib.org/download/gmp/gmp-${version}.tar.xz"
-url="https://ftp.gnu.org/gnu/gmp/gmp-${verson}.tar.xz"
+url="https://ftp.gnu.org/gnu/gmp/gmp-${version}.tar.xz"
 filename="$(basename "${url}")"
 
 check-download "${url}"
