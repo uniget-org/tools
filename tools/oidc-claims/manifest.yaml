@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: oics-claims
+license:
+  name: MIT License
+  link: https://github.com/nicholasdille/oidc-claims/blob/main/LICENSE
+version: "0.1.0"
+check: "" # No version parameter
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- category/operations
+- lang/go
+- type/cli
+homepage: https://github.com/nicholasdille/oidc-claims
+repository: https://github.com/nicholasdille/oidc-claims
+description: Authenticates using OIDC and displays the claims from the ID token
+renovate:
+  datasource: github-releases
+  package: nicholasdille/oidc-claims
+  extractVersion: ^v(?<version>.+)$
+  priority: low
