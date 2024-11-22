@@ -6532,7 +6532,7 @@
       "depNameTemplate": "nicholasdille/oidc-claims",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
-        "^tools/oics-claims/manifest.yaml$"
+        "^tools/oidc-claims/manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"

@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
-name: oics-claims
+name: oidc-claims
 license:
   name: MIT License
   link: https://github.com/nicholasdille/oidc-claims/blob/main/LICENSE
