@@ -1,6 +1,6 @@
 #syntax=docker/dockerfile:1.12.0@sha256:10c699f1b6c8bdc8f6b4ce8974855dd8542f1768c26eb240237b8f1c9c6c9976
 
-FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04@sha256:a5d0cdecfc98c933bb1e31cc78053c1c5322ff273ec3af43aca736947eecbbda AS cosign-bootstrap
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04@sha256:791cdcd39eab52ee77d234081b3078bfc72a62c13f7dd2ef0c48cf627b0b1585 AS cosign-bootstrap
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
