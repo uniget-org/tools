@@ -23,7 +23,7 @@ case "${arch}" in
 esac
 echo "    Using ${arch_suffix}"
 
-url="https://github.com/aquasecurity/trivy-operator/releases/download/v${version}/trivy-operator_linux_${arch_suffix}.tar.gz"
+url="https://github.com/aquasecurity/trivy-operator/releases/download/v${version}/trivy_operator_Linux_${arch_suffix}.tar.gz"
 filename="$( basename "${url}" )"
 
 check-github-release-asset "aquasecurity/trivy-operator" "v${version}" "${filename}"
