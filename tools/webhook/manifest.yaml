@@ -15,7 +15,7 @@ tags:
 - type/daemon
 homepage: https://github.com/adnanh/webhook
 repository: https://github.com/adnanh/webhook
-description: webhook is a lightweight incoming webhook server to run shell commandsiption
+description: webhook is a lightweight incoming webhook server to run shell commands
 renovate:
   datasource: github-releases
   package: adnanh/webhook
