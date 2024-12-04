@@ -4,7 +4,7 @@ Documentation=https://github.com/sigstore/gitsign
 
 [Service]
 Type=simple
-ExecStart=gitsign-credential-cache
+ExecStart={{ .Target }}/gitsign-credential-cache
 
 Restart=on-failure
 
