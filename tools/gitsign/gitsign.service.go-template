@@ -1,12 +1,9 @@
 [Unit]
-Description=Gitsign Credentials Cache
-Documentation=https://github.com/sigstore/gitsign
+Description=GitSign credential cache
 
 [Service]
 Type=simple
-ExecStart={{ .Target }}/gitsign-credential-cache
-
-Restart=on-failure
+ExecStart={{ .Target }}/bin/gitsign-credential-cache --systemd-socket-activation
 
 [Install]
 WantedBy=default.target
