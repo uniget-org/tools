@@ -1,6 +1,6 @@
 #syntax=docker/dockerfile:1.11.0@sha256:1f2be5a2aa052cbd9aedf893d17c63277c3d1c51b3fb0f3b029c6b34f658d057
 
-FROM ghcr.io/uniget-org/tools/nodejs:latest AS nodejs
+FROM ghcr.io/uniget-org/tools/nodejs-lts:latest AS nodejs
 FROM ghcr.io/uniget-org/tools/npm:latest AS npm
 FROM ghcr.io/uniget-org/tools/python:latest AS python
 
