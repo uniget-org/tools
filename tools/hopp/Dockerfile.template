@@ -1,6 +1,6 @@
 #syntax=docker/dockerfile:1.11.1@sha256:1f2be5a2aa052cbd9aedf893d17c63277c3d1c51b3fb0f3b029c6b34f658d057
 
-FROM ghcr.io/uniget-org/tools/nodejs:latest AS nodejs
+FROM ghcr.io/uniget-org/tools/nodejs-lts:latest AS nodejs
 FROM ghcr.io/uniget-org/tools/npm:latest AS npm
 FROM ghcr.io/uniget-org/tools/python:latest AS python
 FROM ghcr.io/uniget-org/tools/make:latest AS make
@@ -25,10 +25,3 @@ npm install \
     "@hoppscotch/cli@${version}"
 ln --symbolic --relative --force "${prefix}/libexec/hopp/node_modules/.bin/hopp" "${prefix}/bin/"
 EOF
-
-# completion
-#RUN <<EOF
-#"${prefix}/bin/foo" completion bash >"${prefix}/share/bash-completion/completions/foo"
-#"${prefix}/bin/foo" completion fish >"${prefix}/share/fish/vendor_completions.d/foo.fish"
-#"${prefix}/bin/foo" completion zsh >"${prefix}/share/zsh/vendor-completions/_foo"
-#EOF
