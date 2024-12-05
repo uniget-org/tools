@@ -19,7 +19,7 @@ tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="
     ravel
 
 curl --silent --show-error --location --fail --output "${prefix}/etc/systemd/system/ravel.service.go-template" \
-    "https://github.com/valyentdev/ravel/blob/v${version}/init/ravel.service"
+    "https://github.com/valyentdev/ravel/blob/v${version}/docs/init/ravel.service"
 sed -E -i "s|ExecStart=/usr/local/bin/ravel|ExecStart={{ .Target }}/bin/ravel|" "${prefix}/etc/systemd/system/ravel.service.go-template"
 
 "${prefix}/bin/ravel" completion bash >"${prefix}/share/bash-completion/completions/ravel"
