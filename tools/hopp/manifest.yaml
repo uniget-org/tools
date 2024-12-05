@@ -5,13 +5,13 @@ license:
   name: MIT License
   link: https://github.com/hoppscotch/hoppscotch/blob/main/LICENSE
 version: "0.12.0"
-check: ""
+check: ${binary} --ver
 build_dependencies:
-- nodejs
+- nodejs-lts
 - npm
 - python
 runtime_dependencies:
-- nodejs
+- nodejs-lts
 platforms:
 - linux/amd64
 - linux/arm64
