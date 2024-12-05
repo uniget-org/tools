@@ -17,7 +17,7 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
     "${url}"
 
 tar --file="${uniget_cache_download}/${filename}" --list
-tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin" --strip-components=2 --no-same-owner \
-    "dist/tabby_${arch}-manylinux2014/tabby" \
-    "dist/tabby_${arch}-manylinux2014/llama-server"
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin" --strip-components=1 --no-same-owner \
+    "tabby_${arch}-manylinux2014/tabby" \
+    "tabby_${arch}-manylinux2014/llama-server"
 EOF
