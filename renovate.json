@@ -3678,6 +3678,17 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "robusta-dev/holmesgpt",
+      "fileMatch": [
+        "^tools/holmesgpt/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "npm",
       "depNameTemplate": "@hoppscotch/cli",
       "fileMatch": [
