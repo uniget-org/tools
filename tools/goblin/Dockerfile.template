@@ -4,22 +4,12 @@ FROM ghcr.io/uniget-org/tools/make:latest AS make
 FROM ghcr.io/uniget-org/tools/go:latest AS go
 
 FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
-#FROM registry.gitlab.com/uniget-org/images/build-essential:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-#RUN --mount=type=cache,target=/var/cache/apt <<EOF
-#apt-get update
-#apt-get -y install --no-install-recommends \
-#    foo
-#EOF
-#RUN --mount=type=cache,target=/var/cache/apk <<EOF
-#apk add --update-cache \
-#    foo
-#EOF
 COPY --link --from=go / /usr/local/
 COPY --link --from=make / /usr/local/
 WORKDIR /go/src/github.com/barelyhuman/goblin
