@@ -5,6 +5,7 @@ license:
   name: LGPLv2, GPLv2
   link: https://gmplib.org/
 version: "6.3.0"
+binary: "false"
 check: cat ${target}/lib/pkgconfig/gmp.pc | grep Version | cut -d' ' -f2
 platforms:
 - linux/amd64
