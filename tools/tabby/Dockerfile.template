@@ -9,16 +9,15 @@ ARG name
 ARG version
 
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://github.com/TabbyML/tabby/releases/download/v${version}/tabby_${arch}-manylinux2014.zip"
+url="https://github.com/TabbyML/tabby/releases/download/v${version}/tabby_${arch}-manylinux2014.tar.gz"
 filename="$(basename "${url}")"
 
 check-github-release-asset "TabbyML/tabby" "v${version}" "${filename}"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
     "${url}"
 
-unzip -q -o -d "/tmp" "${uniget_cache_download}/${filename}"
-install --mode=0755 \
-    "/tmp/dist/tabby_x86_64-manylinux2014/tabby" \
-    "/tmp/dist/tabby_x86_64-manylinux2014/llama-server" \
-    "${prefix}/bin/"
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin" --strip-components=2 --no-same-owner \
+    "dist/tabby_${arch}-manylinux2014/tabby" \
+    "dist/tabby_${arch}-manylinux2014/llama-server"
 EOF
