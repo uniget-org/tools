@@ -12,7 +12,8 @@ RUN --mount=type=cache,target=/var/cache/apt <<EOF
 apt-get install -y --no-install-recommends \
     protobuf-compiler \
     libseccomp-dev \
-    sudo
+    sudo \
+    cmake
 EOF
 COPY --link --from=rust / /usr/local/
 WORKDIR /tmp/github.com/spinkube/containerd-shim-spin
@@ -25,7 +26,6 @@ export CARGO_HOME=/usr/local/cargo
 export CARGO_TARGET_DIR=/target
 export RUSTUP_HOME=/usr/local/rustup
 #export RUSTFLAGS='-C target-feature=+crt-static'
-make install-cross
-make -j$(nproc) build
+make -j$(nproc) build-cargo
 cp /target/release/containerd-shim-spin-v2 "${prefix}/bin/"
 EOF
