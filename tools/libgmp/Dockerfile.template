@@ -13,6 +13,7 @@ ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 # Primary site has banned GitHub actions
+# https://github.com/actions/runner-images/issues/7901
 #url="https://gmplib.org/download/gmp/gmp-${version}.tar.xz"
 url="https://ftp.gnu.org/gnu/gmp/gmp-${version}.tar.xz"
 filename="$(basename "${url}")"
