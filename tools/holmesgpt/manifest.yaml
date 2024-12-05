@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: holmesgpt
+license:
+  name: MIT License
+  link: https://github.com/robusta-dev/holmesgpt/blob/master/LICENSE.txt
+version: "0.6.1"
+binary: holmes
+check: ${binary} version | cut -d' ' -f2 | cut -d- -f1
+build_dependencies:
+- python
+- shiv
+runtime_dependencies:
+- python
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- category/development
+- lang/python
+- type/cli
+- ai
+homepage: https://github.com/robusta-dev/holmesgpt
+repository: https://github.com/robusta-dev/holmesgpt
+description: On-Call Assistant for Prometheus Alerts - Get a head start on fixing alerts with AI investigation
+renovate:
+  datasource: github-releases
+  package: robusta-dev/holmesgpt
+  priority: low
