@@ -7,7 +7,7 @@ FROM ghcr.io/uniget-org/tools/iptables:latest AS iptables
 FROM ghcr.io/uniget-org/tools/libjansson:latest AS libjansson
 FROM ghcr.io/uniget-org/tools/libgmp:latest AS libgmp
 
-FROM registry.gitlab.com/uniget-org/images/build-base:3.20 AS prepare
+FROM registry.gitlab.com/uniget-org/images/build-essential:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -16,8 +16,7 @@ RUN --mount=type=cache,target=/var/cache/apk <<EOF
 apk add --update-cache \
     bison \
     flex \
-    asciidoc \
-    linux-headers
+    asciidoc
 EOF
 COPY --link --from=make / /usr/local/
 COPY --link --from=libmnl / /usr/local/
