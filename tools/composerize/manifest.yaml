@@ -10,7 +10,7 @@ runtime_dependencies:
 - nodejs-lts
 platforms:
 - linux/amd64
-#- linux/arm64
+- linux/arm64
 tags:
 - category/development
 - lang/javascript

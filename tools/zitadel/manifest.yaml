@@ -7,7 +7,7 @@ runtime_dependencies:
 - cockroach
 platforms:
 - linux/amd64
-#- linux/arm64
+- linux/arm64
 tags:
 - category/security
 - lang/go
