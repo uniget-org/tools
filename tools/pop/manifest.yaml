@@ -5,7 +5,7 @@ version: "0.2.0"
 check: ${binary} --version | cut -d' ' -f3 | tr -d v
 platforms:
 - linux/amd64
-#- linux/arm64
+- linux/arm64
 tags:
 - org/charmbracelet
 - category/operations

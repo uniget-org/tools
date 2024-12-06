@@ -6,7 +6,7 @@ binary: "false"
 check: "" # No binary
 platforms:
 - linux/amd64
-#- linux/arm64
+- linux/arm64
 tags:
 - font
 homepage: https://adobe-fonts.github.io/source-sans
