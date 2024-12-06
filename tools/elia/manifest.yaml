@@ -5,7 +5,7 @@ license:
   name: Apache License 2.0
   link: https://github.com/darrenburns/elia/blob/main/LICENSE
 version: "1.10.0"
-check: ""
+check: "" # No version parameter
 build_dependencies:
 - python
 - shiv
