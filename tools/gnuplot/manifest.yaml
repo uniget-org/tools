@@ -5,7 +5,7 @@ version: "5.4.8"
 check: ${binary} --version | cut -d' ' -f2- | tr '[a-z ]' '.' | tr -s .
 platforms:
 - linux/amd64
-#- linux/arm64
+- linux/arm64
 tags:
 - category/development
 - lang/c

@@ -9,7 +9,23 @@ ARG name
 ARG version
 WORKDIR /uniget_bootstrap/opt/gcloud
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-${version}-linux-${arch}.tar.gz"
+echo "### Setting architecture string for ${TARGETPLATFORM}"
+case "${arch}" in
+    x86_64)
+        export arch_suffix="${arch}"
+        ;;
+    aarch64)
+        export arch_suffix="arm"
+        ;;
+    *)
+        echo "ERROR: Unsupported architecture ${arch}."
+        exit 1
+        ;;
+esac
+echo "    Using ${arch_suffix}"
+
+# https://cloud.google.com/sdk/docs/downloads-versioned-archives?hl=de
+url="https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-${version}-linux-${arch_suffix}.tar.gz"
 filename="$( basename "${url}" )"
 
 check-download "${url}"

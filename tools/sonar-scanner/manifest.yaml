@@ -6,7 +6,7 @@ runtime_dependencies:
 - openjdk-jre
 platforms:
 - linux/amd64
-#- linux/arm64
+- linux/arm64
 tags:
 - org/sonarsource
 - type/cli
