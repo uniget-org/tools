@@ -18,5 +18,8 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
 install --mode=0755 \
     "${uniget_cache_download}/${filename}" \
     "${prefix}/bin/${name}"
-
+EOF
+RUN <<EOF
+curl --silent --show-error --location --fail --output "${prefix}/share/man/man1/fuse-overlayfs.1" \
+    "https://github.com/containers/fuse-overlayfs/raw/refs/tags/v${version}/fuse-overlayfs.1"
 EOF
