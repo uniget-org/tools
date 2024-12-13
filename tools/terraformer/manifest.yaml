@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: terraformer
+license:
+  name: Apache License 2.0
+  link: https://github.com/GoogleCloudPlatform/terraformer/blob/master/LICENSE
+version: "0.8.24"
+check: ${binary} version | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/google
+- category/operations
+- lang/go
+- type/cli
+- cloud/aws
+- cloud/azure
+- cloud/google
+- cloud/hetzner
+- cloud/github
+- cloud/gitlab
+homepage: https://github.com/GoogleCloudPlatform/terraformer
+repository: https://github.com/GoogleCloudPlatform/terraformer
+description: Generate terraform files from existing infrastructure (reverse Terraform)
+renovate:
+  datasource: github-releases
+  package: GoogleCloudPlatform/terraformer
+  priority: low
