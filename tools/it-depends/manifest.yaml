@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: it-depends
-version: "0.1.2"
+version: "0.1.3"
 check: ${binary} --version | cut -d' ' -f3
 build_dependencies:
 - python
