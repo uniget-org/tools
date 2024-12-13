@@ -11,7 +11,7 @@ runtime_dependencies:
 - libmnl
 platforms:
 - linux/amd64
-#- linux/arm64
+- linux/arm64
 tags:
 - org/netfilter
 - component/network
