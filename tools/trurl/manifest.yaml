@@ -11,9 +11,9 @@ platforms:
 #- linux/arm64
 tags:
 - org/curl
-- category/?
-- lang/?
-- type/?
+- category/development
+- lang/c
+- type/cli
 homepage: https://github.com/curl/trurl
 description: Command line tool for URL parsing and manipulation
 renovate:
