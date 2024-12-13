@@ -7,7 +7,6 @@ build_dependencies:
 - bpftool
 platforms:
 - linux/amd64
-#- linux/arm64
 tags:
 - troubleshooting
 - component/network
