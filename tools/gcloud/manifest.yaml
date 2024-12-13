@@ -6,7 +6,7 @@ runtime_dependencies:
 - python
 platforms:
 - linux/amd64
-#- linux/arm64
+- linux/arm64
 tags:
 - org/google
 - category/development
