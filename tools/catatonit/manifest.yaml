@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: catatonit
-version: "0.2.0"
+version: "0.2.1"
 check: ${binary} --version | cut -d' ' -f3 | cut -d_ -f1
 platforms:
 - linux/amd64
