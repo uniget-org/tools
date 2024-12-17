@@ -11,7 +11,8 @@ COPY --link --from=rust / /usr/local/
 RUN <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
-    libssl-dev
+    libssl-dev \
+    sudo
 EOF
 WORKDIR /tmp/github.com/flox/flox
 ARG name
