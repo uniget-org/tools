@@ -16,31 +16,57 @@ EOF
 WORKDIR /tmp/github.com/flox/flox
 ARG name
 ARG version
-RUN <<EOF
-git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/flox/flox .
+
+###############################################################################
+#
+# Use distribution package from release
+#
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://downloads.flox.dev/by-env/stable/deb/flox-${version}.${arch}-linux.deb"
+filename="$( basename "${url}" )"
+
+check-download "${url}"
+check-github-release-asset "foo/bar" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+dpkg -c "${uniget_cache_download}/${filename}"
+dpkg -i "${uniget_cache_download}/${filename}"
 EOF
 
-# Install nix
-RUN <<EOF
-version=2.25.2
-arch=x86_64
-curl -sSLf "https://releases.nixos.org/nix/nix-${version}/nix-${version}-${arch}-linux.tar.xz" \
-| tar -xJC /tmp
-"/tmp/nix-${version}-x86_64-linux/install-multi-user"
-EOF
+###############################################################################
+#
+# Clone for installation methods below
+#
+#RUN <<EOF
+#git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/flox/flox .
+#EOF
 
+###############################################################################
+# CONTRIBUTING.md:
 # Use nix to call just to build flox
-RUN <<EOF
-nix develop -L --no-update-lock-file \
-    --extra-experimental-features nix-command \
-    --extra-experimental-features flakes \
-    --command \
-        just \
-            build-pkgdb \
-            build-cli
-EOF
+#
+#RUN <<EOF
+#version=2.25.2
+#arch=x86_64
+#curl -sSLf "https://releases.nixos.org/nix/nix-${version}/nix-${version}-${arch}-linux.tar.xz" \
+#| tar -xJC /tmp
+#"/tmp/nix-${version}-x86_64-linux/install-multi-user"
+#EOF
+#RUN <<EOF
+#nix develop -L --no-update-lock-file \
+#    --extra-experimental-features nix-command \
+#    --extra-experimental-features flakes \
+#    --command \
+#        just \
+#            build-pkgdb \
+#            build-cli
+#EOF
 
+###############################################################################
+#
 # Use nix without repo
+#
 #RUN <<EOF
 #nix profile install \
 #    --experimental-features "nix-command flakes" \
@@ -48,7 +74,10 @@ EOF
 #    github:flox/flox/v${version}
 #EOF
 
+###############################################################################
+#
 # Build ourself
+#
 #RUN <<EOF
 #apt-get install -y \
 #    nlohmann-json3-dev \
@@ -65,7 +94,6 @@ EOF
 #export CXX=gcc
 #make pkgdb
 #EOF
-#
 #RUN <<EOF
 #cd cli
 #export CARGO_HOME=/usr/local/cargo
