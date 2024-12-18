@@ -4,7 +4,7 @@ name: rage
 license:
   name: MIT License OR Apache License 2.0
   link: https://github.com/str4d/rage
-version: "0.11.0"
+version: "0.11.1"
 check: ${binary} --version | cut -d' ' -f2
 build_dependencies:
 - jq
