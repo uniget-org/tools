@@ -18,4 +18,7 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
 tar --file="${uniget_cache_download}/${filename}" --list
 tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     xq
+
+curl --silent --show-error --location --fail --output "${prefix}/share/man/man1/xq.1" \
+    "https://github.com/sibprogrammer/xq/blob/v${version}/docs/xq.man"
 EOF
