@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: grr
+license:
+  name: Apache License 2.0
+  link: https://github.com/grafana/grizzly/blob/main/LICENSE
+version: "0.6.1"
+check: ${binary} --version 2>&1 | cut -d' ' -f5 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/grafana
+- category/operations
+- lang/go
+- type/cli
+- jsonnet
+homepage: https://grafana.github.io/grizzly/
+repository: https://github.com/grafana/grizzly
+description: Utility for managing Jsonnet dashboards against the Grafana API
+renovate:
+  datasource: github-releases
+  package: grafana/grizzly
+  extractVersion: ^v(?<version>.+)$
+  priority: low
