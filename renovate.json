@@ -7712,6 +7712,17 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "astral-sh/ruff",
+      "fileMatch": [
+        "^tools/ruff/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "opencontainers/runc",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
