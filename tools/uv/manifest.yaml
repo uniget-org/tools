@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: uv
+license:
+  name: MIT License & Apache License 2.0
+  link: https://github.com/astral-sh/uv
+version: "0.5.10"
+check: ${binary} version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/rust
+- type/cli
+homepage: https://docs.astral.sh/uv
+repository: https://github.com/astral-sh/uv
+description: Extremely fast Python package and project manager
+renovate:
+  datasource: github-releases
+  package: astral-sh/uv
+  priority: low
