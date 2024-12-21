@@ -4,7 +4,7 @@ name: foyle
 license:
   name: Apache License 2.0
   link: https://github.com/jlewi/foyle/blob/main/LICENSE
-version: "0.0.42"
+version: "0.0.43"
 check: ${binary} version | cut -d, -f1 | cut -d' ' -f2
 runtime_dependencies:
 - runme
