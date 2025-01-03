@@ -1,6 +1,6 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: xurls
-version: "2.5.0"
+version: "2.6.0"
 check: ${binary} --version | tr -d v
 platforms:
 - linux/amd64
