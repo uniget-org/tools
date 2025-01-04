@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: multiverse
+license:
+  name: BSD-3-Clause
+  link: https://github.com/Multiverse/Multiverse-Core/blob/main/LICENSE.md
+version: "4.3.14"
+binary: "false"
+check: "" # No binary
+runtime_dependencies:
+- papermc
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/games
+- lang/java
+- type/plugin
+- minecraft
+- multiverse
+- papermc
+- paper
+homepage: https://github.com/Multiverse/Multiverse-Core
+repository: https://github.com/Multiverse/Multiverse-Core
+description: Run multiple worlds on your server
+renovate:
+  datasource: github-releases
+  package: Multiverse/Multiverse-Core
+  priority: low

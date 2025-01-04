@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: geyser
+license:
+  name: MIT License
+  link: https://github.com/GeyserMC/Geyser/blob/master/LICENSE
+# curl -sSLf https://download.geysermc.org/v2/projects/geyser \
+# | jq --raw-output '.versions[-1]'
+# curl -sSLf https://download.geysermc.org/v2/projects/geyser/versions/2.6.0/builds \
+# | jq --raw-output '.builds | map(select(.channel == "default")) | .[-1].build'
+version: "2.6.0.740"
+binary: "false"
+check: "" # No binary
+runtime_dependencies:
+- papermc
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/games
+- lang/java
+- type/plugin
+- minecraft
+- bedrock
+- papermc
+- paper
+homepage: hhttps://geysermc.org/wiki/geyser/
+repository: https://github.com/GeyserMC/Geyser
+description: Bridge/proxy allowing you to connect to Minecraft Java Edition servers with Minecraft Bedrock Edition
+renovate:
+  datasource: github-releases
+  package: foo/bar
+  extractVersion: ^v(?<version>.+)$
+  priority: low

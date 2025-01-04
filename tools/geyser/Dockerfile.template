@@ -1,0 +1,25 @@
+#syntax=docker/dockerfile:1.12.1@sha256:93bfd3b68c109427185cd78b4779fc82b484b0b7618e36d0f104d4d801e66d25
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+GEYSER_VERSION="$(echo "${version}" | cut -d. -f1-3)"
+GEYSER_BUILD="$(echo "${version}" | cut -d. -f4)"
+
+url="https://download.geysermc.org/v2/projects/geyser/versions/${GEYSER_VERSION}/builds/${GEYSER_BUILD}/downloads/spigot"
+filename="geyser-spigot.jar"
+
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+mkdir -p "${prefix}/opt/geyser"
+install --mode=0644 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/opt/geyser/geyser.jar"
+EOF

@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: minecraft-server
+license:
+  name: Unknown
+  link: ""
+# curl -sSLf https://launchermeta.mojang.com/mc/game/version_manifest.json \
+# | jq --raw-output '.latest.release'
+# curl -sSLf https://launchermeta.mojang.com/mc/game/version_manifest.json \
+# | jq --raw-output --arg version 1.21.4 '.versions[] | select(.id == $version) | .url'
+version: "1.21.4"
+binary: "false"
+check: "" # No binary
+runtime_dependencies:
+- openjdk-jre
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/microsoft
+- category/games
+- lang/java
+- type/daemon
+- minecraft
+homepage: https://www.minecraft.net/de-de
+repository: https://www.minecraft.net/de-de
+description: Minecraft server
+renovate:
+  datasource: github-releases
+  package: foo/bar
+  extractVersion: ^v(?<version>.+)$
+  priority: low

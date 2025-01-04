@@ -1,0 +1,28 @@
+#syntax=docker/dockerfile:1.12.1@sha256:93bfd3b68c109427185cd78b4779fc82b484b0b7618e36d0f104d4d801e66d25
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="$(
+    curl --silent --show-error --location --fail \
+        https://launchermeta.mojang.com/mc/game/version_manifest.json \
+    | jq --raw-output --arg version "${version}" '.versions[] | select(.id == $version) | .url' \
+    | xargs \
+        curl --silent --show-error --location --fail | jq --raw-output '.downloads.server.url'
+)"
+filename="$( basename "${url}" )"
+
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+mkdir -p "${prefix}/opt/minecraft-server"
+install --mode=0644 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/opt/minecraft-server/server.jar"
+EOF
