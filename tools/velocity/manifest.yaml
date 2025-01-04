@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: valocity
+license:
+  name: GPLv3
+  link: https://github.com/PaperMC/Velocity/blob/dev/3.0.0/LICENSE
+# curl --silent --show-error --location --fail \
+#     "https://api.papermc.io/v2/projects/velocity" \
+# | jq --raw-output '.versions[-1]'
+# curl --silent --show-error --location --fail \
+#     "https://api.papermc.io/v2/projects/velocity/versions/3.4.0-SNAPSHOT/builds" \
+# | jq --raw-output '.builds | map(select(.channel == "default")) | .[-1].downloads.application.name'
+version: "3.4.0-SNAPSHOT.459"
+check: ""
+runtime_dependencies:
+- openjdk-jre
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/papermc
+- category/games
+- lang/java
+- type/daemon
+homepage: https://papermc.io/software/velocity
+repository: https://github.com/PaperMC/Velocity
+description: Modern, next-generation Minecraft server proxy
+renovate:
+  datasource: github-releases
+  package: foo/bar
+  extractVersion: ^v(?<version>.+)$
+  priority: low

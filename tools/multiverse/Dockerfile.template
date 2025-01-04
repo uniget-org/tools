@@ -1,0 +1,22 @@
+#syntax=docker/dockerfile:1.12.1@sha256:93bfd3b68c109427185cd78b4779fc82b484b0b7618e36d0f104d4d801e66d25
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/Multiverse/Multiverse-Core/releases/download/${version}/multiverse-core-${version}.jar"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "Multiverse/Multiverse-Core" "${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+mkdir -p "${prefix}/opt/multiverse"
+install --mode=0644 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/opt/multiverse/multiverse-core.jar"
+EOF

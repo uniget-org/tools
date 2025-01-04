@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: multiverse-netherportals
+license:
+  name: BSD-3-Clause
+  link: https://github.com/Multiverse/Multiverse-NetherPortals/blob/main/LICENSE.md
+version: "4.2.3"
+binary: "false"
+check: "" # No binary
+runtime_dependencies:
+- multiverse
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/games
+- lang/java
+- type/plugin
+- minecraft
+- multiverse
+- papermc
+- paper
+homepage: https://github.com/Multiverse/Multiverse-NetherPortals
+repository: https://github.com/Multiverse/Multiverse-NetherPortals
+description: Make nether and end portals work in Multiverse
+renovate:
+  datasource: github-releases
+  package: Multiverse/Multiverse-NetherPortals
+  priority: low

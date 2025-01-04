@@ -1,0 +1,18 @@
+#syntax=docker/dockerfile:1.12.1@sha256:93bfd3b68c109427185cd78b4779fc82b484b0b7618e36d0f104d4d801e66d25
+
+FROM ghcr.io/uniget-org/tools/make:latest AS make
+
+FROM registry.gitlab.com/uniget-org/images/build-base:3.20 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+COPY --link --from=make / /usr/local/
+WORKDIR /tmp/mcrcon
+RUN <<EOF
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/Tiiffi/mcrcon .
+make LINKER=-static
+make install DESTDIR="${prefix}" PREFIX=""
+EOF
