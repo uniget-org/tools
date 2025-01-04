@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: openhue-cli
+license:
+  name: Apache License 2.0
+  link: https://github.com/openhue/openhue-cli/blob/main/LICENSE
+version: "0.16"
+binary: openhue
+check: ${binary} version | grep Version | tr -s ' ' | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/go
+- type/cli
+homepage: https://www.google.de
+repository: https://github.com/openhue/openhue-cli
+description: Command-line interface for interacting with Philips Hue smart lighting systems
+renovate:
+  datasource: github-releases
+  package: openhue/openhue-cli
+  versioning: loose
+  priority: low
