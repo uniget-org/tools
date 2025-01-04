@@ -1,0 +1,41 @@
+#syntax=docker/dockerfile:1.12.1@sha256:93bfd3b68c109427185cd78b4779fc82b484b0b7618e36d0f104d4d801e66d25
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+echo "### Setting architecture string for ${TARGETPLATFORM}"
+case "${arch}" in
+    x86_64)
+        export arch_suffix="${arch}"
+        ;;
+    aarch64)
+        export arch_suffix="${alt_arch}"
+        ;;
+    *)
+        echo "ERROR: Unsupported architecture ${arch}."
+        exit 1
+        ;;
+esac
+echo "    Using ${arch_suffix}"
+
+url="https://github.com/openhue/openhue-cli/releases/download/${version}/openhue_Linux_${arch_suffix}.tar.gz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "openhue/openhue-cli" "${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin" --no-same-owner \
+    openhue
+EOF
+RUN <<EOF
+"${prefix}/bin/openhue" completion bash >"${prefix}/share/bash-completion/completions/openhue"
+"${prefix}/bin/openhue" completion fish >"${prefix}/share/fish/vendor_completions.d/openhue.fish"
+"${prefix}/bin/openhue" completion zsh >"${prefix}/share/zsh/vendor-completions/_openhue"
+EOF
