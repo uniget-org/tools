@@ -4,12 +4,6 @@ name: papermc
 license:
   name: GPLv3 and MIT License
   link: https://github.com/PaperMC/Paper/blob/main/LICENSE.md
-# curl --silent --show-error --location --fail \
-#     "https://api.papermc.io/v2/projects/paper" \
-# | jq --raw-output '.version_groups[-1]'
-# curl --silent --show-error --location --fail \
-#     "https://api.papermc.io/v2/projects/paper/version_group/1.21/builds" \
-# | jq '.builds | map(select(.channel == "default")) | .[-1].downloads.application.name'
 version: "1.21.3-82"
 binary: "false"
 check: "" # No binary
@@ -29,6 +23,6 @@ repository: https://github.com/PaperMC/Paper
 description: High performance Minecraft server that aims to fix gameplay and mechanics inconsistencies
 renovate:
   datasource: github-releases
-  package: foo/bar
-  extractVersion: ^v(?<version>.+)$
+  package: uniget-org/renovate-custom
+  extractVersion: ^papermc/(?<version>.+)$
   priority: low

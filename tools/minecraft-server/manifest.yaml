@@ -4,10 +4,6 @@ name: minecraft-server
 license:
   name: Unknown
   link: ""
-# curl -sSLf https://launchermeta.mojang.com/mc/game/version_manifest.json \
-# | jq --raw-output '.latest.release'
-# curl -sSLf https://launchermeta.mojang.com/mc/game/version_manifest.json \
-# | jq --raw-output --arg version 1.21.4 '.versions[] | select(.id == $version) | .url'
 version: "1.21.4"
 binary: "false"
 check: "" # No binary
@@ -27,6 +23,6 @@ repository: https://www.minecraft.net/de-de
 description: Minecraft server
 renovate:
   datasource: github-releases
-  package: foo/bar
-  extractVersion: ^v(?<version>.+)$
+  package: uniget-org/renovate-custom
+  extractVersion: ^minecraft-server/(?<version>.+)$
   priority: low
