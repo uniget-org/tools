@@ -1,0 +1,28 @@
+#syntax=docker/dockerfile:1.12.1@sha256:93bfd3b68c109427185cd78b4779fc82b484b0b7618e36d0f104d4d801e66d25
+
+FROM ghcr.io/uniget-org/tools/make:latest AS make
+FROM ghcr.io/uniget-org/tools/go:latest AS go
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+COPY --link --from=go / /usr/local/
+COPY --link --from=make / /usr/local/
+WORKDIR /go/src/github.com/zoncoen/scenarigo
+ARG name
+ARG version
+RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
+check-clone "https://github.com/zoncoen/scenarigo" "v${version}"
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/zoncoen/scenarigo .
+go build -o "${prefix}/bin/scenarigo" ./cmd/scenarigo
+EOF
+
+RUN <<EOF
+"${prefix}/bin/scenarigo" completion bash >"${prefix}/share/bash-completion/completions/scenarigo"
+"${prefix}/bin/scenarigo" completion fish >"${prefix}/share/fish/vendor_completions.d/scenarigo.fish"
+"${prefix}/bin/scenarigo" completion zsh >"${prefix}/share/zsh/vendor-completions/_scenarigo"
+EOF

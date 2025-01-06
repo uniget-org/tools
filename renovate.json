@@ -8217,6 +8217,18 @@
     {
       "customType": "regex",
       "fileMatch": [
+        "^tools/scenarigo/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ],
+      "depNameTemplate": "zoncoen/scenarigo",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^v(?<version>.+)$"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": [
         "^tools/scorecard/manifest.yaml$"
       ],
       "matchStrings": [
