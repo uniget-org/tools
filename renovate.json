@@ -2737,9 +2737,9 @@
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
       ],
-      "depNameTemplate": "foo/bar",
+      "depNameTemplate": "uniget-org/renovate-custom",
       "datasourceTemplate": "github-releases",
-      "extractVersionTemplate": "^v(?<version>.+)$"
+      "extractVersionTemplate": "^floodgate/(?<version>.+)$"
     },
     {
       "customType": "regex",
@@ -2999,9 +2999,9 @@
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
       ],
-      "depNameTemplate": "foo/bar",
+      "depNameTemplate": "uniget-org/renovate-custom",
       "datasourceTemplate": "github-releases",
-      "extractVersionTemplate": "^v(?<version>.+)$"
+      "extractVersionTemplate": "^geyser/(?<version>.+)$"
     },
     {
       "customType": "regex",
@@ -6146,9 +6146,9 @@
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
       ],
-      "depNameTemplate": "foo/bar",
+      "depNameTemplate": "uniget-org/renovate-custom",
       "datasourceTemplate": "github-releases",
-      "extractVersionTemplate": "^v(?<version>.+)$"
+      "extractVersionTemplate": "^minecraft-server/(?<version>.+)$"
     },
     {
       "customType": "regex",
@@ -7012,9 +7012,9 @@
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
       ],
-      "depNameTemplate": "foo/bar",
+      "depNameTemplate": "uniget-org/renovate-custom",
       "datasourceTemplate": "github-releases",
-      "extractVersionTemplate": "^v(?<version>.+)$"
+      "extractVersionTemplate": "^papermc/(?<version>.+)$"
     },
     {
       "customType": "regex",
@@ -9459,9 +9459,9 @@
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
       ],
-      "depNameTemplate": "foo/bar",
+      "depNameTemplate": "uniget-org/renovate-custom",
       "datasourceTemplate": "github-releases",
-      "extractVersionTemplate": "^v(?<version>.+)$"
+      "extractVersionTemplate": "^velocity/(?<version>.+)$"
     },
     {
       "customType": "regex",

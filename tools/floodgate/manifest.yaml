@@ -4,10 +4,6 @@ name: floodgate
 license:
   name: MIT License
   link: https://github.com/GeyserMC/Floodgate/blob/master/LICENSE
-# curl -sSLf https://download.geysermc.org/v2/projects/floodgate \
-# | jq --raw-output '.versions[-1]'
-# curl -sSLf https://download.geysermc.org/v2/projects/floodgate/versions/2.2.3/builds \
-# | jq --raw-output '.builds | map(select(.channel == "default")) | .[-1].build'
 version: "2.2.3.114"
 binary: "false"
 check: "" # No binary
@@ -29,6 +25,6 @@ repository: https://github.com/GeyserMC/Floodgate
 description: Hybrid mode plugin to allow for connections from Geyser to join online mode servers
 renovate:
   datasource: github-releases
-  package: foo/bar
-  extractVersion: ^v(?<version>.+)$
+  package: uniget-org/renovate-custom
+  extractVersion: ^floodgate/(?<version>.+)$
   priority: low
