@@ -17,17 +17,44 @@ apk add --update-cache \
     ncurses-dev \
     tcl \
     asciidoc \
-    xmlto
+    xmlto \
+    pcre2-dev
 EOF
 WORKDIR /tmp/git
 ARG name
 ARG version
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/git/git .
+EOF
+COPY <<EOF config.mak
+NO_GETTEXT=YesPlease
+NO_SVN_TESTS=YesPlease
+NO_REGEX=YesPlease
+NO_SYS_POLL_H=1
+ICONV_OMITS_BOM=Yes
+INSTALL_SYMLINKS=1
+USE_LIBPCRE2=YesPlease
+NO_PYTHON=YesPlease
+NO_TCLTK=YesPlease
+EOF
+RUN <<EOF
 export CFLAGS="${CFLAGS} -static"
 make configure
 ./configure --prefix="${prefix}"
 make -j$(nproc) all
 make -j$(nproc) doc
 make install install-doc install-html
+EOF
+RUN <<EOF
+make -C contrib/subtree
+make -C contrib/subtree install
+
+make -C contrib/diff-highlight
+install -Dm755 contrib/diff-highlight/diff-highlight -t "${prefix}/bin/"
+
+#make -C contrib/credential/libsecret
+#install -Dm755 contrib/credential/libsecret/git-credential-libsecret "${prefix}/libexec/git-core/"
+
+install -Dm644 contrib/completion/git-completion.bash "${prefix}/usr/share/bash-completion/completions/git"
+install -Dm644 contrib/completion/git-prompt.sh "${prefix}/share/git-core/git-prompt.sh"
 EOF
