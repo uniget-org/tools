@@ -1,5 +1,8 @@
 #syntax=docker/dockerfile:1.12.1@sha256:93bfd3b68c109427185cd78b4779fc82b484b0b7618e36d0f104d4d801e66d25
 
+FROM ghcr.io/uniget-org/tools/go:latest AS go
+FROM ghcr.io/uniget-org/tools/goreleaser:latest AS goreleaser
+
 FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
@@ -7,22 +10,29 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://github.com/valyentdev/ravel/releases/download/v${version}/ravel_${version}_linux_${alt_arch}.tar.gz"
-filename="$( basename "${url}" )"
-check-github-release-asset "valyentdev/ravel" "v${version}" "${filename}"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
-    "${url}"
+COPY --link --from=go / /usr/local/
+COPY --link --from=goreleaser / /usr/local/
+WORKDIR /go/src/github.com/valyentdev/ravel
+ARG name
+ARG version
+RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
+check-clone "https://github.com/valyentdev/ravel" "v${version}"
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/valyentdev/ravel .
+goreleaser build --single-target
+cp \
+    dist/ravel_linux_amd64_v1/ravel \
+    dist/initd_linux_amd64_v1/initd \
+    dist/ravel-proxy_linux_amd64_v1/ravel-proxy \
+    dist/jailer_linux_amd64_v1/jailer \
+    "${prefix}/bin/"
+EOF
 
-tar --file="${uniget_cache_download}/${filename}" --list
-tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin" --no-same-owner \
-    ravel
-
-curl --silent --show-error --location --fail --output "${prefix}/etc/systemd/system/ravel.service.go-template" \
-    "https://github.com/valyentdev/ravel/blob/v${version}/docs/init/ravel.service"
-sed -E -i "s|ExecStart=/usr/local/bin/ravel|ExecStart={{ .Target }}/bin/ravel|" "${prefix}/etc/systemd/system/ravel.service.go-template"
-
+RUN <<EOF
 "${prefix}/bin/ravel" completion bash >"${prefix}/share/bash-completion/completions/ravel"
 "${prefix}/bin/ravel" completion fish >"${prefix}/share/fish/vendor_completions.d/ravel.fish"
 "${prefix}/bin/ravel" completion zsh >"${prefix}/share/zsh/vendor-completions/_ravel"
+
+"${prefix}/bin/ravel-proxy" completion bash >"${prefix}/share/bash-completion/completions/ravel-proxy"
+"${prefix}/bin/ravel-proxy" completion fish >"${prefix}/share/fish/vendor_completions.d/ravel-proxy.fish"
+"${prefix}/bin/ravel-proxy" completion zsh >"${prefix}/share/zsh/vendor-completions/_ravel-proxy"
 EOF
