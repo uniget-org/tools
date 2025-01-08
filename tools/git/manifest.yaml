@@ -16,6 +16,14 @@ tags:
 homepage: https://git-scm.com/
 repository: https://github.com/git/git
 description: Distributed version control system
+messages:
+  internals: |
+    git has multiple paths compiled in:
+    - GIT_EXEC_PATH defaults to /usr/local/libexec/git-core
+    - GIT_TEMPLATE_DIR defaults to /usr/local/share/git-core/templates
+    - Global configuration files are expected to live in /etc/git{attributes,config}
+    
+    You con override them by setting the approprivate environment variables. Please refer to the official documentation: https://git-scm.com/docs
 renovate:
   datasource: github-tags
   package: git/git

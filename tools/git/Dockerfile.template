@@ -40,21 +40,25 @@ EOF
 RUN <<EOF
 export CFLAGS="${CFLAGS} -static"
 make configure
-./configure --prefix="${prefix}"
+./configure \
+    --prefix="/usr/local" \
+    --sysconfdir="/etc"
 make -j$(nproc) all
 make -j$(nproc) doc
-make install install-doc install-html
+make install install-doc install-html DESTDIR="${prefix}"
 EOF
 RUN <<EOF
 make -C contrib/subtree
-make -C contrib/subtree install
+make -C contrib/subtree install DESTDIR="${prefix}"
 
 make -C contrib/diff-highlight
 install -Dm755 contrib/diff-highlight/diff-highlight -t "${prefix}/bin/"
 
-#make -C contrib/credential/libsecret
-#install -Dm755 contrib/credential/libsecret/git-credential-libsecret "${prefix}/libexec/git-core/"
-
-install -Dm644 contrib/completion/git-completion.bash "${prefix}/usr/share/bash-completion/completions/git"
+install -Dm644 contrib/completion/git-completion.bash "${prefix}/share/bash-completion/completions/git"
 install -Dm644 contrib/completion/git-prompt.sh "${prefix}/share/git-core/git-prompt.sh"
+EOF
+WORKDIR /uniget_bootstrap
+RUN <<EOF
+cp -r usr/local/* .
+rm -rf usr/local
 EOF
