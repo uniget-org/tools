@@ -11,7 +11,7 @@ runtime_dependencies:
 - docker
 platforms:
 - linux/amd64
-#- linux/arm64
+- linux/arm64
 tags:
 - container/runtime
 - standard/oci
