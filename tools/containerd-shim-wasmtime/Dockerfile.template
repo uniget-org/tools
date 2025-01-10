@@ -2,7 +2,6 @@
 
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 FROM ghcr.io/uniget-org/tools/rust:latest AS rust
-FROM ghcr.io/uniget-org/tools/containerd:latest AS containerd
 
 FROM registry.gitlab.com/uniget-org/images/build-essential:24.04@sha256:7edc51fd2abb375e31147d5c8041df0892bfc397989ec759318d861688d28f91 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
@@ -24,7 +23,6 @@ apt-get -y install --no-install-recommends \
 EOF
 COPY --link --from=rust / /usr/local/
 COPY --link --from=make / /usr/local/
-COPY --link --from=containerd / /usr/local/
 WORKDIR /tmp/github.com/containerd/runwasi
 ARG name
 ARG version
@@ -32,7 +30,7 @@ RUN --mount=type=cache,target=/target \
     --mount=type=cache,target=/usr/local/cargo/registry <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "containerd-shim-wasmtime/v${version}" https://github.com/containerd/runwasi .
 export CARGO_HOME=/usr/local/cargo
-export CARGO_TARGET_DIR=/target
+export CARGO_TARGET_DIR=/target/
 export RUSTUP_HOME=/usr/local/rustup
 export RUSTFLAGS='-C target-feature=+crt-static'
 make -j$(nproc) build-wasmtime TARGET_DIR="${CARGO_TARGET_DIR}"
