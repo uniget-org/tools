@@ -2,6 +2,7 @@
 
 FROM ghcr.io/uniget-org/tools/nodejs:latest AS nodejs
 FROM ghcr.io/uniget-org/tools/npm:latest AS npm
+FROM ghcr.io/uniget-org/tools/python:latest AS python
 
 FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
@@ -10,6 +11,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=nodejs / /usr/local/
 COPY --link --from=npm / /usr/local/
+COPY --link --from=python / /usr/local/
 WORKDIR /uniget_bootstrap/libexec/n8n
 ARG name
 ARG version
