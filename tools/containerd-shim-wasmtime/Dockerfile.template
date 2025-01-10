@@ -2,6 +2,7 @@
 
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 FROM ghcr.io/uniget-org/tools/rust:latest AS rust
+FROM ghcr.io/uniget-org/tools/containerd:latest AS containerd
 
 FROM registry.gitlab.com/uniget-org/images/build-essential:24.04@sha256:7edc51fd2abb375e31147d5c8041df0892bfc397989ec759318d861688d28f91 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
@@ -23,6 +24,7 @@ apt-get -y install --no-install-recommends \
 EOF
 COPY --link --from=rust / /usr/local/
 COPY --link --from=make / /usr/local/
+COPY --link --from=containerd / /usr/local/
 WORKDIR /tmp/github.com/containerd/runwasi
 ARG name
 ARG version
