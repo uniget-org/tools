@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: woodpecker
-version: "2.8.2"
+version: "2.8.3"
 binary: woodpecker-server
 check: ${binary} --version | cut -d' ' -f3
 platforms:
