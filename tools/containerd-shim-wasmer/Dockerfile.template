@@ -30,7 +30,7 @@ RUN --mount=type=cache,target=/target \
     --mount=type=cache,target=/usr/local/cargo/registry <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "containerd-shim-wasmer/v${version}" https://github.com/containerd/runwasi .
 export CARGO_HOME=/usr/local/cargo
-export CARGO_TARGET_DIR=/target
+export CARGO_TARGET_DIR=/target/
 export RUSTUP_HOME=/usr/local/rustup
 export RUSTFLAGS='-C target-feature=+crt-static'
 make -j$(nproc) build-wasmer TARGET_DIR="${CARGO_TARGET_DIR}"
