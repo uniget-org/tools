@@ -74,7 +74,7 @@ jq  '
                 if .renovate.allowPrereleases == true then
                     {
                         "matchFiles": [ "^tools/" + .name + "/manifest.yaml$" ],
-                        "groupName": .name,
+                        "commitMessageTopic": .name,
                         "matchPackageNames": [ .renovate.package ],
                         "ignoreUnstable": (.renovate.allowPrereleases // false)
                     }
@@ -82,7 +82,7 @@ jq  '
                 else
                     {
                         "matchFiles": [ "^tools/" + .name + "/manifest.yaml$" ],
-                        "groupName": .name
+                        "commitMessageTopic": .name
                     }
                 end
 

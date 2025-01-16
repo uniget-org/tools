@@ -72,97 +72,97 @@
       "matchFiles": [
         "^tools/acorn/manifest.yaml$"
       ],
-      "groupName": "acorn"
+      "commitMessageTopic": "acorn"
     },
     {
       "matchFiles": [
         "^tools/acr/manifest.yaml$"
       ],
-      "groupName": "acr"
+      "commitMessageTopic": "acr"
     },
     {
       "matchFiles": [
         "^tools/act/manifest.yaml$"
       ],
-      "groupName": "act"
+      "commitMessageTopic": "act"
     },
     {
       "matchFiles": [
         "^tools/actions-runner/manifest.yaml$"
       ],
-      "groupName": "actions-runner"
+      "commitMessageTopic": "actions-runner"
     },
     {
       "matchFiles": [
         "^tools/actions-usage/manifest.yaml$"
       ],
-      "groupName": "actions-usage"
+      "commitMessageTopic": "actions-usage"
     },
     {
       "matchFiles": [
         "^tools/age/manifest.yaml$"
       ],
-      "groupName": "age"
+      "commitMessageTopic": "age"
     },
     {
       "matchFiles": [
         "^tools/ah/manifest.yaml$"
       ],
-      "groupName": "ah"
+      "commitMessageTopic": "ah"
     },
     {
       "matchFiles": [
         "^tools/aiac/manifest.yaml$"
       ],
-      "groupName": "aiac"
+      "commitMessageTopic": "aiac"
     },
     {
       "matchFiles": [
         "^tools/aichat/manifest.yaml$"
       ],
-      "groupName": "aichat"
+      "commitMessageTopic": "aichat"
     },
     {
       "matchFiles": [
         "^tools/aider/manifest.yaml$"
       ],
-      "groupName": "aider"
+      "commitMessageTopic": "aider"
     },
     {
       "matchFiles": [
         "^tools/air/manifest.yaml$"
       ],
-      "groupName": "air"
+      "commitMessageTopic": "air"
     },
     {
       "matchFiles": [
         "^tools/alertmanager/manifest.yaml$"
       ],
-      "groupName": "alertmanager"
+      "commitMessageTopic": "alertmanager"
     },
     {
       "matchFiles": [
         "^tools/alex/manifest.yaml$"
       ],
-      "groupName": "alex"
+      "commitMessageTopic": "alex"
     },
     {
       "matchFiles": [
         "^tools/ansi/manifest.yaml$"
       ],
-      "groupName": "ansi"
+      "commitMessageTopic": "ansi"
     },
     {
       "matchFiles": [
         "^tools/apk/manifest.yaml$"
       ],
-      "groupName": "apk"
+      "commitMessageTopic": "apk"
     },
     {
       "matchFiles": [
         "^tools/apko/manifest.yaml$"
       ],
-      "groupName": "apko",
+      "commitMessageTopic": "apko",
       "matchPackageNames": [
         "chainguard-dev/apko"
       ],
@@ -172,967 +172,967 @@
       "matchFiles": [
         "^tools/aqua/manifest.yaml$"
       ],
-      "groupName": "aqua"
+      "commitMessageTopic": "aqua"
     },
     {
       "matchFiles": [
         "^tools/argo/manifest.yaml$"
       ],
-      "groupName": "argo"
+      "commitMessageTopic": "argo"
     },
     {
       "matchFiles": [
         "^tools/argocd/manifest.yaml$"
       ],
-      "groupName": "argocd"
+      "commitMessageTopic": "argocd"
     },
     {
       "matchFiles": [
         "^tools/arkade/manifest.yaml$"
       ],
-      "groupName": "arkade"
+      "commitMessageTopic": "arkade"
     },
     {
       "matchFiles": [
         "^tools/artifactory-cleanup/manifest.yaml$"
       ],
-      "groupName": "artifactory-cleanup"
+      "commitMessageTopic": "artifactory-cleanup"
     },
     {
       "matchFiles": [
         "^tools/asciigraph/manifest.yaml$"
       ],
-      "groupName": "asciigraph"
+      "commitMessageTopic": "asciigraph"
     },
     {
       "matchFiles": [
         "^tools/asciinema/manifest.yaml$"
       ],
-      "groupName": "asciinema"
+      "commitMessageTopic": "asciinema"
     },
     {
       "matchFiles": [
         "^tools/autocert/manifest.yaml$"
       ],
-      "groupName": "autocert"
+      "commitMessageTopic": "autocert"
     },
     {
       "matchFiles": [
         "^tools/aws/manifest.yaml$"
       ],
-      "groupName": "aws"
+      "commitMessageTopic": "aws"
     },
     {
       "matchFiles": [
         "^tools/aws2/manifest.yaml$"
       ],
-      "groupName": "aws2"
+      "commitMessageTopic": "aws2"
     },
     {
       "matchFiles": [
         "^tools/axel/manifest.yaml$"
       ],
-      "groupName": "axel"
+      "commitMessageTopic": "axel"
     },
     {
       "matchFiles": [
         "^tools/az/manifest.yaml$"
       ],
-      "groupName": "az"
+      "commitMessageTopic": "az"
     },
     {
       "matchFiles": [
         "^tools/bandwhich/manifest.yaml$"
       ],
-      "groupName": "bandwhich"
+      "commitMessageTopic": "bandwhich"
     },
     {
       "matchFiles": [
         "^tools/bat/manifest.yaml$"
       ],
-      "groupName": "bat"
+      "commitMessageTopic": "bat"
     },
     {
       "matchFiles": [
         "^tools/bento/manifest.yaml$"
       ],
-      "groupName": "bento"
+      "commitMessageTopic": "bento"
     },
     {
       "matchFiles": [
         "^tools/bicep/manifest.yaml$"
       ],
-      "groupName": "bicep"
+      "commitMessageTopic": "bicep"
     },
     {
       "matchFiles": [
         "^tools/bif/manifest.yaml$"
       ],
-      "groupName": "bif"
+      "commitMessageTopic": "bif"
     },
     {
       "matchFiles": [
         "^tools/bin/manifest.yaml$"
       ],
-      "groupName": "bin"
+      "commitMessageTopic": "bin"
     },
     {
       "matchFiles": [
         "^tools/blackbox-exporter/manifest.yaml$"
       ],
-      "groupName": "blackbox-exporter"
+      "commitMessageTopic": "blackbox-exporter"
     },
     {
       "matchFiles": [
         "^tools/blincus/manifest.yaml$"
       ],
-      "groupName": "blincus"
+      "commitMessageTopic": "blincus"
     },
     {
       "matchFiles": [
         "^tools/bogrod/manifest.yaml$"
       ],
-      "groupName": "bogrod"
+      "commitMessageTopic": "bogrod"
     },
     {
       "matchFiles": [
         "^tools/bom/manifest.yaml$"
       ],
-      "groupName": "bom"
+      "commitMessageTopic": "bom"
     },
     {
       "matchFiles": [
         "^tools/bomber/manifest.yaml$"
       ],
-      "groupName": "bomber"
+      "commitMessageTopic": "bomber"
     },
     {
       "matchFiles": [
         "^tools/bomshell/manifest.yaml$"
       ],
-      "groupName": "bomshell"
+      "commitMessageTopic": "bomshell"
     },
     {
       "matchFiles": [
         "^tools/botsay/manifest.yaml$"
       ],
-      "groupName": "botsay"
+      "commitMessageTopic": "botsay"
     },
     {
       "matchFiles": [
         "^tools/box/manifest.yaml$"
       ],
-      "groupName": "box"
+      "commitMessageTopic": "box"
     },
     {
       "matchFiles": [
         "^tools/bpftool/manifest.yaml$"
       ],
-      "groupName": "bpftool"
+      "commitMessageTopic": "bpftool"
     },
     {
       "matchFiles": [
         "^tools/bubblewrap/manifest.yaml$"
       ],
-      "groupName": "bubblewrap"
+      "commitMessageTopic": "bubblewrap"
     },
     {
       "matchFiles": [
         "^tools/buildah/manifest.yaml$"
       ],
-      "groupName": "buildah"
+      "commitMessageTopic": "buildah"
     },
     {
       "matchFiles": [
         "^tools/buildg/manifest.yaml$"
       ],
-      "groupName": "buildg"
+      "commitMessageTopic": "buildg"
     },
     {
       "matchFiles": [
         "^tools/buildkit/manifest.yaml$"
       ],
-      "groupName": "buildkit"
+      "commitMessageTopic": "buildkit"
     },
     {
       "matchFiles": [
         "^tools/buildx/manifest.yaml$"
       ],
-      "groupName": "buildx"
+      "commitMessageTopic": "buildx"
     },
     {
       "matchFiles": [
         "^tools/bumblebee/manifest.yaml$"
       ],
-      "groupName": "bumblebee"
+      "commitMessageTopic": "bumblebee"
     },
     {
       "matchFiles": [
         "^tools/bypass4netns/manifest.yaml$"
       ],
-      "groupName": "bypass4netns"
+      "commitMessageTopic": "bypass4netns"
     },
     {
       "matchFiles": [
         "^tools/caddy/manifest.yaml$"
       ],
-      "groupName": "caddy"
+      "commitMessageTopic": "caddy"
     },
     {
       "matchFiles": [
         "^tools/cadvisor/manifest.yaml$"
       ],
-      "groupName": "cadvisor"
+      "commitMessageTopic": "cadvisor"
     },
     {
       "matchFiles": [
         "^tools/calicoctl/manifest.yaml$"
       ],
-      "groupName": "calicoctl"
+      "commitMessageTopic": "calicoctl"
     },
     {
       "matchFiles": [
         "^tools/car/manifest.yaml$"
       ],
-      "groupName": "car"
+      "commitMessageTopic": "car"
     },
     {
       "matchFiles": [
         "^tools/cascadia-code/manifest.yaml$"
       ],
-      "groupName": "cascadia-code"
+      "commitMessageTopic": "cascadia-code"
     },
     {
       "matchFiles": [
         "^tools/catatonit/manifest.yaml$"
       ],
-      "groupName": "catatonit"
+      "commitMessageTopic": "catatonit"
     },
     {
       "matchFiles": [
         "^tools/catgpt/manifest.yaml$"
       ],
-      "groupName": "catgpt"
+      "commitMessageTopic": "catgpt"
     },
     {
       "matchFiles": [
         "^tools/cdebug/manifest.yaml$"
       ],
-      "groupName": "cdebug"
+      "commitMessageTopic": "cdebug"
     },
     {
       "matchFiles": [
         "^tools/cdncheck/manifest.yaml$"
       ],
-      "groupName": "cdncheck"
+      "commitMessageTopic": "cdncheck"
     },
     {
       "matchFiles": [
         "^tools/cdxgen/manifest.yaml$"
       ],
-      "groupName": "cdxgen"
+      "commitMessageTopic": "cdxgen"
     },
     {
       "matchFiles": [
         "^tools/cfssl/manifest.yaml$"
       ],
-      "groupName": "cfssl"
+      "commitMessageTopic": "cfssl"
     },
     {
       "matchFiles": [
         "^tools/chainsaw/manifest.yaml$"
       ],
-      "groupName": "chainsaw"
+      "commitMessageTopic": "chainsaw"
     },
     {
       "matchFiles": [
         "^tools/charm/manifest.yaml$"
       ],
-      "groupName": "charm"
+      "commitMessageTopic": "charm"
     },
     {
       "matchFiles": [
         "^tools/chart-releaser/manifest.yaml$"
       ],
-      "groupName": "chart-releaser"
+      "commitMessageTopic": "chart-releaser"
     },
     {
       "matchFiles": [
         "^tools/chart-testing/manifest.yaml$"
       ],
-      "groupName": "chart-testing"
+      "commitMessageTopic": "chart-testing"
     },
     {
       "matchFiles": [
         "^tools/cheat/manifest.yaml$"
       ],
-      "groupName": "cheat"
+      "commitMessageTopic": "cheat"
     },
     {
       "matchFiles": [
         "^tools/checkov/manifest.yaml$"
       ],
-      "groupName": "checkov"
+      "commitMessageTopic": "checkov"
     },
     {
       "matchFiles": [
         "^tools/chekr/manifest.yaml$"
       ],
-      "groupName": "chekr"
+      "commitMessageTopic": "chekr"
     },
     {
       "matchFiles": [
         "^tools/chigo/manifest.yaml$"
       ],
-      "groupName": "chigo"
+      "commitMessageTopic": "chigo"
     },
     {
       "matchFiles": [
         "^tools/chisel/manifest.yaml$"
       ],
-      "groupName": "chisel"
+      "commitMessageTopic": "chisel"
     },
     {
       "matchFiles": [
         "^tools/chroma/manifest.yaml$"
       ],
-      "groupName": "chroma"
+      "commitMessageTopic": "chroma"
     },
     {
       "matchFiles": [
         "^tools/cilium/manifest.yaml$"
       ],
-      "groupName": "cilium"
+      "commitMessageTopic": "cilium"
     },
     {
       "matchFiles": [
         "^tools/cinf/manifest.yaml$"
       ],
-      "groupName": "cinf"
+      "commitMessageTopic": "cinf"
     },
     {
       "matchFiles": [
         "^tools/civo/manifest.yaml$"
       ],
-      "groupName": "civo"
+      "commitMessageTopic": "civo"
     },
     {
       "matchFiles": [
         "^tools/click/manifest.yaml$"
       ],
-      "groupName": "click"
+      "commitMessageTopic": "click"
     },
     {
       "matchFiles": [
         "^tools/clive/manifest.yaml$"
       ],
-      "groupName": "clive"
+      "commitMessageTopic": "clive"
     },
     {
       "matchFiles": [
         "^tools/cloudflared/manifest.yaml$"
       ],
-      "groupName": "cloudflared"
+      "commitMessageTopic": "cloudflared"
     },
     {
       "matchFiles": [
         "^tools/clusterawsadm/manifest.yaml$"
       ],
-      "groupName": "clusterawsadm"
+      "commitMessageTopic": "clusterawsadm"
     },
     {
       "matchFiles": [
         "^tools/clusterctl/manifest.yaml$"
       ],
-      "groupName": "clusterctl"
+      "commitMessageTopic": "clusterctl"
     },
     {
       "matchFiles": [
         "^tools/clusterlint/manifest.yaml$"
       ],
-      "groupName": "clusterlint"
+      "commitMessageTopic": "clusterlint"
     },
     {
       "matchFiles": [
         "^tools/cmctl/manifest.yaml$"
       ],
-      "groupName": "cmctl"
+      "commitMessageTopic": "cmctl"
     },
     {
       "matchFiles": [
         "^tools/cni/manifest.yaml$"
       ],
-      "groupName": "cni"
+      "commitMessageTopic": "cni"
     },
     {
       "matchFiles": [
         "^tools/cnitool/manifest.yaml$"
       ],
-      "groupName": "cnitool"
+      "commitMessageTopic": "cnitool"
     },
     {
       "matchFiles": [
         "^tools/cntr/manifest.yaml$"
       ],
-      "groupName": "cntr"
+      "commitMessageTopic": "cntr"
     },
     {
       "matchFiles": [
         "^tools/cobra-cli/manifest.yaml$"
       ],
-      "groupName": "cobra-cli"
+      "commitMessageTopic": "cobra-cli"
     },
     {
       "matchFiles": [
         "^tools/cockroach/manifest.yaml$"
       ],
-      "groupName": "cockroach"
+      "commitMessageTopic": "cockroach"
     },
     {
       "matchFiles": [
         "^tools/coder/manifest.yaml$"
       ],
-      "groupName": "coder"
+      "commitMessageTopic": "coder"
     },
     {
       "matchFiles": [
         "^tools/code-server/manifest.yaml$"
       ],
-      "groupName": "code-server"
+      "commitMessageTopic": "code-server"
     },
     {
       "matchFiles": [
         "^tools/colima/manifest.yaml$"
       ],
-      "groupName": "colima"
+      "commitMessageTopic": "colima"
     },
     {
       "matchFiles": [
         "^tools/compose-bridge/manifest.yaml$"
       ],
-      "groupName": "compose-bridge"
+      "commitMessageTopic": "compose-bridge"
     },
     {
       "matchFiles": [
         "^tools/composer/manifest.yaml$"
       ],
-      "groupName": "composer"
+      "commitMessageTopic": "composer"
     },
     {
       "matchFiles": [
         "^tools/composerize/manifest.yaml$"
       ],
-      "groupName": "composerize"
+      "commitMessageTopic": "composerize"
     },
     {
       "matchFiles": [
         "^tools/concourse/manifest.yaml$"
       ],
-      "groupName": "concourse"
+      "commitMessageTopic": "concourse"
     },
     {
       "matchFiles": [
         "^tools/conftest/manifest.yaml$"
       ],
-      "groupName": "conftest"
+      "commitMessageTopic": "conftest"
     },
     {
       "matchFiles": [
         "^tools/conmon/manifest.yaml$"
       ],
-      "groupName": "conmon"
+      "commitMessageTopic": "conmon"
     },
     {
       "matchFiles": [
         "^tools/consul/manifest.yaml$"
       ],
-      "groupName": "consul"
+      "commitMessageTopic": "consul"
     },
     {
       "matchFiles": [
         "^tools/container2wasm/manifest.yaml$"
       ],
-      "groupName": "container2wasm"
+      "commitMessageTopic": "container2wasm"
     },
     {
       "matchFiles": [
         "^tools/containerd/manifest.yaml$"
       ],
-      "groupName": "containerd"
+      "commitMessageTopic": "containerd"
     },
     {
       "matchFiles": [
         "^tools/containerd-shim-lunatic/manifest.yaml$"
       ],
-      "groupName": "containerd-shim-lunatic"
+      "commitMessageTopic": "containerd-shim-lunatic"
     },
     {
       "matchFiles": [
         "^tools/containerd-shim-slight/manifest.yaml$"
       ],
-      "groupName": "containerd-shim-slight"
+      "commitMessageTopic": "containerd-shim-slight"
     },
     {
       "matchFiles": [
         "^tools/containerd-shim-spin/manifest.yaml$"
       ],
-      "groupName": "containerd-shim-spin"
+      "commitMessageTopic": "containerd-shim-spin"
     },
     {
       "matchFiles": [
         "^tools/containerd-shim-spin-runwasi/manifest.yaml$"
       ],
-      "groupName": "containerd-shim-spin-runwasi"
+      "commitMessageTopic": "containerd-shim-spin-runwasi"
     },
     {
       "matchFiles": [
         "^tools/containerd-shim-wasmedge/manifest.yaml$"
       ],
-      "groupName": "containerd-shim-wasmedge"
+      "commitMessageTopic": "containerd-shim-wasmedge"
     },
     {
       "matchFiles": [
         "^tools/containerd-shim-wasmer/manifest.yaml$"
       ],
-      "groupName": "containerd-shim-wasmer"
+      "commitMessageTopic": "containerd-shim-wasmer"
     },
     {
       "matchFiles": [
         "^tools/containerd-shim-wasmtime/manifest.yaml$"
       ],
-      "groupName": "containerd-shim-wasmtime"
+      "commitMessageTopic": "containerd-shim-wasmtime"
     },
     {
       "matchFiles": [
         "^tools/containerd-shim-wws/manifest.yaml$"
       ],
-      "groupName": "containerd-shim-wws"
+      "commitMessageTopic": "containerd-shim-wws"
     },
     {
       "matchFiles": [
         "^tools/containers-common/manifest.yaml$"
       ],
-      "groupName": "containers-common"
+      "commitMessageTopic": "containers-common"
     },
     {
       "matchFiles": [
         "^tools/containers-image/manifest.yaml$"
       ],
-      "groupName": "containers-image"
+      "commitMessageTopic": "containers-image"
     },
     {
       "matchFiles": [
         "^tools/containerssh/manifest.yaml$"
       ],
-      "groupName": "containerssh"
+      "commitMessageTopic": "containerssh"
     },
     {
       "matchFiles": [
         "^tools/containers-storage/manifest.yaml$"
       ],
-      "groupName": "containers-storage"
+      "commitMessageTopic": "containers-storage"
     },
     {
       "matchFiles": [
         "^tools/copa/manifest.yaml$"
       ],
-      "groupName": "copa"
+      "commitMessageTopic": "copa"
     },
     {
       "matchFiles": [
         "^tools/cosign/manifest.yaml$"
       ],
-      "groupName": "cosign"
+      "commitMessageTopic": "cosign"
     },
     {
       "matchFiles": [
         "^tools/cowsay/manifest.yaml$"
       ],
-      "groupName": "cowsay"
+      "commitMessageTopic": "cowsay"
     },
     {
       "matchFiles": [
         "^tools/crane/manifest.yaml$"
       ],
-      "groupName": "crane"
+      "commitMessageTopic": "crane"
     },
     {
       "matchFiles": [
         "^tools/crictl/manifest.yaml$"
       ],
-      "groupName": "crictl"
+      "commitMessageTopic": "crictl"
     },
     {
       "matchFiles": [
         "^tools/cri-dockerd/manifest.yaml$"
       ],
-      "groupName": "cri-dockerd"
+      "commitMessageTopic": "cri-dockerd"
     },
     {
       "matchFiles": [
         "^tools/cri-o/manifest.yaml$"
       ],
-      "groupName": "cri-o"
+      "commitMessageTopic": "cri-o"
     },
     {
       "matchFiles": [
         "^tools/croc/manifest.yaml$"
       ],
-      "groupName": "croc"
+      "commitMessageTopic": "croc"
     },
     {
       "matchFiles": [
         "^tools/cross/manifest.yaml$"
       ],
-      "groupName": "cross"
+      "commitMessageTopic": "cross"
     },
     {
       "matchFiles": [
         "^tools/crossplane/manifest.yaml$"
       ],
-      "groupName": "crossplane"
+      "commitMessageTopic": "crossplane"
     },
     {
       "matchFiles": [
         "^tools/crun/manifest.yaml$"
       ],
-      "groupName": "crun"
+      "commitMessageTopic": "crun"
     },
     {
       "matchFiles": [
         "^tools/csvlens/manifest.yaml$"
       ],
-      "groupName": "csvlens"
+      "commitMessageTopic": "csvlens"
     },
     {
       "matchFiles": [
         "^tools/ct/manifest.yaml$"
       ],
-      "groupName": "ct"
+      "commitMessageTopic": "ct"
     },
     {
       "matchFiles": [
         "^tools/ctop/manifest.yaml$"
       ],
-      "groupName": "ctop"
+      "commitMessageTopic": "ctop"
     },
     {
       "matchFiles": [
         "^tools/ct_server/manifest.yaml$"
       ],
-      "groupName": "ct_server"
+      "commitMessageTopic": "ct_server"
     },
     {
       "matchFiles": [
         "^tools/cue/manifest.yaml$"
       ],
-      "groupName": "cue"
+      "commitMessageTopic": "cue"
     },
     {
       "matchFiles": [
         "^tools/curl/manifest.yaml$"
       ],
-      "groupName": "curl"
+      "commitMessageTopic": "curl"
     },
     {
       "matchFiles": [
         "^tools/curlie/manifest.yaml$"
       ],
-      "groupName": "curlie"
+      "commitMessageTopic": "curlie"
     },
     {
       "matchFiles": [
         "^tools/cve-bin-tool/manifest.yaml$"
       ],
-      "groupName": "cve-bin-tool"
+      "commitMessageTopic": "cve-bin-tool"
     },
     {
       "matchFiles": [
         "^tools/cvemap/manifest.yaml$"
       ],
-      "groupName": "cvemap"
+      "commitMessageTopic": "cvemap"
     },
     {
       "matchFiles": [
         "^tools/cyclonedx-cli/manifest.yaml$"
       ],
-      "groupName": "cyclonedx-cli"
+      "commitMessageTopic": "cyclonedx-cli"
     },
     {
       "matchFiles": [
         "^tools/cyclonedx-gomod/manifest.yaml$"
       ],
-      "groupName": "cyclonedx-gomod"
+      "commitMessageTopic": "cyclonedx-gomod"
     },
     {
       "matchFiles": [
         "^tools/cyphernetes/manifest.yaml$"
       ],
-      "groupName": "cyphernetes"
+      "commitMessageTopic": "cyphernetes"
     },
     {
       "matchFiles": [
         "^tools/cypher-shell/manifest.yaml$"
       ],
-      "groupName": "cypher-shell"
+      "commitMessageTopic": "cypher-shell"
     },
     {
       "matchFiles": [
         "^tools/dagger/manifest.yaml$"
       ],
-      "groupName": "dagger"
+      "commitMessageTopic": "dagger"
     },
     {
       "matchFiles": [
         "^tools/dart/manifest.yaml$"
       ],
-      "groupName": "dart"
+      "commitMessageTopic": "dart"
     },
     {
       "matchFiles": [
         "^tools/dasel/manifest.yaml$"
       ],
-      "groupName": "dasel"
+      "commitMessageTopic": "dasel"
     },
     {
       "matchFiles": [
         "^tools/datree/manifest.yaml$"
       ],
-      "groupName": "datree"
+      "commitMessageTopic": "datree"
     },
     {
       "matchFiles": [
         "^tools/daytona/manifest.yaml$"
       ],
-      "groupName": "daytona"
+      "commitMessageTopic": "daytona"
     },
     {
       "matchFiles": [
         "^tools/dbui/manifest.yaml$"
       ],
-      "groupName": "dbui"
+      "commitMessageTopic": "dbui"
     },
     {
       "matchFiles": [
         "^tools/dcp/manifest.yaml$"
       ],
-      "groupName": "dcp"
+      "commitMessageTopic": "dcp"
     },
     {
       "matchFiles": [
         "^tools/ddosify/manifest.yaml$"
       ],
-      "groupName": "ddosify"
+      "commitMessageTopic": "ddosify"
     },
     {
       "matchFiles": [
         "^tools/decktape/manifest.yaml$"
       ],
-      "groupName": "decktape"
+      "commitMessageTopic": "decktape"
     },
     {
       "matchFiles": [
         "^tools/delta/manifest.yaml$"
       ],
-      "groupName": "delta"
+      "commitMessageTopic": "delta"
     },
     {
       "matchFiles": [
         "^tools/deno/manifest.yaml$"
       ],
-      "groupName": "deno"
+      "commitMessageTopic": "deno"
     },
     {
       "matchFiles": [
         "^tools/dependency-check/manifest.yaml$"
       ],
-      "groupName": "dependency-check"
+      "commitMessageTopic": "dependency-check"
     },
     {
       "matchFiles": [
         "^tools/depot/manifest.yaml$"
       ],
-      "groupName": "depot"
+      "commitMessageTopic": "depot"
     },
     {
       "matchFiles": [
         "^tools/dep-tree/manifest.yaml$"
       ],
-      "groupName": "dep-tree"
+      "commitMessageTopic": "dep-tree"
     },
     {
       "matchFiles": [
         "^tools/devbox/manifest.yaml$"
       ],
-      "groupName": "devbox"
+      "commitMessageTopic": "devbox"
     },
     {
       "matchFiles": [
         "^tools/devcontainer/manifest.yaml$"
       ],
-      "groupName": "devcontainer"
+      "commitMessageTopic": "devcontainer"
     },
     {
       "matchFiles": [
         "^tools/devpod/manifest.yaml$"
       ],
-      "groupName": "devpod"
+      "commitMessageTopic": "devpod"
     },
     {
       "matchFiles": [
         "^tools/diffoci/manifest.yaml$"
       ],
-      "groupName": "diffoci"
+      "commitMessageTopic": "diffoci"
     },
     {
       "matchFiles": [
         "^tools/dinit/manifest.yaml$"
       ],
-      "groupName": "dinit"
+      "commitMessageTopic": "dinit"
     },
     {
       "matchFiles": [
         "^tools/direnv/manifest.yaml$"
       ],
-      "groupName": "direnv"
+      "commitMessageTopic": "direnv"
     },
     {
       "matchFiles": [
         "^tools/distrobox/manifest.yaml$"
       ],
-      "groupName": "distrobox"
+      "commitMessageTopic": "distrobox"
     },
     {
       "matchFiles": [
         "^tools/diun/manifest.yaml$"
       ],
-      "groupName": "diun"
+      "commitMessageTopic": "diun"
     },
     {
       "matchFiles": [
         "^tools/dive/manifest.yaml$"
       ],
-      "groupName": "dive"
+      "commitMessageTopic": "dive"
     },
     {
       "matchFiles": [
         "^tools/dnsx/manifest.yaml$"
       ],
-      "groupName": "dnsx"
+      "commitMessageTopic": "dnsx"
     },
     {
       "matchFiles": [
         "^tools/docker/manifest.yaml$"
       ],
-      "groupName": "docker"
+      "commitMessageTopic": "docker"
     },
     {
       "matchFiles": [
         "^tools/docker-base/manifest.yaml$"
       ],
-      "groupName": "docker-base"
+      "commitMessageTopic": "docker-base"
     },
     {
       "matchFiles": [
         "^tools/docker-compose/manifest.yaml$"
       ],
-      "groupName": "docker-compose"
+      "commitMessageTopic": "docker-compose"
     },
     {
       "matchFiles": [
         "^tools/docker-compose-switch/manifest.yaml$"
       ],
-      "groupName": "docker-compose-switch"
+      "commitMessageTopic": "docker-compose-switch"
     },
     {
       "matchFiles": [
         "^tools/docker-compose-v1/manifest.yaml$"
       ],
-      "groupName": "docker-compose-v1"
+      "commitMessageTopic": "docker-compose-v1"
     },
     {
       "matchFiles": [
         "^tools/docker-credential-acr-env/manifest.yaml$"
       ],
-      "groupName": "docker-credential-acr-env"
+      "commitMessageTopic": "docker-credential-acr-env"
     },
     {
       "matchFiles": [
         "^tools/docker-credential-ecr-login/manifest.yaml$"
       ],
-      "groupName": "docker-credential-ecr-login"
+      "commitMessageTopic": "docker-credential-ecr-login"
     },
     {
       "matchFiles": [
         "^tools/docker-credential-gcr/manifest.yaml$"
       ],
-      "groupName": "docker-credential-gcr"
+      "commitMessageTopic": "docker-credential-gcr"
     },
     {
       "matchFiles": [
         "^tools/docker-credential-helpers/manifest.yaml$"
       ],
-      "groupName": "docker-credential-helpers"
+      "commitMessageTopic": "docker-credential-helpers"
     },
     {
       "matchFiles": [
         "^tools/docker-credential-magic/manifest.yaml$"
       ],
-      "groupName": "docker-credential-magic"
+      "commitMessageTopic": "docker-credential-magic"
     },
     {
       "matchFiles": [
         "^tools/docker-debug/manifest.yaml$"
       ],
-      "groupName": "docker-debug"
+      "commitMessageTopic": "docker-debug"
     },
     {
       "matchFiles": [
         "^tools/docker-desktop/manifest.yaml$"
       ],
-      "groupName": "docker-desktop"
+      "commitMessageTopic": "docker-desktop"
     },
     {
       "matchFiles": [
         "^tools/dockerfilegraph/manifest.yaml$"
       ],
-      "groupName": "dockerfilegraph"
+      "commitMessageTopic": "dockerfilegraph"
     },
     {
       "matchFiles": [
         "^tools/docker-gen/manifest.yaml$"
       ],
-      "groupName": "docker-gen"
+      "commitMessageTopic": "docker-gen"
     },
     {
       "matchFiles": [
         "^tools/docker-index/manifest.yaml$"
       ],
-      "groupName": "docker-index"
+      "commitMessageTopic": "docker-index"
     },
     {
       "matchFiles": [
         "^tools/docker-init/manifest.yaml$"
       ],
-      "groupName": "docker-init"
+      "commitMessageTopic": "docker-init"
     },
     {
       "matchFiles": [
         "^tools/docker-machine/manifest.yaml$"
       ],
-      "groupName": "docker-machine"
+      "commitMessageTopic": "docker-machine"
     },
     {
       "matchFiles": [
         "^tools/docker-manpages/manifest.yaml$"
       ],
-      "groupName": "docker-manpages"
+      "commitMessageTopic": "docker-manpages"
     },
     {
       "matchFiles": [
         "^tools/docker-preview/manifest.yaml$"
       ],
-      "groupName": "docker-preview",
+      "commitMessageTopic": "docker-preview",
       "matchPackageNames": [
         "moby/moby"
       ],
@@ -1142,4027 +1142,4027 @@
       "matchFiles": [
         "^tools/docker-rootless/manifest.yaml$"
       ],
-      "groupName": "docker-rootless"
+      "commitMessageTopic": "docker-rootless"
     },
     {
       "matchFiles": [
         "^tools/docker-sbom/manifest.yaml$"
       ],
-      "groupName": "docker-sbom"
+      "commitMessageTopic": "docker-sbom"
     },
     {
       "matchFiles": [
         "^tools/docker-scout/manifest.yaml$"
       ],
-      "groupName": "docker-scout"
+      "commitMessageTopic": "docker-scout"
     },
     {
       "matchFiles": [
         "^tools/dockle/manifest.yaml$"
       ],
-      "groupName": "dockle"
+      "commitMessageTopic": "dockle"
     },
     {
       "matchFiles": [
         "^tools/docuum/manifest.yaml$"
       ],
-      "groupName": "docuum"
+      "commitMessageTopic": "docuum"
     },
     {
       "matchFiles": [
         "^tools/doggo/manifest.yaml$"
       ],
-      "groupName": "doggo"
+      "commitMessageTopic": "doggo"
     },
     {
       "matchFiles": [
         "^tools/dot/manifest.yaml$"
       ],
-      "groupName": "dot"
+      "commitMessageTopic": "dot"
     },
     {
       "matchFiles": [
         "^tools/dotenvx/manifest.yaml$"
       ],
-      "groupName": "dotenvx"
+      "commitMessageTopic": "dotenvx"
     },
     {
       "matchFiles": [
         "^tools/dotnet-runtime/manifest.yaml$"
       ],
-      "groupName": "dotnet-runtime"
+      "commitMessageTopic": "dotnet-runtime"
     },
     {
       "matchFiles": [
         "^tools/dotnet-sdk/manifest.yaml$"
       ],
-      "groupName": "dotnet-sdk"
+      "commitMessageTopic": "dotnet-sdk"
     },
     {
       "matchFiles": [
         "^tools/dragonfly/manifest.yaml$"
       ],
-      "groupName": "dragonfly"
+      "commitMessageTopic": "dragonfly"
     },
     {
       "matchFiles": [
         "^tools/dry/manifest.yaml$"
       ],
-      "groupName": "dry"
+      "commitMessageTopic": "dry"
     },
     {
       "matchFiles": [
         "^tools/dua/manifest.yaml$"
       ],
-      "groupName": "dua"
+      "commitMessageTopic": "dua"
     },
     {
       "matchFiles": [
         "^tools/duf/manifest.yaml$"
       ],
-      "groupName": "duf"
+      "commitMessageTopic": "duf"
     },
     {
       "matchFiles": [
         "^tools/duffle/manifest.yaml$"
       ],
-      "groupName": "duffle"
+      "commitMessageTopic": "duffle"
     },
     {
       "matchFiles": [
         "^tools/dumb-init/manifest.yaml$"
       ],
-      "groupName": "dumb-init"
+      "commitMessageTopic": "dumb-init"
     },
     {
       "matchFiles": [
         "^tools/dyff/manifest.yaml$"
       ],
-      "groupName": "dyff"
+      "commitMessageTopic": "dyff"
     },
     {
       "matchFiles": [
         "^tools/earthly/manifest.yaml$"
       ],
-      "groupName": "earthly"
+      "commitMessageTopic": "earthly"
     },
     {
       "matchFiles": [
         "^tools/ecapture/manifest.yaml$"
       ],
-      "groupName": "ecapture"
+      "commitMessageTopic": "ecapture"
     },
     {
       "matchFiles": [
         "^tools/eksctl/manifest.yaml$"
       ],
-      "groupName": "eksctl"
+      "commitMessageTopic": "eksctl"
     },
     {
       "matchFiles": [
         "^tools/ekz/manifest.yaml$"
       ],
-      "groupName": "ekz"
+      "commitMessageTopic": "ekz"
     },
     {
       "matchFiles": [
         "^tools/elia/manifest.yaml$"
       ],
-      "groupName": "elia"
+      "commitMessageTopic": "elia"
     },
     {
       "matchFiles": [
         "^tools/emoj/manifest.yaml$"
       ],
-      "groupName": "emoj"
+      "commitMessageTopic": "emoj"
     },
     {
       "matchFiles": [
         "^tools/emojisum/manifest.yaml$"
       ],
-      "groupName": "emojisum"
+      "commitMessageTopic": "emojisum"
     },
     {
       "matchFiles": [
         "^tools/envcli/manifest.yaml$"
       ],
-      "groupName": "envcli"
+      "commitMessageTopic": "envcli"
     },
     {
       "matchFiles": [
         "^tools/envsub/manifest.yaml$"
       ],
-      "groupName": "envsub"
+      "commitMessageTopic": "envsub"
     },
     {
       "matchFiles": [
         "^tools/esbuild/manifest.yaml$"
       ],
-      "groupName": "esbuild"
+      "commitMessageTopic": "esbuild"
     },
     {
       "matchFiles": [
         "^tools/etcd/manifest.yaml$"
       ],
-      "groupName": "etcd"
+      "commitMessageTopic": "etcd"
     },
     {
       "matchFiles": [
         "^tools/etcdadm/manifest.yaml$"
       ],
-      "groupName": "etcdadm"
+      "commitMessageTopic": "etcdadm"
     },
     {
       "matchFiles": [
         "^tools/exa/manifest.yaml$"
       ],
-      "groupName": "exa"
+      "commitMessageTopic": "exa"
     },
     {
       "matchFiles": [
         "^tools/ezghsa/manifest.yaml$"
       ],
-      "groupName": "ezghsa"
+      "commitMessageTopic": "ezghsa"
     },
     {
       "matchFiles": [
         "^tools/faas-cli/manifest.yaml$"
       ],
-      "groupName": "faas-cli"
+      "commitMessageTopic": "faas-cli"
     },
     {
       "matchFiles": [
         "^tools/faasd/manifest.yaml$"
       ],
-      "groupName": "faasd"
+      "commitMessageTopic": "faasd"
     },
     {
       "matchFiles": [
         "^tools/fabric/manifest.yaml$"
       ],
-      "groupName": "fabric"
+      "commitMessageTopic": "fabric"
     },
     {
       "matchFiles": [
         "^tools/falco/manifest.yaml$"
       ],
-      "groupName": "falco"
+      "commitMessageTopic": "falco"
     },
     {
       "matchFiles": [
         "^tools/falcosidekick/manifest.yaml$"
       ],
-      "groupName": "falcosidekick"
+      "commitMessageTopic": "falcosidekick"
     },
     {
       "matchFiles": [
         "^tools/fastgron/manifest.yaml$"
       ],
-      "groupName": "fastgron"
+      "commitMessageTopic": "fastgron"
     },
     {
       "matchFiles": [
         "^tools/fd/manifest.yaml$"
       ],
-      "groupName": "fd"
+      "commitMessageTopic": "fd"
     },
     {
       "matchFiles": [
         "^tools/figlet/manifest.yaml$"
       ],
-      "groupName": "figlet"
+      "commitMessageTopic": "figlet"
     },
     {
       "matchFiles": [
         "^tools/firecracker/manifest.yaml$"
       ],
-      "groupName": "firecracker"
+      "commitMessageTopic": "firecracker"
     },
     {
       "matchFiles": [
         "^tools/firectl/manifest.yaml$"
       ],
-      "groupName": "firectl"
+      "commitMessageTopic": "firectl"
     },
     {
       "matchFiles": [
         "^tools/firejail/manifest.yaml$"
       ],
-      "groupName": "firejail"
+      "commitMessageTopic": "firejail"
     },
     {
       "matchFiles": [
         "^tools/flameshow/manifest.yaml$"
       ],
-      "groupName": "flameshow"
+      "commitMessageTopic": "flameshow"
     },
     {
       "matchFiles": [
         "^tools/flarectl/manifest.yaml$"
       ],
-      "groupName": "flarectl"
+      "commitMessageTopic": "flarectl"
     },
     {
       "matchFiles": [
         "^tools/fleet/manifest.yaml$"
       ],
-      "groupName": "fleet"
+      "commitMessageTopic": "fleet"
     },
     {
       "matchFiles": [
         "^tools/floodgate/manifest.yaml$"
       ],
-      "groupName": "floodgate"
+      "commitMessageTopic": "floodgate"
     },
     {
       "matchFiles": [
         "^tools/flux/manifest.yaml$"
       ],
-      "groupName": "flux"
+      "commitMessageTopic": "flux"
     },
     {
       "matchFiles": [
         "^tools/flux2/manifest.yaml$"
       ],
-      "groupName": "flux2"
+      "commitMessageTopic": "flux2"
     },
     {
       "matchFiles": [
         "^tools/flyctl/manifest.yaml$"
       ],
-      "groupName": "flyctl"
+      "commitMessageTopic": "flyctl"
     },
     {
       "matchFiles": [
         "^tools/fontawesome-free/manifest.yaml$"
       ],
-      "groupName": "fontawesome-free"
+      "commitMessageTopic": "fontawesome-free"
     },
     {
       "matchFiles": [
         "^tools/footloose/manifest.yaml$"
       ],
-      "groupName": "footloose"
+      "commitMessageTopic": "footloose"
     },
     {
       "matchFiles": [
         "^tools/forgejo/manifest.yaml$"
       ],
-      "groupName": "forgejo"
+      "commitMessageTopic": "forgejo"
     },
     {
       "matchFiles": [
         "^tools/forgit/manifest.yaml$"
       ],
-      "groupName": "forgit"
+      "commitMessageTopic": "forgit"
     },
     {
       "matchFiles": [
         "^tools/foyle/manifest.yaml$"
       ],
-      "groupName": "foyle"
+      "commitMessageTopic": "foyle"
     },
     {
       "matchFiles": [
         "^tools/fq/manifest.yaml$"
       ],
-      "groupName": "fq"
+      "commitMessageTopic": "fq"
     },
     {
       "matchFiles": [
         "^tools/frankphp/manifest.yaml$"
       ],
-      "groupName": "frankphp"
+      "commitMessageTopic": "frankphp"
     },
     {
       "matchFiles": [
         "^tools/freeze/manifest.yaml$"
       ],
-      "groupName": "freeze"
+      "commitMessageTopic": "freeze"
     },
     {
       "matchFiles": [
         "^tools/fregot/manifest.yaml$"
       ],
-      "groupName": "fregot"
+      "commitMessageTopic": "fregot"
     },
     {
       "matchFiles": [
         "^tools/furyctl/manifest.yaml$"
       ],
-      "groupName": "furyctl"
+      "commitMessageTopic": "furyctl"
     },
     {
       "matchFiles": [
         "^tools/fuse-overlayfs/manifest.yaml$"
       ],
-      "groupName": "fuse-overlayfs"
+      "commitMessageTopic": "fuse-overlayfs"
     },
     {
       "matchFiles": [
         "^tools/fuse-overlayfs-snapshotter/manifest.yaml$"
       ],
-      "groupName": "fuse-overlayfs-snapshotter"
+      "commitMessageTopic": "fuse-overlayfs-snapshotter"
     },
     {
       "matchFiles": [
         "^tools/fx/manifest.yaml$"
       ],
-      "groupName": "fx"
+      "commitMessageTopic": "fx"
     },
     {
       "matchFiles": [
         "^tools/fzf/manifest.yaml$"
       ],
-      "groupName": "fzf"
+      "commitMessageTopic": "fzf"
     },
     {
       "matchFiles": [
         "^tools/gatekeeper/manifest.yaml$"
       ],
-      "groupName": "gatekeeper"
+      "commitMessageTopic": "gatekeeper"
     },
     {
       "matchFiles": [
         "^tools/gcloud/manifest.yaml$"
       ],
-      "groupName": "gcloud"
+      "commitMessageTopic": "gcloud"
     },
     {
       "matchFiles": [
         "^tools/geist-font/manifest.yaml$"
       ],
-      "groupName": "geist-font"
+      "commitMessageTopic": "geist-font"
     },
     {
       "matchFiles": [
         "^tools/genie/manifest.yaml$"
       ],
-      "groupName": "genie"
+      "commitMessageTopic": "genie"
     },
     {
       "matchFiles": [
         "^tools/geyser/manifest.yaml$"
       ],
-      "groupName": "geyser"
+      "commitMessageTopic": "geyser"
     },
     {
       "matchFiles": [
         "^tools/gh/manifest.yaml$"
       ],
-      "groupName": "gh"
+      "commitMessageTopic": "gh"
     },
     {
       "matchFiles": [
         "^tools/gh-copilot/manifest.yaml$"
       ],
-      "groupName": "gh-copilot"
+      "commitMessageTopic": "gh-copilot"
     },
     {
       "matchFiles": [
         "^tools/ghostunnel/manifest.yaml$"
       ],
-      "groupName": "ghostunnel"
+      "commitMessageTopic": "ghostunnel"
     },
     {
       "matchFiles": [
         "^tools/git/manifest.yaml$"
       ],
-      "groupName": "git"
+      "commitMessageTopic": "git"
     },
     {
       "matchFiles": [
         "^tools/gita/manifest.yaml$"
       ],
-      "groupName": "gita"
+      "commitMessageTopic": "gita"
     },
     {
       "matchFiles": [
         "^tools/git-credential-gopass/manifest.yaml$"
       ],
-      "groupName": "git-credential-gopass"
+      "commitMessageTopic": "git-credential-gopass"
     },
     {
       "matchFiles": [
         "^tools/git-credential-oauth/manifest.yaml$"
       ],
-      "groupName": "git-credential-oauth"
+      "commitMessageTopic": "git-credential-oauth"
     },
     {
       "matchFiles": [
         "^tools/gitea/manifest.yaml$"
       ],
-      "groupName": "gitea"
+      "commitMessageTopic": "gitea"
     },
     {
       "matchFiles": [
         "^tools/git-filter-repo/manifest.yaml$"
       ],
-      "groupName": "git-filter-repo"
+      "commitMessageTopic": "git-filter-repo"
     },
     {
       "matchFiles": [
         "^tools/git-graph/manifest.yaml$"
       ],
-      "groupName": "git-graph"
+      "commitMessageTopic": "git-graph"
     },
     {
       "matchFiles": [
         "^tools/git-igitt/manifest.yaml$"
       ],
-      "groupName": "git-igitt"
+      "commitMessageTopic": "git-igitt"
     },
     {
       "matchFiles": [
         "^tools/gitjob/manifest.yaml$"
       ],
-      "groupName": "gitjob"
+      "commitMessageTopic": "gitjob"
     },
     {
       "matchFiles": [
         "^tools/gitlabci-local/manifest.yaml$"
       ],
-      "groupName": "gitlabci-local"
+      "commitMessageTopic": "gitlabci-local"
     },
     {
       "matchFiles": [
         "^tools/gitlab-ci-pipelines-exporter/manifest.yaml$"
       ],
-      "groupName": "gitlab-ci-pipelines-exporter"
+      "commitMessageTopic": "gitlab-ci-pipelines-exporter"
     },
     {
       "matchFiles": [
         "^tools/gitlab-release/manifest.yaml$"
       ],
-      "groupName": "gitlab-release"
+      "commitMessageTopic": "gitlab-release"
     },
     {
       "matchFiles": [
         "^tools/gitlab-runner/manifest.yaml$"
       ],
-      "groupName": "gitlab-runner"
+      "commitMessageTopic": "gitlab-runner"
     },
     {
       "matchFiles": [
         "^tools/gitleaks/manifest.yaml$"
       ],
-      "groupName": "gitleaks"
+      "commitMessageTopic": "gitleaks"
     },
     {
       "matchFiles": [
         "^tools/git-lfs/manifest.yaml$"
       ],
-      "groupName": "git-lfs"
+      "commitMessageTopic": "git-lfs"
     },
     {
       "matchFiles": [
         "^tools/gitoxide/manifest.yaml$"
       ],
-      "groupName": "gitoxide"
+      "commitMessageTopic": "gitoxide"
     },
     {
       "matchFiles": [
         "^tools/gitsign/manifest.yaml$"
       ],
-      "groupName": "gitsign"
+      "commitMessageTopic": "gitsign"
     },
     {
       "matchFiles": [
         "^tools/gittuf/manifest.yaml$"
       ],
-      "groupName": "gittuf"
+      "commitMessageTopic": "gittuf"
     },
     {
       "matchFiles": [
         "^tools/gitui/manifest.yaml$"
       ],
-      "groupName": "gitui"
+      "commitMessageTopic": "gitui"
     },
     {
       "matchFiles": [
         "^tools/glab/manifest.yaml$"
       ],
-      "groupName": "glab"
+      "commitMessageTopic": "glab"
     },
     {
       "matchFiles": [
         "^tools/glow/manifest.yaml$"
       ],
-      "groupName": "glow"
+      "commitMessageTopic": "glow"
     },
     {
       "matchFiles": [
         "^tools/gnuplot/manifest.yaml$"
       ],
-      "groupName": "gnuplot"
+      "commitMessageTopic": "gnuplot"
     },
     {
       "matchFiles": [
         "^tools/go/manifest.yaml$"
       ],
-      "groupName": "go"
+      "commitMessageTopic": "go"
     },
     {
       "matchFiles": [
         "^tools/goblin/manifest.yaml$"
       ],
-      "groupName": "goblin"
+      "commitMessageTopic": "goblin"
     },
     {
       "matchFiles": [
         "^tools/gobump/manifest.yaml$"
       ],
-      "groupName": "gobump"
+      "commitMessageTopic": "gobump"
     },
     {
       "matchFiles": [
         "^tools/gocryptfs/manifest.yaml$"
       ],
-      "groupName": "gocryptfs"
+      "commitMessageTopic": "gocryptfs"
     },
     {
       "matchFiles": [
         "^tools/godotenv/manifest.yaml$"
       ],
-      "groupName": "godotenv"
+      "commitMessageTopic": "godotenv"
     },
     {
       "matchFiles": [
         "^tools/gojq/manifest.yaml$"
       ],
-      "groupName": "gojq"
+      "commitMessageTopic": "gojq"
     },
     {
       "matchFiles": [
         "^tools/golangci-lint/manifest.yaml$"
       ],
-      "groupName": "golangci-lint"
+      "commitMessageTopic": "golangci-lint"
     },
     {
       "matchFiles": [
         "^tools/go-md2man/manifest.yaml$"
       ],
-      "groupName": "go-md2man"
+      "commitMessageTopic": "go-md2man"
     },
     {
       "matchFiles": [
         "^tools/go-modiff/manifest.yaml$"
       ],
-      "groupName": "go-modiff"
+      "commitMessageTopic": "go-modiff"
     },
     {
       "matchFiles": [
         "^tools/go-mod-upgrade/manifest.yaml$"
       ],
-      "groupName": "go-mod-upgrade"
+      "commitMessageTopic": "go-mod-upgrade"
     },
     {
       "matchFiles": [
         "^tools/gomplate/manifest.yaml$"
       ],
-      "groupName": "gomplate"
+      "commitMessageTopic": "gomplate"
     },
     {
       "matchFiles": [
         "^tools/gopass/manifest.yaml$"
       ],
-      "groupName": "gopass"
+      "commitMessageTopic": "gopass"
     },
     {
       "matchFiles": [
         "^tools/goreleaser/manifest.yaml$"
       ],
-      "groupName": "goreleaser"
+      "commitMessageTopic": "goreleaser"
     },
     {
       "matchFiles": [
         "^tools/gosec/manifest.yaml$"
       ],
-      "groupName": "gosec"
+      "commitMessageTopic": "gosec"
     },
     {
       "matchFiles": [
         "^tools/gosu/manifest.yaml$"
       ],
-      "groupName": "gosu"
+      "commitMessageTopic": "gosu"
     },
     {
       "matchFiles": [
         "^tools/gotestsum/manifest.yaml$"
       ],
-      "groupName": "gotestsum"
+      "commitMessageTopic": "gotestsum"
     },
     {
       "matchFiles": [
         "^tools/govc/manifest.yaml$"
       ],
-      "groupName": "govc"
+      "commitMessageTopic": "govc"
     },
     {
       "matchFiles": [
         "^tools/gox/manifest.yaml$"
       ],
-      "groupName": "gox"
+      "commitMessageTopic": "gox"
     },
     {
       "matchFiles": [
         "^tools/goyacc/manifest.yaml$"
       ],
-      "groupName": "goyacc"
+      "commitMessageTopic": "goyacc"
     },
     {
       "matchFiles": [
         "^tools/gptscript/manifest.yaml$"
       ],
-      "groupName": "gptscript"
+      "commitMessageTopic": "gptscript"
     },
     {
       "matchFiles": [
         "^tools/gradle/manifest.yaml$"
       ],
-      "groupName": "gradle"
+      "commitMessageTopic": "gradle"
     },
     {
       "matchFiles": [
         "^tools/grafana/manifest.yaml$"
       ],
-      "groupName": "grafana"
+      "commitMessageTopic": "grafana"
     },
     {
       "matchFiles": [
         "^tools/grafana-agent/manifest.yaml$"
       ],
-      "groupName": "grafana-agent"
+      "commitMessageTopic": "grafana-agent"
     },
     {
       "matchFiles": [
         "^tools/graphviz/manifest.yaml$"
       ],
-      "groupName": "graphviz"
+      "commitMessageTopic": "graphviz"
     },
     {
       "matchFiles": [
         "^tools/gron/manifest.yaml$"
       ],
-      "groupName": "gron"
+      "commitMessageTopic": "gron"
     },
     {
       "matchFiles": [
         "^tools/grpcurl/manifest.yaml$"
       ],
-      "groupName": "grpcurl"
+      "commitMessageTopic": "grpcurl"
     },
     {
       "matchFiles": [
         "^tools/grr/manifest.yaml$"
       ],
-      "groupName": "grr"
+      "commitMessageTopic": "grr"
     },
     {
       "matchFiles": [
         "^tools/grunt/manifest.yaml$"
       ],
-      "groupName": "grunt"
+      "commitMessageTopic": "grunt"
     },
     {
       "matchFiles": [
         "^tools/grype/manifest.yaml$"
       ],
-      "groupName": "grype"
+      "commitMessageTopic": "grype"
     },
     {
       "matchFiles": [
         "^tools/gsutil/manifest.yaml$"
       ],
-      "groupName": "gsutil"
+      "commitMessageTopic": "gsutil"
     },
     {
       "matchFiles": [
         "^tools/guac/manifest.yaml$"
       ],
-      "groupName": "guac"
+      "commitMessageTopic": "guac"
     },
     {
       "matchFiles": [
         "^tools/gum/manifest.yaml$"
       ],
-      "groupName": "gum"
+      "commitMessageTopic": "gum"
     },
     {
       "matchFiles": [
         "^tools/gvisor/manifest.yaml$"
       ],
-      "groupName": "gvisor"
+      "commitMessageTopic": "gvisor"
     },
     {
       "matchFiles": [
         "^tools/hadolint/manifest.yaml$"
       ],
-      "groupName": "hadolint"
+      "commitMessageTopic": "hadolint"
     },
     {
       "matchFiles": [
         "^tools/has/manifest.yaml$"
       ],
-      "groupName": "has"
+      "commitMessageTopic": "has"
     },
     {
       "matchFiles": [
         "^tools/havener/manifest.yaml$"
       ],
-      "groupName": "havener"
+      "commitMessageTopic": "havener"
     },
     {
       "matchFiles": [
         "^tools/hcloud/manifest.yaml$"
       ],
-      "groupName": "hcloud"
+      "commitMessageTopic": "hcloud"
     },
     {
       "matchFiles": [
         "^tools/helm/manifest.yaml$"
       ],
-      "groupName": "helm"
+      "commitMessageTopic": "helm"
     },
     {
       "matchFiles": [
         "^tools/helmfile/manifest.yaml$"
       ],
-      "groupName": "helmfile"
+      "commitMessageTopic": "helmfile"
     },
     {
       "matchFiles": [
         "^tools/helmify/manifest.yaml$"
       ],
-      "groupName": "helmify"
+      "commitMessageTopic": "helmify"
     },
     {
       "matchFiles": [
         "^tools/hetzner-k3s/manifest.yaml$"
       ],
-      "groupName": "hetzner-k3s"
+      "commitMessageTopic": "hetzner-k3s"
     },
     {
       "matchFiles": [
         "^tools/hexyl/manifest.yaml$"
       ],
-      "groupName": "hexyl"
+      "commitMessageTopic": "hexyl"
     },
     {
       "matchFiles": [
         "^tools/hishtory/manifest.yaml$"
       ],
-      "groupName": "hishtory"
+      "commitMessageTopic": "hishtory"
     },
     {
       "matchFiles": [
         "^tools/holmesgpt/manifest.yaml$"
       ],
-      "groupName": "holmesgpt"
+      "commitMessageTopic": "holmesgpt"
     },
     {
       "matchFiles": [
         "^tools/hopp/manifest.yaml$"
       ],
-      "groupName": "hopp"
+      "commitMessageTopic": "hopp"
     },
     {
       "matchFiles": [
         "^tools/ht/manifest.yaml$"
       ],
-      "groupName": "ht"
+      "commitMessageTopic": "ht"
     },
     {
       "matchFiles": [
         "^tools/htmx/manifest.yaml$"
       ],
-      "groupName": "htmx"
+      "commitMessageTopic": "htmx"
     },
     {
       "matchFiles": [
         "^tools/httpie/manifest.yaml$"
       ],
-      "groupName": "httpie"
+      "commitMessageTopic": "httpie"
     },
     {
       "matchFiles": [
         "^tools/httpx/manifest.yaml$"
       ],
-      "groupName": "httpx"
+      "commitMessageTopic": "httpx"
     },
     {
       "matchFiles": [
         "^tools/hub/manifest.yaml$"
       ],
-      "groupName": "hub"
+      "commitMessageTopic": "hub"
     },
     {
       "matchFiles": [
         "^tools/hubble/manifest.yaml$"
       ],
-      "groupName": "hubble"
+      "commitMessageTopic": "hubble"
     },
     {
       "matchFiles": [
         "^tools/huber/manifest.yaml$"
       ],
-      "groupName": "huber"
+      "commitMessageTopic": "huber"
     },
     {
       "matchFiles": [
         "^tools/hub-tool/manifest.yaml$"
       ],
-      "groupName": "hub-tool"
+      "commitMessageTopic": "hub-tool"
     },
     {
       "matchFiles": [
         "^tools/hugo/manifest.yaml$"
       ],
-      "groupName": "hugo"
+      "commitMessageTopic": "hugo"
     },
     {
       "matchFiles": [
         "^tools/hurl/manifest.yaml$"
       ],
-      "groupName": "hurl"
+      "commitMessageTopic": "hurl"
     },
     {
       "matchFiles": [
         "^tools/hyperfine/manifest.yaml$"
       ],
-      "groupName": "hyperfine"
+      "commitMessageTopic": "hyperfine"
     },
     {
       "matchFiles": [
         "^tools/ignite/manifest.yaml$"
       ],
-      "groupName": "ignite"
+      "commitMessageTopic": "ignite"
     },
     {
       "matchFiles": [
         "^tools/img/manifest.yaml$"
       ],
-      "groupName": "img"
+      "commitMessageTopic": "img"
     },
     {
       "matchFiles": [
         "^tools/imgcrypt/manifest.yaml$"
       ],
-      "groupName": "imgcrypt"
+      "commitMessageTopic": "imgcrypt"
     },
     {
       "matchFiles": [
         "^tools/imgpkg/manifest.yaml$"
       ],
-      "groupName": "imgpkg"
+      "commitMessageTopic": "imgpkg"
     },
     {
       "matchFiles": [
         "^tools/incus/manifest.yaml$"
       ],
-      "groupName": "incus"
+      "commitMessageTopic": "incus"
     },
     {
       "matchFiles": [
         "^tools/influx-cli/manifest.yaml$"
       ],
-      "groupName": "influx-cli"
+      "commitMessageTopic": "influx-cli"
     },
     {
       "matchFiles": [
         "^tools/influxdb/manifest.yaml$"
       ],
-      "groupName": "influxdb"
+      "commitMessageTopic": "influxdb"
     },
     {
       "matchFiles": [
         "^tools/ingress2gateway/manifest.yaml$"
       ],
-      "groupName": "ingress2gateway"
+      "commitMessageTopic": "ingress2gateway"
     },
     {
       "matchFiles": [
         "^tools/inotify-tools/manifest.yaml$"
       ],
-      "groupName": "inotify-tools"
+      "commitMessageTopic": "inotify-tools"
     },
     {
       "matchFiles": [
         "^tools/inshellisense/manifest.yaml$"
       ],
-      "groupName": "inshellisense"
+      "commitMessageTopic": "inshellisense"
     },
     {
       "matchFiles": [
         "^tools/in-toto/manifest.yaml$"
       ],
-      "groupName": "in-toto"
+      "commitMessageTopic": "in-toto"
     },
     {
       "matchFiles": [
         "^tools/iptables/manifest.yaml$"
       ],
-      "groupName": "iptables"
+      "commitMessageTopic": "iptables"
     },
     {
       "matchFiles": [
         "^tools/it-depends/manifest.yaml$"
       ],
-      "groupName": "it-depends"
+      "commitMessageTopic": "it-depends"
     },
     {
       "matchFiles": [
         "^tools/jabba/manifest.yaml$"
       ],
-      "groupName": "jabba"
+      "commitMessageTopic": "jabba"
     },
     {
       "matchFiles": [
         "^tools/jaq/manifest.yaml$"
       ],
-      "groupName": "jaq"
+      "commitMessageTopic": "jaq"
     },
     {
       "matchFiles": [
         "^tools/jaxb/manifest.yaml$"
       ],
-      "groupName": "jaxb"
+      "commitMessageTopic": "jaxb"
     },
     {
       "matchFiles": [
         "^tools/jb/manifest.yaml$"
       ],
-      "groupName": "jb"
+      "commitMessageTopic": "jb"
     },
     {
       "matchFiles": [
         "^tools/jc/manifest.yaml$"
       ],
-      "groupName": "jc"
+      "commitMessageTopic": "jc"
     },
     {
       "matchFiles": [
         "^tools/jenkins-remoting/manifest.yaml$"
       ],
-      "groupName": "jenkins-remoting"
+      "commitMessageTopic": "jenkins-remoting"
     },
     {
       "matchFiles": [
         "^tools/jetbrainsmono/manifest.yaml$"
       ],
-      "groupName": "jetbrainsmono"
+      "commitMessageTopic": "jetbrainsmono"
     },
     {
       "matchFiles": [
         "^tools/jf/manifest.yaml$"
       ],
-      "groupName": "jf"
+      "commitMessageTopic": "jf"
     },
     {
       "matchFiles": [
         "^tools/jfq/manifest.yaml$"
       ],
-      "groupName": "jfq"
+      "commitMessageTopic": "jfq"
     },
     {
       "matchFiles": [
         "^tools/jj/manifest.yaml$"
       ],
-      "groupName": "jj"
+      "commitMessageTopic": "jj"
     },
     {
       "matchFiles": [
         "^tools/jless/manifest.yaml$"
       ],
-      "groupName": "jless"
+      "commitMessageTopic": "jless"
     },
     {
       "matchFiles": [
         "^tools/jnv/manifest.yaml$"
       ],
-      "groupName": "jnv"
+      "commitMessageTopic": "jnv"
     },
     {
       "matchFiles": [
         "^tools/jp/manifest.yaml$"
       ],
-      "groupName": "jp"
+      "commitMessageTopic": "jp"
     },
     {
       "matchFiles": [
         "^tools/jq/manifest.yaml$"
       ],
-      "groupName": "jq"
+      "commitMessageTopic": "jq"
     },
     {
       "matchFiles": [
         "^tools/jqp/manifest.yaml$"
       ],
-      "groupName": "jqp"
+      "commitMessageTopic": "jqp"
     },
     {
       "matchFiles": [
         "^tools/jsonata-cli/manifest.yaml$"
       ],
-      "groupName": "jsonata-cli"
+      "commitMessageTopic": "jsonata-cli"
     },
     {
       "matchFiles": [
         "^tools/json-exporter/manifest.yaml$"
       ],
-      "groupName": "json-exporter"
+      "commitMessageTopic": "json-exporter"
     },
     {
       "matchFiles": [
         "^tools/jsonnet/manifest.yaml$"
       ],
-      "groupName": "jsonnet"
+      "commitMessageTopic": "jsonnet"
     },
     {
       "matchFiles": [
         "^tools/jsonplot/manifest.yaml$"
       ],
-      "groupName": "jsonplot"
+      "commitMessageTopic": "jsonplot"
     },
     {
       "matchFiles": [
         "^tools/just/manifest.yaml$"
       ],
-      "groupName": "just"
+      "commitMessageTopic": "just"
     },
     {
       "matchFiles": [
         "^tools/jwt/manifest.yaml$"
       ],
-      "groupName": "jwt"
+      "commitMessageTopic": "jwt"
     },
     {
       "matchFiles": [
         "^tools/jx/manifest.yaml$"
       ],
-      "groupName": "jx"
+      "commitMessageTopic": "jx"
     },
     {
       "matchFiles": [
         "^tools/k0s/manifest.yaml$"
       ],
-      "groupName": "k0s"
+      "commitMessageTopic": "k0s"
     },
     {
       "matchFiles": [
         "^tools/k0sctl/manifest.yaml$"
       ],
-      "groupName": "k0sctl"
+      "commitMessageTopic": "k0sctl"
     },
     {
       "matchFiles": [
         "^tools/k2d/manifest.yaml$"
       ],
-      "groupName": "k2d"
+      "commitMessageTopic": "k2d"
     },
     {
       "matchFiles": [
         "^tools/k3d/manifest.yaml$"
       ],
-      "groupName": "k3d"
+      "commitMessageTopic": "k3d"
     },
     {
       "matchFiles": [
         "^tools/k3s/manifest.yaml$"
       ],
-      "groupName": "k3s"
+      "commitMessageTopic": "k3s"
     },
     {
       "matchFiles": [
         "^tools/k3sup/manifest.yaml$"
       ],
-      "groupName": "k3sup"
+      "commitMessageTopic": "k3sup"
     },
     {
       "matchFiles": [
         "^tools/k6/manifest.yaml$"
       ],
-      "groupName": "k6"
+      "commitMessageTopic": "k6"
     },
     {
       "matchFiles": [
         "^tools/k8senv/manifest.yaml$"
       ],
-      "groupName": "k8senv"
+      "commitMessageTopic": "k8senv"
     },
     {
       "matchFiles": [
         "^tools/k8sgpt/manifest.yaml$"
       ],
-      "groupName": "k8sgpt"
+      "commitMessageTopic": "k8sgpt"
     },
     {
       "matchFiles": [
         "^tools/k8spacket/manifest.yaml$"
       ],
-      "groupName": "k8spacket"
+      "commitMessageTopic": "k8spacket"
     },
     {
       "matchFiles": [
         "^tools/k8s-tew/manifest.yaml$"
       ],
-      "groupName": "k8s-tew"
+      "commitMessageTopic": "k8s-tew"
     },
     {
       "matchFiles": [
         "^tools/k9s/manifest.yaml$"
       ],
-      "groupName": "k9s"
+      "commitMessageTopic": "k9s"
     },
     {
       "matchFiles": [
         "^tools/kapp/manifest.yaml$"
       ],
-      "groupName": "kapp"
+      "commitMessageTopic": "kapp"
     },
     {
       "matchFiles": [
         "^tools/katana/manifest.yaml$"
       ],
-      "groupName": "katana"
+      "commitMessageTopic": "katana"
     },
     {
       "matchFiles": [
         "^tools/kbld/manifest.yaml$"
       ],
-      "groupName": "kbld"
+      "commitMessageTopic": "kbld"
     },
     {
       "matchFiles": [
         "^tools/kbom/manifest.yaml$"
       ],
-      "groupName": "kbom"
+      "commitMessageTopic": "kbom"
     },
     {
       "matchFiles": [
         "^tools/kbrew/manifest.yaml$"
       ],
-      "groupName": "kbrew"
+      "commitMessageTopic": "kbrew"
     },
     {
       "matchFiles": [
         "^tools/kcount/manifest.yaml$"
       ],
-      "groupName": "kcount"
+      "commitMessageTopic": "kcount"
     },
     {
       "matchFiles": [
         "^tools/kcp/manifest.yaml$"
       ],
-      "groupName": "kcp"
+      "commitMessageTopic": "kcp"
     },
     {
       "matchFiles": [
         "^tools/kd/manifest.yaml$"
       ],
-      "groupName": "kd"
+      "commitMessageTopic": "kd"
     },
     {
       "matchFiles": [
         "^tools/kdo/manifest.yaml$"
       ],
-      "groupName": "kdo"
+      "commitMessageTopic": "kdo"
     },
     {
       "matchFiles": [
         "^tools/ketch/manifest.yaml$"
       ],
-      "groupName": "ketch"
+      "commitMessageTopic": "ketch"
     },
     {
       "matchFiles": [
         "^tools/kexp/manifest.yaml$"
       ],
-      "groupName": "kexp"
+      "commitMessageTopic": "kexp"
     },
     {
       "matchFiles": [
         "^tools/keybase/manifest.yaml$"
       ],
-      "groupName": "keybase"
+      "commitMessageTopic": "keybase"
     },
     {
       "matchFiles": [
         "^tools/keyoxide/manifest.yaml$"
       ],
-      "groupName": "keyoxide"
+      "commitMessageTopic": "keyoxide"
     },
     {
       "matchFiles": [
         "^tools/kgctl/manifest.yaml$"
       ],
-      "groupName": "kgctl"
+      "commitMessageTopic": "kgctl"
     },
     {
       "matchFiles": [
         "^tools/kind/manifest.yaml$"
       ],
-      "groupName": "kind"
+      "commitMessageTopic": "kind"
     },
     {
       "matchFiles": [
         "^tools/kine/manifest.yaml$"
       ],
-      "groupName": "kine"
+      "commitMessageTopic": "kine"
     },
     {
       "matchFiles": [
         "^tools/kink/manifest.yaml$"
       ],
-      "groupName": "kink"
+      "commitMessageTopic": "kink"
     },
     {
       "matchFiles": [
         "^tools/kitt/manifest.yaml$"
       ],
-      "groupName": "kitt"
+      "commitMessageTopic": "kitt"
     },
     {
       "matchFiles": [
         "^tools/kitty/manifest.yaml$"
       ],
-      "groupName": "kitty"
+      "commitMessageTopic": "kitty"
     },
     {
       "matchFiles": [
         "^tools/kluctl/manifest.yaml$"
       ],
-      "groupName": "kluctl"
+      "commitMessageTopic": "kluctl"
     },
     {
       "matchFiles": [
         "^tools/kmon/manifest.yaml$"
       ],
-      "groupName": "kmon"
+      "commitMessageTopic": "kmon"
     },
     {
       "matchFiles": [
         "^tools/kn/manifest.yaml$"
       ],
-      "groupName": "kn"
+      "commitMessageTopic": "kn"
     },
     {
       "matchFiles": [
         "^tools/ko/manifest.yaml$"
       ],
-      "groupName": "ko"
+      "commitMessageTopic": "ko"
     },
     {
       "matchFiles": [
         "^tools/kompose/manifest.yaml$"
       ],
-      "groupName": "kompose"
+      "commitMessageTopic": "kompose"
     },
     {
       "matchFiles": [
         "^tools/konf/manifest.yaml$"
       ],
-      "groupName": "konf"
+      "commitMessageTopic": "konf"
     },
     {
       "matchFiles": [
         "^tools/kots/manifest.yaml$"
       ],
-      "groupName": "kots"
+      "commitMessageTopic": "kots"
     },
     {
       "matchFiles": [
         "^tools/kp/manifest.yaml$"
       ],
-      "groupName": "kp"
+      "commitMessageTopic": "kp"
     },
     {
       "matchFiles": [
         "^tools/kpt/manifest.yaml$"
       ],
-      "groupName": "kpt"
+      "commitMessageTopic": "kpt"
     },
     {
       "matchFiles": [
         "^tools/kpxhs/manifest.yaml$"
       ],
-      "groupName": "kpxhs"
+      "commitMessageTopic": "kpxhs"
     },
     {
       "matchFiles": [
         "^tools/krew/manifest.yaml$"
       ],
-      "groupName": "krew"
+      "commitMessageTopic": "krew"
     },
     {
       "matchFiles": [
         "^tools/kroki-cli/manifest.yaml$"
       ],
-      "groupName": "kroki-cli"
+      "commitMessageTopic": "kroki-cli"
     },
     {
       "matchFiles": [
         "^tools/ksort/manifest.yaml$"
       ],
-      "groupName": "ksort"
+      "commitMessageTopic": "ksort"
     },
     {
       "matchFiles": [
         "^tools/ktop/manifest.yaml$"
       ],
-      "groupName": "ktop"
+      "commitMessageTopic": "ktop"
     },
     {
       "matchFiles": [
         "^tools/ktunnel/manifest.yaml$"
       ],
-      "groupName": "ktunnel"
+      "commitMessageTopic": "ktunnel"
     },
     {
       "matchFiles": [
         "^tools/kubeadm/manifest.yaml$"
       ],
-      "groupName": "kubeadm"
+      "commitMessageTopic": "kubeadm"
     },
     {
       "matchFiles": [
         "^tools/kube-apiserver/manifest.yaml$"
       ],
-      "groupName": "kube-apiserver"
+      "commitMessageTopic": "kube-apiserver"
     },
     {
       "matchFiles": [
         "^tools/kubeaudit/manifest.yaml$"
       ],
-      "groupName": "kubeaudit"
+      "commitMessageTopic": "kubeaudit"
     },
     {
       "matchFiles": [
         "^tools/kube-bench/manifest.yaml$"
       ],
-      "groupName": "kube-bench"
+      "commitMessageTopic": "kube-bench"
     },
     {
       "matchFiles": [
         "^tools/kubebox/manifest.yaml$"
       ],
-      "groupName": "kubebox"
+      "commitMessageTopic": "kubebox"
     },
     {
       "matchFiles": [
         "^tools/kubebuilder/manifest.yaml$"
       ],
-      "groupName": "kubebuilder"
+      "commitMessageTopic": "kubebuilder"
     },
     {
       "matchFiles": [
         "^tools/kube-burner/manifest.yaml$"
       ],
-      "groupName": "kube-burner"
+      "commitMessageTopic": "kube-burner"
     },
     {
       "matchFiles": [
         "^tools/kubeclarity-cli/manifest.yaml$"
       ],
-      "groupName": "kubeclarity-cli"
+      "commitMessageTopic": "kubeclarity-cli"
     },
     {
       "matchFiles": [
         "^tools/kubecolor/manifest.yaml$"
       ],
-      "groupName": "kubecolor"
+      "commitMessageTopic": "kubecolor"
     },
     {
       "matchFiles": [
         "^tools/kubeconform/manifest.yaml$"
       ],
-      "groupName": "kubeconform"
+      "commitMessageTopic": "kubeconform"
     },
     {
       "matchFiles": [
         "^tools/kube-controller-manager/manifest.yaml$"
       ],
-      "groupName": "kube-controller-manager"
+      "commitMessageTopic": "kube-controller-manager"
     },
     {
       "matchFiles": [
         "^tools/kubectl/manifest.yaml$"
       ],
-      "groupName": "kubectl"
+      "commitMessageTopic": "kubectl"
     },
     {
       "matchFiles": [
         "^tools/kubectl-build/manifest.yaml$"
       ],
-      "groupName": "kubectl-build"
+      "commitMessageTopic": "kubectl-build"
     },
     {
       "matchFiles": [
         "^tools/kubectl-free/manifest.yaml$"
       ],
-      "groupName": "kubectl-free"
+      "commitMessageTopic": "kubectl-free"
     },
     {
       "matchFiles": [
         "^tools/kubectl-oidc-login/manifest.yaml$"
       ],
-      "groupName": "kubectl-oidc-login"
+      "commitMessageTopic": "kubectl-oidc-login"
     },
     {
       "matchFiles": [
         "^tools/kubectl-resources/manifest.yaml$"
       ],
-      "groupName": "kubectl-resources"
+      "commitMessageTopic": "kubectl-resources"
     },
     {
       "matchFiles": [
         "^tools/kubectl-ssh-proxy/manifest.yaml$"
       ],
-      "groupName": "kubectl-ssh-proxy"
+      "commitMessageTopic": "kubectl-ssh-proxy"
     },
     {
       "matchFiles": [
         "^tools/kubectx/manifest.yaml$"
       ],
-      "groupName": "kubectx"
+      "commitMessageTopic": "kubectx"
     },
     {
       "matchFiles": [
         "^tools/kubefire/manifest.yaml$"
       ],
-      "groupName": "kubefire"
+      "commitMessageTopic": "kubefire"
     },
     {
       "matchFiles": [
         "^tools/kubelet/manifest.yaml$"
       ],
-      "groupName": "kubelet"
+      "commitMessageTopic": "kubelet"
     },
     {
       "matchFiles": [
         "^tools/kubeletctl/manifest.yaml$"
       ],
-      "groupName": "kubeletctl"
+      "commitMessageTopic": "kubeletctl"
     },
     {
       "matchFiles": [
         "^tools/kube-linter/manifest.yaml$"
       ],
-      "groupName": "kube-linter"
+      "commitMessageTopic": "kube-linter"
     },
     {
       "matchFiles": [
         "^tools/kubent/manifest.yaml$"
       ],
-      "groupName": "kubent"
+      "commitMessageTopic": "kubent"
     },
     {
       "matchFiles": [
         "^tools/kube-proxy/manifest.yaml$"
       ],
-      "groupName": "kube-proxy"
+      "commitMessageTopic": "kube-proxy"
     },
     {
       "matchFiles": [
         "^tools/kube-psp-advisor/manifest.yaml$"
       ],
-      "groupName": "kube-psp-advisor"
+      "commitMessageTopic": "kube-psp-advisor"
     },
     {
       "matchFiles": [
         "^tools/kubernetes-json-schema/manifest.yaml$"
       ],
-      "groupName": "kubernetes-json-schema"
+      "commitMessageTopic": "kubernetes-json-schema"
     },
     {
       "matchFiles": [
         "^tools/kubescape/manifest.yaml$"
       ],
-      "groupName": "kubescape"
+      "commitMessageTopic": "kubescape"
     },
     {
       "matchFiles": [
         "^tools/kube-scheduler/manifest.yaml$"
       ],
-      "groupName": "kube-scheduler"
+      "commitMessageTopic": "kube-scheduler"
     },
     {
       "matchFiles": [
         "^tools/kube-score/manifest.yaml$"
       ],
-      "groupName": "kube-score"
+      "commitMessageTopic": "kube-score"
     },
     {
       "matchFiles": [
         "^tools/kubeseal/manifest.yaml$"
       ],
-      "groupName": "kubeseal"
+      "commitMessageTopic": "kubeseal"
     },
     {
       "matchFiles": [
         "^tools/kubesec/manifest.yaml$"
       ],
-      "groupName": "kubesec"
+      "commitMessageTopic": "kubesec"
     },
     {
       "matchFiles": [
         "^tools/kubeshark/manifest.yaml$"
       ],
-      "groupName": "kubeshark"
+      "commitMessageTopic": "kubeshark"
     },
     {
       "matchFiles": [
         "^tools/kubeswitch/manifest.yaml$"
       ],
-      "groupName": "kubeswitch"
+      "commitMessageTopic": "kubeswitch"
     },
     {
       "matchFiles": [
         "^tools/kube-trigger/manifest.yaml$"
       ],
-      "groupName": "kube-trigger"
+      "commitMessageTopic": "kube-trigger"
     },
     {
       "matchFiles": [
         "^tools/kubeval/manifest.yaml$"
       ],
-      "groupName": "kubeval"
+      "commitMessageTopic": "kubeval"
     },
     {
       "matchFiles": [
         "^tools/kubo/manifest.yaml$"
       ],
-      "groupName": "kubo"
+      "commitMessageTopic": "kubo"
     },
     {
       "matchFiles": [
         "^tools/kudo/manifest.yaml$"
       ],
-      "groupName": "kudo"
+      "commitMessageTopic": "kudo"
     },
     {
       "matchFiles": [
         "^tools/kustomize/manifest.yaml$"
       ],
-      "groupName": "kustomize"
+      "commitMessageTopic": "kustomize"
     },
     {
       "matchFiles": [
         "^tools/kustomizer/manifest.yaml$"
       ],
-      "groupName": "kustomizer"
+      "commitMessageTopic": "kustomizer"
     },
     {
       "matchFiles": [
         "^tools/kuttl/manifest.yaml$"
       ],
-      "groupName": "kuttl"
+      "commitMessageTopic": "kuttl"
     },
     {
       "matchFiles": [
         "^tools/kwok/manifest.yaml$"
       ],
-      "groupName": "kwok"
+      "commitMessageTopic": "kwok"
     },
     {
       "matchFiles": [
         "^tools/kyverno/manifest.yaml$"
       ],
-      "groupName": "kyverno"
+      "commitMessageTopic": "kyverno"
     },
     {
       "matchFiles": [
         "^tools/lab/manifest.yaml$"
       ],
-      "groupName": "lab"
+      "commitMessageTopic": "lab"
     },
     {
       "matchFiles": [
         "^tools/lazydocker/manifest.yaml$"
       ],
-      "groupName": "lazydocker"
+      "commitMessageTopic": "lazydocker"
     },
     {
       "matchFiles": [
         "^tools/lazygit/manifest.yaml$"
       ],
-      "groupName": "lazygit"
+      "commitMessageTopic": "lazygit"
     },
     {
       "matchFiles": [
         "^tools/lazysql/manifest.yaml$"
       ],
-      "groupName": "lazysql"
+      "commitMessageTopic": "lazysql"
     },
     {
       "matchFiles": [
         "^tools/lazytrivy/manifest.yaml$"
       ],
-      "groupName": "lazytrivy"
+      "commitMessageTopic": "lazytrivy"
     },
     {
       "matchFiles": [
         "^tools/lectl/manifest.yaml$"
       ],
-      "groupName": "lectl"
+      "commitMessageTopic": "lectl"
     },
     {
       "matchFiles": [
         "^tools/lego/manifest.yaml$"
       ],
-      "groupName": "lego"
+      "commitMessageTopic": "lego"
     },
     {
       "matchFiles": [
         "^tools/libbpf/manifest.yaml$"
       ],
-      "groupName": "libbpf"
+      "commitMessageTopic": "libbpf"
     },
     {
       "matchFiles": [
         "^tools/libcap/manifest.yaml$"
       ],
-      "groupName": "libcap"
+      "commitMessageTopic": "libcap"
     },
     {
       "matchFiles": [
         "^tools/libcap-ng/manifest.yaml$"
       ],
-      "groupName": "libcap-ng"
+      "commitMessageTopic": "libcap-ng"
     },
     {
       "matchFiles": [
         "^tools/libcgroup/manifest.yaml$"
       ],
-      "groupName": "libcgroup"
+      "commitMessageTopic": "libcgroup"
     },
     {
       "matchFiles": [
         "^tools/libgmp/manifest.yaml$"
       ],
-      "groupName": "libgmp"
+      "commitMessageTopic": "libgmp"
     },
     {
       "matchFiles": [
         "^tools/libjansson/manifest.yaml$"
       ],
-      "groupName": "libjansson"
+      "commitMessageTopic": "libjansson"
     },
     {
       "matchFiles": [
         "^tools/libmnl/manifest.yaml$"
       ],
-      "groupName": "libmnl"
+      "commitMessageTopic": "libmnl"
     },
     {
       "matchFiles": [
         "^tools/libnfnetlink/manifest.yaml$"
       ],
-      "groupName": "libnfnetlink"
+      "commitMessageTopic": "libnfnetlink"
     },
     {
       "matchFiles": [
         "^tools/libnftnl/manifest.yaml$"
       ],
-      "groupName": "libnftnl"
+      "commitMessageTopic": "libnftnl"
     },
     {
       "matchFiles": [
         "^tools/libnvidia-container/manifest.yaml$"
       ],
-      "groupName": "libnvidia-container"
+      "commitMessageTopic": "libnvidia-container"
     },
     {
       "matchFiles": [
         "^tools/lima/manifest.yaml$"
       ],
-      "groupName": "lima"
+      "commitMessageTopic": "lima"
     },
     {
       "matchFiles": [
         "^tools/linkchecker/manifest.yaml$"
       ],
-      "groupName": "linkchecker"
+      "commitMessageTopic": "linkchecker"
     },
     {
       "matchFiles": [
         "^tools/linux-kernel/manifest.yaml$"
       ],
-      "groupName": "linux-kernel"
+      "commitMessageTopic": "linux-kernel"
     },
     {
       "matchFiles": [
         "^tools/linux-kernel-wsl/manifest.yaml$"
       ],
-      "groupName": "linux-kernel-wsl"
+      "commitMessageTopic": "linux-kernel-wsl"
     },
     {
       "matchFiles": [
         "^tools/linux-kernel-wsl-stable/manifest.yaml$"
       ],
-      "groupName": "linux-kernel-wsl-stable"
+      "commitMessageTopic": "linux-kernel-wsl-stable"
     },
     {
       "matchFiles": [
         "^tools/linuxkit/manifest.yaml$"
       ],
-      "groupName": "linuxkit"
+      "commitMessageTopic": "linuxkit"
     },
     {
       "matchFiles": [
         "^tools/local-ai/manifest.yaml$"
       ],
-      "groupName": "local-ai"
+      "commitMessageTopic": "local-ai"
     },
     {
       "matchFiles": [
         "^tools/localizer/manifest.yaml$"
       ],
-      "groupName": "localizer"
+      "commitMessageTopic": "localizer"
     },
     {
       "matchFiles": [
         "^tools/loft/manifest.yaml$"
       ],
-      "groupName": "loft"
+      "commitMessageTopic": "loft"
     },
     {
       "matchFiles": [
         "^tools/logcli/manifest.yaml$"
       ],
-      "groupName": "logcli"
+      "commitMessageTopic": "logcli"
     },
     {
       "matchFiles": [
         "^tools/loki/manifest.yaml$"
       ],
-      "groupName": "loki"
+      "commitMessageTopic": "loki"
     },
     {
       "matchFiles": [
         "^tools/loki-canary/manifest.yaml$"
       ],
-      "groupName": "loki-canary"
+      "commitMessageTopic": "loki-canary"
     },
     {
       "matchFiles": [
         "^tools/lowcharts/manifest.yaml$"
       ],
-      "groupName": "lowcharts"
+      "commitMessageTopic": "lowcharts"
     },
     {
       "matchFiles": [
         "^tools/lsd/manifest.yaml$"
       ],
-      "groupName": "lsd"
+      "commitMessageTopic": "lsd"
     },
     {
       "matchFiles": [
         "^tools/lstags/manifest.yaml$"
       ],
-      "groupName": "lstags"
+      "commitMessageTopic": "lstags"
     },
     {
       "matchFiles": [
         "^tools/luet/manifest.yaml$"
       ],
-      "groupName": "luet"
+      "commitMessageTopic": "luet"
     },
     {
       "matchFiles": [
         "^tools/lxroot/manifest.yaml$"
       ],
-      "groupName": "lxroot"
+      "commitMessageTopic": "lxroot"
     },
     {
       "matchFiles": [
         "^tools/lz4/manifest.yaml$"
       ],
-      "groupName": "lz4"
+      "commitMessageTopic": "lz4"
     },
     {
       "matchFiles": [
         "^tools/mage/manifest.yaml$"
       ],
-      "groupName": "mage"
+      "commitMessageTopic": "mage"
     },
     {
       "matchFiles": [
         "^tools/mailpit/manifest.yaml$"
       ],
-      "groupName": "mailpit"
+      "commitMessageTopic": "mailpit"
     },
     {
       "matchFiles": [
         "^tools/make/manifest.yaml$"
       ],
-      "groupName": "make"
+      "commitMessageTopic": "make"
     },
     {
       "matchFiles": [
         "^tools/mani/manifest.yaml$"
       ],
-      "groupName": "mani"
+      "commitMessageTopic": "mani"
     },
     {
       "matchFiles": [
         "^tools/manifest-tool/manifest.yaml$"
       ],
-      "groupName": "manifest-tool"
+      "commitMessageTopic": "manifest-tool"
     },
     {
       "matchFiles": [
         "^tools/mapcidr/manifest.yaml$"
       ],
-      "groupName": "mapcidr"
+      "commitMessageTopic": "mapcidr"
     },
     {
       "matchFiles": [
         "^tools/markdownlint/manifest.yaml$"
       ],
-      "groupName": "markdownlint"
+      "commitMessageTopic": "markdownlint"
     },
     {
       "matchFiles": [
         "^tools/marvin/manifest.yaml$"
       ],
-      "groupName": "marvin"
+      "commitMessageTopic": "marvin"
     },
     {
       "matchFiles": [
         "^tools/maven/manifest.yaml$"
       ],
-      "groupName": "maven"
+      "commitMessageTopic": "maven"
     },
     {
       "matchFiles": [
         "^tools/mc/manifest.yaml$"
       ],
-      "groupName": "mc"
+      "commitMessageTopic": "mc"
     },
     {
       "matchFiles": [
         "^tools/mcfly/manifest.yaml$"
       ],
-      "groupName": "mcfly"
+      "commitMessageTopic": "mcfly"
     },
     {
       "matchFiles": [
         "^tools/mcrcon/manifest.yaml$"
       ],
-      "groupName": "mcrcon"
+      "commitMessageTopic": "mcrcon"
     },
     {
       "matchFiles": [
         "^tools/melange/manifest.yaml$"
       ],
-      "groupName": "melange"
+      "commitMessageTopic": "melange"
     },
     {
       "matchFiles": [
         "^tools/melt/manifest.yaml$"
       ],
-      "groupName": "melt"
+      "commitMessageTopic": "melt"
     },
     {
       "matchFiles": [
         "^tools/mergerfs/manifest.yaml$"
       ],
-      "groupName": "mergerfs"
+      "commitMessageTopic": "mergerfs"
     },
     {
       "matchFiles": [
         "^tools/mermaid-cli/manifest.yaml$"
       ],
-      "groupName": "mermaid-cli"
+      "commitMessageTopic": "mermaid-cli"
     },
     {
       "matchFiles": [
         "^tools/meteor/manifest.yaml$"
       ],
-      "groupName": "meteor"
+      "commitMessageTopic": "meteor"
     },
     {
       "matchFiles": [
         "^tools/meteor-commit/manifest.yaml$"
       ],
-      "groupName": "meteor-commit"
+      "commitMessageTopic": "meteor-commit"
     },
     {
       "matchFiles": [
         "^tools/mgo/manifest.yaml$"
       ],
-      "groupName": "mgo"
+      "commitMessageTopic": "mgo"
     },
     {
       "matchFiles": [
         "^tools/micro/manifest.yaml$"
       ],
-      "groupName": "micro"
+      "commitMessageTopic": "micro"
     },
     {
       "matchFiles": [
         "^tools/miller/manifest.yaml$"
       ],
-      "groupName": "miller"
+      "commitMessageTopic": "miller"
     },
     {
       "matchFiles": [
         "^tools/mimir/manifest.yaml$"
       ],
-      "groupName": "mimir"
+      "commitMessageTopic": "mimir"
     },
     {
       "matchFiles": [
         "^tools/mimirtool/manifest.yaml$"
       ],
-      "groupName": "mimirtool"
+      "commitMessageTopic": "mimirtool"
     },
     {
       "matchFiles": [
         "^tools/minder/manifest.yaml$"
       ],
-      "groupName": "minder"
+      "commitMessageTopic": "minder"
     },
     {
       "matchFiles": [
         "^tools/minecraft-server/manifest.yaml$"
       ],
-      "groupName": "minecraft-server"
+      "commitMessageTopic": "minecraft-server"
     },
     {
       "matchFiles": [
         "^tools/minectl/manifest.yaml$"
       ],
-      "groupName": "minectl"
+      "commitMessageTopic": "minectl"
     },
     {
       "matchFiles": [
         "^tools/minikube/manifest.yaml$"
       ],
-      "groupName": "minikube"
+      "commitMessageTopic": "minikube"
     },
     {
       "matchFiles": [
         "^tools/minio/manifest.yaml$"
       ],
-      "groupName": "minio"
+      "commitMessageTopic": "minio"
     },
     {
       "matchFiles": [
         "^tools/mink/manifest.yaml$"
       ],
-      "groupName": "mink"
+      "commitMessageTopic": "mink"
     },
     {
       "matchFiles": [
         "^tools/mint/manifest.yaml$"
       ],
-      "groupName": "mint"
+      "commitMessageTopic": "mint"
     },
     {
       "matchFiles": [
         "^tools/mitmproxy/manifest.yaml$"
       ],
-      "groupName": "mitmproxy"
+      "commitMessageTopic": "mitmproxy"
     },
     {
       "matchFiles": [
         "^tools/mkcert/manifest.yaml$"
       ],
-      "groupName": "mkcert"
+      "commitMessageTopic": "mkcert"
     },
     {
       "matchFiles": [
         "^tools/mkdocs/manifest.yaml$"
       ],
-      "groupName": "mkdocs"
+      "commitMessageTopic": "mkdocs"
     },
     {
       "matchFiles": [
         "^tools/mods/manifest.yaml$"
       ],
-      "groupName": "mods"
+      "commitMessageTopic": "mods"
     },
     {
       "matchFiles": [
         "^tools/monaspace/manifest.yaml$"
       ],
-      "groupName": "monaspace"
+      "commitMessageTopic": "monaspace"
     },
     {
       "matchFiles": [
         "^tools/mp3binder/manifest.yaml$"
       ],
-      "groupName": "mp3binder"
+      "commitMessageTopic": "mp3binder"
     },
     {
       "matchFiles": [
         "^tools/multiverse/manifest.yaml$"
       ],
-      "groupName": "multiverse"
+      "commitMessageTopic": "multiverse"
     },
     {
       "matchFiles": [
         "^tools/multiverse-inventories/manifest.yaml$"
       ],
-      "groupName": "multiverse-inventories"
+      "commitMessageTopic": "multiverse-inventories"
     },
     {
       "matchFiles": [
         "^tools/multiverse-netherportals/manifest.yaml$"
       ],
-      "groupName": "multiverse-netherportals"
+      "commitMessageTopic": "multiverse-netherportals"
     },
     {
       "matchFiles": [
         "^tools/multiverse-portals/manifest.yaml$"
       ],
-      "groupName": "multiverse-portals"
+      "commitMessageTopic": "multiverse-portals"
     },
     {
       "matchFiles": [
         "^tools/multiverse-signportals/manifest.yaml$"
       ],
-      "groupName": "multiverse-signportals"
+      "commitMessageTopic": "multiverse-signportals"
     },
     {
       "matchFiles": [
         "^tools/mu-repo/manifest.yaml$"
       ],
-      "groupName": "mu-repo"
+      "commitMessageTopic": "mu-repo"
     },
     {
       "matchFiles": [
         "^tools/musl/manifest.yaml$"
       ],
-      "groupName": "musl"
+      "commitMessageTopic": "musl"
     },
     {
       "matchFiles": [
         "^tools/mutagen/manifest.yaml$"
       ],
-      "groupName": "mutagen"
+      "commitMessageTopic": "mutagen"
     },
     {
       "matchFiles": [
         "^tools/mutagen-compose/manifest.yaml$"
       ],
-      "groupName": "mutagen-compose"
+      "commitMessageTopic": "mutagen-compose"
     },
     {
       "matchFiles": [
         "^tools/n8n/manifest.yaml$"
       ],
-      "groupName": "n8n"
+      "commitMessageTopic": "n8n"
     },
     {
       "matchFiles": [
         "^tools/namespace/manifest.yaml$"
       ],
-      "groupName": "namespace"
+      "commitMessageTopic": "namespace"
     },
     {
       "matchFiles": [
         "^tools/nancy/manifest.yaml$"
       ],
-      "groupName": "nancy"
+      "commitMessageTopic": "nancy"
     },
     {
       "matchFiles": [
         "^tools/navi/manifest.yaml$"
       ],
-      "groupName": "navi"
+      "commitMessageTopic": "navi"
     },
     {
       "matchFiles": [
         "^tools/ncdu/manifest.yaml$"
       ],
-      "groupName": "ncdu"
+      "commitMessageTopic": "ncdu"
     },
     {
       "matchFiles": [
         "^tools/neo4j/manifest.yaml$"
       ],
-      "groupName": "neo4j"
+      "commitMessageTopic": "neo4j"
     },
     {
       "matchFiles": [
         "^tools/neofetch/manifest.yaml$"
       ],
-      "groupName": "neofetch"
+      "commitMessageTopic": "neofetch"
     },
     {
       "matchFiles": [
         "^tools/nerdctl/manifest.yaml$"
       ],
-      "groupName": "nerdctl"
+      "commitMessageTopic": "nerdctl"
     },
     {
       "matchFiles": [
         "^tools/nerd-fonts/manifest.yaml$"
       ],
-      "groupName": "nerd-fonts"
+      "commitMessageTopic": "nerd-fonts"
     },
     {
       "matchFiles": [
         "^tools/newman/manifest.yaml$"
       ],
-      "groupName": "newman"
+      "commitMessageTopic": "newman"
     },
     {
       "matchFiles": [
         "^tools/nftables/manifest.yaml$"
       ],
-      "groupName": "nftables"
+      "commitMessageTopic": "nftables"
     },
     {
       "matchFiles": [
         "^tools/nms/manifest.yaml$"
       ],
-      "groupName": "nms"
+      "commitMessageTopic": "nms"
     },
     {
       "matchFiles": [
         "^tools/node-exporter/manifest.yaml$"
       ],
-      "groupName": "node-exporter"
+      "commitMessageTopic": "node-exporter"
     },
     {
       "matchFiles": [
         "^tools/nodejs/manifest.yaml$"
       ],
-      "groupName": "nodejs"
+      "commitMessageTopic": "nodejs"
     },
     {
       "matchFiles": [
         "^tools/nodejs-lts/manifest.yaml$"
       ],
-      "groupName": "nodejs-lts"
+      "commitMessageTopic": "nodejs-lts"
     },
     {
       "matchFiles": [
         "^tools/nomad/manifest.yaml$"
       ],
-      "groupName": "nomad"
+      "commitMessageTopic": "nomad"
     },
     {
       "matchFiles": [
         "^tools/norouter/manifest.yaml$"
       ],
-      "groupName": "norouter"
+      "commitMessageTopic": "norouter"
     },
     {
       "matchFiles": [
         "^tools/notation/manifest.yaml$"
       ],
-      "groupName": "notation"
+      "commitMessageTopic": "notation"
     },
     {
       "matchFiles": [
         "^tools/npm/manifest.yaml$"
       ],
-      "groupName": "npm"
+      "commitMessageTopic": "npm"
     },
     {
       "matchFiles": [
         "^tools/nsutils/manifest.yaml$"
       ],
-      "groupName": "nsutils"
+      "commitMessageTopic": "nsutils"
     },
     {
       "matchFiles": [
         "^tools/nuclei/manifest.yaml$"
       ],
-      "groupName": "nuclei"
+      "commitMessageTopic": "nuclei"
     },
     {
       "matchFiles": [
         "^tools/nuclei-templates/manifest.yaml$"
       ],
-      "groupName": "nuclei-templates"
+      "commitMessageTopic": "nuclei-templates"
     },
     {
       "matchFiles": [
         "^tools/nushell/manifest.yaml$"
       ],
-      "groupName": "nushell"
+      "commitMessageTopic": "nushell"
     },
     {
       "matchFiles": [
         "^tools/nvidia-container-toolkit/manifest.yaml$"
       ],
-      "groupName": "nvidia-container-toolkit"
+      "commitMessageTopic": "nvidia-container-toolkit"
     },
     {
       "matchFiles": [
         "^tools/nvm/manifest.yaml$"
       ],
-      "groupName": "nvm"
+      "commitMessageTopic": "nvm"
     },
     {
       "matchFiles": [
         "^tools/nx/manifest.yaml$"
       ],
-      "groupName": "nx"
+      "commitMessageTopic": "nx"
     },
     {
       "matchFiles": [
         "^tools/nydus/manifest.yaml$"
       ],
-      "groupName": "nydus"
+      "commitMessageTopic": "nydus"
     },
     {
       "matchFiles": [
         "^tools/nydus-snapshotter/manifest.yaml$"
       ],
-      "groupName": "nydus-snapshotter"
+      "commitMessageTopic": "nydus-snapshotter"
     },
     {
       "matchFiles": [
         "^tools/oc/manifest.yaml$"
       ],
-      "groupName": "oc"
+      "commitMessageTopic": "oc"
     },
     {
       "matchFiles": [
         "^tools/ocb/manifest.yaml$"
       ],
-      "groupName": "ocb"
+      "commitMessageTopic": "ocb"
     },
     {
       "matchFiles": [
         "^tools/oci-image-tool/manifest.yaml$"
       ],
-      "groupName": "oci-image-tool"
+      "commitMessageTopic": "oci-image-tool"
     },
     {
       "matchFiles": [
         "^tools/oci-runtime-tool/manifest.yaml$"
       ],
-      "groupName": "oci-runtime-tool"
+      "commitMessageTopic": "oci-runtime-tool"
     },
     {
       "matchFiles": [
         "^tools/ocm/manifest.yaml$"
       ],
-      "groupName": "ocm"
+      "commitMessageTopic": "ocm"
     },
     {
       "matchFiles": [
         "^tools/octopilot/manifest.yaml$"
       ],
-      "groupName": "octopilot"
+      "commitMessageTopic": "octopilot"
     },
     {
       "matchFiles": [
         "^tools/octosql/manifest.yaml$"
       ],
-      "groupName": "octosql"
+      "commitMessageTopic": "octosql"
     },
     {
       "matchFiles": [
         "^tools/oidc/manifest.yaml$"
       ],
-      "groupName": "oidc"
+      "commitMessageTopic": "oidc"
     },
     {
       "matchFiles": [
         "^tools/oidc-claims/manifest.yaml$"
       ],
-      "groupName": "oidc-claims"
+      "commitMessageTopic": "oidc-claims"
     },
     {
       "matchFiles": [
         "^tools/ojg/manifest.yaml$"
       ],
-      "groupName": "ojg"
+      "commitMessageTopic": "ojg"
     },
     {
       "matchFiles": [
         "^tools/opa/manifest.yaml$"
       ],
-      "groupName": "opa"
+      "commitMessageTopic": "opa"
     },
     {
       "matchFiles": [
         "^tools/openhue-cli/manifest.yaml$"
       ],
-      "groupName": "openhue-cli"
+      "commitMessageTopic": "openhue-cli"
     },
     {
       "matchFiles": [
         "^tools/openjdk/manifest.yaml$"
       ],
-      "groupName": "openjdk"
+      "commitMessageTopic": "openjdk"
     },
     {
       "matchFiles": [
         "^tools/openjdk-jre/manifest.yaml$"
       ],
-      "groupName": "openjdk-jre"
+      "commitMessageTopic": "openjdk-jre"
     },
     {
       "matchFiles": [
         "^tools/opentofu/manifest.yaml$"
       ],
-      "groupName": "opentofu"
+      "commitMessageTopic": "opentofu"
     },
     {
       "matchFiles": [
         "^tools/oras/manifest.yaml$"
       ],
-      "groupName": "oras"
+      "commitMessageTopic": "oras"
     },
     {
       "matchFiles": [
         "^tools/osquery/manifest.yaml$"
       ],
-      "groupName": "osquery"
+      "commitMessageTopic": "osquery"
     },
     {
       "matchFiles": [
         "^tools/osv-scanner/manifest.yaml$"
       ],
-      "groupName": "osv-scanner"
+      "commitMessageTopic": "osv-scanner"
     },
     {
       "matchFiles": [
         "^tools/overlaybd/manifest.yaml$"
       ],
-      "groupName": "overlaybd"
+      "commitMessageTopic": "overlaybd"
     },
     {
       "matchFiles": [
         "^tools/overlaybd-snapshotter/manifest.yaml$"
       ],
-      "groupName": "overlaybd-snapshotter"
+      "commitMessageTopic": "overlaybd-snapshotter"
     },
     {
       "matchFiles": [
         "^tools/pack/manifest.yaml$"
       ],
-      "groupName": "pack"
+      "commitMessageTopic": "pack"
     },
     {
       "matchFiles": [
         "^tools/packer/manifest.yaml$"
       ],
-      "groupName": "packer"
+      "commitMessageTopic": "packer"
     },
     {
       "matchFiles": [
         "^tools/pacstall/manifest.yaml$"
       ],
-      "groupName": "pacstall"
+      "commitMessageTopic": "pacstall"
     },
     {
       "matchFiles": [
         "^tools/pandoc/manifest.yaml$"
       ],
-      "groupName": "pandoc"
+      "commitMessageTopic": "pandoc"
     },
     {
       "matchFiles": [
         "^tools/papermc/manifest.yaml$"
       ],
-      "groupName": "papermc"
+      "commitMessageTopic": "papermc"
     },
     {
       "matchFiles": [
         "^tools/paranoia/manifest.yaml$"
       ],
-      "groupName": "paranoia"
+      "commitMessageTopic": "paranoia"
     },
     {
       "matchFiles": [
         "^tools/parca/manifest.yaml$"
       ],
-      "groupName": "parca"
+      "commitMessageTopic": "parca"
     },
     {
       "matchFiles": [
         "^tools/parca-agent/manifest.yaml$"
       ],
-      "groupName": "parca-agent"
+      "commitMessageTopic": "parca-agent"
     },
     {
       "matchFiles": [
         "^tools/pass/manifest.yaml$"
       ],
-      "groupName": "pass"
+      "commitMessageTopic": "pass"
     },
     {
       "matchFiles": [
         "^tools/passage/manifest.yaml$"
       ],
-      "groupName": "passage"
+      "commitMessageTopic": "passage"
     },
     {
       "matchFiles": [
         "^tools/pass-audit/manifest.yaml$"
       ],
-      "groupName": "pass-audit"
+      "commitMessageTopic": "pass-audit"
     },
     {
       "matchFiles": [
         "^tools/pass-git-helper/manifest.yaml$"
       ],
-      "groupName": "pass-git-helper"
+      "commitMessageTopic": "pass-git-helper"
     },
     {
       "matchFiles": [
         "^tools/passh/manifest.yaml$"
       ],
-      "groupName": "passh"
+      "commitMessageTopic": "passh"
     },
     {
       "matchFiles": [
         "^tools/pass-import/manifest.yaml$"
       ],
-      "groupName": "pass-import"
+      "commitMessageTopic": "pass-import"
     },
     {
       "matchFiles": [
         "^tools/pass-otp/manifest.yaml$"
       ],
-      "groupName": "pass-otp"
+      "commitMessageTopic": "pass-otp"
     },
     {
       "matchFiles": [
         "^tools/passt/manifest.yaml$"
       ],
-      "groupName": "passt"
+      "commitMessageTopic": "passt"
     },
     {
       "matchFiles": [
         "^tools/pass-tail/manifest.yaml$"
       ],
-      "groupName": "pass-tail"
+      "commitMessageTopic": "pass-tail"
     },
     {
       "matchFiles": [
         "^tools/pass-update/manifest.yaml$"
       ],
-      "groupName": "pass-update"
+      "commitMessageTopic": "pass-update"
     },
     {
       "matchFiles": [
         "^tools/patat/manifest.yaml$"
       ],
-      "groupName": "patat"
+      "commitMessageTopic": "patat"
     },
     {
       "matchFiles": [
         "^tools/pebble/manifest.yaml$"
       ],
-      "groupName": "pebble"
+      "commitMessageTopic": "pebble"
     },
     {
       "matchFiles": [
         "^tools/perl/manifest.yaml$"
       ],
-      "groupName": "perl"
+      "commitMessageTopic": "perl"
     },
     {
       "matchFiles": [
         "^tools/phive/manifest.yaml$"
       ],
-      "groupName": "phive"
+      "commitMessageTopic": "phive"
     },
     {
       "matchFiles": [
         "^tools/php/manifest.yaml$"
       ],
-      "groupName": "php"
+      "commitMessageTopic": "php"
     },
     {
       "matchFiles": [
         "^tools/pigz/manifest.yaml$"
       ],
-      "groupName": "pigz"
+      "commitMessageTopic": "pigz"
     },
     {
       "matchFiles": [
         "^tools/pipx/manifest.yaml$"
       ],
-      "groupName": "pipx"
+      "commitMessageTopic": "pipx"
     },
     {
       "matchFiles": [
         "^tools/pkgx/manifest.yaml$"
       ],
-      "groupName": "pkgx"
+      "commitMessageTopic": "pkgx"
     },
     {
       "matchFiles": [
         "^tools/plz/manifest.yaml$"
       ],
-      "groupName": "plz"
+      "commitMessageTopic": "plz"
     },
     {
       "matchFiles": [
         "^tools/pnpm/manifest.yaml$"
       ],
-      "groupName": "pnpm"
+      "commitMessageTopic": "pnpm"
     },
     {
       "matchFiles": [
         "^tools/poctl/manifest.yaml$"
       ],
-      "groupName": "poctl"
+      "commitMessageTopic": "poctl"
     },
     {
       "matchFiles": [
         "^tools/podman/manifest.yaml$"
       ],
-      "groupName": "podman"
+      "commitMessageTopic": "podman"
     },
     {
       "matchFiles": [
         "^tools/podman-tui/manifest.yaml$"
       ],
-      "groupName": "podman-tui"
+      "commitMessageTopic": "podman-tui"
     },
     {
       "matchFiles": [
         "^tools/polaris/manifest.yaml$"
       ],
-      "groupName": "polaris"
+      "commitMessageTopic": "polaris"
     },
     {
       "matchFiles": [
         "^tools/policy/manifest.yaml$"
       ],
-      "groupName": "policy"
+      "commitMessageTopic": "policy"
     },
     {
       "matchFiles": [
         "^tools/pop/manifest.yaml$"
       ],
-      "groupName": "pop"
+      "commitMessageTopic": "pop"
     },
     {
       "matchFiles": [
         "^tools/popeye/manifest.yaml$"
       ],
-      "groupName": "popeye"
+      "commitMessageTopic": "popeye"
     },
     {
       "matchFiles": [
         "^tools/portainer/manifest.yaml$"
       ],
-      "groupName": "portainer"
+      "commitMessageTopic": "portainer"
     },
     {
       "matchFiles": [
         "^tools/porter/manifest.yaml$"
       ],
-      "groupName": "porter"
+      "commitMessageTopic": "porter"
     },
     {
       "matchFiles": [
         "^tools/posting/manifest.yaml$"
       ],
-      "groupName": "posting"
+      "commitMessageTopic": "posting"
     },
     {
       "matchFiles": [
         "^tools/powerline-go/manifest.yaml$"
       ],
-      "groupName": "powerline-go"
+      "commitMessageTopic": "powerline-go"
     },
     {
       "matchFiles": [
         "^tools/powershell/manifest.yaml$"
       ],
-      "groupName": "powershell"
+      "commitMessageTopic": "powershell"
     },
     {
       "matchFiles": [
         "^tools/pre-commit/manifest.yaml$"
       ],
-      "groupName": "pre-commit"
+      "commitMessageTopic": "pre-commit"
     },
     {
       "matchFiles": [
         "^tools/presenterm/manifest.yaml$"
       ],
-      "groupName": "presenterm"
+      "commitMessageTopic": "presenterm"
     },
     {
       "matchFiles": [
         "^tools/process-compose/manifest.yaml$"
       ],
-      "groupName": "process-compose"
+      "commitMessageTopic": "process-compose"
     },
     {
       "matchFiles": [
         "^tools/procs/manifest.yaml$"
       ],
-      "groupName": "procs"
+      "commitMessageTopic": "procs"
     },
     {
       "matchFiles": [
         "^tools/promcolor/manifest.yaml$"
       ],
-      "groupName": "promcolor"
+      "commitMessageTopic": "promcolor"
     },
     {
       "matchFiles": [
         "^tools/prometheus/manifest.yaml$"
       ],
-      "groupName": "prometheus"
+      "commitMessageTopic": "prometheus"
     },
     {
       "matchFiles": [
         "^tools/promql-cli/manifest.yaml$"
       ],
-      "groupName": "promql-cli"
+      "commitMessageTopic": "promql-cli"
     },
     {
       "matchFiles": [
         "^tools/promtail/manifest.yaml$"
       ],
-      "groupName": "promtail"
+      "commitMessageTopic": "promtail"
     },
     {
       "matchFiles": [
         "^tools/promtool/manifest.yaml$"
       ],
-      "groupName": "promtool"
+      "commitMessageTopic": "promtool"
     },
     {
       "matchFiles": [
         "^tools/proot/manifest.yaml$"
       ],
-      "groupName": "proot"
+      "commitMessageTopic": "proot"
     },
     {
       "matchFiles": [
         "^tools/proxify/manifest.yaml$"
       ],
-      "groupName": "proxify"
+      "commitMessageTopic": "proxify"
     },
     {
       "matchFiles": [
         "^tools/pulumi/manifest.yaml$"
       ],
-      "groupName": "pulumi"
+      "commitMessageTopic": "pulumi"
     },
     {
       "matchFiles": [
         "^tools/purl/manifest.yaml$"
       ],
-      "groupName": "purl"
+      "commitMessageTopic": "purl"
     },
     {
       "matchFiles": [
         "^tools/pushgateway/manifest.yaml$"
       ],
-      "groupName": "pushgateway"
+      "commitMessageTopic": "pushgateway"
     },
     {
       "matchFiles": [
         "^tools/pv/manifest.yaml$"
       ],
-      "groupName": "pv"
+      "commitMessageTopic": "pv"
     },
     {
       "matchFiles": [
         "^tools/pwru/manifest.yaml$"
       ],
-      "groupName": "pwru"
+      "commitMessageTopic": "pwru"
     },
     {
       "matchFiles": [
         "^tools/pyenv/manifest.yaml$"
       ],
-      "groupName": "pyenv"
+      "commitMessageTopic": "pyenv"
     },
     {
       "matchFiles": [
         "^tools/python/manifest.yaml$"
       ],
-      "groupName": "python"
+      "commitMessageTopic": "python"
     },
     {
       "matchFiles": [
         "^tools/python-3.12/manifest.yaml$"
       ],
-      "groupName": "python-3.12"
+      "commitMessageTopic": "python-3.12"
     },
     {
       "matchFiles": [
         "^tools/python-static/manifest.yaml$"
       ],
-      "groupName": "python-static"
+      "commitMessageTopic": "python-static"
     },
     {
       "matchFiles": [
         "^tools/qemu/manifest.yaml$"
       ],
-      "groupName": "qemu"
+      "commitMessageTopic": "qemu"
     },
     {
       "matchFiles": [
         "^tools/qrencode/manifest.yaml$"
       ],
-      "groupName": "qrencode"
+      "commitMessageTopic": "qrencode"
     },
     {
       "matchFiles": [
         "^tools/qsv/manifest.yaml$"
       ],
-      "groupName": "qsv"
+      "commitMessageTopic": "qsv"
     },
     {
       "matchFiles": [
         "^tools/quarto/manifest.yaml$"
       ],
-      "groupName": "quarto"
+      "commitMessageTopic": "quarto"
     },
     {
       "matchFiles": [
         "^tools/quarto-full/manifest.yaml$"
       ],
-      "groupName": "quarto-full"
+      "commitMessageTopic": "quarto-full"
     },
     {
       "matchFiles": [
         "^tools/rage/manifest.yaml$"
       ],
-      "groupName": "rage"
+      "commitMessageTopic": "rage"
     },
     {
       "matchFiles": [
         "^tools/rare/manifest.yaml$"
       ],
-      "groupName": "rare"
+      "commitMessageTopic": "rare"
     },
     {
       "matchFiles": [
         "^tools/ravel/manifest.yaml$"
       ],
-      "groupName": "ravel"
+      "commitMessageTopic": "ravel"
     },
     {
       "matchFiles": [
         "^tools/redis/manifest.yaml$"
       ],
-      "groupName": "redis"
+      "commitMessageTopic": "redis"
     },
     {
       "matchFiles": [
         "^tools/regal/manifest.yaml$"
       ],
-      "groupName": "regal"
+      "commitMessageTopic": "regal"
     },
     {
       "matchFiles": [
         "^tools/regclient/manifest.yaml$"
       ],
-      "groupName": "regclient"
+      "commitMessageTopic": "regclient"
     },
     {
       "matchFiles": [
         "^tools/registry/manifest.yaml$"
       ],
-      "groupName": "registry"
+      "commitMessageTopic": "registry"
     },
     {
       "matchFiles": [
         "^tools/rekor/manifest.yaml$"
       ],
-      "groupName": "rekor"
+      "commitMessageTopic": "rekor"
     },
     {
       "matchFiles": [
         "^tools/release-cli/manifest.yaml$"
       ],
-      "groupName": "release-cli"
+      "commitMessageTopic": "release-cli"
     },
     {
       "matchFiles": [
         "^tools/reptyr/manifest.yaml$"
       ],
-      "groupName": "reptyr"
+      "commitMessageTopic": "reptyr"
     },
     {
       "matchFiles": [
         "^tools/reveal.js/manifest.yaml$"
       ],
-      "groupName": "reveal.js"
+      "commitMessageTopic": "reveal.js"
     },
     {
       "matchFiles": [
         "^tools/ripgrep/manifest.yaml$"
       ],
-      "groupName": "ripgrep"
+      "commitMessageTopic": "ripgrep"
     },
     {
       "matchFiles": [
         "^tools/rke/manifest.yaml$"
       ],
-      "groupName": "rke"
+      "commitMessageTopic": "rke"
     },
     {
       "matchFiles": [
         "^tools/rke2/manifest.yaml$"
       ],
-      "groupName": "rke2"
+      "commitMessageTopic": "rke2"
     },
     {
       "matchFiles": [
         "^tools/rootlesskit/manifest.yaml$"
       ],
-      "groupName": "rootlesskit"
+      "commitMessageTopic": "rootlesskit"
     },
     {
       "matchFiles": [
         "^tools/ruff/manifest.yaml$"
       ],
-      "groupName": "ruff"
+      "commitMessageTopic": "ruff"
     },
     {
       "matchFiles": [
         "^tools/runc/manifest.yaml$"
       ],
-      "groupName": "runc"
+      "commitMessageTopic": "runc"
     },
     {
       "matchFiles": [
         "^tools/runlike/manifest.yaml$"
       ],
-      "groupName": "runlike"
+      "commitMessageTopic": "runlike"
     },
     {
       "matchFiles": [
         "^tools/runme/manifest.yaml$"
       ],
-      "groupName": "runme"
+      "commitMessageTopic": "runme"
     },
     {
       "matchFiles": [
         "^tools/runtainer/manifest.yaml$"
       ],
-      "groupName": "runtainer"
+      "commitMessageTopic": "runtainer"
     },
     {
       "matchFiles": [
         "^tools/rush/manifest.yaml$"
       ],
-      "groupName": "rush"
+      "commitMessageTopic": "rush"
     },
     {
       "matchFiles": [
         "^tools/rust/manifest.yaml$"
       ],
-      "groupName": "rust"
+      "commitMessageTopic": "rust"
     },
     {
       "matchFiles": [
         "^tools/salami/manifest.yaml$"
       ],
-      "groupName": "salami"
+      "commitMessageTopic": "salami"
     },
     {
       "matchFiles": [
         "^tools/saml2aws/manifest.yaml$"
       ],
-      "groupName": "saml2aws"
+      "commitMessageTopic": "saml2aws"
     },
     {
       "matchFiles": [
         "^tools/sass/manifest.yaml$"
       ],
-      "groupName": "sass"
+      "commitMessageTopic": "sass"
     },
     {
       "matchFiles": [
         "^tools/sass-dart/manifest.yaml$"
       ],
-      "groupName": "sass-dart"
+      "commitMessageTopic": "sass-dart"
     },
     {
       "matchFiles": [
         "^tools/savvy/manifest.yaml$"
       ],
-      "groupName": "savvy"
+      "commitMessageTopic": "savvy"
     },
     {
       "matchFiles": [
         "^tools/sbom2doc/manifest.yaml$"
       ],
-      "groupName": "sbom2doc"
+      "commitMessageTopic": "sbom2doc"
     },
     {
       "matchFiles": [
         "^tools/sbom2dot/manifest.yaml$"
       ],
-      "groupName": "sbom2dot"
+      "commitMessageTopic": "sbom2dot"
     },
     {
       "matchFiles": [
         "^tools/sbomasm/manifest.yaml$"
       ],
-      "groupName": "sbomasm"
+      "commitMessageTopic": "sbomasm"
     },
     {
       "matchFiles": [
         "^tools/sbomdiff/manifest.yaml$"
       ],
-      "groupName": "sbomdiff"
+      "commitMessageTopic": "sbomdiff"
     },
     {
       "matchFiles": [
         "^tools/sbomex/manifest.yaml$"
       ],
-      "groupName": "sbomex"
+      "commitMessageTopic": "sbomex"
     },
     {
       "matchFiles": [
         "^tools/sbomgr/manifest.yaml$"
       ],
-      "groupName": "sbomgr"
+      "commitMessageTopic": "sbomgr"
     },
     {
       "matchFiles": [
         "^tools/sbom-operator/manifest.yaml$"
       ],
-      "groupName": "sbom-operator"
+      "commitMessageTopic": "sbom-operator"
     },
     {
       "matchFiles": [
         "^tools/sbomqs/manifest.yaml$"
       ],
-      "groupName": "sbomqs"
+      "commitMessageTopic": "sbomqs"
     },
     {
       "matchFiles": [
         "^tools/sbom-tool/manifest.yaml$"
       ],
-      "groupName": "sbom-tool"
+      "commitMessageTopic": "sbom-tool"
     },
     {
       "matchFiles": [
         "^tools/sbomtools/manifest.yaml$"
       ],
-      "groupName": "sbomtools"
+      "commitMessageTopic": "sbomtools"
     },
     {
       "matchFiles": [
         "^tools/sbom-utility/manifest.yaml$"
       ],
-      "groupName": "sbom-utility"
+      "commitMessageTopic": "sbom-utility"
     },
     {
       "matchFiles": [
         "^tools/sbt/manifest.yaml$"
       ],
-      "groupName": "sbt"
+      "commitMessageTopic": "sbt"
     },
     {
       "matchFiles": [
         "^tools/scala/manifest.yaml$"
       ],
-      "groupName": "scala"
+      "commitMessageTopic": "scala"
     },
     {
       "matchFiles": [
         "^tools/scc/manifest.yaml$"
       ],
-      "groupName": "scc"
+      "commitMessageTopic": "scc"
     },
     {
       "matchFiles": [
         "^tools/scenarigo/manifest.yaml$"
       ],
-      "groupName": "scenarigo"
+      "commitMessageTopic": "scenarigo"
     },
     {
       "matchFiles": [
         "^tools/scorecard/manifest.yaml$"
       ],
-      "groupName": "scorecard"
+      "commitMessageTopic": "scorecard"
     },
     {
       "matchFiles": [
         "^tools/sd/manifest.yaml$"
       ],
-      "groupName": "sd"
+      "commitMessageTopic": "sd"
     },
     {
       "matchFiles": [
         "^tools/sealer/manifest.yaml$"
       ],
-      "groupName": "sealer"
+      "commitMessageTopic": "sealer"
     },
     {
       "matchFiles": [
         "^tools/secretize/manifest.yaml$"
       ],
-      "groupName": "secretize"
+      "commitMessageTopic": "secretize"
     },
     {
       "matchFiles": [
         "^tools/semgrep/manifest.yaml$"
       ],
-      "groupName": "semgrep"
+      "commitMessageTopic": "semgrep"
     },
     {
       "matchFiles": [
         "^tools/semver/manifest.yaml$"
       ],
-      "groupName": "semver"
+      "commitMessageTopic": "semver"
     },
     {
       "matchFiles": [
         "^tools/serverless/manifest.yaml$"
       ],
-      "groupName": "serverless"
+      "commitMessageTopic": "serverless"
     },
     {
       "matchFiles": [
         "^tools/shdotenv/manifest.yaml$"
       ],
-      "groupName": "shdotenv"
+      "commitMessageTopic": "shdotenv"
     },
     {
       "matchFiles": [
         "^tools/shellcheck/manifest.yaml$"
       ],
-      "groupName": "shellcheck"
+      "commitMessageTopic": "shellcheck"
     },
     {
       "matchFiles": [
         "^tools/shell-gpt/manifest.yaml$"
       ],
-      "groupName": "shell-gpt"
+      "commitMessageTopic": "shell-gpt"
     },
     {
       "matchFiles": [
         "^tools/shiv/manifest.yaml$"
       ],
-      "groupName": "shiv"
+      "commitMessageTopic": "shiv"
     },
     {
       "matchFiles": [
         "^tools/shortnames/manifest.yaml$"
       ],
-      "groupName": "shortnames"
+      "commitMessageTopic": "shortnames"
     },
     {
       "matchFiles": [
         "^tools/sish/manifest.yaml$"
       ],
-      "groupName": "sish"
+      "commitMessageTopic": "sish"
     },
     {
       "matchFiles": [
         "^tools/skate/manifest.yaml$"
       ],
-      "groupName": "skate"
+      "commitMessageTopic": "skate"
     },
     {
       "matchFiles": [
         "^tools/skopeo/manifest.yaml$"
       ],
-      "groupName": "skopeo"
+      "commitMessageTopic": "skopeo"
     },
     {
       "matchFiles": [
         "^tools/slides/manifest.yaml$"
       ],
-      "groupName": "slides"
+      "commitMessageTopic": "slides"
     },
     {
       "matchFiles": [
         "^tools/slirp4netns/manifest.yaml$"
       ],
-      "groupName": "slirp4netns"
+      "commitMessageTopic": "slirp4netns"
     },
     {
       "matchFiles": [
         "^tools/sloop/manifest.yaml$"
       ],
-      "groupName": "sloop"
+      "commitMessageTopic": "sloop"
     },
     {
       "matchFiles": [
         "^tools/slsa-verifier/manifest.yaml$"
       ],
-      "groupName": "slsa-verifier"
+      "commitMessageTopic": "slsa-verifier"
     },
     {
       "matchFiles": [
         "^tools/socat/manifest.yaml$"
       ],
-      "groupName": "socat"
+      "commitMessageTopic": "socat"
     },
     {
       "matchFiles": [
         "^tools/soci-snapshotter/manifest.yaml$"
       ],
-      "groupName": "soci-snapshotter"
+      "commitMessageTopic": "soci-snapshotter"
     },
     {
       "matchFiles": [
         "^tools/soft-serve/manifest.yaml$"
       ],
-      "groupName": "soft-serve"
+      "commitMessageTopic": "soft-serve"
     },
     {
       "matchFiles": [
         "^tools/sonar-scanner/manifest.yaml$"
       ],
-      "groupName": "sonar-scanner"
+      "commitMessageTopic": "sonar-scanner"
     },
     {
       "matchFiles": [
         "^tools/sonobuoy/manifest.yaml$"
       ],
-      "groupName": "sonobuoy"
+      "commitMessageTopic": "sonobuoy"
     },
     {
       "matchFiles": [
         "^tools/sops/manifest.yaml$"
       ],
-      "groupName": "sops"
+      "commitMessageTopic": "sops"
     },
     {
       "matchFiles": [
         "^tools/sotp/manifest.yaml$"
       ],
-      "groupName": "sotp"
+      "commitMessageTopic": "sotp"
     },
     {
       "matchFiles": [
         "^tools/source-sans/manifest.yaml$"
       ],
-      "groupName": "source-sans"
+      "commitMessageTopic": "source-sans"
     },
     {
       "matchFiles": [
         "^tools/spc/manifest.yaml$"
       ],
-      "groupName": "spc"
+      "commitMessageTopic": "spc"
     },
     {
       "matchFiles": [
         "^tools/spdx-sbom-generator/manifest.yaml$"
       ],
-      "groupName": "spdx-sbom-generator"
+      "commitMessageTopic": "spdx-sbom-generator"
     },
     {
       "matchFiles": [
         "^tools/speex/manifest.yaml$"
       ],
-      "groupName": "speex"
+      "commitMessageTopic": "speex"
     },
     {
       "matchFiles": [
         "^tools/speexdsp/manifest.yaml$"
       ],
-      "groupName": "speexdsp"
+      "commitMessageTopic": "speexdsp"
     },
     {
       "matchFiles": [
         "^tools/spiffe-vault/manifest.yaml$"
       ],
-      "groupName": "spiffe-vault"
+      "commitMessageTopic": "spiffe-vault"
     },
     {
       "matchFiles": [
         "^tools/spin/manifest.yaml$"
       ],
-      "groupName": "spin"
+      "commitMessageTopic": "spin"
     },
     {
       "matchFiles": [
         "^tools/spire/manifest.yaml$"
       ],
-      "groupName": "spire"
+      "commitMessageTopic": "spire"
     },
     {
       "matchFiles": [
         "^tools/ssh3/manifest.yaml$"
       ],
-      "groupName": "ssh3"
+      "commitMessageTopic": "ssh3"
     },
     {
       "matchFiles": [
         "^tools/ssh-key-confirmer/manifest.yaml$"
       ],
-      "groupName": "ssh-key-confirmer"
+      "commitMessageTopic": "ssh-key-confirmer"
     },
     {
       "matchFiles": [
         "^tools/sshocker/manifest.yaml$"
       ],
-      "groupName": "sshocker"
+      "commitMessageTopic": "sshocker"
     },
     {
       "matchFiles": [
         "^tools/stargz-snapshotter/manifest.yaml$"
       ],
-      "groupName": "stargz-snapshotter"
+      "commitMessageTopic": "stargz-snapshotter"
     },
     {
       "matchFiles": [
         "^tools/staticcheck/manifest.yaml$"
       ],
-      "groupName": "staticcheck"
+      "commitMessageTopic": "staticcheck"
     },
     {
       "matchFiles": [
         "^tools/stdin-spinner/manifest.yaml$"
       ],
-      "groupName": "stdin-spinner"
+      "commitMessageTopic": "stdin-spinner"
     },
     {
       "matchFiles": [
         "^tools/stern/manifest.yaml$"
       ],
-      "groupName": "stern"
+      "commitMessageTopic": "stern"
     },
     {
       "matchFiles": [
         "^tools/stress-ng/manifest.yaml$"
       ],
-      "groupName": "stress-ng"
+      "commitMessageTopic": "stress-ng"
     },
     {
       "matchFiles": [
         "^tools/structurizr-cli/manifest.yaml$"
       ],
-      "groupName": "structurizr-cli"
+      "commitMessageTopic": "structurizr-cli"
     },
     {
       "matchFiles": [
         "^tools/su-exec/manifest.yaml$"
       ],
-      "groupName": "su-exec"
+      "commitMessageTopic": "su-exec"
     },
     {
       "matchFiles": [
         "^tools/supdock/manifest.yaml$"
       ],
-      "groupName": "supdock"
+      "commitMessageTopic": "supdock"
     },
     {
       "matchFiles": [
         "^tools/switcher/manifest.yaml$"
       ],
-      "groupName": "switcher"
+      "commitMessageTopic": "switcher"
     },
     {
       "matchFiles": [
         "^tools/syft/manifest.yaml$"
       ],
-      "groupName": "syft"
+      "commitMessageTopic": "syft"
     },
     {
       "matchFiles": [
         "^tools/sysbox/manifest.yaml$"
       ],
-      "groupName": "sysbox"
+      "commitMessageTopic": "sysbox"
     },
     {
       "matchFiles": [
         "^tools/systemd-docker/manifest.yaml$"
       ],
-      "groupName": "systemd-docker"
+      "commitMessageTopic": "systemd-docker"
     },
     {
       "matchFiles": [
         "^tools/tabby/manifest.yaml$"
       ],
-      "groupName": "tabby"
+      "commitMessageTopic": "tabby"
     },
     {
       "matchFiles": [
         "^tools/tailspin/manifest.yaml$"
       ],
-      "groupName": "tailspin"
+      "commitMessageTopic": "tailspin"
     },
     {
       "matchFiles": [
         "^tools/talosctl/manifest.yaml$"
       ],
-      "groupName": "talosctl"
+      "commitMessageTopic": "talosctl"
     },
     {
       "matchFiles": [
         "^tools/task/manifest.yaml$"
       ],
-      "groupName": "task"
+      "commitMessageTopic": "task"
     },
     {
       "matchFiles": [
         "^tools/tasker/manifest.yaml$"
       ],
-      "groupName": "tasker"
+      "commitMessageTopic": "tasker"
     },
     {
       "matchFiles": [
         "^tools/tea/manifest.yaml$"
       ],
-      "groupName": "tea"
+      "commitMessageTopic": "tea"
     },
     {
       "matchFiles": [
         "^tools/tejolote/manifest.yaml$"
       ],
-      "groupName": "tejolote"
+      "commitMessageTopic": "tejolote"
     },
     {
       "matchFiles": [
         "^tools/telegraf/manifest.yaml$"
       ],
-      "groupName": "telegraf"
+      "commitMessageTopic": "telegraf"
     },
     {
       "matchFiles": [
         "^tools/teleport/manifest.yaml$"
       ],
-      "groupName": "teleport"
+      "commitMessageTopic": "teleport"
     },
     {
       "matchFiles": [
         "^tools/teller/manifest.yaml$"
       ],
-      "groupName": "teller"
+      "commitMessageTopic": "teller"
     },
     {
       "matchFiles": [
         "^tools/tempo/manifest.yaml$"
       ],
-      "groupName": "tempo"
+      "commitMessageTopic": "tempo"
     },
     {
       "matchFiles": [
         "^tools/tempo-cli/manifest.yaml$"
       ],
-      "groupName": "tempo-cli"
+      "commitMessageTopic": "tempo-cli"
     },
     {
       "matchFiles": [
         "^tools/termgraph/manifest.yaml$"
       ],
-      "groupName": "termgraph"
+      "commitMessageTopic": "termgraph"
     },
     {
       "matchFiles": [
         "^tools/terminalizer/manifest.yaml$"
       ],
-      "groupName": "terminalizer"
+      "commitMessageTopic": "terminalizer"
     },
     {
       "matchFiles": [
         "^tools/tern/manifest.yaml$"
       ],
-      "groupName": "tern"
+      "commitMessageTopic": "tern"
     },
     {
       "matchFiles": [
         "^tools/terraform/manifest.yaml$"
       ],
-      "groupName": "terraform"
+      "commitMessageTopic": "terraform"
     },
     {
       "matchFiles": [
         "^tools/terraform-backend-git/manifest.yaml$"
       ],
-      "groupName": "terraform-backend-git"
+      "commitMessageTopic": "terraform-backend-git"
     },
     {
       "matchFiles": [
         "^tools/terraform-docs/manifest.yaml$"
       ],
-      "groupName": "terraform-docs"
+      "commitMessageTopic": "terraform-docs"
     },
     {
       "matchFiles": [
         "^tools/terraformer/manifest.yaml$"
       ],
-      "groupName": "terraformer"
+      "commitMessageTopic": "terraformer"
     },
     {
       "matchFiles": [
         "^tools/terragrunt/manifest.yaml$"
       ],
-      "groupName": "terragrunt"
+      "commitMessageTopic": "terragrunt"
     },
     {
       "matchFiles": [
         "^tools/tetragon/manifest.yaml$"
       ],
-      "groupName": "tetragon"
+      "commitMessageTopic": "tetragon"
     },
     {
       "matchFiles": [
         "^tools/textlint/manifest.yaml$"
       ],
-      "groupName": "textlint"
+      "commitMessageTopic": "textlint"
     },
     {
       "matchFiles": [
         "^tools/tig/manifest.yaml$"
       ],
-      "groupName": "tig"
+      "commitMessageTopic": "tig"
     },
     {
       "matchFiles": [
         "^tools/timoni/manifest.yaml$"
       ],
-      "groupName": "timoni"
+      "commitMessageTopic": "timoni"
     },
     {
       "matchFiles": [
         "^tools/tini/manifest.yaml$"
       ],
-      "groupName": "tini"
+      "commitMessageTopic": "tini"
     },
     {
       "matchFiles": [
         "^tools/tinygo/manifest.yaml$"
       ],
-      "groupName": "tinygo"
+      "commitMessageTopic": "tinygo"
     },
     {
       "matchFiles": [
         "^tools/tkn/manifest.yaml$"
       ],
-      "groupName": "tkn"
+      "commitMessageTopic": "tkn"
     },
     {
       "matchFiles": [
         "^tools/tlsx/manifest.yaml$"
       ],
-      "groupName": "tlsx"
+      "commitMessageTopic": "tlsx"
     },
     {
       "matchFiles": [
         "^tools/tml/manifest.yaml$"
       ],
-      "groupName": "tml"
+      "commitMessageTopic": "tml"
     },
     {
       "matchFiles": [
         "^tools/toolong/manifest.yaml$"
       ],
-      "groupName": "toolong"
+      "commitMessageTopic": "toolong"
     },
     {
       "matchFiles": [
         "^tools/tracee/manifest.yaml$"
       ],
-      "groupName": "tracee"
+      "commitMessageTopic": "tracee"
     },
     {
       "matchFiles": [
         "^tools/tracer/manifest.yaml$"
       ],
-      "groupName": "tracer"
+      "commitMessageTopic": "tracer"
     },
     {
       "matchFiles": [
         "^tools/traefik/manifest.yaml$"
       ],
-      "groupName": "traefik"
+      "commitMessageTopic": "traefik"
     },
     {
       "matchFiles": [
         "^tools/trillian/manifest.yaml$"
       ],
-      "groupName": "trillian"
+      "commitMessageTopic": "trillian"
     },
     {
       "matchFiles": [
         "^tools/trivy/manifest.yaml$"
       ],
-      "groupName": "trivy"
+      "commitMessageTopic": "trivy"
     },
     {
       "matchFiles": [
         "^tools/trivy-operator/manifest.yaml$"
       ],
-      "groupName": "trivy-operator"
+      "commitMessageTopic": "trivy-operator"
     },
     {
       "matchFiles": [
         "^tools/trurl/manifest.yaml$"
       ],
-      "groupName": "trurl"
+      "commitMessageTopic": "trurl"
     },
     {
       "matchFiles": [
         "^tools/try/manifest.yaml$"
       ],
-      "groupName": "try"
+      "commitMessageTopic": "try"
     },
     {
       "matchFiles": [
         "^tools/tshark/manifest.yaml$"
       ],
-      "groupName": "tshark"
+      "commitMessageTopic": "tshark"
     },
     {
       "matchFiles": [
         "^tools/ttyd/manifest.yaml$"
       ],
-      "groupName": "ttyd"
+      "commitMessageTopic": "ttyd"
     },
     {
       "matchFiles": [
         "^tools/tuf/manifest.yaml$"
       ],
-      "groupName": "tuf"
+      "commitMessageTopic": "tuf"
     },
     {
       "matchFiles": [
         "^tools/tunnelto/manifest.yaml$"
       ],
-      "groupName": "tunnelto"
+      "commitMessageTopic": "tunnelto"
     },
     {
       "matchFiles": [
         "^tools/typst/manifest.yaml$"
       ],
-      "groupName": "typst"
+      "commitMessageTopic": "typst"
     },
     {
       "matchFiles": [
         "^tools/tz/manifest.yaml$"
       ],
-      "groupName": "tz"
+      "commitMessageTopic": "tz"
     },
     {
       "matchFiles": [
         "^tools/uidmap/manifest.yaml$"
       ],
-      "groupName": "uidmap"
+      "commitMessageTopic": "uidmap"
     },
     {
       "matchFiles": [
         "^tools/umoci/manifest.yaml$"
       ],
-      "groupName": "umoci"
+      "commitMessageTopic": "umoci"
     },
     {
       "matchFiles": [
         "^tools/uniget/manifest.yaml$"
       ],
-      "groupName": "uniget"
+      "commitMessageTopic": "uniget"
     },
     {
       "matchFiles": [
         "^tools/updatecli/manifest.yaml$"
       ],
-      "groupName": "updatecli"
+      "commitMessageTopic": "updatecli"
     },
     {
       "matchFiles": [
         "^tools/upx/manifest.yaml$"
       ],
-      "groupName": "upx"
+      "commitMessageTopic": "upx"
     },
     {
       "matchFiles": [
         "^tools/util-linux/manifest.yaml$"
       ],
-      "groupName": "util-linux"
+      "commitMessageTopic": "util-linux"
     },
     {
       "matchFiles": [
         "^tools/uv/manifest.yaml$"
       ],
-      "groupName": "uv"
+      "commitMessageTopic": "uv"
     },
     {
       "matchFiles": [
         "^tools/vale/manifest.yaml$"
       ],
-      "groupName": "vale"
+      "commitMessageTopic": "vale"
     },
     {
       "matchFiles": [
         "^tools/valyent/manifest.yaml$"
       ],
-      "groupName": "valyent"
+      "commitMessageTopic": "valyent"
     },
     {
       "matchFiles": [
         "^tools/vault/manifest.yaml$"
       ],
-      "groupName": "vault"
+      "commitMessageTopic": "vault"
     },
     {
       "matchFiles": [
         "^tools/vcluster/manifest.yaml$"
       ],
-      "groupName": "vcluster"
+      "commitMessageTopic": "vcluster"
     },
     {
       "matchFiles": [
         "^tools/valocity/manifest.yaml$"
       ],
-      "groupName": "valocity"
+      "commitMessageTopic": "valocity"
     },
     {
       "matchFiles": [
         "^tools/vendir/manifest.yaml$"
       ],
-      "groupName": "vendir"
+      "commitMessageTopic": "vendir"
     },
     {
       "matchFiles": [
         "^tools/venom/manifest.yaml$"
       ],
-      "groupName": "venom"
+      "commitMessageTopic": "venom"
     },
     {
       "matchFiles": [
         "^tools/vexctl/manifest.yaml$"
       ],
-      "groupName": "vexctl"
+      "commitMessageTopic": "vexctl"
     },
     {
       "matchFiles": [
         "^tools/vexy/manifest.yaml$"
       ],
-      "groupName": "vexy"
+      "commitMessageTopic": "vexy"
     },
     {
       "matchFiles": [
         "^tools/vgrep/manifest.yaml$"
       ],
-      "groupName": "vgrep"
+      "commitMessageTopic": "vgrep"
     },
     {
       "matchFiles": [
         "^tools/vhs/manifest.yaml$"
       ],
-      "groupName": "vhs"
+      "commitMessageTopic": "vhs"
     },
     {
       "matchFiles": [
         "^tools/viking/manifest.yaml$"
       ],
-      "groupName": "viking"
+      "commitMessageTopic": "viking"
     },
     {
       "matchFiles": [
         "^tools/visidata/manifest.yaml$"
       ],
-      "groupName": "visidata"
+      "commitMessageTopic": "visidata"
     },
     {
       "matchFiles": [
         "^tools/vland/manifest.yaml$"
       ],
-      "groupName": "vland"
+      "commitMessageTopic": "vland"
     },
     {
       "matchFiles": [
         "^tools/vscode-cli/manifest.yaml$"
       ],
-      "groupName": "vscode-cli"
+      "commitMessageTopic": "vscode-cli"
     },
     {
       "matchFiles": [
         "^tools/vulnerability-operator/manifest.yaml$"
       ],
-      "groupName": "vulnerability-operator"
+      "commitMessageTopic": "vulnerability-operator"
     },
     {
       "matchFiles": [
         "^tools/wagi/manifest.yaml$"
       ],
-      "groupName": "wagi"
+      "commitMessageTopic": "wagi"
     },
     {
       "matchFiles": [
         "^tools/wait/manifest.yaml$"
       ],
-      "groupName": "wait"
+      "commitMessageTopic": "wait"
     },
     {
       "matchFiles": [
         "^tools/wait-for/manifest.yaml$"
       ],
-      "groupName": "wait-for"
+      "commitMessageTopic": "wait-for"
     },
     {
       "matchFiles": [
         "^tools/walk/manifest.yaml$"
       ],
-      "groupName": "walk"
+      "commitMessageTopic": "walk"
     },
     {
       "matchFiles": [
         "^tools/warp/manifest.yaml$"
       ],
-      "groupName": "warp"
+      "commitMessageTopic": "warp"
     },
     {
       "matchFiles": [
         "^tools/wasmedge/manifest.yaml$"
       ],
-      "groupName": "wasmedge"
+      "commitMessageTopic": "wasmedge"
     },
     {
       "matchFiles": [
         "^tools/wasmer/manifest.yaml$"
       ],
-      "groupName": "wasmer"
+      "commitMessageTopic": "wasmer"
     },
     {
       "matchFiles": [
         "^tools/wasmi/manifest.yaml$"
       ],
-      "groupName": "wasmi"
+      "commitMessageTopic": "wasmi"
     },
     {
       "matchFiles": [
         "^tools/wasmtime/manifest.yaml$"
       ],
-      "groupName": "wasmtime"
+      "commitMessageTopic": "wasmtime"
     },
     {
       "matchFiles": [
         "^tools/watchexec/manifest.yaml$"
       ],
-      "groupName": "watchexec"
+      "commitMessageTopic": "watchexec"
     },
     {
       "matchFiles": [
         "^tools/watchtower/manifest.yaml$"
       ],
-      "groupName": "watchtower"
+      "commitMessageTopic": "watchtower"
     },
     {
       "matchFiles": [
         "^tools/webdavfs/manifest.yaml$"
       ],
-      "groupName": "webdavfs"
+      "commitMessageTopic": "webdavfs"
     },
     {
       "matchFiles": [
         "^tools/webhook/manifest.yaml$"
       ],
-      "groupName": "webhook"
+      "commitMessageTopic": "webhook"
     },
     {
       "matchFiles": [
         "^tools/webhookd/manifest.yaml$"
       ],
-      "groupName": "webhookd"
+      "commitMessageTopic": "webhookd"
     },
     {
       "matchFiles": [
         "^tools/webhook-tester/manifest.yaml$"
       ],
-      "groupName": "webhook-tester"
+      "commitMessageTopic": "webhook-tester"
     },
     {
       "matchFiles": [
         "^tools/websocat/manifest.yaml$"
       ],
-      "groupName": "websocat"
+      "commitMessageTopic": "websocat"
     },
     {
       "matchFiles": [
         "^tools/wg/manifest.yaml$"
       ],
-      "groupName": "wg"
+      "commitMessageTopic": "wg"
     },
     {
       "matchFiles": [
         "^tools/whalebrew/manifest.yaml$"
       ],
-      "groupName": "whalebrew"
+      "commitMessageTopic": "whalebrew"
     },
     {
       "matchFiles": [
         "^tools/win-gpg-agent/manifest.yaml$"
       ],
-      "groupName": "win-gpg-agent"
+      "commitMessageTopic": "win-gpg-agent"
     },
     {
       "matchFiles": [
         "^tools/win-ssh-agent/manifest.yaml$"
       ],
-      "groupName": "win-ssh-agent"
+      "commitMessageTopic": "win-ssh-agent"
     },
     {
       "matchFiles": [
         "^tools/wireguard-go/manifest.yaml$"
       ],
-      "groupName": "wireguard-go"
+      "commitMessageTopic": "wireguard-go"
     },
     {
       "matchFiles": [
         "^tools/witness/manifest.yaml$"
       ],
-      "groupName": "witness"
+      "commitMessageTopic": "witness"
     },
     {
       "matchFiles": [
         "^tools/wksctl/manifest.yaml$"
       ],
-      "groupName": "wksctl"
+      "commitMessageTopic": "wksctl"
     },
     {
       "matchFiles": [
         "^tools/woke/manifest.yaml$"
       ],
-      "groupName": "woke"
+      "commitMessageTopic": "woke"
     },
     {
       "matchFiles": [
         "^tools/wolfictl/manifest.yaml$"
       ],
-      "groupName": "wolfictl"
+      "commitMessageTopic": "wolfictl"
     },
     {
       "matchFiles": [
         "^tools/woodpecker/manifest.yaml$"
       ],
-      "groupName": "woodpecker"
+      "commitMessageTopic": "woodpecker"
     },
     {
       "matchFiles": [
         "^tools/wordcloud/manifest.yaml$"
       ],
-      "groupName": "wordcloud"
+      "commitMessageTopic": "wordcloud"
     },
     {
       "matchFiles": [
         "^tools/wsl-open/manifest.yaml$"
       ],
-      "groupName": "wsl-open"
+      "commitMessageTopic": "wsl-open"
     },
     {
       "matchFiles": [
         "^tools/wslu/manifest.yaml$"
       ],
-      "groupName": "wslu"
+      "commitMessageTopic": "wslu"
     },
     {
       "matchFiles": [
         "^tools/xcaddy/manifest.yaml$"
       ],
-      "groupName": "xcaddy"
+      "commitMessageTopic": "xcaddy"
     },
     {
       "matchFiles": [
         "^tools/xdg-utils/manifest.yaml$"
       ],
-      "groupName": "xdg-utils"
+      "commitMessageTopic": "xdg-utils"
     },
     {
       "matchFiles": [
         "^tools/xh/manifest.yaml$"
       ],
-      "groupName": "xh"
+      "commitMessageTopic": "xh"
     },
     {
       "matchFiles": [
         "^tools/xmlstarlet/manifest.yaml$"
       ],
-      "groupName": "xmlstarlet"
+      "commitMessageTopic": "xmlstarlet"
     },
     {
       "matchFiles": [
         "^tools/xq/manifest.yaml$"
       ],
-      "groupName": "xq"
+      "commitMessageTopic": "xq"
     },
     {
       "matchFiles": [
         "^tools/xurls/manifest.yaml$"
       ],
-      "groupName": "xurls"
+      "commitMessageTopic": "xurls"
     },
     {
       "matchFiles": [
         "^tools/yamale/manifest.yaml$"
       ],
-      "groupName": "yamale"
+      "commitMessageTopic": "yamale"
     },
     {
       "matchFiles": [
         "^tools/yamlfmt/manifest.yaml$"
       ],
-      "groupName": "yamlfmt"
+      "commitMessageTopic": "yamlfmt"
     },
     {
       "matchFiles": [
         "^tools/yamllint/manifest.yaml$"
       ],
-      "groupName": "yamllint"
+      "commitMessageTopic": "yamllint"
     },
     {
       "matchFiles": [
         "^tools/yarn/manifest.yaml$"
       ],
-      "groupName": "yarn"
+      "commitMessageTopic": "yarn"
     },
     {
       "matchFiles": [
         "^tools/yasu/manifest.yaml$"
       ],
-      "groupName": "yasu"
+      "commitMessageTopic": "yasu"
     },
     {
       "matchFiles": [
         "^tools/yh/manifest.yaml$"
       ],
-      "groupName": "yh"
+      "commitMessageTopic": "yh"
     },
     {
       "matchFiles": [
         "^tools/youki/manifest.yaml$"
       ],
-      "groupName": "youki"
+      "commitMessageTopic": "youki"
     },
     {
       "matchFiles": [
         "^tools/yq/manifest.yaml$"
       ],
-      "groupName": "yq"
+      "commitMessageTopic": "yq"
     },
     {
       "matchFiles": [
         "^tools/ytt/manifest.yaml$"
       ],
-      "groupName": "ytt"
+      "commitMessageTopic": "ytt"
     },
     {
       "matchFiles": [
         "^tools/zed/manifest.yaml$"
       ],
-      "groupName": "zed"
+      "commitMessageTopic": "zed"
     },
     {
       "matchFiles": [
         "^tools/zeitgeist/manifest.yaml$"
       ],
-      "groupName": "zeitgeist"
+      "commitMessageTopic": "zeitgeist"
     },
     {
       "matchFiles": [
         "^tools/zitadel/manifest.yaml$"
       ],
-      "groupName": "zitadel"
+      "commitMessageTopic": "zitadel"
     },
     {
       "matchFiles": [
         "^tools/zot/manifest.yaml$"
       ],
-      "groupName": "zot"
+      "commitMessageTopic": "zot"
     }
   ],
   "customManagers": [
