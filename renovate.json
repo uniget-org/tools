@@ -7650,7 +7650,8 @@
       "depNameTemplate": "uniget-org/renovate-custom",
       "datasourceTemplate": "github-releases",
       "extractVersionTemplate": "^python/(?<version>.+)$",
-      "versioningTemplate": "loose"
+      "versioningTemplate": "loose",
+      "groupName": "indygreg/python-build-standalone"
     },
     {
       "customType": "regex",
@@ -7663,7 +7664,8 @@
       "depNameTemplate": "uniget-org/renovate-custom",
       "datasourceTemplate": "github-releases",
       "extractVersionTemplate": "^python-3.12/(?<version>.+)$",
-      "versioningTemplate": "loose"
+      "versioningTemplate": "loose",
+      "groupName": "indygreg/python-build-standalone"
     },
     {
       "customType": "regex",
