@@ -70,8 +70,99 @@
     },
     {
       "matchFiles": [
+        "^tools/acorn/manifest.yaml$"
+      ],
+      "groupName": "acorn"
+    },
+    {
+      "matchFiles": [
+        "^tools/acr/manifest.yaml$"
+      ],
+      "groupName": "acr"
+    },
+    {
+      "matchFiles": [
+        "^tools/act/manifest.yaml$"
+      ],
+      "groupName": "act"
+    },
+    {
+      "matchFiles": [
+        "^tools/actions-runner/manifest.yaml$"
+      ],
+      "groupName": "actions-runner"
+    },
+    {
+      "matchFiles": [
+        "^tools/actions-usage/manifest.yaml$"
+      ],
+      "groupName": "actions-usage"
+    },
+    {
+      "matchFiles": [
+        "^tools/age/manifest.yaml$"
+      ],
+      "groupName": "age"
+    },
+    {
+      "matchFiles": [
+        "^tools/ah/manifest.yaml$"
+      ],
+      "groupName": "ah"
+    },
+    {
+      "matchFiles": [
+        "^tools/aiac/manifest.yaml$"
+      ],
+      "groupName": "aiac"
+    },
+    {
+      "matchFiles": [
+        "^tools/aichat/manifest.yaml$"
+      ],
+      "groupName": "aichat"
+    },
+    {
+      "matchFiles": [
+        "^tools/aider/manifest.yaml$"
+      ],
+      "groupName": "aider"
+    },
+    {
+      "matchFiles": [
+        "^tools/air/manifest.yaml$"
+      ],
+      "groupName": "air"
+    },
+    {
+      "matchFiles": [
+        "^tools/alertmanager/manifest.yaml$"
+      ],
+      "groupName": "alertmanager"
+    },
+    {
+      "matchFiles": [
+        "^tools/alex/manifest.yaml$"
+      ],
+      "groupName": "alex"
+    },
+    {
+      "matchFiles": [
+        "^tools/ansi/manifest.yaml$"
+      ],
+      "groupName": "ansi"
+    },
+    {
+      "matchFiles": [
+        "^tools/apk/manifest.yaml$"
+      ],
+      "groupName": "apk"
+    },
+    {
+      "matchFiles": [
         "^tools/apko/manifest.yaml$"
       ],
+      "groupName": "apko",
       "matchPackageNames": [
         "chainguard-dev/apko"
       ],
@@ -79,12 +170,4999 @@
     },
     {
       "matchFiles": [
+        "^tools/aqua/manifest.yaml$"
+      ],
+      "groupName": "aqua"
+    },
+    {
+      "matchFiles": [
+        "^tools/argo/manifest.yaml$"
+      ],
+      "groupName": "argo"
+    },
+    {
+      "matchFiles": [
+        "^tools/argocd/manifest.yaml$"
+      ],
+      "groupName": "argocd"
+    },
+    {
+      "matchFiles": [
+        "^tools/arkade/manifest.yaml$"
+      ],
+      "groupName": "arkade"
+    },
+    {
+      "matchFiles": [
+        "^tools/artifactory-cleanup/manifest.yaml$"
+      ],
+      "groupName": "artifactory-cleanup"
+    },
+    {
+      "matchFiles": [
+        "^tools/asciigraph/manifest.yaml$"
+      ],
+      "groupName": "asciigraph"
+    },
+    {
+      "matchFiles": [
+        "^tools/asciinema/manifest.yaml$"
+      ],
+      "groupName": "asciinema"
+    },
+    {
+      "matchFiles": [
+        "^tools/autocert/manifest.yaml$"
+      ],
+      "groupName": "autocert"
+    },
+    {
+      "matchFiles": [
+        "^tools/aws/manifest.yaml$"
+      ],
+      "groupName": "aws"
+    },
+    {
+      "matchFiles": [
+        "^tools/aws2/manifest.yaml$"
+      ],
+      "groupName": "aws2"
+    },
+    {
+      "matchFiles": [
+        "^tools/axel/manifest.yaml$"
+      ],
+      "groupName": "axel"
+    },
+    {
+      "matchFiles": [
+        "^tools/az/manifest.yaml$"
+      ],
+      "groupName": "az"
+    },
+    {
+      "matchFiles": [
+        "^tools/bandwhich/manifest.yaml$"
+      ],
+      "groupName": "bandwhich"
+    },
+    {
+      "matchFiles": [
+        "^tools/bat/manifest.yaml$"
+      ],
+      "groupName": "bat"
+    },
+    {
+      "matchFiles": [
+        "^tools/bento/manifest.yaml$"
+      ],
+      "groupName": "bento"
+    },
+    {
+      "matchFiles": [
+        "^tools/bicep/manifest.yaml$"
+      ],
+      "groupName": "bicep"
+    },
+    {
+      "matchFiles": [
+        "^tools/bif/manifest.yaml$"
+      ],
+      "groupName": "bif"
+    },
+    {
+      "matchFiles": [
+        "^tools/bin/manifest.yaml$"
+      ],
+      "groupName": "bin"
+    },
+    {
+      "matchFiles": [
+        "^tools/blackbox-exporter/manifest.yaml$"
+      ],
+      "groupName": "blackbox-exporter"
+    },
+    {
+      "matchFiles": [
+        "^tools/blincus/manifest.yaml$"
+      ],
+      "groupName": "blincus"
+    },
+    {
+      "matchFiles": [
+        "^tools/bogrod/manifest.yaml$"
+      ],
+      "groupName": "bogrod"
+    },
+    {
+      "matchFiles": [
+        "^tools/bom/manifest.yaml$"
+      ],
+      "groupName": "bom"
+    },
+    {
+      "matchFiles": [
+        "^tools/bomber/manifest.yaml$"
+      ],
+      "groupName": "bomber"
+    },
+    {
+      "matchFiles": [
+        "^tools/bomshell/manifest.yaml$"
+      ],
+      "groupName": "bomshell"
+    },
+    {
+      "matchFiles": [
+        "^tools/botsay/manifest.yaml$"
+      ],
+      "groupName": "botsay"
+    },
+    {
+      "matchFiles": [
+        "^tools/box/manifest.yaml$"
+      ],
+      "groupName": "box"
+    },
+    {
+      "matchFiles": [
+        "^tools/bpftool/manifest.yaml$"
+      ],
+      "groupName": "bpftool"
+    },
+    {
+      "matchFiles": [
+        "^tools/bubblewrap/manifest.yaml$"
+      ],
+      "groupName": "bubblewrap"
+    },
+    {
+      "matchFiles": [
+        "^tools/buildah/manifest.yaml$"
+      ],
+      "groupName": "buildah"
+    },
+    {
+      "matchFiles": [
+        "^tools/buildg/manifest.yaml$"
+      ],
+      "groupName": "buildg"
+    },
+    {
+      "matchFiles": [
+        "^tools/buildkit/manifest.yaml$"
+      ],
+      "groupName": "buildkit"
+    },
+    {
+      "matchFiles": [
+        "^tools/buildx/manifest.yaml$"
+      ],
+      "groupName": "buildx"
+    },
+    {
+      "matchFiles": [
+        "^tools/bumblebee/manifest.yaml$"
+      ],
+      "groupName": "bumblebee"
+    },
+    {
+      "matchFiles": [
+        "^tools/bypass4netns/manifest.yaml$"
+      ],
+      "groupName": "bypass4netns"
+    },
+    {
+      "matchFiles": [
+        "^tools/caddy/manifest.yaml$"
+      ],
+      "groupName": "caddy"
+    },
+    {
+      "matchFiles": [
+        "^tools/cadvisor/manifest.yaml$"
+      ],
+      "groupName": "cadvisor"
+    },
+    {
+      "matchFiles": [
+        "^tools/calicoctl/manifest.yaml$"
+      ],
+      "groupName": "calicoctl"
+    },
+    {
+      "matchFiles": [
+        "^tools/car/manifest.yaml$"
+      ],
+      "groupName": "car"
+    },
+    {
+      "matchFiles": [
+        "^tools/cascadia-code/manifest.yaml$"
+      ],
+      "groupName": "cascadia-code"
+    },
+    {
+      "matchFiles": [
+        "^tools/catatonit/manifest.yaml$"
+      ],
+      "groupName": "catatonit"
+    },
+    {
+      "matchFiles": [
+        "^tools/catgpt/manifest.yaml$"
+      ],
+      "groupName": "catgpt"
+    },
+    {
+      "matchFiles": [
+        "^tools/cdebug/manifest.yaml$"
+      ],
+      "groupName": "cdebug"
+    },
+    {
+      "matchFiles": [
+        "^tools/cdncheck/manifest.yaml$"
+      ],
+      "groupName": "cdncheck"
+    },
+    {
+      "matchFiles": [
+        "^tools/cdxgen/manifest.yaml$"
+      ],
+      "groupName": "cdxgen"
+    },
+    {
+      "matchFiles": [
+        "^tools/cfssl/manifest.yaml$"
+      ],
+      "groupName": "cfssl"
+    },
+    {
+      "matchFiles": [
+        "^tools/chainsaw/manifest.yaml$"
+      ],
+      "groupName": "chainsaw"
+    },
+    {
+      "matchFiles": [
+        "^tools/charm/manifest.yaml$"
+      ],
+      "groupName": "charm"
+    },
+    {
+      "matchFiles": [
+        "^tools/chart-releaser/manifest.yaml$"
+      ],
+      "groupName": "chart-releaser"
+    },
+    {
+      "matchFiles": [
+        "^tools/chart-testing/manifest.yaml$"
+      ],
+      "groupName": "chart-testing"
+    },
+    {
+      "matchFiles": [
+        "^tools/cheat/manifest.yaml$"
+      ],
+      "groupName": "cheat"
+    },
+    {
+      "matchFiles": [
+        "^tools/checkov/manifest.yaml$"
+      ],
+      "groupName": "checkov"
+    },
+    {
+      "matchFiles": [
+        "^tools/chekr/manifest.yaml$"
+      ],
+      "groupName": "chekr"
+    },
+    {
+      "matchFiles": [
+        "^tools/chigo/manifest.yaml$"
+      ],
+      "groupName": "chigo"
+    },
+    {
+      "matchFiles": [
+        "^tools/chisel/manifest.yaml$"
+      ],
+      "groupName": "chisel"
+    },
+    {
+      "matchFiles": [
+        "^tools/chroma/manifest.yaml$"
+      ],
+      "groupName": "chroma"
+    },
+    {
+      "matchFiles": [
+        "^tools/cilium/manifest.yaml$"
+      ],
+      "groupName": "cilium"
+    },
+    {
+      "matchFiles": [
+        "^tools/cinf/manifest.yaml$"
+      ],
+      "groupName": "cinf"
+    },
+    {
+      "matchFiles": [
+        "^tools/civo/manifest.yaml$"
+      ],
+      "groupName": "civo"
+    },
+    {
+      "matchFiles": [
+        "^tools/click/manifest.yaml$"
+      ],
+      "groupName": "click"
+    },
+    {
+      "matchFiles": [
+        "^tools/clive/manifest.yaml$"
+      ],
+      "groupName": "clive"
+    },
+    {
+      "matchFiles": [
+        "^tools/cloudflared/manifest.yaml$"
+      ],
+      "groupName": "cloudflared"
+    },
+    {
+      "matchFiles": [
+        "^tools/clusterawsadm/manifest.yaml$"
+      ],
+      "groupName": "clusterawsadm"
+    },
+    {
+      "matchFiles": [
+        "^tools/clusterctl/manifest.yaml$"
+      ],
+      "groupName": "clusterctl"
+    },
+    {
+      "matchFiles": [
+        "^tools/clusterlint/manifest.yaml$"
+      ],
+      "groupName": "clusterlint"
+    },
+    {
+      "matchFiles": [
+        "^tools/cmctl/manifest.yaml$"
+      ],
+      "groupName": "cmctl"
+    },
+    {
+      "matchFiles": [
+        "^tools/cni/manifest.yaml$"
+      ],
+      "groupName": "cni"
+    },
+    {
+      "matchFiles": [
+        "^tools/cnitool/manifest.yaml$"
+      ],
+      "groupName": "cnitool"
+    },
+    {
+      "matchFiles": [
+        "^tools/cntr/manifest.yaml$"
+      ],
+      "groupName": "cntr"
+    },
+    {
+      "matchFiles": [
+        "^tools/cobra-cli/manifest.yaml$"
+      ],
+      "groupName": "cobra-cli"
+    },
+    {
+      "matchFiles": [
+        "^tools/cockroach/manifest.yaml$"
+      ],
+      "groupName": "cockroach"
+    },
+    {
+      "matchFiles": [
+        "^tools/coder/manifest.yaml$"
+      ],
+      "groupName": "coder"
+    },
+    {
+      "matchFiles": [
+        "^tools/code-server/manifest.yaml$"
+      ],
+      "groupName": "code-server"
+    },
+    {
+      "matchFiles": [
+        "^tools/colima/manifest.yaml$"
+      ],
+      "groupName": "colima"
+    },
+    {
+      "matchFiles": [
+        "^tools/compose-bridge/manifest.yaml$"
+      ],
+      "groupName": "compose-bridge"
+    },
+    {
+      "matchFiles": [
+        "^tools/composer/manifest.yaml$"
+      ],
+      "groupName": "composer"
+    },
+    {
+      "matchFiles": [
+        "^tools/composerize/manifest.yaml$"
+      ],
+      "groupName": "composerize"
+    },
+    {
+      "matchFiles": [
+        "^tools/concourse/manifest.yaml$"
+      ],
+      "groupName": "concourse"
+    },
+    {
+      "matchFiles": [
+        "^tools/conftest/manifest.yaml$"
+      ],
+      "groupName": "conftest"
+    },
+    {
+      "matchFiles": [
+        "^tools/conmon/manifest.yaml$"
+      ],
+      "groupName": "conmon"
+    },
+    {
+      "matchFiles": [
+        "^tools/consul/manifest.yaml$"
+      ],
+      "groupName": "consul"
+    },
+    {
+      "matchFiles": [
+        "^tools/container2wasm/manifest.yaml$"
+      ],
+      "groupName": "container2wasm"
+    },
+    {
+      "matchFiles": [
+        "^tools/containerd/manifest.yaml$"
+      ],
+      "groupName": "containerd"
+    },
+    {
+      "matchFiles": [
+        "^tools/containerd-shim-lunatic/manifest.yaml$"
+      ],
+      "groupName": "containerd-shim-lunatic"
+    },
+    {
+      "matchFiles": [
+        "^tools/containerd-shim-slight/manifest.yaml$"
+      ],
+      "groupName": "containerd-shim-slight"
+    },
+    {
+      "matchFiles": [
+        "^tools/containerd-shim-spin/manifest.yaml$"
+      ],
+      "groupName": "containerd-shim-spin"
+    },
+    {
+      "matchFiles": [
+        "^tools/containerd-shim-spin-runwasi/manifest.yaml$"
+      ],
+      "groupName": "containerd-shim-spin-runwasi"
+    },
+    {
+      "matchFiles": [
+        "^tools/containerd-shim-wasmedge/manifest.yaml$"
+      ],
+      "groupName": "containerd-shim-wasmedge"
+    },
+    {
+      "matchFiles": [
+        "^tools/containerd-shim-wasmer/manifest.yaml$"
+      ],
+      "groupName": "containerd-shim-wasmer"
+    },
+    {
+      "matchFiles": [
+        "^tools/containerd-shim-wasmtime/manifest.yaml$"
+      ],
+      "groupName": "containerd-shim-wasmtime"
+    },
+    {
+      "matchFiles": [
+        "^tools/containerd-shim-wws/manifest.yaml$"
+      ],
+      "groupName": "containerd-shim-wws"
+    },
+    {
+      "matchFiles": [
+        "^tools/containers-common/manifest.yaml$"
+      ],
+      "groupName": "containers-common"
+    },
+    {
+      "matchFiles": [
+        "^tools/containers-image/manifest.yaml$"
+      ],
+      "groupName": "containers-image"
+    },
+    {
+      "matchFiles": [
+        "^tools/containerssh/manifest.yaml$"
+      ],
+      "groupName": "containerssh"
+    },
+    {
+      "matchFiles": [
+        "^tools/containers-storage/manifest.yaml$"
+      ],
+      "groupName": "containers-storage"
+    },
+    {
+      "matchFiles": [
+        "^tools/copa/manifest.yaml$"
+      ],
+      "groupName": "copa"
+    },
+    {
+      "matchFiles": [
+        "^tools/cosign/manifest.yaml$"
+      ],
+      "groupName": "cosign"
+    },
+    {
+      "matchFiles": [
+        "^tools/cowsay/manifest.yaml$"
+      ],
+      "groupName": "cowsay"
+    },
+    {
+      "matchFiles": [
+        "^tools/crane/manifest.yaml$"
+      ],
+      "groupName": "crane"
+    },
+    {
+      "matchFiles": [
+        "^tools/crictl/manifest.yaml$"
+      ],
+      "groupName": "crictl"
+    },
+    {
+      "matchFiles": [
+        "^tools/cri-dockerd/manifest.yaml$"
+      ],
+      "groupName": "cri-dockerd"
+    },
+    {
+      "matchFiles": [
+        "^tools/cri-o/manifest.yaml$"
+      ],
+      "groupName": "cri-o"
+    },
+    {
+      "matchFiles": [
+        "^tools/croc/manifest.yaml$"
+      ],
+      "groupName": "croc"
+    },
+    {
+      "matchFiles": [
+        "^tools/cross/manifest.yaml$"
+      ],
+      "groupName": "cross"
+    },
+    {
+      "matchFiles": [
+        "^tools/crossplane/manifest.yaml$"
+      ],
+      "groupName": "crossplane"
+    },
+    {
+      "matchFiles": [
+        "^tools/crun/manifest.yaml$"
+      ],
+      "groupName": "crun"
+    },
+    {
+      "matchFiles": [
+        "^tools/csvlens/manifest.yaml$"
+      ],
+      "groupName": "csvlens"
+    },
+    {
+      "matchFiles": [
+        "^tools/ct/manifest.yaml$"
+      ],
+      "groupName": "ct"
+    },
+    {
+      "matchFiles": [
+        "^tools/ctop/manifest.yaml$"
+      ],
+      "groupName": "ctop"
+    },
+    {
+      "matchFiles": [
+        "^tools/ct_server/manifest.yaml$"
+      ],
+      "groupName": "ct_server"
+    },
+    {
+      "matchFiles": [
+        "^tools/cue/manifest.yaml$"
+      ],
+      "groupName": "cue"
+    },
+    {
+      "matchFiles": [
+        "^tools/curl/manifest.yaml$"
+      ],
+      "groupName": "curl"
+    },
+    {
+      "matchFiles": [
+        "^tools/curlie/manifest.yaml$"
+      ],
+      "groupName": "curlie"
+    },
+    {
+      "matchFiles": [
+        "^tools/cve-bin-tool/manifest.yaml$"
+      ],
+      "groupName": "cve-bin-tool"
+    },
+    {
+      "matchFiles": [
+        "^tools/cvemap/manifest.yaml$"
+      ],
+      "groupName": "cvemap"
+    },
+    {
+      "matchFiles": [
+        "^tools/cyclonedx-cli/manifest.yaml$"
+      ],
+      "groupName": "cyclonedx-cli"
+    },
+    {
+      "matchFiles": [
+        "^tools/cyclonedx-gomod/manifest.yaml$"
+      ],
+      "groupName": "cyclonedx-gomod"
+    },
+    {
+      "matchFiles": [
+        "^tools/cyphernetes/manifest.yaml$"
+      ],
+      "groupName": "cyphernetes"
+    },
+    {
+      "matchFiles": [
+        "^tools/cypher-shell/manifest.yaml$"
+      ],
+      "groupName": "cypher-shell"
+    },
+    {
+      "matchFiles": [
+        "^tools/dagger/manifest.yaml$"
+      ],
+      "groupName": "dagger"
+    },
+    {
+      "matchFiles": [
+        "^tools/dart/manifest.yaml$"
+      ],
+      "groupName": "dart"
+    },
+    {
+      "matchFiles": [
+        "^tools/dasel/manifest.yaml$"
+      ],
+      "groupName": "dasel"
+    },
+    {
+      "matchFiles": [
+        "^tools/datree/manifest.yaml$"
+      ],
+      "groupName": "datree"
+    },
+    {
+      "matchFiles": [
+        "^tools/daytona/manifest.yaml$"
+      ],
+      "groupName": "daytona"
+    },
+    {
+      "matchFiles": [
+        "^tools/dbui/manifest.yaml$"
+      ],
+      "groupName": "dbui"
+    },
+    {
+      "matchFiles": [
+        "^tools/dcp/manifest.yaml$"
+      ],
+      "groupName": "dcp"
+    },
+    {
+      "matchFiles": [
+        "^tools/ddosify/manifest.yaml$"
+      ],
+      "groupName": "ddosify"
+    },
+    {
+      "matchFiles": [
+        "^tools/decktape/manifest.yaml$"
+      ],
+      "groupName": "decktape"
+    },
+    {
+      "matchFiles": [
+        "^tools/delta/manifest.yaml$"
+      ],
+      "groupName": "delta"
+    },
+    {
+      "matchFiles": [
+        "^tools/deno/manifest.yaml$"
+      ],
+      "groupName": "deno"
+    },
+    {
+      "matchFiles": [
+        "^tools/dependency-check/manifest.yaml$"
+      ],
+      "groupName": "dependency-check"
+    },
+    {
+      "matchFiles": [
+        "^tools/depot/manifest.yaml$"
+      ],
+      "groupName": "depot"
+    },
+    {
+      "matchFiles": [
+        "^tools/dep-tree/manifest.yaml$"
+      ],
+      "groupName": "dep-tree"
+    },
+    {
+      "matchFiles": [
+        "^tools/devbox/manifest.yaml$"
+      ],
+      "groupName": "devbox"
+    },
+    {
+      "matchFiles": [
+        "^tools/devcontainer/manifest.yaml$"
+      ],
+      "groupName": "devcontainer"
+    },
+    {
+      "matchFiles": [
+        "^tools/devpod/manifest.yaml$"
+      ],
+      "groupName": "devpod"
+    },
+    {
+      "matchFiles": [
+        "^tools/diffoci/manifest.yaml$"
+      ],
+      "groupName": "diffoci"
+    },
+    {
+      "matchFiles": [
+        "^tools/dinit/manifest.yaml$"
+      ],
+      "groupName": "dinit"
+    },
+    {
+      "matchFiles": [
+        "^tools/direnv/manifest.yaml$"
+      ],
+      "groupName": "direnv"
+    },
+    {
+      "matchFiles": [
+        "^tools/distrobox/manifest.yaml$"
+      ],
+      "groupName": "distrobox"
+    },
+    {
+      "matchFiles": [
+        "^tools/diun/manifest.yaml$"
+      ],
+      "groupName": "diun"
+    },
+    {
+      "matchFiles": [
+        "^tools/dive/manifest.yaml$"
+      ],
+      "groupName": "dive"
+    },
+    {
+      "matchFiles": [
+        "^tools/dnsx/manifest.yaml$"
+      ],
+      "groupName": "dnsx"
+    },
+    {
+      "matchFiles": [
+        "^tools/docker/manifest.yaml$"
+      ],
+      "groupName": "docker"
+    },
+    {
+      "matchFiles": [
+        "^tools/docker-base/manifest.yaml$"
+      ],
+      "groupName": "docker-base"
+    },
+    {
+      "matchFiles": [
+        "^tools/docker-compose/manifest.yaml$"
+      ],
+      "groupName": "docker-compose"
+    },
+    {
+      "matchFiles": [
+        "^tools/docker-compose-switch/manifest.yaml$"
+      ],
+      "groupName": "docker-compose-switch"
+    },
+    {
+      "matchFiles": [
+        "^tools/docker-compose-v1/manifest.yaml$"
+      ],
+      "groupName": "docker-compose-v1"
+    },
+    {
+      "matchFiles": [
+        "^tools/docker-credential-acr-env/manifest.yaml$"
+      ],
+      "groupName": "docker-credential-acr-env"
+    },
+    {
+      "matchFiles": [
+        "^tools/docker-credential-ecr-login/manifest.yaml$"
+      ],
+      "groupName": "docker-credential-ecr-login"
+    },
+    {
+      "matchFiles": [
+        "^tools/docker-credential-gcr/manifest.yaml$"
+      ],
+      "groupName": "docker-credential-gcr"
+    },
+    {
+      "matchFiles": [
+        "^tools/docker-credential-helpers/manifest.yaml$"
+      ],
+      "groupName": "docker-credential-helpers"
+    },
+    {
+      "matchFiles": [
+        "^tools/docker-credential-magic/manifest.yaml$"
+      ],
+      "groupName": "docker-credential-magic"
+    },
+    {
+      "matchFiles": [
+        "^tools/docker-debug/manifest.yaml$"
+      ],
+      "groupName": "docker-debug"
+    },
+    {
+      "matchFiles": [
+        "^tools/docker-desktop/manifest.yaml$"
+      ],
+      "groupName": "docker-desktop"
+    },
+    {
+      "matchFiles": [
+        "^tools/dockerfilegraph/manifest.yaml$"
+      ],
+      "groupName": "dockerfilegraph"
+    },
+    {
+      "matchFiles": [
+        "^tools/docker-gen/manifest.yaml$"
+      ],
+      "groupName": "docker-gen"
+    },
+    {
+      "matchFiles": [
+        "^tools/docker-index/manifest.yaml$"
+      ],
+      "groupName": "docker-index"
+    },
+    {
+      "matchFiles": [
+        "^tools/docker-init/manifest.yaml$"
+      ],
+      "groupName": "docker-init"
+    },
+    {
+      "matchFiles": [
+        "^tools/docker-machine/manifest.yaml$"
+      ],
+      "groupName": "docker-machine"
+    },
+    {
+      "matchFiles": [
+        "^tools/docker-manpages/manifest.yaml$"
+      ],
+      "groupName": "docker-manpages"
+    },
+    {
+      "matchFiles": [
         "^tools/docker-preview/manifest.yaml$"
       ],
+      "groupName": "docker-preview",
       "matchPackageNames": [
         "moby/moby"
       ],
       "ignoreUnstable": true
+    },
+    {
+      "matchFiles": [
+        "^tools/docker-rootless/manifest.yaml$"
+      ],
+      "groupName": "docker-rootless"
+    },
+    {
+      "matchFiles": [
+        "^tools/docker-sbom/manifest.yaml$"
+      ],
+      "groupName": "docker-sbom"
+    },
+    {
+      "matchFiles": [
+        "^tools/docker-scout/manifest.yaml$"
+      ],
+      "groupName": "docker-scout"
+    },
+    {
+      "matchFiles": [
+        "^tools/dockle/manifest.yaml$"
+      ],
+      "groupName": "dockle"
+    },
+    {
+      "matchFiles": [
+        "^tools/docuum/manifest.yaml$"
+      ],
+      "groupName": "docuum"
+    },
+    {
+      "matchFiles": [
+        "^tools/doggo/manifest.yaml$"
+      ],
+      "groupName": "doggo"
+    },
+    {
+      "matchFiles": [
+        "^tools/dot/manifest.yaml$"
+      ],
+      "groupName": "dot"
+    },
+    {
+      "matchFiles": [
+        "^tools/dotenvx/manifest.yaml$"
+      ],
+      "groupName": "dotenvx"
+    },
+    {
+      "matchFiles": [
+        "^tools/dotnet-runtime/manifest.yaml$"
+      ],
+      "groupName": "dotnet-runtime"
+    },
+    {
+      "matchFiles": [
+        "^tools/dotnet-sdk/manifest.yaml$"
+      ],
+      "groupName": "dotnet-sdk"
+    },
+    {
+      "matchFiles": [
+        "^tools/dragonfly/manifest.yaml$"
+      ],
+      "groupName": "dragonfly"
+    },
+    {
+      "matchFiles": [
+        "^tools/dry/manifest.yaml$"
+      ],
+      "groupName": "dry"
+    },
+    {
+      "matchFiles": [
+        "^tools/dua/manifest.yaml$"
+      ],
+      "groupName": "dua"
+    },
+    {
+      "matchFiles": [
+        "^tools/duf/manifest.yaml$"
+      ],
+      "groupName": "duf"
+    },
+    {
+      "matchFiles": [
+        "^tools/duffle/manifest.yaml$"
+      ],
+      "groupName": "duffle"
+    },
+    {
+      "matchFiles": [
+        "^tools/dumb-init/manifest.yaml$"
+      ],
+      "groupName": "dumb-init"
+    },
+    {
+      "matchFiles": [
+        "^tools/dyff/manifest.yaml$"
+      ],
+      "groupName": "dyff"
+    },
+    {
+      "matchFiles": [
+        "^tools/earthly/manifest.yaml$"
+      ],
+      "groupName": "earthly"
+    },
+    {
+      "matchFiles": [
+        "^tools/ecapture/manifest.yaml$"
+      ],
+      "groupName": "ecapture"
+    },
+    {
+      "matchFiles": [
+        "^tools/eksctl/manifest.yaml$"
+      ],
+      "groupName": "eksctl"
+    },
+    {
+      "matchFiles": [
+        "^tools/ekz/manifest.yaml$"
+      ],
+      "groupName": "ekz"
+    },
+    {
+      "matchFiles": [
+        "^tools/elia/manifest.yaml$"
+      ],
+      "groupName": "elia"
+    },
+    {
+      "matchFiles": [
+        "^tools/emoj/manifest.yaml$"
+      ],
+      "groupName": "emoj"
+    },
+    {
+      "matchFiles": [
+        "^tools/emojisum/manifest.yaml$"
+      ],
+      "groupName": "emojisum"
+    },
+    {
+      "matchFiles": [
+        "^tools/envcli/manifest.yaml$"
+      ],
+      "groupName": "envcli"
+    },
+    {
+      "matchFiles": [
+        "^tools/envsub/manifest.yaml$"
+      ],
+      "groupName": "envsub"
+    },
+    {
+      "matchFiles": [
+        "^tools/esbuild/manifest.yaml$"
+      ],
+      "groupName": "esbuild"
+    },
+    {
+      "matchFiles": [
+        "^tools/etcd/manifest.yaml$"
+      ],
+      "groupName": "etcd"
+    },
+    {
+      "matchFiles": [
+        "^tools/etcdadm/manifest.yaml$"
+      ],
+      "groupName": "etcdadm"
+    },
+    {
+      "matchFiles": [
+        "^tools/exa/manifest.yaml$"
+      ],
+      "groupName": "exa"
+    },
+    {
+      "matchFiles": [
+        "^tools/ezghsa/manifest.yaml$"
+      ],
+      "groupName": "ezghsa"
+    },
+    {
+      "matchFiles": [
+        "^tools/faas-cli/manifest.yaml$"
+      ],
+      "groupName": "faas-cli"
+    },
+    {
+      "matchFiles": [
+        "^tools/faasd/manifest.yaml$"
+      ],
+      "groupName": "faasd"
+    },
+    {
+      "matchFiles": [
+        "^tools/fabric/manifest.yaml$"
+      ],
+      "groupName": "fabric"
+    },
+    {
+      "matchFiles": [
+        "^tools/falco/manifest.yaml$"
+      ],
+      "groupName": "falco"
+    },
+    {
+      "matchFiles": [
+        "^tools/falcosidekick/manifest.yaml$"
+      ],
+      "groupName": "falcosidekick"
+    },
+    {
+      "matchFiles": [
+        "^tools/fastgron/manifest.yaml$"
+      ],
+      "groupName": "fastgron"
+    },
+    {
+      "matchFiles": [
+        "^tools/fd/manifest.yaml$"
+      ],
+      "groupName": "fd"
+    },
+    {
+      "matchFiles": [
+        "^tools/figlet/manifest.yaml$"
+      ],
+      "groupName": "figlet"
+    },
+    {
+      "matchFiles": [
+        "^tools/firecracker/manifest.yaml$"
+      ],
+      "groupName": "firecracker"
+    },
+    {
+      "matchFiles": [
+        "^tools/firectl/manifest.yaml$"
+      ],
+      "groupName": "firectl"
+    },
+    {
+      "matchFiles": [
+        "^tools/firejail/manifest.yaml$"
+      ],
+      "groupName": "firejail"
+    },
+    {
+      "matchFiles": [
+        "^tools/flameshow/manifest.yaml$"
+      ],
+      "groupName": "flameshow"
+    },
+    {
+      "matchFiles": [
+        "^tools/flarectl/manifest.yaml$"
+      ],
+      "groupName": "flarectl"
+    },
+    {
+      "matchFiles": [
+        "^tools/fleet/manifest.yaml$"
+      ],
+      "groupName": "fleet"
+    },
+    {
+      "matchFiles": [
+        "^tools/floodgate/manifest.yaml$"
+      ],
+      "groupName": "floodgate"
+    },
+    {
+      "matchFiles": [
+        "^tools/flux/manifest.yaml$"
+      ],
+      "groupName": "flux"
+    },
+    {
+      "matchFiles": [
+        "^tools/flux2/manifest.yaml$"
+      ],
+      "groupName": "flux2"
+    },
+    {
+      "matchFiles": [
+        "^tools/flyctl/manifest.yaml$"
+      ],
+      "groupName": "flyctl"
+    },
+    {
+      "matchFiles": [
+        "^tools/fontawesome-free/manifest.yaml$"
+      ],
+      "groupName": "fontawesome-free"
+    },
+    {
+      "matchFiles": [
+        "^tools/footloose/manifest.yaml$"
+      ],
+      "groupName": "footloose"
+    },
+    {
+      "matchFiles": [
+        "^tools/forgejo/manifest.yaml$"
+      ],
+      "groupName": "forgejo"
+    },
+    {
+      "matchFiles": [
+        "^tools/forgit/manifest.yaml$"
+      ],
+      "groupName": "forgit"
+    },
+    {
+      "matchFiles": [
+        "^tools/foyle/manifest.yaml$"
+      ],
+      "groupName": "foyle"
+    },
+    {
+      "matchFiles": [
+        "^tools/fq/manifest.yaml$"
+      ],
+      "groupName": "fq"
+    },
+    {
+      "matchFiles": [
+        "^tools/frankphp/manifest.yaml$"
+      ],
+      "groupName": "frankphp"
+    },
+    {
+      "matchFiles": [
+        "^tools/freeze/manifest.yaml$"
+      ],
+      "groupName": "freeze"
+    },
+    {
+      "matchFiles": [
+        "^tools/fregot/manifest.yaml$"
+      ],
+      "groupName": "fregot"
+    },
+    {
+      "matchFiles": [
+        "^tools/furyctl/manifest.yaml$"
+      ],
+      "groupName": "furyctl"
+    },
+    {
+      "matchFiles": [
+        "^tools/fuse-overlayfs/manifest.yaml$"
+      ],
+      "groupName": "fuse-overlayfs"
+    },
+    {
+      "matchFiles": [
+        "^tools/fuse-overlayfs-snapshotter/manifest.yaml$"
+      ],
+      "groupName": "fuse-overlayfs-snapshotter"
+    },
+    {
+      "matchFiles": [
+        "^tools/fx/manifest.yaml$"
+      ],
+      "groupName": "fx"
+    },
+    {
+      "matchFiles": [
+        "^tools/fzf/manifest.yaml$"
+      ],
+      "groupName": "fzf"
+    },
+    {
+      "matchFiles": [
+        "^tools/gatekeeper/manifest.yaml$"
+      ],
+      "groupName": "gatekeeper"
+    },
+    {
+      "matchFiles": [
+        "^tools/gcloud/manifest.yaml$"
+      ],
+      "groupName": "gcloud"
+    },
+    {
+      "matchFiles": [
+        "^tools/geist-font/manifest.yaml$"
+      ],
+      "groupName": "geist-font"
+    },
+    {
+      "matchFiles": [
+        "^tools/genie/manifest.yaml$"
+      ],
+      "groupName": "genie"
+    },
+    {
+      "matchFiles": [
+        "^tools/geyser/manifest.yaml$"
+      ],
+      "groupName": "geyser"
+    },
+    {
+      "matchFiles": [
+        "^tools/gh/manifest.yaml$"
+      ],
+      "groupName": "gh"
+    },
+    {
+      "matchFiles": [
+        "^tools/gh-copilot/manifest.yaml$"
+      ],
+      "groupName": "gh-copilot"
+    },
+    {
+      "matchFiles": [
+        "^tools/ghostunnel/manifest.yaml$"
+      ],
+      "groupName": "ghostunnel"
+    },
+    {
+      "matchFiles": [
+        "^tools/git/manifest.yaml$"
+      ],
+      "groupName": "git"
+    },
+    {
+      "matchFiles": [
+        "^tools/gita/manifest.yaml$"
+      ],
+      "groupName": "gita"
+    },
+    {
+      "matchFiles": [
+        "^tools/git-credential-gopass/manifest.yaml$"
+      ],
+      "groupName": "git-credential-gopass"
+    },
+    {
+      "matchFiles": [
+        "^tools/git-credential-oauth/manifest.yaml$"
+      ],
+      "groupName": "git-credential-oauth"
+    },
+    {
+      "matchFiles": [
+        "^tools/gitea/manifest.yaml$"
+      ],
+      "groupName": "gitea"
+    },
+    {
+      "matchFiles": [
+        "^tools/git-filter-repo/manifest.yaml$"
+      ],
+      "groupName": "git-filter-repo"
+    },
+    {
+      "matchFiles": [
+        "^tools/git-graph/manifest.yaml$"
+      ],
+      "groupName": "git-graph"
+    },
+    {
+      "matchFiles": [
+        "^tools/git-igitt/manifest.yaml$"
+      ],
+      "groupName": "git-igitt"
+    },
+    {
+      "matchFiles": [
+        "^tools/gitjob/manifest.yaml$"
+      ],
+      "groupName": "gitjob"
+    },
+    {
+      "matchFiles": [
+        "^tools/gitlabci-local/manifest.yaml$"
+      ],
+      "groupName": "gitlabci-local"
+    },
+    {
+      "matchFiles": [
+        "^tools/gitlab-ci-pipelines-exporter/manifest.yaml$"
+      ],
+      "groupName": "gitlab-ci-pipelines-exporter"
+    },
+    {
+      "matchFiles": [
+        "^tools/gitlab-release/manifest.yaml$"
+      ],
+      "groupName": "gitlab-release"
+    },
+    {
+      "matchFiles": [
+        "^tools/gitlab-runner/manifest.yaml$"
+      ],
+      "groupName": "gitlab-runner"
+    },
+    {
+      "matchFiles": [
+        "^tools/gitleaks/manifest.yaml$"
+      ],
+      "groupName": "gitleaks"
+    },
+    {
+      "matchFiles": [
+        "^tools/git-lfs/manifest.yaml$"
+      ],
+      "groupName": "git-lfs"
+    },
+    {
+      "matchFiles": [
+        "^tools/gitoxide/manifest.yaml$"
+      ],
+      "groupName": "gitoxide"
+    },
+    {
+      "matchFiles": [
+        "^tools/gitsign/manifest.yaml$"
+      ],
+      "groupName": "gitsign"
+    },
+    {
+      "matchFiles": [
+        "^tools/gittuf/manifest.yaml$"
+      ],
+      "groupName": "gittuf"
+    },
+    {
+      "matchFiles": [
+        "^tools/gitui/manifest.yaml$"
+      ],
+      "groupName": "gitui"
+    },
+    {
+      "matchFiles": [
+        "^tools/glab/manifest.yaml$"
+      ],
+      "groupName": "glab"
+    },
+    {
+      "matchFiles": [
+        "^tools/glow/manifest.yaml$"
+      ],
+      "groupName": "glow"
+    },
+    {
+      "matchFiles": [
+        "^tools/gnuplot/manifest.yaml$"
+      ],
+      "groupName": "gnuplot"
+    },
+    {
+      "matchFiles": [
+        "^tools/go/manifest.yaml$"
+      ],
+      "groupName": "go"
+    },
+    {
+      "matchFiles": [
+        "^tools/goblin/manifest.yaml$"
+      ],
+      "groupName": "goblin"
+    },
+    {
+      "matchFiles": [
+        "^tools/gobump/manifest.yaml$"
+      ],
+      "groupName": "gobump"
+    },
+    {
+      "matchFiles": [
+        "^tools/gocryptfs/manifest.yaml$"
+      ],
+      "groupName": "gocryptfs"
+    },
+    {
+      "matchFiles": [
+        "^tools/godotenv/manifest.yaml$"
+      ],
+      "groupName": "godotenv"
+    },
+    {
+      "matchFiles": [
+        "^tools/gojq/manifest.yaml$"
+      ],
+      "groupName": "gojq"
+    },
+    {
+      "matchFiles": [
+        "^tools/golangci-lint/manifest.yaml$"
+      ],
+      "groupName": "golangci-lint"
+    },
+    {
+      "matchFiles": [
+        "^tools/go-md2man/manifest.yaml$"
+      ],
+      "groupName": "go-md2man"
+    },
+    {
+      "matchFiles": [
+        "^tools/go-modiff/manifest.yaml$"
+      ],
+      "groupName": "go-modiff"
+    },
+    {
+      "matchFiles": [
+        "^tools/go-mod-upgrade/manifest.yaml$"
+      ],
+      "groupName": "go-mod-upgrade"
+    },
+    {
+      "matchFiles": [
+        "^tools/gomplate/manifest.yaml$"
+      ],
+      "groupName": "gomplate"
+    },
+    {
+      "matchFiles": [
+        "^tools/gopass/manifest.yaml$"
+      ],
+      "groupName": "gopass"
+    },
+    {
+      "matchFiles": [
+        "^tools/goreleaser/manifest.yaml$"
+      ],
+      "groupName": "goreleaser"
+    },
+    {
+      "matchFiles": [
+        "^tools/gosec/manifest.yaml$"
+      ],
+      "groupName": "gosec"
+    },
+    {
+      "matchFiles": [
+        "^tools/gosu/manifest.yaml$"
+      ],
+      "groupName": "gosu"
+    },
+    {
+      "matchFiles": [
+        "^tools/gotestsum/manifest.yaml$"
+      ],
+      "groupName": "gotestsum"
+    },
+    {
+      "matchFiles": [
+        "^tools/govc/manifest.yaml$"
+      ],
+      "groupName": "govc"
+    },
+    {
+      "matchFiles": [
+        "^tools/gox/manifest.yaml$"
+      ],
+      "groupName": "gox"
+    },
+    {
+      "matchFiles": [
+        "^tools/goyacc/manifest.yaml$"
+      ],
+      "groupName": "goyacc"
+    },
+    {
+      "matchFiles": [
+        "^tools/gptscript/manifest.yaml$"
+      ],
+      "groupName": "gptscript"
+    },
+    {
+      "matchFiles": [
+        "^tools/gradle/manifest.yaml$"
+      ],
+      "groupName": "gradle"
+    },
+    {
+      "matchFiles": [
+        "^tools/grafana/manifest.yaml$"
+      ],
+      "groupName": "grafana"
+    },
+    {
+      "matchFiles": [
+        "^tools/grafana-agent/manifest.yaml$"
+      ],
+      "groupName": "grafana-agent"
+    },
+    {
+      "matchFiles": [
+        "^tools/graphviz/manifest.yaml$"
+      ],
+      "groupName": "graphviz"
+    },
+    {
+      "matchFiles": [
+        "^tools/gron/manifest.yaml$"
+      ],
+      "groupName": "gron"
+    },
+    {
+      "matchFiles": [
+        "^tools/grpcurl/manifest.yaml$"
+      ],
+      "groupName": "grpcurl"
+    },
+    {
+      "matchFiles": [
+        "^tools/grr/manifest.yaml$"
+      ],
+      "groupName": "grr"
+    },
+    {
+      "matchFiles": [
+        "^tools/grunt/manifest.yaml$"
+      ],
+      "groupName": "grunt"
+    },
+    {
+      "matchFiles": [
+        "^tools/grype/manifest.yaml$"
+      ],
+      "groupName": "grype"
+    },
+    {
+      "matchFiles": [
+        "^tools/gsutil/manifest.yaml$"
+      ],
+      "groupName": "gsutil"
+    },
+    {
+      "matchFiles": [
+        "^tools/guac/manifest.yaml$"
+      ],
+      "groupName": "guac"
+    },
+    {
+      "matchFiles": [
+        "^tools/gum/manifest.yaml$"
+      ],
+      "groupName": "gum"
+    },
+    {
+      "matchFiles": [
+        "^tools/gvisor/manifest.yaml$"
+      ],
+      "groupName": "gvisor"
+    },
+    {
+      "matchFiles": [
+        "^tools/hadolint/manifest.yaml$"
+      ],
+      "groupName": "hadolint"
+    },
+    {
+      "matchFiles": [
+        "^tools/has/manifest.yaml$"
+      ],
+      "groupName": "has"
+    },
+    {
+      "matchFiles": [
+        "^tools/havener/manifest.yaml$"
+      ],
+      "groupName": "havener"
+    },
+    {
+      "matchFiles": [
+        "^tools/hcloud/manifest.yaml$"
+      ],
+      "groupName": "hcloud"
+    },
+    {
+      "matchFiles": [
+        "^tools/helm/manifest.yaml$"
+      ],
+      "groupName": "helm"
+    },
+    {
+      "matchFiles": [
+        "^tools/helmfile/manifest.yaml$"
+      ],
+      "groupName": "helmfile"
+    },
+    {
+      "matchFiles": [
+        "^tools/helmify/manifest.yaml$"
+      ],
+      "groupName": "helmify"
+    },
+    {
+      "matchFiles": [
+        "^tools/hetzner-k3s/manifest.yaml$"
+      ],
+      "groupName": "hetzner-k3s"
+    },
+    {
+      "matchFiles": [
+        "^tools/hexyl/manifest.yaml$"
+      ],
+      "groupName": "hexyl"
+    },
+    {
+      "matchFiles": [
+        "^tools/hishtory/manifest.yaml$"
+      ],
+      "groupName": "hishtory"
+    },
+    {
+      "matchFiles": [
+        "^tools/holmesgpt/manifest.yaml$"
+      ],
+      "groupName": "holmesgpt"
+    },
+    {
+      "matchFiles": [
+        "^tools/hopp/manifest.yaml$"
+      ],
+      "groupName": "hopp"
+    },
+    {
+      "matchFiles": [
+        "^tools/ht/manifest.yaml$"
+      ],
+      "groupName": "ht"
+    },
+    {
+      "matchFiles": [
+        "^tools/htmx/manifest.yaml$"
+      ],
+      "groupName": "htmx"
+    },
+    {
+      "matchFiles": [
+        "^tools/httpie/manifest.yaml$"
+      ],
+      "groupName": "httpie"
+    },
+    {
+      "matchFiles": [
+        "^tools/httpx/manifest.yaml$"
+      ],
+      "groupName": "httpx"
+    },
+    {
+      "matchFiles": [
+        "^tools/hub/manifest.yaml$"
+      ],
+      "groupName": "hub"
+    },
+    {
+      "matchFiles": [
+        "^tools/hubble/manifest.yaml$"
+      ],
+      "groupName": "hubble"
+    },
+    {
+      "matchFiles": [
+        "^tools/huber/manifest.yaml$"
+      ],
+      "groupName": "huber"
+    },
+    {
+      "matchFiles": [
+        "^tools/hub-tool/manifest.yaml$"
+      ],
+      "groupName": "hub-tool"
+    },
+    {
+      "matchFiles": [
+        "^tools/hugo/manifest.yaml$"
+      ],
+      "groupName": "hugo"
+    },
+    {
+      "matchFiles": [
+        "^tools/hurl/manifest.yaml$"
+      ],
+      "groupName": "hurl"
+    },
+    {
+      "matchFiles": [
+        "^tools/hyperfine/manifest.yaml$"
+      ],
+      "groupName": "hyperfine"
+    },
+    {
+      "matchFiles": [
+        "^tools/ignite/manifest.yaml$"
+      ],
+      "groupName": "ignite"
+    },
+    {
+      "matchFiles": [
+        "^tools/img/manifest.yaml$"
+      ],
+      "groupName": "img"
+    },
+    {
+      "matchFiles": [
+        "^tools/imgcrypt/manifest.yaml$"
+      ],
+      "groupName": "imgcrypt"
+    },
+    {
+      "matchFiles": [
+        "^tools/imgpkg/manifest.yaml$"
+      ],
+      "groupName": "imgpkg"
+    },
+    {
+      "matchFiles": [
+        "^tools/incus/manifest.yaml$"
+      ],
+      "groupName": "incus"
+    },
+    {
+      "matchFiles": [
+        "^tools/influx-cli/manifest.yaml$"
+      ],
+      "groupName": "influx-cli"
+    },
+    {
+      "matchFiles": [
+        "^tools/influxdb/manifest.yaml$"
+      ],
+      "groupName": "influxdb"
+    },
+    {
+      "matchFiles": [
+        "^tools/ingress2gateway/manifest.yaml$"
+      ],
+      "groupName": "ingress2gateway"
+    },
+    {
+      "matchFiles": [
+        "^tools/inotify-tools/manifest.yaml$"
+      ],
+      "groupName": "inotify-tools"
+    },
+    {
+      "matchFiles": [
+        "^tools/inshellisense/manifest.yaml$"
+      ],
+      "groupName": "inshellisense"
+    },
+    {
+      "matchFiles": [
+        "^tools/in-toto/manifest.yaml$"
+      ],
+      "groupName": "in-toto"
+    },
+    {
+      "matchFiles": [
+        "^tools/iptables/manifest.yaml$"
+      ],
+      "groupName": "iptables"
+    },
+    {
+      "matchFiles": [
+        "^tools/it-depends/manifest.yaml$"
+      ],
+      "groupName": "it-depends"
+    },
+    {
+      "matchFiles": [
+        "^tools/jabba/manifest.yaml$"
+      ],
+      "groupName": "jabba"
+    },
+    {
+      "matchFiles": [
+        "^tools/jaq/manifest.yaml$"
+      ],
+      "groupName": "jaq"
+    },
+    {
+      "matchFiles": [
+        "^tools/jaxb/manifest.yaml$"
+      ],
+      "groupName": "jaxb"
+    },
+    {
+      "matchFiles": [
+        "^tools/jb/manifest.yaml$"
+      ],
+      "groupName": "jb"
+    },
+    {
+      "matchFiles": [
+        "^tools/jc/manifest.yaml$"
+      ],
+      "groupName": "jc"
+    },
+    {
+      "matchFiles": [
+        "^tools/jenkins-remoting/manifest.yaml$"
+      ],
+      "groupName": "jenkins-remoting"
+    },
+    {
+      "matchFiles": [
+        "^tools/jetbrainsmono/manifest.yaml$"
+      ],
+      "groupName": "jetbrainsmono"
+    },
+    {
+      "matchFiles": [
+        "^tools/jf/manifest.yaml$"
+      ],
+      "groupName": "jf"
+    },
+    {
+      "matchFiles": [
+        "^tools/jfq/manifest.yaml$"
+      ],
+      "groupName": "jfq"
+    },
+    {
+      "matchFiles": [
+        "^tools/jj/manifest.yaml$"
+      ],
+      "groupName": "jj"
+    },
+    {
+      "matchFiles": [
+        "^tools/jless/manifest.yaml$"
+      ],
+      "groupName": "jless"
+    },
+    {
+      "matchFiles": [
+        "^tools/jnv/manifest.yaml$"
+      ],
+      "groupName": "jnv"
+    },
+    {
+      "matchFiles": [
+        "^tools/jp/manifest.yaml$"
+      ],
+      "groupName": "jp"
+    },
+    {
+      "matchFiles": [
+        "^tools/jq/manifest.yaml$"
+      ],
+      "groupName": "jq"
+    },
+    {
+      "matchFiles": [
+        "^tools/jqp/manifest.yaml$"
+      ],
+      "groupName": "jqp"
+    },
+    {
+      "matchFiles": [
+        "^tools/jsonata-cli/manifest.yaml$"
+      ],
+      "groupName": "jsonata-cli"
+    },
+    {
+      "matchFiles": [
+        "^tools/json-exporter/manifest.yaml$"
+      ],
+      "groupName": "json-exporter"
+    },
+    {
+      "matchFiles": [
+        "^tools/jsonnet/manifest.yaml$"
+      ],
+      "groupName": "jsonnet"
+    },
+    {
+      "matchFiles": [
+        "^tools/jsonplot/manifest.yaml$"
+      ],
+      "groupName": "jsonplot"
+    },
+    {
+      "matchFiles": [
+        "^tools/just/manifest.yaml$"
+      ],
+      "groupName": "just"
+    },
+    {
+      "matchFiles": [
+        "^tools/jwt/manifest.yaml$"
+      ],
+      "groupName": "jwt"
+    },
+    {
+      "matchFiles": [
+        "^tools/jx/manifest.yaml$"
+      ],
+      "groupName": "jx"
+    },
+    {
+      "matchFiles": [
+        "^tools/k0s/manifest.yaml$"
+      ],
+      "groupName": "k0s"
+    },
+    {
+      "matchFiles": [
+        "^tools/k0sctl/manifest.yaml$"
+      ],
+      "groupName": "k0sctl"
+    },
+    {
+      "matchFiles": [
+        "^tools/k2d/manifest.yaml$"
+      ],
+      "groupName": "k2d"
+    },
+    {
+      "matchFiles": [
+        "^tools/k3d/manifest.yaml$"
+      ],
+      "groupName": "k3d"
+    },
+    {
+      "matchFiles": [
+        "^tools/k3s/manifest.yaml$"
+      ],
+      "groupName": "k3s"
+    },
+    {
+      "matchFiles": [
+        "^tools/k3sup/manifest.yaml$"
+      ],
+      "groupName": "k3sup"
+    },
+    {
+      "matchFiles": [
+        "^tools/k6/manifest.yaml$"
+      ],
+      "groupName": "k6"
+    },
+    {
+      "matchFiles": [
+        "^tools/k8senv/manifest.yaml$"
+      ],
+      "groupName": "k8senv"
+    },
+    {
+      "matchFiles": [
+        "^tools/k8sgpt/manifest.yaml$"
+      ],
+      "groupName": "k8sgpt"
+    },
+    {
+      "matchFiles": [
+        "^tools/k8spacket/manifest.yaml$"
+      ],
+      "groupName": "k8spacket"
+    },
+    {
+      "matchFiles": [
+        "^tools/k8s-tew/manifest.yaml$"
+      ],
+      "groupName": "k8s-tew"
+    },
+    {
+      "matchFiles": [
+        "^tools/k9s/manifest.yaml$"
+      ],
+      "groupName": "k9s"
+    },
+    {
+      "matchFiles": [
+        "^tools/kapp/manifest.yaml$"
+      ],
+      "groupName": "kapp"
+    },
+    {
+      "matchFiles": [
+        "^tools/katana/manifest.yaml$"
+      ],
+      "groupName": "katana"
+    },
+    {
+      "matchFiles": [
+        "^tools/kbld/manifest.yaml$"
+      ],
+      "groupName": "kbld"
+    },
+    {
+      "matchFiles": [
+        "^tools/kbom/manifest.yaml$"
+      ],
+      "groupName": "kbom"
+    },
+    {
+      "matchFiles": [
+        "^tools/kbrew/manifest.yaml$"
+      ],
+      "groupName": "kbrew"
+    },
+    {
+      "matchFiles": [
+        "^tools/kcount/manifest.yaml$"
+      ],
+      "groupName": "kcount"
+    },
+    {
+      "matchFiles": [
+        "^tools/kcp/manifest.yaml$"
+      ],
+      "groupName": "kcp"
+    },
+    {
+      "matchFiles": [
+        "^tools/kd/manifest.yaml$"
+      ],
+      "groupName": "kd"
+    },
+    {
+      "matchFiles": [
+        "^tools/kdo/manifest.yaml$"
+      ],
+      "groupName": "kdo"
+    },
+    {
+      "matchFiles": [
+        "^tools/ketch/manifest.yaml$"
+      ],
+      "groupName": "ketch"
+    },
+    {
+      "matchFiles": [
+        "^tools/kexp/manifest.yaml$"
+      ],
+      "groupName": "kexp"
+    },
+    {
+      "matchFiles": [
+        "^tools/keybase/manifest.yaml$"
+      ],
+      "groupName": "keybase"
+    },
+    {
+      "matchFiles": [
+        "^tools/keyoxide/manifest.yaml$"
+      ],
+      "groupName": "keyoxide"
+    },
+    {
+      "matchFiles": [
+        "^tools/kgctl/manifest.yaml$"
+      ],
+      "groupName": "kgctl"
+    },
+    {
+      "matchFiles": [
+        "^tools/kind/manifest.yaml$"
+      ],
+      "groupName": "kind"
+    },
+    {
+      "matchFiles": [
+        "^tools/kine/manifest.yaml$"
+      ],
+      "groupName": "kine"
+    },
+    {
+      "matchFiles": [
+        "^tools/kink/manifest.yaml$"
+      ],
+      "groupName": "kink"
+    },
+    {
+      "matchFiles": [
+        "^tools/kitt/manifest.yaml$"
+      ],
+      "groupName": "kitt"
+    },
+    {
+      "matchFiles": [
+        "^tools/kitty/manifest.yaml$"
+      ],
+      "groupName": "kitty"
+    },
+    {
+      "matchFiles": [
+        "^tools/kluctl/manifest.yaml$"
+      ],
+      "groupName": "kluctl"
+    },
+    {
+      "matchFiles": [
+        "^tools/kmon/manifest.yaml$"
+      ],
+      "groupName": "kmon"
+    },
+    {
+      "matchFiles": [
+        "^tools/kn/manifest.yaml$"
+      ],
+      "groupName": "kn"
+    },
+    {
+      "matchFiles": [
+        "^tools/ko/manifest.yaml$"
+      ],
+      "groupName": "ko"
+    },
+    {
+      "matchFiles": [
+        "^tools/kompose/manifest.yaml$"
+      ],
+      "groupName": "kompose"
+    },
+    {
+      "matchFiles": [
+        "^tools/konf/manifest.yaml$"
+      ],
+      "groupName": "konf"
+    },
+    {
+      "matchFiles": [
+        "^tools/kots/manifest.yaml$"
+      ],
+      "groupName": "kots"
+    },
+    {
+      "matchFiles": [
+        "^tools/kp/manifest.yaml$"
+      ],
+      "groupName": "kp"
+    },
+    {
+      "matchFiles": [
+        "^tools/kpt/manifest.yaml$"
+      ],
+      "groupName": "kpt"
+    },
+    {
+      "matchFiles": [
+        "^tools/kpxhs/manifest.yaml$"
+      ],
+      "groupName": "kpxhs"
+    },
+    {
+      "matchFiles": [
+        "^tools/krew/manifest.yaml$"
+      ],
+      "groupName": "krew"
+    },
+    {
+      "matchFiles": [
+        "^tools/kroki-cli/manifest.yaml$"
+      ],
+      "groupName": "kroki-cli"
+    },
+    {
+      "matchFiles": [
+        "^tools/ksort/manifest.yaml$"
+      ],
+      "groupName": "ksort"
+    },
+    {
+      "matchFiles": [
+        "^tools/ktop/manifest.yaml$"
+      ],
+      "groupName": "ktop"
+    },
+    {
+      "matchFiles": [
+        "^tools/ktunnel/manifest.yaml$"
+      ],
+      "groupName": "ktunnel"
+    },
+    {
+      "matchFiles": [
+        "^tools/kubeadm/manifest.yaml$"
+      ],
+      "groupName": "kubeadm"
+    },
+    {
+      "matchFiles": [
+        "^tools/kube-apiserver/manifest.yaml$"
+      ],
+      "groupName": "kube-apiserver"
+    },
+    {
+      "matchFiles": [
+        "^tools/kubeaudit/manifest.yaml$"
+      ],
+      "groupName": "kubeaudit"
+    },
+    {
+      "matchFiles": [
+        "^tools/kube-bench/manifest.yaml$"
+      ],
+      "groupName": "kube-bench"
+    },
+    {
+      "matchFiles": [
+        "^tools/kubebox/manifest.yaml$"
+      ],
+      "groupName": "kubebox"
+    },
+    {
+      "matchFiles": [
+        "^tools/kubebuilder/manifest.yaml$"
+      ],
+      "groupName": "kubebuilder"
+    },
+    {
+      "matchFiles": [
+        "^tools/kube-burner/manifest.yaml$"
+      ],
+      "groupName": "kube-burner"
+    },
+    {
+      "matchFiles": [
+        "^tools/kubeclarity-cli/manifest.yaml$"
+      ],
+      "groupName": "kubeclarity-cli"
+    },
+    {
+      "matchFiles": [
+        "^tools/kubecolor/manifest.yaml$"
+      ],
+      "groupName": "kubecolor"
+    },
+    {
+      "matchFiles": [
+        "^tools/kubeconform/manifest.yaml$"
+      ],
+      "groupName": "kubeconform"
+    },
+    {
+      "matchFiles": [
+        "^tools/kube-controller-manager/manifest.yaml$"
+      ],
+      "groupName": "kube-controller-manager"
+    },
+    {
+      "matchFiles": [
+        "^tools/kubectl/manifest.yaml$"
+      ],
+      "groupName": "kubectl"
+    },
+    {
+      "matchFiles": [
+        "^tools/kubectl-build/manifest.yaml$"
+      ],
+      "groupName": "kubectl-build"
+    },
+    {
+      "matchFiles": [
+        "^tools/kubectl-free/manifest.yaml$"
+      ],
+      "groupName": "kubectl-free"
+    },
+    {
+      "matchFiles": [
+        "^tools/kubectl-oidc-login/manifest.yaml$"
+      ],
+      "groupName": "kubectl-oidc-login"
+    },
+    {
+      "matchFiles": [
+        "^tools/kubectl-resources/manifest.yaml$"
+      ],
+      "groupName": "kubectl-resources"
+    },
+    {
+      "matchFiles": [
+        "^tools/kubectl-ssh-proxy/manifest.yaml$"
+      ],
+      "groupName": "kubectl-ssh-proxy"
+    },
+    {
+      "matchFiles": [
+        "^tools/kubectx/manifest.yaml$"
+      ],
+      "groupName": "kubectx"
+    },
+    {
+      "matchFiles": [
+        "^tools/kubefire/manifest.yaml$"
+      ],
+      "groupName": "kubefire"
+    },
+    {
+      "matchFiles": [
+        "^tools/kubelet/manifest.yaml$"
+      ],
+      "groupName": "kubelet"
+    },
+    {
+      "matchFiles": [
+        "^tools/kubeletctl/manifest.yaml$"
+      ],
+      "groupName": "kubeletctl"
+    },
+    {
+      "matchFiles": [
+        "^tools/kube-linter/manifest.yaml$"
+      ],
+      "groupName": "kube-linter"
+    },
+    {
+      "matchFiles": [
+        "^tools/kubent/manifest.yaml$"
+      ],
+      "groupName": "kubent"
+    },
+    {
+      "matchFiles": [
+        "^tools/kube-proxy/manifest.yaml$"
+      ],
+      "groupName": "kube-proxy"
+    },
+    {
+      "matchFiles": [
+        "^tools/kube-psp-advisor/manifest.yaml$"
+      ],
+      "groupName": "kube-psp-advisor"
+    },
+    {
+      "matchFiles": [
+        "^tools/kubernetes-json-schema/manifest.yaml$"
+      ],
+      "groupName": "kubernetes-json-schema"
+    },
+    {
+      "matchFiles": [
+        "^tools/kubescape/manifest.yaml$"
+      ],
+      "groupName": "kubescape"
+    },
+    {
+      "matchFiles": [
+        "^tools/kube-scheduler/manifest.yaml$"
+      ],
+      "groupName": "kube-scheduler"
+    },
+    {
+      "matchFiles": [
+        "^tools/kube-score/manifest.yaml$"
+      ],
+      "groupName": "kube-score"
+    },
+    {
+      "matchFiles": [
+        "^tools/kubeseal/manifest.yaml$"
+      ],
+      "groupName": "kubeseal"
+    },
+    {
+      "matchFiles": [
+        "^tools/kubesec/manifest.yaml$"
+      ],
+      "groupName": "kubesec"
+    },
+    {
+      "matchFiles": [
+        "^tools/kubeshark/manifest.yaml$"
+      ],
+      "groupName": "kubeshark"
+    },
+    {
+      "matchFiles": [
+        "^tools/kubeswitch/manifest.yaml$"
+      ],
+      "groupName": "kubeswitch"
+    },
+    {
+      "matchFiles": [
+        "^tools/kube-trigger/manifest.yaml$"
+      ],
+      "groupName": "kube-trigger"
+    },
+    {
+      "matchFiles": [
+        "^tools/kubeval/manifest.yaml$"
+      ],
+      "groupName": "kubeval"
+    },
+    {
+      "matchFiles": [
+        "^tools/kubo/manifest.yaml$"
+      ],
+      "groupName": "kubo"
+    },
+    {
+      "matchFiles": [
+        "^tools/kudo/manifest.yaml$"
+      ],
+      "groupName": "kudo"
+    },
+    {
+      "matchFiles": [
+        "^tools/kustomize/manifest.yaml$"
+      ],
+      "groupName": "kustomize"
+    },
+    {
+      "matchFiles": [
+        "^tools/kustomizer/manifest.yaml$"
+      ],
+      "groupName": "kustomizer"
+    },
+    {
+      "matchFiles": [
+        "^tools/kuttl/manifest.yaml$"
+      ],
+      "groupName": "kuttl"
+    },
+    {
+      "matchFiles": [
+        "^tools/kwok/manifest.yaml$"
+      ],
+      "groupName": "kwok"
+    },
+    {
+      "matchFiles": [
+        "^tools/kyverno/manifest.yaml$"
+      ],
+      "groupName": "kyverno"
+    },
+    {
+      "matchFiles": [
+        "^tools/lab/manifest.yaml$"
+      ],
+      "groupName": "lab"
+    },
+    {
+      "matchFiles": [
+        "^tools/lazydocker/manifest.yaml$"
+      ],
+      "groupName": "lazydocker"
+    },
+    {
+      "matchFiles": [
+        "^tools/lazygit/manifest.yaml$"
+      ],
+      "groupName": "lazygit"
+    },
+    {
+      "matchFiles": [
+        "^tools/lazysql/manifest.yaml$"
+      ],
+      "groupName": "lazysql"
+    },
+    {
+      "matchFiles": [
+        "^tools/lazytrivy/manifest.yaml$"
+      ],
+      "groupName": "lazytrivy"
+    },
+    {
+      "matchFiles": [
+        "^tools/lectl/manifest.yaml$"
+      ],
+      "groupName": "lectl"
+    },
+    {
+      "matchFiles": [
+        "^tools/lego/manifest.yaml$"
+      ],
+      "groupName": "lego"
+    },
+    {
+      "matchFiles": [
+        "^tools/libbpf/manifest.yaml$"
+      ],
+      "groupName": "libbpf"
+    },
+    {
+      "matchFiles": [
+        "^tools/libcap/manifest.yaml$"
+      ],
+      "groupName": "libcap"
+    },
+    {
+      "matchFiles": [
+        "^tools/libcap-ng/manifest.yaml$"
+      ],
+      "groupName": "libcap-ng"
+    },
+    {
+      "matchFiles": [
+        "^tools/libcgroup/manifest.yaml$"
+      ],
+      "groupName": "libcgroup"
+    },
+    {
+      "matchFiles": [
+        "^tools/libgmp/manifest.yaml$"
+      ],
+      "groupName": "libgmp"
+    },
+    {
+      "matchFiles": [
+        "^tools/libjansson/manifest.yaml$"
+      ],
+      "groupName": "libjansson"
+    },
+    {
+      "matchFiles": [
+        "^tools/libmnl/manifest.yaml$"
+      ],
+      "groupName": "libmnl"
+    },
+    {
+      "matchFiles": [
+        "^tools/libnfnetlink/manifest.yaml$"
+      ],
+      "groupName": "libnfnetlink"
+    },
+    {
+      "matchFiles": [
+        "^tools/libnftnl/manifest.yaml$"
+      ],
+      "groupName": "libnftnl"
+    },
+    {
+      "matchFiles": [
+        "^tools/libnvidia-container/manifest.yaml$"
+      ],
+      "groupName": "libnvidia-container"
+    },
+    {
+      "matchFiles": [
+        "^tools/lima/manifest.yaml$"
+      ],
+      "groupName": "lima"
+    },
+    {
+      "matchFiles": [
+        "^tools/linkchecker/manifest.yaml$"
+      ],
+      "groupName": "linkchecker"
+    },
+    {
+      "matchFiles": [
+        "^tools/linux-kernel/manifest.yaml$"
+      ],
+      "groupName": "linux-kernel"
+    },
+    {
+      "matchFiles": [
+        "^tools/linux-kernel-wsl/manifest.yaml$"
+      ],
+      "groupName": "linux-kernel-wsl"
+    },
+    {
+      "matchFiles": [
+        "^tools/linux-kernel-wsl-stable/manifest.yaml$"
+      ],
+      "groupName": "linux-kernel-wsl-stable"
+    },
+    {
+      "matchFiles": [
+        "^tools/linuxkit/manifest.yaml$"
+      ],
+      "groupName": "linuxkit"
+    },
+    {
+      "matchFiles": [
+        "^tools/local-ai/manifest.yaml$"
+      ],
+      "groupName": "local-ai"
+    },
+    {
+      "matchFiles": [
+        "^tools/localizer/manifest.yaml$"
+      ],
+      "groupName": "localizer"
+    },
+    {
+      "matchFiles": [
+        "^tools/loft/manifest.yaml$"
+      ],
+      "groupName": "loft"
+    },
+    {
+      "matchFiles": [
+        "^tools/logcli/manifest.yaml$"
+      ],
+      "groupName": "logcli"
+    },
+    {
+      "matchFiles": [
+        "^tools/loki/manifest.yaml$"
+      ],
+      "groupName": "loki"
+    },
+    {
+      "matchFiles": [
+        "^tools/loki-canary/manifest.yaml$"
+      ],
+      "groupName": "loki-canary"
+    },
+    {
+      "matchFiles": [
+        "^tools/lowcharts/manifest.yaml$"
+      ],
+      "groupName": "lowcharts"
+    },
+    {
+      "matchFiles": [
+        "^tools/lsd/manifest.yaml$"
+      ],
+      "groupName": "lsd"
+    },
+    {
+      "matchFiles": [
+        "^tools/lstags/manifest.yaml$"
+      ],
+      "groupName": "lstags"
+    },
+    {
+      "matchFiles": [
+        "^tools/luet/manifest.yaml$"
+      ],
+      "groupName": "luet"
+    },
+    {
+      "matchFiles": [
+        "^tools/lxroot/manifest.yaml$"
+      ],
+      "groupName": "lxroot"
+    },
+    {
+      "matchFiles": [
+        "^tools/lz4/manifest.yaml$"
+      ],
+      "groupName": "lz4"
+    },
+    {
+      "matchFiles": [
+        "^tools/mage/manifest.yaml$"
+      ],
+      "groupName": "mage"
+    },
+    {
+      "matchFiles": [
+        "^tools/mailpit/manifest.yaml$"
+      ],
+      "groupName": "mailpit"
+    },
+    {
+      "matchFiles": [
+        "^tools/make/manifest.yaml$"
+      ],
+      "groupName": "make"
+    },
+    {
+      "matchFiles": [
+        "^tools/mani/manifest.yaml$"
+      ],
+      "groupName": "mani"
+    },
+    {
+      "matchFiles": [
+        "^tools/manifest-tool/manifest.yaml$"
+      ],
+      "groupName": "manifest-tool"
+    },
+    {
+      "matchFiles": [
+        "^tools/mapcidr/manifest.yaml$"
+      ],
+      "groupName": "mapcidr"
+    },
+    {
+      "matchFiles": [
+        "^tools/markdownlint/manifest.yaml$"
+      ],
+      "groupName": "markdownlint"
+    },
+    {
+      "matchFiles": [
+        "^tools/marvin/manifest.yaml$"
+      ],
+      "groupName": "marvin"
+    },
+    {
+      "matchFiles": [
+        "^tools/maven/manifest.yaml$"
+      ],
+      "groupName": "maven"
+    },
+    {
+      "matchFiles": [
+        "^tools/mc/manifest.yaml$"
+      ],
+      "groupName": "mc"
+    },
+    {
+      "matchFiles": [
+        "^tools/mcfly/manifest.yaml$"
+      ],
+      "groupName": "mcfly"
+    },
+    {
+      "matchFiles": [
+        "^tools/mcrcon/manifest.yaml$"
+      ],
+      "groupName": "mcrcon"
+    },
+    {
+      "matchFiles": [
+        "^tools/melange/manifest.yaml$"
+      ],
+      "groupName": "melange"
+    },
+    {
+      "matchFiles": [
+        "^tools/melt/manifest.yaml$"
+      ],
+      "groupName": "melt"
+    },
+    {
+      "matchFiles": [
+        "^tools/mergerfs/manifest.yaml$"
+      ],
+      "groupName": "mergerfs"
+    },
+    {
+      "matchFiles": [
+        "^tools/mermaid-cli/manifest.yaml$"
+      ],
+      "groupName": "mermaid-cli"
+    },
+    {
+      "matchFiles": [
+        "^tools/meteor/manifest.yaml$"
+      ],
+      "groupName": "meteor"
+    },
+    {
+      "matchFiles": [
+        "^tools/meteor-commit/manifest.yaml$"
+      ],
+      "groupName": "meteor-commit"
+    },
+    {
+      "matchFiles": [
+        "^tools/mgo/manifest.yaml$"
+      ],
+      "groupName": "mgo"
+    },
+    {
+      "matchFiles": [
+        "^tools/micro/manifest.yaml$"
+      ],
+      "groupName": "micro"
+    },
+    {
+      "matchFiles": [
+        "^tools/miller/manifest.yaml$"
+      ],
+      "groupName": "miller"
+    },
+    {
+      "matchFiles": [
+        "^tools/mimir/manifest.yaml$"
+      ],
+      "groupName": "mimir"
+    },
+    {
+      "matchFiles": [
+        "^tools/mimirtool/manifest.yaml$"
+      ],
+      "groupName": "mimirtool"
+    },
+    {
+      "matchFiles": [
+        "^tools/minder/manifest.yaml$"
+      ],
+      "groupName": "minder"
+    },
+    {
+      "matchFiles": [
+        "^tools/minecraft-server/manifest.yaml$"
+      ],
+      "groupName": "minecraft-server"
+    },
+    {
+      "matchFiles": [
+        "^tools/minectl/manifest.yaml$"
+      ],
+      "groupName": "minectl"
+    },
+    {
+      "matchFiles": [
+        "^tools/minikube/manifest.yaml$"
+      ],
+      "groupName": "minikube"
+    },
+    {
+      "matchFiles": [
+        "^tools/minio/manifest.yaml$"
+      ],
+      "groupName": "minio"
+    },
+    {
+      "matchFiles": [
+        "^tools/mink/manifest.yaml$"
+      ],
+      "groupName": "mink"
+    },
+    {
+      "matchFiles": [
+        "^tools/mint/manifest.yaml$"
+      ],
+      "groupName": "mint"
+    },
+    {
+      "matchFiles": [
+        "^tools/mitmproxy/manifest.yaml$"
+      ],
+      "groupName": "mitmproxy"
+    },
+    {
+      "matchFiles": [
+        "^tools/mkcert/manifest.yaml$"
+      ],
+      "groupName": "mkcert"
+    },
+    {
+      "matchFiles": [
+        "^tools/mkdocs/manifest.yaml$"
+      ],
+      "groupName": "mkdocs"
+    },
+    {
+      "matchFiles": [
+        "^tools/mods/manifest.yaml$"
+      ],
+      "groupName": "mods"
+    },
+    {
+      "matchFiles": [
+        "^tools/monaspace/manifest.yaml$"
+      ],
+      "groupName": "monaspace"
+    },
+    {
+      "matchFiles": [
+        "^tools/mp3binder/manifest.yaml$"
+      ],
+      "groupName": "mp3binder"
+    },
+    {
+      "matchFiles": [
+        "^tools/multiverse/manifest.yaml$"
+      ],
+      "groupName": "multiverse"
+    },
+    {
+      "matchFiles": [
+        "^tools/multiverse-inventories/manifest.yaml$"
+      ],
+      "groupName": "multiverse-inventories"
+    },
+    {
+      "matchFiles": [
+        "^tools/multiverse-netherportals/manifest.yaml$"
+      ],
+      "groupName": "multiverse-netherportals"
+    },
+    {
+      "matchFiles": [
+        "^tools/multiverse-portals/manifest.yaml$"
+      ],
+      "groupName": "multiverse-portals"
+    },
+    {
+      "matchFiles": [
+        "^tools/multiverse-signportals/manifest.yaml$"
+      ],
+      "groupName": "multiverse-signportals"
+    },
+    {
+      "matchFiles": [
+        "^tools/mu-repo/manifest.yaml$"
+      ],
+      "groupName": "mu-repo"
+    },
+    {
+      "matchFiles": [
+        "^tools/musl/manifest.yaml$"
+      ],
+      "groupName": "musl"
+    },
+    {
+      "matchFiles": [
+        "^tools/mutagen/manifest.yaml$"
+      ],
+      "groupName": "mutagen"
+    },
+    {
+      "matchFiles": [
+        "^tools/mutagen-compose/manifest.yaml$"
+      ],
+      "groupName": "mutagen-compose"
+    },
+    {
+      "matchFiles": [
+        "^tools/n8n/manifest.yaml$"
+      ],
+      "groupName": "n8n"
+    },
+    {
+      "matchFiles": [
+        "^tools/namespace/manifest.yaml$"
+      ],
+      "groupName": "namespace"
+    },
+    {
+      "matchFiles": [
+        "^tools/nancy/manifest.yaml$"
+      ],
+      "groupName": "nancy"
+    },
+    {
+      "matchFiles": [
+        "^tools/navi/manifest.yaml$"
+      ],
+      "groupName": "navi"
+    },
+    {
+      "matchFiles": [
+        "^tools/ncdu/manifest.yaml$"
+      ],
+      "groupName": "ncdu"
+    },
+    {
+      "matchFiles": [
+        "^tools/neo4j/manifest.yaml$"
+      ],
+      "groupName": "neo4j"
+    },
+    {
+      "matchFiles": [
+        "^tools/neofetch/manifest.yaml$"
+      ],
+      "groupName": "neofetch"
+    },
+    {
+      "matchFiles": [
+        "^tools/nerdctl/manifest.yaml$"
+      ],
+      "groupName": "nerdctl"
+    },
+    {
+      "matchFiles": [
+        "^tools/nerd-fonts/manifest.yaml$"
+      ],
+      "groupName": "nerd-fonts"
+    },
+    {
+      "matchFiles": [
+        "^tools/newman/manifest.yaml$"
+      ],
+      "groupName": "newman"
+    },
+    {
+      "matchFiles": [
+        "^tools/nftables/manifest.yaml$"
+      ],
+      "groupName": "nftables"
+    },
+    {
+      "matchFiles": [
+        "^tools/nms/manifest.yaml$"
+      ],
+      "groupName": "nms"
+    },
+    {
+      "matchFiles": [
+        "^tools/node-exporter/manifest.yaml$"
+      ],
+      "groupName": "node-exporter"
+    },
+    {
+      "matchFiles": [
+        "^tools/nodejs/manifest.yaml$"
+      ],
+      "groupName": "nodejs"
+    },
+    {
+      "matchFiles": [
+        "^tools/nodejs-lts/manifest.yaml$"
+      ],
+      "groupName": "nodejs-lts"
+    },
+    {
+      "matchFiles": [
+        "^tools/nomad/manifest.yaml$"
+      ],
+      "groupName": "nomad"
+    },
+    {
+      "matchFiles": [
+        "^tools/norouter/manifest.yaml$"
+      ],
+      "groupName": "norouter"
+    },
+    {
+      "matchFiles": [
+        "^tools/notation/manifest.yaml$"
+      ],
+      "groupName": "notation"
+    },
+    {
+      "matchFiles": [
+        "^tools/npm/manifest.yaml$"
+      ],
+      "groupName": "npm"
+    },
+    {
+      "matchFiles": [
+        "^tools/nsutils/manifest.yaml$"
+      ],
+      "groupName": "nsutils"
+    },
+    {
+      "matchFiles": [
+        "^tools/nuclei/manifest.yaml$"
+      ],
+      "groupName": "nuclei"
+    },
+    {
+      "matchFiles": [
+        "^tools/nuclei-templates/manifest.yaml$"
+      ],
+      "groupName": "nuclei-templates"
+    },
+    {
+      "matchFiles": [
+        "^tools/nushell/manifest.yaml$"
+      ],
+      "groupName": "nushell"
+    },
+    {
+      "matchFiles": [
+        "^tools/nvidia-container-toolkit/manifest.yaml$"
+      ],
+      "groupName": "nvidia-container-toolkit"
+    },
+    {
+      "matchFiles": [
+        "^tools/nvm/manifest.yaml$"
+      ],
+      "groupName": "nvm"
+    },
+    {
+      "matchFiles": [
+        "^tools/nx/manifest.yaml$"
+      ],
+      "groupName": "nx"
+    },
+    {
+      "matchFiles": [
+        "^tools/nydus/manifest.yaml$"
+      ],
+      "groupName": "nydus"
+    },
+    {
+      "matchFiles": [
+        "^tools/nydus-snapshotter/manifest.yaml$"
+      ],
+      "groupName": "nydus-snapshotter"
+    },
+    {
+      "matchFiles": [
+        "^tools/oc/manifest.yaml$"
+      ],
+      "groupName": "oc"
+    },
+    {
+      "matchFiles": [
+        "^tools/ocb/manifest.yaml$"
+      ],
+      "groupName": "ocb"
+    },
+    {
+      "matchFiles": [
+        "^tools/oci-image-tool/manifest.yaml$"
+      ],
+      "groupName": "oci-image-tool"
+    },
+    {
+      "matchFiles": [
+        "^tools/oci-runtime-tool/manifest.yaml$"
+      ],
+      "groupName": "oci-runtime-tool"
+    },
+    {
+      "matchFiles": [
+        "^tools/ocm/manifest.yaml$"
+      ],
+      "groupName": "ocm"
+    },
+    {
+      "matchFiles": [
+        "^tools/octopilot/manifest.yaml$"
+      ],
+      "groupName": "octopilot"
+    },
+    {
+      "matchFiles": [
+        "^tools/octosql/manifest.yaml$"
+      ],
+      "groupName": "octosql"
+    },
+    {
+      "matchFiles": [
+        "^tools/oidc/manifest.yaml$"
+      ],
+      "groupName": "oidc"
+    },
+    {
+      "matchFiles": [
+        "^tools/oidc-claims/manifest.yaml$"
+      ],
+      "groupName": "oidc-claims"
+    },
+    {
+      "matchFiles": [
+        "^tools/ojg/manifest.yaml$"
+      ],
+      "groupName": "ojg"
+    },
+    {
+      "matchFiles": [
+        "^tools/opa/manifest.yaml$"
+      ],
+      "groupName": "opa"
+    },
+    {
+      "matchFiles": [
+        "^tools/openhue-cli/manifest.yaml$"
+      ],
+      "groupName": "openhue-cli"
+    },
+    {
+      "matchFiles": [
+        "^tools/openjdk/manifest.yaml$"
+      ],
+      "groupName": "openjdk"
+    },
+    {
+      "matchFiles": [
+        "^tools/openjdk-jre/manifest.yaml$"
+      ],
+      "groupName": "openjdk-jre"
+    },
+    {
+      "matchFiles": [
+        "^tools/opentofu/manifest.yaml$"
+      ],
+      "groupName": "opentofu"
+    },
+    {
+      "matchFiles": [
+        "^tools/oras/manifest.yaml$"
+      ],
+      "groupName": "oras"
+    },
+    {
+      "matchFiles": [
+        "^tools/osquery/manifest.yaml$"
+      ],
+      "groupName": "osquery"
+    },
+    {
+      "matchFiles": [
+        "^tools/osv-scanner/manifest.yaml$"
+      ],
+      "groupName": "osv-scanner"
+    },
+    {
+      "matchFiles": [
+        "^tools/overlaybd/manifest.yaml$"
+      ],
+      "groupName": "overlaybd"
+    },
+    {
+      "matchFiles": [
+        "^tools/overlaybd-snapshotter/manifest.yaml$"
+      ],
+      "groupName": "overlaybd-snapshotter"
+    },
+    {
+      "matchFiles": [
+        "^tools/pack/manifest.yaml$"
+      ],
+      "groupName": "pack"
+    },
+    {
+      "matchFiles": [
+        "^tools/packer/manifest.yaml$"
+      ],
+      "groupName": "packer"
+    },
+    {
+      "matchFiles": [
+        "^tools/pacstall/manifest.yaml$"
+      ],
+      "groupName": "pacstall"
+    },
+    {
+      "matchFiles": [
+        "^tools/pandoc/manifest.yaml$"
+      ],
+      "groupName": "pandoc"
+    },
+    {
+      "matchFiles": [
+        "^tools/papermc/manifest.yaml$"
+      ],
+      "groupName": "papermc"
+    },
+    {
+      "matchFiles": [
+        "^tools/paranoia/manifest.yaml$"
+      ],
+      "groupName": "paranoia"
+    },
+    {
+      "matchFiles": [
+        "^tools/parca/manifest.yaml$"
+      ],
+      "groupName": "parca"
+    },
+    {
+      "matchFiles": [
+        "^tools/parca-agent/manifest.yaml$"
+      ],
+      "groupName": "parca-agent"
+    },
+    {
+      "matchFiles": [
+        "^tools/pass/manifest.yaml$"
+      ],
+      "groupName": "pass"
+    },
+    {
+      "matchFiles": [
+        "^tools/passage/manifest.yaml$"
+      ],
+      "groupName": "passage"
+    },
+    {
+      "matchFiles": [
+        "^tools/pass-audit/manifest.yaml$"
+      ],
+      "groupName": "pass-audit"
+    },
+    {
+      "matchFiles": [
+        "^tools/pass-git-helper/manifest.yaml$"
+      ],
+      "groupName": "pass-git-helper"
+    },
+    {
+      "matchFiles": [
+        "^tools/passh/manifest.yaml$"
+      ],
+      "groupName": "passh"
+    },
+    {
+      "matchFiles": [
+        "^tools/pass-import/manifest.yaml$"
+      ],
+      "groupName": "pass-import"
+    },
+    {
+      "matchFiles": [
+        "^tools/pass-otp/manifest.yaml$"
+      ],
+      "groupName": "pass-otp"
+    },
+    {
+      "matchFiles": [
+        "^tools/passt/manifest.yaml$"
+      ],
+      "groupName": "passt"
+    },
+    {
+      "matchFiles": [
+        "^tools/pass-tail/manifest.yaml$"
+      ],
+      "groupName": "pass-tail"
+    },
+    {
+      "matchFiles": [
+        "^tools/pass-update/manifest.yaml$"
+      ],
+      "groupName": "pass-update"
+    },
+    {
+      "matchFiles": [
+        "^tools/patat/manifest.yaml$"
+      ],
+      "groupName": "patat"
+    },
+    {
+      "matchFiles": [
+        "^tools/pebble/manifest.yaml$"
+      ],
+      "groupName": "pebble"
+    },
+    {
+      "matchFiles": [
+        "^tools/perl/manifest.yaml$"
+      ],
+      "groupName": "perl"
+    },
+    {
+      "matchFiles": [
+        "^tools/phive/manifest.yaml$"
+      ],
+      "groupName": "phive"
+    },
+    {
+      "matchFiles": [
+        "^tools/php/manifest.yaml$"
+      ],
+      "groupName": "php"
+    },
+    {
+      "matchFiles": [
+        "^tools/pigz/manifest.yaml$"
+      ],
+      "groupName": "pigz"
+    },
+    {
+      "matchFiles": [
+        "^tools/pipx/manifest.yaml$"
+      ],
+      "groupName": "pipx"
+    },
+    {
+      "matchFiles": [
+        "^tools/pkgx/manifest.yaml$"
+      ],
+      "groupName": "pkgx"
+    },
+    {
+      "matchFiles": [
+        "^tools/plz/manifest.yaml$"
+      ],
+      "groupName": "plz"
+    },
+    {
+      "matchFiles": [
+        "^tools/pnpm/manifest.yaml$"
+      ],
+      "groupName": "pnpm"
+    },
+    {
+      "matchFiles": [
+        "^tools/poctl/manifest.yaml$"
+      ],
+      "groupName": "poctl"
+    },
+    {
+      "matchFiles": [
+        "^tools/podman/manifest.yaml$"
+      ],
+      "groupName": "podman"
+    },
+    {
+      "matchFiles": [
+        "^tools/podman-tui/manifest.yaml$"
+      ],
+      "groupName": "podman-tui"
+    },
+    {
+      "matchFiles": [
+        "^tools/polaris/manifest.yaml$"
+      ],
+      "groupName": "polaris"
+    },
+    {
+      "matchFiles": [
+        "^tools/policy/manifest.yaml$"
+      ],
+      "groupName": "policy"
+    },
+    {
+      "matchFiles": [
+        "^tools/pop/manifest.yaml$"
+      ],
+      "groupName": "pop"
+    },
+    {
+      "matchFiles": [
+        "^tools/popeye/manifest.yaml$"
+      ],
+      "groupName": "popeye"
+    },
+    {
+      "matchFiles": [
+        "^tools/portainer/manifest.yaml$"
+      ],
+      "groupName": "portainer"
+    },
+    {
+      "matchFiles": [
+        "^tools/porter/manifest.yaml$"
+      ],
+      "groupName": "porter"
+    },
+    {
+      "matchFiles": [
+        "^tools/posting/manifest.yaml$"
+      ],
+      "groupName": "posting"
+    },
+    {
+      "matchFiles": [
+        "^tools/powerline-go/manifest.yaml$"
+      ],
+      "groupName": "powerline-go"
+    },
+    {
+      "matchFiles": [
+        "^tools/powershell/manifest.yaml$"
+      ],
+      "groupName": "powershell"
+    },
+    {
+      "matchFiles": [
+        "^tools/pre-commit/manifest.yaml$"
+      ],
+      "groupName": "pre-commit"
+    },
+    {
+      "matchFiles": [
+        "^tools/presenterm/manifest.yaml$"
+      ],
+      "groupName": "presenterm"
+    },
+    {
+      "matchFiles": [
+        "^tools/process-compose/manifest.yaml$"
+      ],
+      "groupName": "process-compose"
+    },
+    {
+      "matchFiles": [
+        "^tools/procs/manifest.yaml$"
+      ],
+      "groupName": "procs"
+    },
+    {
+      "matchFiles": [
+        "^tools/promcolor/manifest.yaml$"
+      ],
+      "groupName": "promcolor"
+    },
+    {
+      "matchFiles": [
+        "^tools/prometheus/manifest.yaml$"
+      ],
+      "groupName": "prometheus"
+    },
+    {
+      "matchFiles": [
+        "^tools/promql-cli/manifest.yaml$"
+      ],
+      "groupName": "promql-cli"
+    },
+    {
+      "matchFiles": [
+        "^tools/promtail/manifest.yaml$"
+      ],
+      "groupName": "promtail"
+    },
+    {
+      "matchFiles": [
+        "^tools/promtool/manifest.yaml$"
+      ],
+      "groupName": "promtool"
+    },
+    {
+      "matchFiles": [
+        "^tools/proot/manifest.yaml$"
+      ],
+      "groupName": "proot"
+    },
+    {
+      "matchFiles": [
+        "^tools/proxify/manifest.yaml$"
+      ],
+      "groupName": "proxify"
+    },
+    {
+      "matchFiles": [
+        "^tools/pulumi/manifest.yaml$"
+      ],
+      "groupName": "pulumi"
+    },
+    {
+      "matchFiles": [
+        "^tools/purl/manifest.yaml$"
+      ],
+      "groupName": "purl"
+    },
+    {
+      "matchFiles": [
+        "^tools/pushgateway/manifest.yaml$"
+      ],
+      "groupName": "pushgateway"
+    },
+    {
+      "matchFiles": [
+        "^tools/pv/manifest.yaml$"
+      ],
+      "groupName": "pv"
+    },
+    {
+      "matchFiles": [
+        "^tools/pwru/manifest.yaml$"
+      ],
+      "groupName": "pwru"
+    },
+    {
+      "matchFiles": [
+        "^tools/pyenv/manifest.yaml$"
+      ],
+      "groupName": "pyenv"
+    },
+    {
+      "matchFiles": [
+        "^tools/python/manifest.yaml$"
+      ],
+      "groupName": "python"
+    },
+    {
+      "matchFiles": [
+        "^tools/python-3.12/manifest.yaml$"
+      ],
+      "groupName": "python-3.12"
+    },
+    {
+      "matchFiles": [
+        "^tools/python-static/manifest.yaml$"
+      ],
+      "groupName": "python-static"
+    },
+    {
+      "matchFiles": [
+        "^tools/qemu/manifest.yaml$"
+      ],
+      "groupName": "qemu"
+    },
+    {
+      "matchFiles": [
+        "^tools/qrencode/manifest.yaml$"
+      ],
+      "groupName": "qrencode"
+    },
+    {
+      "matchFiles": [
+        "^tools/qsv/manifest.yaml$"
+      ],
+      "groupName": "qsv"
+    },
+    {
+      "matchFiles": [
+        "^tools/quarto/manifest.yaml$"
+      ],
+      "groupName": "quarto"
+    },
+    {
+      "matchFiles": [
+        "^tools/quarto-full/manifest.yaml$"
+      ],
+      "groupName": "quarto-full"
+    },
+    {
+      "matchFiles": [
+        "^tools/rage/manifest.yaml$"
+      ],
+      "groupName": "rage"
+    },
+    {
+      "matchFiles": [
+        "^tools/rare/manifest.yaml$"
+      ],
+      "groupName": "rare"
+    },
+    {
+      "matchFiles": [
+        "^tools/ravel/manifest.yaml$"
+      ],
+      "groupName": "ravel"
+    },
+    {
+      "matchFiles": [
+        "^tools/redis/manifest.yaml$"
+      ],
+      "groupName": "redis"
+    },
+    {
+      "matchFiles": [
+        "^tools/regal/manifest.yaml$"
+      ],
+      "groupName": "regal"
+    },
+    {
+      "matchFiles": [
+        "^tools/regclient/manifest.yaml$"
+      ],
+      "groupName": "regclient"
+    },
+    {
+      "matchFiles": [
+        "^tools/registry/manifest.yaml$"
+      ],
+      "groupName": "registry"
+    },
+    {
+      "matchFiles": [
+        "^tools/rekor/manifest.yaml$"
+      ],
+      "groupName": "rekor"
+    },
+    {
+      "matchFiles": [
+        "^tools/release-cli/manifest.yaml$"
+      ],
+      "groupName": "release-cli"
+    },
+    {
+      "matchFiles": [
+        "^tools/reptyr/manifest.yaml$"
+      ],
+      "groupName": "reptyr"
+    },
+    {
+      "matchFiles": [
+        "^tools/reveal.js/manifest.yaml$"
+      ],
+      "groupName": "reveal.js"
+    },
+    {
+      "matchFiles": [
+        "^tools/ripgrep/manifest.yaml$"
+      ],
+      "groupName": "ripgrep"
+    },
+    {
+      "matchFiles": [
+        "^tools/rke/manifest.yaml$"
+      ],
+      "groupName": "rke"
+    },
+    {
+      "matchFiles": [
+        "^tools/rke2/manifest.yaml$"
+      ],
+      "groupName": "rke2"
+    },
+    {
+      "matchFiles": [
+        "^tools/rootlesskit/manifest.yaml$"
+      ],
+      "groupName": "rootlesskit"
+    },
+    {
+      "matchFiles": [
+        "^tools/ruff/manifest.yaml$"
+      ],
+      "groupName": "ruff"
+    },
+    {
+      "matchFiles": [
+        "^tools/runc/manifest.yaml$"
+      ],
+      "groupName": "runc"
+    },
+    {
+      "matchFiles": [
+        "^tools/runlike/manifest.yaml$"
+      ],
+      "groupName": "runlike"
+    },
+    {
+      "matchFiles": [
+        "^tools/runme/manifest.yaml$"
+      ],
+      "groupName": "runme"
+    },
+    {
+      "matchFiles": [
+        "^tools/runtainer/manifest.yaml$"
+      ],
+      "groupName": "runtainer"
+    },
+    {
+      "matchFiles": [
+        "^tools/rush/manifest.yaml$"
+      ],
+      "groupName": "rush"
+    },
+    {
+      "matchFiles": [
+        "^tools/rust/manifest.yaml$"
+      ],
+      "groupName": "rust"
+    },
+    {
+      "matchFiles": [
+        "^tools/salami/manifest.yaml$"
+      ],
+      "groupName": "salami"
+    },
+    {
+      "matchFiles": [
+        "^tools/saml2aws/manifest.yaml$"
+      ],
+      "groupName": "saml2aws"
+    },
+    {
+      "matchFiles": [
+        "^tools/sass/manifest.yaml$"
+      ],
+      "groupName": "sass"
+    },
+    {
+      "matchFiles": [
+        "^tools/sass-dart/manifest.yaml$"
+      ],
+      "groupName": "sass-dart"
+    },
+    {
+      "matchFiles": [
+        "^tools/savvy/manifest.yaml$"
+      ],
+      "groupName": "savvy"
+    },
+    {
+      "matchFiles": [
+        "^tools/sbom2doc/manifest.yaml$"
+      ],
+      "groupName": "sbom2doc"
+    },
+    {
+      "matchFiles": [
+        "^tools/sbom2dot/manifest.yaml$"
+      ],
+      "groupName": "sbom2dot"
+    },
+    {
+      "matchFiles": [
+        "^tools/sbomasm/manifest.yaml$"
+      ],
+      "groupName": "sbomasm"
+    },
+    {
+      "matchFiles": [
+        "^tools/sbomdiff/manifest.yaml$"
+      ],
+      "groupName": "sbomdiff"
+    },
+    {
+      "matchFiles": [
+        "^tools/sbomex/manifest.yaml$"
+      ],
+      "groupName": "sbomex"
+    },
+    {
+      "matchFiles": [
+        "^tools/sbomgr/manifest.yaml$"
+      ],
+      "groupName": "sbomgr"
+    },
+    {
+      "matchFiles": [
+        "^tools/sbom-operator/manifest.yaml$"
+      ],
+      "groupName": "sbom-operator"
+    },
+    {
+      "matchFiles": [
+        "^tools/sbomqs/manifest.yaml$"
+      ],
+      "groupName": "sbomqs"
+    },
+    {
+      "matchFiles": [
+        "^tools/sbom-tool/manifest.yaml$"
+      ],
+      "groupName": "sbom-tool"
+    },
+    {
+      "matchFiles": [
+        "^tools/sbomtools/manifest.yaml$"
+      ],
+      "groupName": "sbomtools"
+    },
+    {
+      "matchFiles": [
+        "^tools/sbom-utility/manifest.yaml$"
+      ],
+      "groupName": "sbom-utility"
+    },
+    {
+      "matchFiles": [
+        "^tools/sbt/manifest.yaml$"
+      ],
+      "groupName": "sbt"
+    },
+    {
+      "matchFiles": [
+        "^tools/scala/manifest.yaml$"
+      ],
+      "groupName": "scala"
+    },
+    {
+      "matchFiles": [
+        "^tools/scc/manifest.yaml$"
+      ],
+      "groupName": "scc"
+    },
+    {
+      "matchFiles": [
+        "^tools/scenarigo/manifest.yaml$"
+      ],
+      "groupName": "scenarigo"
+    },
+    {
+      "matchFiles": [
+        "^tools/scorecard/manifest.yaml$"
+      ],
+      "groupName": "scorecard"
+    },
+    {
+      "matchFiles": [
+        "^tools/sd/manifest.yaml$"
+      ],
+      "groupName": "sd"
+    },
+    {
+      "matchFiles": [
+        "^tools/sealer/manifest.yaml$"
+      ],
+      "groupName": "sealer"
+    },
+    {
+      "matchFiles": [
+        "^tools/secretize/manifest.yaml$"
+      ],
+      "groupName": "secretize"
+    },
+    {
+      "matchFiles": [
+        "^tools/semgrep/manifest.yaml$"
+      ],
+      "groupName": "semgrep"
+    },
+    {
+      "matchFiles": [
+        "^tools/semver/manifest.yaml$"
+      ],
+      "groupName": "semver"
+    },
+    {
+      "matchFiles": [
+        "^tools/serverless/manifest.yaml$"
+      ],
+      "groupName": "serverless"
+    },
+    {
+      "matchFiles": [
+        "^tools/shdotenv/manifest.yaml$"
+      ],
+      "groupName": "shdotenv"
+    },
+    {
+      "matchFiles": [
+        "^tools/shellcheck/manifest.yaml$"
+      ],
+      "groupName": "shellcheck"
+    },
+    {
+      "matchFiles": [
+        "^tools/shell-gpt/manifest.yaml$"
+      ],
+      "groupName": "shell-gpt"
+    },
+    {
+      "matchFiles": [
+        "^tools/shiv/manifest.yaml$"
+      ],
+      "groupName": "shiv"
+    },
+    {
+      "matchFiles": [
+        "^tools/shortnames/manifest.yaml$"
+      ],
+      "groupName": "shortnames"
+    },
+    {
+      "matchFiles": [
+        "^tools/sish/manifest.yaml$"
+      ],
+      "groupName": "sish"
+    },
+    {
+      "matchFiles": [
+        "^tools/skate/manifest.yaml$"
+      ],
+      "groupName": "skate"
+    },
+    {
+      "matchFiles": [
+        "^tools/skopeo/manifest.yaml$"
+      ],
+      "groupName": "skopeo"
+    },
+    {
+      "matchFiles": [
+        "^tools/slides/manifest.yaml$"
+      ],
+      "groupName": "slides"
+    },
+    {
+      "matchFiles": [
+        "^tools/slirp4netns/manifest.yaml$"
+      ],
+      "groupName": "slirp4netns"
+    },
+    {
+      "matchFiles": [
+        "^tools/sloop/manifest.yaml$"
+      ],
+      "groupName": "sloop"
+    },
+    {
+      "matchFiles": [
+        "^tools/slsa-verifier/manifest.yaml$"
+      ],
+      "groupName": "slsa-verifier"
+    },
+    {
+      "matchFiles": [
+        "^tools/socat/manifest.yaml$"
+      ],
+      "groupName": "socat"
+    },
+    {
+      "matchFiles": [
+        "^tools/soci-snapshotter/manifest.yaml$"
+      ],
+      "groupName": "soci-snapshotter"
+    },
+    {
+      "matchFiles": [
+        "^tools/soft-serve/manifest.yaml$"
+      ],
+      "groupName": "soft-serve"
+    },
+    {
+      "matchFiles": [
+        "^tools/sonar-scanner/manifest.yaml$"
+      ],
+      "groupName": "sonar-scanner"
+    },
+    {
+      "matchFiles": [
+        "^tools/sonobuoy/manifest.yaml$"
+      ],
+      "groupName": "sonobuoy"
+    },
+    {
+      "matchFiles": [
+        "^tools/sops/manifest.yaml$"
+      ],
+      "groupName": "sops"
+    },
+    {
+      "matchFiles": [
+        "^tools/sotp/manifest.yaml$"
+      ],
+      "groupName": "sotp"
+    },
+    {
+      "matchFiles": [
+        "^tools/source-sans/manifest.yaml$"
+      ],
+      "groupName": "source-sans"
+    },
+    {
+      "matchFiles": [
+        "^tools/spc/manifest.yaml$"
+      ],
+      "groupName": "spc"
+    },
+    {
+      "matchFiles": [
+        "^tools/spdx-sbom-generator/manifest.yaml$"
+      ],
+      "groupName": "spdx-sbom-generator"
+    },
+    {
+      "matchFiles": [
+        "^tools/speex/manifest.yaml$"
+      ],
+      "groupName": "speex"
+    },
+    {
+      "matchFiles": [
+        "^tools/speexdsp/manifest.yaml$"
+      ],
+      "groupName": "speexdsp"
+    },
+    {
+      "matchFiles": [
+        "^tools/spiffe-vault/manifest.yaml$"
+      ],
+      "groupName": "spiffe-vault"
+    },
+    {
+      "matchFiles": [
+        "^tools/spin/manifest.yaml$"
+      ],
+      "groupName": "spin"
+    },
+    {
+      "matchFiles": [
+        "^tools/spire/manifest.yaml$"
+      ],
+      "groupName": "spire"
+    },
+    {
+      "matchFiles": [
+        "^tools/ssh3/manifest.yaml$"
+      ],
+      "groupName": "ssh3"
+    },
+    {
+      "matchFiles": [
+        "^tools/ssh-key-confirmer/manifest.yaml$"
+      ],
+      "groupName": "ssh-key-confirmer"
+    },
+    {
+      "matchFiles": [
+        "^tools/sshocker/manifest.yaml$"
+      ],
+      "groupName": "sshocker"
+    },
+    {
+      "matchFiles": [
+        "^tools/stargz-snapshotter/manifest.yaml$"
+      ],
+      "groupName": "stargz-snapshotter"
+    },
+    {
+      "matchFiles": [
+        "^tools/staticcheck/manifest.yaml$"
+      ],
+      "groupName": "staticcheck"
+    },
+    {
+      "matchFiles": [
+        "^tools/stdin-spinner/manifest.yaml$"
+      ],
+      "groupName": "stdin-spinner"
+    },
+    {
+      "matchFiles": [
+        "^tools/stern/manifest.yaml$"
+      ],
+      "groupName": "stern"
+    },
+    {
+      "matchFiles": [
+        "^tools/stress-ng/manifest.yaml$"
+      ],
+      "groupName": "stress-ng"
+    },
+    {
+      "matchFiles": [
+        "^tools/structurizr-cli/manifest.yaml$"
+      ],
+      "groupName": "structurizr-cli"
+    },
+    {
+      "matchFiles": [
+        "^tools/su-exec/manifest.yaml$"
+      ],
+      "groupName": "su-exec"
+    },
+    {
+      "matchFiles": [
+        "^tools/supdock/manifest.yaml$"
+      ],
+      "groupName": "supdock"
+    },
+    {
+      "matchFiles": [
+        "^tools/switcher/manifest.yaml$"
+      ],
+      "groupName": "switcher"
+    },
+    {
+      "matchFiles": [
+        "^tools/syft/manifest.yaml$"
+      ],
+      "groupName": "syft"
+    },
+    {
+      "matchFiles": [
+        "^tools/sysbox/manifest.yaml$"
+      ],
+      "groupName": "sysbox"
+    },
+    {
+      "matchFiles": [
+        "^tools/systemd-docker/manifest.yaml$"
+      ],
+      "groupName": "systemd-docker"
+    },
+    {
+      "matchFiles": [
+        "^tools/tabby/manifest.yaml$"
+      ],
+      "groupName": "tabby"
+    },
+    {
+      "matchFiles": [
+        "^tools/tailspin/manifest.yaml$"
+      ],
+      "groupName": "tailspin"
+    },
+    {
+      "matchFiles": [
+        "^tools/talosctl/manifest.yaml$"
+      ],
+      "groupName": "talosctl"
+    },
+    {
+      "matchFiles": [
+        "^tools/task/manifest.yaml$"
+      ],
+      "groupName": "task"
+    },
+    {
+      "matchFiles": [
+        "^tools/tasker/manifest.yaml$"
+      ],
+      "groupName": "tasker"
+    },
+    {
+      "matchFiles": [
+        "^tools/tea/manifest.yaml$"
+      ],
+      "groupName": "tea"
+    },
+    {
+      "matchFiles": [
+        "^tools/tejolote/manifest.yaml$"
+      ],
+      "groupName": "tejolote"
+    },
+    {
+      "matchFiles": [
+        "^tools/telegraf/manifest.yaml$"
+      ],
+      "groupName": "telegraf"
+    },
+    {
+      "matchFiles": [
+        "^tools/teleport/manifest.yaml$"
+      ],
+      "groupName": "teleport"
+    },
+    {
+      "matchFiles": [
+        "^tools/teller/manifest.yaml$"
+      ],
+      "groupName": "teller"
+    },
+    {
+      "matchFiles": [
+        "^tools/tempo/manifest.yaml$"
+      ],
+      "groupName": "tempo"
+    },
+    {
+      "matchFiles": [
+        "^tools/tempo-cli/manifest.yaml$"
+      ],
+      "groupName": "tempo-cli"
+    },
+    {
+      "matchFiles": [
+        "^tools/termgraph/manifest.yaml$"
+      ],
+      "groupName": "termgraph"
+    },
+    {
+      "matchFiles": [
+        "^tools/terminalizer/manifest.yaml$"
+      ],
+      "groupName": "terminalizer"
+    },
+    {
+      "matchFiles": [
+        "^tools/tern/manifest.yaml$"
+      ],
+      "groupName": "tern"
+    },
+    {
+      "matchFiles": [
+        "^tools/terraform/manifest.yaml$"
+      ],
+      "groupName": "terraform"
+    },
+    {
+      "matchFiles": [
+        "^tools/terraform-backend-git/manifest.yaml$"
+      ],
+      "groupName": "terraform-backend-git"
+    },
+    {
+      "matchFiles": [
+        "^tools/terraform-docs/manifest.yaml$"
+      ],
+      "groupName": "terraform-docs"
+    },
+    {
+      "matchFiles": [
+        "^tools/terraformer/manifest.yaml$"
+      ],
+      "groupName": "terraformer"
+    },
+    {
+      "matchFiles": [
+        "^tools/terragrunt/manifest.yaml$"
+      ],
+      "groupName": "terragrunt"
+    },
+    {
+      "matchFiles": [
+        "^tools/tetragon/manifest.yaml$"
+      ],
+      "groupName": "tetragon"
+    },
+    {
+      "matchFiles": [
+        "^tools/textlint/manifest.yaml$"
+      ],
+      "groupName": "textlint"
+    },
+    {
+      "matchFiles": [
+        "^tools/tig/manifest.yaml$"
+      ],
+      "groupName": "tig"
+    },
+    {
+      "matchFiles": [
+        "^tools/timoni/manifest.yaml$"
+      ],
+      "groupName": "timoni"
+    },
+    {
+      "matchFiles": [
+        "^tools/tini/manifest.yaml$"
+      ],
+      "groupName": "tini"
+    },
+    {
+      "matchFiles": [
+        "^tools/tinygo/manifest.yaml$"
+      ],
+      "groupName": "tinygo"
+    },
+    {
+      "matchFiles": [
+        "^tools/tkn/manifest.yaml$"
+      ],
+      "groupName": "tkn"
+    },
+    {
+      "matchFiles": [
+        "^tools/tlsx/manifest.yaml$"
+      ],
+      "groupName": "tlsx"
+    },
+    {
+      "matchFiles": [
+        "^tools/tml/manifest.yaml$"
+      ],
+      "groupName": "tml"
+    },
+    {
+      "matchFiles": [
+        "^tools/toolong/manifest.yaml$"
+      ],
+      "groupName": "toolong"
+    },
+    {
+      "matchFiles": [
+        "^tools/tracee/manifest.yaml$"
+      ],
+      "groupName": "tracee"
+    },
+    {
+      "matchFiles": [
+        "^tools/tracer/manifest.yaml$"
+      ],
+      "groupName": "tracer"
+    },
+    {
+      "matchFiles": [
+        "^tools/traefik/manifest.yaml$"
+      ],
+      "groupName": "traefik"
+    },
+    {
+      "matchFiles": [
+        "^tools/trillian/manifest.yaml$"
+      ],
+      "groupName": "trillian"
+    },
+    {
+      "matchFiles": [
+        "^tools/trivy/manifest.yaml$"
+      ],
+      "groupName": "trivy"
+    },
+    {
+      "matchFiles": [
+        "^tools/trivy-operator/manifest.yaml$"
+      ],
+      "groupName": "trivy-operator"
+    },
+    {
+      "matchFiles": [
+        "^tools/trurl/manifest.yaml$"
+      ],
+      "groupName": "trurl"
+    },
+    {
+      "matchFiles": [
+        "^tools/try/manifest.yaml$"
+      ],
+      "groupName": "try"
+    },
+    {
+      "matchFiles": [
+        "^tools/tshark/manifest.yaml$"
+      ],
+      "groupName": "tshark"
+    },
+    {
+      "matchFiles": [
+        "^tools/ttyd/manifest.yaml$"
+      ],
+      "groupName": "ttyd"
+    },
+    {
+      "matchFiles": [
+        "^tools/tuf/manifest.yaml$"
+      ],
+      "groupName": "tuf"
+    },
+    {
+      "matchFiles": [
+        "^tools/tunnelto/manifest.yaml$"
+      ],
+      "groupName": "tunnelto"
+    },
+    {
+      "matchFiles": [
+        "^tools/typst/manifest.yaml$"
+      ],
+      "groupName": "typst"
+    },
+    {
+      "matchFiles": [
+        "^tools/tz/manifest.yaml$"
+      ],
+      "groupName": "tz"
+    },
+    {
+      "matchFiles": [
+        "^tools/uidmap/manifest.yaml$"
+      ],
+      "groupName": "uidmap"
+    },
+    {
+      "matchFiles": [
+        "^tools/umoci/manifest.yaml$"
+      ],
+      "groupName": "umoci"
+    },
+    {
+      "matchFiles": [
+        "^tools/uniget/manifest.yaml$"
+      ],
+      "groupName": "uniget"
+    },
+    {
+      "matchFiles": [
+        "^tools/updatecli/manifest.yaml$"
+      ],
+      "groupName": "updatecli"
+    },
+    {
+      "matchFiles": [
+        "^tools/upx/manifest.yaml$"
+      ],
+      "groupName": "upx"
+    },
+    {
+      "matchFiles": [
+        "^tools/util-linux/manifest.yaml$"
+      ],
+      "groupName": "util-linux"
+    },
+    {
+      "matchFiles": [
+        "^tools/uv/manifest.yaml$"
+      ],
+      "groupName": "uv"
+    },
+    {
+      "matchFiles": [
+        "^tools/vale/manifest.yaml$"
+      ],
+      "groupName": "vale"
+    },
+    {
+      "matchFiles": [
+        "^tools/valyent/manifest.yaml$"
+      ],
+      "groupName": "valyent"
+    },
+    {
+      "matchFiles": [
+        "^tools/vault/manifest.yaml$"
+      ],
+      "groupName": "vault"
+    },
+    {
+      "matchFiles": [
+        "^tools/vcluster/manifest.yaml$"
+      ],
+      "groupName": "vcluster"
+    },
+    {
+      "matchFiles": [
+        "^tools/valocity/manifest.yaml$"
+      ],
+      "groupName": "valocity"
+    },
+    {
+      "matchFiles": [
+        "^tools/vendir/manifest.yaml$"
+      ],
+      "groupName": "vendir"
+    },
+    {
+      "matchFiles": [
+        "^tools/venom/manifest.yaml$"
+      ],
+      "groupName": "venom"
+    },
+    {
+      "matchFiles": [
+        "^tools/vexctl/manifest.yaml$"
+      ],
+      "groupName": "vexctl"
+    },
+    {
+      "matchFiles": [
+        "^tools/vexy/manifest.yaml$"
+      ],
+      "groupName": "vexy"
+    },
+    {
+      "matchFiles": [
+        "^tools/vgrep/manifest.yaml$"
+      ],
+      "groupName": "vgrep"
+    },
+    {
+      "matchFiles": [
+        "^tools/vhs/manifest.yaml$"
+      ],
+      "groupName": "vhs"
+    },
+    {
+      "matchFiles": [
+        "^tools/viking/manifest.yaml$"
+      ],
+      "groupName": "viking"
+    },
+    {
+      "matchFiles": [
+        "^tools/visidata/manifest.yaml$"
+      ],
+      "groupName": "visidata"
+    },
+    {
+      "matchFiles": [
+        "^tools/vland/manifest.yaml$"
+      ],
+      "groupName": "vland"
+    },
+    {
+      "matchFiles": [
+        "^tools/vscode-cli/manifest.yaml$"
+      ],
+      "groupName": "vscode-cli"
+    },
+    {
+      "matchFiles": [
+        "^tools/vulnerability-operator/manifest.yaml$"
+      ],
+      "groupName": "vulnerability-operator"
+    },
+    {
+      "matchFiles": [
+        "^tools/wagi/manifest.yaml$"
+      ],
+      "groupName": "wagi"
+    },
+    {
+      "matchFiles": [
+        "^tools/wait/manifest.yaml$"
+      ],
+      "groupName": "wait"
+    },
+    {
+      "matchFiles": [
+        "^tools/wait-for/manifest.yaml$"
+      ],
+      "groupName": "wait-for"
+    },
+    {
+      "matchFiles": [
+        "^tools/walk/manifest.yaml$"
+      ],
+      "groupName": "walk"
+    },
+    {
+      "matchFiles": [
+        "^tools/warp/manifest.yaml$"
+      ],
+      "groupName": "warp"
+    },
+    {
+      "matchFiles": [
+        "^tools/wasmedge/manifest.yaml$"
+      ],
+      "groupName": "wasmedge"
+    },
+    {
+      "matchFiles": [
+        "^tools/wasmer/manifest.yaml$"
+      ],
+      "groupName": "wasmer"
+    },
+    {
+      "matchFiles": [
+        "^tools/wasmi/manifest.yaml$"
+      ],
+      "groupName": "wasmi"
+    },
+    {
+      "matchFiles": [
+        "^tools/wasmtime/manifest.yaml$"
+      ],
+      "groupName": "wasmtime"
+    },
+    {
+      "matchFiles": [
+        "^tools/watchexec/manifest.yaml$"
+      ],
+      "groupName": "watchexec"
+    },
+    {
+      "matchFiles": [
+        "^tools/watchtower/manifest.yaml$"
+      ],
+      "groupName": "watchtower"
+    },
+    {
+      "matchFiles": [
+        "^tools/webdavfs/manifest.yaml$"
+      ],
+      "groupName": "webdavfs"
+    },
+    {
+      "matchFiles": [
+        "^tools/webhook/manifest.yaml$"
+      ],
+      "groupName": "webhook"
+    },
+    {
+      "matchFiles": [
+        "^tools/webhookd/manifest.yaml$"
+      ],
+      "groupName": "webhookd"
+    },
+    {
+      "matchFiles": [
+        "^tools/webhook-tester/manifest.yaml$"
+      ],
+      "groupName": "webhook-tester"
+    },
+    {
+      "matchFiles": [
+        "^tools/websocat/manifest.yaml$"
+      ],
+      "groupName": "websocat"
+    },
+    {
+      "matchFiles": [
+        "^tools/wg/manifest.yaml$"
+      ],
+      "groupName": "wg"
+    },
+    {
+      "matchFiles": [
+        "^tools/whalebrew/manifest.yaml$"
+      ],
+      "groupName": "whalebrew"
+    },
+    {
+      "matchFiles": [
+        "^tools/win-gpg-agent/manifest.yaml$"
+      ],
+      "groupName": "win-gpg-agent"
+    },
+    {
+      "matchFiles": [
+        "^tools/win-ssh-agent/manifest.yaml$"
+      ],
+      "groupName": "win-ssh-agent"
+    },
+    {
+      "matchFiles": [
+        "^tools/wireguard-go/manifest.yaml$"
+      ],
+      "groupName": "wireguard-go"
+    },
+    {
+      "matchFiles": [
+        "^tools/witness/manifest.yaml$"
+      ],
+      "groupName": "witness"
+    },
+    {
+      "matchFiles": [
+        "^tools/wksctl/manifest.yaml$"
+      ],
+      "groupName": "wksctl"
+    },
+    {
+      "matchFiles": [
+        "^tools/woke/manifest.yaml$"
+      ],
+      "groupName": "woke"
+    },
+    {
+      "matchFiles": [
+        "^tools/wolfictl/manifest.yaml$"
+      ],
+      "groupName": "wolfictl"
+    },
+    {
+      "matchFiles": [
+        "^tools/woodpecker/manifest.yaml$"
+      ],
+      "groupName": "woodpecker"
+    },
+    {
+      "matchFiles": [
+        "^tools/wordcloud/manifest.yaml$"
+      ],
+      "groupName": "wordcloud"
+    },
+    {
+      "matchFiles": [
+        "^tools/wsl-open/manifest.yaml$"
+      ],
+      "groupName": "wsl-open"
+    },
+    {
+      "matchFiles": [
+        "^tools/wslu/manifest.yaml$"
+      ],
+      "groupName": "wslu"
+    },
+    {
+      "matchFiles": [
+        "^tools/xcaddy/manifest.yaml$"
+      ],
+      "groupName": "xcaddy"
+    },
+    {
+      "matchFiles": [
+        "^tools/xdg-utils/manifest.yaml$"
+      ],
+      "groupName": "xdg-utils"
+    },
+    {
+      "matchFiles": [
+        "^tools/xh/manifest.yaml$"
+      ],
+      "groupName": "xh"
+    },
+    {
+      "matchFiles": [
+        "^tools/xmlstarlet/manifest.yaml$"
+      ],
+      "groupName": "xmlstarlet"
+    },
+    {
+      "matchFiles": [
+        "^tools/xq/manifest.yaml$"
+      ],
+      "groupName": "xq"
+    },
+    {
+      "matchFiles": [
+        "^tools/xurls/manifest.yaml$"
+      ],
+      "groupName": "xurls"
+    },
+    {
+      "matchFiles": [
+        "^tools/yamale/manifest.yaml$"
+      ],
+      "groupName": "yamale"
+    },
+    {
+      "matchFiles": [
+        "^tools/yamlfmt/manifest.yaml$"
+      ],
+      "groupName": "yamlfmt"
+    },
+    {
+      "matchFiles": [
+        "^tools/yamllint/manifest.yaml$"
+      ],
+      "groupName": "yamllint"
+    },
+    {
+      "matchFiles": [
+        "^tools/yarn/manifest.yaml$"
+      ],
+      "groupName": "yarn"
+    },
+    {
+      "matchFiles": [
+        "^tools/yasu/manifest.yaml$"
+      ],
+      "groupName": "yasu"
+    },
+    {
+      "matchFiles": [
+        "^tools/yh/manifest.yaml$"
+      ],
+      "groupName": "yh"
+    },
+    {
+      "matchFiles": [
+        "^tools/youki/manifest.yaml$"
+      ],
+      "groupName": "youki"
+    },
+    {
+      "matchFiles": [
+        "^tools/yq/manifest.yaml$"
+      ],
+      "groupName": "yq"
+    },
+    {
+      "matchFiles": [
+        "^tools/ytt/manifest.yaml$"
+      ],
+      "groupName": "ytt"
+    },
+    {
+      "matchFiles": [
+        "^tools/zed/manifest.yaml$"
+      ],
+      "groupName": "zed"
+    },
+    {
+      "matchFiles": [
+        "^tools/zeitgeist/manifest.yaml$"
+      ],
+      "groupName": "zeitgeist"
+    },
+    {
+      "matchFiles": [
+        "^tools/zitadel/manifest.yaml$"
+      ],
+      "groupName": "zitadel"
+    },
+    {
+      "matchFiles": [
+        "^tools/zot/manifest.yaml$"
+      ],
+      "groupName": "zot"
     }
   ],
   "customManagers": [
