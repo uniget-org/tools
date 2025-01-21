@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: ghostunnel
-version: "1.8.3"
+version: "1.8.4"
 check: "" # No version parameter
 platforms:
 - linux/amd64
