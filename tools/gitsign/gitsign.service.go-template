@@ -3,7 +3,7 @@ Description=GitSign credential cache
 
 [Service]
 Type=simple
-ExecStart={{ .Target }}/bin/gitsign-credential-cache --systemd-socket-activation
+ExecStart=%h/{{ .Target }}/bin/gitsign-credential-cache --systemd-socket-activation
 
 [Install]
 WantedBy=default.target
