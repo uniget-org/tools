@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: checkov
-version: "3.2.356"
+version: "3.2.357"
 check: "" # Expect to reach local server
 build_dependencies:
 - python
