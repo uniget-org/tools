@@ -12,7 +12,7 @@ ARG version
 COPY --link --from=rust / /usr/local/
 WORKDIR /tmp/github.com/m1guelpf/plz-cli
 RUN <<EOF
-git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" https://github.com/m1guelpf/plz-cli .
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/m1guelpf/plz-cli .
 export CARGO_HOME=/usr/local/cargo
 export RUSTUP_HOME=/usr/local/rustup
 export RUSTFLAGS='-C target-feature=+crt-static'
