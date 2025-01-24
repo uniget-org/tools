@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: gitleaks
-version: "8.23.1"
+version: "8.23.2"
 check: ${binary} version
 tags:
 - type/cli
