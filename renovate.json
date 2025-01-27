@@ -602,6 +602,18 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "yassinebenaid/bunster",
+      "extractVersionTemplate": "^v(?<version>.+)$",
+      "fileMatch": [
+        "^tools/bunster/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "rootless-containers/bypass4netns",
       "extractVersionTemplate": "^v(?<version>.+)$",
@@ -10391,6 +10403,11 @@
     {
       "matchFiles": [
         "^tools/bumblebee/manifest.yaml$"
+      ]
+    },
+    {
+      "matchFiles": [
+        "^tools/bunster/manifest.yaml$"
       ]
     },
     {
