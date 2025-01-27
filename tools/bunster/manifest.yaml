@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: bunster
+license:
+  name: BSD-3-Clause License
+  link: https://github.com/yassinebenaid/bunster/blob/master/LICENSE
+version: "0.7.1"
+check: "" # No version parameter
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/cli
+homepage: https://bunster.netlify.app/
+repository: https://github.com/yassinebenaid/bunster
+description: Compile shell scripts to static binaries
+renovate:
+  datasource: github-releases
+  package: yassinebenaid/bunster
+  extractVersion: ^v(?<version>.+)$
+  priority: low
