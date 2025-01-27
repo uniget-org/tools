@@ -9149,6 +9149,18 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "elasticdog/transcrypt",
+      "extractVersionTemplate": "^v(?<version>.+)$",
+      "fileMatch": [
+        "^tools/transcrypt/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "google/trillian",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
@@ -14014,6 +14026,11 @@
     {
       "matchFiles": [
         "^tools/traefik/manifest.yaml$"
+      ]
+    },
+    {
+      "matchFiles": [
+        "^tools/transcrypt/manifest.yaml$"
       ]
     },
     {
