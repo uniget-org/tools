@@ -1,0 +1,41 @@
+#syntax=docker/dockerfile:1.13.0@sha256:426b85b823c113372f766a963f68cfd9cd4878e1bcc0fda58779127ee98a28eb
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/yadm-dev/yadm/raw/refs/tags/${version}/yadm"
+filename="$( basename "${url}" )"
+
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/yadm"
+EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/yadm-dev/yadm/raw/refs/tags/${version}/yadm.1"
+filename="$( basename "${url}" )"
+
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0644 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/share/man/man1/yadm.1"
+EOF
+RUN <<EOF
+curl -sSLfo "${prefix}/share/bash-completion/completions/yadm" \
+    "https://github.com/yadm-dev/yadm/raw/refs/tags/3.3.0/completion/bash/yadm"
+curl -sSLfo "${prefix}/share/fish/vendor_completions.d/yadm.fish" \
+    "https://github.com/yadm-dev/yadm/raw/refs/tags/3.3.0/completion/fish/yadm.fish"
+curl -sSLfo "${prefix}/share/zsh/vendor-completions/_yadm" \
+    "https://github.com/yadm-dev/yadm/raw/refs/tags/3.3.0/completion/zsh/_yadm"
+EOF
