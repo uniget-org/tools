@@ -2822,6 +2822,18 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "stacklok/frizbee",
+      "extractVersionTemplate": "^v(?<version>.+)$",
+      "fileMatch": [
+        "^tools/frizbee/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "sighupio/furyctl",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
@@ -11342,6 +11354,11 @@
     {
       "matchFiles": [
         "^tools/fregot/manifest.yaml$"
+      ]
+    },
+    {
+      "matchFiles": [
+        "^tools/frizbee/manifest.yaml$"
       ]
     },
     {
