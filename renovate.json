@@ -9981,6 +9981,17 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "yadm-dev/yadm",
+      "fileMatch": [
+        "^tools/yadm/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "pypi",
       "depNameTemplate": "yamale",
       "fileMatch": [
@@ -14376,6 +14387,11 @@
     {
       "matchFiles": [
         "^tools/xurls/manifest.yaml$"
+      ]
+    },
+    {
+      "matchFiles": [
+        "^tools/yadm/manifest.yaml$"
       ]
     },
     {
