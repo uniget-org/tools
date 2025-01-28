@@ -20,7 +20,7 @@ tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="
 mv "${prefix}/bin/argocd-autopilot-linux-${alt_arch}" "${prefix}/bin/argocd-autopilot"
 EOF
 RUN <<EOF
-"${prefix}/bin/foo" completion bash >"${prefix}/share/bash-completion/completions/foo"
-"${prefix}/bin/foo" completion fish >"${prefix}/share/fish/vendor_completions.d/foo.fish"
-"${prefix}/bin/foo" completion zsh >"${prefix}/share/zsh/vendor-completions/_foo"
+"${prefix}/bin/argocd-autopilot" completion bash >"${prefix}/share/bash-completion/completions/argocd-autopilot"
+"${prefix}/bin/argocd-autopilot" completion fish >"${prefix}/share/fish/vendor_completions.d/argocd-autopilot.fish"
+"${prefix}/bin/argocd-autopilot" completion zsh >"${prefix}/share/zsh/vendor-completions/_argocd-autopilot"
 EOF
