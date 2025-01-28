@@ -251,6 +251,18 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "argoproj-labs/argocd-autopilot",
+      "extractVersionTemplate": "^v(?<version>.+)$",
+      "fileMatch": [
+        "^tools/argocd-autopilot/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "alexellis/arkade",
       "fileMatch": [
         "^tools/arkade/manifest.yaml$"
@@ -10300,6 +10312,11 @@
     {
       "matchFiles": [
         "^tools/argocd/manifest.yaml$"
+      ]
+    },
+    {
+      "matchFiles": [
+        "^tools/argocd-autopilot/manifest.yaml$"
       ]
     },
     {
