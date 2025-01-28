@@ -1,0 +1,29 @@
+desc: Get latest version
+runners:
+  req: https://api.papermc.io/v2
+vars:
+  project: paper
+steps:
+
+  getLatestVersionGroup:
+    desc: Get latest version group
+    req:
+      /projects/{{ vars.project }}:
+        get: {}
+    test: |
+      steps.getLatestVersionGroup.res.status == 200
+    bind:
+      versionGroup: steps.getLatestVersionGroup.res.body.version_groups[-1]
+
+  getLatestBuildForVersionGroup:
+    desc: Get latest build for version group
+    req:
+      /projects/{{ vars.project }}/version_group/{{ versionGroup }}/builds:
+        get: {}
+    test: |
+      steps.getLatestBuildForVersionGroup.res.status == 200
+    bind:
+      latestBuild: filter(steps.getLatestBuildForVersionGroup.res.body.builds, {.channel == "default"})[-1]
+
+  dumpLatestBuild:
+    dump: (latestBuild.version + "-" + string(latestBuild.build))
