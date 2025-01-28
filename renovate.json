@@ -145,6 +145,18 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "jonaslu/ain",
+      "extractVersionTemplate": "^v(?<version>.+)$",
+      "fileMatch": [
+        "^tools/ain/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "air-verse/air",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
@@ -10263,6 +10275,11 @@
     {
       "matchFiles": [
         "^tools/aider/manifest.yaml$"
+      ]
+    },
+    {
+      "matchFiles": [
+        "^tools/ain/manifest.yaml$"
       ]
     },
     {
