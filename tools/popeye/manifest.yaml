@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: popeye
-version: "0.22.0"
+version: "0.22.1"
 check: ${binary} version | sed 's/\x1B\[[0-9;]\{1,\}[A-Za-z]//g' | grep ^Version | tr -s ' ' | cut -d' ' -f2
 platforms:
 - linux/amd64
