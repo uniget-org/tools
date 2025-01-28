@@ -1,0 +1,37 @@
+#syntax=docker/dockerfile:1.13.0@sha256:426b85b823c113372f766a963f68cfd9cd4878e1bcc0fda58779127ee98a28eb
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+echo "### Setting architecture string for ${TARGETPLATFORM}"
+case "${arch}" in
+    x86_64)
+        export arch_suffix="x64"
+        ;;
+    aarch64)
+        export arch_suffix="${alt_arch}"
+        ;;
+    *)
+        echo "ERROR: Unsupported architecture ${arch}."
+        exit 1
+        ;;
+esac
+echo "    Using ${arch_suffix}"
+
+url="https://github.com/microsoft/dev-proxy/releases/download/v${version}/dev-proxy-linux-${arch_suffix}-v${version}.zip"
+filename="$(basename "${url}")"
+
+check-github-release-asset "microsoft/dev-proxy" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+mkdir -p "${prefix}/opt/devproxy"
+unzip -q -o -d "${prefix}/opt/devproxy" "${uniget_cache_download}/${filename}"
+chmod +x "${prefix}/opt/devproxy/devproxy"
+ln --symbolic --relative --force "${prefix}/opt/devproxy/devproxy" "${prefix}/bin/"
+EOF
