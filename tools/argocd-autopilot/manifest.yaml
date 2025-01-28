@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: argocd-autopilot
+license:
+  name: Apache 2.0 License
+  link: https://github.com/argoproj-labs/argocd-autopilot/blob/main/LICENSE
+version: "0.4.18"
+check: ${binary} version | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/go
+- type/cli
+- gitops
+- kubernetes
+- k8s
+- gitops
+homepage: https://argocd-autopilot.readthedocs.io/en/stable/
+repository: https://github.com/argoproj-labs/argocd-autopilot
+description: Tool which offers an opinionated way of installing Argo-CD and managing GitOps repositories
+renovate:
+  datasource: github-releases
+  package: argoproj-labs/argocd-autopilot
+  extractVersion: ^v(?<version>.+)$
+  priority: low

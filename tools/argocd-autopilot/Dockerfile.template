@@ -1,0 +1,26 @@
+#syntax=docker/dockerfile:1.13.0@sha256:426b85b823c113372f766a963f68cfd9cd4878e1bcc0fda58779127ee98a28eb
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/argoproj-labs/argocd-autopilot/releases/download/v${version}/argocd-autopilot-linux-${alt_arch}.tar.gz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "argoproj-labs/argocd-autopilot" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin" --no-same-owner
+mv "${prefix}/bin/argocd-autopilot-linux-${alt_arch}" "${prefix}/bin/argocd-autopilot"
+EOF
+RUN <<EOF
+"${prefix}/bin/foo" completion bash >"${prefix}/share/bash-completion/completions/foo"
+"${prefix}/bin/foo" completion fish >"${prefix}/share/fish/vendor_completions.d/foo.fish"
+"${prefix}/bin/foo" completion zsh >"${prefix}/share/zsh/vendor-completions/_foo"
+EOF
