@@ -35,6 +35,10 @@ messages:
     - Existing settings are not changed
     - For CLI plugins: mkdir -p ~/.docker && ln -sfr ~/.local/libexec/docker/cli-plugins ~/.docker/
   update: |
+    - You must install iptables or nftables from your distribution:
+    
+        Ubuntu: apt-get install nftables
+          
     - You need to create a group to delegate the Docker socket to users:
 
           groupadd --system --force docker
