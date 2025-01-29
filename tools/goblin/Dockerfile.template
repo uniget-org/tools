@@ -23,6 +23,7 @@ EOF
 RUN <<EOF
 cd www
 make installLinux
+sed -i 's@https://github.com/tailwindlabs/tailwindcss/releases/latest/download/@https://github.com/tailwindlabs/tailwindcss/releases/download/v3.4.17/@' Makefile
 make build
 EOF
 RUN <<EOF
