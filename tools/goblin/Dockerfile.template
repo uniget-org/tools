@@ -22,8 +22,8 @@ go build -o "${prefix}/bin/goblin-api" ./cmd/goblin-api
 EOF
 RUN <<EOF
 cd www
-make installLinux
 sed -i 's@https://github.com/tailwindlabs/tailwindcss/releases/latest/download/@https://github.com/tailwindlabs/tailwindcss/releases/download/v3.4.17/@' Makefile
+make installLinux
 make build
 EOF
 RUN <<EOF
