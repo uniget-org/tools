@@ -4,7 +4,7 @@ After=syslog.target network.target
 [Service]
 StartLimitInterval=5
 StartLimitBurst=10
-ExecStart={{ .Target }}/bin/gitlab-runner "run" "--working-directory" "/home/gitlab-runner" "--config" "/etc/gitlab-runner/config.toml" "--service" "gitlab-runner" "--user" "gitlab-runner"
+ExecStart=/{{ .Target }}/bin/gitlab-runner "run" "--working-directory" "/home/gitlab-runner" "--config" "/etc/gitlab-runner/config.toml" "--service" "gitlab-runner" "--user" "gitlab-runner"
 Restart=always
 RestartSec=120
 EnvironmentFile=-/etc/sysconfig/gitlab-runner

@@ -6,7 +6,7 @@ StartLimitIntervalSec=600
 StartLimitBurst=5
 
 [Service]
-ExecStart={{ .Target }}/bin/trillian_log_server -http_endpoint=localhost:8090 -rpc_endpoint=localhost:8091 --logtostderr ...
+ExecStart=/{{ .Target }}/bin/trillian_log_server -http_endpoint=localhost:8090 -rpc_endpoint=localhost:8091 --logtostderr ...
 Restart=on-failure
 RestartSec=5s
 

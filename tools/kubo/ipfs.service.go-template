@@ -4,7 +4,7 @@ PartOf=containerd
 
 [Service]
 Environment=IPFS_PATH=/var/lib/ipfs
-ExecStart={{ .Target }}/bin/ipfs daemon $@
+ExecStart=/{{ .Target }}/bin/ipfs daemon $@
 ExecReload=/bin/kill -s HUP \$MAINPID
 RestartSec=2
 Restart=always

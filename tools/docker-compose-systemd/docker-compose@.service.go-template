@@ -8,15 +8,15 @@ Type=simple
 TimeoutStartSec=15min
 Restart=always
 
-ExecStartPre={{ .Target }}/docker compose pull --quiet --ignore-pull-failures
-ExecStartPre={{ .Target }}/docker compose build --pull
+ExecStartPre=/{{ .Target }}/docker compose pull --quiet --ignore-pull-failures
+ExecStartPre=/{{ .Target }}/docker compose build --pull
 
-ExecStart={{ .Target }}/docker compose up --remove-orphans
+ExecStart=/{{ .Target }}/docker compose up --remove-orphans
 
-ExecStop={{ .Target }}/docker compose down --remove-orphans
+ExecStop=/{{ .Target }}/docker compose down --remove-orphans
 
-ExecReload={{ .Target }}/docker compose pull --quiet --ignore-pull-failures
-ExecReload={{ .Target }}/docker compose build --pull
+ExecReload=/{{ .Target }}/docker compose pull --quiet --ignore-pull-failures
+ExecReload=/{{ .Target }}/docker compose build --pull
 
 [Install]
 WantedBy=multi-user.target
