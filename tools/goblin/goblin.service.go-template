@@ -3,10 +3,10 @@ Description=Golang binaries compiled on-demand for your system
 After=network-online.target
 
 [Service]
-WorkingDirectory={{ .Target }}/share/goblin
+WorkingDirectory=/{{ .Target }}/share/goblin
 Type=simple
 Restart=always
-ExecStart={{ .Target }}/bin/goblin-api
+ExecStart=/{{ .Target }}/bin/goblin-api
 
 [Install]
 WantedBy=multi-user.target

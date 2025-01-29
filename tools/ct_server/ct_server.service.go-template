@@ -6,7 +6,7 @@ StartLimitIntervalSec=600
 StartLimitBurst=5
 
 [Service]
-ExecStart={{ .Target }}/bin/ct_server -logtostderr -log_config /etc/ctfe-config/ct.cfg -log_rpc_server localhost:8091 -http_endpoint 0.0.0.0:6105
+ExecStart=/{{ .Target }}/bin/ct_server -logtostderr -log_config /etc/ctfe-config/ct.cfg -log_rpc_server localhost:8091 -http_endpoint 0.0.0.0:6105
 Restart=on-failure
 RestartSec=5s
 
