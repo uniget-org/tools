@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: dependency-check
-version: "12.0.1"
+version: "12.0.2"
 binary: ${target}/opt/dependency-check/bin/dependency-check.sh
 check: ${binary} --version | grep "^Dependency-Check Core version" | cut -d' ' -f4
 runtime_dependencies:
