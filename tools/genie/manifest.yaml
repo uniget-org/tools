@@ -4,7 +4,7 @@ name: genie
 license:
   name: MIT License
   link: https://github.com/harshalranjhani/genie/blob/main/LICENSE
-version: "2.9.3"
+version: "2.9.4"
 check: ${binary} version | cut -d' ' -f2 | tr -d v
 platforms:
 - linux/amd64
