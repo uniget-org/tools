@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: navi
-version: "2.23.0"
+version: "2.24.0"
 check: ${binary} --version | cut -d' ' -f2
 runtime_dependencies:
 - fzf
