@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: garden
+license:
+  name: MPL-2.0
+  link: https://github.com/garden-io/garden/blob/main/LICENSE.md
+version: "0.13.52"
+check: ${binary} version | grep "^garden version" | cut -d' ' -f2
+runtime_dependencies:
+- nodejs-lts
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/javascript
+- type/cli
+- kubernetes
+- k8s
+homepage: https://garden.io/
+repository: https://github.com/garden-io/garden
+description: Automation for Kubernetes development and testing. Spin up production-like environments for development, testing, and CI on demand
+messages:
+  update: |
+    garden collects anonymous usage statistics to help improve the tool,
+    see https://github.com/garden-io/garden/blob/main/docs/misc/telemetry.md#updating-your-telemetry-preferences.
+
+    Update your preferences by running:
+
+        garden config analytics-enabled false
+renovate:
+  datasource: github-releases
+  package: garden-io/garden
+  priority: low
