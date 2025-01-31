@@ -23,7 +23,7 @@ case "${arch}" in
 esac
 echo "    Using ${arch_suffix}"
 
-url="https://github.com/tilt-dev/ctlptl/releases/download/v${version}/ctlptl.${version}.linux.${arch-suffix}.tar.gz"
+url="https://github.com/tilt-dev/ctlptl/releases/download/v${version}/ctlptl.${version}.linux.${arch_suffix}.tar.gz"
 filename="$( basename "${url}" )"
 
 check-github-release-asset "tilt-dev/ctlptl" "v${version}" "${filename}"
