@@ -1,0 +1,42 @@
+#syntax=docker/dockerfile:1.13.0@sha256:426b85b823c113372f766a963f68cfd9cd4878e1bcc0fda58779127ee98a28eb
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+echo "### Setting architecture string for ${TARGETPLATFORM}"
+case "${arch}" in
+    x86_64)
+        export arch_suffix="${arch}"
+        ;;
+    aarch64)
+        export arch_suffix="${alt_arch}"
+        ;;
+    *)
+        echo "ERROR: Unsupported architecture ${arch}."
+        exit 1
+        ;;
+esac
+echo "    Using ${arch_suffix}"
+
+#url="https://github.com/tilt-dev/tilt/releases/download/v${version}/tilt.${version}.linux.${arch_suffix}.tar.gz"
+url="https://github.com/tilt-dev/tilt/releases/download/v${version}/tilt.${version}.linux-alpine.${arch_suffix}.tar.gz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "tilt-dev/tilt" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin" --no-same-owner \
+    tilt
+EOF
+RUN <<EOF
+"${prefix}/bin/tilt" completion bash >"${prefix}/share/bash-completion/completions/tilt"
+"${prefix}/bin/tilt" completion fish >"${prefix}/share/fish/vendor_completions.d/tilt.fish"
+"${prefix}/bin/tilt" completion zsh >"${prefix}/share/zsh/vendor-completions/_tilt"
+EOF

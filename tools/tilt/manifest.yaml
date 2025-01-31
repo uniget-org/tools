@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: tilt
+license:
+  name: Apache 2.0 License
+  link: https://github.com/tilt-dev/tilt/blob/master/LICENSE
+version: "0.33.22"
+check: ${binary} version | cut -d, -f1 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/tilt
+- category/development
+- lang/go
+- type/cli
+- kubernetes
+- k8s
+homepage: https://tilt.dev/
+repository: https://github.com/tilt-dev/tilt
+description: Define your dev environment as code. For microservice apps on Kubernetes
+renovate:
+  datasource: github-releases
+  package: tilt-dev/tilt
+  extractVersion: ^v(?<version>.+)$
+  priority: low
