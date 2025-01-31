@@ -2942,6 +2942,17 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "garden-io/garden",
+      "fileMatch": [
+        "^tools/garden/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "open-policy-agent/gatekeeper",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
@@ -11499,6 +11510,11 @@
     {
       "matchFiles": [
         "^tools/fzf/manifest.yaml$"
+      ]
+    },
+    {
+      "matchFiles": [
+        "^tools/garden/manifest.yaml$"
       ]
     },
     {
