@@ -9078,6 +9078,18 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "tilt-dev/tilt",
+      "extractVersionTemplate": "^v(?<version>.+)$",
+      "fileMatch": [
+        "^tools/tilt/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "stefanprodan/timoni",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
@@ -14055,6 +14067,11 @@
     {
       "matchFiles": [
         "^tools/tig/manifest.yaml$"
+      ]
+    },
+    {
+      "matchFiles": [
+        "^tools/tilt/manifest.yaml$"
       ]
     },
     {
