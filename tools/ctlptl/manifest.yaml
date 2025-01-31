@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: ctlptl
+license:
+  name: Apache 2.0 License
+  link: https://github.com/tilt-dev/ctlptl/blob/main/LICENSE
+version: "0.8.38"
+check: ""
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/tilt
+- category/development
+- lang/go
+- type/cli
+- Kubernetes
+- k8s
+homepage: https://docs.tilt.dev/choosing_clusters.html
+repository: https://github.com/tilt-dev/ctlptl
+description: Making local Kubernetes clusters fun and easy to set up
+messages:
+  update: |
+    By default ctlptl send anonymous usage statistics to help improve the tool,
+    see https://github.com/tilt-dev/ctlptl?tab=readme-ov-file#privacy.
+
+    Disable this behaviour by running:
+
+        ctlptl analytics opt out
+renovate:
+  datasource: github-releases
+  package: tilt-dev/ctlptl
+  extractVersion: ^v(?<version>.+)$
+  priority: low
