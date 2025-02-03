@@ -1,0 +1,15 @@
+desc: Get latest version
+runners:
+  req: https://texlive.info/historic/systems/texlive
+steps:
+
+  getListing:
+    desc: Get subdirectories
+    req:
+      /:
+        get: {}
+    test: |
+      steps.getListing.res.status == 200
+
+  dumpListing:
+    dump: steps.getListing.res.rawBody

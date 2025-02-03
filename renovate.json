@@ -9077,6 +9077,18 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "uniget-org/renovate-custom",
+      "extractVersionTemplate": "^texlive/(?<version>.+)$",
+      "fileMatch": [
+        "^tools/texlive/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "npm",
       "depNameTemplate": "textlint",
       "fileMatch": [
@@ -14090,6 +14102,11 @@
     {
       "matchFiles": [
         "^tools/tetragon/manifest.yaml$"
+      ]
+    },
+    {
+      "matchFiles": [
+        "^tools/texlive/manifest.yaml$"
       ]
     },
     {
