@@ -4,7 +4,7 @@ name: hishtory
 license:
   name: MIT License
   link: https://github.com/ddworken/hishtory/blob/master/LICENSE
-version: "0.330"
+version: "0.331"
 check: ${binary} --version | cut -d' ' -f3 | tr -d v
 platforms:
 - linux/amd64
