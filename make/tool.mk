@@ -34,7 +34,10 @@ $(addsuffix /manifest.json,$(ALL_TOOLS)):$(TOOLS_DIR)/%/manifest.json: \
 		; $(info $(M) Creating manifest for $*...) ## Generate from tools/*/manifest.yaml
 	@set -o errexit; \
 	yq --output-format json eval '{"tools":[.]}' $(TOOLS_DIR)/$*/manifest.yaml \
-	| jq --arg source1 "$(SOURCE1_PREFIX)$*" --arg source2 "$(SOURCE2_PREFIX)$*" '.tools[0].sources = [ $$source1, $$source2]' \
+	| jq \
+		--arg reg1 "$(REGISTRY)" --arg repo1 "$(REPOSITORY_PREFIX)$*" \
+		--arg reg2 "$(REGISTRY2)" --arg repo2 "$(REPOSITORY_PREFIX2)$*" \
+		'.tools[0].sources = [ { "registry": $$reg1, "repository": $$repo1 }, { "registry": $$reg2, "repository": $$repo2 } ]' \
 	>$(TOOLS_DIR)/$*/manifest.json
 
 $(addsuffix /Dockerfile,$(ALL_TOOLS)):$(TOOLS_DIR)/%/Dockerfile: \
