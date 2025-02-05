@@ -2,6 +2,9 @@
 name: tig
 version: "2.5.11"
 check: ${binary} --version | grep ^tig | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
 tags:
 - type/tui
 - category/development

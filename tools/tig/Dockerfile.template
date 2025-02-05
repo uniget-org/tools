@@ -12,7 +12,8 @@ apt-get -y install --no-install-recommends \
     ca-certificates \
     gcc \
     ncurses-dev \
-    make
+    make \
+    pkg-config
 EOF
 WORKDIR /tmp/tig
 ARG name
@@ -27,9 +28,11 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
 
 tar --file="${uniget_cache_download}/${filename}" --list
 tar --file="${uniget_cache_download}/${filename}" --extract --gzip --strip-components=1
+EOF
+RUN <<EOF
 ./configure
 
-make -j$(nproc) prefix="${prefix}"
+make -j$(nproc) LDFLAGS=-static prefix="${prefix}"
 make install install-doc-man prefix="${prefix}"
 
 cp contrib/tig-completion.bash "${prefix}/share/bash-completion/completions/tig"
