@@ -8,7 +8,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://github.com/innobead/huber/releases/download/v${version}/huber-linux-${alt_arch}"
+url="https://github.com/innobead/huber/releases/download/v${version}/huber-${arch}-unknown-linux-musl"
 filename="$( basename "${url}" )"
 
 check-github-release-asset "innobead/huber" "v${version}" "${filename}"
