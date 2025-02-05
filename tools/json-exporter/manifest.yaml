@@ -4,7 +4,7 @@ name: json-exporter
 license:
   name: Apache License 2.0
   link: https://github.com/prometheus-community/json_exporter/blob/master/LICENSE
-version: "0.6.0"
+version: "0.7.0"
 binary: json_exporter
 check: ${binary} --config.file=/dev/null --version 2>&1 | grep ^json_exporter | cut -d' ' -f3
 runtime_dependencies:
