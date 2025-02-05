@@ -1,9 +1,10 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: huber
 version: "1.0.3"
-check: "" # Missing shared libraries
-build_dependencies:
-- rust
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 tags:
 - type/cli
 - category/development
