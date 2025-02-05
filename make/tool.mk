@@ -33,7 +33,9 @@ $(addsuffix /manifest.json,$(ALL_TOOLS)):$(TOOLS_DIR)/%/manifest.json: \
 		$(TOOLS_DIR)/%/manifest.yaml \
 		; $(info $(M) Creating manifest for $*...) ## Generate from tools/*/manifest.yaml
 	@set -o errexit; \
-	yq --output-format json eval '{"tools":[.]}' $(TOOLS_DIR)/$*/manifest.yaml >$(TOOLS_DIR)/$*/manifest.json
+	yq --output-format json eval '{"tools":[.]}' $(TOOLS_DIR)/$*/manifest.yaml \
+	| jq --arg source1 "$(SOURCE1_PREFIX)$*" --arg source2 "$(SOURCE2_PREFIX)$*" '.tools[0].sources = [ $$source1, $$source2]' \
+	>$(TOOLS_DIR)/$*/manifest.json
 
 $(addsuffix /Dockerfile,$(ALL_TOOLS)):$(TOOLS_DIR)/%/Dockerfile: \
 		$(TOOLS_DIR)/%/Dockerfile.template \

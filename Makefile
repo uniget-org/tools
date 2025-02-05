@@ -21,6 +21,10 @@ OWNER              ?= uniget-org
 PROJECT            ?= tools
 REGISTRY           ?= ghcr.io
 REPOSITORY_PREFIX  ?= $(OWNER)/$(PROJECT)/
+REGISTRY2          ?= registry.gitlab.com
+REPOSITORY_PREFIX2 ?= $(OWNER)/$(PROJECT)/
+SOURCE1_PREFIX     ?= $(REGISTRY)/$(REPOSITORY_PREFIX)
+SOURCE2_PREFIX     ?= $(REGISTRY2)/$(REPOSITORY_PREFIX2)
 
 HELPER              = helper
 BIN                 = $(HELPER)/usr/local/bin
