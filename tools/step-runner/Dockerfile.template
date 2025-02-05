@@ -1,0 +1,28 @@
+#syntax=docker/dockerfile:1.13.0@sha256:426b85b823c113372f766a963f68cfd9cd4878e1bcc0fda58779127ee98a28eb
+
+FROM ghcr.io/uniget-org/tools/make:latest AS make
+FROM ghcr.io/uniget-org/tools/go:latest AS go
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+COPY --link --from=go / /usr/local/
+COPY --link --from=make / /usr/local/
+WORKDIR /go/src/gitlab.com/gitlab-org/step-runner
+ARG name
+ARG version
+RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
+check-clone "https://gitlab.com/gitlab-org/step-runner" "v${version}"
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://gitlab.com/gitlab-org/step-runner .
+make
+cp "out/bin/step-runner-linux-${alt_arch}" "${prefix}/bin/step-runner"
+EOF
+RUN <<EOF
+"${prefix}/bin/step-runner" completion bash >"${prefix}/share/bash-completion/completions/step-runner"
+"${prefix}/bin/step-runner" completion fish >"${prefix}/share/fish/vendor_completions.d/step-runner.fish"
+"${prefix}/bin/step-runner" completion zsh >"${prefix}/share/zsh/vendor-completions/_step-runner"
+EOF
