@@ -1,5 +1,6 @@
 SOURCE_DATE_EPOCH ?= $(shell git log -1 --pretty=%ct)
 BUILDER           ?= uniget
+BINFMT_TAG        ?= latest
 
 $(addsuffix --vim,$(ALL_TOOLS_RAW)):%--vim: ## ???
 	@vim -o2 $(TOOLS_DIR)/$*/manifest.yaml  $(TOOLS_DIR)/$*/Dockerfile.template
@@ -70,7 +71,7 @@ builders: \
 	|| docker buildx create --name uniget \
 		--platform $(subst $(eval ) ,$(shell echo ","),$(addprefix linux/,$(SUPPORTED_ALT_ARCH))) \
 		--bootstrap; \
-	docker container run --privileged --rm tonistiigi/binfmt --install all >/dev/null
+	docker container run --privileged --rm "tonistiigi/binfmt:$(BINFMT_TAG)" --install all >/dev/null
 
 .PHONY:
 clean-builders: \
