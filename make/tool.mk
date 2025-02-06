@@ -1,6 +1,6 @@
 SOURCE_DATE_EPOCH ?= $(shell git log -1 --pretty=%ct)
 BUILDER           ?= uniget
-BINFMT_TAG        ?= latest
+BINFMT_TAG        ?= qemu-v8.1.5-45
 
 $(addsuffix --vim,$(ALL_TOOLS_RAW)):%--vim: ## ???
 	@vim -o2 $(TOOLS_DIR)/$*/manifest.yaml  $(TOOLS_DIR)/$*/Dockerfile.template
