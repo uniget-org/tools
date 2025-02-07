@@ -5,7 +5,7 @@ license:
   name: GPLv2
   link: https://github.com/rstudio/tinytex-releases/blob/master/LICENSE
 version: "2025.02"
-check: ""
+check: "" # Version only exposes TexLive version
 platforms:
 - linux/amd64
 - linux/arm64
