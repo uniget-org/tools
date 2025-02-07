@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: tinytex
+license:
+  name: GPLv2
+  link: https://github.com/rstudio/tinytex-releases/blob/master/LICENSE
+version: "2025.02"
+check: ""
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/perl
+- type/cli
+homepage: https://yihui.org/tinytex/
+repository: https://github.com/rstudio/tinytex-releases
+description: Some description
+renovate:
+  datasource: github-releases
+  package: rstudio/tinytex-releases
+  extractVersion: ^v(?<version>.+)$
+  priority: low
