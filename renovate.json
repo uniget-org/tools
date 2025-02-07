@@ -9196,6 +9196,18 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "rstudio/tinytex-releases",
+      "extractVersionTemplate": "^v(?<version>.+)$",
+      "fileMatch": [
+        "^tools/tinytex/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "tektoncd/cli",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
@@ -14187,6 +14199,11 @@
     {
       "matchFiles": [
         "^tools/tinygo/manifest.yaml$"
+      ]
+    },
+    {
+      "matchFiles": [
+        "^tools/tinytex/manifest.yaml$"
       ]
     },
     {

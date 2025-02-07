@@ -1,0 +1,21 @@
+#syntax=docker/dockerfile:1.13.0@sha256:426b85b823c113372f766a963f68cfd9cd4878e1bcc0fda58779127ee98a28eb
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/rstudio/tinytex-releases/releases/download/v${version}/TinyTeX-v${version}.tar.gz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "rstudio/tinytex-releases" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+mkdir -p "${prefix}/opt/tinytex"
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/opt/tinytex" --strip-components=1 --no-same-owner
+EOF
