@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: tig
-version: "2.5.11"
+version: "2.5.12"
 check: ${binary} --version | grep ^tig | cut -d' ' -f3
 platforms:
 - linux/amd64
