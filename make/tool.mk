@@ -133,22 +133,24 @@ tools/%/image-linux-amd64.json: \
 		$(TOOLS_DIR)/%/Dockerfile \
 		builders \
 		; $(info $(M) Building image $(REGISTRY)/$(REPOSITORY_PREFIX)$* for amd64...)
+	$(eval OS := linux)
+	$(eval ARCH := amd64)
+	$(eval TOOL_VERSION := $(shell jq --raw-output '.tools[].version' tools/$*/manifest.json))
+	$(eval VERSION_TAG := $(shell echo "$(TOOL_VERSION)" | tr '+' '-'))
+	$(eval DEPS := $(shell jq --raw-output '.tools[] | select(.build_dependencies != null) | .build_dependencies[]' tools/$*/manifest.json | paste -sd,))
+	$(eval TAGS := $(shell jq --raw-output '.tools[] | select(.tags != null) | .tags[]' tools/$*/manifest.json | paste -sd,))
 	@set -o errexit; \
-	if ! jq --exit-status '.tools[].platforms | any(. == "linux/amd64")' tools/$*/manifest.json >/dev/null; then \
-		echo "WARNING: Platform linux/amd64 is not requested."; \
+	if ! jq --exit-status '.tools[].platforms | any(. == "linux/$(ARCH)")' tools/$*/manifest.json >/dev/null; then \
+		echo "WARNING: Platform linux/$(ARCH) is not requested."; \
 		exit 0; \
 	fi; \
-	TOOL_VERSION="$$(jq --raw-output '.tools[].version' tools/$*/manifest.json)"; \
-	VERSION_TAG="$$( echo "$${TOOL_VERSION}" | tr '+' '-' )"; \
-	DEPS="$$(jq --raw-output '.tools[] | select(.build_dependencies != null) | .build_dependencies[]' tools/$*/manifest.json | paste -sd,)"; \
-	TAGS="$$(jq --raw-output '.tools[] | select(.tags != null) | .tags[]' tools/$*/manifest.json | paste -sd,)"; \
-	rm -f image-linux-amd64.json; \
+	rm -f image-linux-$(ARCH).json; \
     if ! docker buildx build $(TOOLS_DIR)/$* \
 			--builder=$(BUILDER) \
 			--build-arg=branch=$(DOCKER_TAG) \
 			--build-arg=ref=$(DOCKER_TAG) \
 			--build-arg=name=$* \
-			--build-arg=version=$${TOOL_VERSION} \
+			--build-arg=version=$(TOOL_VERSION) \
 			--build-arg=deps=$${DEPS} \
 			--build-arg=tags=$${TAGS} \
 			--sbom=false \
@@ -156,26 +158,26 @@ tools/%/image-linux-amd64.json: \
 			--label=org.opencontainers.image.source="https://github.com/uniget-org/tools" \
 			--label=org.opencontainers.image.title="$*" \
 			--label=org.opencontainers.image.description="$* packaged for installation" \
-			--label=org.opencontainers.image.version="$${TOOL_VERSION}" \
+			--label=org.opencontainers.image.version="$(TOOL_VERSION)" \
 			--label=dev.uniget.name="$*" \
-			--label=dev.uniget.version="$${TOOL_VERSION}" \
-			--label=dev.uniget.needs="$${DEPS}" \
-			--label=dev.uniget.tags="$${TAGS}" \
-			--platform=linux/amd64 \
+			--label=dev.uniget.version="$(TOOL_VERSION)" \
+			--label=dev.uniget.needs="$(DEPS)" \
+			--label=dev.uniget.tags="$(TAGS)" \
+			--platform=$(OS)/$(ARCH) \
 			--cache-from=type=registry,ref=$(REGISTRY)/$(REPOSITORY_PREFIX)$*:latest \
-			--cache-from=type=registry,ref=$(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION} \
-			--cache-from=type=registry,ref=$(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION}-linux-amd64 \
+			--cache-from=type=registry,ref=$(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(VERSION_TAG) \
+			--cache-from=type=registry,ref=$(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(VERSION_TAG)-$(OS)-$(ARCH) \
 			--cache-to=type=inline,mode=max \
-			--metadata-file=$(TOOLS_DIR)/$*/image-linux-amd64.json \
-			--tag=$(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION}-linux-amd64 \
+			--metadata-file=$(TOOLS_DIR)/$*/image-$(OS)-$(ARCH).json \
+			--tag=$(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(VERSION_TAG)-$(OS)-$(ARCH) \
 			--output=type=registry,oci-mediatypes=true \
 			--progress plain \
-			>$(TOOLS_DIR)/$*/build-amd64.log 2>&1; then \
-		cat $(TOOLS_DIR)/$*/build-amd64.log; \
+			>$(TOOLS_DIR)/$*/build-$(ARCH).log 2>&1; then \
+		cat $(TOOLS_DIR)/$*/build-$(ARCH).log; \
 		exit 1; \
 	fi; \
-	echo -n "  Produced digest for amd64: "; \
-	jq --raw-output '."containerimage.digest"' $(TOOLS_DIR)/$*/image-linux-amd64.json
+	echo -n "  Produced digest for $(ARCH): "; \
+	jq --raw-output '."containerimage.digest"' $(TOOLS_DIR)/$*/image-$(OS)-$(ARCH).json
 
 .PHONY:
 $(addsuffix --arm64,$(ALL_TOOLS_RAW)):%--arm64: tools/%/image-linux-arm64.json
@@ -186,22 +188,24 @@ tools/%/image-linux-arm64.json: \
 		$(TOOLS_DIR)/%/Dockerfile \
 		builders \
 		; $(info $(M) Building image $(REGISTRY)/$(REPOSITORY_PREFIX)$*...)
+	$(eval OS := linux)
+	$(eval ARCH := arm64)
+	$(eval TOOL_VERSION := $(shell jq --raw-output '.tools[].version' tools/$*/manifest.json))
+	$(eval VERSION_TAG := $(shell echo "$(TOOL_VERSION)" | tr '+' '-'))
+	$(eval DEPS := $(shell jq --raw-output '.tools[] | select(.build_dependencies != null) | .build_dependencies[]' tools/$*/manifest.json | paste -sd,))
+	$(eval TAGS := $(shell jq --raw-output '.tools[] | select(.tags != null) | .tags[]' tools/$*/manifest.json | paste -sd,))
 	@set -o errexit; \
-	if ! jq --exit-status '.tools[].platforms | any(. == "linux/arm64")' tools/$*/manifest.json >/dev/null; then \
-		echo "WARNING: Platform linux/arm64 is not requested."; \
+	if ! jq --exit-status '.tools[].platforms | any(. == "linux/$(ARCH)")' tools/$*/manifest.json >/dev/null; then \
+		echo "WARNING: Platform linux/$(ARCH) is not requested."; \
 		exit 0; \
 	fi; \
-	TOOL_VERSION="$$(jq --raw-output '.tools[].version' tools/$*/manifest.json)"; \
-	VERSION_TAG="$$( echo "$${TOOL_VERSION}" | tr '+' '-' )"; \
-	DEPS="$$(jq --raw-output '.tools[] | select(.build_dependencies != null) | .build_dependencies[]' tools/$*/manifest.json | paste -sd,)"; \
-	TAGS="$$(jq --raw-output '.tools[] | select(.tags != null) | .tags[]' tools/$*/manifest.json | paste -sd,)"; \
-	rm -f image-linux-arm64.json; \
+	rm -f image-linux-$(ARCH).json; \
     if ! docker buildx build $(TOOLS_DIR)/$* \
 			--builder=$(BUILDER) \
 			--build-arg=branch=$(DOCKER_TAG) \
 			--build-arg=ref=$(DOCKER_TAG) \
 			--build-arg=name=$* \
-			--build-arg=version=$${TOOL_VERSION} \
+			--build-arg=version=$(TOOL_VERSION) \
 			--build-arg=deps=$${DEPS} \
 			--build-arg=tags=$${TAGS} \
 			--sbom=false \
@@ -209,26 +213,26 @@ tools/%/image-linux-arm64.json: \
 			--label=org.opencontainers.image.source="https://github.com/uniget-org/tools" \
 			--label=org.opencontainers.image.title="$*" \
 			--label=org.opencontainers.image.description="$* packaged for installation" \
-			--label=org.opencontainers.image.version="$${TOOL_VERSION}" \
+			--label=org.opencontainers.image.version="$(TOOL_VERSION)" \
 			--label=dev.uniget.name="$*" \
-			--label=dev.uniget.version="$${TOOL_VERSION}" \
-			--label=dev.uniget.needs="$${DEPS}" \
-			--label=dev.uniget.tags="$${TAGS}" \
-			--platform=linux/arm64 \
+			--label=dev.uniget.version="$(TOOL_VERSION)" \
+			--label=dev.uniget.needs="$(DEPS)" \
+			--label=dev.uniget.tags="$(TAGS)" \
+			--platform=$(OS)/$(ARCH) \
 			--cache-from=type=registry,ref=$(REGISTRY)/$(REPOSITORY_PREFIX)$*:latest \
-			--cache-from=type=registry,ref=$(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION} \
-			--cache-from=type=registry,ref=$(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION}-linux-arm64 \
+			--cache-from=type=registry,ref=$(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(VERSION_TAG) \
+			--cache-from=type=registry,ref=$(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(VERSION_TAG)-$(OS)-$(ARCH) \
 			--cache-to=type=inline,mode=max \
-			--metadata-file=$(TOOLS_DIR)/$*/image-linux-arm64.json \
-			--tag=$(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION}-linux-arm64 \
+			--metadata-file=$(TOOLS_DIR)/$*/image-$(OS)-$(ARCH).json \
+			--tag=$(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(VERSION_TAG)-$(OS)-$(ARCH) \
 			--output=type=registry,oci-mediatypes=true \
 			--progress plain \
-			>$(TOOLS_DIR)/$*/build-arm64.log 2>&1; then \
-		cat $(TOOLS_DIR)/$*/build-arm64.log; \
+			>$(TOOLS_DIR)/$*/build-$(ARCH).log 2>&1; then \
+		cat $(TOOLS_DIR)/$*/build-$(ARCH).log; \
 		exit 1; \
 	fi; \
-	echo -n "  Produced digest for arm64: "; \
-	jq --raw-output '."containerimage.digest"' $(TOOLS_DIR)/$*/image-linux-arm64.json
+	echo -n "  Produced digest for $(ARCH): "; \
+	jq --raw-output '."containerimage.digest"' $(TOOLS_DIR)/$*/image-$(OS)-$(ARCH).json
 
 .PHONY:
 $(addsuffix --index,$(ALL_TOOLS_RAW)):%--index: \
