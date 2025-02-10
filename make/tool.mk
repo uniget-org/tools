@@ -43,13 +43,12 @@ $(addsuffix /manifest.json,$(ALL_TOOLS)):$(TOOLS_DIR)/%/manifest.json: \
 
 $(addsuffix /Dockerfile,$(ALL_TOOLS)):$(TOOLS_DIR)/%/Dockerfile: \
 		$(TOOLS_DIR)/%/Dockerfile.template \
-		$(TOOLS_DIR)/Dockerfile.tail \
 		; $(info $(M) Creating $@...)
 	@set -o errexit; \
 	cat $@.template >$@; \
 	echo >>$@; \
 	echo >>$@; \
-	cat $(TOOLS_DIR)/Dockerfile.tail >>$@; \
+	echo -e "FROM scratch\nCOPY --from=prepare /uniget_bootstrap /\n" >>$@; \
 	if test -f ca.pem; then \
 		sed -i -E '/^FROM .+ AS prepare/a RUN cd /usr/local/share/ca-certificates && csplit -s -z -f individual- -b "%02d.crt" custom.pem "/-----BEGIN CERTIFICATE-----/" "{*}" && update-ca-certificates' $@; \
 		sed -i '/ AS prepare/a EOF' $@; \
