@@ -240,25 +240,25 @@ $(addsuffix --index,$(ALL_TOOLS_RAW)):%--index: \
 		tools/%/image-linux-arm64.json \
 		$(HELPER)/var/lib/uniget/manifests/gojq.json \
 		$(TOOLS_DIR)/%/manifest.json \
-		$(TOOLS_DIR)/%/Dockerfile \
 		; $(info $(M) Creating index for $(REGISTRY)/$(REPOSITORY_PREFIX)$*...)
+	$(eval OS := linux)
+	$(eval TOOL_VERSION := $(shell jq --raw-output '.tools[].version' tools/$*/manifest.json))
 	@set -o errexit; \
-	TOOL_VERSION="$$(jq --raw-output '.tools[].version' tools/$*/manifest.json)"; \
-	regctl index create $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION}; \
-	if test -f $(TOOLS_DIR)/$*/image-linux-amd64.json; then \
-		DIGEST_AMD64="$$( jq --raw-output '."containerimage.digest"' $(TOOLS_DIR)/$*/image-linux-amd64.json )"; \
+	regctl index create $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(TOOL_VERSION); \
+	if test -f $(TOOLS_DIR)/$*/image-$(OS)-amd64.json; then \
+		DIGEST_AMD64="$$( jq --raw-output '."containerimage.digest"' $(TOOLS_DIR)/$*/image-$(OS)-amd64.json )"; \
 		echo "  Adding amd64 with digest $${DIGEST_AMD64}"; \
-		regctl index add $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION} \
-			--ref $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION}-linux-amd64@$${DIGEST_AMD64}; \
+		regctl index add $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(TOOL_VERSION) \
+			--ref $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(TOOL_VERSION)-$(OS)-amd64@$${DIGEST_AMD64}; \
 	fi; \
-	if test -f $(TOOLS_DIR)/$*/image-linux-arm64.json; then \
-		DIGEST_ARM64="$$( jq --raw-output '."containerimage.digest"' $(TOOLS_DIR)/$*/image-linux-arm64.json )"; \
+	if test -f $(TOOLS_DIR)/$*/image-$(OS)-arm64.json; then \
+		DIGEST_ARM64="$$( jq --raw-output '."containerimage.digest"' $(TOOLS_DIR)/$*/image-$(OS)-arm64.json )"; \
 		echo "  Adding arm64 with digest $${DIGEST_ARM64}"; \
-		regctl index add $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION} \
-			--ref $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION}-linux-arm64@$${DIGEST_ARM64}; \
+		regctl index add $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(TOOL_VERSION) \
+			--ref $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(TOOL_VERSION)-$(OS)-arm64@$${DIGEST_ARM64}; \
 	fi; \
 	echo; \
-	regctl manifest get $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION}
+	regctl manifest get $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(TOOL_VERSION)
 
 $(addsuffix --deep,$(ALL_TOOLS_RAW)):%--deep: \
 		info \
