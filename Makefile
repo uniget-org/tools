@@ -72,15 +72,6 @@ info: ; $(info $(M) Runtime info...)
 	@echo "ALT_ARCH:           $(ALT_ARCH)"
 
 .PHONY:
-help: ## Display this help
-	@perl -lne 'if (/^([\$$a-z][^:]+):(([^:]+):)?/) { if ($$3) {$$name = $$3} else {$$name = $$1} }; if ($$name && / ## (.+)$$/) { printf "%s: \033[36m%-30s\033[0m%s\n", $$name, $$1; $$name = "" }' $(MAKEFILE_LIST)
-	@echo
-	@echo "Reminder: foo-% => \$$@=foo-bar \$$*=bar"
-	@echo
-	@echo "Only some tools: TOOLS_RAW=\$$(jq -r '.tools[].name' metadata.json | grep ^k | xargs echo) make info"
-	@echo
-
-.PHONY:
 clean: ## Remove all temporary files
 	@set -o errexit; \
 	rm -f metadata.json; \
