@@ -122,6 +122,121 @@ $(ALL_TOOLS_RAW):%: \
 		exit 1; \
 	fi
 
+.PHONY:
+$(addsuffix --amd64,$(ALL_TOOLS_RAW)):%--amd64: \
+		$(HELPER)/var/lib/uniget/manifests/gojq.json \
+		$(TOOLS_DIR)/%/manifest.json \
+		$(TOOLS_DIR)/%/Dockerfile \
+		builders \
+		; $(info $(M) Building image $(REGISTRY)/$(REPOSITORY_PREFIX)$*...) ## Build container image for amd64
+	@set -o errexit; \
+	TOOL_VERSION="$$(jq --raw-output '.tools[].version' tools/$*/manifest.json)"; \
+	VERSION_TAG="$$( echo "$${TOOL_VERSION}" | tr '+' '-' )"; \
+	DEPS="$$(jq --raw-output '.tools[] | select(.build_dependencies != null) | .build_dependencies[]' tools/$*/manifest.json | paste -sd,)"; \
+	TAGS="$$(jq --raw-output '.tools[] | select(.tags != null) | .tags[]' tools/$*/manifest.json | paste -sd,)"; \
+	rm -f image-linux-amd64.json; \
+	if ! jq --exit-status '.tools[].platforms | any(. == "linux/amd64")' tools/$*/manifest.json; then \
+		echo "WARNING: Platform linux/amd64 is not requested."; \
+		exit 0; \
+	fi; \
+    docker buildx build $(TOOLS_DIR)/$* \
+		--builder=$(BUILDER) \
+		--build-arg=branch=$(DOCKER_TAG) \
+		--build-arg=ref=$(DOCKER_TAG) \
+		--build-arg=name=$* \
+		--build-arg=version=$${TOOL_VERSION} \
+		--build-arg=deps=$${DEPS} \
+		--build-arg=tags=$${TAGS} \
+        --sbom=false \
+        --provenance=false \
+        --label=org.opencontainers.image.source="https://github.com/uniget-org/tools" \
+        --label=org.opencontainers.image.title="$*" \
+        --label=org.opencontainers.image.description="$* packaged for installation" \
+        --label=org.opencontainers.image.version="$${TOOL_VERSION}" \
+        --label=dev.uniget.name="$*" \
+        --label=dev.uniget.version="$${TOOL_VERSION}" \
+        --label=dev.uniget.needs="$${DEPS}" \
+        --label=dev.uniget.tags="$${TAGS}" \
+        --platform=linux/amd64 \
+        --cache-from=type=registry,ref=$(REGISTRY)/$(REPOSITORY_PREFIX)$*:latest \
+        --cache-from=type=registry,ref=$(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION} \
+        --cache-from=type=registry,ref=$(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION}-linux-amd64 \
+        --cache-to=type=inline,mode=max \
+        --metadata-file=$(TOOLS_DIR)/$*/image-linux-amd64.json \
+        --tag=$(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION}-linux-amd64 \
+        --output=type=registry,oci-mediatypes=true; \
+	jq --raw-output '."containerimage.digest"' $(TOOLS_DIR)/$*/image-linux-amd64.json
+
+.PHONY:
+$(addsuffix --arm64,$(ALL_TOOLS_RAW)):%--arm64: \
+		$(HELPER)/var/lib/uniget/manifests/gojq.json \
+		$(TOOLS_DIR)/%/manifest.json \
+		$(TOOLS_DIR)/%/Dockerfile \
+		builders \
+		; $(info $(M) Building image $(REGISTRY)/$(REPOSITORY_PREFIX)$*...) ## Build container image for arm64
+	@set -o errexit; \
+	TOOL_VERSION="$$(jq --raw-output '.tools[].version' tools/$*/manifest.json)"; \
+	VERSION_TAG="$$( echo "$${TOOL_VERSION}" | tr '+' '-' )"; \
+	DEPS="$$(jq --raw-output '.tools[] | select(.build_dependencies != null) | .build_dependencies[]' tools/$*/manifest.json | paste -sd,)"; \
+	TAGS="$$(jq --raw-output '.tools[] | select(.tags != null) | .tags[]' tools/$*/manifest.json | paste -sd,)"; \
+	rm -f image-linux-arm64.json; \
+	if ! jq --exit-status '.tools[].platforms | any(. == "linux/arm64")' tools/$*/manifest.json; then \
+		echo "WARNING: Platform linux/arm64 is not requested."; \
+		exit 0; \
+	fi; \
+    docker buildx build $(TOOLS_DIR)/$* \
+		--builder=$(BUILDER) \
+		--build-arg=branch=$(DOCKER_TAG) \
+		--build-arg=ref=$(DOCKER_TAG) \
+		--build-arg=name=$* \
+		--build-arg=version=$${TOOL_VERSION} \
+		--build-arg=deps=$${DEPS} \
+		--build-arg=tags=$${TAGS} \
+        --sbom=false \
+        --provenance=false \
+        --label=org.opencontainers.image.source="https://github.com/uniget-org/tools" \
+        --label=org.opencontainers.image.title="$*" \
+        --label=org.opencontainers.image.description="$* packaged for installation" \
+        --label=org.opencontainers.image.version="$${TOOL_VERSION}" \
+        --label=dev.uniget.name="$*" \
+        --label=dev.uniget.version="$${TOOL_VERSION}" \
+        --label=dev.uniget.needs="$${DEPS}" \
+        --label=dev.uniget.tags="$${TAGS}" \
+        --platform=linux/arm64 \
+        --cache-from=type=registry,ref=$(REGISTRY)/$(REPOSITORY_PREFIX)$*:latest \
+        --cache-from=type=registry,ref=$(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION} \
+        --cache-from=type=registry,ref=$(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION}-linux-arm64 \
+        --cache-to=type=inline,mode=max \
+        --metadata-file=$(TOOLS_DIR)/$*/image-linux-arm64.json \
+        --tag=$(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION}-linux-arm64 \
+        --output=type=registry,oci-mediatypes=true; \
+	jq --raw-output '."containerimage.digest"' $(TOOLS_DIR)/$*/image-linux-arm64.json
+
+.PHONY:
+$(addsuffix --index,$(ALL_TOOLS_RAW)):%--index: \
+		%--amd64 \
+		%--arm64 \
+		$(HELPER)/var/lib/uniget/manifests/gojq.json \
+		$(TOOLS_DIR)/%/manifest.json \
+		$(TOOLS_DIR)/%/Dockerfile \
+		; $(info $(M) Building index for $(REGISTRY)/$(REPOSITORY_PREFIX)$*...) ## Build index
+	@set -o errexit; \
+	TOOL_VERSION="$$(jq --raw-output '.tools[].version' tools/$*/manifest.json)"; \
+	regctl index create $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION}; \
+	if test -f $(TOOLS_DIR)/$*/image-linux-amd64.json; then \
+		DIGEST_AMD64="$$( jq --raw-output '."containerimage.digest"' $(TOOLS_DIR)/$*/image-linux-amd64.json )"; \
+		echo "    Add amd64 with $${DIGEST_AMD64}"; \
+		regctl index add $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION} \
+			--ref $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION}-linux-amd64@$${DIGEST_AMD64}; \
+	fi; \
+	if test -f $(TOOLS_DIR)/$*/image-linux-arm64.json; then \
+		DIGEST_ARM64="$$( jq --raw-output '."containerimage.digest"' $(TOOLS_DIR)/$*/image-linux-arm64.json )"; \
+		echo "    Add arm64 with $${DIGEST_ARM64}"; \
+		regctl index add $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION} \
+			--ref $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${TOOL_VERSION}-linux-arm64@$${DIGEST_ARM64}; \
+	fi; \
+	regctl manifest get 
+
 $(addsuffix --deep,$(ALL_TOOLS_RAW)):%--deep: \
 		info \
 		metadata.json ## Build container image including all dependencies

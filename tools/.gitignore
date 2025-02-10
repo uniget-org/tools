@@ -2,6 +2,7 @@
 /*/Dockerfile
 /*/build.log
 /*/build-metadata.json
+/*/image-*.json
 /*/sbom.json
 /*/bov.json
 /*/sarif.json

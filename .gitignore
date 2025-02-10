@@ -3,6 +3,5 @@
 /helper
 metadata.json
 cosign.key
-/@base/build.log
 /@metadata/build.log
 ca.pem

@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: dummy-only-arm64
+version: "0.0.1"
+binary: "false"
+check: "" # No version check possible
+platforms:
+- linux/arm64
+tags:
+- org/uniget
+- category/development
+homepage: https://github.com/uniget-org/tools
+repository: https://github.com/uniget-org/tools
+description: Testing of uniget-org/tools
