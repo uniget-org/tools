@@ -236,8 +236,6 @@ tools/%/image-linux-arm64.json: \
 
 .PHONY:
 $(addsuffix --index,$(ALL_TOOLS_RAW)):%--index: \
-		tools/%/image-linux-amd64.json \
-		tools/%/image-linux-arm64.json \
 		$(HELPER)/var/lib/uniget/manifests/gojq.json \
 		$(TOOLS_DIR)/%/manifest.json \
 		; $(info $(M) Creating index for $(REGISTRY)/$(REPOSITORY_PREFIX)$*...)
