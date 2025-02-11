@@ -1,18 +1,50 @@
-SOURCE_DATE_EPOCH ?= $(shell git log -1 --pretty=%ct)
-BUILDER           ?= uniget
-BINFMT_TAG        ?= qemu-v8.1.5-45
+SOURCE_DATE_EPOCH     ?= $(shell git log -1 --pretty=%ct)
+BUILDER               ?= uniget
+BINFMT_TAG            ?= qemu-v8.1.5-45
+COSIGN_TLOG_UPLOAD    ?= false
+COSIGN_REFERRERS_MODE ?= oci-1-1
+ifeq ($(REGISTRY),registry.gitlab.com)
+	COSIGN_REFERRERS_MODE = legacy
+endif
 
+.PHONY:
+$(addsuffix --clean,$(ALL_TOOLS_RAW)):%--clean:
+	@rm -f \
+		$(TOOLS_DIR)/$*/manifest.json \
+		$(TOOLS_DIR)/$*/Dockerfile \
+		$(TOOLS_DIR)/$*/build.log \
+		$(TOOLS_DIR)/$*/build-*.log \
+		$(TOOLS_DIR)/$*/build-metadata.json \
+		$(TOOLS_DIR)/$*/image-*.json \
+		$(TOOLS_DIR)/$*/index.json \
+		$(TOOLS_DIR)/$*/cosign*.pub \
+		$(TOOLS_DIR)/$*/cosign*.sig \
+		$(TOOLS_DIR)/$*/cosign*.sig-* \
+		$(TOOLS_DIR)/$*/sbom.json \
+		$(TOOLS_DIR)/$*/bov.json \
+		$(TOOLS_DIR)/$*/sarif.json \
+		$(TOOLS_DIR)/$*/report.csv
+
+.PHONY:
+info-test:
+	@echo $(REGISTRY)
+	@echo $(COSIGN_REFERRERS_MODE)
+
+.PHONY:
 $(addsuffix --vim,$(ALL_TOOLS_RAW)):%--vim:
 	@vim -o2 $(TOOLS_DIR)/$*/manifest.yaml  $(TOOLS_DIR)/$*/Dockerfile.template
 
+.PHONY:
 $(addsuffix --vscode,$(ALL_TOOLS_RAW)):%--vscode:
 	@\
 	code --goto $(TOOLS_DIR)/$*/manifest.yaml; \
 	code --goto $(TOOLS_DIR)/$*/Dockerfile.template
 
+.PHONY:
 $(addsuffix --logs,$(ALL_TOOLS_RAW)):%--logs:
 	@less $(TOOLS_DIR)/$*/build.log
 
+.PHONY:
 $(addsuffix --pr,$(ALL_TOOLS_RAW)):%--pr:
 	@set -o errexit; \
 	REPO="$$(jq --raw-output '.tools[].renovate.package' $(TOOLS_DIR)/$*/manifest.json)"; \
@@ -125,22 +157,23 @@ $(ALL_TOOLS_RAW):%: \
 	fi
 
 .PHONY:
-$(addsuffix --amd64,$(ALL_TOOLS_RAW)):%--amd64: tools/%/image-linux-amd64.json
+$(addsuffix --build-all,$(ALL_TOOLS_RAW)):%--build-all: $(TOOLS_DIR)/%/image-linux-amd64.json $(TOOLS_DIR)/%/image-linux-arm64.json
 
-tools/%/image-linux-amd64.json: \
-		$(HELPER)/var/lib/uniget/manifests/gojq.json \
+.PHONY:
+$(addsuffix --build-amd64,$(ALL_TOOLS_RAW)):%--build-amd64: tools/%/image-linux-amd64.json
+
+$(TOOLS_DIR)/%/image-linux-amd64.json: \
 		$(TOOLS_DIR)/%/manifest.json \
 		$(TOOLS_DIR)/%/Dockerfile \
-		builders \
 		; $(info $(M) Building image $(REGISTRY)/$(REPOSITORY_PREFIX)$* for amd64...)
 	$(eval OS := linux)
 	$(eval ARCH := amd64)
-	$(eval TOOL_VERSION := $(shell jq --raw-output '.tools[].version' tools/$*/manifest.json))
+	$(eval TOOL_VERSION := $(shell jq --raw-output '.tools[].version' $(TOOLS_DIR)/$*/manifest.json))
 	$(eval VERSION_TAG := $(shell echo "$(TOOL_VERSION)" | tr '+' '-'))
-	$(eval DEPS := $(shell jq --raw-output '.tools[] | select(.build_dependencies != null) | .build_dependencies[]' tools/$*/manifest.json | paste -sd,))
-	$(eval TAGS := $(shell jq --raw-output '.tools[] | select(.tags != null) | .tags[]' tools/$*/manifest.json | paste -sd,))
+	$(eval DEPS := $(shell jq --raw-output '.tools[] | select(.build_dependencies != null) | .build_dependencies[]' $(TOOLS_DIR)/$*/manifest.json | paste -sd,))
+	$(eval TAGS := $(shell jq --raw-output '.tools[] | select(.tags != null) | .tags[]' $(TOOLS_DIR)/$*/manifest.json | paste -sd,))
 	@set -o errexit; \
-	if ! jq --exit-status '.tools[].platforms | any(. == "linux/$(ARCH)")' tools/$*/manifest.json >/dev/null; then \
+	if ! jq --exit-status '.tools[].platforms | any(. == "linux/$(ARCH)")' $(TOOLS_DIR)/$*/manifest.json >/dev/null; then \
 		echo "WARNING: Platform linux/$(ARCH) is not requested."; \
 		exit 0; \
 	fi; \
@@ -180,22 +213,20 @@ tools/%/image-linux-amd64.json: \
 	jq --raw-output '."containerimage.digest"' $(TOOLS_DIR)/$*/image-$(OS)-$(ARCH).json
 
 .PHONY:
-$(addsuffix --arm64,$(ALL_TOOLS_RAW)):%--arm64: tools/%/image-linux-arm64.json
+$(addsuffix --build-arm64,$(ALL_TOOLS_RAW)):%--build-arm64: $(TOOLS_DIR)/%/image-linux-arm64.json
 
-tools/%/image-linux-arm64.json: \
-		$(HELPER)/var/lib/uniget/manifests/gojq.json \
+$(TOOLS_DIR)/%/image-linux-arm64.json: \
 		$(TOOLS_DIR)/%/manifest.json \
 		$(TOOLS_DIR)/%/Dockerfile \
-		builders \
 		; $(info $(M) Building image $(REGISTRY)/$(REPOSITORY_PREFIX)$*...)
 	$(eval OS := linux)
 	$(eval ARCH := arm64)
-	$(eval TOOL_VERSION := $(shell jq --raw-output '.tools[].version' tools/$*/manifest.json))
+	$(eval TOOL_VERSION := $(shell jq --raw-output '.tools[].version' $(TOOLS_DIR)/$*/manifest.json))
 	$(eval VERSION_TAG := $(shell echo "$(TOOL_VERSION)" | tr '+' '-'))
-	$(eval DEPS := $(shell jq --raw-output '.tools[] | select(.build_dependencies != null) | .build_dependencies[]' tools/$*/manifest.json | paste -sd,))
-	$(eval TAGS := $(shell jq --raw-output '.tools[] | select(.tags != null) | .tags[]' tools/$*/manifest.json | paste -sd,))
+	$(eval DEPS := $(shell jq --raw-output '.tools[] | select(.build_dependencies != null) | .build_dependencies[]' $(TOOLS_DIR)/$*/manifest.json | paste -sd,))
+	$(eval TAGS := $(shell jq --raw-output '.tools[] | select(.tags != null) | .tags[]' $(TOOLS_DIR)/$*/manifest.json | paste -sd,))
 	@set -o errexit; \
-	if ! jq --exit-status '.tools[].platforms | any(. == "linux/$(ARCH)")' tools/$*/manifest.json >/dev/null; then \
+	if ! jq --exit-status '.tools[].platforms | any(. == "linux/$(ARCH)")' $(TOOLS_DIR)/$*/manifest.json >/dev/null; then \
 		echo "WARNING: Platform linux/$(ARCH) is not requested."; \
 		exit 0; \
 	fi; \
@@ -235,31 +266,57 @@ tools/%/image-linux-arm64.json: \
 	jq --raw-output '."containerimage.digest"' $(TOOLS_DIR)/$*/image-$(OS)-$(ARCH).json
 
 .PHONY:
-$(addsuffix --index,$(ALL_TOOLS_RAW)):%--index: \
-		$(HELPER)/var/lib/uniget/manifests/gojq.json \
+$(addsuffix --index,$(ALL_TOOLS_RAW)):%--index: $(TOOLS_DIR)/%/index.json
+
+$(TOOLS_DIR)/%/index.json: \
+		$(TOOLS_DIR)/%/image-linux-amd64.json \
+		$(TOOLS_DIR)/%/image-linux-arm64.json \
 		$(TOOLS_DIR)/%/manifest.json \
 		; $(info $(M) Creating index for $(REGISTRY)/$(REPOSITORY_PREFIX)$*...)
 	$(eval OS := linux)
-	$(eval TOOL_VERSION := $(shell jq --raw-output '.tools[].version' tools/$*/manifest.json))
+	$(eval TOOL_VERSION := $(shell jq --raw-output '.tools[].version' $(TOOLS_DIR)/$*/manifest.json))
+	$(eval VERSION_TAG := $(shell echo "$(TOOL_VERSION)" | tr '+' '-'))
 	@set -o errexit; \
 	if test -f $(TOOLS_DIR)/$*/image-$(OS)-amd64.json; then \
 		DIGEST_AMD64="$$( jq --raw-output '."containerimage.digest"' $(TOOLS_DIR)/$*/image-$(OS)-amd64.json )"; \
 		echo "  Adding amd64 with digest $${DIGEST_AMD64}"; \
-		PARAM_REF_AMD64="--ref $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(TOOL_VERSION)-$(OS)-amd64@$${DIGEST_AMD64}"; \
+		PARAM_DIGEST_AMD64="--digest $${DIGEST_AMD64}"; \
 	fi; \
 	if test -f $(TOOLS_DIR)/$*/image-$(OS)-arm64.json; then \
 		DIGEST_ARM64="$$( jq --raw-output '."containerimage.digest"' $(TOOLS_DIR)/$*/image-$(OS)-arm64.json )"; \
 		echo "  Adding arm64 with digest $${DIGEST_ARM64}"; \
-		PARAM_REF_ARM64="--ref $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(TOOL_VERSION)-$(OS)-arm64@$${DIGEST_ARM64}"; \
+		PARAM_DIGEST_ARM64="--digest $${DIGEST_ARM64}"; \
 	fi; \
-	regctl index create $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(TOOL_VERSION) \
-		--by-digest \
-		$${PARAM_REF_AMD64} \
-		$${PARAM_REF_ARM64} \
-	>$(TOOLS_DIR)/$*/index.txt; \
-	echo "  Created index with digest $$( cat $(TOOLS_DIR)/$*/index.txt )"; \
+	regctl index create $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(VERSION_TAG) \
+		--format='{{json .Manifest}}' \
+		$${PARAM_DIGEST_AMD64} \
+		$${PARAM_DIGEST_ARM64} \
+	| tr -d '\n' \
+	>$(TOOLS_DIR)/$*/index.json; \
+	DIGEST="sha256:$$( cat $(TOOLS_DIR)/$*/index.json | sha256sum | cut -d' ' -f1 )"; \
+	echo "  Created index with digest $${DIGEST}"; \
 	echo; \
-	regctl manifest get $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(TOOL_VERSION)@$$( cat $(TOOLS_DIR)/$*/index.txt )
+	regctl manifest get $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(VERSION_TAG)@$${DIGEST}
+
+.PHONY:
+$(addsuffix --sign,$(ALL_TOOLS_RAW)):%--sign: \
+		$(TOOLS_DIR)/%/manifest.json \
+		$(TOOLS_DIR)/%/index.json \
+		; $(info $(M) Signing image for $*...)
+	$(eval OS := linux)
+	$(eval ARCH := arm64)
+	$(eval TOOL_VERSION := $(shell jq --raw-output '.tools[].version' $(TOOLS_DIR)/$*/manifest.json))
+	$(eval VERSION_TAG := $(shell echo "$(TOOL_VERSION)" | tr '+' '-'))
+	$(eval DIGEST := $(shell cat $(TOOLS_DIR)/$*/index.json))
+	@COSIGN_EXPERIMENTAL=1 \
+		cosign sign $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(VERSION_TAG) \
+			--registry-referrers-mode=$(COSIGN_REFERRERS_MODE) \
+			--output-certificate=$(TOOLS_DIR)/$*/cosign.pub \
+			--output-signature=$(TOOLS_DIR)/$*/cosign.sig \
+			--tlog-upload=$(COSIGN_TLOG_UPLOAD) \
+			--recursive=true \
+			--yes=true
+	@regctl artifact tree $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(VERSION_TAG)
 
 $(addsuffix --deep,$(ALL_TOOLS_RAW)):%--deep: \
 		info \

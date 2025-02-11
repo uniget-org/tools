@@ -12,7 +12,10 @@
 /tools/*/build-*.log
 /tools/*/build-metadata.json
 /tools/*/image-*.json
-/tools/*/index.txt
+/tools/*/index.json
+/tools/*/cosign*.pub
+/tools/*/cosign*.sig
+/tools/*/cosign*.sig-*
 /tools/*/sbom.json
 /tools/*/bov.json
 /tools/*/sarif.json

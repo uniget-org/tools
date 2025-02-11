@@ -1,34 +1,3 @@
-cosign.key: \
-		$(HELPER)/var/lib/uniget/manifests/cosign.json \
-		; $(info $(M) Creating key pair for cosign...)
-	@set -o errexit; \
-	source .env; \
-	cosign generate-key-pair
-
-.PHONY:
-sign: \
-		$(addsuffix --sign,$(TOOLS_RAW))
-
-.PHONY:
-keyless-sign: \
-		$(addsuffix --keyless-sign,$(TOOLS_RAW))
-
-.PHONY:
-$(addsuffix --sign,$(ALL_TOOLS_RAW)):%--sign: \
-		$(HELPER)/var/lib/uniget/manifests/cosign.json \
-		cosign.key \
-		; $(info $(M) Signing image for $*...)
-	@set -o errexit; \
-	source .env; \
-	cosign sign --key cosign.key $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(DOCKER_TAG)
-
-.PHONY:
-$(addsuffix --keyless-sign,$(ALL_TOOLS_RAW)):%--keyless-sign: \
-		$(HELPER)/var/lib/uniget/manifests/cosign.json \
-		; $(info $(M) Keyless signing image for $*...)
-	@set -o errexit; \
-	COSIGN_EXPERIMENTAL=1 cosign sign $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(DOCKER_TAG) --yes
-
 .PHONY:
 sbom: \
 		$(addsuffix /sbom.json,$(TOOLS))
