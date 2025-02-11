@@ -252,10 +252,14 @@ $(addsuffix --index,$(ALL_TOOLS_RAW)):%--index: \
 		echo "  Adding arm64 with digest $${DIGEST_ARM64}"; \
 		PARAM_REF_ARM64="--ref $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(TOOL_VERSION)-$(OS)-arm64@$${DIGEST_ARM64}"; \
 	fi; \
-	DIGEST_INDEX="$$( regctl index create $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(TOOL_VERSION) --by-digest $${PARAM_REF_AMD64} $${PARAM_REF_ARM64} )"; \
-	echo "  Created index with digest $${DIGEST_INDEX}"; \
+	regctl index create $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(TOOL_VERSION) \
+		--by-digest \
+		$${PARAM_REF_AMD64} \
+		$${PARAM_REF_ARM64} \
+	>$(TOOLS_DIR)/$*/index.txt; \
+	echo "  Created index with digest $$( cat $(TOOLS_DIR)/$*/index.txt )"; \
 	echo; \
-	regctl manifest get $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(TOOL_VERSION)@$${DIGEST_INDEX}
+	regctl manifest get $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(TOOL_VERSION)@$$( cat $(TOOLS_DIR)/$*/index.txt )
 
 $(addsuffix --deep,$(ALL_TOOLS_RAW)):%--deep: \
 		info \

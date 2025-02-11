@@ -12,6 +12,7 @@
 /tools/*/build-*.log
 /tools/*/build-metadata.json
 /tools/*/image-*.json
+/tools/*/index.txt
 /tools/*/sbom.json
 /tools/*/bov.json
 /tools/*/sarif.json
