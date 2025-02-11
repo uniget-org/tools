@@ -242,21 +242,20 @@ $(addsuffix --index,$(ALL_TOOLS_RAW)):%--index: \
 	$(eval OS := linux)
 	$(eval TOOL_VERSION := $(shell jq --raw-output '.tools[].version' tools/$*/manifest.json))
 	@set -o errexit; \
-	regctl index create $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(TOOL_VERSION); \
 	if test -f $(TOOLS_DIR)/$*/image-$(OS)-amd64.json; then \
 		DIGEST_AMD64="$$( jq --raw-output '."containerimage.digest"' $(TOOLS_DIR)/$*/image-$(OS)-amd64.json )"; \
 		echo "  Adding amd64 with digest $${DIGEST_AMD64}"; \
-		regctl index add $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(TOOL_VERSION) \
-			--ref $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(TOOL_VERSION)-$(OS)-amd64@$${DIGEST_AMD64}; \
+		PARAM_REF_AMD64="--ref $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(TOOL_VERSION)-$(OS)-amd64@$${DIGEST_AMD64}"; \
 	fi; \
 	if test -f $(TOOLS_DIR)/$*/image-$(OS)-arm64.json; then \
 		DIGEST_ARM64="$$( jq --raw-output '."containerimage.digest"' $(TOOLS_DIR)/$*/image-$(OS)-arm64.json )"; \
 		echo "  Adding arm64 with digest $${DIGEST_ARM64}"; \
-		regctl index add $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(TOOL_VERSION) \
-			--ref $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(TOOL_VERSION)-$(OS)-arm64@$${DIGEST_ARM64}; \
+		PARAM_REF_ARM64="--ref $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(TOOL_VERSION)-$(OS)-arm64@$${DIGEST_ARM64}"; \
 	fi; \
+	DIGEST_INDEX="$$( regctl index create $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(TOOL_VERSION) --by-digest $${PARAM_REF_AMD64} $${PARAM_REF_ARM64} )"; \
+	echo "  Created index with digest $${DIGEST_INDEX}"; \
 	echo; \
-	regctl manifest get $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(TOOL_VERSION)
+	regctl manifest get $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(TOOL_VERSION)@$${DIGEST_INDEX}
 
 $(addsuffix --deep,$(ALL_TOOLS_RAW)):%--deep: \
 		info \
