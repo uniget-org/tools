@@ -269,8 +269,6 @@ $(TOOLS_DIR)/%/image-linux-arm64.json: \
 $(addsuffix --index,$(ALL_TOOLS_RAW)):%--index: $(TOOLS_DIR)/%/index.json
 
 $(TOOLS_DIR)/%/index.json: \
-		$(TOOLS_DIR)/%/image-linux-amd64.json \
-		$(TOOLS_DIR)/%/image-linux-arm64.json \
 		$(TOOLS_DIR)/%/manifest.json \
 		; $(info $(M) Creating index for $(REGISTRY)/$(REPOSITORY_PREFIX)$*...)
 	$(eval OS := linux)
