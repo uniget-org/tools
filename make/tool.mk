@@ -163,6 +163,7 @@ $(addsuffix --build-all,$(ALL_TOOLS_RAW)):%--build-all: $(TOOLS_DIR)/%/image-lin
 $(addsuffix --build-amd64,$(ALL_TOOLS_RAW)):%--build-amd64: tools/%/image-linux-amd64.json
 
 $(TOOLS_DIR)/%/image-linux-amd64.json: \
+		$(HELPER)/var/lib/uniget/manifests/gojq.json \
 		$(TOOLS_DIR)/%/manifest.json \
 		$(TOOLS_DIR)/%/Dockerfile \
 		; $(info $(M) Building image $(REGISTRY)/$(REPOSITORY_PREFIX)$* for amd64...)
@@ -217,6 +218,7 @@ $(TOOLS_DIR)/%/image-linux-amd64.json: \
 $(addsuffix --build-arm64,$(ALL_TOOLS_RAW)):%--build-arm64: $(TOOLS_DIR)/%/image-linux-arm64.json
 
 $(TOOLS_DIR)/%/image-linux-arm64.json: \
+		$(HELPER)/var/lib/uniget/manifests/gojq.json \
 		$(TOOLS_DIR)/%/manifest.json \
 		$(TOOLS_DIR)/%/Dockerfile \
 		; $(info $(M) Building image $(REGISTRY)/$(REPOSITORY_PREFIX)$*...)
@@ -271,6 +273,7 @@ $(TOOLS_DIR)/%/image-linux-arm64.json: \
 $(addsuffix --index,$(ALL_TOOLS_RAW)):%--index: $(TOOLS_DIR)/%/index.json
 
 $(TOOLS_DIR)/%/index.json: \
+		$(HELPER)/var/lib/uniget/manifests/regclient.json \
 		$(TOOLS_DIR)/%/manifest.json \
 		; $(info $(M) Creating index for $(REGISTRY)/$(REPOSITORY_PREFIX)$*...)
 	$(eval OS := linux)
@@ -300,6 +303,8 @@ $(TOOLS_DIR)/%/index.json: \
 
 .PHONY:
 $(addsuffix --sign,$(ALL_TOOLS_RAW)):%--sign: \
+		$(HELPER)/var/lib/uniget/manifests/cosign.json \
+		$(HELPER)/var/lib/uniget/manifests/regclient.json \
 		$(TOOLS_DIR)/%/manifest.json \
 		$(TOOLS_DIR)/%/index.json \
 		; $(info $(M) Signing image for $*...)
