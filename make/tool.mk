@@ -147,9 +147,10 @@ $(ALL_TOOLS_RAW):%: \
 			--platform $${ARCHS} \
 			--cache-from $(REGISTRY)/$(REPOSITORY_PREFIX)$*:latest \
 			--tag $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${VERSION_TAG} \
-			--provenance=false \
+			--sbom=false \
+			--attest=type=provenance,mode=max \
 			--metadata-file $(TOOLS_DIR)/$@/build-metadata.json \
-			--output type=registry,oci-mediatypes=true,push=$${PUSH} \
+			--output type=registry,oci-mediatypes=true,rewrite-timestamp=true,push=$${PUSH} \
 			--progress plain \
 			>$(TOOLS_DIR)/$@/build.log 2>&1; then \
 		cat $(TOOLS_DIR)/$@/build.log; \
