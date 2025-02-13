@@ -17,8 +17,9 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
 
 tar --file="${uniget_cache_download}/${filename}" --list
 tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin" --no-same-owner \
-    scorecard-linux-${alt_arch}
-mv "${prefix}/bin/scorecard-linux-${alt_arch}" "${prefix}/bin/scorecard"
+    scorecard
+EOF
+RUN <<EOF
 "${prefix}/bin/scorecard" completion bash | sed 's|./scorecard|scorecard|g' >"${prefix}/share/bash-completion/completions/scorecard"
 "${prefix}/bin/scorecard" completion fish | sed 's|./scorecard|scorecard|g' >"${prefix}/share/fish/vendor_completions.d/scorecard.fish"
 "${prefix}/bin/scorecard" completion zsh  | sed 's|./scorecard|scorecard|g' >"${prefix}/share/zsh/vendor-completions/_scorecard"
