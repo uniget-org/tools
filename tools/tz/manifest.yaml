@@ -4,7 +4,7 @@ name: tz
 license:
   name: GPLv3
   link: https://github.com/oz/tz/blob/main/COPYING
-version: "0.7.0"
+version: "0.8.0"
 check: ${binary} -v | cut -d' ' -f2
 platforms:
 - linux/amd64
