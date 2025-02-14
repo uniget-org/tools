@@ -8,7 +8,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://github.com/oz/tz/releases/download/v${version}/tz-v${version}-linux-${alt_arch}.tar.gz"
+url="https://github.com/oz/tz/releases/download/v${version}/tz_v${version}_linux_${alt_arch}.tar.gz"
 filename="$( basename "${url}" )"
 
 check-github-release-asset "oz/tz" "v${version}" "${filename}"
