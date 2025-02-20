@@ -12,6 +12,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=go / /usr/local/
 COPY --link --from=make / /usr/local/
 COPY --link --from=go-md2man / /usr/local/
+
 WORKDIR /go/src/github.com/docker/cli
 ARG name
 ARG version
@@ -22,7 +23,20 @@ EOF
 ENV GO111MODULE=auto \
     DISABLE_WARN_OUTSIDE_CONTAINER=1 \
     GOPATH=/go
-RUN make -j$(nproc) manpages
-RUN cp -r man/man1 "${prefix}/share/man/" \
- && cp -r man/man5 "${prefix}/share/man/" \
- && cp -r man/man8 "${prefix}/share/man/"
+RUN <<EOF
+make -j$(nproc) manpages
+cp -r man/man1 "${prefix}/share/man/"
+cp -r man/man5 "${prefix}/share/man/"
+EOF
+
+WORKDIR /go/src/github.com/moby/moby
+ARG name
+ARG version
+RUN <<EOF
+check-clone "https://github.com/moby/moby" "v${version}"
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/moby/moby .
+EOF
+RUN <<EOF
+make -C man all GO_MD2MAN=go-md2man
+cp -r man/man8 "${prefix}/share/man/"
+EOF
