@@ -16,14 +16,14 @@ tags:
 - category/operations
 - lang/rust
 - type/cli
-homepage: https://github.com/spinkube/containerd-shim-spin
-repository: https://github.com/spinkube/containerd-shim-spin
+homepage: https://github.com/spinframework/containerd-shim-spin
+repository: https://github.com/spinframework/containerd-shim-spin
 description: ContainerD shim for running Spin applications
 renovate:
   datasource: github-releases
-  package: spinkube/containerd-shim-spin
+  package: spinframework/containerd-shim-spin
   extractVersion: ^v(?<version>.+)$
   priority: low
 license:
   name: Apache License 2.0
-  link: https://github.com/spinkube/containerd-shim-spin/blob/main/LICENSE
+  link: https://github.com/spinframework/containerd-shim-spin/blob/main/LICENSE

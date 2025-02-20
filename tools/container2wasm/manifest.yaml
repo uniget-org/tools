@@ -12,13 +12,13 @@ tags:
 - lang/c
 - type/cli
 homepage: https://ktock.github.io/container2wasm-demo/
-repository: https://github.com/ktock/container2wasm
+repository: https://github.com/container2wasm/container2wasm
 description: Container to WASM converter
 renovate:
   datasource: github-releases
-  package: ktock/container2wasm
+  package: container2wasm/container2wasm
   extractVersion: ^v(?<version>.+)$
   priority: high
 license:
   name: Apache License 2.0
-  link: https://github.com/ktock/container2wasm/blob/main/LICENSE
+  link: https://github.com/container2wasm/container2wasm/blob/main/LICENSE

@@ -10,12 +10,12 @@ tags:
 - category/development
 - lang/rust
 - type/cli
-homepage: https://github.com/jqnatividad/qsv
-repository: https://github.com/jqnatividad/qsv
+homepage: https://github.com/dathere/qsv
+repository: https://github.com/dathere/qsv
 description: CSVs sliced, diced & analyzed
 renovate:
   datasource: github-releases
-  package: jqnatividad/qsv
+  package: dathere/qsv
   priority: low
 license:
   name: The Unlicense

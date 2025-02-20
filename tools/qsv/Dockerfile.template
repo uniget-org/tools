@@ -23,10 +23,10 @@ case "${arch}" in
 esac
 echo "    Using ${arch_suffix}"
 
-url="https://github.com/jqnatividad/qsv/releases/download/${version}/qsv-${version}-${arch}-unknown-linux-${arch_suffix}.zip"
+url="https://github.com/dathere/qsv/releases/download/${version}/qsv-${version}-${arch}-unknown-linux-${arch_suffix}.zip"
 filename="$(basename "${url}")"
 
-check-github-release-asset "jqnatividad/qsv" "${version}" "${filename}"
+check-github-release-asset "dathere/qsv" "${version}" "${filename}"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
     "${url}"
 

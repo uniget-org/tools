@@ -12,13 +12,13 @@ tags:
 - lang/rust
 - type/cli
 homepage: https://developer.fermyon.com/spin
-repository: https://github.com/fermyon/spin
+repository: https://github.com/spinframework/spin
 description: Open source developer tool for building and running serverless applications powered by WebAssembly
 renovate:
   datasource: github-releases
-  package: fermyon/spin
+  package: spinframework/spin
   extractVersion: ^v(?<version>.+)$
   priority: low
 license:
   name: Apache License 2.0
-  link: https://github.com/fermyon/spin/blob/main/LICENSE
+  link: https://github.com/spinframework/spin/blob/main/LICENSE

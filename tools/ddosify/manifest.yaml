@@ -7,11 +7,11 @@ tags:
 - type/cli
 - lang/go
 homepage: https://getanteon.com
-repository: https://github.com/ddosify/ddosify
+repository: https://github.com/getanteon/anteon
 description: High-performance load testing tool
 renovate:
   datasource: github-releases
-  package: ddosify/ddosify
+  package: getanteon/anteon
   extractVersion: ^v(?<version>.+)$
   priority: low
 license:

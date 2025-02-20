@@ -15,8 +15,8 @@ tags:
 - lang/rust
 - standard/docker
 - docker
-homepage: https://containers.github.io/youki/
-repository: https://github.com/containers/youki
+homepage: https://youki-dev.github.io/youki/
+repository: https://github.com/youki-dev/youki
 description: Container runtime written in rust
 messages:
   update: |
@@ -32,9 +32,9 @@ messages:
     }
 renovate:
   datasource: github-releases
-  package: containers/youki
+  package: youki-dev/youki
   extractVersion: ^v(?<version>.+)$
   priority: low
 license:
   name: Apache License 2.0
-  link: https://github.com/containers/youki/blob/main/LICENSE
+  link: https://github.com/youki-dev/youki/blob/main/LICENSE

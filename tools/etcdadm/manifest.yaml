@@ -10,14 +10,14 @@ tags:
 - category/operations
 - lang/go
 - type/cli
-homepage: https://github.com/kubernetes-sigs/etcdadm
-repository: https://github.com/kubernetes-sigs/etcdadm
+homepage: https://github.com/kubernetes-retired/etcdadm
+repository: https://github.com/kubernetes-retired/etcdadm
 description: Command-line tool for operating an etcd cluster
 renovate:
   datasource: github-releases
-  package: kubernetes-sigs/etcdadm
+  package: kubernetes-retired/etcdadm
   extractVersion: ^v(?<version>.+)$
   priority: medium
 license:
   name: Apache License 2.0
-  link: https://github.com/kubernetes-sigs/etcdadm/blob/master/LICENSE
+  link: https://github.com/kubernetes-retired/etcdadm/blob/master/LICENSE

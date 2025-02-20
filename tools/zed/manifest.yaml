@@ -10,12 +10,12 @@ tags:
 - category/development
 - lang/rust
 - type/cli
-homepage: https://zed.brimdata.io/
-repository: https://github.com/brimdata/zed
+homepage: https://superdb.org/
+repository: https://github.com/brimdata/super
 description: Novel data lake based on super-structured data
 renovate:
   datasource: github-releases
-  package: brimdata/zed
+  package: brimdata/super
   extractVersion: ^v(?<version>.+)$
   priority: low
 license:

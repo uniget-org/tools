@@ -8,10 +8,10 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://github.com/dragonflyoss/Dragonfly2/releases/download/v${version}/dragonfly-${version}-linux-${alt_arch}.tar.gz"
+url="https://github.com/dragonflyoss/dragonfly/releases/download/v${version}/dragonfly-${version}-linux-${alt_arch}.tar.gz"
 filename="$( basename "${url}" )"
 
-check-github-release-asset "dragonflyoss/Dragonfly2" "v${version}" "${filename}"
+check-github-release-asset "dragonflyoss/dragonfly" "v${version}" "${filename}"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
     "${url}"
 
@@ -23,11 +23,11 @@ tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="
     scheduler \
     manager
 
-# https://github.com/dragonflyoss/Dragonfly2/raw/v${version}/build/package/nfpm/systemd/dfget-daemon.service
-# https://github.com/dragonflyoss/Dragonfly2/raw/v${version}/build/package/nfpm/systemd/fix.dfget-daemon.cpuset.sh
-# https://github.com/dragonflyoss/Dragonfly2/raw/v${version}/build/package/nfpm/systemd/dfget-daemon.service.d/CPUQuota.conf
-# https://github.com/dragonflyoss/Dragonfly2/raw/v${version}/build/package/nfpm/systemd/dfget-daemon.service.d/CPUShares.conf
-# https://github.com/dragonflyoss/Dragonfly2/raw/v${version}/build/package/nfpm/systemd/dfget-daemon.service.d/MemoryLimit.conf
+# https://github.com/dragonflyoss/dragonfly/raw/v${version}/build/package/nfpm/systemd/dfget-daemon.service
+# https://github.com/dragonflyoss/dragonfly/raw/v${version}/build/package/nfpm/systemd/fix.dfget-daemon.cpuset.sh
+# https://github.com/dragonflyoss/dragonfly/raw/v${version}/build/package/nfpm/systemd/dfget-daemon.service.d/CPUQuota.conf
+# https://github.com/dragonflyoss/dragonfly/raw/v${version}/build/package/nfpm/systemd/dfget-daemon.service.d/CPUShares.conf
+# https://github.com/dragonflyoss/dragonfly/raw/v${version}/build/package/nfpm/systemd/dfget-daemon.service.d/MemoryLimit.conf
 
 "${prefix}/bin/dfget" completion bash >"${prefix}/share/bash-completion/completions/dfget"
 "${prefix}/bin/dfget" completion fish >"${prefix}/share/fish/vendor_completions.d/dfget.fish"

@@ -1195,7 +1195,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "ktock/container2wasm",
+      "depNameTemplate": "container2wasm/container2wasm",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/container2wasm/manifest.yaml$"
@@ -1243,7 +1243,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "spinkube/containerd-shim-spin",
+      "depNameTemplate": "spinframework/containerd-shim-spin",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/containerd-shim-spin/manifest.yaml$"
@@ -1743,7 +1743,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "ddosify/ddosify",
+      "depNameTemplate": "getanteon/anteon",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/ddosify/manifest.yaml$"
@@ -2304,7 +2304,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "dragonflyoss/Dragonfly2",
+      "depNameTemplate": "dragonflyoss/dragonfly",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/dragonfly/manifest.yaml$"
@@ -2517,7 +2517,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "kubernetes-sigs/etcdadm",
+      "depNameTemplate": "kubernetes-retired/etcdadm",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/etcdadm/manifest.yaml$"
@@ -3222,7 +3222,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "Byron/gitoxide",
+      "depNameTemplate": "GitoxideLabs/gitoxide",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/gitoxide/manifest.yaml$"
@@ -4245,7 +4245,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "martinvonz/jj",
+      "depNameTemplate": "jj-vcs/jj",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/jj/manifest.yaml$"
@@ -6145,7 +6145,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "stacklok/minder",
+      "depNameTemplate": "mindersec/minder",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/minder/manifest.yaml$"
@@ -7721,7 +7721,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "jqnatividad/qsv",
+      "depNameTemplate": "dathere/qsv",
       "fileMatch": [
         "^tools/qsv/manifest.yaml$"
       ],
@@ -8638,7 +8638,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "fermyon/spin",
+      "depNameTemplate": "spinframework/spin",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/spin/manifest.yaml$"
@@ -10180,7 +10180,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "containers/youki",
+      "depNameTemplate": "youki-dev/youki",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/youki/manifest.yaml$"
@@ -10216,7 +10216,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "brimdata/zed",
+      "depNameTemplate": "brimdata/super",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/zed/manifest.yaml$"

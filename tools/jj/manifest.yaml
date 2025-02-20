@@ -3,7 +3,7 @@ $schema: https://tools.uniget.dev/schema.yaml
 name: jj
 license:
   name: Apache License 2.0
-  link: https://github.com/martinvonz/jj/blob/main/LICENSE
+  link: https://github.com/jj-vcs/jj/blob/main/LICENSE
 version: "0.26.0"
 check: ${binary} --version | cut -d' ' -f2 | cut -d- -f1
 platforms:
@@ -15,10 +15,10 @@ tags:
 - type/cli
 - standard/git
 homepage: https://martinvonz.github.io/jj/
-repository: https://github.com/martinvonz/jj
+repository: https://github.com/jj-vcs/jj
 description: Git-compatible VCS that is both simple and powerful
 renovate:
   datasource: github-releases
-  package: martinvonz/jj
+  package: jj-vcs/jj
   extractVersion: ^v(?<version>.+)$
   priority: low

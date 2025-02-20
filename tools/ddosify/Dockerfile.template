@@ -8,10 +8,10 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://github.com/ddosify/ddosify/releases/download/v${version}/ddosify_${version}_linux_${alt_arch}.tar.gz"
+url="https://github.com/getanteon/anteon/releases/download/v${version}/ddosify_${version}_linux_${alt_arch}.tar.gz"
 filename="$( basename "${url}" )"
 
-check-github-release-asset "ddosify/ddosify" "v${version}" "${filename}"
+check-github-release-asset "getanteon/anteon" "v${version}" "${filename}"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
     "${url}"
 

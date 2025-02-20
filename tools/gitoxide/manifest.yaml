@@ -3,7 +3,7 @@ $schema: https://tools.uniget.dev/schema.yaml
 name: gitoxide
 license:
   name: MIT License OR Apache License 2.0
-  link: https://github.com/Byron/gitoxide
+  link: https://github.com/GitoxideLabs/gitoxide
 version: "0.41.0"
 binary: gix
 check: "" # Empty version
@@ -15,11 +15,11 @@ tags:
 - type/cli
 - standard/git
 - git
-homepage: https://github.com/Byron/gitoxide
-repository: https://github.com/Byron/gitoxide
+homepage: https://github.com/GitoxideLabs/gitoxide
+repository: https://github.com/GitoxideLabs/gitoxide
 description: Idiomatic, lean, fast & safe pure Rust implementation of Git
 renovate:
   datasource: github-releases
-  package: Byron/gitoxide
+  package: GitoxideLabs/gitoxide
   extractVersion: ^v(?<version>.+)$
   priority: low

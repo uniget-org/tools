@@ -11,13 +11,13 @@ tags:
 - lang/go
 - type/cli
 homepage: https://minder-docs.stacklok.dev/
-repository: https://github.com/stacklok/minder
+repository: https://github.com/mindersec/minder
 description: Secure Software Supply Chain Platform
 renovate:
   datasource: github-releases
-  package: stacklok/minder
+  package: mindersec/minder
   extractVersion: ^v(?<version>.+)$
   priority: low
 license:
   name: Apache License 2.0
-  link: https://github.com/stacklok/minder/blob/main/LICENSE
+  link: https://github.com/mindersec/minder/blob/main/LICENSE
