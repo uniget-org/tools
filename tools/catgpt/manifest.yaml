@@ -12,6 +12,7 @@ tags:
 - type/cli
 - state/onemanshow
 - state/deprecated
+- state/stale
 homepage: https://github.com/ibuildthecloud/catgpt
 repository: https://github.com/ibuildthecloud/catgpt
 description: Command-line tool that uses the OpenAI model to generate text based on user input

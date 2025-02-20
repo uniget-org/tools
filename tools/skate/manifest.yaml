@@ -11,7 +11,6 @@ tags:
 - category/operations
 - lang/go
 - type/cli
-- state/stale
 homepage: https://github.com/charmbracelet/skate
 repository: https://github.com/charmbracelet/skate
 description: Personal key value store

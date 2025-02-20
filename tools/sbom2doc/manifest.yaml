@@ -20,6 +20,7 @@ tags:
 - format/spdx
 - format/cyclonedx
 - format/json
+- state/onemanshow
 homepage: https://github.com/anthonyharrison/sbom2doc
 repository: https://github.com/anthonyharrison/sbom2doc
 description: Transform SBOM contents into a formatted document including markdown and PDF formats

@@ -10,6 +10,7 @@ tags:
 - type/cli
 - kubernetes
 - k8s
+- state/stale
 homepage: https://github.com/databricks/click
 repository: https://github.com/databricks/click
 description: Command Line Interactive Controller for Kubernetes

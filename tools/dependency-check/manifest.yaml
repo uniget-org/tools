@@ -9,6 +9,7 @@ tags:
 - org/owasp
 - category/security
 - lang/java
+- state/deprecated
 homepage: https://owasp.org/www-project-dependency-check/
 repository: https://github.com/jeremylong/DependencyCheck
 description: software composition analysis utility that detects publicly disclosed vulnerabilities in application dependencies

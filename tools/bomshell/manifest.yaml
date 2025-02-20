@@ -15,6 +15,7 @@ tags:
 - spdx
 - cyclonedx
 - state/deprecated
+- state/stale
 homepage: https://github.com/chainguard-dev/bomshell
 repository: https://github.com/chainguard-dev/bomshell
 description: SBOM query language and associated utilities

@@ -62,10 +62,11 @@ for NAME in ${all_tools}; do
     #echo "+ stale: ${stale}"
     #echo "+ deprecated: ${deprecated}"
     NOW_TIMESTAMP_EPOCH="$(date +%s)"
-
-    if jq --exit-status 'select(.renovate.datasource == "github-releases")' <<<"${tool_json[${NAME}]}" >/dev/null; then
-        repo="$(
-            jq --raw-output '.renovate.package' <<<"${tool_json[${NAME}]}"
+    repo="$( jq --raw-output '.repository' <<<"${tool_json[${NAME}]}" )"
+    if test "${repo:0:19}" == "https://github.com/"; then
+        github_repo="$(
+            echo "${repo}" \
+            | cut -d/ -f4-5
         )"
 
         RELEASE_TOO_OLD=false
@@ -73,7 +74,7 @@ for NAME in ${all_tools}; do
         CONTRIBUTORS_TOO_FEW=false
 
         RELEASE_TIMESTAMP_ISO="$(
-            curl "https://api.github.com/repos/${repo}/releases/latest" \
+            curl "https://api.github.com/repos/${github_repo}/releases/latest" \
                 --silent \
                 --fail \
                 --header "Authorization: Bearer ${GITHUB_TOKEN}" \
@@ -95,7 +96,7 @@ for NAME in ${all_tools}; do
         fi
 
         COMMIT_TIMESTAMP_ISO="$(
-            curl "https://api.github.com/repos/${repo}/commits" \
+            curl "https://api.github.com/repos/${github_repo}/commits" \
                 --silent \
                 --fail \
                 --header "Authorization: Bearer ${GITHUB_TOKEN}" \
@@ -117,7 +118,7 @@ for NAME in ${all_tools}; do
         fi
 
         CONTRIBUTOR_COUNT="$(
-            curl "https://api.github.com/repos/${repo}/contributors" \
+            curl "https://api.github.com/repos/${github_repo}/contributors" \
                 --silent \
                 --fail \
                 --header "Authorization: Bearer ${GITHUB_TOKEN}" \
@@ -155,7 +156,7 @@ for NAME in ${all_tools}; do
         fi
 
         REPO_ARCHIVED="$(
-            curl "https://api.github.com/repos/${repo}" \
+            curl "https://api.github.com/repos/${github_repo}" \
                 --silent \
                 --fail \
                 --header "Authorization: Bearer ${GITHUB_TOKEN}" \

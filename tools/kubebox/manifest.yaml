@@ -16,6 +16,7 @@ tags:
 - type/cli
 - kubernetes
 - k8s
+- state/stale
 homepage: https://github.com/astefanutti/kubebox
 repository: https://github.com/astefanutti/kubebox
 description: Terminal and Web console for Kubernetes

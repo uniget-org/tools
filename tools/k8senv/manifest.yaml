@@ -10,7 +10,6 @@ tags:
 - category/operations
 - lang/go
 - type/cli
-- state/stale
 - state/onemanshow
 homepage: https://github.com/navilg/k8senv
 repository: https://github.com/navilg/k8senv

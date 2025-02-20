@@ -15,6 +15,7 @@ tags:
 - troubleshooting
 - lang/go
 - docker
+- state/stale
 homepage: https://github.com/wagoodman/dive
 repository: https://github.com/wagoodman/dive
 description: Tool for exploring each layer in a docker image

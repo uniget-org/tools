@@ -14,6 +14,7 @@ tags:
 - lang/c
 - type/cli
 - minecraft
+- state/stale
 homepage: https://github.com/Tiiffi/mcrcon
 repository: https://github.com/Tiiffi/mcrcon
 description: Some description

@@ -8,7 +8,6 @@ tags:
 - package
 - management
 - format/json
-- state/stale
 - standard/jsonnet
 homepage: https://github.com/jsonnet-bundler/jsonnet-bundler
 repository: https://github.com/jsonnet-bundler/jsonnet-bundler

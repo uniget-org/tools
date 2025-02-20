@@ -14,7 +14,6 @@ tags:
 - category/development
 - lang/php
 - type/cli
-- state/stale
 homepage: https://phar.io
 repository: https://github.com/phar-io/phive
 description: Phar Installation and Verification Environment

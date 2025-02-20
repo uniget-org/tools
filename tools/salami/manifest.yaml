@@ -10,6 +10,7 @@ tags:
 - category/operations
 - lang/go
 - type/cli
+- state/stale
 homepage: https://github.com/petrgazarov/salami
 repository: https://github.com/petrgazarov/salami
 description: Infrastructure as Natural Language

@@ -7,6 +7,7 @@ tags:
 - category/security
 - certificate
 - lang/go
+- state/stale
 homepage: https://mkcert.dev
 repository: https://github.com/FiloSottile/mkcert
 description: Simple zero-config tool to make locally trusted development certificates

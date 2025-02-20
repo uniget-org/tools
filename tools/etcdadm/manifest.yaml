@@ -10,6 +10,8 @@ tags:
 - category/operations
 - lang/go
 - type/cli
+- state/stale
+- state/deprecated
 homepage: https://github.com/kubernetes-retired/etcdadm
 repository: https://github.com/kubernetes-retired/etcdadm
 description: Command-line tool for operating an etcd cluster

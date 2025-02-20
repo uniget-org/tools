@@ -8,7 +8,6 @@ tags:
 - type/cli
 - management
 - lang/go
-- state/stale
 - standard/docker
 - docker
 homepage: https://github.com/EnvCLI/EnvCLI

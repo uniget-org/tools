@@ -9,6 +9,7 @@ tags:
 - presentation
 - lang/go
 - category/visualization
+- state/stale
 homepage: http://maaslalani.com/slides/
 repository: https://github.com/maaslalani/slides
 description: Terminal based presentation tool

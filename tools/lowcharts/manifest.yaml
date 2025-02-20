@@ -9,6 +9,7 @@ tags:
 - category/development
 - lang/rust
 - type/cli
+- state/stale
 homepage: https://github.com/juan-leon/lowcharts
 repository: https://github.com/juan-leon/lowcharts
 description: Draw low-resolution graphs in terminal

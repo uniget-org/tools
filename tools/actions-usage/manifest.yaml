@@ -16,6 +16,7 @@ tags:
 - cloud/github
 - monitoring
 - cicd
+- state/stale
 homepage: https://github.com/self-actuated/actions-usage
 repository: https://github.com/self-actuated/actions-usage
 description: Find your total usage on GitHub Actions

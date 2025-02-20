@@ -15,6 +15,7 @@ tags:
 - lang/rust
 - type/cli
 - copilot
+- state/stale
 homepage: https://github.com/m1guelpf/plz-cli
 repository: https://github.com/m1guelpf/plz-cli
 description: Copilot for your terminal - generate shell scripts from a human readable description

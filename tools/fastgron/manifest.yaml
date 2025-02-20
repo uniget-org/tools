@@ -10,6 +10,7 @@ tags:
 - category/development
 - lang/c
 - type/cli
+- state/stale
 homepage: https://github.com/adamritter/fastgron
 repository: https://github.com/adamritter/fastgron
 description: High-performance JSON to GRON (greppable, flattened JSON) converter

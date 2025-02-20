@@ -16,6 +16,7 @@ tags:
 - category/development
 - lang/go
 - type/cli
+- state/stale
 homepage: https://cobra.dev/
 repository: https://github.com/spf13/cobra-cli
 description: Cobra CLI tool to generate applications and commands

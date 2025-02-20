@@ -20,6 +20,7 @@ tags:
 - standard/dot
 - format/spdx
 - format/cyclonedx
+- state/onemanshow
 homepage: https://github.com/anthonyharrison/sbom2dot
 repository: https://github.com/anthonyharrison/sbom2dot
 description: Create a dependency graph of the components within a SBOM

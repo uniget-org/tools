@@ -12,6 +12,7 @@ tags:
 - cicd
 - lang/go
 - state/deprecated
+- state/stale
 homepage: https://datree.io
 repository: https://github.com/datreeio/datree
 description: Prevent Kubernetes misconfigurations from reaching production

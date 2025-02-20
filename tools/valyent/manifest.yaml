@@ -14,6 +14,7 @@ tags:
 - category/operations
 - lang/go
 - type/cli
+- state/onemanshow
 homepage: https://valyent.dev/
 repository: https://github.com/valyentdev/cli
 description: Interact with Valyent's API from your terminal

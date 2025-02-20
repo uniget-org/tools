@@ -20,6 +20,7 @@ tags:
 - multiverse
 - papermc
 - paper
+- state/stale
 homepage: https://github.com/Multiverse/Multiverse-Portals
 repository: https://github.com/Multiverse/Multiverse-Portals
 description: Create portals to Multiverse destinations

@@ -9,6 +9,7 @@ tags:
 - lang/rust
 - type/cli
 - format/json
+- state/stale
 homepage: https://jless.io
 repository: https://github.com/PaulJuliusMartinez/jless
 description: Command-line JSON viewer designed for reading, exploring, and searching

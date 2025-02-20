@@ -17,6 +17,7 @@ tags:
 - standard/docker
 - kubernetes
 - k8s
+- state/stale
 homepage: https://github.com/portainer/k2d
 repository: https://github.com/portainer/k2d
 description: Kubernetes to Docker translator

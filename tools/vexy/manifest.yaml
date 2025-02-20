@@ -17,6 +17,7 @@ tags:
 - type/cli
 - standard/vex
 - standard/cyclonedx
+- state/stale
 homepage: https://github.com/madpah/vexy
 repository: https://github.com/madpah/vexy
 description: Generate VEX CycloneDX documents

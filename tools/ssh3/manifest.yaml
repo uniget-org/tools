@@ -11,6 +11,7 @@ tags:
 - lang/go
 - type/cli
 - type/daemon
+- state/stale
 homepage: https://arxiv.org/abs/2312.08396
 repository: https://github.com/francoismichel/ssh3
 description: SSH3 - faster and rich secure shell using HTTP/3

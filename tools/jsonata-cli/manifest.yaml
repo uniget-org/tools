@@ -17,6 +17,7 @@ tags:
 - type/cli
 - format/json
 - standard/jsonata
+- state/onemanshow
 homepage: https://github.com/rubystream/jsonata-cli
 repository: https://github.com/rubystream/jsonata-cli
 description: CLI for JSONata
