@@ -2148,7 +2148,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-tags",
-      "depNameTemplate": "docker/cli",
+      "depNameTemplate": "moby/moby",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/docker-manpages/manifest.yaml$"
