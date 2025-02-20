@@ -33,6 +33,7 @@ plugins=(
     https://github.com/sigstore/helm-sigstore
     https://github.com/quintush/helm-unittest
     https://github.com/komodorio/helm-dashboard
+    https://github.com/idsulik/helm-cel
 )
 for url in "${plugins[@]}"; do
     name="$(basename "${url}")"
