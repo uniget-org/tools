@@ -2,7 +2,7 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: uv
 license:
-  name: MIT License & Apache License 2.0
+  name: MIT License, Apache License 2.0
   link: https://github.com/astral-sh/uv
 version: "0.6.3"
 check: ${binary} version | cut -d' ' -f2

@@ -2,7 +2,7 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: garden
 license:
-  name: MPL-2.0
+  name: MPLv2
   link: https://github.com/garden-io/garden/blob/main/LICENSE.md
 version: "0.13.54"
 check: ${binary} version | grep "^garden version" | cut -d' ' -f2

@@ -23,5 +23,5 @@ renovate:
   versioning: loose
   priority: low
 license:
-  name: BSD 3-Clause License OR GPLv2+
+  name: BSD 3-Clause License, GPLv2+
   link: https://passt.top/passt/tree/LICENSES

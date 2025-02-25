@@ -22,5 +22,5 @@ renovate:
   extractVersion: ^v(?<version>.+)$
   priority: low
 license:
-  name: BSL 1.1
+  name: BSL-1.1
   link: https://github.com/hashicorp/packer/blob/main/LICENSE

@@ -17,5 +17,5 @@ homepage: https://github.com/docker/whalesay
 repository: https://github.com/docker/whalesay
 description: Docker's official whalesay
 license:
-  name: Artistic License OR GPL
+  name: Artistic License, GPL
   link: https://github.com/docker/whalesay/blob/master/LICENSE

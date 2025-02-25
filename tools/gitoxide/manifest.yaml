@@ -2,7 +2,7 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: gitoxide
 license:
-  name: MIT License OR Apache License 2.0
+  name: MIT License, Apache License 2.0
   link: https://github.com/GitoxideLabs/gitoxide
 version: "0.41.0"
 binary: gix

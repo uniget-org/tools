@@ -23,4 +23,5 @@ renovate:
   package: segersniels/supdock
   priority: medium
 license:
-  name: Unknown
+  name: MIT License
+  link: https://github.com/segersniels/supdock/blob/master/LICENSE

@@ -18,5 +18,5 @@ renovate:
   extractVersion: ^v(?<version>.+)$
   priority: low
 license:
-  name: BSL
+  name: BSL-1.1
   link: https://github.com/hashicorp/vault/blob/main/LICENSE

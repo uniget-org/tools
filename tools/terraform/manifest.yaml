@@ -19,5 +19,5 @@ renovate:
   extractVersion: ^v(?<version>.+)$
   priority: high
 license:
-  name: BSL 1.1
+  name: BSL-1.1
   link: https://github.com/hashicorp/terraform/blob/main/LICENSE

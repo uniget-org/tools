@@ -20,5 +20,5 @@ renovate:
   versioning: loose
   priority: low
 license:
-  name: BSD 3-Clause License OR GPLv2-only
+  name: BSD 3-Clause License, GPLv2-only
   link: https://git.kernel.org/pub/scm/libs/libcap/libcap.git/tree/License

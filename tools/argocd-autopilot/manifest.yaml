@@ -2,7 +2,7 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: argocd-autopilot
 license:
-  name: Apache 2.0 License
+  name: Apache License 2.0
   link: https://github.com/argoproj-labs/argocd-autopilot/blob/main/LICENSE
 version: "0.4.18"
 check: ${binary} version | tr -d v

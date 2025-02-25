@@ -2,8 +2,8 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: minecraft-server
 license:
-  name: Unknown
-  link: ""
+  name: Custom
+  link: https://www.minecraft.net/de-de/usage-guidelines
 version: "1.21.4"
 binary: "false"
 check: "" # No binary

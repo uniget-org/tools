@@ -2,7 +2,7 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: papermc
 license:
-  name: GPLv3 and MIT License
+  name: GPLv3, MIT License
   link: https://github.com/PaperMC/Paper/blob/main/LICENSE.md
 version: "1.21.3-82"
 binary: "false"
