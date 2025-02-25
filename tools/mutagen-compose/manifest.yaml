@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: mutagen-compose
-version: "0.18.0"
+version: "0.18.1"
 check: ${binary} version | grep ^Mutagen | cut -d' ' -f3
 runtime_dependencies:
 - mutagen
