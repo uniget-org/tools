@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: grizzly
+license:
+  name: Apache License 2.0
+  link: https://github.com/grafana/grizzly/blob/main/LICENSE
+version: "0.7.1"
+binary: grr
+check: ${binary} --version 2>&1 | cut -d' ' -f5 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/grafana
+- category/development
+- lang/go
+- type/cli
+- type/daemon
+homepage: https://grafana.github.io/grizzly/
+repository: https://github.com/grafana/grizzly
+description: Some description
+renovate:
+  datasource: github-releases
+  package: grafana/grizzly
+  extractVersion: ^v(?<version>.+)$
+  priority: low
