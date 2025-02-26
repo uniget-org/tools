@@ -3594,6 +3594,18 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "pemistahl/grex",
+      "extractVersionTemplate": "^v(?<version>.+)$",
+      "fileMatch": [
+        "^tools/grex/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "grafana/grizzly",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
@@ -11844,6 +11856,11 @@
     {
       "matchFiles": [
         "^tools/graphviz/manifest.yaml$"
+      ]
+    },
+    {
+      "matchFiles": [
+        "^tools/grex/manifest.yaml$"
       ]
     },
     {

@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: grex
+license:
+  name: Apache License 2.0
+  link: https://github.com/pemistahl/grex/blob/main/LICENSE
+version: "1.4.5"
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/rust
+- type/cli
+homepage: https://pemistahl.github.io/grex-js/
+repository: https://github.com/pemistahl/grex
+description: CLI and Rust library with Python bindings for generating regular expressions from user-provided test cases
+renovate:
+  datasource: github-releases
+  package: pemistahl/grex
+  extractVersion: ^v(?<version>.+)$
+  priority: low
