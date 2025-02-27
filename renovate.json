@@ -191,6 +191,17 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "pypi",
+      "depNameTemplate": "amulet-map-editor",
+      "fileMatch": [
+        "^tools/amulet/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "fidian/ansi",
       "fileMatch": [
@@ -10413,6 +10424,11 @@
     {
       "matchFiles": [
         "^tools/alex/manifest.yaml$"
+      ]
+    },
+    {
+      "matchFiles": [
+        "^tools/amulet/manifest.yaml$"
       ]
     },
     {

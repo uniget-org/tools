@@ -1,0 +1,24 @@
+#syntax=docker/dockerfile:1.14.0@sha256:0232be24407cc42c983b9b269b1534a3b98eea312aad9464dd0f1a9e547e15a7
+
+FROM ghcr.io/uniget-org/tools/python-3.12:latest AS python
+FROM ghcr.io/uniget-org/tools/shiv:latest AS shiv
+
+FROM registry.gitlab.com/uniget-org/images/build-essential:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+COPY --link --from=python / /usr/local/
+COPY --link --from=shiv / /usr/local/
+RUN --mount=type=cache,target=/var/cache/apt <<EOF
+apt-get update
+apt-get -y install --no-install-recommends \
+    clang \
+    zlib1g-dev
+EOF
+RUN --mount=type=cache,target=/root/.cache/pip <<EOF
+source /etc/lsb-release
+shiv --output-file="${prefix}/bin/amulet" --console-script=amulet_map_editor -f "https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-${DISTRIB_RELEASE}/" wxPython "amulet-map-editor==${version}"
+EOF
