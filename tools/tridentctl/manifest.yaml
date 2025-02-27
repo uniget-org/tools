@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: tridentctl
+license:
+  name: Apache License 2.0
+  link: https://github.com/NetApp/trident/blob/master/LICENSE
+version: "24.10.1"
+check: "" # No version parameter
+runtime_dependencies:
+- kubectl
+platforms:
+- linux/amd64
+tags:
+- org/netapp
+- category/operations
+- lang/go
+- type/cli
+- type/daemon
+homepage: https://docs.netapp.com/us-en/trident/index.html
+repository: https://github.com/NetApp/trident
+description: Storage orchestrator for containers
+renovate:
+  datasource: github-releases
+  package: NetApp/trident
+  extractVersion: ^v(?<version>.+)$
+  priority: low

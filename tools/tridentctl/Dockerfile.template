@@ -1,0 +1,27 @@
+#syntax=docker/dockerfile:1.14.0@sha256:0232be24407cc42c983b9b269b1534a3b98eea312aad9464dd0f1a9e547e15a7
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/NetApp/trident/releases/download/v${version}/trident-installer-${version}.tar.gz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "NetApp/trident" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin" --strip-component=1 --no-same-owner \
+    trident-installer/tridentctl
+EOF
+
+RUN <<EOF
+"${prefix}/bin/tridentctl" completion bash >"${prefix}/share/bash-completion/completions/tridentctl"
+"${prefix}/bin/tridentctl" completion fish >"${prefix}/share/fish/vendor_completions.d/tridentctl.fish"
+"${prefix}/bin/tridentctl" completion zsh >"${prefix}/share/zsh/vendor-completions/_tridentctl"
+EOF
