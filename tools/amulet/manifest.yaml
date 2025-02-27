@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: amulet
+license:
+  name: Unknown
+  link: ""
+version: "0.10.39"
+check: ""
+build_dependencies:
+- python-3.12
+runtime_dependencies:
+- python-3.12
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/games
+- lang/python
+- type/gui
+- minecraft
+- world
+- editor
+homepage: https://www.amuletmc.com/
+repository: https://github.com/Amulet-Team/Amulet-Map-Editor
+description: Minecraft world editor and converter that supports all versions since Java 1.12 and Bedrock 1.7
+renovate:
+  datasource: pypi
+  package: amulet-map-editor
+  priority: low
