@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: lectl
-version: "0.22.1"
+version: "0.23.0"
 check: ${binary} --version | grep ^lectl | cut -d' ' -f2
 tags:
 - type/cli
