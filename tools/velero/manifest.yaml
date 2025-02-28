@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: velero
+license:
+  name: Apache License 2.0
+  link: https://github.com/vmware-tanzu/velero/blob/main/LICENSE
+version: "1.15.2"
+check: "" # No version without Kubernetes cluster
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/vmware
+- category/operations
+- lang/go
+- type/cli
+- kubernetes
+- k8s
+- backup
+homepage: https://velero.io/
+repository: https://github.com/vmware-tanzu/velero
+description: Backup and migrate Kubernetes applications and their persistent volumes
+renovate:
+  datasource: github-releases
+  package: vmware-tanzu/velero
+  extractVersion: ^v(?<version>.+)$
+  priority: low

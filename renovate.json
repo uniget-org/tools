@@ -4563,6 +4563,18 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "k8up-io/k8up",
+      "extractVersionTemplate": "^v(?<version>.+)$",
+      "fileMatch": [
+        "^tools/k8up/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "derailed/k9s",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
@@ -4924,6 +4936,18 @@
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/krew/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "kro-run/kro",
+      "extractVersionTemplate": "^v(?<version>.+)$",
+      "fileMatch": [
+        "^tools/kro/manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
@@ -9601,6 +9625,18 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "vmware-tanzu/velero",
+      "extractVersionTemplate": "^v(?<version>.+)$",
+      "fileMatch": [
+        "^tools/velero/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "uniget-org/renovate-custom",
       "extractVersionTemplate": "^velocity/(?<version>.+)$",
       "fileMatch": [
@@ -12293,6 +12329,11 @@
     },
     {
       "matchFiles": [
+        "^tools/k8up/manifest.yaml$"
+      ]
+    },
+    {
+      "matchFiles": [
         "^tools/k9s/manifest.yaml$"
       ]
     },
@@ -12444,6 +12485,11 @@
     {
       "matchFiles": [
         "^tools/krew/manifest.yaml$"
+      ]
+    },
+    {
+      "matchFiles": [
+        "^tools/kro/manifest.yaml$"
       ]
     },
     {
@@ -14404,6 +14450,11 @@
     {
       "matchFiles": [
         "^tools/vcluster/manifest.yaml$"
+      ]
+    },
+    {
+      "matchFiles": [
+        "^tools/velero/manifest.yaml$"
       ]
     },
     {
