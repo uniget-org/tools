@@ -1,0 +1,20 @@
+#syntax=docker/dockerfile:1.14.0@sha256:0232be24407cc42c983b9b269b1534a3b98eea312aad9464dd0f1a9e547e15a7
+
+FROM ghcr.io/uniget-org/tools/go:latest AS go
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+COPY --link --from=go / /usr/local/
+WORKDIR /go/src/github.com/kro-run/kro
+ARG name
+ARG version
+RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
+check-clone "https://github.com/kro-run/kro" "v${version}"
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/kro-run/kro .
+go build -o "${prefix}/bin/controller" ./cmd/controller/main.go
+EOF

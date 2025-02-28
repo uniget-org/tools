@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: kro
+license:
+  name: Apache License 2.0
+  link: https://github.com/kro-run/kro/blob/main/LICENSE
+version: "0.2.1"
+check: "" # No version parameter
+build_dependencies:
+- go
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/go
+- type/daemon
+homepage: https://kro.run/
+repository: https://github.com/kro-run/kro
+description: Kube Resource Orchestrator
+renovate:
+  datasource: github-releases
+  package: kro-run/kro
+  extractVersion: ^v(?<version>.+)$
+  priority: low

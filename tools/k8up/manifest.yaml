@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: k8up
+license:
+  name: Apache License 2.0
+  link: https://github.com/k8up-io/k8up/blob/master/LICENSE
+version: "2.11.3"
+check: ${binary} --version | cut -d' ' -f1 | cut -d= -f2
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/go
+- type/cli
+- kubernetes
+- k8s
+- backup
+homepage: https://k8up.io/
+repository: https://github.com/k8up-io/k8up
+description: Kubernetes and OpenShift Backup Operator
+renovate:
+  datasource: github-releases
+  package: k8up-io/k8up
+  extractVersion: ^v(?<version>.+)$
+  priority: low
