@@ -5338,6 +5338,18 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "kubermatic/kubeone",
+      "extractVersionTemplate": "^v(?<version>.+)$",
+      "fileMatch": [
+        "^tools/kubeone/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "kubernetes/kubernetes",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
@@ -12650,6 +12662,11 @@
     {
       "matchFiles": [
         "^tools/kubent/manifest.yaml$"
+      ]
+    },
+    {
+      "matchFiles": [
+        "^tools/kubeone/manifest.yaml$"
       ]
     },
     {

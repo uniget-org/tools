@@ -1,0 +1,23 @@
+#syntax=docker/dockerfile:1.14.0@sha256:0232be24407cc42c983b9b269b1534a3b98eea312aad9464dd0f1a9e547e15a7
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/kubermatic/kubeone/releases/download/v${version}/kubeone_${version}_linux_${alt_arch}.zip"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "kubermatic/kubeone" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+unzip -q -o -d "${prefix}/bin" "${uniget_cache_download}/${filename}" \
+    kubeone
+EOF
+RUN <<EOF
+"${prefix}/bin/kubeone" completion bash >"${prefix}/share/bash-completion/completions/kubeone"
+EOF
