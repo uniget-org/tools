@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: libcap
-version: "2.74"
+version: "2.75"
 binary: ${target}/sbin/setcap
 check: "" # No version parameter
 build_dependencies:
