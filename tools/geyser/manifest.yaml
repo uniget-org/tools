@@ -24,7 +24,7 @@ homepage: hhttps://geysermc.org/wiki/geyser/
 repository: https://github.com/GeyserMC/Geyser
 description: Bridge/proxy allowing you to connect to Minecraft Java Edition servers with Minecraft Bedrock Edition
 renovate:
-  datasource: github-releases
+  datasource: gitlab-releases
   package: uniget-org/renovate-custom
   extractVersion: ^geyser/(?<version>.+)$
   priority: low
