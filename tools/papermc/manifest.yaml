@@ -22,7 +22,7 @@ homepage: https://papermc.io/software/paper
 repository: https://github.com/PaperMC/Paper
 description: High performance Minecraft server that aims to fix gameplay and mechanics inconsistencies
 renovate:
-  datasource: github-releases
+  datasource: gitlab-releases
   package: uniget-org/renovate-custom
   extractVersion: ^papermc/(?<version>.+)$
   priority: low
