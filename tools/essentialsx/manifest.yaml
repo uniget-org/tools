@@ -5,7 +5,8 @@ license:
   name: GPLv3
   link: https://github.com/EssentialsX/Essentials/blob/2.x/LICENSE
 version: "2.20.1"
-check: ""
+binary: "false"
+check: "" # No binary
 runtime_dependencies:
 - papermc
 platforms:
