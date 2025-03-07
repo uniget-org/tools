@@ -80,7 +80,7 @@ jobs:
             --env LOG_LEVEL \
             --env RENOVATE_TOKEN="${RENOVATE_TOKEN}" \
             --volume $PWD/renovate:/tmp/renovate \
-            renovate/renovate:slim \
+            renovate/renovate:latest \
                 --dry-run=${{ inputs.dry-run }} \
                 "${GITHUB_REPOSITORY}"
 
