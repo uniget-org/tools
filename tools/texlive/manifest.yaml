@@ -19,7 +19,8 @@ homepage: https://tug.org/texlive/
 repository: https://github.com/TeX-Live/texlive-source
 description: Comprehensive TeX system
 renovate:
-  datasource: github-releases
+  datasource: gitlab-releases
   package: uniget-org/renovate-custom
   extractVersion: ^texlive/(?<version>.+)$
+  versioning: loose
   priority: low

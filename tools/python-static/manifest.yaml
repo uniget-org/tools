@@ -17,7 +17,7 @@ messages:
     This statically linked Python is not able to load dynamic objects.
     Please use python if you see errors.
 renovate:
-  datasource: github-releases
+  datasource: gitlab-releases
   package: uniget-org/renovate-custom
   extractVersion: ^python/(?<version>.+)$
   versioning: loose

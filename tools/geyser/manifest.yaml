@@ -4,7 +4,7 @@ name: geyser
 license:
   name: MIT License
   link: https://github.com/GeyserMC/Geyser/blob/master/LICENSE
-version: "2.6.1.784"
+version: "2.6.1.783"
 binary: "false"
 check: "" # No binary
 runtime_dependencies:
@@ -27,4 +27,5 @@ renovate:
   datasource: gitlab-releases
   package: uniget-org/renovate-custom
   extractVersion: ^geyser/(?<version>.+)$
+  versioning: loose
   priority: low

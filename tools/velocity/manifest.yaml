@@ -26,7 +26,8 @@ homepage: https://papermc.io/software/velocity
 repository: https://github.com/PaperMC/Velocity
 description: Modern, next-generation Minecraft server proxy
 renovate:
-  datasource: github-releases
+  datasource: gitlab-releases
   package: uniget-org/renovate-custom
   extractVersion: ^velocity/(?<version>.+)$
+  versioning: loose
   priority: low

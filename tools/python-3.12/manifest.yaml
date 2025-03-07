@@ -22,7 +22,7 @@ messages:
 
     ldconfig
 renovate:
-  datasource: github-releases
+  datasource: gitlab-releases
   package: uniget-org/renovate-custom
   extractVersion: ^python-3.12/(?<version>.+)$
   versioning: loose

@@ -27,4 +27,5 @@ renovate:
   datasource: gitlab-releases
   package: uniget-org/renovate-custom
   extractVersion: ^floodgate/(?<version>.+)$
+  versioning: loose
   priority: low

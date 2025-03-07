@@ -24,10 +24,9 @@ message:
     You must honor the licensing terms of Docker Desktop even when running the
     bundled CLI tools.
 renovate:
-  datasource: github-releases
+  datasource: gitlab-releases
   package: uniget-org/renovate-custom
   extractVersion: ^docker-debug/(?<version>.+)$
-  versioning: loose
   priority: low
 license:
   name: Docker Subscription Service Agreement

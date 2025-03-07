@@ -16,7 +16,7 @@ homepage: https://adoptium.net/de/temurin/
 repository: https://github.com/adoptium
 description: OpenJDK
 renovate:
-  datasource: github-releases
+  datasource: gitlab-releases
   package: uniget-org/renovate-custom
   extractVersion: ^openjdk/(?<version>.+)$
   versioning: loose

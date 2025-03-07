@@ -79,9 +79,7 @@ jq  '
                     }
 
                 else
-                    {
-                        "matchFiles": [ "^tools/" + .name + "/manifest.yaml$" ]
-                    }
+                    empty
                 end
 
             else

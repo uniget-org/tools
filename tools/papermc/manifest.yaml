@@ -25,4 +25,5 @@ renovate:
   datasource: gitlab-releases
   package: uniget-org/renovate-custom
   extractVersion: ^papermc/(?<version>.+)$
+  versioning: loose
   priority: low

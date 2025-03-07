@@ -25,7 +25,7 @@ renovate:
   versioning: loose
   priority: low
 renovate:
-  datasource: github-releases
+  datasource: gitlab-releases
   package: uniget-org/renovate-custom
   extractVersion: ^rke2/(?<version>.+)$
   versioning: loose

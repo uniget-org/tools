@@ -14,7 +14,7 @@ homepage: https://github.com/nodejs/node
 repository: https://github.com/nodejs/node
 description: Node.js JavaScript runtime
 renovate:
-  datasource: github-releases
+  datasource: gitlab-releases
   package: uniget-org/renovate-custom
   extractVersion: ^nodejs-lts/(?<version>.+)$
   priority: low

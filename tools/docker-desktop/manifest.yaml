@@ -23,10 +23,9 @@ message:
 
     You must honor the licensing terms of Docker Desktop.
 renovate:
-  datasource: github-releases
+  datasource: gitlab-releases
   package: uniget-org/renovate-custom
   extractVersion: ^docker-desktop/(?<version>.+)$
-  versioning: loose
   priority: low
 license:
   name: Docker Subscription Service Agreement
