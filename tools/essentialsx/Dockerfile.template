@@ -1,0 +1,61 @@
+#syntax=docker/dockerfile:1.14.0@sha256:0232be24407cc42c983b9b269b1534a3b98eea312aad9464dd0f1a9e547e15a7
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/EssentialsX/Essentials/releases/download/${version}/EssentialsX-${version}.jar"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "EssentialsX/Essentials" "${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+mkdir -p "${prefix}/opt/essentialsx"
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/opt/essentialsx/EssentialsX.jar"
+EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/EssentialsX/Essentials/releases/download/${version}/EssentialsXAntiBuild-${version}.jar"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "EssentialsX/Essentials" "${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+mkdir -p "${prefix}/opt/essentialsx"
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/opt/essentialsx/EssentialsXAntiBuild.jar"
+EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/EssentialsX/Essentials/releases/download/${version}/EssentialsXProtect-${version}.jar"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "EssentialsX/Essentials" "${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+mkdir -p "${prefix}/opt/essentialsx"
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/opt/essentialsx/EssentialsXProtect.jar"
+EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/EssentialsX/Essentials/releases/download/${version}/EssentialsXSpawn-${version}.jar"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "EssentialsX/Essentials" "${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+mkdir -p "${prefix}/opt/essentialsx"
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/opt/essentialsx/EssentialsXSpawn.jar"
+EOF

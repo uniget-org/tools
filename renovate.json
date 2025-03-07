@@ -2591,6 +2591,17 @@
     {
       "customType": "regex",
       "fileMatch": [
+        "^tools/essentialsx/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ],
+      "depNameTemplate": "EssentialsX/Essentials",
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": [
         "^tools/etcd/manifest.yaml$"
       ],
       "matchStrings": [

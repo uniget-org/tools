@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: essentialsx
+license:
+  name: GPLv3
+  link: https://github.com/EssentialsX/Essentials/blob/2.x/LICENSE
+version: "2.20.1"
+check: ""
+runtime_dependencies:
+- papermc
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/games
+- lang/java
+- type/plugin
+- minecraft
+- papermc
+- paper
+homepage: https://essentialsx.net/
+repository: https://github.com/EssentialsX/Essentials
+description: Modern Essentials suite for Spigot and Paper
+renovate:
+  datasource: github-releases
+  package: EssentialsX/Essentials
+  priority: low
