@@ -4,7 +4,7 @@ name: texlive
 license:
   name: Custom
   link: https://www.tug.org/texlive/copying.html
-version: "2024"
+version: "2025"
 binary: tex
 check: ${binary} --version | grep "TeX Live" | cut -d' ' -f5 | tr -d ')'
 platforms:
