@@ -10449,7 +10449,8 @@
       ],
       "matchPackagePrefixes": [
         "ghcr.io/uniget-org/tools/",
-        "ghcr.io/uniget-org/images/"
+        "ghcr.io/uniget-org/images/",
+        "registry.gitlab.com/uniget-org/images/"
       ]
     },
     {
