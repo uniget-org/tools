@@ -4,7 +4,7 @@ name: grpcurl
 license:
   name: MIT License
   link: https://github.com/fullstorydev/grpcurl/blob/master/LICENSE
-version: "1.9.2"
+version: "1.9.3"
 check: ${binary} --version 2>&1 | cut -d' ' -f2 | tr -d v
 platforms:
 - linux/amd64
