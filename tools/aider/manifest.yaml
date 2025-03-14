@@ -12,7 +12,6 @@ runtime_dependencies:
 - python
 platforms:
 - linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/python
