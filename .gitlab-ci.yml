@@ -16,17 +16,75 @@
   - name: docker:28.0.1-dind
 
 .uniget:
+  before_script: |
+    apk add --update-cache \
+        curl
   script: |
     curl -sLf https://github.com/uniget-org/cli/releases/latest/download/uniget_Linux_$(uname -m).tar.gz \
     | tar -xzC /usr/local/bin uniget
 
+collect:
+  rules:
+  - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "test-gitlab"
+  image: alpine:3.21.2
+  before_script:
+  - |
+    apk add --update-cache \
+        curl \
+        git
+  - !reference [.uniget, script]
+  - uniget install jq regclient
+  script:
+  - |
+    type regctl
+    type jq
+    type git
+  - |
+    METADATA_SHA="$(
+        regctl manifest get registry.gitlab.com/uniget-org/tools/metadata:main \
+            --platform=linux/amd64 \
+            --format=raw-body \
+        | jq --raw-output '.layers[0].digest' \
+        | xargs -I{} \
+            regctl blob get registry.gitlab.com/uniget-org/tools/metadata:main {} \
+        | tar --extract --gzip --to-stdout \
+        | jq --raw-output '.revision'
+    )"
+    echo "### Fetching changed tools for ${METADATA_SHA}..${CI_COMMIT_SHA}"
+  - |
+    CHANGED_TOOLS="$(
+        git log --pretty=format: --name-only --diff-filter=d ${METADATA_SHA}..${CI_COMMIT_SHA} \
+        | sort \
+        | grep "^tools/" \
+        | cut -d/ -f2 \
+        | uniq \
+        | while read -r TOOL; do test -d "tools/${TOOL}" && echo "${TOOL}"; done \
+        | xargs
+    )"
+    echo "### Tools to process: ${CHANGED_TOOLS}."
+  - |
+    CHANGED_TOOLS_JSON="$(
+        echo -n "${CHANGED_TOOLS}" \
+        | tr ' ' '\n' \
+        | jq --raw-input '.' \
+        | jq --slurp --compact-output '.'
+    )"
+    echo "    JSON: ${CHANGED_TOOLS_JSON}"
+
 metadata:
+  rules:
+  - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "test-gitlab"
+  needs:
+  - collect
   extends:
   - .docker_login
   - .dind
   - .docker_logout
   image: docker:28.0.1
   script:
+  - apk add --update-cache \
+        curl \
+        make \
+        bash
   - !reference [.uniget, script]
-  - |
-    make metadata.json--push REGISTRY=${CI_REGISTRY}
+  - make metadata.json--push REGISTRY=${CI_REGISTRY}
