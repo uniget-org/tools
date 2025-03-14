@@ -1,0 +1,32 @@
+.docker_login:
+  before_script: |
+    echo "${CI_REGISTRY_PASSWORD}" \
+    | docker login "${CI_REGISTRY}" \
+        --username="${CI_REGISTRY_USER}" \
+        --password-stdin
+
+.docker_logout:
+  after_script: |
+    docker logout "${CI_REGISTRY}"
+
+.dind:
+  variables:
+    DOCKER_CERT_DIR: ""
+  services:
+  - name: docker:28.0.1-dind
+
+.uniget:
+  script: |
+    curl -sLf https://github.com/uniget-org/cli/releases/latest/download/uniget_Linux_$(uname -m).tar.gz \
+    | tar -xzC /usr/local/bin uniget
+
+metadata:
+  extends:
+  - .docker_login
+  - .dind
+  - .docker_logout
+  image: docker:28.0.1
+  script:
+  - !reference [.uniget, script]
+  - |
+    make metadata.json--push REGISTRY=${CI_REGISTRY}
