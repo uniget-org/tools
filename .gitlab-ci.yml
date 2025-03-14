@@ -25,7 +25,7 @@
 
 collect:
   rules:
-  - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "test-gitlab"
+  - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   image: alpine:3.21.2
   before_script:
   - |
@@ -73,7 +73,7 @@ collect:
 
 metadata:
   rules:
-  - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "test-gitlab"
+  - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   needs:
   - collect
   extends:
