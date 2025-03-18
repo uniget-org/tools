@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
-name: spark
+name: luckperms
 license:
   name: MIT License
   link: https://github.com/LuckPerms/LuckPerms/blob/master/LICENSE.txt
