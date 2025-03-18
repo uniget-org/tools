@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: spark
+license:
+  name: GPLv3
+  link: https://github.com/lucko/spark/blob/master/LICENSE.txt
+version: "1.10.126-475"
+check: ""
+runtime_dependencies:
+- papermc
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/games
+- lang/java
+- type/plugin
+- minecraft
+- multiverse
+- papermc
+- paper
+homepage: https://spark.lucko.me/
+repository: https://github.com/lucko/spark
+description: Performance profiler for Minecraft clients, servers, and proxies
+renovate:
+  datasource: gitlab-releases
+  package: uniget-org/renovate-custom
+  extractVersion: ^spark/(?<version>.+)$
+  priority: low
