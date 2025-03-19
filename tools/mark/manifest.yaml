@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: mark
+license:
+  name: Apache License 2.0
+  link: https://github.com/kovetskiy/mark/blob/master/LICENSE
+version: "12.1.2"
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/cli
+- markdown
+- atlassian
+- confluence
+homepage: https://github.com/kovetskiy/mark
+repository: https://github.com/kovetskiy/mark
+description: Sync your markdown files with Confluence pages
+renovate:
+  datasource: github-releases
+  package: kovetskiy/mark
+  priority: low
