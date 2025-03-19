@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: goskyr
+license:
+  name: GPLv3
+  link: https://github.com/jakopako/goskyr/blob/main/LICENSE
+version: "0.5.44"
+check: ${binary} -v | tr -d v
+build_dependencies:
+- go
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/cli
+- web
+- scraper
+homepage: https://github.com/jakopako/goskyr
+repository: https://github.com/jakopako/goskyr
+description: Configurable command-line web scraper with auto configuration capability
+renovate:
+  datasource: github-releases
+  package: jakopako/goskyr
+  extractVersion: ^v(?<version>.+)$
+  priority: low
