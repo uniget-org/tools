@@ -79,12 +79,12 @@ jobs:
         done
         case "${MERGEABLE_STATE}" in
             blocked)
-                echo "PR ${PR} is blocked and can not be merged"
+                echo "PR ${PR} is blocked and cannot be merged"
                 curl --silent --show-error --fail \
                     --request POST \
                     --header "Authorization: Bearer ${GITHUB_TOKEN}" \
                     --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/${PR}/comments" \
-                    --data '{"body": "PR is blocked and can not be merged. See '"${RUN_URL}"'."}'
+                    --data '{"body": "PR is blocked and cannot be merged. See '"${RUN_URL}"'."}'
                 echo "Aborting workflow"
                 exit 1
                 ;;
@@ -96,13 +96,21 @@ jobs:
                     --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/${PR}/comments" \
                     --data '{"body": "PR is clean and can be merged. See '"${RUN_URL}"'."}'
                 ;;
+            unstable)
+                echo "PR ${PR} is unstable and cannot be merged"
+                curl --silent --show-error --fail \
+                    --request POST \
+                    --header "Authorization: Bearer ${GITHUB_TOKEN}" \
+                    --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/${PR}/comments" \
+                    --data '{"body": "PR is unstable and cannot be merged. See '"${RUN_URL}"'."}'
+                ;;
             *)
                 echo "ERROR: Unknown mergeable_state ${MERGEABLE_STATE} for PR ${PR}"
                 curl --silent --show-error --fail \
                     --request POST \
                     --header "Authorization: Bearer ${GITHUB_TOKEN}" \
                     --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/${PR}/comments" \
-                    --data '{"body": "PR has unknown mergeable_state ('"${MERGEABLE_STATE}"') and can not be merged. See '"${RUN_URL}"'."}'
+                    --data '{"body": "PR has unknown mergeable_state ('"${MERGEABLE_STATE}"') and cannot be merged. See '"${RUN_URL}"'."}'
                 echo "Aborting workflow"
                 exit 1
                 ;;
