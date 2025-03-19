@@ -55,10 +55,8 @@ jobs:
             | xargs echo
         )"
         if test -n "${REVIEW_ID}"; then
-            echo "PR ${PR} is already approved (ID ${REVIEW_ID}). Canceling"
-            curl --silent --show-error --fail --header "Authorization: token ${GITHUB_TOKEN}" \
-                --request POST \
-                --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}/cancel"
+            echo "PR ${PR} is already approved (ID ${REVIEW_ID}). Aborting."
+            exit
         fi
 
         echo "Approving PR ${PR}"
