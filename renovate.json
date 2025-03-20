@@ -1977,6 +1977,18 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "gitlab-releases",
+      "depNameTemplate": "uniget-org/renovate-custom",
+      "extractVersionTemplate": "^docker-ai/(?<version>.+)$",
+      "fileMatch": [
+        "^tools/docker-ai/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "docker/base-cli-plugin",
       "extractVersionTemplate": "^v(?<version>.+)$",
@@ -2101,6 +2113,18 @@
       "extractVersionTemplate": "^docker-desktop/(?<version>.+)$",
       "fileMatch": [
         "^tools/docker-desktop/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "gitlab-releases",
+      "depNameTemplate": "uniget-org/renovate-custom",
+      "extractVersionTemplate": "^docker-dev/(?<version>.+)$",
+      "fileMatch": [
+        "^tools/docker-dev/manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"

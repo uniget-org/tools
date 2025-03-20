@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: docker-ai
+version: "0.9.4"
+binary: "false"
+check: ${binary} ai --version | tr -d v
+platforms:
+- linux/amd64
+tags:
+- org/docker
+- category/development
+- lang/go
+- type/cli
+- standard/docker
+- docker
+homepage: https://docs.docker.com/desktop/
+repository: https://docs.docker.com/desktop/
+description: Docker AI Agent - Ask Gordon
+message:
+  update: |
+    This package only installs a script called install-docker-ai.sh that you
+    can use to install the docker-ai plugin.
+
+    You must honor the licensing terms of Docker Desktop even when running the
+    bundled CLI tools.
+renovate:
+  datasource: gitlab-releases
+  package: uniget-org/renovate-custom
+  extractVersion: ^docker-ai/(?<version>.+)$
+  priority: low
+license:
+  name: Docker Subscription Service Agreement
+  link: https://www.docker.com/legal/docker-subscription-service-agreement/
