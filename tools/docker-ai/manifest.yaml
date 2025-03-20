@@ -3,7 +3,7 @@ $schema: https://tools.uniget.dev/schema.yaml
 name: docker-ai
 version: "0.9.4-4.39.0"
 binary: "false"
-check: ${binary} ai --version | tr -d v
+check: ${binary} ai version | tr -d v
 platforms:
 - linux/amd64
 tags:
