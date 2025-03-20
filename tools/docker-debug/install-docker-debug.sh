@@ -6,7 +6,7 @@ target="${1:-/usr/local}"
 echo "Using Docker Desktop version ${docker_desktop_version}"
 docker_desktop_build="$(
     curl --silent --show-error --location --fail "https://github.com/docker/docs/raw/main/content/manuals/desktop/release-notes.md" \
-    | grep -P "{{< desktop-install all=true " \
+    | grep -P "{{< desktop-install-v2 all=true " \
     | grep -P " version=\"${docker_desktop_version}\" " \
     | sed -E 's|^.+build_path="/([0-9]+)/".+$|\1|'
 )"
@@ -19,9 +19,9 @@ echo "Using Docker Desktop version ${docker_desktop_version} build ${docker_desk
 TEMP_DIR="$(mktemp -d)"
 trap "rm -rf ${TEMP_DIR}" EXIT
 
-curl --location --fail --output "${TEMP_DIR}/docker-desktop-${docker_desktop_version}-amd64.deb" "https://desktop.docker.com/linux/main/amd64/${docker_desktop_build}/docker-desktop-${docker_desktop_version}-amd64.deb"
-ar -x "${TEMP_DIR}/docker-desktop-${docker_desktop_version}-amd64.deb" data.tar.xz --output "${TEMP_DIR}"
-rm "${TEMP_DIR}/docker-desktop-${docker_desktop_version}-amd64.deb"
+curl --location --fail --output "${TEMP_DIR}/docker-desktop-amd64.deb" "https://desktop.docker.com/linux/main/amd64/${docker_desktop_build}/docker-desktop-amd64.deb"
+ar -x "${TEMP_DIR}/docker-desktop-amd64.deb" data.tar.xz --output "${TEMP_DIR}"
+rm "${TEMP_DIR}/docker-desktop-amd64.deb"
 
 echo "Extracting to ${target}/libexec/docker/cli-plugins"
 mkdir -p "${target}/libexec/docker/cli-plugins"
