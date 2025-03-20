@@ -9,18 +9,9 @@ ARG name
 ARG version
 COPY --chmod=0755 install-docker-dev.sh "/uniget_bootstrap/bin/"
 RUN <<EOF
-BODY="$(
-    curl --silent --show-error --location --fail \
-        "https://api.github.com/repos/uniget-org/renovate-custom/releases/tags/docker-dev%2F${version}" \
-    | jq --raw-output '.body'
+DOCKER_DESKTOP_VERSION="$(
+    echo "${version}" \
+    | cut -d- -f2
 )"
-if test -z "${BODY}"; then
-    echo "No release found for docker-dev/${version}" >&2
-    exit 1
-fi
-DD_VERSION="$(
-    echo "${BODY}" \
-    | cut -d@ -f2
-)"
-sed -i "s/docker_desktop_version:=DD_VERSION/docker_desktop_version:=${DD_VERSION}/" "/uniget_bootstrap/bin/install-docker-dev.sh"
+sed -i "s/docker_desktop_version:=DD_VERSION/docker_desktop_version:=${DOCKER_DESKTOP_VERSION}/" "/uniget_bootstrap/bin/install-docker-dev.sh"
 EOF
