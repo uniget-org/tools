@@ -8573,6 +8573,17 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "SkriptLang/Skript",
+      "fileMatch": [
+        "^tools/skript/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "maaslalani/slides",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
