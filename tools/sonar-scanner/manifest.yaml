@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: sonar-scanner
-version: "7.0.2.4839"
+version: "7.1.0.4889"
 check: ${binary} --version | grep SonarScanner | cut -d' ' -f3
 runtime_dependencies:
 - openjdk-jre
