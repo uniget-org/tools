@@ -4,7 +4,7 @@ name: libjansson
 license:
   name: MIT License
   link: https://github.com/akheron/jansson#License-1-ov-file
-version: "2.14"
+version: "2.14.1"
 check: grep ^Version "${target}/lib/pkgconfig/jansson.pc" | cut -d' ' -f2
 platforms:
 - linux/amd64
