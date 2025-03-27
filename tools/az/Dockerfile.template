@@ -22,4 +22,5 @@ sed "s|#\!${prefix}|#\!{{ .Target }}|" "${prefix}/libexec/pipx/venvs/azure-cli/b
 >"${prefix}/libexec/pipx/venvs/azure-cli/bin/az.go-template"
 chmod --reference="${prefix}/libexec/pipx/venvs/azure-cli/bin/az" "${prefix}/libexec/pipx/venvs/azure-cli/bin/az.go-template"
 rm "${prefix}/libexec/pipx/venvs/azure-cli/bin/az"
+ln --verbose --symbolic --relative --force "${prefix}/bin/python3" "${prefix}/libexec/pipx/venvs/azure-cli/bin/python3.12"
 EOF
