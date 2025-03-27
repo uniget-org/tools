@@ -15,8 +15,11 @@ ARG version
 RUN --mount=type=cache,target=/root/.cache/pip <<EOF
 export PIPX_HOME="${prefix}/libexec/pipx"
 pipx install "azure-cli==${version}"
+EOF
+RUN <<EOF
 ln --symbolic --relative --force "${prefix}/libexec/pipx/venvs/azure-cli/bin/az" "${prefix}/bin/az"
 sed "s|#\!${prefix}|#\!{{ .Target }}|" "${prefix}/libexec/pipx/venvs/azure-cli/bin/az" \
 >"${prefix}/libexec/pipx/venvs/azure-cli/bin/az.go-template"
+chmod --reference="${prefix}/libexec/pipx/venvs/azure-cli/bin/az" "${prefix}/libexec/pipx/venvs/azure-cli/bin/az.go-template"
 rm "${prefix}/libexec/pipx/venvs/azure-cli/bin/az"
 EOF
