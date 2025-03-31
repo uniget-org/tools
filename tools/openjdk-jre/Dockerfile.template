@@ -36,7 +36,7 @@ echo "    URL encoded version: ${version_url_encoded}"
 version_filename="$(echo "${real_version}" | sed 's/+/_/g')"
 echo "    Filename version: ${version_filename}"
 
-url="https://github.com/adoptium/temurin23-binaries/releases/download/jdk-${version_url_encoded}/OpenJDK${MAJOR_VERSION}U-jre_${arch_suffix}_linux_hotspot_${version_filename}.tar.gz"
+url="https://github.com/adoptium/temurin${MAJOR_VERSION}-binaries/releases/download/jdk-${version_url_encoded}/OpenJDK${MAJOR_VERSION}U-jre_${arch_suffix}_linux_hotspot_${version_filename}.tar.gz"
 filename="$(basename "${url}")"
 
 check-github-release-asset "adoptium/temurin${MAJOR_VERSION}-binaries" "jdk-${real_version}" "${filename}"
