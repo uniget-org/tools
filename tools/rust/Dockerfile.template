@@ -44,7 +44,7 @@ cp \
     "${prefix}/share/zsh/vendor-completions/"
 EOF
 RUN <<EOF
-find "${prefix}/cargo/bin" -type f -executable \
+find "${prefix}/cargo/bin" -type f,l -executable \
 | while read -r FILE; do
     ln --symbolic --relative --force "${prefix}/cargo/bin/$(basename "${FILE}")" "${prefix}/bin/"
 done
