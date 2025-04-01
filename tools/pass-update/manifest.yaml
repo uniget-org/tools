@@ -11,6 +11,7 @@ tags:
 - password
 - management
 - standard/pass
+- state/stale
 homepage: https://www.passwordstore.org
 repository: https://github.com/roddhjav/pass-update
 description: Pass extension that provides an easy flow for updating passwords

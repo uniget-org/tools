@@ -9,6 +9,7 @@ tags:
 - management
 - lang/go
 - state/onemanshow
+- state/stale
 homepage: https://github.com/Trendyol/kink
 repository: https://github.com/Trendyol/kink
 description: CLI to manage KinD clusters as Kubernetes pods

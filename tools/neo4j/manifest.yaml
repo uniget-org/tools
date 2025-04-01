@@ -10,6 +10,7 @@ tags:
 - category/development
 - lang/java
 - type/daemon
+- state/stale
 homepage: http://neo4j.com
 repository: https://github.com/neo4j/neo4j
 description: Graphs for Everyone

@@ -11,6 +11,7 @@ tags:
 - emulation
 - lang/go
 - k8s
+- state/stale
 homepage: https://github.com/innobead/kubefire
 repository: https://github.com/innobead/kubefire
 description: Creates and manages Kubernetes Clusters using Firecracker microVMs

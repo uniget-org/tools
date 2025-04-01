@@ -14,6 +14,7 @@ tags:
 - lang/java
 - type/cli
 - standard/xml
+- state/stale
 homepage: https://eclipse-ee4j.github.io/jaxb-ri/
 repository: https://github.com/eclipse-ee4j/jaxb-ri
 description: Jakarta XML Binding - an efficient and standard way of mapping between XML and Java code

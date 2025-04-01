@@ -171,6 +171,8 @@ for NAME in ${all_tools}; do
             yq 'del( .tags[] | select(. == "state/deprecated") )' "tools/${NAME}/manifest.yaml" --inplace
         fi
 
+        sed -i -E 's/^  -/-/' "tools/${NAME}/manifest.yaml"
+
     elif jq --exit-status 'select(.renovate.datasource == "github-tags")' <<<"${tool_json[${NAME}]}" >/dev/null; then
         repo="$(
             jq --raw-output '.renovate.package' <<<"${tool_json[${NAME}]}"

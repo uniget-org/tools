@@ -14,7 +14,6 @@ tags:
 - category/development
 - lang/c
 - type/library
-- state/stale
 homepage: http://www.digip.org/jansson/
 repository: https://github.com/akheron/jansson
 description: C library for encoding, decoding and manipulating JSON data

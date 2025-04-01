@@ -9,6 +9,7 @@ tags:
 - org/docker
 - type/cli
 - lang/go
+- state/stale
 homepage: https://github.com/docker/hub-tool
 repository: https://github.com/docker/hub-tool
 description: Docker Hub experimental CLI tool

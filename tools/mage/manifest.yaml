@@ -10,6 +10,7 @@ tags:
 - lang/go
 - type/cli
 - make
+- state/stale
 homepage: https://magefile.org
 repository: https://github.com/magefile/mage
 description: Make/rake-like dev tool using Go

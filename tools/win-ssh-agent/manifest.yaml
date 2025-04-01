@@ -10,7 +10,6 @@ tags:
 - wsl
 - lang/go
 - ssh
-- state/stale
 homepage: https://github.com/rupor-github/wsl-ssh-agent
 repository: https://github.com/rupor-github/wsl-ssh-agent
 description: Helper to interface with Windows ssh-agent.exe service from Windows Subsystem for Linux (WSL)

@@ -20,7 +20,6 @@ tags:
 - multiverse
 - papermc
 - paper
-- state/stale
 homepage: https://github.com/Multiverse/Multiverse-NetherPortals
 repository: https://github.com/Multiverse/Multiverse-NetherPortals
 description: Make nether and end portals work in Multiverse

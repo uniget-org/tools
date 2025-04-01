@@ -16,6 +16,7 @@ tags:
 - category/development
 - lang/go
 - type/cli
+- state/stale
 homepage: https://github.com/saschagrunert/go-modiff
 repository: https://github.com/saschagrunert/go-modiff
 description: Command line tool for diffing go module dependency changes between versions

@@ -10,6 +10,7 @@ tags:
 - wsl
 - lang/shell
 - category/terminal
+- state/deprecated
 homepage: https://wslutiliti.es/wslu
 repository: https://github.com/wslutilities/wslu
 description: Collection of utilities for Windows Subsystem for Linux

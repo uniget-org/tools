@@ -15,6 +15,7 @@ tags:
 - category/development
 - lang/javascript
 - type/cli
+- state/stale
 homepage: https://github.com/get-alex/alex
 repository: https://github.com/get-alex/alex
 description: Catch insensitive, inconsiderate writing

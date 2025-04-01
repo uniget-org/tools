@@ -16,6 +16,7 @@ tags:
 - category/development
 - lang/python
 - type/cli
+- state/stale
 homepage: https://www.textualize.io/
 repository: https://github.com/Textualize/toolong
 description: Terminal application to view, tail, merge, and search log files (plus JSONL)
