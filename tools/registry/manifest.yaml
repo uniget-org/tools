@@ -11,6 +11,7 @@ tags:
 - container/registry
 - type/daemon
 - lang/go
+- cncf/sandbox
 homepage: https://distribution.github.io/distribution
 repository: https://github.com/distribution/distribution
 description: Toolkit to pack, ship, store, and deliver container content

@@ -11,6 +11,7 @@ tags:
 - category/operations
 - lang/go
 - type/daemon
+- cncf/incubating
 homepage: https://d7y.io
 repository: https://github.com/dragonflyoss/dragonfly
 description: Open source P2P-based file distribution and image acceleration system

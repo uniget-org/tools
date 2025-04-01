@@ -10,6 +10,7 @@ tags:
 - category/development
 - lang/go
 - type/cli
+- cncf/sandbox
 homepage: https://ko.build
 repository: https://github.com/ko-build/ko
 description: Build and deploy Go applications

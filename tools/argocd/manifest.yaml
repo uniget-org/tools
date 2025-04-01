@@ -10,6 +10,7 @@ tags:
 - kubernetes
 - k8s
 - gitops
+- cncf/graduated
 homepage: https://argo-cd.readthedocs.io
 repository: https://github.com/argoproj/argo-cd
 description: Declarative continuous deployment for Kubernetes

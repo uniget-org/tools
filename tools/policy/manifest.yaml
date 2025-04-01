@@ -10,6 +10,7 @@ tags:
 - category/operations
 - lang/go
 - type/cli
+- cncf/sandbox
 homepage: https://www.openpolicycontainers.com
 repository: https://github.com/opcr-io/policy
 description: CLI for building OPA policies into OCI images

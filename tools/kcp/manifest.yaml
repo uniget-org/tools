@@ -9,6 +9,7 @@ tags:
 - kubernetes
 - k8s
 - lang/go
+- cncf/sandbox
 homepage: https://kcp.io
 repository: https://github.com/kcp-dev/kcp
 description: Prototype of a multi-tenant Kubernetes control plane

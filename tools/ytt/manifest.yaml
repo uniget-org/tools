@@ -15,6 +15,7 @@ tags:
 - management
 - lang/go
 - format/yaml
+- cncf/sandbox
 homepage: https://carvel.dev/ytt
 repository: https://github.com/carvel-dev/ytt
 description: YAML templating tool that works on YAML structure instead of text

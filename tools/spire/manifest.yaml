@@ -11,6 +11,7 @@ tags:
 - category/security
 - lang/go
 - standard/spiffe
+- cncf/graduated
 homepage: https://spiffe.io
 repository: https://github.com/spiffe/spire
 description: SPIFFE Runtime Environment

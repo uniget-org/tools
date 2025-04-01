@@ -13,6 +13,7 @@ tags:
 - type/cli
 - standard/oci
 - container/image
+- cncf/sandbox
 homepage: https://project-copacetic.github.io/copacetic/
 repository: https://github.com/project-copacetic/copacetic
 description: CLI tool for directly patching container images using reports from vulnerability scanners

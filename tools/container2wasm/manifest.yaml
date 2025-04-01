@@ -11,6 +11,7 @@ tags:
 - category/operations
 - lang/c
 - type/cli
+- cncf/sandbox
 homepage: https://ktock.github.io/container2wasm-demo/
 repository: https://github.com/container2wasm/container2wasm
 description: Container to WASM converter

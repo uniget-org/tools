@@ -15,6 +15,7 @@ tags:
 - lang/rust
 - standard/docker
 - docker
+- cncf/sandbox
 homepage: https://youki-dev.github.io/youki/
 repository: https://github.com/youki-dev/youki
 description: Container runtime written in rust

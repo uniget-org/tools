@@ -14,6 +14,7 @@ tags:
 - kubernetes
 - k8s
 - lang/go
+- cncf/graduated
 homepage: https://kubernetes.io
 repository: https://github.com/kubernetes/kubernetes
 description: Kubernetes proxy

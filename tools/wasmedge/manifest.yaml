@@ -11,6 +11,7 @@ tags:
 - type/cli
 - webassembly
 - wasm
+- cncf/sandbox
 homepage: https://WasmEdge.org
 repository: https://github.com/WasmEdge/WasmEdge
 description: Lightweight, high-performance, and extensible WebAssembly runtime

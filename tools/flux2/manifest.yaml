@@ -13,6 +13,7 @@ tags:
 - kubernetes
 - k8s
 - cicd
+- cncf/graduated
 homepage: https://fluxcd.io
 repository: https://github.com/fluxcd/flux2
 description: Open and extensible continuous delivery solution for Kubernetes

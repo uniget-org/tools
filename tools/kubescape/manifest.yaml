@@ -10,6 +10,7 @@ tags:
 - kubernetes
 - k8s
 - lang/go
+- cncf/incubating
 homepage: https://kubescape.io
 repository: https://github.com/kubescape/kubescape
 description: Risk analysis, security compliance, RBAC visualizer and image vulnerabilities scanning

@@ -12,6 +12,7 @@ tags:
 - kubernetes
 - k8s
 - state/stale
+- cncf/sandbox
 homepage: http://sealer.cool
 repository: https://github.com/sealerio/sealer
 description: Build, Share and Run Both Your Kubernetes Cluster and Distributed Applications

@@ -8,6 +8,7 @@ tags:
 - container/image
 - type/daemon
 - lang/go
+- cncf/sandbox
 homepage: https://zotregistry.dev
 repository: https://github.com/project-zot/zot
 description: Production-ready vendor-neutral OCI image registry server purely based on OCI Distribution Specification

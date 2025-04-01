@@ -16,6 +16,7 @@ tags:
 - kubernetes
 - k8s
 - backup
+- cncf/sandbox
 homepage: https://k8up.io/
 repository: https://github.com/k8up-io/k8up
 description: Kubernetes and OpenShift Backup Operator

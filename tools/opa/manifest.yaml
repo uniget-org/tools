@@ -12,6 +12,7 @@ tags:
 - policy
 - management
 - standard/rego
+- cncf/graduated
 homepage: https://www.openpolicyagent.org
 repository: https://github.com/open-policy-agent/opa
 description: Open source, general-purpose policy engine

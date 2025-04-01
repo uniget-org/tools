@@ -16,6 +16,7 @@ tags:
 - ai
 - k8s
 - kubernetes
+- cncf/sandbox
 homepage: http://k8sgpt.ai/
 repository: https://github.com/k8sgpt-ai/k8sgpt
 description: Giving Kubernetes Superpowers to everyone

@@ -9,6 +9,7 @@ tags:
 - category/security
 - lang/c
 - type/cli
+- cncf/graduated
 homepage: https://falco.org
 repository: https://github.com/falcosecurity/falco
 description: Cloud Native Runtime Security

@@ -8,6 +8,7 @@ tags:
 - lang/go
 - cnab
 - category/operations
+- cncf/sandbox
 homepage: https://porter.sh
 repository: https://github.com/getporter/porter
 description: Package your application artifact, client tools, configuration and deployment logic

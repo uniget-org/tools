@@ -10,6 +10,7 @@ tags:
 - container/sign
 - lang/go
 - standard/oci
+- cncf/incubating
 homepage: https://notaryproject.dev/
 repository: https://github.com/notaryproject/notation
 description: Add signatures as standard items in the registry ecosystem

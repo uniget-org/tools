@@ -12,6 +12,7 @@ tags:
 - type/daemon
 - kubernetes
 - k8s
+- cncf/sandbox
 homepage: https://docs.k0sproject.io
 repository: https://github.com/k0sproject/k0s
 description: Zero Friction Kubernetes

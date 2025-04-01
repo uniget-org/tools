@@ -20,6 +20,7 @@ tags:
 - type/daemon
 - container/runtime
 - lang/go
+- cncf/graduated
 homepage: https://containerd.io
 repository: https://github.com/containerd/containerd
 description: Open and reliable container runtime

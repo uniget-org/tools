@@ -10,6 +10,7 @@ tags:
 - category/operations
 - lang/go
 - type/cli
+- cncf/sandbox
 homepage: https://kube-burner.github.io/kube-burner/
 repository: https://github.com/kube-burner/kube-burner
 description: Kubernetes performance and scale test orchestration framework

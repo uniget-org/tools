@@ -11,6 +11,7 @@ tags:
 - type/cli
 - kubernetes
 - k8s
+- cncf/incubating
 homepage: https://artifacthub.io
 repository: https://github.com/artifacthub/hub
 description: Find, install and publish Kubernetes packages
