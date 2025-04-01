@@ -1,5 +1,5 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
-name: promtail-systremd
+name: promtail-systemd
 license:
   name: MIT License
   link: https://github.com/uniget-org/tools/blob/main/LICENSE
