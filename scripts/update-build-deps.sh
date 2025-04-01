@@ -6,7 +6,7 @@ grep -l "^FROM ghcr.io/uniget-org/tools/" tools/*/Dockerfile.template \
 | while read -r TOOL; do
     make tools/${TOOL}/manifest.json
     DEPS="$(
-        grep "^FROM ghcr.io/uniget-org/tools/" tools/${TOOL}/Dockerfile.template \
+        grep "^FROM registry.gitlab.com/uniget-org/tools/" tools/${TOOL}/Dockerfile.template \
         | cut -d' ' -f2 \
         | cut -d: -f1 \
         | cut -d/ -f4 \
