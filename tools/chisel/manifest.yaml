@@ -1,20 +1,25 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
 name: chisel
-version: "1.10.1"
-check: ${binary} | grep Version | tr -s ' ' | cut -d' ' -f3
+license:
+  name: AGPLv3
+  link: https://github.com/canonical/chisel/blob/main/LICENSE
+version: "1.1.0"
+check: ${binary} --version | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 tags:
-- type/cli
+- org/canonical
 - category/development
-- tunneling
 - lang/go
-homepage: https://github.com/jpillora/chisel
-repository: https://github.com/jpillora/chisel
-description: Fast TCP/UDP tunnel over HTTP
+- type/cli
+- distroless
+homepage: https://github.com/canonical/chisel
+repository: https://github.com/canonical/chisel
+description: Tool for carving and cutting Debian packages
 renovate:
   datasource: github-releases
-  package: jpillora/chisel
+  package: canonical/chisel
   extractVersion: ^v(?<version>.+)$
   priority: low
-license:
-  name: MIT License
-  link: https://github.com/jpillora/chisel/blob/master/LICENSE
