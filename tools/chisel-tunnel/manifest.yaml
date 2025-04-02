@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+name: chisel-tunnel
+version: "1.10.1"
+check: ${binary} | grep Version | tr -s ' ' | cut -d' ' -f3
+tags:
+- type/cli
+- category/development
+- tunneling
+- lang/go
+homepage: https://github.com/jpillora/chisel
+repository: https://github.com/jpillora/chisel
+description: Fast TCP/UDP tunnel over HTTP
+renovate:
+  datasource: github-releases
+  package: jpillora/chisel
+  extractVersion: ^v(?<version>.+)$
+  priority: low
+license:
+  name: MIT License
+  link: https://github.com/jpillora/chisel/blob/master/LICENSE

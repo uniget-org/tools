@@ -887,10 +887,22 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "jpillora/chisel",
+      "depNameTemplate": "canonical/chisel",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/chisel/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "jpillora/chisel",
+      "extractVersionTemplate": "^v(?<version>.+)$",
+      "fileMatch": [
+        "^tools/chisel-tunnel/manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
@@ -2897,7 +2909,7 @@
       "depNameTemplate": "dunglas/frankenphp",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
-        "^tools/frankphp/manifest.yaml$"
+        "^tools/frankenphp/manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
@@ -9774,7 +9786,7 @@
       "depNameTemplate": "uniget-org/renovate-custom",
       "extractVersionTemplate": "^velocity/(?<version>.+)$",
       "fileMatch": [
-        "^tools/valocity/manifest.yaml$"
+        "^tools/velocity/manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
