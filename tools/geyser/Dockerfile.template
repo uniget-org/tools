@@ -13,13 +13,21 @@ GEYSER_BUILD="$(echo "${version}" | cut -d. -f4)"
 
 url="https://download.geysermc.org/v2/projects/geyser/versions/${GEYSER_VERSION}/builds/${GEYSER_BUILD}/downloads/spigot"
 filename="geyser-spigot.jar"
-
 check-download "${url}"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
     "${url}"
-
 mkdir -p "${prefix}/opt/geyser"
 install --mode=0644 \
     "${uniget_cache_download}/${filename}" \
     "${prefix}/opt/geyser/geyser.jar"
+
+url="https://download.geysermc.org/v2/projects/geyser/versions/${GEYSER_VERSION}/builds/${GEYSER_BUILD}/downloads/standalone"
+filename="geyser-standalone.jar"
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+mkdir -p "${prefix}/opt/geyser"
+install --mode=0644 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/opt/geyser/geyser-standalone.jar"
 EOF
