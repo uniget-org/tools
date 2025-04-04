@@ -10457,6 +10457,17 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "yaml/yamlscript",
+      "fileMatch": [
+        "^tools/ys/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "carvel-dev/ytt",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
