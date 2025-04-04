@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: zetasql
+license:
+  name: Apache License 2.0
+  link: https://github.com/google/zetasql/blob/master/LICENSE
+version: "2025.03.1"
+check: ""
+build_dependencies:
+- bar
+runtime_dependencies:
+- baz
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/google
+- category/operations
+- lang/c
+- type/cli
+homepage: https://github.com/google/zetasql
+repository: https://github.com/google/zetasql
+description: Some descriptionAnalyzer Framework for SQL
+renovate:
+  datasource: github-releases
+  package: google/zetasql
+  versioning: loose
+  priority: low

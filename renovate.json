@@ -10493,6 +10493,18 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "google/zetasql",
+      "fileMatch": [
+        "^tools/zetasql/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ],
+      "versioningTemplate": "loose"
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "zitadel/zitadel",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
