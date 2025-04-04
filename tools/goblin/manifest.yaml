@@ -4,7 +4,7 @@ name: goblin
 license:
   name: MIT License
   link: https://github.com/barelyhuman/goblin/blob/dev/LICENSE
-version: "0.5.2"
+version: "0.5.4"
 binary: goblin-api
 check: "" # No version parameter
 platforms:
