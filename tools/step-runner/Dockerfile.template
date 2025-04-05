@@ -15,10 +15,11 @@ COPY --link --from=make / /usr/local/
 WORKDIR /go/src/gitlab.com/gitlab-org/step-runner
 ARG name
 ARG version
+ARG GOBIN=/usr/local/bin
 RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
 check-clone "https://gitlab.com/gitlab-org/step-runner" "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://gitlab.com/gitlab-org/step-runner .
-make
+make build
 cp "out/bin/step-runner-linux-${alt_arch}" "${prefix}/bin/step-runner"
 EOF
 RUN <<EOF
