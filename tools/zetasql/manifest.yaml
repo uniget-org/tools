@@ -5,14 +5,10 @@ license:
   name: Apache License 2.0
   link: https://github.com/google/zetasql/blob/master/LICENSE
 version: "2025.03.1"
-check: ""
-build_dependencies:
-- bar
-runtime_dependencies:
-- baz
+binary: execute_query
+check: "" # No version parameter
 platforms:
 - linux/amd64
-- linux/arm64
 tags:
 - org/google
 - category/operations
