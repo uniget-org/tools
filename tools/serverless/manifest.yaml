@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: serverless
-version: "4.11.1"
+version: "4.12.0"
 check: ${binary} --version | grep ^Framework | cut -d' ' -f3
 build_dependencies:
 - nodejs
