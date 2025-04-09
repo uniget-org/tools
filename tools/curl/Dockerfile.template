@@ -18,7 +18,6 @@ apk add --update-cache \
     libpsl-dev \
     libpsl-static \
     c-ares-dev \
-    c-ares-static \
     curl \
     ca-certificates \
     bash \
