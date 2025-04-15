@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: dnsproxy
+license:
+  name: Apache License 2.0
+  link: https://github.com/AdguardTeam/dnsproxy/blob/master/LICENSE
+version: "0.75.2"
+check: ${binary} --version | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/go
+- type/daemon
+homepage: https://github.com/AdguardTeam/dnsproxy
+repository: https://github.com/AdguardTeam/dnsproxy
+description: Simple DNS proxy with DoH, DoT, DoQ and DNSCrypt support
+renovate:
+  datasource: github-releases
+  package: AdguardTeam/dnsproxy
+  priority: low
