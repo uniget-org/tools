@@ -1,0 +1,22 @@
+#syntax=docker/dockerfile:1.14.0@sha256:4c68376a702446fc3c79af22de146a148bc3367e73c25a5803d453b6b3f722fb
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/lrstanley/vault-unseal/releases/download/v${version}/vault-unseal_linux_${alt_arch}"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "lrstanley/vault-unseal" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/vault-unseal"
+EOF
+COPY vault-unseal.service.go-template /uniget_bootstrap/etc/systemd/system/
