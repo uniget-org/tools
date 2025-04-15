@@ -1966,6 +1966,17 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "AdguardTeam/dnsproxy",
+      "fileMatch": [
+        "^tools/dnsproxy/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "projectdiscovery/dnsx",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
