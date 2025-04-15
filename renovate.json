@@ -3060,6 +3060,17 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "gefyrahq/gefyra",
+      "fileMatch": [
+        "^tools/gefyra/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "vercel/geist-font",
       "fileMatch": [
         "^tools/geist-font/manifest.yaml$"

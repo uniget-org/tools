@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: gefyra
+license:
+  name: Apache License 2.0
+  link: https://github.com/gefyrahq/gefyra/blob/main/LICENSE
+version: "2.3.1"
+check: ${binary} version | cut -d' ' -f4
+platforms:
+- linux/amd64
+tags:
+- category/development
+- lang/python
+- type/cli
+homepage: https://gefyra.dev
+repository: https://github.com/gefyrahq/gefyra
+description: Blazingly-fast 🚀, rock-solid, local application development ➡️ with Kubernetes
+renovate:
+  datasource: github-releases
+  package: gefyrahq/gefyra
+  priority: low
