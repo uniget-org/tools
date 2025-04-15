@@ -1,0 +1,24 @@
+[Unit]
+Description=Vault unsealing utility
+Documentation=https://github.com/lrstanley/vault-unseal
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=root
+Group=root
+ExecStart={{ .Target }}/vault-unseal --config /etc/vault-unseal.yaml
+Restart=always
+RestartSec=10
+StartLimitInterval=0
+TimeoutStopSec=10s
+KillMode=mixed
+KillSignal=SIGQUIT
+
+PrivateDevices=true
+ProtectHome=true
+ProtectSystem=full
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
