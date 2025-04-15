@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: mirrord
+license:
+  name: MIT License
+  link: https://github.com/metalbear-co/mirrord/blob/main/LICENSE
+version: "3.137.0"
+check: ${binary} --version |cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/rust
+- type/cli
+homepage: https://mirrord.dev/
+repository: https://github.com/metalbear-co/mirrord
+description: Connect your local process and your cloud environment, and run local code in cloud conditions
+renovate:
+  datasource: github-releases
+  package: metalbear-co/mirrord
+  priority: low
