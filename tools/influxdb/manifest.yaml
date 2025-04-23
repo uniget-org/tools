@@ -2,7 +2,9 @@
 name: influxdb
 version: "3.0.1"
 binary: influxd
-check: ${binary} version | cut -d' ' -f2 | tr -d v
+check: ${binary} --version | cut -d' ' -f2 | tr -d ,
+runtime_dependencies:
+- python
 tags:
 - org/influxdata
 - observability/metrics
