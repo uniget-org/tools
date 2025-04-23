@@ -1,14 +1,18 @@
 #syntax=docker/dockerfile:1.15.0@sha256:05e0ad437efefcf144bfbf9d7f728c17818408e6d01432d9e264ef958bbd52f3
 
+FROM ghcr.io/uniget-org/tools/python:main AS python
+
 FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
+COPY --from=python / /usr/local/
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://dl.influxdata.com/influxdb/releases/influxdb2-${version}_linux_${alt_arch}.tar.gz"
+MAJOR_VERSION="$(echo "${version}" | cut -d. -f1)"
+url="https://dl.influxdata.com/influxdb/releases/influxdb${MAJOR_VERSION}-core-${version}_linux_${alt_arch}.tar.gz"
 filename="$( basename "${url}" )"
 
 check-download "${url}"
@@ -16,6 +20,6 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
     "${url}"
 
 tar --file="${uniget_cache_download}/${filename}" --list
-tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin/" --strip-components=3 --no-same-owner \
-    "influxdb2-${version}/usr/bin/influxd"
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
+    "influxdb${MAJOR_VERSION}-core-${version}/influxdb${MAJOR_VERSION}"
 EOF
