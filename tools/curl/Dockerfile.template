@@ -9,7 +9,7 @@ ENV CC=clang
 RUN --mount=type=cache,target=/var/cache/apk <<EOF
 apk add --update-cache \
     clang \
-    gnutls-dev \
+    wolfssl-dev \
     nghttp2-dev \
     nghttp3-dev \
     ngtcp2-dev \
@@ -38,6 +38,7 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
 
 tar --file="${uniget_cache_download}/${filename}" --list
 tar --file="${uniget_cache_download}/${filename}" --extract --gzip --strip-components=1
+CC=clang \
 LDFLAGS="-static" \
 PKG_CONFIG="pkg-config --static" \
     ./configure \
@@ -45,18 +46,17 @@ PKG_CONFIG="pkg-config --static" \
         --with-zsh-functions-dir="${prefix}/share/zsh/vendor-completions" \
         --with-fish-functions-dir="${prefix}/share/fish/vendor_completions.d" \
         --enable-static \
-        --enable-shared \
-		--enable-ares \
+        --enable-ares \
         --enable-ipv6 \
         --enable-unix-sockets \
         --disable-ldap \
-		--with-libidn2 \
-		--with-nghttp2 \
+        --with-libidn2 \
+        --with-nghttp2 \
         --with-ngtcp2 \
         --with-nghttp3 \
-        --with-gnutls \
+        --with-wolfssl \
         --with-libssh2 \
-		--with-pic \
+        --with-pic \
         --without-libpsl \
         --enable-websockets \
         --with-brotli \
