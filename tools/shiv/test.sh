@@ -23,7 +23,7 @@ if ! docker run \
     --cgroupns=host \
     --volume /sys/fs/cgroup:/sys/fs/cgroup:rw \
     --pull always \
-    ghcr.io/uniget-org/cli:latest \
+    registry.gitlab.com/uniget-org/cli:latest \
         sleep infinity
 then
     echo "### Failed to create container"
