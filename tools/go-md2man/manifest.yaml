@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: go-md2man
-version: "2.0.6"
+version: "2.0.7"
 check: "" # No version parameter
 build_dependencies:
 - go
