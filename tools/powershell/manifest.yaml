@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: powershell
-version: "7.5.0"
+version: "7.5.1"
 binary: pwsh
 check: ${binary} -Version | cut -d' ' -f2
 runtime_dependencies:
