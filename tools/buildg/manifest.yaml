@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: buildg
-version: "0.4.1"
+version: "0.5.2"
 check: ${binary} version | cut -d' ' -f2 | tr -d v
 runtime_dependencies:
 - runc
