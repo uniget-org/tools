@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: patat
-version: "0.15.0.0"
+version: "0.15.1.0"
 check: ${binary} --version | head -n 1
 tags:
 - type/cli
