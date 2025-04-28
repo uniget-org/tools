@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: task
-version: "3.43.2"
+version: "3.43.3"
 check: ${binary} --version | cut -d' ' -f3 | tr -d v
 tags:
 - category/development
