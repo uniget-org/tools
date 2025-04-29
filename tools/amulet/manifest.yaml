@@ -4,7 +4,7 @@ name: amulet
 license:
   name: Unknown
   link: ""
-version: "0.10.41"
+version: "0.10.42"
 check: ""
 build_dependencies:
 - python-3.12
