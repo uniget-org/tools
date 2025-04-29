@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: oras
-version: "1.2.2"
+version: "1.2.3"
 check: ${binary} version | head -n 1 | tr -s ' ' | cut -d' ' -f2
 platforms:
 - linux/amd64
