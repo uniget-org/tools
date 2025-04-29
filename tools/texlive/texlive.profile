@@ -1,11 +1,11 @@
 selected_scheme scheme-basic
-TEXDIR /uniget_bootstrap/opt/texlive/2024
-TEXMFCONFIG ~/.texlive2024/texmf-config
+TEXDIR /uniget_bootstrap/opt/texlive
+TEXMFCONFIG ~/.texlive/texmf-config
 TEXMFHOME ~/texmf
 TEXMFLOCAL /uniget_bootstrap/opt/texlive/texmf-local
-TEXMFSYSCONFIG /uniget_bootstrap/opt/texlive/2024/texmf-config
-TEXMFSYSVAR /uniget_bootstrap/opt/texlive/2024/texmf-var
-TEXMFVAR ~/.texlive2024/texmf-var
+TEXMFSYSCONFIG /uniget_bootstrap/opt/texlive/texmf-config
+TEXMFSYSVAR /uniget_bootstrap/opt/texlive/texmf-var
+TEXMFVAR ~/.texlive/texmf-var
 binary_x86_64-linux 1
 instopt_adjustpath 1
 instopt_adjustrepo 1
