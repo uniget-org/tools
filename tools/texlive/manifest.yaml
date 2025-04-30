@@ -5,7 +5,7 @@ license:
   name: Custom
   link: https://www.tug.org/texlive/copying.html
 version: "2025"
-binary: tex
+binary: "false"
 check: ${binary} --version | grep "TeX Live" | cut -d' ' -f5 | tr -d ')'
 platforms:
 - linux/amd64
