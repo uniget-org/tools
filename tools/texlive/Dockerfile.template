@@ -23,3 +23,12 @@ EOF
 RUN <<EOF
 perl install-tl --profile=texlive.profile #--repository=https://texlive.info/historic/systems/texlive/${version}/tlnet-final/
 EOF
+RUN <<EOF
+find "${prefix}${target}/opt/texlive/bin/${arch}-linux" -type f -executable \
+| xargs -n 1 basename \
+| while read -r BINARY; do
+    ln --symbolic --relative --force \
+        "${prefix}${target}/opt/texlive/bin/${arch}-linux/${BINARY}" \
+        "${prefix}${target}/bin/${BINARY}"
+done
+EOF
