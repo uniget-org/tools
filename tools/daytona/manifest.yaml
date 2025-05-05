@@ -2,7 +2,7 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: daytona
 version: "0.100.0"
-check: ${binary} version | cut -d' ' -f3 | tr -d v
+check: ${binary} --version | cut -d' ' -f4 | tr -d v
 platforms:
 - linux/amd64
 - linux/arm64

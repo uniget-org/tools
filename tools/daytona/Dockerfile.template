@@ -1,5 +1,7 @@
 #syntax=docker/dockerfile:1.15.0@sha256:05e0ad437efefcf144bfbf9d7f728c17818408e6d01432d9e264ef958bbd52f3
 
+FROM ghcr.io/uniget-org/tools/go:latest AS go
+
 FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
@@ -7,15 +9,25 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://download.daytona.io/cli/${version}/daytona-linux-${alt_arch}"
-filename="$( basename "${url}" )"
-
-check-download "${url}"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
-    "${url}"
-
-install --mode=0755 \
-    "${uniget_cache_download}/${filename}" \
-    "${prefix}/bin/daytona"
+COPY --link --from=go / /usr/local/
+WORKDIR /go/src/github.com/daytonaio/daytona
+ARG name
+ARG version
+RUN <<EOF
+check-clone "https://github.com/daytonaio/daytona" "v${version}"
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/daytonaio/daytona .
+EOF
+RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
+go build \
+    -ldflags "-X github.com/daytonaio/daytona-ai-saas/cli/internal.Version=v${version}" \
+    -o "${prefix}/bin/daytona" \
+    ./apps/cli/
+#go build \
+#    -ldflags "-X github.com/daytonaio/daytona-ai-saas/cli/internal.Version=v${version}" \
+#    -o "${prefix}/bin/daytonad" \
+#    ./apps/daemon/cmd/daemon/
+#go build \
+#    -ldflags "-X github.com/daytonaio/daytona-ai-saas/cli/internal.Version=v${version}" \
+#    -o "${prefix}/bin/daytona-runner" \
+#    ./apps/runner/cmd/runner/
 EOF
