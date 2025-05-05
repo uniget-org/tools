@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: passt
-version: "2025_04_15.2340bbf"
+version: "2025_05_03.587980c"
 check: ${binary} --version | grep passt | cut -d' ' -f2
 build_dependencies:
 - make
