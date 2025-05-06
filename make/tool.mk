@@ -66,12 +66,35 @@ $(addsuffix /manifest.json,$(ALL_TOOLS)):$(TOOLS_DIR)/%/manifest.json: \
 		$(TOOLS_DIR)/%/manifest.yaml \
 		; $(info $(M) Creating manifest for $*...)
 	@set -o errexit; \
-	yq --output-format json eval '{"tools":[.]}' $(TOOLS_DIR)/$*/manifest.yaml \
+	yq --output-format=json --indent=0 eval '.' $(TOOLS_DIR)/$*/manifest.yaml >$(TOOLS_DIR)/$*/manifest.json
+
+$(addsuffix /manifest-minimal.json,$(ALL_TOOLS)):$(TOOLS_DIR)/%/manifest-minimal.json: \
+		$(HELPER)/var/lib/uniget/manifests/gojq.json \
+		$(HELPER)/var/lib/uniget/manifests/yq.json \
+		$(TOOLS_DIR)/%/manifest.json \
+		; $(info $(M) Creating minimal manifest for $*...)
+	@set -o errexit; \
+	cat $(TOOLS_DIR)/$*/manifest.json \
 	| jq \
+		--compact-output \
 		--arg reg1 "$(REGISTRY)" --arg repo1 "$(REPOSITORY_PREFIX)$*" \
 		--arg reg2 "$(REGISTRY2)" --arg repo2 "$(REPOSITORY_PREFIX2)$*" \
 		'.tools[0].sources = [ { "registry": $$reg1, "repository": $$repo1 }, { "registry": $$reg2, "repository": $$repo2 } ]' \
-	>$(TOOLS_DIR)/$*/manifest.json
+	>$(TOOLS_DIR)/$*/manifest-minimal.json
+
+$(addsuffix /manifest-full.json,$(ALL_TOOLS)):$(TOOLS_DIR)/%/manifest-full.json: \
+		$(HELPER)/var/lib/uniget/manifests/gojq.json \
+		$(HELPER)/var/lib/uniget/manifests/yq.json \
+		$(TOOLS_DIR)/%/manifest.json \
+		; $(info $(M) Creating full manifest for $*...)
+	@set -o errexit; \
+	export SIZE="$$( regctl manifest get ghcr.io/uniget-org/tools/$*:main --platform=local --format=raw-body | jq --raw-output '.layers[0].size' )"; \
+	export HISTORY="$$( git log --pretty=format:'%h %ad %s' --date=short $(TOOLS_DIR)/$*/manifest.yaml $(TOOLS_DIR)/$*/Dockerfile.template | tr -d '"' | jq --slurp --raw-input --compact-output '[ . | split("\n") | .[] | capture("(?<commit>[a-z0-9]+) (?<date>[0-9]+-[0-9]+-[0-9]+) (?<message>.+)"; null) ]' )"; \
+	cat $(TOOLS_DIR)/$*/manifest.json \
+	| yq eval \
+		--output-format=json --indent=0 \
+		'.tools[0].size = env(SIZE) | .tools[0].history = env(HISTORY) | .tools[0].date = .tools[0].history[-1].date' \
+	>$(TOOLS_DIR)/$*/manifest-full.json
 
 $(addsuffix /Dockerfile,$(ALL_TOOLS)):$(TOOLS_DIR)/%/Dockerfile: \
 		$(TOOLS_DIR)/%/Dockerfile.template \

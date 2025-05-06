@@ -1,5 +1,6 @@
 FROM scratch
-COPY metadata.json /
+ARG file=metadata.json
+COPY ${file} /
 
 ARG ref=main
 ARG commit=UNKNOWN

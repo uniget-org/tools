@@ -1,8 +1,31 @@
 metadata.json: \
 		$(HELPER)/var/lib/uniget/manifests/gojq.json \
-		$(addsuffix /manifest.json,$(ALL_TOOLS)) \
+		$(addsuffix /manifest-minimal.json,$(ALL_TOOLS)) \
 		; $(info $(M) Creating $@...)
-	@jq --slurp --arg revision "$(GIT_COMMIT_SHA)" '{"revision": $$revision, "tools": map(.tools[])}' $(addsuffix /manifest.json,$(ALL_TOOLS)) >metadata.json
+	@jq --slurp --compact-output --arg revision "$(GIT_COMMIT_SHA)" '{"revision": $$revision, "tools": map(.tools[])}' $(addsuffix /manifest-minimal.json,$(ALL_TOOLS)) >metadata.json
+
+metadata-full.json: \
+		$(HELPER)/var/lib/uniget/manifests/gojq.json \
+		$(addsuffix /manifest-full.json,$(ALL_TOOLS)) \
+		; $(info $(M) Creating $@...)
+	@jq --slurp --compact-output '{"tools": map(.tools[])}' $(addsuffix /manifest-full.json,$(ALL_TOOLS)) >metadata-full.json
+
+$(addsuffix --metadata-full,$(ALL_TOOLS_RAW)):%--metadata-full:
+		$(HELPER)/var/lib/uniget/manifests/yq.json \
+		$(TOOLS_DIR)/%/manifest-full.json \
+		; $(info $(M) Updating full metadata for $*...)
+	@set -o errexit; \
+	manifest get ghcr.io/uniget-org/tools/metadata:full --platform=local --format=raw-body \
+	| jq --raw-output '.layers[0].digest' \
+	| xargs regctl blob get ghcr.io/uniget-org/tools/metadata \
+	| tar -xz metadata-full.json; \
+	mv metadata-full.json metadata-full.json.tmp; \
+	cat metadata-full.json.tmp \
+	| jq --compact-output \
+		--arg tool $* \
+		--argjson manifest <(cat $(TOOLS_DIR)/$*/manifest.json) \
+		'(.tools[] | select(.name == $$tool)) = $$manifest' \
+	>metadata-full.json
 
 .PHONY:
 metadata.json--show:%--show:
@@ -29,10 +52,38 @@ metadata.json--build: \
 	fi
 
 .PHONY:
+metadata-full.json--build: \
+		metadata-full.json \
+		@metadata/Dockerfile builders \
+		; $(info $(M) Building full metadata image for $(GIT_COMMIT_SHA)...)
+	@set -o errexit; \
+	if ! docker buildx build . \
+			--builder uniget \
+			--file @metadata/Dockerfile \
+			--build-arg commit=$(GIT_COMMIT_SHA) \
+			--build-arg file=metadata-full.json \
+			--platform linux/amd64,linux/arm64 \
+			--tag $(REGISTRY)/$(REPOSITORY_PREFIX)metadata:full \
+			--push=$(or $(PUSH), false) \
+			--provenance=false \
+			--progress plain \
+			>@metadata/build.log 2>&1; then \
+		cat @metadata/build.log; \
+		exit 1; \
+	fi
+
+.PHONY:
 metadata.json--push: \
 		PUSH=true
 metadata.json--push: \
 		metadata.json--build \
+		; $(info $(M) Pushing metadata image...)
+
+.PHONY:
+metadata-full.json--push: \
+		PUSH=true
+metadata-full.json--push: \
+		metadata-full.json--build \
 		; $(info $(M) Pushing metadata image...)
 
 .PHONY:
