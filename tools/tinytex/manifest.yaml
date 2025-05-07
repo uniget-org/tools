@@ -16,7 +16,7 @@ tags:
 - type/cli
 homepage: https://yihui.org/tinytex/
 repository: https://github.com/rstudio/tinytex-releases
-description: Some description
+description: Lightweight, cross-platform, portable, and easy-to-maintain LaTeX distribution based on TeX Live
 renovate:
   datasource: github-releases
   package: rstudio/tinytex-releases

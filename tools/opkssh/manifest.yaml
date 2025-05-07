@@ -15,7 +15,7 @@ tags:
 - type/cli
 homepage: https://github.com/openpubkey/opkssh
 repository: https://github.com/openpubkey/opkssh
-description: Some description
+description: OpenPubkey SSH
 renovate:
   datasource: github-releases
   package: openpubkey/opkssh

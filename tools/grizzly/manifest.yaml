@@ -18,7 +18,7 @@ tags:
 - type/daemon
 homepage: https://grafana.github.io/grizzly/
 repository: https://github.com/grafana/grizzly
-description: Some description
+description: Utility for managing Jsonnet dashboards against the Grafana API
 renovate:
   datasource: github-releases
   package: grafana/grizzly

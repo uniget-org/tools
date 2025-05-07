@@ -16,7 +16,7 @@ tags:
 - type/cli
 homepage: https://github.com/google/zetasql
 repository: https://github.com/google/zetasql
-description: Some descriptionAnalyzer Framework for SQL
+description: Analyzer Framework for SQL
 renovate:
   datasource: github-releases
   package: google/zetasql

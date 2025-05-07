@@ -17,7 +17,7 @@ tags:
 - state/stale
 homepage: https://github.com/Tiiffi/mcrcon
 repository: https://github.com/Tiiffi/mcrcon
-description: Some description
+description: Rcon client for Minecraft
 renovate:
   datasource: github-releases
   package: Tiiffi/mcrcon

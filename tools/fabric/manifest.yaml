@@ -18,7 +18,7 @@ tags:
 - type/cli
 homepage: https://danielmiessler.com/p/fabric-origin-story
 repository: https://github.com/danielmiessler/fabric
-description: Some description
+description: Open-source framework for augmenting humans using AI
 renovate:
   datasource: github-releases
   package: danielmiessler/fabric

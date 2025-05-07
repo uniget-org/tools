@@ -15,7 +15,7 @@ tags:
 - type/cli
 homepage: https://yadm.io
 repository: https://github.com/yadm-dev/yadm
-description: Some description
+description: Yet Another Dotfiles Manager
 renovate:
   datasource: github-releases
   package: yadm-dev/yadm
