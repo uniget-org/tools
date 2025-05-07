@@ -36,9 +36,7 @@ $(addsuffix --vim,$(ALL_TOOLS_RAW)):%--vim:
 
 .PHONY:
 $(addsuffix --vscode,$(ALL_TOOLS_RAW)):%--vscode:
-	@\
-	code --goto $(TOOLS_DIR)/$*/manifest.yaml; \
-	code --goto $(TOOLS_DIR)/$*/Dockerfile.template
+	@code --goto $(TOOLS_DIR)/$*/manifest.yaml
 
 .PHONY:
 $(addsuffix --logs,$(ALL_TOOLS_RAW)):%--logs:
