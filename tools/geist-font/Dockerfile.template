@@ -9,15 +9,7 @@ WORKDIR /tmp/geist-font
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://github.com/vercel/geist-font/releases/download/${version}/Geist-${version}.zip"
-filename="$(basename "${url}")"
-check-github-release-asset "vercel/geist-font" "${version}" "${filename}"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
-    "${url}"
-unzip -t "${uniget_cache_download}/${filename}"
-unzip -q -o "${uniget_cache_download}/${filename}"
-
-url="https://github.com/vercel/geist-font/releases/download/${version}/GeistMono-${version}.zip"
+url="https://github.com/vercel/geist-font/releases/download/${version}/geist-font-${version}.zip"
 filename="$(basename "${url}")"
 check-github-release-asset "vercel/geist-font" "${version}" "${filename}"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
@@ -28,5 +20,5 @@ unzip -q -o "${uniget_cache_download}/${filename}"
 mkdir -p \
     "${prefix}/share/geist-font" \
     "${prefix}/share/fonts/geist-font"
-find "Geist" "GeistMono" -type f \( -name \*.woff2 -or -name \*.otf -or -name \*.ttf \) -exec cp {} "${prefix}/share/geist-font/" \;
+find "geist-font-${version}" -type f \( -name \*.woff2 -or -name \*.otf -or -name \*.ttf \) -exec cp {} "${prefix}/share/geist-font/" \;
 EOF
