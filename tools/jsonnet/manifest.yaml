@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: jsonnet
-version: "0.20.0"
+version: "0.21.0"
 check: ${binary} --version | cut -d' ' -f6 | tr -d v
 tags:
 - org/google
