@@ -4,7 +4,7 @@ name: ollama
 license:
   name: MIT License
   link: https://github.com/ollama/ollama/blob/main/LICENSE
-version: "0.4.1"
+version: "0.6.8"
 check: ${binary} --version | grep client | cut -d' ' -f5
 platforms:
 - linux/amd64
