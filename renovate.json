@@ -2244,6 +2244,18 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-tags",
+      "depNameTemplate": "docker/model-cli",
+      "extractVersionTemplate": "^v(?<version>.+)$",
+      "fileMatch": [
+        "^tools/docker-model-cli/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-tags",
       "depNameTemplate": "moby/moby",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
