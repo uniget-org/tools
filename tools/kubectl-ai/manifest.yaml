@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: kubectl-ai
+license:
+  name: Apache License 2.0
+  link: https://github.com/GoogleCloudPlatform/kubectl-ai/blob/main/LICENSE
+version: "0.0.8"
+check: "" # No version parameter
+runtime_dependencies:
+- kubectl
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/google
+- category/operations
+- lang/go
+- type/cli
+- type/plugin
+- ai
+homepage: https://github.com/GoogleCloudPlatform/kubectl-ai
+repository: https://github.com/GoogleCloudPlatform/kubectl-ai
+description: AI powered Kubernetes Assistant
+renovate:
+  datasource: github-releases
+  package: GoogleCloudPlatform/kubectl-ai
+  extractVersion: ^v(?<version>.+)$
+  priority: low
