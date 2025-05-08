@@ -64,7 +64,7 @@ $(addsuffix /manifest.json,$(ALL_TOOLS)):$(TOOLS_DIR)/%/manifest.json: \
 		$(TOOLS_DIR)/%/manifest.yaml \
 		; $(info $(M) Creating manifest for $*...)
 	@set -o errexit; \
-	yq --output-format=json --indent=0 eval '.' $(TOOLS_DIR)/$*/manifest.yaml >$(TOOLS_DIR)/$*/manifest.json
+	yq --output-format=json --indent=0 eval '{"tools": [.]}' $(TOOLS_DIR)/$*/manifest.yaml >$(TOOLS_DIR)/$*/manifest.json
 
 $(addsuffix /manifest-minimal.json,$(ALL_TOOLS)):$(TOOLS_DIR)/%/manifest-minimal.json: \
 		$(HELPER)/var/lib/uniget/manifests/gojq.json \
