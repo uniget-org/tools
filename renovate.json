@@ -2310,6 +2310,18 @@
     {
       "customType": "regex",
       "fileMatch": [
+        "^tools/docker-model-cli/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ],
+      "depNameTemplate": "docker/model-cli",
+      "datasourceTemplate": "github-tags",
+      "extractVersionTemplate": "^v(?<version>.+)$"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": [
         "^tools/docker-preview/manifest.yaml$"
       ],
       "matchStrings": [

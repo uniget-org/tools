@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: docker-model-distribution
+license:
+  name: Apache License 2.0
+  link: https://github.com/docker/model-runner/blob/main/LICENSE
+version: "0.0.0"
+binary: model-distribution-tool
+check: ${binary} --version | cut -d' ' -f3
+build_dependencies:
+- go
+- make
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/docker
+- category/development
+- lang/go
+- type/cli
+- ai
+homepage: https://github.com/docker/model-distribution
+repository: https://github.com/docker/model-distribution
+description: Library and CLI tool for distributing models using container registries
+#renovate:
+#  datasource: github-releases
+#  package: docker/model-distribution
+#  extractVersion: ^v(?<version>.+)$
+#  priority: low
