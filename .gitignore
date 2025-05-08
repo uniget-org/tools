@@ -1,7 +1,7 @@
 /.env
 /.env.mk
 /helper
-/metadata.json
+/metadata*.json
 /cosign.key
 /@metadata/build.log
 /ca.pem
