@@ -10,22 +10,44 @@ metadata-full.json: \
 		; $(info $(M) Creating $@...)
 	@jq --slurp --compact-output '{"tools": map(.tools[])}' $(addsuffix /manifest-full.json,$(ALL_TOOLS)) >metadata-full.json
 
-$(addsuffix --metadata-full,$(ALL_TOOLS_RAW)):%--metadata-full:
-		$(HELPER)/var/lib/uniget/manifests/yq.json \
+.PHONY:
+metadata.json--download: \
+		$(HELPER)/var/lib/uniget/manifests/regclient.json \
+		$(HELPER)/var/lib/uniget/manifests/gojq.json \
+		; $(info $(M) Downloading metadata...)
+	@set -o errexit; \
+	regctl manifest get ghcr.io/uniget-org/tools/metadata:main --platform=local --format=raw-body \
+	| jq --raw-output '.layers[0].digest' \
+	| xargs regctl blob get ghcr.io/uniget-org/tools/metadata \
+	| tar --extract --gzip --to-stdout metadata.json \
+	>metadata-full.json
+
+.PHONY:
+metadata-full.json--download: \
+		$(HELPER)/var/lib/uniget/manifests/regclient.json \
+		$(HELPER)/var/lib/uniget/manifests/gojq.json \
+		; $(info $(M) Downloading full metadata...)
+	@set -o errexit; \
+	regctl manifest get ghcr.io/uniget-org/tools/metadata:full --platform=local --format=raw-body \
+	| jq --raw-output '.layers[0].digest' \
+	| xargs regctl blob get ghcr.io/uniget-org/tools/metadata \
+	| tar --extract --gzip --to-stdout metadata.json \
+	>metadata-full.json
+
+$(addsuffix --metadata-full,$(ALL_TOOLS_RAW)):%--metadata-full: \
+		$(HELPER)/var/lib/uniget/manifests/gojq.json \
 		$(TOOLS_DIR)/%/manifest-full.json \
 		; $(info $(M) Updating full metadata for $*...)
 	@set -o errexit; \
-	manifest get ghcr.io/uniget-org/tools/metadata:full --platform=local --format=raw-body \
-	| jq --raw-output '.layers[0].digest' \
-	| xargs regctl blob get ghcr.io/uniget-org/tools/metadata \
-	| tar -xz metadata-full.json; \
+	MANIFEST="$$(jq --compact-output '.tools[0]' $(TOOLS_DIR)/$*/manifest-full.json)"; \
 	mv metadata-full.json metadata-full.json.tmp; \
 	cat metadata-full.json.tmp \
 	| jq --compact-output \
 		--arg tool $* \
-		--argjson manifest <(cat $(TOOLS_DIR)/$*/manifest.json) \
+		--argjson manifest "$${MANIFEST}" \
 		'(.tools[] | select(.name == $$tool)) = $$manifest' \
-	>metadata-full.json
+	>metadata-full.json; \
+	rm -f metadata-full.json.tmp
 
 .PHONY:
 metadata.json--show:%--show:
