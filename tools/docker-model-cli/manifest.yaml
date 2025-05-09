@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: docker-model-cli
+license:
+  name: Apache License 2.0
+  link: https://github.com/docker/model-runner/blob/main/LICENSE
+version: "0.1.19"
+binary: docker-model
+check: ${binary} version 2>&1 | cut -d' ' -f5
+build_dependencies:
+- go
+- make
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/docker
+- category/development
+- lang/go
+- type/cli
+- ai
+homepage: https://github.com/docker/model-cli
+repository: https://github.com/docker/model-cli
+description: Docker Model Runner CLI Plugin
+renovate:
+  datasource: github-tags
+  package: docker/model-cli
+  extractVersion: ^v(?<version>.+)$
+  priority: low
