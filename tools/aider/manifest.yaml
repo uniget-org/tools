@@ -4,7 +4,7 @@ name: aider
 license:
   name: Apache License 2.0
   link: https://github.com/Aider-AI/aider/blob/main/LICENSE.txt
-version: "0.82.0"
+version: "0.83.0"
 check: ${binary} --version | grep ^aider | cut -d' ' -f2
 build_dependencies:
 - shiv
