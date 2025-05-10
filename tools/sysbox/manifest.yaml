@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: sysbox
-version: "0.6.6"
+version: "0.6.7"
 binary: sysbox-runc
 check: ${binary} --version | grep version | cut -f3
 platforms:
