@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: atuin
+license:
+  name: MIT License
+  link: https://github.com/atuinsh/atuin/blob/main/LICENSE
+version: "18.6.1"
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/?
+- lang/rust
+- type/cli
+homepage: https://atuin.sh
+repository: https://github.com/atuinsh/atuin
+description: Magical shell history 
+renovate:
+  datasource: github-releases
+  package: atuinsh/atuin
+  extractVersion: ^v(?<version>.+)$
+  priority: low
