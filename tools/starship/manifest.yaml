@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: starship
+license:
+  name: ISC
+  link: https://github.com/starship/starship/blob/master/LICENSE
+version: "1.23.0"
+check: ${binary} --version | grep ^starship | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/?
+- lang/rust
+- type/cli
+homepage: https://starship.rs/
+repository: https://github.com/starship/starship
+description: Some description
+renovate:
+  datasource: github-releases
+  package: starship/starship
+  extractVersion: ^v(?<version>.+)$
+  priority: low
