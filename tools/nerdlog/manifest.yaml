@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: nerdlog
+license:
+  name: BSD-2-Clause License
+  link: https://github.com/dimonomid/nerdlog/blob/master/LICENSE
+version: "1.7.1"
+check: ${binary} --version | grep ^Nerdlog | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/go
+- type/tui
+homepage: https://dmitryfrank.com/projects/nerdlog/article
+repository: https://github.com/dimonomid/nerdlog
+description: Fast, remote-first, multi-host TUI log viewer with timeline histogram and no central server
+renovate:
+  datasource: github-releases
+  package: dimonomid/nerdlog
+  extractVersion: ^v(?<version>.+)$
+  priority: low
