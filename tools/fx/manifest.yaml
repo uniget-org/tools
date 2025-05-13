@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: fx
-version: "35.0.0"
+version: "36.0.0"
 check: ${binary} | grep "fx" | head -n 1 | tr -s ' ' | cut -d' ' -f3
 tags:
 - type/cli
