@@ -41,12 +41,21 @@ $(addsuffix --metadata-full,$(ALL_TOOLS_RAW)):%--metadata-full: \
 	@set -o errexit; \
 	MANIFEST="$$(jq --compact-output '.tools[0]' $(TOOLS_DIR)/$*/manifest-full.json)"; \
 	mv metadata-full.json metadata-full.json.tmp; \
-	cat metadata-full.json.tmp \
-	| jq --compact-output \
-		--arg tool $* \
-		--argjson manifest "$${MANIFEST}" \
-		'(.tools[] | select(.name == $$tool)) = $$manifest' \
-	>metadata-full.json; \
+	if jq --exit-status --arg tool "$*" '.tools[] | select(.name == $$tool)' metadata-full.json >/dev/null; then
+		cat metadata-full.json.tmp \
+		| jq --compact-output \
+			--arg tool $* \
+			--argjson manifest "$${MANIFEST}" \
+			'(.tools[] | select(.name == $$tool)) = $$manifest' \
+		>metadata-full.json; \
+	else
+		cat metadata-full.json.tmp \
+		| jq --compact-output \
+			--arg tool $* \
+			--argjson manifest "$${MANIFEST}" \
+			'.tools += [$$manifest]' \
+		>metadata-full.json; \
+	fi
 	rm -f metadata-full.json.tmp
 
 .PHONY:
