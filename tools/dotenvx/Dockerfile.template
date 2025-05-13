@@ -8,7 +8,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://github.com/dotenvx/dotenvx/releases/download/v${version}/dotenvx-linux-${arch}.tar.gz"
+url="https://github.com/dotenvx/dotenvx/releases/download/v${version}/dotenvx-linux-${alt_arch}.tar.gz"
 filename="$( basename "${url}" )"
 
 check-github-release-asset "dotenvx/dotenvx" "v${version}" "${filename}"
