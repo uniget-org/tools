@@ -12,7 +12,8 @@ platforms:
 tags:
 - category/development
 - lang/go
-- type/?
+- type/cli
+- type/daemon
 homepage: https://ollama.com/
 repository: https://github.com/ollama/ollama
 description: Get up and running with Llama 3.2, Mistral, Gemma 2, and other large language models
