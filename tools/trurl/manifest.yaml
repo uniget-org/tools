@@ -15,6 +15,7 @@ tags:
 - lang/c
 - type/cli
 homepage: https://github.com/curl/trurl
+repository: https://github.com/curl/trurl
 description: Command line tool for URL parsing and manipulation
 renovate:
   datasource: github-releases

@@ -11,6 +11,7 @@ tags:
 - lang/c
 - type/cli
 homepage: https://github.com/kubeshark/tracer
+repository: https://github.com/kubeshark/tracer
 description: Kernel tracer that attaches eBPF probes to containers for capturing TLS traffic
 renovate:
   datasource: github-releases
