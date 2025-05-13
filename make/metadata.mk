@@ -75,9 +75,8 @@ metadata.json--build: \
 
 .PHONY:
 metadata-full.json--build: \
-		metadata-full.json \
 		@metadata/Dockerfile builders \
-		; $(info $(M) Building full metadata image for $(GIT_COMMIT_SHA)...)
+		; $(info $(M) Packaging full metadata image for $(GIT_COMMIT_SHA)...)
 	@set -o errexit; \
 	if ! docker buildx build . \
 			--builder uniget \
