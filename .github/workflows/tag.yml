@@ -280,7 +280,10 @@ jobs:
     runs-on: ubuntu-24.04
     continue-on-error: true
     needs:
+    - collect
     - metadata
+    env:
+      tools: ${{ needs.collect.outputs.tools }}
     steps:
 
     - name: Checkout code
