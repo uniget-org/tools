@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: cdxgen
-version: "11.2.7"
+version: "11.3.0"
 check: npm list --prefix=${target}/libexec/cdxgen | grep @cyclonedx/cdxgen | cut -d@ -f3
 build_dependencies:
 - nodejs-lts
