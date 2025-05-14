@@ -86,7 +86,12 @@ $(addsuffix /manifest-full.json,$(ALL_TOOLS)):$(TOOLS_DIR)/%/manifest-full.json:
 		$(TOOLS_DIR)/%/manifest.json \
 		; $(info $(M) Creating full manifest for $*...)
 	@set -o errexit; \
-	export SIZE="$$( regctl manifest get ghcr.io/uniget-org/tools/$*:main --platform=local --format=raw-body | jq --raw-output '.layers[0].size' )"; \
+	if test "$$(regctl manifest get ghcr.io/uniget-org/tools/$*:main --format=raw-body | jq --exit-status '.mediaType == "application/vnd.oci.image.manifest.v1+json"')" == "true"; then \
+		export SIZE="$$( regctl manifest get ghcr.io/uniget-org/tools/$*:main --format=raw-body | jq --raw-output '.layers[0].size' )"; \
+	else \
+		export PLATFORM="$$( regctl manifest get ghcr.io/uniget-org/tools/$*:main --format=raw-body | jq --raw-output '.manifests[] | select(.platform.os == "linux") | "\(.platform.os)/\(.platform.architecture)"' | sort | head -n 1 )"; \
+		export SIZE="$$( regctl manifest get ghcr.io/uniget-org/tools/$*:main --platform=$${PLATFORM} --format=raw-body | jq --raw-output '.layers[0].size' )"; \
+	fi; \
 	export HISTORY="$$( git log --pretty=format:'%h %ad %s' --date=short $(TOOLS_DIR)/$*/manifest.yaml $(TOOLS_DIR)/$*/Dockerfile.template | tr -d '"' | jq --slurp --raw-input --compact-output '[ . | split("\n") | .[] | capture("(?<commit>[a-z0-9]+) (?<date>[0-9]+-[0-9]+-[0-9]+) (?<message>.+)"; null) ]' )"; \
 	cat $(TOOLS_DIR)/$*/manifest.json \
 	| yq eval \
