@@ -4,7 +4,7 @@ name: nerdlog
 license:
   name: BSD-2-Clause License
   link: https://github.com/dimonomid/nerdlog/blob/master/LICENSE
-version: "1.7.1"
+version: "1.7.2"
 check: ${binary} --version | grep ^Nerdlog | cut -d' ' -f2
 platforms:
 - linux/amd64
