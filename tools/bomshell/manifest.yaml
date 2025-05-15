@@ -12,10 +12,10 @@ tags:
 - lang/go
 - type/cli
 - sbom
-- spdx
-- cyclonedx
 - state/deprecated
 - state/stale
+- format/spdx
+- format/cyclonedx
 homepage: https://github.com/chainguard-dev/bomshell
 repository: https://github.com/chainguard-dev/bomshell
 description: SBOM query language and associated utilities

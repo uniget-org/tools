@@ -10,6 +10,7 @@ tags:
 - category/development
 - lang/go
 - type/cli
+- lint
 homepage: https://staticcheck.dev
 repository: https://github.com/dominikh/go-tools
 description: Advanced Go linter

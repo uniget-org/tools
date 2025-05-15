@@ -14,6 +14,7 @@ tags:
 - category/development
 - lang/perl
 - type/cli
+- tex
 homepage: https://yihui.org/tinytex/
 repository: https://github.com/rstudio/tinytex-releases
 description: Lightweight, cross-platform, portable, and easy-to-maintain LaTeX distribution based on TeX Live

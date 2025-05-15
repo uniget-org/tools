@@ -10,6 +10,7 @@ tags:
 - package
 - manager
 - helm
+- lint
 homepage: https://github.com/helm/chart-testing
 repository: https://github.com/helm/chart-testing
 description: CLI tool for linting and testing Helm charts

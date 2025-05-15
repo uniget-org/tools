@@ -10,6 +10,7 @@ tags:
 - infrastructure
 - lang/go
 - category/operations
+- iac
 homepage: https://www.terraform.io/
 repository: https://github.com/hashicorp/terraform
 description: Safely and predictably create, change, and improve infrastructure

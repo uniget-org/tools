@@ -13,6 +13,7 @@ tags:
 - lang/go
 - type/cli
 - ebpf
+- cilium
 homepage: https://tetragon.io
 repository: https://github.com/cilium/tetragon
 description: eBPF-based Security Observability and Runtime Enforcement

@@ -20,6 +20,9 @@ tags:
 - standard/spdx
 - standard/cyclonedx
 - standard/vex
+- org/aquasecurity
+- format/spdx
+- format/cyclonedx
 homepage: https://aquasecurity.github.io/trivy
 repository: https://github.com/aquasecurity/trivy
 description: Scanner for vulnerabilities in container images, file systems, and Git repositories

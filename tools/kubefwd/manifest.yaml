@@ -10,9 +10,9 @@ platforms:
 - linux/amd64
 - linux/arm64
 tags:
-- categorydevelopment
 - lang/go
 - type/cli
+- category/development
 homepage: https://www.google.de
 repository: https://github.com/txn2/kubefwd
 description: Bulk port forwarding Kubernetes services for local development

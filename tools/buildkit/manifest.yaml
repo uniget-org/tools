@@ -14,9 +14,9 @@ tags:
 - type/daemon
 - lang/go
 - sbom
-- spdx
 - standard/docker
 - docker
+- format/spdx
 homepage: https://github.com/moby/moby/issues/34227
 repository: https://github.com/moby/buildkit
 description: Concurrent, cache-efficient, and Dockerfile-agnostic builder toolkit

@@ -13,6 +13,7 @@ tags:
 - category/development
 - lang/go
 - type/cli
+- format/markdown
 homepage: https://runme.dev/
 repository: https://github.com/stateful/runme
 description: DevOps Notebooks Built with Markdown

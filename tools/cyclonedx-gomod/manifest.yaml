@@ -10,8 +10,8 @@ tags:
 - lang/go
 - type/cli
 - sbom
-- cyclonedx
 - org/cyclonedx
+- format/cyclonedx
 homepage: https://cyclonedx.org
 repository: https://github.com/CycloneDX/cyclonedx-gomod
 description: Creates CycloneDX Software Bill of Materials (SBOM) from Go modules

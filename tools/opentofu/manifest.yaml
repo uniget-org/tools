@@ -13,6 +13,8 @@ tags:
 - lang/go
 - type/cli
 - standard/hcl
+- cncf/sandbox
+- iac
 homepage: https://opentofu.org
 repository: https://github.com/opentofu/opentofu
 description: Declaratively manage your cloud infrastructure

@@ -10,6 +10,7 @@ tags:
 - category/development
 - lang/go
 - type/cli
+- format/xml
 homepage: https://github.com/gotestyourself/gotestsum
 repository: https://github.com/gotestyourself/gotestsum
 description: go test runner with output optimized for humans, JUnit XML for CI integration, and a summary of the test results

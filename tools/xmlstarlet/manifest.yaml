@@ -13,6 +13,7 @@ tags:
 - category/development
 - lang/c
 - type/cli
+- format/xml
 homepage: https://sourceforge.net/projects/xmlstar/
 repository: https://sourceforge.net/projects/xmlstar/
 description: Command line XML toolkit

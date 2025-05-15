@@ -8,6 +8,7 @@ tags:
 - lang/go
 - k8s
 - helm
+- lint
 homepage: https://docs.kubelinter.io/
 repository: https://github.com/stackrox/kube-linter
 description: static analysis tool that checks Kubernetes YAML files and Helm charts

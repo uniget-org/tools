@@ -21,6 +21,8 @@ tags:
 - standard/spdx
 - standard/cyclonedx
 - standard/vex
+- format/spdx
+- format/cyclonedx
 homepage: https://uniget.dev
 repository: https://github.com/uniget-org/tools
 description: compose file for trivy with systemd

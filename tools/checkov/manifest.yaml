@@ -15,6 +15,7 @@ tags:
 - category/security
 - lang/python
 - type/cli
+- iac
 homepage: https://github.com/bridgecrewio/checkov
 repository: https://github.com/bridgecrewio/checkov
 description: Prevent cloud misconfigurations and find vulnerabilities during build-time in infrastructure as code, container images and open source packages

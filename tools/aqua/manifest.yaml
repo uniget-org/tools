@@ -7,8 +7,7 @@ tags:
 - manager
 - type/cli
 - lang/go
-- package
-- manager
+- org/aquasecurity
 homepage: https://aquaproj.github.io
 repository: https://github.com/aquaproj/aqua
 description: Declarative CLI Version manager written in Go. Support Lazy Install, Registry, and continuous update with Renovate. CLI version is switched seamlessly

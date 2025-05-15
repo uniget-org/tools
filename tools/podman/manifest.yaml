@@ -23,6 +23,7 @@ tags:
 - type/daemon
 - rootless
 - lang/go
+- cncf/sandbox
 homepage: https://podman.io
 repository: https://github.com/containers/podman
 description: Tool for managing OCI containers and pods

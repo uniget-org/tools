@@ -15,6 +15,8 @@ tags:
 - standard/spdx
 - standard/cyclonedx
 - standard/vex
+- format/spdx
+- format/cyclonedx
 homepage: https://github.com/anchore/grype
 repository: https://github.com/anchore/grype
 description: Vulnerability scanner for container images and filesystems

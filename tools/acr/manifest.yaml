@@ -14,6 +14,7 @@ tags:
 - category/operations
 - lang/go
 - type/cli
+- cloud/azure
 homepage: https://github.com/Azure/acr-cli
 repository: https://github.com/Azure/acr-cli
 description: CLI for interacting with Azure Container Registry Images

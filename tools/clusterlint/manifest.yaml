@@ -11,6 +11,7 @@ tags:
 - type/cli
 - kubernetes
 - k8s
+- lint
 homepage: https://github.com/digitalocean/clusterlint
 repository: https://github.com/digitalocean/clusterlint
 description: Best practices checker for Kubernetes clusters

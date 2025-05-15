@@ -21,7 +21,6 @@ tags:
 - standard/jsonpath
 - exporter
 - standard/prometheus
-- exporter
 homepage: https://uniget.dev
 repository: https://github.com/uniget-org/tools
 description: compose file for json-exporter with systemd

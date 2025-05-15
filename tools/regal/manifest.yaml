@@ -13,6 +13,7 @@ tags:
 - category/development
 - lang/go
 - type/cli
+- lint
 homepage: https://docs.styra.com/regal
 repository: https://github.com/StyraInc/regal
 description: Linter for Rego, with the goal of making your Rego magnificent

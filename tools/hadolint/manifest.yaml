@@ -11,6 +11,7 @@ tags:
 - lang/haskell
 - standard/docker
 - docker
+- lint
 homepage: https://github.com/hadolint/hadolint
 repository: https://github.com/hadolint/hadolint
 description: Dockerfile linter, validate inline bash

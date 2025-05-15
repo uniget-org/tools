@@ -13,6 +13,7 @@ tags:
 - category/security
 - lang/go
 - type/cli
+- cloud/aws
 homepage: https://github.com/Versent/saml2aws
 repository: https://github.com/Versent/saml2aws
 description: CLI tool which enables you to login and retrieve AWS temporary credentials using a SAML IDP

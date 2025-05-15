@@ -6,6 +6,7 @@ tags:
 - category/security
 - type/cli
 - lang/go
+- certificate
 homepage: https://github.com/jetstack/paranoia
 repository: https://github.com/jetstack/paranoia
 description: Inspect certificate authorities in container images

@@ -18,6 +18,7 @@ tags:
 - standard/vex
 - standard/cyclonedx
 - state/stale
+- format/cyclonedx
 homepage: https://github.com/madpah/vexy
 repository: https://github.com/madpah/vexy
 description: Generate VEX CycloneDX documents

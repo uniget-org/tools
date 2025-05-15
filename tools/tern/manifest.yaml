@@ -21,6 +21,8 @@ tags:
 - container/image
 - standard/docker
 - state/stale
+- format/spdx
+- format/cyclonedx
 homepage: https://github.com/tern-tools/tern
 repository: https://github.com/tern-tools/tern
 description: SCA tool that generates a Software Bill of Materials for container images and Dockerfiles

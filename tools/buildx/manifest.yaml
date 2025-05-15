@@ -17,8 +17,8 @@ tags:
 - lang/go
 - sbom
 - container/build
-- spdx
 - docker
+- format/spdx
 homepage: https://github.com/docker/buildx
 repository: https://github.com/docker/buildx
 description: Docker CLI plugin for extended build capabilities with BuildKit
@@ -32,7 +32,7 @@ messages:
                 "builder": "buildx"
             }
         }
-    
+
     If you are planning multi-architecture builds, please enable the emulation:
 
         docker container run --privileged --rm tonistiigi/binfmt --install all

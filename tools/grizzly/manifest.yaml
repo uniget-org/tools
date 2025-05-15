@@ -16,6 +16,7 @@ tags:
 - lang/go
 - type/cli
 - type/daemon
+- standard/jsonnet
 homepage: https://grafana.github.io/grizzly/
 repository: https://github.com/grafana/grizzly
 description: Utility for managing Jsonnet dashboards against the Grafana API

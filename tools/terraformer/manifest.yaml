@@ -20,6 +20,7 @@ tags:
 - cloud/hetzner
 - cloud/github
 - cloud/gitlab
+- iac
 homepage: https://github.com/GoogleCloudPlatform/terraformer
 repository: https://github.com/GoogleCloudPlatform/terraformer
 description: Generate terraform files from existing infrastructure (reverse Terraform)

@@ -16,15 +16,12 @@ tags:
 - category/development
 - lang/dotnet
 - type/cli
+- cloud/azure
 homepage: https://github.com/Azure/bicep
 repository: https://github.com/Azure/bicep
 description: Declarative language for describing and deploying Azure resources
 messages:
-  usage: |
-    Bicep requires libicu to be installed. A workaround is to enable the 
-    invariant code by running:
-
-    export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
+  usage: "Bicep requires libicu to be installed. A workaround is to enable the \ninvariant code by running:\n\nexport DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1\n"
 renovate:
   datasource: github-releases
   package: Azure/bicep

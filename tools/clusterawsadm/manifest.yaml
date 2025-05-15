@@ -11,6 +11,7 @@ tags:
 - cloud/aws
 - type/cli
 - lang/go
+- capi
 homepage: http://cluster-api-aws.sigs.k8s.io/
 repository: https://github.com/kubernetes-sigs/cluster-api-provider-aws
 description: Kubernetes Cluster API Provider AWS

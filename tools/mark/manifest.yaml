@@ -16,6 +16,7 @@ tags:
 - markdown
 - atlassian
 - confluence
+- format/markdown
 homepage: https://github.com/kovetskiy/mark
 repository: https://github.com/kovetskiy/mark
 description: Sync your markdown files with Confluence pages
