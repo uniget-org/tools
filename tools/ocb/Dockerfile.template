@@ -8,17 +8,16 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://github.com/open-telemetry/opentelemetry-collector/releases/download/cmd%2Fbuilder%2Fv${version}/ocb_${version}_linux_${alt_arch}"
+url="https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/cmd%2Fbuilder%2Fv${version}/ocb_${version}_linux_${alt_arch}"
 filename="$( basename "${url}" )"
 
-check-github-release-asset "open-telemetry/opentelemetry-collector" "cmd%2Fbuilder%2Fv${version}" "${filename}"
+check-github-release-asset "open-telemetry/opentelemetry-collector-releases" "cmd%2Fbuilder%2Fv${version}" "${filename}"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
     "${url}"
 
 install --mode=0755 \
     "${uniget_cache_download}/${filename}" \
     "${prefix}/bin/ocb"
-
 
 "${prefix}/bin/ocb" completion bash >"${prefix}/share/bash-completion/completions/ocb"
 "${prefix}/bin/ocb" completion fish >"${prefix}/share/fish/vendor_completions.d/ocb.fish"
