@@ -15,7 +15,7 @@ repository: https://github.com/open-telemetry/opentelemetry-collector
 description: OpenTelemetry Collector Builder
 renovate:
   datasource: github-releases
-  package: open-telemetry/opentelemetry-collector
+  package: open-telemetry/opentelemetry-collector-releases
   extractVersion: ^cmd/builder/v(?<version>.+)$
   priority: low
 license:
