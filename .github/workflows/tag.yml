@@ -276,7 +276,6 @@ jobs:
     permissions:
       packages: write
     runs-on: ubuntu-24.04
-    continue-on-error: true
     needs:
     - collect
     - metadata
@@ -334,6 +333,7 @@ jobs:
     name: tools.uniget.dev
     needs:
     - metadata
+    - metadata-full
     uses: ./.github/workflows/trigger-pages.yml
     secrets:
       BOT_GITHUB_TOKEN: ${{ secrets.BOT_GITHUB_TOKEN }}
