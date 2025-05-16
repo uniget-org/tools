@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: otel-tui
+license:
+  name: Apache License 2.0
+  link: https://github.com/ymtdzzz/otel-tui/blob/main/LICENSE
+version: "0.4.10"
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/go
+- type/tui
+homepage: https://github.com/ymtdzzz/otel-tui
+repository: https://github.com/ymtdzzz/otel-tui
+description: Terminal OpenTelemetry viewer inspired by otel-desktop-viewer
+renovate:
+  datasource: github-releases
+  package: ymtdzzz/otel-tui
+  extractVersion: ^v(?<version>.+)$
+  priority: low
