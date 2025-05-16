@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: otel-cli
+license:
+  name: Apache License 2.0
+  link: https://github.com/equinix-labs/otel-cli/blob/main/LICENSE
+version: "0.4.5"
+check: "" # No version parameter
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/cli
+homepage: https://github.com/equinix-labs/otel-cli
+repository: https://github.com/equinix-labs/otel-cli
+description: OpenTelemetry command-line tool for sending events from shell scripts & similar environments
+renovate:
+  datasource: github-releases
+  package: equinix-labs/otel-cli
+  extractVersion: ^v(?<version>.+)$
+  priority: low
