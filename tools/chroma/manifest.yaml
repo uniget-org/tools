@@ -4,7 +4,7 @@ name: chroma
 license:
   name: MIT License
   link: https://github.com/alecthomas/chroma/blob/master/COPYING
-version: "2.17.2"
+version: "2.18.0"
 check: ${binary} --version | cut -d- -f1
 platforms:
 - linux/amd64
