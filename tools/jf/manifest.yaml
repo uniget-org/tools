@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: jf
-version: "2.75.1"
+version: "2.76.0"
 check: ${binary} --version | cut -d' ' -f3
 tags:
 - org/jfrog
