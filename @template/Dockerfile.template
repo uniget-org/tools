@@ -5,6 +5,7 @@
 #FROM ghcr.io/uniget-org/tools/rust:latest AS rust
 #FROM ghcr.io/uniget-org/tools/python:latest AS python
 #FROM ghcr.io/uniget-org/tools/shiv:latest AS shiv
+#FROM ghcr.io/uniget-org/tools/pipx:latest AS pipx
 #FROM ghcr.io/uniget-org/tools/nodejs:latest AS nodejs
 #FROM ghcr.io/uniget-org/tools/npm:latest AS npm
 
@@ -16,6 +17,19 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
+
+# apt
+#RUN --mount=type=cache,target=/var/cache/apt <<EOF
+#apt-get update
+#apt-get -y install --no-install-recommends \
+#    foo
+#EOF
+
+# apk
+#RUN --mount=type=cache,target=/var/cache/apk <<EOF
+#apk add --update-cache \
+#    foo
+#EOF
 
 # tarball
 #RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
@@ -105,15 +119,6 @@ ARG version
 #EOF
 
 # go
-#RUN --mount=type=cache,target=/var/cache/apt <<EOF
-#apt-get update
-#apt-get -y install --no-install-recommends \
-#    foo
-#EOF
-#RUN --mount=type=cache,target=/var/cache/apk <<EOF
-#apk add --update-cache \
-#    foo
-#EOF
 #COPY --link --from=go / /usr/local/
 #COPY --link --from=make / /usr/local/
 #WORKDIR /go/src/github.com/foo/bar
@@ -138,11 +143,22 @@ ARG version
 #cp "target/${arch}-unknown-linux-gnu/release/foo" "${prefix}/bin/"
 #EOF
 
-# python
+# python - shiv
 #COPY --link --from=python / /usr/local/
 #COPY --link --from=shiv / /usr/local/
 #RUN --mount=type=cache,target=/root/.cache/pip <<EOF
 #shiv --output-file "${prefix}/bin/foo" --console-script foo "foo==${version}"
+#EOF
+
+# python - pipx
+#COPY --link --from=python / /usr/local/
+#COPY --link --from=pipx / /usr/local/
+#RUN --mount=type=cache,target=/root/.cache/pip <<EOF
+#export PIPX_HOME="${prefix}/libexec/pipx"
+#export PIPX_BIN_DIR="${prefix}/bin"
+#pipx install foo
+#ln --symbolic --relative --force "${prefix}/libexec/pipx/venvs/foo/bin/foo" "${prefix}/bin/foo"
+#sed -i "s|#\!${prefix}/|#\!/|" "${prefix}/libexec/pipx/venvs/foo/bin/foo"
 #EOF
 
 # node
