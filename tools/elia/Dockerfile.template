@@ -2,7 +2,6 @@
 
 FROM ghcr.io/uniget-org/tools/python-3.12:latest AS python
 FROM ghcr.io/uniget-org/tools/shiv:latest AS shiv
-FROM ghcr.io/uniget-org/tools/pipx:latest AS pipx
 
 FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
@@ -11,7 +10,6 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=python / /usr/local/
 COPY --link --from=shiv / /usr/local/
-COPY --link --from=pipx / /usr/local/
 ARG name
 ARG version
 RUN --mount=type=cache,target=/root/.cache/pip <<EOF
