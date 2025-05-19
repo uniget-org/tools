@@ -1,0 +1,27 @@
+#syntax=docker/dockerfile:1.15.1@sha256:9857836c9ee4268391bb5b09f9f157f3c91bb15821bb77969642813b0d00518d
+
+FROM ghcr.io/uniget-org/tools/python-3.12:latest AS python
+FROM ghcr.io/uniget-org/tools/shiv:latest AS shiv
+FROM ghcr.io/uniget-org/tools/shiv:latest AS rust
+
+#FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+FROM registry.gitlab.com/uniget-org/images/build-essential:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+COPY --link --from=python / /usr/local/
+COPY --link --from=shiv / /usr/local/
+COPY --link --from=rust / /usr/local/
+RUN --mount=type=cache,target=/var/cache/apt <<EOF
+apt-get update
+apt-get -y install --no-install-recommends \
+    clang
+EOF
+RUN --mount=type=cache,target=/root/.cache/pip <<EOF
+export CARGO_HOME=/usr/local/cargo
+export RUSTUP_HOME=/usr/local/rustup
+shiv --output-file "${prefix}/bin/openllm" --console-script openllm "openllm==${version}"
+EOF
