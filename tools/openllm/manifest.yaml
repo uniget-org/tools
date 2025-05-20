@@ -17,6 +17,10 @@ tags:
 - category/operations
 - lang/python
 - type/daemon
+- type/cli
+- ai
+- llm
+- ml
 homepage: https://bentoml.com/
 repository: https://github.com/bentoml/OpenLLM
 description: Run any open-source LLMs, such as DeepSeek and Llama, as OpenAI compatible API endpoint in the cloud

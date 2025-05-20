@@ -13,6 +13,8 @@ tags:
 - type/cli
 - standard/docker
 - docker
+- ai
+- llm
 homepage: https://docs.docker.com/desktop/
 repository: https://docs.docker.com/desktop/
 description: Docker AI Agent - Ask Gordon

@@ -10,6 +10,7 @@ tags:
 - lang/go
 - type/cli
 - ai
+- llm
 - iac
 - infrastructure
 - code

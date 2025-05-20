@@ -18,6 +18,7 @@ tags:
 - type/cli
 - type/plugin
 - ai
+- llm
 homepage: https://github.com/GoogleCloudPlatform/kubectl-ai
 repository: https://github.com/GoogleCloudPlatform/kubectl-ai
 description: AI powered Kubernetes Assistant

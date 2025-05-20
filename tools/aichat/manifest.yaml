@@ -14,6 +14,7 @@ tags:
 - lang/rust
 - type/cli
 - ai
+- llm
 homepage: https://github.com/sigoden/aichat
 repository: https://github.com/sigoden/aichat
 description: All-in-one AI CLI tool featuring Chat-REPL, Shell Assistant, RAG, AI tools & agents

@@ -16,6 +16,7 @@ tags:
 - type/cli
 - type/daemon
 - ai
+- llm
 homepage: https://localai.io/
 repository: https://github.com/mudler/LocalAI
 description: Alternative to OpenAI, Claude and others. Self-hosted and local-first. Drop-in replacement for OpenAI, running on consumer-grade hardware. No GPU required

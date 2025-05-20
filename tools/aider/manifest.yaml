@@ -17,6 +17,7 @@ tags:
 - lang/python
 - type/cli
 - ai
+- llm
 - code
 homepage: https://aider.chat/
 repository: https://github.com/Aider-AI/aider
