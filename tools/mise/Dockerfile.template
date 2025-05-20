@@ -1,0 +1,44 @@
+#syntax=docker/dockerfile:1.15.1@sha256:9857836c9ee4268391bb5b09f9f157f3c91bb15821bb77969642813b0d00518d
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+echo "### Setting architecture string for ${TARGETPLATFORM}"
+case "${arch}" in
+    x86_64)
+        export arch_suffix="x64"
+        ;;
+    aarch64)
+        export arch_suffix="${alt_arch}"
+        ;;
+    *)
+        echo "ERROR: Unsupported architecture ${arch}."
+        exit 1
+        ;;
+esac
+echo "    Using ${arch_suffix}"
+
+url="https://github.com/jdx/mise/releases/download/v${version}/mise-v${version}-linux-${arch_suffix}-musl.tar.gz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "jdx/mise" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin" --strip-components=2 --no-same-owner \
+    mise/man/man1/mise.1 \
+    mise/bin/mise \
+    mise/bin/mise.d
+mv "${prefix}/bin/man1" "${prefix}/share/man"
+EOF
+RUN <<EOF
+"${prefix}/bin/mise" completion bash >"${prefix}/share/bash-completion/completions/mise"
+"${prefix}/bin/mise" completion fish >"${prefix}/share/fish/vendor_completions.d/mise.fish"
+"${prefix}/bin/mise" completion zsh >"${prefix}/share/zsh/vendor-completions/_mise"
+EOF

@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: mise
+license:
+  name: MIT License
+  link: https://github.com/jdx/mise/blob/main/LICENSE
+version: "2025.5.8"
+check: ${binary} --version | tail -n 1 | cut -d' ' -f1
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/rust
+- type/cli
+homepage: https://mise.jdx.dev/
+repository: https://github.com/jdx/mise
+description: dev tools, env vars, task runner 
+renovate:
+  datasource: github-releases
+  package: jdx/mise
+  extractVersion: ^v(?<version>.+)$
+  priority: low
