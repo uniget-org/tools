@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: umoci
-version: "0.4.7"
+version: "0.5.0"
 check: ${binary} --version | cut -d' ' -f3
 tags:
 - org/oci
