@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: lima
-version: "1.0.7"
+version: "1.1.0"
 check: limactl --version | cut -d' ' -f3
 tags:
 - type/cli
