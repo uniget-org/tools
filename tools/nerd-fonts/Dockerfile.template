@@ -9,13 +9,28 @@ WORKDIR /uniget_bootstrap/share/fonts/NerdFonts
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-for font in CascadiaCode; do
-    url="https://github.com/ryanoasis/nerd-fonts/releases/download/v${version}/${font}.zip"
+FONT_NAMES="$(
+    curl --silent --show-error --location --fail --url "https://api.github.com/repos/ryanoasis/nerd-fonts/releases/tags/v${version}" \
+    | jq --raw-output '.assets[] | select(.name | endswith(".tar.xz")) | .name' \
+    | head -n 3
+)"
+for font in ${FONT_NAMES}; do
+    font_name="$(basename "${font}" .tar.xz)"
+
+    echo
+    echo "### Downloading ${font_name}"
+
+    url="https://github.com/ryanoasis/nerd-fonts/releases/download/v${version}/${font}"
     filename="$(basename "${url}")"
 
     check-github-release-asset "ryanoasis/nerd-fonts" "v${version}" "${filename}"
     curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
         "${url}"
-    unzip -q -o "${uniget_cache_download}/${filename}"
+    
+    mkdir -p "${font_name}"
+    pushd "${font_name}"
+    tar --list --xz --file "${uniget_cache_download}/${filename}"
+    tar --extract --xz --file "${uniget_cache_download}/${filename}"
+    popd
 done
 EOF
