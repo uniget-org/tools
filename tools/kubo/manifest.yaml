@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kubo
-version: "0.34.1"
+version: "0.35.0"
 binary: ipfs
 check: ${binary} version --number
 runtime_dependencies:
