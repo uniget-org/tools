@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: containerd-shim-wasmedge
-version: "0.5.0"
+version: "0.6.0"
 binary: containerd-shim-wasmedge-v1
 check: "" # No version parameter
 build_dependencies:
