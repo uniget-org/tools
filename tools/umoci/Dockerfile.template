@@ -8,7 +8,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://github.com/opencontainers/umoci/releases/download/v${version}/umoci.${alt_arch}"
+url="https://github.com/opencontainers/umoci/releases/download/v${version}/umoci.linux.${alt_arch}"
 filename="$( basename "${url}" )"
 
 check-github-release-asset "opencontainers/umoci" "v${version}" "${filename}"
