@@ -1,6 +1,6 @@
 SOURCE_DATE_EPOCH     ?= $(shell git log -1 --pretty=%ct)
 BUILDER               ?= uniget
-BINFMT_TAG            ?= qemu-v9.2.0-51
+BINFMT_TAG            ?= qemu-v9.2.2
 COSIGN_TLOG_UPLOAD    ?= false
 COSIGN_REFERRERS_MODE ?= oci-1-1
 ifeq ($(REGISTRY),registry.gitlab.com)
