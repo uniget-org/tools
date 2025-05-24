@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: concourse
-version: "7.13.1"
+version: "7.13.2"
 check: ${binary} --version
 tags:
 - type/cli
