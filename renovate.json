@@ -1220,6 +1220,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "hashicorp/consul",
+      "extractVersionTemplate": "^v?(?<version>.+)$",
       "fileMatch": [
         "^tools/consul/manifest.yaml$"
       ],
