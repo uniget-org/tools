@@ -53,6 +53,26 @@ jobs:
                 --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}/cancel"
         fi
 
+        TOOLS="$(
+            curl --silent --show-error --fail --header "Authorization: token ${GITHUB_TOKEN}" \
+                --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${PR}/files" \
+            | jq --raw-output '.[] | select(.filename | startswith("tools/")) | .filename' \
+            | cut -d/ -f2 \
+            | sort \
+            | uniq
+        )"
+        if test "$( wc -l <<<"${TOOLS}" )" -gt 256; then
+            echo "ERROR: Too many tools changed in PR ${PR}. Cannot proceed with automerge"
+            curl --silent --show-error --fail \
+                --request POST \
+                --header "Authorization: Bearer ${GITHUB_TOKEN}" \
+                --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/${PR}/comments" \
+                --data '{"body": "Too many tools changed in this PR. Cannot proceed with automerge."}'
+            curl --silent --show-error --fail --header "Authorization: token ${GITHUB_TOKEN}" \
+                --request POST \
+                --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}/cancel"
+        fi
+
         RUN_URL="$(
             curl --silent --show-error --location --fail \
                 --url "${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" \
