@@ -14,6 +14,10 @@ tags:
 - type/daemon
 - type/cli
 - observability/metrics
+- state/deprecated
+messages:
+  usage: |
+    Promtail has been deprecated in favor of Grafana Alloy.
 homepage: https://grafana.com/loki
 repository: https://github.com/grafana/loki
 description: Agent which ships the contents of local logs to Grafana Loki

@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: alloy
+license:
+  name: Apache License 2.0
+  link: https://github.com/grafana/alloy/blob/main/LICENSE
+version: "1.8.3"
+check: ${binary} --version | grep ^alloy | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/grafana
+- category/operations
+- lang/go
+- type/daemon
+- type/cli
+- observability/metrics
+- observability/logs
+- observability/traces
+- o11y
+- standard/prometheus
+homepage: https://grafana.com/oss/alloy
+repository: https://github.com/grafana/alloy
+description: OpenTelemetry Collector distribution with programmable pipelines
+renovate:
+  datasource: github-releases
+  package: grafana/alloy
+  extractVersion: ^v(?<version>.+)$
+  priority: low

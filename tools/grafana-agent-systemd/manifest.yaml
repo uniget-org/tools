@@ -19,6 +19,7 @@ tags:
 - lang/go
 - type/daemon
 - standard/prometheus
+- state/deprecated
 homepage: https://uniget.dev
 repository: https://github.com/uniget-org/tools
 description: compose file for grafana-agent with systemd

@@ -18,6 +18,7 @@ tags:
 - type/daemon
 - type/cli
 - observability/metrics
+- state/deprecated
 homepage: https://uniget.dev
 repository: https://github.com/uniget-org/tools
 description: compose file for promtail with systemd
