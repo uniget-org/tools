@@ -1,5 +1,5 @@
 services:
   trivy-server:
-    image: aquasec/trivy:{{ .Version }}
+    image: aquasec/trivy:{{ .TrivyVersion }}
     entrypoint: trivy server --skip-update --listen "0.0.0.0:4030"
     network_mode: host

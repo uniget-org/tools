@@ -1,6 +1,6 @@
 services:
   prometheus:
-    image: prom/prometheus:v{{ .Version }}
+    image: prom/prometheus:v{{ .PrometheusVersion }}
     command:
     - '--config.file=/etc/prometheus/prometheus.yaml'
     - '--storage.tsdb.path=/prometheus'

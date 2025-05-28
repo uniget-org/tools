@@ -1,5 +1,5 @@
 services:
   mitmweb:
-    image: mitmproxy/mitmproxy:{{ .Version }}
+    image: mitmproxy/mitmproxy:{{ .MitmproxyVersion }}
     command: mitmweb --web-iface 0.0.0.0
     network_mode: host

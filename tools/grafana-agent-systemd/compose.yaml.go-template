@@ -1,6 +1,6 @@
 services:
   grafana-agent:
-    image: grafana/agent:v{{ .Version }}
+    image: grafana/agent:v{{ .GrafanaAgentVersion }}
     entrypoint:
     - /bin/grafana-agent
     - -server.http.address=0.0.0.0:12345

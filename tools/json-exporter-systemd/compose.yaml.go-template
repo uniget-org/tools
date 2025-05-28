@@ -1,4 +1,4 @@
 services:
   json_exporter:
-    image: quay.io/prometheuscommunity/json-exporter:v{{ .Version }}
+    image: quay.io/prometheuscommunity/json-exporter:v{{ .JsonExporterVersion }}
     network_mode: host

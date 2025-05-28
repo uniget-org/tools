@@ -1,6 +1,6 @@
 services:
   alertmanager:
-    image: prom/alertmanager:v{{ .Version }}
+    image: prom/alertmanager:v{{ .AlertmanagerVersion }}
     command:
     - '--storage.path=/alertmanager'
     restart: always

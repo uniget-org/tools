@@ -1,6 +1,6 @@
 services:
   promtail:
-    image: grafana/promtail:{{ .Version }}
+    image: grafana/promtail:{{ .PromtailVersion }}
     command: -config.file=/etc/promtail/config.yml
     volumes:
     - /var/log:/var/log

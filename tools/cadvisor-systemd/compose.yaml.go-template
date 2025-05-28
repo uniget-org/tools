@@ -1,6 +1,6 @@
 services:
   cadvisor:
-    image: gcr.io/cadvisor/cadvisor:v{{ .Version }}
+    image: gcr.io/cadvisor/cadvisor:v{{ .CadvisorVersion }}
     restart: always
     volumes:
     - /:/rootfs:ro

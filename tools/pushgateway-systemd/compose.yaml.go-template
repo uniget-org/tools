@@ -1,5 +1,5 @@
 services:
   pushgateway:
-    image: prom/pushgateway:v{{ .Version }}
+    image: prom/pushgateway:v{{ .PushgatewayVersion }}
     restart: always
     network_mode: host

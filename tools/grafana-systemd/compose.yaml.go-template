@@ -1,6 +1,6 @@
 services:
   grafana:
-    image: grafana/grafana-oss:{{ .Version }}
+    image: grafana/grafana-oss:{{ .GrafanaVersion }}
     restart: always
     volumes:
     - /var/lib/grafana:/var/lib/grafana

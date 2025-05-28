@@ -1,6 +1,6 @@
 services:
   gcpe:
-    image: quay.io/mvisonneau/gitlab-ci-pipelines-exporter:v{{ .Version }}
+    image: quay.io/mvisonneau/gitlab-ci-pipelines-exporter:v{{ .GitlabCiPipelinesExporterVersion }}
     environment:
       GCPE_CONFIG: /etc/gitlab-ci-pipelines-exporter.yml
       GCPE_INTERNAL_MONITORING_LISTENER_ADDRESS: tcp://127.0.0.1:8082

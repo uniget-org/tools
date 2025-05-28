@@ -1,6 +1,6 @@
 services:
   portainer:
-    image: portainer/portainer-ce:{{ .Version }}
+    image: portainer/portainer-ce:{{ .PortainerVersion }}
     command: -H unix:///var/run/docker.sock
     restart: always 
     volumes:

@@ -3,14 +3,14 @@ version: "3.5"
 services:
   runner:
     restart: always
-    image: registry.gitlab.com/gitlab-org/gitlab-runner:v{{ .Version }}
+    image: registry.gitlab.com/gitlab-org/gitlab-runner:v{{ .GitlabRunnerVersion }}
     volumes:
     - /etc/gitlab-runner:/etc/gitlab-runner:z
     network_mode: host
 
   register-runner:
     restart: 'no'
-    image: registry.gitlab.com/gitlab-org/gitlab-runner:v{{ .Version }}
+    image: registry.gitlab.com/gitlab-org/gitlab-runner:v{{ .GitlabRunnerVersion }}
     command:
     - register
     - --non-interactive

@@ -3,7 +3,7 @@ services:
   # Tempo runs as user 10001, and docker compose creates the volume as root.
   # As such, we need to chown the volume in order for Tempo to start correctly.
   init:
-    image: grafana/tempo:{{ .Version }}
+    image: grafana/tempo:{{ .TempoVersion }}
     user: root
     entrypoint:
     - "chown"
@@ -13,7 +13,7 @@ services:
     - ./tempo-data:/var/tempo
 
   tempo:
-    image: grafana/tempo:{{ .Version }}
+    image: grafana/tempo:{{ .TempoVersion }}
     command: [ "-config.file=/etc/tempo/tempo.yaml" ]
     depends_on:
     - init

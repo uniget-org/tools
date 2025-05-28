@@ -3,7 +3,7 @@ services:
   # Loki would not have permissions to create the directories.
   # Therefore the init container changes permissions of the mounted directory.
   init:
-    image: grafana/loki:{{ .Version }}
+    image: grafana/loki:{{ .LokiVersion }}
     user: root
     entrypoint:
     - "chown"
@@ -13,7 +13,7 @@ services:
     - ./loki:/loki
       
   loki:
-    image: grafana/loki:{{ .Version }}
+    image: grafana/loki:{{ .LokiVersion }}
     command: -config.file=/etc/loki/local-config.yaml
     volumes:
     - /etc/loki/config.yaml:/etc/loki/config.yaml

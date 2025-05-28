@@ -10,7 +10,7 @@ services:
     network_mode: host
 
   mimir-1:
-    image: grafana/mimir:{{ .Version }}
+    image: grafana/mimir:{{ .MimirVersion }}
     command: ["-config.file=/etc/mimir.yaml"]
     hostname: mimir-1
     volumes:
@@ -18,7 +18,7 @@ services:
     - /var/lib/mimir/data1:/data
 
   mimir-2:
-    image: grafana/mimir:{{ .Version }}
+    image: grafana/mimir:{{ .MimirVersion }}
     command: ["-config.file=/etc/mimir.yaml"]
     hostname: mimir-2
     volumes:
@@ -26,7 +26,7 @@ services:
     - /var/lib/mimir/data2:/data
 
   mimir-3:
-    image: grafana/mimir:{{ .Version }}
+    image: grafana/mimir:{{ .MimirVersion }}
     command: ["-config.file=/etc/mimir.yaml"]
     hostname: mimir-3
     volumes:

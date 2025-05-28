@@ -1,6 +1,6 @@
 services:
   node-exporter:
-    image: quay.io/prometheus/node-exporter:v{{ .Version }}
+    image: quay.io/prometheus/node-exporter:v{{ .NodeExporterVersion }}
     restart: always 
     command: 
     - '--path.rootfs=/host'

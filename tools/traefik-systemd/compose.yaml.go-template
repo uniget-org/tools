@@ -2,7 +2,7 @@ services:
 
   # https://doc.traefik.io/traefik/
   traefik:
-    image: traefik:v{{ .Version }}
+    image: traefik:v{{ .TraefikVersion }}
     command:
     - --log=true
     - --log.level=DEBUG
