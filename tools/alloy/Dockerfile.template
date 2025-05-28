@@ -1,0 +1,26 @@
+#syntax=docker/dockerfile:1.16.0@sha256:e2dd261f92e4b763d789984f6eab84be66ab4f5f08052316d8eb8f173593acf7
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+COPY alloy.service.go-template /uniget_bootstrap/etc/systemd/system/
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/grafana/alloy/releases/download/v${version}/alloy-linux-${alt_arch}.zip"
+filename="$(basename "${url}")"
+
+check-github-release-asset "grafana/alloy" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+unzip -q -o -d "${prefix}/bin" "${uniget_cache_download}/${filename}"
+mv "${prefix}/bin/alloy-linux-${alt_arch}" "${prefix}/bin/alloy"
+EOF
+RUN <<EOF
+"${prefix}/bin/alloy" completion bash >"${prefix}/share/bash-completion/completions/alloy"
+"${prefix}/bin/alloy" completion fish >"${prefix}/share/fish/vendor_completions.d/alloy.fish"
+"${prefix}/bin/alloy" completion zsh >"${prefix}/share/zsh/vendor-completions/_alloy"
+EOF

@@ -15,6 +15,10 @@ tags:
 - lang/go
 - type/daemon
 - standard/prometheus
+- state/deprecated
+messages:
+  usage: |
+    Grafana Agent has been deprecated in favor of Grafana Alloy.
 homepage: https://grafana.com/docs/agent/
 repository: https://github.com/grafana/agent
 description: Telemetry agent for the LGTM stack
