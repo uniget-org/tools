@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: calicoctl
-version: "3.30.0"
+version: "3.30.1"
 check: ${binary} version 2>&1 | grep ^Client | tr -s ' ' | cut -d' ' -f3 | tr -d v
 tags:
 - type/cli
