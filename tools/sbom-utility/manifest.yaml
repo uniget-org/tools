@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: sbom-utility
-version: "0.17.1"
+version: "0.18.0"
 check: ${binary} version | grep ^sbom-utility | cut -d' ' -f3 | tr -d v
 platforms:
 - linux/amd64
