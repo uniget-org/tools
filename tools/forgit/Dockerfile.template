@@ -9,5 +9,19 @@ ARG name
 ARG version
 RUN <<EOF
 curl --silent --show-error --location --fail --output "${prefix}/etc/profile.d/forgit.sh" \
-    "https://github.com/wfxr/forgit/raw/${version}/forgit.plugin.zsh"
+    "https://github.com/wfxr/forgit/raw/refs/tags/${version}/bin/git-forgit"
+
+curl --silent --show-error --location --fail --output "${prefix}/share/forgit/forgit.plugin.fish" \
+    "https://github.com/wfxr/forgit/raw/refs/tags/${version}/conf.d/forgit.plugin.fish"
+curl --silent --show-error --location --fail --output "${prefix}/share/forgit/forgit.plugin.zsh" \
+    "https://github.com/wfxr/forgit/raw/refs/tags/${version}/forgit.plugin.zsh"
+ln --relative --symbolic --force "${prefix}/share/forgit/forgit.plugin.zsh" "${prefix}/share/forgit/forgit.plugin.sh"
+EOF
+RUN <<EOF
+curl --silent --show -error --location --fail --output "${prefix}/share/bash-completion/completions/forgit" \
+    "https://github.com/wfxr/forgit/raw/refs/tags/${version}/completions/git-forgit.bash"
+curl --silent --show -error --location --fail --output "${prefix}/share/fish/vendor_completions.d/forgit.fish" \
+    "https://github.com/wfxr/forgit/raw/refs/tags/${version}/completions/git-forgit.fish"
+curl --silent --show -error --location --fail --output "${prefix}/share/zsh/vendor-completions/_forgit" \
+    "https://github.com/wfxr/forgit/raw/refs/tags/${version}/completions/_git-forgit"
 EOF
