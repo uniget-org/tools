@@ -11,6 +11,7 @@ RUN <<EOF
 curl --silent --show-error --location --fail --output "${prefix}/etc/profile.d/forgit.sh" \
     "https://github.com/wfxr/forgit/raw/refs/tags/${version}/bin/git-forgit"
 
+mkdir -p "${prefix}/share/forgit"
 curl --silent --show-error --location --fail --output "${prefix}/share/forgit/forgit.plugin.fish" \
     "https://github.com/wfxr/forgit/raw/refs/tags/${version}/conf.d/forgit.plugin.fish"
 curl --silent --show-error --location --fail --output "${prefix}/share/forgit/forgit.plugin.zsh" \
