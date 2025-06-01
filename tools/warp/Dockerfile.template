@@ -33,8 +33,7 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
 tar --file="${uniget_cache_download}/${filename}" --list
 tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     warp
-
-cat <<"EOT" >"${prefix}/share/bash-completion/completions/warp"
-complete -C warp warp
-EOT
+EOF
+COPY <<EOF /uniget_bootstrap/share/bash-completion/completions/vault.go-template
+complete -C {{ .Target }}/bin/vault vault
 EOF

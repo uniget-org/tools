@@ -7,9 +7,6 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-COPY <<EOF /uniget_bootstrap/etc/profile.d/aws
-complete -C '/usr/local/bin/aws_completer' aws
-EOF
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 url="https://awscli.amazonaws.com/awscli-exe-linux-x86_64-${version}.zip"
 filename="$( basename "${url}" )"
@@ -29,4 +26,7 @@ ln --symbolic --relative --force "${prefix}/aws-cli/v2/current/dist/aws" "${pref
 ln --symbolic --relative --force "${prefix}/aws-cli/v2/current/dist/aws_completer" "${prefix}/aws-cli/v2/current/bin/aws_completer"
 ln --symbolic --relative --force "${prefix}/aws-cli/v2/current/bin/aws" "${prefix}/bin/aws"
 ln --symbolic --relative --force "${prefix}/aws-cli/v2/current/bin/aws_completer" "${prefix}/bin/aws_completer"
+EOF
+COPY <<EOF /uniget_bootstrap/share/bash-completion/completions/aws.go-template
+complete -C {{ .Target }}/bin/aws_completer aws
 EOF

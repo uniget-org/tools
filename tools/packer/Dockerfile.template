@@ -7,7 +7,6 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-COPY packer.sh.go-template /uniget_bootstrap/etc/profile.d/
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 url="https://releases.hashicorp.com/packer/${version}/packer_${version}_linux_${alt_arch}.zip"
 filename="$(basename "${url}")"
@@ -17,4 +16,7 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
 
 unzip -t "${uniget_cache_download}/${filename}"
 unzip -q -o -d "${prefix}/bin" "${uniget_cache_download}/${filename}"
+EOF
+COPY <<EOF /uniget_bootstrap/share/bash-completion/completions/packer.go-template
+complete -C {{ .Target }}/bin/packer packer
 EOF

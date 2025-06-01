@@ -12,9 +12,9 @@ COPY --link --from=python / /usr/local/
 COPY --link --from=shiv / /usr/local/
 ARG name
 ARG version
-COPY <<EOF /uniget_bootstrap/etc/profile.d/aws
-complete -C '/usr/local/bin/aws_completer' aws
-EOF
 RUN --mount=type=cache,target=/root/.cache/pip <<EOF
 shiv --output-file "${prefix}/bin/aws" --console-script aws "awscli==${version}"
+EOF
+COPY <<EOF /uniget_bootstrap/share/bash-completion/completions/aws.go-template
+complete -C {{ .Target }}/bin/aws_completer aws
 EOF

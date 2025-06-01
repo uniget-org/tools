@@ -11,8 +11,6 @@ ARG name
 ARG version
 COPY --link --from=helm / /usr/local/
 RUN <<EOF
-echo "export HELM_PLUGINS=/share/helm/plugins" >"${prefix}/etc/profile.d/helm-plugins.sh"
-
 export HELM_PLUGINS=${prefix}/share/helm/plugins
 
 plugins=(
@@ -60,4 +58,7 @@ helm diff completion zsh >"${prefix}/share/zsh/vendor-completions/_helm-diff"
 helm sigstore completion bash >"${prefix}/share/bash-completion/completions/helm-sigstore"
 helm sigstore completion fish >"${prefix}/share/fish/vendor_completions.d/helm-sigstore.fish"
 helm sigstore completion zsh >"${prefix}/share/zsh/vendor-completions/_helm-sigstore"
+EOF
+COPY <<EOF /uniget_bootstrap/etc/profile.d/helm-plugins.sh.go-template
+export HELM_PLUGINS={{ .Target }}/share/helm/plugins
 EOF

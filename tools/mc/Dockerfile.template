@@ -18,10 +18,10 @@ install --mode=0755 \
     "${uniget_cache_download}/${filename}" \
     "${prefix}/bin/mc"
 EOF
-COPY <<EOF /uniget_bootstrap/share/bash-completion/completions/mc
-complete -C /bin/mc mc
+COPY <<EOF /uniget_bootstrap/share/bash-completion/completions/mc.go-template
+complete -C {{ .Target }}/bin/mc mc
 EOF
-COPY <<EOF /uniget_bootstrap/share/fish/vendor_completions.d/mc.fish
+COPY <<"EOF" /uniget_bootstrap/share/fish/vendor_completions.d/mc.fish
 function __complete_mc
     set -lx COMP_LINE (commandline -cp)
     test -z (commandline -ct)

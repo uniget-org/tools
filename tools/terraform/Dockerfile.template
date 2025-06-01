@@ -19,6 +19,6 @@ unzip -t "${uniget_cache_download}/${filename}"
 unzip -q -o -d "${prefix}/bin" "${uniget_cache_download}/${filename}" \
     terraform
 EOF
-COPY <<EOF /uniget_bootstrap/etc/profile.d/terraform.sh.go-template
+COPY <<EOF /uniget_bootstrap/share/bash-completion/completions/terraform.go-template
 complete -C {{ .Target }}/bin/terraform terraform
 EOF

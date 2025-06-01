@@ -1,1 +1,0 @@
-complete -C {{ .Target }}/bin/packer packer
