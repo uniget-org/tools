@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: tweety
+license:
+  name: MIT License
+  link: https://github.com/pomdtr/tweety/blob/main/LICENSE-MIT
+version: "1.2.0"
+check: "" # No version parameter
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/daemon
+homepage: https://github.com/pomdtr/tweety
+repository: https://github.com/pomdtr/tweety
+description: Integrated terminal for your browser
+renovate:
+  datasource: github-releases
+  package: pomdtr/tweety
+  extractVersion: ^v(?<version>.+)$
+  priority: low
