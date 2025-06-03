@@ -4,7 +4,7 @@ name: tweety
 license:
   name: MIT License
   link: https://github.com/pomdtr/tweety/blob/main/LICENSE-MIT
-version: "2.0.1"
+version: "2.0.3"
 check: "" # No version parameter
 platforms:
 - linux/amd64
