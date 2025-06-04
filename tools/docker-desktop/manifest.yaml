@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: docker-desktop
-version: "4.41.2"
+version: "4.41.2.191736"
 binary: "false"
 check: "" # No version parameter
 platforms:
@@ -26,6 +26,7 @@ renovate:
   datasource: gitlab-releases
   package: uniget-org/renovate-custom
   extractVersion: ^docker-desktop/(?<version>.+)$
+  versioning: loose
   priority: low
 license:
   name: Docker Subscription Service Agreement
