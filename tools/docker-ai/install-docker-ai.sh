@@ -2,19 +2,15 @@
 set -o errexit -o pipefail
 
 target="${1:-/usr/local}"
-: "${docker_desktop_version:=4.29.0}"
+: "${docker_desktop_version:=4.41.2.191736}"
 echo "Using Docker Desktop version ${docker_desktop_version}"
-docker_desktop_build="$(
-    curl --silent --show-error --location --fail "https://github.com/docker/docs/raw/main/content/manuals/desktop/release-notes.md" \
-    | grep -P "{{< desktop-install-v2 all=true " \
-    | grep -P " version=\"${docker_desktop_version}\" " \
-    | sed -E 's|^.+build_path="/([0-9]+)/".+$|\1|'
-)"
+docker_desktop_real_version="$( cut -d. -f1-3 <<<"${docker_desktop_version}" )"
+docker_desktop_build="$( cut -d. -f4 <<<"${docker_desktop_version}" )"
 if test -z "${docker_desktop_build}"; then
     echo "Failed to find build for Docker Desktop version ${docker_desktop_version}"
     exit 1
 fi
-echo "Using Docker Desktop version ${docker_desktop_version} build ${docker_desktop_build}"
+echo "Using Docker Desktop version ${docker_desktop_real_version} build ${docker_desktop_build}"
 
 TEMP_DIR="$(mktemp -d)"
 trap "rm -rf ${TEMP_DIR}" EXIT
