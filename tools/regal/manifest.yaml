@@ -4,7 +4,7 @@ name: regal
 license:
   name: Apache License 2.0
   link: https://github.com/StyraInc/regal/blob/main/LICENSE
-version: "0.34.0"
+version: "0.34.1"
 check: ${binary} version | grep ^Version | tr -s ' ' | cut -d' ' -f2
 platforms:
 - linux/amd64
