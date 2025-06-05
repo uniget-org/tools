@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: docker-compose
-version: "2.36.2"
+version: "2.37.0"
 binary: ${target}/libexec/docker/cli-plugins/docker-compose
 check: ${binary} version --short
 runtime_dependencies:
