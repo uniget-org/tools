@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: libtpms
+license:
+  name: Custom
+  link: https://github.com/stefanberger/libtpms/blob/master/LICENSE
+version: "0.10.0"
+check: ""
+build_dependencies:
+- bar
+runtime_dependencies:
+- baz
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- category/development
+- lang/c
+- type/lib
+homepage: https://github.com/stefanberger/libtpms
+repository: https://github.com/stefanberger/libtpms
+description: Software emulation of a Trusted Platform Module (TPM 1.2 and TPM 2.0)
+renovate:
+  datasource: github-releases
+  package: stefanberger/libtpms
+  extractVersion: ^v(?<version>.+)$
+  priority: low
