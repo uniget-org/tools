@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: swtmp
+license:
+  name: BSD-3-Clause License
+  link: https://github.com/stefanberger/swtpm/blob/master/LICENSE
+version: "0.10.1"
+check: ""
+build_dependencies:
+- bar
+runtime_dependencies:
+- baz
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- category/operations
+- lang/c
+- type/cli
+homepage: https://github.com/stefanberger/swtpm
+repository: https://github.com/stefanberger/swtpm
+description: Libtpms-based TPM emulator with socket, character device, and Linux CUSE interface
+renovate:
+  datasource: github-releases
+  package: stefanberger/swtpm
+  extractVersion: ^v(?<version>.+)$
+  priority: low
