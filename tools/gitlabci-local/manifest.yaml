@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: gitlabci-local
-version: "11.1.0"
+version: "12.0.0"
 check: ${binary} --version | cut -d' ' -f2
 build_dependencies:
 - python
