@@ -4,7 +4,7 @@ name: tilt
 license:
   name: Apache License 2.0
   link: https://github.com/tilt-dev/tilt/blob/master/LICENSE
-version: "0.34.5"
+version: "0.35.0"
 check: ${binary} version | cut -d, -f1 | tr -d v
 platforms:
 - linux/amd64
