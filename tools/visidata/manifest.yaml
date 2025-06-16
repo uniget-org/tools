@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: visidata
-version: "3.1.1"
+version: "3.2"
 check: ${binary} --version | cut -d' ' -f2 | tr -d v
 build_dependencies:
 - python
