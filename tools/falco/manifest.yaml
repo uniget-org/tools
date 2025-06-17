@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: falco
-version: "0.41.1"
+version: "0.41.2"
 check: ${binary} --version | grep ^Falco | cut -d' ' -f3
 platforms:
 - linux/amd64
