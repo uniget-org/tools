@@ -4,7 +4,7 @@ name: docker-model-cli
 license:
   name: Apache License 2.0
   link: https://github.com/docker/model-runner/blob/main/LICENSE
-version: "0.1.29"
+version: "0.1.30"
 binary: docker-model
 check: ${binary} version 2>&1 | cut -d' ' -f5
 build_dependencies:
