@@ -4,7 +4,7 @@ name: gefyra
 license:
   name: Apache License 2.0
   link: https://github.com/gefyrahq/gefyra/blob/main/LICENSE
-version: "2.3.1"
+version: "2.3.2"
 check: ${binary} version | cut -d' ' -f4
 platforms:
 - linux/amd64
