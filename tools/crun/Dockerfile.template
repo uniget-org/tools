@@ -1,4 +1,4 @@
-#syntax=docker/dockerfile:1.17.0@sha256:e2dd261f92e4b763d789984f6eab84be66ab4f5f08052316d8eb8f173593acf7
+#syntax=docker/dockerfile:1.17.1@sha256:e2dd261f92e4b763d789984f6eab84be66ab4f5f08052316d8eb8f173593acf7
 
 FROM nixos/nix:2.29.0@sha256:016f07dddeb5feabeb75c360edb840ff4df3b89c7e0ca7ff1faea6240ce8375a AS build
 ARG name
