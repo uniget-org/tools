@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
-name: swtmp
+name: swtpm
 license:
   name: BSD-3-Clause License
   link: https://github.com/stefanberger/swtpm/blob/master/LICENSE
