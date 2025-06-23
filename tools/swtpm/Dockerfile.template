@@ -1,5 +1,6 @@
 #syntax=docker/dockerfile:1.16.0@sha256:e2dd261f92e4b763d789984f6eab84be66ab4f5f08052316d8eb8f173593acf7
 
+FROM ghcr.io/uniget-org/tools/libtpms:latest AS libtpms
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 FROM ghcr.io/uniget-org/tools/python-3.12:latest AS python
 
@@ -10,23 +11,6 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-
-RUN --mount=type=cache,target=/var/cache/apt <<EOF
-apt-get update
-apt-get -y install --no-install-recommends \
-    libssl-dev
-EOF
-COPY --link --from=make / /usr/local/
-WORKDIR /tmp/libtpms
-RUN <<EOF
-version=0.10.0
-git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/stefanberger/libtpms .
-./autogen.sh --prefix="${prefix}" --with-tpm2 --with-openssl
-make
-make check
-make install
-EOF
-
 RUN --mount=type=cache,target=/var/cache/apt <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
@@ -41,6 +25,7 @@ apt-get -y install --no-install-recommends \
     libtasn1-6-dev \
     libssl-dev
 EOF
+COPY --link --from=libtpms / /usr/
 COPY --link --from=python / /usr/local/
 WORKDIR /tmp/swtmp
 RUN <<EOF
