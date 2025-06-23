@@ -8,7 +8,7 @@ version: "0.10.1"
 check: cat ${prefix}/lib/pkgconfig/libtpms.pc | grep ^Version | cut -d' ' -f2
 platforms:
 - linux/amd64
-- linux/arm64
+#- linux/arm64
 tags:
 - category/development
 - lang/c
