@@ -7,9 +7,9 @@ license:
 version: "0.10.1"
 check: ""
 build_dependencies:
-- bar
+- libtpms
 runtime_dependencies:
-- baz
+- libtpms
 platforms:
 - linux/amd64
 #- linux/arm64
