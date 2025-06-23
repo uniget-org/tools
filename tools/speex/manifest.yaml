@@ -3,7 +3,7 @@ $schema: https://tools.uniget.dev/schema.yaml
 name: speex
 version: "1.2.1"
 binary: "false"
-check: cat ${target}/lib/pkgconfig/speex.pc | grep ^Version | cut -d' ' -f2
+check: cat ${prefix}/lib/pkgconfig/speex.pc | grep ^Version | cut -d' ' -f2
 build_dependencies:
 - make
 platforms:

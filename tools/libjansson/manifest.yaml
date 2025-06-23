@@ -6,7 +6,7 @@ license:
   link: https://github.com/akheron/jansson#License-1-ov-file
 version: "2.14.1"
 binary: "false"
-check: grep ^Version "${target}/lib/pkgconfig/jansson.pc" | cut -d' ' -f2
+check: grep ^Version "${prefix}/lib/pkgconfig/jansson.pc" | cut -d' ' -f2
 platforms:
 - linux/amd64
 - linux/arm64
