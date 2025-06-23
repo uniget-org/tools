@@ -17,10 +17,9 @@ EOF
 COPY --link --from=make / /usr/local/
 WORKDIR /tmp/libtpms
 RUN <<EOF
-version=0.10.0
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/stefanberger/libtpms .
 ./autogen.sh --prefix="${prefix}" --with-tpm2 --with-openssl
-make
+make -j$(nproc)
 make check
 make install
 EOF
