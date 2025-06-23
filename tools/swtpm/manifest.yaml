@@ -5,7 +5,7 @@ license:
   name: BSD-3-Clause License
   link: https://github.com/stefanberger/swtpm/blob/master/LICENSE
 version: "0.10.1"
-check: ""
+check: ${binary} --version | cut -d' ' -f4 | cut -d, -f1
 build_dependencies:
 - libtpms
 runtime_dependencies:
