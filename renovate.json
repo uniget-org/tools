@@ -9237,7 +9237,7 @@
       "depNameTemplate": "stefanberger/swtpm",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
-        "^tools/swtmp/manifest.yaml$"
+        "^tools/swtpm/manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
