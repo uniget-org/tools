@@ -25,5 +25,5 @@ repository: https://github.com/Multiverse/Multiverse-Inventories
 description: Let players have separate inventories in Multiverse worlds
 renovate:
   datasource: github-releases
-  package: Multiverse/Multiverse-Portals
+  package: Multiverse/Multiverse-Inventories
   priority: low

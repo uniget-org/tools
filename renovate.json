@@ -6620,7 +6620,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "Multiverse/Multiverse-Portals",
+      "depNameTemplate": "Multiverse/Multiverse-Inventories",
       "fileMatch": [
         "^tools/multiverse-inventories/manifest.yaml$"
       ],
