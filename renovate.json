@@ -3510,6 +3510,17 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "docker",
+      "depNameTemplate": "allinurl/goaccess",
+      "fileMatch": [
+        "^tools/goaccess/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "barelyhuman/goblin",
       "extractVersionTemplate": "^v(?<version>.+)$",

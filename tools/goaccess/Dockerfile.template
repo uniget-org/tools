@@ -1,0 +1,16 @@
+#syntax=docker/dockerfile:1.17.1@sha256:38387523653efa0039f8e1c89bb74a30504e76ee9f565e25c9a09841f9427b05
+
+ARG version=latest
+FROM allinurl/goaccess:${version} AS goaccess
+
+FROM registry.gitlab.com/uniget-org/images/alpine:3.21 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+WORKDIR /uniget_bootstrap
+COPY --from=goaccess /bin/goaccess bin/
+COPY --from=goaccess /share/man/man1/goaccess.1 share/man/man1/
+COPY --from=goaccess /share/locale/ share/locale/
