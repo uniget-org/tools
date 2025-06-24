@@ -4,7 +4,7 @@ name: vault-unseal
 license:
   name: MIT License
   link: https://github.com/lrstanley/vault-unseal/blob/master/LICENSE
-version: "0.7.1"
+version: "0.7.2"
 check: §{binary} --version | cut -d' ' -f3
 platforms:
 - linux/amd64
