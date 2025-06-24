@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: goaccess
+license:
+  name: MIT License
+  link: https://github.com/allinurl/goaccess/blob/master/COPYING
+version: "1.9.4"
+check: ${binary} --version | grep ^GoAccess | cut -d' ' -f3 | cut -d. -f1-3
+build_dependencies:
+- make
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/c
+- type/tui
+- type/cli
+homepage: https://goaccess.io
+repository: https://github.com/allinurl/goaccess
+description: Real-time web log analyzer and interactive viewer that runs in a terminal in *nix systems or through your browser
+renovate:
+  datasource: docker
+  package: allinurl/goaccess
+  priority: low
