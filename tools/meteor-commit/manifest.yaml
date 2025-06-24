@@ -4,7 +4,7 @@ name: meteor-commit
 license:
   name: MIT License
   link: https://github.com/stefanlogue/meteor/blob/main/LICENSE
-version: "0.27.0"
+version: "0.28.1"
 binary: meteor
 check: ${binary} --version | cut -d' ' -f3
 conflicts_with:
