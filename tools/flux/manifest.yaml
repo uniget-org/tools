@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: flux
-version: "0.196.1"
+version: "0.197.0"
 check: "" # No version parameter
 conflicts_with:
 - flux2
