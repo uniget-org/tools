@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: opentelemetry-collector-otlp
+license:
+  name: Apache License 2.0
+  link: https://github.com/open-telemetry/opentelemetry-collector/blob/main/LICENSE
+version: "0.128.0"
+binary: otelcol-otlp
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/opentelemetry
+- category/operations
+- lang/go
+- type/cli
+- standard/opentelemetry
+- observability/metrics
+- observability/traces
+- observability/logs
+- o11y
+homepage: https://github.com/open-telemetry/opentelemetry-collector-releases/tree/main/distributions/otelcol-otlp
+repository: https://github.com/open-telemetry/opentelemetry-collector
+description: OpenTelemetry distribution only contains the receiver and exporters for the OpenTelemetry Protocol (OTLP), including both gRPC and HTTP transport
+renovate:
+  datasource: github-releases
+  package: open-telemetry/opentelemetry-collector
+  extractVersion: ^v(?<version>.+)$
+  priority: low
