@@ -7,17 +7,18 @@ FROM ghcr.io/uniget-org/tools/iptables:latest AS iptables
 FROM ghcr.io/uniget-org/tools/libjansson:latest AS libjansson
 FROM ghcr.io/uniget-org/tools/libgmp:latest AS libgmp
 
-FROM registry.gitlab.com/uniget-org/images/build-base:3.21 AS prepare
+FROM registry.gitlab.com/uniget-org/images/build-essential:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-RUN --mount=type=cache,target=/var/cache/apk <<EOF
-apk add --update-cache \
+RUN --mount=type=cache,target=/var/cache/apt <<EOF
+apt-get update
+apt-get -y install --no-install-recommends \
     bison \
     flex \
     asciidoc \
-    linux-headers
+    libeditreadline-dev
 EOF
 COPY --link --from=make / /usr/local/
 COPY --link --from=libmnl / /usr/local/
@@ -31,6 +32,8 @@ ARG version
 RUN <<EOF
 check-clone "https://git.netfilter.org/nftables/" "v${version}"
 git clone --config advice.detachedHead=false --depth 1 --branch "v${version}" git://git.netfilter.org/nftables .
+EOF
+RUN <<EOF
 ./autogen.sh
 ./configure \
     --prefix="${prefix}" \
