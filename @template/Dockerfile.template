@@ -175,15 +175,6 @@ ARG version
 #EOF
 
 # c
-#RUN --mount=type=cache,target=/var/cache/apt <<EOF
-#apt-get update
-#apt-get -y install --no-install-recommends \
-#    foo
-#EOF
-#RUN --mount=type=cache,target=/var/cache/apk <<EOF
-#apk add --update-cache \
-#    foo
-#EOF
 #COPY --link --from=make / /usr/local/
 #WORKDIR /tmp/foo
 #RUN <<EOF
