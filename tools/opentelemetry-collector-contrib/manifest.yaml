@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: opentelemetry-collector-contrib
+license:
+  name: Apache License 2.0
+  link: https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/LICENSE
+version: "0.128.0"
+check: ""
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/opentelemetry
+- category/operations
+- lang/go
+- type/cli
+- standard/opentelemetry
+- observability/metrics
+- observability/traces
+- observability/logs
+- o11y
+homepage: https://github.com/open-telemetry/opentelemetry-collector-releases/tree/main/distributions/otelcol-contrib
+repository: https://github.com/open-telemetry/opentelemetry-collector-contrib
+description: OpenTelemetry distribution containing all the components from both the OpenTelemetry Collector repository and the OpenTelemetry Collector Contrib repository including open source and vendor supported components
+renovate:
+  datasource: github-releases
+  package: open-telemetry/opentelemetry-collector-contrib
+  extractVersion: ^v(?<version>.+)$
+  priority: low

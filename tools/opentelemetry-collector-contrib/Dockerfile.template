@@ -1,0 +1,26 @@
+#syntax=docker/dockerfile:1.17.1@sha256:38387523653efa0039f8e1c89bb74a30504e76ee9f565e25c9a09841f9427b05
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v${version}/otelcol-contrib_${version}_linux_${alt_arch}.tar.gz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "open-telemetry/opentelemetry-collector-releases" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin" --no-same-owner \
+    otelcol-contrib
+EOF
+RUN <<EOF
+"${prefix}/bin/otelcol-contrib" completion bash >"${prefix}/share/bash-completion/completions/otelcol-contrib"
+"${prefix}/bin/otelcol-contrib" completion fish >"${prefix}/share/fish/vendor_completions.d/otelcol-contrib.fish"
+"${prefix}/bin/otelcol-contrib" completion zsh >"${prefix}/share/zsh/vendor-completions/_otelcol-contrib"
+EOF
