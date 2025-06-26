@@ -1,5 +1,7 @@
 #syntax=docker/dockerfile:1.17.1@sha256:38387523653efa0039f8e1c89bb74a30504e76ee9f565e25c9a09841f9427b05
 
+FROM ghcr.io/uniget-org/tools/go:latest AS go
+
 FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
@@ -18,5 +20,17 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
 install --mode=0755 \
     "${uniget_cache_download}/${filename}" \
     "${prefix}/bin/mimirtool"
-
+EOF
+COPY --link --from=go / /usr/local/
+WORKDIR /go/src/github.com/foo/bar
+RUN <<EOF
+check-clone "https://github.com/grafana/mimir" "mimir-${version}"
+git clone -q --config advice.detachedHead=false --depth 1 --branch "mimir-${version}" https://github.com/grafana/mimir .
+EOF
+RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
+go build -o "${prefix}/bin/copyblocks" ./tools/copyblocks
+go build -o "${prefix}/bin/copyprefix" ./tools/copyprefix
+go build -o "${prefix}/bin/listblocks" ./tools/listblocks
+go build -o "${prefix}/bin/mark-blocks" ./tools/mark-blocks
+go build -o "${prefix}/bin/splitblocks" ./tools/splitblocks
 EOF
