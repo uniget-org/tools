@@ -4,7 +4,7 @@ name: geyser
 license:
   name: MIT License
   link: https://github.com/GeyserMC/Geyser/blob/master/LICENSE
-version: "2.7.2.862"
+version: "2.8.0.864"
 binary: "false"
 check: "" # No binary
 runtime_dependencies:
