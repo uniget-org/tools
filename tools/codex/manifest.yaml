@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: codex
+license:
+  name: Apache License 2.0
+  link: https://github.com/openai/codex/blob/main/LICENSE
+version: "0.1.2505172129"
+check: ${binary} --version
+build_dependencies:
+- npm
+- nodejs
+runtime_dependencies:
+- nodejs
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- org/openai
+- category/development
+- lang/javascript
+- type/cli
+- ai
+- llm
+homepage: https://openai.com/index/introducing-codex/
+repository: https://github.com/openai/codex
+description: Lightweight coding agent that runs in your terminal
+renovate:
+  datasource: npm
+  package: "@openai/codex"
+  priority: low
