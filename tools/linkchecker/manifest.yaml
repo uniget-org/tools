@@ -4,10 +4,10 @@ name: linkchecker
 version: "10.5.0"
 check: ${binary} --version 2>/dev/null | grep ^LinkChecker | cut -d' ' -f2
 build_dependencies:
-- python
+- python-3.12
 - shiv
 runtime_dependencies:
-- python
+- python-3.12
 platforms:
 - linux/amd64
 - linux/arm64

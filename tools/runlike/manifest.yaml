@@ -4,10 +4,10 @@ name: runlike
 version: "1.5.4"
 check: "" # No version parameter
 build_dependencies:
-- python
+- python-3.12
 - shiv
 runtime_dependencies:
-- python
+- python-3.12
 platforms:
 - linux/amd64
 - linux/arm64

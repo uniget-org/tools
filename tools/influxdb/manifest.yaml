@@ -4,7 +4,7 @@ version: "3.0.3"
 binary: influxdb3
 check: ${binary} --version | cut -d' ' -f2 | tr -d ,
 runtime_dependencies:
-- python
+- python-3.12
 tags:
 - org/influxdata
 - observability/metrics

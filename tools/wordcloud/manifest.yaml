@@ -4,10 +4,10 @@ version: "1.9.4"
 binary: wordcloud_cli
 check: ${binary} --version | cut -d' ' -f2
 build_dependencies:
-- python
+- python-3.12
 - shiv
 runtime_dependencies:
-- python
+- python-3.12
 platforms:
 - linux/amd64
 #- linux/arm64

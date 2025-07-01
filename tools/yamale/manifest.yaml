@@ -4,10 +4,10 @@ name: yamale
 version: "6.0.0"
 check: ${binary} --version
 build_dependencies:
-- python
+- python-3.12
 - shiv
 runtime_dependencies:
-- python
+- python-3.12
 platforms:
 - linux/amd64
 - linux/arm64

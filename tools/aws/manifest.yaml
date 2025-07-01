@@ -3,10 +3,10 @@ name: aws
 version: "1.41.0"
 check: ${binary} --version | cut -d' ' -f1 | cut -d/ -f2
 build_dependencies:
-- python
+- python-3.12
 - shiv
 runtime_dependencies:
-- python
+- python-3.12
 conflicts_with:
 - aws2
 tags:

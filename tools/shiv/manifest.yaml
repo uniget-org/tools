@@ -3,7 +3,7 @@ name: shiv
 version: "1.0.8"
 check: "" # Need python to run binary
 runtime_dependencies:
-- python
+- python-3.12
 platforms:
 - linux/amd64
 - linux/arm64

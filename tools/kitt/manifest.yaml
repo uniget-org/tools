@@ -4,10 +4,10 @@ name: kitt
 version: "0.8.6"
 check: "" # No version/help provided
 build_dependencies:
-- python
+- python-3.12
 - shiv
 runtime_dependencies:
-- python
+- python-3.12
 platforms:
 - linux/amd64
 - linux/arm64

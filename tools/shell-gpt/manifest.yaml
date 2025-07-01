@@ -5,11 +5,11 @@ version: "1.4.5"
 binary: sgpt
 check: "" # No help without OpenAI API key
 build_dependencies:
-- python
+- python-3.12
 - shiv
 - rust
 runtime_dependencies:
-- python
+- python-3.12
 platforms:
 - linux/amd64
 tags:
