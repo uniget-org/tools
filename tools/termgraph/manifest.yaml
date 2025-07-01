@@ -4,10 +4,10 @@ name: termgraph
 version: "0.5.3"
 check: ${binary} --version | cut -d' ' -f2 | tr -d v
 build_dependencies:
-- python
+- python-3.12
 - shiv
 runtime_dependencies:
-- python
+- python-3.12
 platforms:
 - linux/amd64
 - linux/arm64

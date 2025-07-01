@@ -9,7 +9,7 @@ check: ${binary} --version | grep ^aider | cut -d' ' -f2
 build_dependencies:
 - shiv
 runtime_dependencies:
-- python
+- python-3.12
 platforms:
 - linux/amd64
 tags:

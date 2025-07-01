@@ -3,7 +3,7 @@ name: gcloud
 version: "528.0.0"
 check: ${binary} --version | head -n 1 | cut -d' ' -f4
 runtime_dependencies:
-- python
+- python-3.12
 platforms:
 - linux/amd64
 - linux/arm64

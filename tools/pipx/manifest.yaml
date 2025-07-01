@@ -3,10 +3,10 @@ name: pipx
 version: "1.7.1"
 check: ${binary} --version
 build_dependencies:
-- python
+- python-3.12
 - shiv
 runtime_dependencies:
-- python
+- python-3.12
 platforms:
 - linux/amd64
 - linux/arm64

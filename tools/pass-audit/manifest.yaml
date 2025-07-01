@@ -4,11 +4,11 @@ version: "1.2"
 check: "" # TODO
 build_dependencies:
 - make
-- python
+- python-3.12
 - pipx
 runtime_dependencies:
 - pass
-- python
+- python-3.12
 tags:
 - category/security
 - lang/python

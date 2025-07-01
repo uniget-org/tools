@@ -7,9 +7,10 @@ license:
 version: "0.6.30"
 check: ${binary} --version | grep ^openllm | cut -d' ' -f2
 build_dependencies:
-- python
+- python-3.12
+- shiv
 runtime_dependencies:
-- python
+- python-3.12
 platforms:
 - linux/amd64
 #- linux/arm64

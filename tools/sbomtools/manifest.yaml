@@ -4,10 +4,10 @@ version: "0.3.3"
 binary: sbomls
 check: "" # No version parameter
 build_dependencies:
-- python
+- python-3.12
 - shiv
 runtime_dependencies:
-- python
+- python-3.12
 platforms:
 - linux/amd64
 - linux/arm64

@@ -1,7 +1,7 @@
 #syntax=docker/dockerfile:1.17.1@sha256:38387523653efa0039f8e1c89bb74a30504e76ee9f565e25c9a09841f9427b05
 
 FROM ghcr.io/uniget-org/tools/make:latest AS make
-FROM ghcr.io/uniget-org/tools/python:latest AS python
+FROM ghcr.io/uniget-org/tools/python-3.12:latest AS python
 FROM ghcr.io/uniget-org/tools/pipx:latest AS pipx
 
 FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare

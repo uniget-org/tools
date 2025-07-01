@@ -7,10 +7,10 @@ license:
 version: "1.14.1"
 check: ${binary} --version | cut -d' ' -f3
 build_dependencies:
-- python
+- python-3.12
 - pipx
 runtime_dependencies:
-- python
+- python-3.12
 platforms:
 - linux/amd64
 - linux/arm64

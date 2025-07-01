@@ -5,10 +5,10 @@ version: "1.9.0"
 binary: mu
 check: ${binary} --version | cut -d' ' -f3
 build_dependencies:
-- python
+- python-3.12
 - shiv
 runtime_dependencies:
-- python
+- python-3.12
 platforms:
 - linux/amd64
 - linux/arm64

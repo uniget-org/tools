@@ -10,7 +10,7 @@ build_dependencies:
 - python-3.12
 - shiv
 runtime_dependencies:
-- python
+- python-3.12
 platforms:
 - linux/amd64
 tags:

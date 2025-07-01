@@ -4,10 +4,10 @@ name: jc
 version: "1.25.5"
 check: ${binary} --version | grep ^jc | tr -s ' ' | cut -d' ' -f3
 build_dependencies:
-- python
+- python-3.12
 - shiv
 runtime_dependencies:
-- python
+- python-3.12
 platforms:
 - linux/amd64
 tags:

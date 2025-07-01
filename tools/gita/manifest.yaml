@@ -4,10 +4,10 @@ name: gita
 version: "0.16.7.2"
 check: ${binary} --version | cut -d' ' -f2
 build_dependencies:
-- python
+- python-3.12
 - shiv
 runtime_dependencies:
-- python
+- python-3.12
 platforms:
 - linux/amd64
 - linux/arm64
