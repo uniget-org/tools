@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: kubesafe
+license:
+  name: Apache License 2.0
+  link: https://github.com/Telemaco019/kubesafe/blob/main/LICENSE
+version: "0.3.1"
+check: "" # No version parameter
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/security
+- lang/go
+- type/cli
+homepage: https://github.com/Telemaco019/kubesafe
+repository: https://github.com/Telemaco019/kubesafe
+description: Safely manage multiple Kubernetes clusters by defining safe contexts and protected commands
+renovate:
+  datasource: github-releases
+  package: Telemaco019/kubesafe
+  extractVersion: ^v(?<version>.+)$
+  priority: low
