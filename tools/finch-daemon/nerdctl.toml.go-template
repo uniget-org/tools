@@ -1,0 +1,3 @@
+data_root = "/var/lib/finch/nerdctl"
+namespace = "finch"
+cni_path = "{{ .Target }}/libexec/finch/cni/bin/"

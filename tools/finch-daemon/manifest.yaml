@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: finch-daemon
+license:
+  name: Apache License 2.0
+  link: https://github.com/runfinch/finch-daemon/blob/main/LICENSE
+version: "0.17.2"
+check: ${binary} --version | cut -d' ' -f3
+runtime_dependencies:
+- nerdctl
+- containerd
+- buildkit
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/daemon
+- standard/docker
+homepage: https://runfinch.com
+repository: https://github.com/runfinch/finch-daemon
+description: Open source container runtime engine
+renovate:
+  datasource: github-releases
+  package: runfinch/finch-daemon
+  extractVersion: ^v(?<version>.+)$
+  priority: low
