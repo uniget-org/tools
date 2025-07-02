@@ -1,0 +1,34 @@
+#syntax=docker/dockerfile:1.17.1@sha256:38387523653efa0039f8e1c89bb74a30504e76ee9f565e25c9a09841f9427b05
+
+FROM ghcr.io/uniget-org/tools/python-3.12:latest AS python
+FROM ghcr.io/uniget-org/tools/shiv:latest AS shiv
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+#FROM registry.gitlab.com/uniget-org/images/build-essential:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+# apt
+#RUN --mount=type=cache,target=/var/cache/apt <<EOF
+#apt-get update
+#apt-get -y install --no-install-recommends \
+#    foo
+#EOF
+# apk
+#RUN --mount=type=cache,target=/var/cache/apk <<EOF
+#apk add --update-cache \
+#    foo
+#EOF
+COPY --link --from=python / /usr/local/
+COPY --link --from=shiv / /usr/local/
+RUN --mount=type=cache,target=/root/.cache/pip <<EOF
+shiv --output-file "${prefix}/bin/pyinfra" --console-script pyinfra "pyinfra==${version}"
+EOF
+#RUN <<EOF
+#"${prefix}/bin/foo" completion bash >"${prefix}/share/bash-completion/completions/foo"
+#"${prefix}/bin/foo" completion fish >"${prefix}/share/fish/vendor_completions.d/foo.fish"
+#"${prefix}/bin/foo" completion zsh >"${prefix}/share/zsh/vendor-completions/_foo"
+#EOF
