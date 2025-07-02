@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: direnv
-version: "2.36.0"
+version: "2.37.0"
 check: ${binary} version
 tags:
 - type/cli
