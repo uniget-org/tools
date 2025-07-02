@@ -1,0 +1,43 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: finch
+license:
+  name: Apache License 2.0
+  link: https://github.com/runfinch/finch/blob/main/LICENSE
+version: "1.9.0"
+check: ${binary} --version | cut -d' ' -f3
+runtime_dependencies:
+- finch-daemon
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/cli
+- standard/docker
+homepage: https://runfinch.com
+repository: https://github.com/runfinch/finch
+description: Open source client for container development
+messages:
+  internals: |
+    To run finch as a user:
+
+    1. Create a new group for users to run finch without sudo:
+
+        groupadd -r "finch"
+
+    2. Add yourself to the group:
+
+        usermod -a -G "finch" "${USER}"
+
+    3. Allow users to execute without using sudo:
+        chgrp "finch" /usr/local/bin/nerdctl
+        chmod +s /usr/local/bin/nerdctl
+        chgrp "finch" /usr/bin/finch
+        chmod +s /usr/bin/finch
+renovate:
+  datasource: github-releases
+  package: runfinch/finch
+  extractVersion: ^v(?<version>.+)$
+  priority: low
