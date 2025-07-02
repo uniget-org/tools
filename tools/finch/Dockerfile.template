@@ -1,0 +1,28 @@
+#syntax=docker/dockerfile:1.17.1@sha256:38387523653efa0039f8e1c89bb74a30504e76ee9f565e25c9a09841f9427b05
+
+FROM ghcr.io/uniget-org/tools/make:latest AS make
+FROM ghcr.io/uniget-org/tools/go:latest AS go
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+COPY --link --from=go / /usr/local/
+COPY --link --from=make / /usr/local/
+WORKDIR /go/src/github.com/runfinch/finch
+ARG name
+ARG version
+RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
+check-clone "https://github.com/runfinch/finch" "v${version}"
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/runfinch/finch .
+VERSION="${version}" GITCOMMIT="$(git rev-parse HEAD)" make finch
+cp _output/bin/finch "${prefix}/bin/"
+EOF
+RUN <<EOF
+"${prefix}/bin/finch" completion bash >"${prefix}/share/bash-completion/completions/finch"
+"${prefix}/bin/finch" completion fish >"${prefix}/share/fish/vendor_completions.d/finch.fish"
+"${prefix}/bin/finch" completion zsh >"${prefix}/share/zsh/vendor-completions/_finch"
+EOF
