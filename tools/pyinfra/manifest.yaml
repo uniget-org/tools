@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: pyinfra
+license:
+  name: MIT License
+  link: https://github.com/pyinfra-dev/pyinfra/blob/3.x/LICENSE.md
+version: "3.3.1"
+check: ${binary} --version | cut -d' ' -f2 | tr -d v
+build_dependencies:
+- python-3.12
+- shiv
+runtime_dependencies:
+- python-3.12
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- category/operations
+- lang/python
+- type/cli
+homepage: https://pyinfra.com/
+repository: https://github.com/pyinfra-dev/pyinfra
+description: Turns Python code into shell commands and runs them on your servers
+renovate:
+  datasource: pypi
+  package: pyinfra
+  priority: low

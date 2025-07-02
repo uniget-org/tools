@@ -8109,6 +8109,17 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "pypi",
+      "depNameTemplate": "pyinfra",
+      "fileMatch": [
+        "^tools/pyinfra/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "gitlab-releases",
       "depNameTemplate": "uniget-org/renovate-custom",
       "extractVersionTemplate": "^python/(?<version>.+)$",
