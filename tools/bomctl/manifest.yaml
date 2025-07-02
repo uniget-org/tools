@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: bomctl
+license:
+  name: Apache License 2.0
+  link: https://github.com/bomctl/bomctl/blob/main/LICENSE
+version: "0.4.3"
+check: ${binary} --version | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/security
+- lang/go
+- type/cli
+homepage: https://github.com/bomctl/bomctl
+repository: https://github.com/bomctl/bomctl
+description: Format agnostic SBOM tooling
+renovate:
+  datasource: github-releases
+  package: bomctl/bomctl
+  extractVersion: ^v(?<version>.+)$
+  priority: low
