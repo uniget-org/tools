@@ -3044,6 +3044,18 @@
     {
       "customType": "regex",
       "fileMatch": [
+        "^tools/finch-daemon/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ],
+      "depNameTemplate": "runfinch/finch-daemon",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^v(?<version>.+)$"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": [
         "^tools/firecracker/manifest.yaml$"
       ],
       "matchStrings": [
