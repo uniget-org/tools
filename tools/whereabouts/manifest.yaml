@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: whereabouts
+license:
+  name: Apache License 2.0
+  link: https://github.com/k8snetworkplumbingwg/whereabouts/blob/master/LICENSE
+version: "0.9.1"
+check: ${binary} 2>&1 | grep ^whereabouts | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/go
+- type/plugin
+homepage: https://github.com/k8snetworkplumbingwg/whereabouts
+repository: https://github.com/k8snetworkplumbingwg/whereabouts
+description: CNI IPAM plugin that assigns IP addresses cluster-wide
+renovate:
+  datasource: github-releases
+  package: k8snetworkplumbingwg/whereabouts
+  extractVersion: ^v(?<version>.+)$
+  priority: low

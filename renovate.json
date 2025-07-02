@@ -10480,6 +10480,18 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "k8snetworkplumbingwg/whereabouts",
+      "extractVersionTemplate": "^v(?<version>.+)$",
+      "fileMatch": [
+        "^tools/whereabouts/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "rupor-github/win-gpg-agent",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
