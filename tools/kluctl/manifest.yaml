@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kluctl
-version: "2.26.0"
+version: "2.27.0"
 check: ${binary} version 2>/dev/null
 tags:
 - type/cli
