@@ -450,6 +450,38 @@ $(addsuffix --debug,$(ALL_TOOLS_RAW)):%--debug: \
 			bash --login +o errexit +o pipefail
 
 .PHONY:
+$(addsuffix --tar,$(ALL_TOOLS_RAW)):%--tar: \
+		$(HELPER)/var/lib/uniget/manifests/gojq.json \
+		$(TOOLS_DIR)/%/manifest.json \
+		$(TOOLS_DIR)/%/Dockerfile \
+		; $(info $(M) Building into tar for $*...)
+	@set -o errexit; \
+	TOOL_VERSION="$$(jq --raw-output '.tools[].version' $(TOOLS_DIR)/$*/manifest.json)"; \
+	VERSION_TAG="$$( echo "$${TOOL_VERSION}" | tr '+' '-' )"; \
+	DEPS="$$(jq --raw-output '.tools[] | select(.build_dependencies != null) |.build_dependencies[]' tools/$*/manifest.json | paste -sd,)"; \
+	TAGS="$$(jq --raw-output '.tools[] | select(.tags != null) |.tags[]' tools/$*/manifest.json | paste -sd,)"; \
+	test -n "$${ARCHS}" || ARCHS="linux/$(ALT_ARCH)"; \
+	export SOURCE_DATE_EPOCH="$(SOURCE_DATE_EPOCH)"; \
+	echo "Name:         $*"; \
+	echo "Version:      $${TOOL_VERSION}"; \
+	echo "Version tag:  $${VERSION_TAG}"; \
+	echo "Build deps:   $${DEPS}"; \
+	export BUILDX_EXPERIMENTAL=1; \
+	docker buildx debug --on=error --invoke=/bin/bash build $(TOOLS_DIR)/$* \
+		--builder default \
+		--build-arg branch=$(DOCKER_TAG) \
+		--build-arg ref=$(DOCKER_TAG) \
+		--build-arg name=$* \
+		--build-arg version=$${TOOL_VERSION} \
+		--build-arg deps=$${DEPS} \
+		--build-arg tags=$${TAGS} \
+		--cache-from $(REGISTRY)/$(REPOSITORY_PREFIX)$*:latest \
+		--platform linux/amd64 \
+		--tag $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${VERSION_TAG} \
+		--output type=tar,dest=$(TOOLS_DIR)/$*/image.tar,oci-mediatypes=true \
+		--progress plain
+
+.PHONY:
 $(addsuffix --buildg,$(ALL_TOOLS_RAW)):%--buildg: \
 		$(HELPER)/var/lib/uniget/manifests/gojq.json \
 		$(HELPER)/var/lib/uniget/manifests/buildg.json \
