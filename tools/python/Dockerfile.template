@@ -16,7 +16,7 @@ case "${arch}" in
         OPT_TAG="pgo+lto"
         ;;
     aarch64)
-        OPT_TAG="lto"
+        OPT_TAG="pgo+lto"
         ;;
     *)
         echo "Unsupported arch: ${arch}" >&2
