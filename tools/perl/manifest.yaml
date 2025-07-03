@@ -4,7 +4,7 @@ name: perl
 license:
   name: GPL
   link: https://github.com/Perl/perl5/blob/blead/Copying
-version: "5.40.2"
+version: "5.42.0"
 check: ${binary} --version | grep version | cut -d' ' -f9 | tr -d 'v()'
 build_dependencies:
 - make
