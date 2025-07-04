@@ -4,7 +4,7 @@ name: gobump
 license:
   name: Apache License 2.0
   link: https://github.com/chainguard-dev/gobump/blob/main/LICENSE
-version: "0.9.0"
+version: "0.9.1"
 check: ${binary} version | grep GitVersion | tr -s ' ' | cut -d' ' -f2 | tr -d v
 build_dependencies:
 - make
