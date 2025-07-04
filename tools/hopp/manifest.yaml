@@ -9,7 +9,7 @@ check: ${binary} --ver
 build_dependencies:
 - nodejs-lts
 - npm
-- python
+- python-3.12
 runtime_dependencies:
 - nodejs-lts
 platforms:
