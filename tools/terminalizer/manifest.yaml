@@ -5,7 +5,7 @@ version: "0.12.0"
 check: ${binary} --version
 build_dependencies:
 - make
-- python
+- python-3.12
 - nodejs
 - npm
 runtime_dependencies:

@@ -3,7 +3,7 @@ name: devcontainer
 version: "0.78.0"
 check: ${binary} --version
 build_dependencies:
-- python
+- python-3.12
 - nodejs
 - npm
 - make
