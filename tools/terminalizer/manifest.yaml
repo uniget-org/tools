@@ -6,10 +6,10 @@ check: ${binary} --version
 build_dependencies:
 - make
 - python-3.12
-- nodejs
+- nodejs-lts
 - npm
 runtime_dependencies:
-- nodejs
+- nodejs-lts
 platforms:
 - linux/amd64
 #- linux/arm64
