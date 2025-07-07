@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: jaq
-version: "2.2.0"
+version: "2.3.0"
 check: ${binary} --version | cut -d' ' -f2
 build_dependencies:
 - rust
