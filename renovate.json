@@ -1172,8 +1172,9 @@
     },
     {
       "customType": "regex",
-      "datasourceTemplate": "npm",
-      "depNameTemplate": "@openai/codex",
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "openai/codex",
+      "extractVersionTemplate": "^rust-v(?<version>.+)$",
       "fileMatch": [
         "^tools/codex/manifest.yaml$"
       ],

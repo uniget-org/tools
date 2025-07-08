@@ -1,26 +1,21 @@
 #syntax=docker/dockerfile:1.17.1@sha256:38387523653efa0039f8e1c89bb74a30504e76ee9f565e25c9a09841f9427b05
 
-FROM ghcr.io/uniget-org/tools/nodejs:latest AS nodejs
-FROM ghcr.io/uniget-org/tools/npm:latest AS npm
-
 FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --link --from=nodejs / /usr/local/
-COPY --link --from=npm / /usr/local/
-WORKDIR /uniget_bootstrap/libexec/codex
 ARG name
 ARG version
-RUN <<EOF
-npm install \
-    --omit=dev \
-    "@openai/codex@${version}"
-ln --symbolic --relative --force "${prefix}/libexec/codex/node_modules/.bin/codex" "${prefix}/bin/"
-EOF
-RUN <<EOF
-"${prefix}/bin/codex" completion bash >"${prefix}/share/bash-completion/completions/codex"
-"${prefix}/bin/codex" completion fish >"${prefix}/share/fish/vendor_completions.d/codex.fish"
-"${prefix}/bin/codex" completion zsh >"${prefix}/share/zsh/vendor-completions/_codex"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/openai/codex/releases/download/rust-v${version}/codex-${arch}-unknown-linux-musl.tar.gz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "openai/codex" "rust-v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin" --no-same-owner
+mv "${prefix}/bin/codex-${arch}-unknown-linux-musl" "${prefix}/bin/codex"
 EOF
