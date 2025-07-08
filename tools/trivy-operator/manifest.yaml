@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: trivy-operator
-version: "0.27.1"
+version: "0.27.2"
 check: OPERATOR_NAMESPACE="" ${binary} --version 2>&1 | head -1 | jq --raw-output '.buildInfo.Version'
 platforms:
 - linux/amd64
