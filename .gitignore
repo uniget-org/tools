@@ -21,3 +21,5 @@
 /tools/*/sarif.json
 /tools/*/report.csv
 /tools/*/image.tar
+
+/data
