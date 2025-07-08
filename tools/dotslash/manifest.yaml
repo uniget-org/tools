@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: dotslash
+license:
+  name: Apache License 2.0 & MIT License
+  link: https://github.com/facebook/dotslash
+version: "0.5.5"
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/facebook
+- category/development
+- lang/rust
+- type/cli
+homepage: https://dotslash-cli.com/
+repository: https://github.com/facebook/dotslash
+description: Simplified executable deployment
+renovate:
+  datasource: github-releases
+  package: facebook/dotslash
+  extractVersion: ^v(?<version>.+)$
+  priority: low
