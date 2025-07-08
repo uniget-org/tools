@@ -23,7 +23,7 @@ case "${arch}" in
 esac
 echo "    Using ${arch_suffix}"
 
-url="https://github.com/facebook/dotslash/releases/download/v${version}/dotslash-linux-musl.${arch_suffix}.tar.gz"
+url="https://github.com/facebook/dotslash/releases/download/v${version}/dotslash-linux-musl.${arch_suffix}.v${version}.tar.gz"
 filename="$( basename "${url}" )"
 
 check-github-release-asset "facebook/dotslash" "v${version}" "${filename}"
