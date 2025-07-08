@@ -11,6 +11,7 @@ tags:
 - lang/haskell
 - type/cli
 - state/onemanshow
+- state/stale
 homepage: https://github.com/akazukin5151/kpxhs
 repository: https://github.com/akazukin5151/kpxhs
 description: Interactive Keepass database TUI viewer

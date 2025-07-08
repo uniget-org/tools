@@ -8,6 +8,7 @@ tags:
 - minecraft
 - management
 - lang/go
+- state/stale
 homepage: https://github.com/dirien/minectl
 repository: https://github.com/dirien/minectl
 description: CLI for creating Minecraft server on different cloud provider

@@ -15,6 +15,7 @@ tags:
 - category/operations
 - lang/go
 - type/cli
+- state/stale
 homepage: https://github.com/oxin-ros/systemd-docker
 repository: https://github.com/oxin-ros/systemd-docker
 description: Wrapper for "docker run" to handle systemd quirks

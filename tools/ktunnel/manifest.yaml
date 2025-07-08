@@ -9,6 +9,7 @@ tags:
 - lang/go
 - kubernetes
 - k8s
+- state/stale
 homepage: https://github.com/omrikiei/ktunnel
 repository: https://github.com/omrikiei/ktunnel
 description: CLI that exposes your local resources to kubernetes

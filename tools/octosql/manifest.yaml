@@ -10,6 +10,7 @@ tags:
 - category/development
 - lang/go
 - type/cli
+- state/stale
 homepage: https://github.com/cube2222/octosql
 repository: https://github.com/cube2222/octosql
 description: Query tool that allows you to join, analyse and transform data from multiple databases and file formats using SQL

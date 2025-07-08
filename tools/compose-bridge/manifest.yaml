@@ -16,6 +16,7 @@ tags:
 - k8s
 - templating
 - state/onemanshow
+- state/deprecated
 homepage: https://github.com/docker/compose-bridge-binaries
 repository: https://github.com/docker/compose-bridge-binaries
 description: Reuse compose.yaml but translate it into another platform's definition format, with a primary focus on Kubernetes

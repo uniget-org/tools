@@ -13,7 +13,6 @@ tags:
 - category/operations
 - lang/go
 - type/daemon
-- state/stale
 homepage: https://github.com/kubevela/kube-trigger
 repository: https://github.com/kubevela/kube-trigger
 description: Watches Kubernetes events and triggers actions in a programmable way

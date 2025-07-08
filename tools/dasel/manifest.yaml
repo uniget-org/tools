@@ -10,6 +10,7 @@ tags:
 - format/xml
 - format/csv
 - lang/go
+- state/stale
 homepage: https://daseldocs.tomwright.me
 repository: https://github.com/TomWright/dasel
 description: Select, put and delete data from JSON, TOML, YAML, XML and CSV files

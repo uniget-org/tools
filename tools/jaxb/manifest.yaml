@@ -14,7 +14,6 @@ tags:
 - lang/java
 - type/cli
 - standard/xml
-- state/stale
 - format/xml
 homepage: https://eclipse-ee4j.github.io/jaxb-ri/
 repository: https://github.com/eclipse-ee4j/jaxb-ri

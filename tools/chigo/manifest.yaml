@@ -5,7 +5,6 @@ tags:
 - type/cli
 - fun
 - lang/go
-- state/stale
 - terminal
 homepage: https://blog.ultirequiem.com/chigo
 repository: https://github.com/UltiRequiem/chigo

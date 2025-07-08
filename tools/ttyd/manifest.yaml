@@ -7,6 +7,7 @@ tags:
 - category/development
 - terminal
 - lang/c
+- state/stale
 homepage: https://tsl0922.github.io/ttyd
 repository: https://github.com/tsl0922/ttyd
 description: Share your terminal over the web

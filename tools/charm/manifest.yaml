@@ -12,6 +12,7 @@ tags:
 - lang/go
 - type/cli
 - state/deprecated
+- state/stale
 homepage: https://github.com/charmbracelet/charm
 repository: https://github.com/charmbracelet/charm
 description: Charm Tool and Library

@@ -11,6 +11,7 @@ tags:
 - lang/rust
 - type/cli
 - docker
+- state/stale
 homepage: https://www.npmjs.com/package/supdock
 repository: https://github.com/segersniels/supdock
 description: Slightly more visual way to interact with the docker daemon
