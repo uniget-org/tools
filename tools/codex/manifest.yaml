@@ -5,15 +5,10 @@ license:
   name: Apache License 2.0
   link: https://github.com/openai/codex/blob/main/LICENSE
 version: "0.2.0"
-check: ${binary} --version
-build_dependencies:
-- npm
-- nodejs
-runtime_dependencies:
-- nodejs
+check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
-#- linux/arm64
+- linux/arm64
 tags:
 - org/openai
 - category/development
@@ -25,6 +20,7 @@ homepage: https://openai.com/index/introducing-codex/
 repository: https://github.com/openai/codex
 description: Lightweight coding agent that runs in your terminal
 renovate:
-  datasource: npm
-  package: "@openai/codex"
+  datasource: github-releases
+  package: "openai/codex"
+  extractVersion: ^rust-v(?<version>.+)$
   priority: low
