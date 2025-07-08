@@ -14,6 +14,7 @@ tags:
 - category/operations
 - lang/c
 - type/cli
+- state/onemanshow
 homepage: https://github.com/google/zetasql
 repository: https://github.com/google/zetasql
 description: Analyzer Framework for SQL

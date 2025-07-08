@@ -15,7 +15,6 @@ tags:
 - lang/go
 - type/daemon
 - standard/prometheus
-- state/deprecated
 messages:
   usage: |
     Grafana Agent has been deprecated in favor of Grafana Alloy.

@@ -13,7 +13,6 @@ tags:
 - lang/go
 - standard/docker
 - docker
-- state/stale
 homepage: https://github.com/ktock/buildg
 repository: https://github.com/ktock/buildg
 description: Interactive debugger for Dockerfile

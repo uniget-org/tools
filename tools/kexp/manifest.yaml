@@ -12,6 +12,7 @@ tags:
 - type/daemon
 - kubernetes
 - k8s
+- state/stale
 homepage: https://labs.iximiuz.com/playgrounds?category=kubernetes
 repository: https://github.com/iximiuz/kexp
 description: Kubernetes Explorer

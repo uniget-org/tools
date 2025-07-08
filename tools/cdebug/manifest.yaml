@@ -9,6 +9,7 @@ tags:
 - type/cli
 - lang/go
 - troubleshooting
+- state/stale
 homepage: https://iximiuz.com/en/posts/docker-debug-slim-containers/
 repository: https://github.com/iximiuz/cdebug
 description: cdebug - a swiss army knife of container debugging

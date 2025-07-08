@@ -9,6 +9,7 @@ tags:
 - type/cli
 - lang/go
 - cncf/sandbox
+- state/stale
 messages:
   update: |
     Please make sure the following libraries are available:

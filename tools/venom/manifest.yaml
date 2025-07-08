@@ -7,7 +7,6 @@ tags:
 - type/cli
 - type/daemon
 - lang/go
-- state/stale
 homepage: https://github.com/ovh/venom
 repository: https://github.com/ovh/venom
 description: Manage and run your integration tests with efficiency - Venom run executors (script, HTTP Request, web, imap, etc... ) and assertions

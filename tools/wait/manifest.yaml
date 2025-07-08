@@ -10,6 +10,7 @@ tags:
 - category/development
 - lang/rust
 - type/cli
+- state/stale
 homepage: https://github.com/ufoscout/docker-compose-wait
 repository: https://github.com/ufoscout/docker-compose-wait
 description: wait for other docker images to be started while using docker-compose (or Kubernetes or docker stack or whatever)
