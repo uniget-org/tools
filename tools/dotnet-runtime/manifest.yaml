@@ -3,7 +3,7 @@ name: dotnet-runtime
 license:
   name: MIT License
   link: https://github.com/dotnet/runtime/blob/main/LICENSE.TXT
-version: "9.0.6"
+version: "9.0.7"
 binary: dotnet
 check: ${binary} --version
 platforms:
