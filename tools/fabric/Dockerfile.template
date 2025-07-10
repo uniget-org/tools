@@ -16,5 +16,5 @@ ARG version
 RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
 check-clone "https://github.com/danielmiessler/fabric" "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/danielmiessler/fabric .
-go build -o "${prefix}/bin/fabric" .
+go build -o "${prefix}/bin/fabric" ./cmd/fabric/
 EOF
