@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: oauth2c
+license:
+  name: Apache License 2.0
+  link: https://github.com/cloudentity/oauth2c/blob/master/LICENSE
+version: "1.17.2"
+check: ${binary} version 2>&1 | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/cli
+- oauth2
+- oidc
+- authentication
+homepage: https://cloudentity.github.io/oauth2c/
+repository: https://github.com/cloudentity/oauth2c
+description: User-friendly OAuth2 CLI
+renovate:
+  datasource: github-releases
+  package: cloudentity/oauth2c
+  extractVersion: ^v(?<version>.+)$
+  priority: low
