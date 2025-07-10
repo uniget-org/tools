@@ -13,6 +13,9 @@ tags:
 - category/development
 - lang/rust
 - type/cli
+- oauth2
+- oidc
+- authentication
 homepage: https://github.com/ctron/oidc-cli
 repository: https://github.com/ctron/oidc-cli
 description: Command line tool to work with OIDC tokens

@@ -12,6 +12,9 @@ tags:
 - type/cli
 - standard/git
 - git
+- oauth2
+- oidc
+- authentication
 homepage: https://github.com/hickford/git-credential-oauth
 repository: https://github.com/hickford/git-credential-oauth
 description: Git credential helper that securely authenticates to GitHub, GitLab and BitBucket using OAuth

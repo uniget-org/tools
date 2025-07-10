@@ -16,6 +16,11 @@ tags:
 - category/operations
 - lang/go
 - type/cli
+- oauth2
+- oidc
+- authentication
+- kubernetes
+- k8s
 homepage: https://github.com/int128/kubelogin
 repository: https://github.com/int128/kubelogin
 description: kubectl plugin for Kubernetes OpenID Connect authentication (kubectl oidc-login) 
