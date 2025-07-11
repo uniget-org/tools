@@ -9258,6 +9258,17 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "cunnie/sslip.io",
+      "fileMatch": [
+        "^tools/sslip.io/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "containerd/stargz-snapshotter",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [

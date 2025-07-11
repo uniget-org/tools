@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: sslip.io
+license:
+  name: Apache License 2.0
+  link: https://github.com/cunnie/sslip.io/blob/main/LICENSE
+version: "4.1.0"
+check: "" # No version parameter
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/daemon
+- dns
+homepage: https://sslip.io/
+repository: https://github.com/cunnie/sslip.io
+description: DNS server which maps DNS records with embedded IP addresses to those addresses
+renovate:
+  datasource: github-releases
+  package: cunnie/sslip.io
+  priority: low
