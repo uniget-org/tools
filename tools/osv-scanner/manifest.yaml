@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: osv-scanner
-version: "2.0.3"
+version: "2.1.0"
 check: ${binary} --version | head -1 | cut -d' ' -f3
 tags:
 - org/google
