@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: thanos
+license:
+  name: Apache License 2.0
+  link: https://github.com/thanos-io/thanos/blob/main/LICENSE
+version: "0.39.1"
+check: ""
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/go
+- type/cli
+- type/daemon
+homepage: https://thanos.io/
+repository: https://github.com/thanos-io/thanos
+description: Highly available Prometheus setup with long term storage capabilities
+renovate:
+  datasource: github-releases
+  package: thanos-io/thanos
+  extractVersion: ^v(?<version>.+)$
+  priority: low
