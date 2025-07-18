@@ -3,7 +3,7 @@ name: openjdk-jre
 license:
   name: GPLv2
   link: https://github.com/openjdk/jdk/blob/master/LICENSE
-version: "24.0.1-9"
+version: "24.0.2-12"
 binary: java
 check: ${binary} -version 2>&1 | grep ^openjdk | cut -d' ' -f3 | tr -d '"'
 build_dependencies:
