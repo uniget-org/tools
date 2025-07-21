@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: restify
+license:
+  name: Apache License 2.0
+  link: https://github.com/itzg/restify/blob/master/LICENSE.txt
+version: "1.7.10"
+check: ${binary} --version foo 2>&1 | cut -d' ' -f4 | tr -d ,
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/cli
+homepage: https://github.com/itzg/restify
+repository: https://github.com/itzg/restify
+description: Enables REST-like access to HTML pages by scraping and parsing them into JSON
+renovate:
+  datasource: github-releases
+  package: itzg/restify 
+  priority: low
