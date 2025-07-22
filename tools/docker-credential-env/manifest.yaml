@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: docker-credential-env
+license:
+  name: MIT License
+  link: https://github.com/isometry/docker-credential-env/blob/main/LICENSE
+version: "1.5.0"
+check: ${binary} version | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/security
+- lang/go
+- type/plugin
+- standard/docker
+- container/runtime
+- docker
+homepage: https://github.com/isometry/docker-credential-env
+repository: https://github.com/isometry/docker-credential-env
+description: Environment-driven Docker credential helper 
+renovate:
+  datasource: github-releases
+  package: isometry/docker-credential-env
+  extractVersion: ^v(?<version>.+)$
+  priority: low
