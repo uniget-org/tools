@@ -92,11 +92,11 @@ $(addsuffix /manifest-full.json,$(ALL_TOOLS)):$(TOOLS_DIR)/%/manifest-full.json:
 		export PLATFORM="$$( regctl manifest get ghcr.io/uniget-org/tools/$*:main --format=raw-body | jq --raw-output '.manifests[] | select(.platform.os == "linux") | "\(.platform.os)/\(.platform.architecture)"' | sort | head -n 1 )"; \
 		export SIZE="$$( regctl manifest get ghcr.io/uniget-org/tools/$*:main --platform=$${PLATFORM} --format=raw-body | jq --raw-output '.layers[0].size' )"; \
 	fi; \
-	export HISTORY="$$( git log --pretty=format:'%h %ad %s' --date=iso8601-strict $(TOOLS_DIR)/$*/manifest.yaml $(TOOLS_DIR)/$*/Dockerfile.template | tr -d '"' | jq --slurp --raw-input --compact-output '[ . | split("\n") | .[] | capture("(?<commit>[a-z0-9]+) (?<date>[-0-9T:+]+) (?<message>.+)"; null) ]' )"; \
+	export GIT_HISTORY="$$( git log --pretty=format:'%h %ad %s' --date=iso8601-strict $(TOOLS_DIR)/$*/manifest.yaml $(TOOLS_DIR)/$*/Dockerfile.template | tr -d '"' | jq --slurp --raw-input --compact-output '[ . | split("\n") | .[] | capture("(?<commit>[a-z0-9]+) (?<date>[-0-9T:+]+) (?<message>.+)"; null) ]' )"; \
 	cat $(TOOLS_DIR)/$*/manifest.json \
 	| yq eval \
 		--output-format=json --indent=0 \
-		'.tools[0].size = env(SIZE) | .tools[0].history = env(HISTORY) | .tools[0].date = .tools[0].history[-1].date' \
+		'.tools[0].size = env(SIZE) | .tools[0].history = env(GIT_HISTORY) | .tools[0].date = .tools[0].history[-1].date' \
 	>$(TOOLS_DIR)/$*/manifest-full.json
 
 $(addsuffix /Dockerfile,$(ALL_TOOLS)):$(TOOLS_DIR)/%/Dockerfile: \
