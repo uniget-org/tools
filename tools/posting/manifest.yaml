@@ -4,7 +4,7 @@ name: posting
 license:
   name: Apache License 2.0
   link: https://github.com/darrenburns/posting/blob/main/LICENSE
-version: "2.7.0"
+version: "2.7.1"
 check: "" # No version parameter
 build_dependencies:
 - python-3.12
