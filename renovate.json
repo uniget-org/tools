@@ -6431,6 +6431,19 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "git-tags",
+      "depNameTemplate": "mergiraf/mergiraf",
+      "extractVersionTemplate": "^v(?<version>.+)$",
+      "fileMatch": [
+        "^tools/mergiraf/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ],
+      "packageNameTemplate": "https://codeberg.org/mergiraf/mergiraf"
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "npm",
       "depNameTemplate": "@mermaid-js/mermaid-cli",
       "fileMatch": [
