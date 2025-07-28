@@ -18,6 +18,5 @@ ARG version
 RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
 check-clone "https://github.com/docker/model-cli" "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/docker/model-cli .
-make ce-release VERSION="${version}"
-cp dist/docker-model "${prefix}/libexec/docker/cli-plugins/"
+go build -ldflags="-s -w -X github.com/docker/model-cli/commands.Version=$(VERSION)" -o "${prefix}/libexec/docker/cli-plugins/docker-model" .
 EOF
