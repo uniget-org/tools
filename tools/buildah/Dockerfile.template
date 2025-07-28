@@ -23,7 +23,9 @@ apk add --update-cache \
     libgpg-error-static \
     libseccomp-dev \
     libseccomp-static \
-    libselinux-dev
+    libselinux-dev \
+    sqlite-dev \
+    sqlite-static
 EOF
 COPY --link --from=go / /usr/local/
 COPY --link --from=make / /usr/local/
