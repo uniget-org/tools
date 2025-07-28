@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: kl
+license:
+  name: MIT License
+  link: https://github.com/robinovitch61/kl/blob/main/LICENSE
+version: "0.6.1"
+check: ${binary} --version | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/go
+- type/cli
+homepage: https://github.com/robinovitch61/kl
+repository: https://github.com/robinovitch61/kl
+description: Interactive Kubernetes log viewer for your terminal
+renovate:
+  datasource: github-releases
+  package: robinovitch61/kl
+  extractVersion: ^v(?<version>.+)$
+  priority: low
