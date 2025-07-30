@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: influxdb
-version: "3.0.3"
+version: "3.3.0"
 binary: influxdb3
 check: ${binary} --version | cut -d' ' -f2 | tr -d ,
 runtime_dependencies:
