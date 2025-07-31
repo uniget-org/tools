@@ -8619,6 +8619,18 @@
     {
       "customType": "regex",
       "fileMatch": [
+        "^tools/routedns/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ],
+      "depNameTemplate": "folbricht/routedns",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^v(?<version>.+)$"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": [
         "^tools/ruff/manifest.yaml$"
       ],
       "matchStrings": [
