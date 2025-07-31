@@ -528,6 +528,18 @@
     {
       "customType": "regex",
       "fileMatch": [
+        "^tools/berg/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ],
+      "depNameTemplate": "Aviac/codeberg-cli",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^v(?<version>.+)$"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": [
         "^tools/bicep/manifest.yaml$"
       ],
       "matchStrings": [
