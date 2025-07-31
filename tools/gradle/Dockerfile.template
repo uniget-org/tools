@@ -8,8 +8,6 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-fixed_version="${version}"
-test "${version:0-2}" == ".0" && fixed_version="${version:0:-2}"
 url="https://github.com/gradle/gradle-distributions/releases/download/v${version}/gradle-${version}-bin.zip"
 filename="$(basename "${url}")"
 
@@ -20,6 +18,6 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
 unzip -t "${uniget_cache_download}/${filename}"
 unzip -q -o -d "${prefix}/opt" "${uniget_cache_download}/${filename}"
 
-mv "${prefix}/opt/gradle-${fixed_version}" "${prefix}/opt/gradle"
+mv "${prefix}/opt/gradle-${version}" "${prefix}/opt/gradle"
 ln --symbolic --relative --force "${prefix}/opt/gradle/bin/gradle" "${prefix}/bin/gradle"
 EOF
