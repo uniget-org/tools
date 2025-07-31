@@ -10408,6 +10408,18 @@
     {
       "customType": "regex",
       "fileMatch": [
+        "^tools/vet/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ],
+      "depNameTemplate": "vet-run/vet",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^v(?<version>.+)$"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": [
         "^tools/vexctl/manifest.yaml$"
       ],
       "matchStrings": [

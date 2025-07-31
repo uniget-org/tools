@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: vet
+license:
+  name: MIT License
+  link: https://github.com/vet-run/vet/blob/main/LICENSE
+version: "1.0.2"
+check: ${binary} --help | grep ^vet | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- category/development
+- lang/shell
+- type/cli
+homepage: https://getvet.sh/
+repository: https://github.com/vet-run/vet
+description: Command-line tool that acts as a safety net for the risky curl | bash pattern
+renovate:
+  datasource: github-releases
+  package: vet-run/vet
+  extractVersion: ^v(?<version>.+)$
+  priority: low
