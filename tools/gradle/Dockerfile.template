@@ -10,7 +10,7 @@ ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 fixed_version="${version}"
 test "${version:0-2}" == ".0" && fixed_version="${version:0:-2}"
-url="https://services.gradle.org/distributions/gradle-${fixed_version}-bin.zip"
+url="https://github.com/gradle/gradle-distributions/releases/download/v${version}/gradle-${version}-bin.zip"
 filename="$(basename "${url}")"
 
 check-download "${url}"
