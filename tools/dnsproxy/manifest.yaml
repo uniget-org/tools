@@ -13,6 +13,7 @@ tags:
 - category/operations
 - lang/go
 - type/daemon
+- standard/dns
 homepage: https://github.com/AdguardTeam/dnsproxy
 repository: https://github.com/AdguardTeam/dnsproxy
 description: Simple DNS proxy with DoH, DoT, DoQ and DNSCrypt support
