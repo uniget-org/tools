@@ -11,23 +11,9 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-
-# apt
-#RUN --mount=type=cache,target=/var/cache/apt <<EOF
-#apt-get update
-#apt-get -y install --no-install-recommends \
-#    foo
-#EOF
-
-# apk
-#RUN --mount=type=cache,target=/var/cache/apk <<EOF
-#apk add --update-cache \
-#    foo
-#EOF
-
 COPY --link --from=nodejs / /usr/local/
 COPY --link --from=npm / /usr/local/
-WORKDIR /uniget_bootstrap/libexec/foo
+WORKDIR /uniget_bootstrap/libexec/gemini-cli
 ARG name
 ARG version
 RUN <<EOF
@@ -36,10 +22,3 @@ npm install \
     "@google/gemini-cli@${version}"
 ln --symbolic --relative --force "${prefix}/libexec/gemini-cli/node_modules/.bin/gemini" "${prefix}/bin/"
 EOF
-
-# completion
-#RUN <<EOF
-#"${prefix}/bin/foo" completion bash >"${prefix}/share/bash-completion/completions/foo"
-#"${prefix}/bin/foo" completion fish >"${prefix}/share/fish/vendor_completions.d/foo.fish"
-#"${prefix}/bin/foo" completion zsh >"${prefix}/share/zsh/vendor-completions/_foo"
-#EOF
