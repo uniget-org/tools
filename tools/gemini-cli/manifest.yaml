@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: gemini
+license:
+  name: Apache License 2.0
+  link: https://github.com/google-gemini/gemini-cli/blob/main/LICENSE
+version: "0.1.15"
+binary: gemini
+check: ${binary} --version
+build_dependencies:
+- nodejs-lts
+- npm
+runtime_dependencies:
+- nodejs-lts
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- org/google
+- category/development
+- lang/javascript
+- type/cli
+homepage: https://github.com/google-gemini/gemini-cli
+repository: https://github.com/google-gemini/gemini-cli
+description: Open-source AI agent that brings the power of Gemini directly into your terminal
+renovate:
+  datasource: npm
+  package: "@google/gemini-cli"
+  priority: low

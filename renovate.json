@@ -3282,6 +3282,17 @@
     {
       "customType": "regex",
       "fileMatch": [
+        "^tools/gemini/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ],
+      "depNameTemplate": "@google/gemini-cli",
+      "datasourceTemplate": "npm"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": [
         "^tools/genie/manifest.yaml$"
       ],
       "matchStrings": [

@@ -1,0 +1,45 @@
+#syntax=docker/dockerfile:1.17.1@sha256:38387523653efa0039f8e1c89bb74a30504e76ee9f565e25c9a09841f9427b05
+
+FROM ghcr.io/uniget-org/tools/nodejs:latest AS nodejs
+FROM ghcr.io/uniget-org/tools/npm:latest AS npm
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+#FROM registry.gitlab.com/uniget-org/images/build-essential:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+
+# apt
+#RUN --mount=type=cache,target=/var/cache/apt <<EOF
+#apt-get update
+#apt-get -y install --no-install-recommends \
+#    foo
+#EOF
+
+# apk
+#RUN --mount=type=cache,target=/var/cache/apk <<EOF
+#apk add --update-cache \
+#    foo
+#EOF
+
+COPY --link --from=nodejs / /usr/local/
+COPY --link --from=npm / /usr/local/
+WORKDIR /uniget_bootstrap/libexec/foo
+ARG name
+ARG version
+RUN <<EOF
+npm install \
+    --omit=dev \
+    "@google/gemini-cli@${version}"
+ln --symbolic --relative --force "${prefix}/libexec/gemini-cli/node_modules/.bin/gemini" "${prefix}/bin/"
+EOF
+
+# completion
+#RUN <<EOF
+#"${prefix}/bin/foo" completion bash >"${prefix}/share/bash-completion/completions/foo"
+#"${prefix}/bin/foo" completion fish >"${prefix}/share/fish/vendor_completions.d/foo.fish"
+#"${prefix}/bin/foo" completion zsh >"${prefix}/share/zsh/vendor-completions/_foo"
+#EOF
