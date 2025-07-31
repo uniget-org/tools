@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: berg
+license:
+  name: GAPL-3.0
+  link: https://codeberg.org/Aviac/codeberg-cli/src/branch/main/LICENSE
+version: "0.4.0"
+check: ""
+build_dependencies:
+- rust
+platforms:
+- linux/amd64
+tags:
+- category/development
+- lang/rust
+- type/cli
+- cloud/codeberg
+homepage: https://codeberg.org/Aviac/codeberg-cli
+repository: https://codeberg.org/Aviac/codeberg-cli
+description: CLI Tool for forgejo similar to gh, glab and tea
+renovate:
+  datasource: github-releases
+  package: Aviac/codeberg-cli
+  extractVersion: ^v(?<version>.+)$
+  priority: low
