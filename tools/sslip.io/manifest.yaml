@@ -13,7 +13,7 @@ tags:
 - category/development
 - lang/go
 - type/daemon
-- dns
+- standard/dns
 homepage: https://sslip.io/
 repository: https://github.com/cunnie/sslip.io
 description: DNS server which maps DNS records with embedded IP addresses to those addresses

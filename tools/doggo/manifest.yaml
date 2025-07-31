@@ -13,7 +13,7 @@ tags:
 - category/operations
 - lang/go
 - type/cli
-- dns
+- standard/dns
 homepage: https://doggo.mrkaran.dev/
 repository: https://github.com/mr-karan/doggo
 description: Command line DNS client for humans

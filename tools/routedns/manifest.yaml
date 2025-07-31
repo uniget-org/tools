@@ -15,7 +15,7 @@ tags:
 - category/operations
 - lang/go
 - type/daemon
-- dns
+- standard/dns
 homepage: https://github.com/folbricht/routedns
 repository: https://github.com/folbricht/routedns
 description: DNS stub resolver, proxy and router with support for DoT, DoH, DoQ, and DTLS
