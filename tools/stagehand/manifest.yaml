@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: stagehand
+license:
+  name: MIT License
+  link: https://github.com/browserbase/stagehand/blob/main/LICENSE
+version: "2.4.2"
+check: ""
+build_dependencies:
+- nodejs-lts
+- npm
+runtime_dependencies:
+- nodejs-lts
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- category/development
+- lang/javascript
+- type/cli
+homepage: https://stagehand.dev/
+repository: https://github.com/browserbase/stagehand
+description: AI Browser Automation Framework
+renovate:
+  datasource: npm
+  package: "@browserbasehq/stagehand"
+  priority: low

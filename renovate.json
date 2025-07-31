@@ -9419,6 +9419,17 @@
     {
       "customType": "regex",
       "fileMatch": [
+        "^tools/stagehand/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ],
+      "depNameTemplate": "@browserbasehq/stagehand",
+      "datasourceTemplate": "npm"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": [
         "^tools/stargz-snapshotter/manifest.yaml$"
       ],
       "matchStrings": [
