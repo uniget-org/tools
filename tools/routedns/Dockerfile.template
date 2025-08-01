@@ -1,7 +1,6 @@
 #syntax=docker/dockerfile:1.17.1@sha256:38387523653efa0039f8e1c89bb74a30504e76ee9f565e25c9a09841f9427b05
 
 FROM ghcr.io/uniget-org/tools/go:latest AS go
-FROM ghcr.io/uniget-org/tools/goreleaser:latest AS goreleaser
 
 FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
@@ -11,12 +10,11 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 COPY --link --from=go / /usr/local/
-COPY --link --from=goreleaser / /usr/local/
 WORKDIR /go/src/github.com/folbricht/routedns
 ARG name
 ARG version
 RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
 check-clone "https://github.com/folbricht/routedns" "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/folbricht/routedns .
-goreleaser build --single-target --output "${prefix}/bin/routedns"
+CGO_ENABLED=0 go build -o "${prefix}/bin/routedns" ./cmd/routedns/
 EOF

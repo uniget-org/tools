@@ -8,7 +8,6 @@ version: "0.1.115"
 check: ${binary} --version | grep ^Version | tr -s ' ' | cut -d' ' -f2 | tr -d v
 build_dependencies:
 - go
-- goreleaser
 platforms:
 - linux/amd64
 - linux/arm64
