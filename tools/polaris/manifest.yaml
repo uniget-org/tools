@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: polaris
-version: "10.0.0"
+version: "v10.1.0"
 check: "${binary} version | cut -d: -f2"
 tags:
 - type/cli
