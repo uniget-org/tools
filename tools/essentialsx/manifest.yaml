@@ -4,7 +4,7 @@ name: essentialsx
 license:
   name: GPLv3
   link: https://github.com/EssentialsX/Essentials/blob/2.x/LICENSE
-version: "2.21.1"
+version: "2.21.2"
 binary: "false"
 check: "" # No binary
 runtime_dependencies:
