@@ -8,7 +8,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://github.com/WasmEdge/WasmEdge/releases/download/${version}/WasmEdge-${version}-manylinux2014_${arch}.tar.xz"
+url="https://github.com/WasmEdge/WasmEdge/releases/download/${version}/WasmEdge-${version}-manylinux_2_28_${arch}.tar.xz"
 filename="$( basename "${url}" )"
 
 check-github-release-asset "WasmEdge/WasmEdge" "${version}" "${filename}"
