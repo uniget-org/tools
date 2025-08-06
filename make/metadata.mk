@@ -2,16 +2,18 @@ metadata.json: \
 		$(HELPER)/var/lib/uniget/manifests/gojq.json \
 		$(addsuffix /manifest-minimal.json,$(ALL_TOOLS)) \
 		; $(info $(M) Creating $@...)
-	@jq --slurp --compact-output --arg revision "$(GIT_COMMIT_SHA)" '{"revision": $$revision, "tools": map(.tools[])}' $(addsuffix /manifest-minimal.json,$(ALL_TOOLS)) >metadata.json
+	@jq --slurp --compact-output --arg revision "$(GIT_COMMIT_SHA)" '{"revision": $$revision, "tools": map(.tools[])}' $(addsuffix /manifest-minimal.json,$(ALL_TOOLS)) \
+	>$@
 
 metadata-full.json: \
 		$(HELPER)/var/lib/uniget/manifests/gojq.json \
 		$(addsuffix /manifest-full.json,$(ALL_TOOLS)) \
 		; $(info $(M) Creating $@...)
-	@jq --slurp --compact-output '{"tools": map(.tools[])}' $(addsuffix /manifest-full.json,$(ALL_TOOLS)) >metadata-full.json
+	@jq --slurp --compact-output '{"tools": map(.tools[])}' $(addsuffix /$@,$(ALL_TOOLS)) \
+	>$@
 
 .PHONY:
-metadata.json--download: \
+metadata.json--download:%--download: \
 		$(HELPER)/var/lib/uniget/manifests/regclient.json \
 		$(HELPER)/var/lib/uniget/manifests/gojq.json \
 		; $(info $(M) Downloading metadata...)
@@ -20,10 +22,10 @@ metadata.json--download: \
 	| jq --raw-output '.layers[0].digest' \
 	| xargs regctl blob get ghcr.io/uniget-org/tools/metadata \
 	| tar --extract --gzip --to-stdout metadata.json \
-	>metadata-full.json
+	>$*
 
 .PHONY:
-metadata-full.json--download: \
+metadata-full.json--download:%--download: \
 		$(HELPER)/var/lib/uniget/manifests/regclient.json \
 		$(HELPER)/var/lib/uniget/manifests/gojq.json \
 		; $(info $(M) Downloading full metadata...)
@@ -32,7 +34,7 @@ metadata-full.json--download: \
 	| jq --raw-output '.layers[0].digest' \
 	| xargs regctl blob get ghcr.io/uniget-org/tools/metadata \
 	| tar --extract --gzip --to-stdout metadata.json \
-	>metadata-full.json
+	>$*
 
 $(addsuffix --metadata-full,$(ALL_TOOLS_RAW)):%--metadata-full: \
 		$(HELPER)/var/lib/uniget/manifests/gojq.json \
