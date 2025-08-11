@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: wasmi
-version: "0.49.1"
+version: "0.50.0"
 binary: wasmi_cli
 check: ${binary} --version | cut -d' ' -f2
 build_dependencies:
