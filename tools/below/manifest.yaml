@@ -8,7 +8,6 @@ version: "0.9.0"
 check: "" # No version paramter
 platforms:
 - linux/amd64
-- linux/arm64
 tags:
 - org/facebook
 - category/operations
