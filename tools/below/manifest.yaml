@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: below
+license:
+  name: Apache License 2.0
+  link: https://github.com/facebookincubator/below/blob/main/LICENSE
+version: "0.9.0"
+check: "" # No version paramter
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/facebook
+- category/operations
+- lang/rust
+- type/cli
+homepage: https://github.com/facebookincubator/below
+repository: https://github.com/facebookincubator/below
+description: Time traveling resource monitor for modern Linux systems
+renovate:
+  datasource: github-releases
+  package: facebookincubator/below
+  extractVersion: ^v(?<version>.+)$
+  priority: low
