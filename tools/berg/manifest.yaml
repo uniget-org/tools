@@ -19,7 +19,8 @@ homepage: https://codeberg.org/Aviac/codeberg-cli
 repository: https://codeberg.org/Aviac/codeberg-cli
 description: CLI Tool for forgejo similar to gh, glab and tea
 renovate:
-  datasource: github-releases
+  datasource: git-tags
   package: Aviac/codeberg-cli
+  url: https://codeberg.org/Aviac/codeberg-cli
   extractVersion: ^v(?<version>.+)$
   priority: low
