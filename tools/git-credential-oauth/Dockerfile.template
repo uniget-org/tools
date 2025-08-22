@@ -19,3 +19,7 @@ tar --file="${uniget_cache_download}/${filename}" --list
 tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
     git-credential-oauth
 EOF
+RUN <<EOF
+curl --silent --show-error --location --fail --output "${prefix}/share/man/man1/git-credential-oauth.1" \
+    "https://github.com/hickford/git-credential-oauth/raw/refs/tags/v${version}/git-credential-oauth.1"
+EOF
