@@ -14,7 +14,7 @@ case "${arch}" in
         export arch_suffix="x64"
         ;;
     aarch64)
-        export arch_suffix="${alt_arch}"
+        export arch_suffix="${arch}"
         ;;
     *)
         echo "ERROR: Unsupported architecture ${arch}."
