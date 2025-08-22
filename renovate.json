@@ -460,7 +460,7 @@
     },
     {
       "customType": "regex",
-      "datasourceTemplate": "github-releases",
+      "datasourceTemplate": "git-tags",
       "depNameTemplate": "Aviac/codeberg-cli",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
@@ -468,7 +468,8 @@
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
-      ]
+      ],
+      "packageNameTemplate": "https://codeberg.org/Aviac/codeberg-cli"
     },
     {
       "customType": "regex",
@@ -10958,6 +10959,17 @@
       "depNameTemplate": "yamllint",
       "fileMatch": [
         "^tools/yamllint/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "yaml/yamlscript",
+      "fileMatch": [
+        "^tools/yamlscript/manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
