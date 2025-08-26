@@ -13,7 +13,7 @@ ARG name
 ARG version
 RUN --mount=type=cache,target=/target \
     --mount=type=cache,target=/usr/local/cargo/registry <<EOF
-git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" https://github.com/mookid/diffr .
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/mookid/diffr .
 export CARGO_HOME=/usr/local/cargo
 export CARGO_TARGET_DIR=/target
 export RUSTUP_HOME=/usr/local/rustup
