@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: proxify
-version: "0.0.15"
+version: "0.0.16"
 check: ${binary} --version 2>&1 | cut -d' ' -f4
 tags:
 - category/security
