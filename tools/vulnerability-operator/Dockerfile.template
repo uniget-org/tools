@@ -1,4 +1,4 @@
-#syntax=docker/dockerfile:1.17.1@sha256:38387523653efa0039f8e1c89bb74a30504e76ee9f565e25c9a09841f9427b05
+#syntax=docker/dockerfile:1.18.0@sha256:38387523653efa0039f8e1c89bb74a30504e76ee9f565e25c9a09841f9427b05
 
 FROM ghcr.io/uniget-org/tools/cosign:latest AS cosign
 
