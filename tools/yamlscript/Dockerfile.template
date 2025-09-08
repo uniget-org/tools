@@ -32,6 +32,6 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
 
 tar --file="${uniget_cache_download}/${filename}" --list
 tar --file="${uniget_cache_download}/${filename}" --extract --xz --directory="${prefix}/bin" --strip-components=1 --no-same-owner \
-    "ys-${version}-linux-x64/ys-${version}"
+    "ys-${version}-linux-${arch_suffix}/ys-${version}"
 mv "${prefix}/bin/ys-${version}" "${prefix}/bin/ys"
 EOF
