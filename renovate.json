@@ -6123,6 +6123,17 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "pypi",
+      "depNameTemplate": "litellm",
+      "fileMatch": [
+        "^tools/litellm/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "mudler/LocalAI",
       "extractVersionTemplate": "^v(?<version>.+)$",
