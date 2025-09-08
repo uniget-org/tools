@@ -25,6 +25,6 @@ repository: https://github.com/open-telemetry/opentelemetry-collector
 description: Collection of APIs, SDKs, and tools to instrument, generate, collect, and export telemetry data to analyze performance and behavior
 renovate:
   datasource: github-releases
-  package: open-telemetry/opentelemetry-collector
+  package: open-telemetry/opentelemetry-collector-releases
   extractVersion: ^v(?<version>.+)$
   priority: low
