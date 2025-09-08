@@ -460,7 +460,7 @@
     },
     {
       "customType": "regex",
-      "datasourceTemplate": "github-releases",
+      "datasourceTemplate": "git-tags",
       "depNameTemplate": "Aviac/codeberg-cli",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
@@ -468,7 +468,8 @@
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
-      ]
+      ],
+      "packageNameTemplate": "https://codeberg.org/Aviac/codeberg-cli"
     },
     {
       "customType": "regex",
