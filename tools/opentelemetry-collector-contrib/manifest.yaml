@@ -24,6 +24,6 @@ repository: https://github.com/open-telemetry/opentelemetry-collector-contrib
 description: OpenTelemetry distribution containing all the components from both the OpenTelemetry Collector repository and the OpenTelemetry Collector Contrib repository including open source and vendor supported components
 renovate:
   datasource: github-releases
-  package: open-telemetry/opentelemetry-collector-contrib
+  package: open-telemetry/opentelemetry-collector-contrib-releases
   extractVersion: ^v(?<version>.+)$
   priority: low
