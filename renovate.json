@@ -7406,7 +7406,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "open-telemetry/opentelemetry-collector",
+      "depNameTemplate": "open-telemetry/opentelemetry-collector-releases",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/opentelemetry-collector/manifest.yaml$"
