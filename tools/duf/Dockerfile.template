@@ -23,7 +23,7 @@ case "${arch}" in
 esac
 echo "    Using ${arch_suffix}"
 
-url="https://github.com/muesli/duf/releases/download/v${version}/duf_linux_${arch_suffix}.tar.gz"
+url="https://github.com/muesli/duf/releases/download/v${version}/duf_${version}_linux_${arch_suffix}.tar.gz"
 filename="$(basename "${url}")"
 
 check-github-release-asset "muesli/duf" "v${version}" "${filename}"
