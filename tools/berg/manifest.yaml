@@ -4,7 +4,7 @@ name: berg
 license:
   name: GAPL-3.0
   link: https://codeberg.org/Aviac/codeberg-cli/src/branch/main/LICENSE
-version: "0.4.0"
+version: "0.4.11"
 check: ""
 build_dependencies:
 - rust
