@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: dinit
-version: "0.3.0"
+version: "0.4.0"
 check: "" # Does not show version without services
 platforms:
 - linux/amd64
