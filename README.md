@@ -16,3 +16,7 @@ The container tools installer and updater
 ## Contents
 
 This repository contains the source code for creating container images for all tools supported by uniget.
+
+## Contributing
+
+Please read the contribution guidelines in [CONTRIBUTING.md](CONTRIBUTING.md).
