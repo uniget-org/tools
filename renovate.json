@@ -1471,6 +1471,17 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "npm",
+      "depNameTemplate": "@continuedev/cli",
+      "fileMatch": [
+        "^tools/continue/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "project-copacetic/copacetic",
       "extractVersionTemplate": "^v(?<version>.+)$",
