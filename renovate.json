@@ -6511,6 +6511,17 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "pypi",
+      "depNameTemplate": "mcp-client-cli",
+      "fileMatch": [
+        "^tools/mcp-client-cli/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "Tiiffi/mcrcon",
       "extractVersionTemplate": "^v(?<version>.+)$",
