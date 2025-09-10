@@ -3035,6 +3035,18 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "npm",
+      "depNameTemplate": "foo/bar",
+      "extractVersionTemplate": "^v(?<version>.+)$",
+      "fileMatch": [
+        "^tools/forgecode/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "git-tags",
       "depNameTemplate": "forgejo/forgejo",
       "extractVersionTemplate": "^v(?<version>\\d+\\.\\d+\\.\\d+-\\d+)$",
