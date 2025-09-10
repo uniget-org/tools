@@ -20,6 +20,7 @@ tags:
 - type/daemon
 - ai
 - llm
+- mcp
 homepage: https://www.litellm.ai/
 repository: https://github.com/BerriAI/litellm
 description: Some description

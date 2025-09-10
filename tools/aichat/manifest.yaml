@@ -15,6 +15,9 @@ tags:
 - type/cli
 - ai
 - llm
+- mcp
+- agent
+- coding
 homepage: https://github.com/sigoden/aichat
 repository: https://github.com/sigoden/aichat
 description: All-in-one AI CLI tool featuring Chat-REPL, Shell Assistant, RAG, AI tools & agents

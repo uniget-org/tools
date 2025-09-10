@@ -16,6 +16,8 @@ tags:
 - type/cli
 - ai
 - llm
+- coding
+- agent
 homepage: https://openai.com/index/introducing-codex/
 repository: https://github.com/openai/codex
 description: Lightweight coding agent that runs in your terminal

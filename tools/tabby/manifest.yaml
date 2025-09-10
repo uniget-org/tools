@@ -13,8 +13,10 @@ tags:
 - lang/rust
 - type/daemon
 - ai
+- llm
 - code
-- completion
+- coding
+- agent
 homepage: https://tabby.tabbyml.com/
 repository: https://github.com/TabbyML/tabby
 description: Self-hosted AI coding assistant

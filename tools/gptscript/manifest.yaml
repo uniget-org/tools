@@ -11,8 +11,9 @@ tags:
 - lang/go
 - type/cli
 - ai
-- gpt
+- llm
 - code
+- coding
 homepage: https://gptscript.ai
 repository: https://github.com/gptscript-ai/gptscript
 description: Natural Language Programming

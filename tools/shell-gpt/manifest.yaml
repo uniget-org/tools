@@ -17,7 +17,7 @@ tags:
 - lang/python
 - type/cli
 - ai
-- gpt
+- llm
 homepage: https://github.com/TheR1D/shell_gpt
 repository: https://github.com/TheR1D/shell_gpt
 description: Command-line productivity tool powered by GPT-3 and GPT-4, will help you accomplish your tasks faster and more efficiently
