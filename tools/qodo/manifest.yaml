@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: qodo
+license:
+  name: Custom
+  link: https://github.com/qodo-ai/command/blob/main/LICENSE.md
+version: "0.27.0"
+check: ${binary} --version 2>/dev/null | grep "@qodo/command" | tr -s ' ' | cut -d' ' -f3
+build_dependencies:
+- nodejs-lts
+- npm
+runtime_dependencies:
+- nodejs-lts
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/qodo
+- category/development
+- lang/?
+- type/cli
+- ai
+- llm
+- mcp
+- coding
+- agent
+homepage: https://www.qodo.ai/products/qodo-command/
+repository: https://github.com/qodo-ai/command
+description: Some description
+renovate:
+  datasource: npm
+  package: "@qodo/command"
+  priority: low
