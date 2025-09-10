@@ -1,0 +1,30 @@
+#syntax=docker/dockerfile:1.18.0@sha256:dabfc0969b935b2080555ace70ee69a5261af8a8f1b4df97b9e7fbcf6722eddf
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/apt <<EOF
+apt-get update
+apt-get -y install --no-install-recommends \
+    bzip2
+EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/block/goose/releases/download/v${version}/goose-${arch}-unknown-linux-gnu.tar.bz2"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "block/goose" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --bzip2 --directory="${prefix}/bin" --no-same-owner
+EOF
+RUN <<EOF
+"${prefix}/bin/temporal" completion bash >"${prefix}/share/bash-completion/completions/temporal"
+"${prefix}/bin/temporal" completion fish >"${prefix}/share/fish/vendor_completions.d/temporal.fish"
+"${prefix}/bin/temporal" completion zsh >"${prefix}/share/zsh/vendor-completions/_temporal"
+EOF
