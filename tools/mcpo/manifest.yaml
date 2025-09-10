@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: mcpo
+license:
+  name: MIT License
+  link: https://github.com/open-webui/mcpo/blob/main/LICENSE
+version: "0.0.17"
+check: "" # No version parameter
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/python
+- type/cli
+homepage: https://docs.openwebui.com/openapi-servers/mcp
+repository: https://github.com/open-webui/mcpo
+description: Simple, secure MCP-to-OpenAPI proxy server
+renovate:
+  datasource: pypi
+  package: mcpo
+  priority: low
