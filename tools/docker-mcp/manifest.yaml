@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: docker-mcp
+license:
+  name: MIT License
+  link: https://github.com/docker/mcp-gateway/blob/main/LICENSE
+version: "0.18.0"
+binary: ${target}/libexec/docker/cli-plugins/docker-mcp
+check: ${binary} version | tr -d v
+build_dependencies:
+- go
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/docker
+- category/development
+- lang/go
+- type/cli
+homepage: https://www.google.de
+repository: https://github.com/docker/mcp-gateway
+description: Some description
+renovate:
+  datasource: github-tags
+  package: docker/mcp-gateway
+  extractVersion: ^v(?<version>.+)$
+  priority: low
