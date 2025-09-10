@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: goose
+license:
+  name: Apache License 2.0
+  link: https://github.com/block/goose/blob/main/LICENSE
+version: "1.7.0"
+check: ${binary} --version | tr -d ' '
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/rust
+- type/cli
+- ai
+- llm
+- mcp
+- coding
+- agent
+homepage: https://block.github.io/goose/
+repository: https://github.com/block/goose
+description: Open source, extensible AI agent that goes beyond code suggestions
+messages:
+  usage: |
+    You must make sure the following libraries are installed:
+    - libxcb.so.1
+
+    Ubuntu:
+        apt-get install \
+            libxcb1
+renovate:
+  datasource: github-releases
+  package: block/goose
+  extractVersion: ^v(?<version>.+)$
+  priority: low
