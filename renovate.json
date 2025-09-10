@@ -9047,6 +9047,18 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "charmbracelet/sequin",
+      "extractVersionTemplate": "^v(?<version>.+)$",
+      "fileMatch": [
+        "^tools/sequin/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "npm",
       "depNameTemplate": "serverless",
       "fileMatch": [

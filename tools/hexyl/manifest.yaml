@@ -9,7 +9,7 @@ tags:
 - category/operations
 - lang/rust
 - type/cli
-- console
+- terminal
 homepage: https://github.com/sharkdp/hexyl
 repository: https://github.com/sharkdp/hexyl
 description: Command-line hex viewer
