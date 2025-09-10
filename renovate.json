@@ -355,6 +355,17 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "npm",
+      "depNameTemplate": "@augmentcode/auggie",
+      "fileMatch": [
+        "^tools/auggie/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "smallstep/autocert",
       "extractVersionTemplate": "^v(?<version>.+)$",
