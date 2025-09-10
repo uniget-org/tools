@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: claude
+license:
+  name: Custom
+  link: https://github.com/anthropics/claude-code/blob/main/LICENSE.md
+version: "1.0.110"
+check: ${binary} --version | cut -d' ' -f1
+build_dependencies:
+- nodejs-lts
+- npm
+runtime_dependencies:
+- nodejs-lts
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/anthropic
+- category/development
+- lang/javascript
+- type/cli
+- ai
+- llm
+- mcp
+- coding
+- agent
+homepage: https://www.anthropic.com/claude-code
+repository: https://github.com/anthropics/claude-code
+description: Agentic coding tool that lives in your terminal
+renovate:
+  datasource: npm
+  package: "@anthropic/claude-code"
+  priority: low

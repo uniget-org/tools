@@ -1,0 +1,21 @@
+#syntax=docker/dockerfile:1.18.0@sha256:dabfc0969b935b2080555ace70ee69a5261af8a8f1b4df97b9e7fbcf6722eddf
+
+FROM ghcr.io/uniget-org/tools/nodejs-lts:latest AS nodejs
+FROM ghcr.io/uniget-org/tools/npm:latest AS npm
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+COPY --link --from=nodejs / /usr/local/
+COPY --link --from=npm / /usr/local/
+WORKDIR /uniget_bootstrap/libexec/claude
+ARG name
+ARG version
+RUN <<EOF
+npm install \
+    --omit=dev \
+    "@anthropic-ai/claude-code@${version}"
+ln --symbolic --relative --force "${prefix}/libexec/claude/node_modules/.bin/claude" "${prefix}/bin/"
+EOF
