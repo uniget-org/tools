@@ -1031,6 +1031,17 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "npm",
+      "depNameTemplate": "@anthropic/claude-code",
+      "fileMatch": [
+        "^tools/claude/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "databricks/click",
       "extractVersionTemplate": "^v(?<version>.+)$",
