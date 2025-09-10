@@ -3036,8 +3036,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "npm",
-      "depNameTemplate": "foo/bar",
-      "extractVersionTemplate": "^v(?<version>.+)$",
+      "depNameTemplate": "forgecode",
       "fileMatch": [
         "^tools/forgecode/manifest.yaml$"
       ],
@@ -8379,6 +8378,17 @@
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/qemu/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "npm",
+      "depNameTemplate": "@qodo/command",
+      "fileMatch": [
+        "^tools/qodo/manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
