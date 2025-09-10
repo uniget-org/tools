@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: cursor-agent
+license:
+  name: Unknown
+  link: https://cursor.com/terms-of-service
+version: "2025.09.04-fc40cd1"
+check: ${binary} --version
+runtime_dependencies:
+- nodejs-lts
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/cursor
+- category/development
+- lang/javascript
+- type/cli
+- ai
+- llm
+- mcp
+- coding
+- agent
+homepage: https://cursor.com/en/cli
+repository: https://cursor.com/en/cli
+description: Built to help you ship, right from your terminal
+#renovate:
+#  datasource: github-releases
+#  package: foo/bar
+#  extractVersion: ^v(?<version>.+)$
+#  priority: low
