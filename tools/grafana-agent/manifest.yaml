@@ -3,7 +3,7 @@ name: grafana-agent
 license:
   name: Apache License 2.0
   link: https://github.com/grafana/agent/blob/main/LICENSE
-version: "0.44.2"
+version: "0.44.3"
 check: ${binary} --version | head -1 | cut -d' ' -f3 | tr -d v
 tags:
 - org/grafana
