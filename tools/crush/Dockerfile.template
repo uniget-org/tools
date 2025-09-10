@@ -1,0 +1,46 @@
+#syntax=docker/dockerfile:1.18.0@sha256:dabfc0969b935b2080555ace70ee69a5261af8a8f1b4df97b9e7fbcf6722eddf
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+echo "### Setting architecture string for ${TARGETPLATFORM}"
+case "${arch}" in
+    x86_64)
+        export arch_suffix="${arch}"
+        ;;
+    aarch64)
+        export arch_suffix="${alt_arch}"
+        ;;
+    *)
+        echo "ERROR: Unsupported architecture ${arch}."
+        exit 1
+        ;;
+esac
+echo "    Using ${arch_suffix}"
+
+url="https://github.com/charmbracelet/crush/releases/download/v${version}/crush_${version}_Linux_${arch_suffix}.tar.gz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "charmbracelet/crush" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin" --strip-components=1 --no-same-owner \
+    "crush_${version}_Linux_${arch_suffix}/crush" \
+    "crush_${version}_Linux_${arch_suffix}/completions" \
+    "crush_${version}_Linux_${arch_suffix}/manpages"
+
+mv "${prefix}/bin/manpages/crush.1.gz" "${prefix}/share/man/man1/"
+rmdir "${prefix}/bin/manpages"
+
+mv "${prefix}/bin/completions/crush.bash" "${prefix}/share/bash-completion/completions/crush"
+mv "${prefix}/bin/completions/crush.fish" "${prefix}/share/fish/vendor_completions.d/crush.fish"
+mv "${prefix}/bin/completions/crush.zsh" "${prefix}/share/zsh/vendor-completions/_crush"
+rmdir "${prefix}/bin/completions"
+EOF

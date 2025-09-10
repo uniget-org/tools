@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: crush
+license:
+  name: FSL-1.1-MIT
+  link: https://github.com/charmbracelet/crush/blob/main/LICENSE.md
+version: "0.7.8"
+check: ${binary} --version | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/charmbracelet
+- category/development
+- lang/go
+- type/cli
+- ai
+- llm
+- mcp
+- coding
+- agent
+homepage: https://github.com/charmbracelet/crush
+repository: https://github.com/charmbracelet/crush
+description: Glamourous AI coding agent for your favourite terminal
+renovate:
+  datasource: github-releases
+  package: charmbracelet/crush
+  extractVersion: ^v(?<version>.+)$
+  priority: low
