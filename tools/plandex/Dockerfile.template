@@ -1,0 +1,25 @@
+#syntax=docker/dockerfile:1.18.0@sha256:dabfc0969b935b2080555ace70ee69a5261af8a8f1b4df97b9e7fbcf6722eddf
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/plandex-ai/plandex/releases/download/cli%2Fv${version}/plandex_${version}_linux_${alt_arch}.tar.gz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "plandex-ai/plandex" "cli/v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin" --no-same-owner
+EOF
+RUN <<EOF
+"${prefix}/bin/plandex" completion bash >"${prefix}/share/bash-completion/completions/plandex"
+"${prefix}/bin/plandex" completion fish >"${prefix}/share/fish/vendor_completions.d/plandex.fish"
+"${prefix}/bin/plandex" completion zsh >"${prefix}/share/zsh/vendor-completions/_plandex"
+EOF
