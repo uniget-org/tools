@@ -25,12 +25,30 @@ echo "    Using ${arch_suffix}"
 
 url="https://github.com/yaml/yamlscript/releases/download/${version}/ys-${version}-linux-${arch_suffix}.tar.xz"
 filename="$( basename "${url}" )"
-
 check-github-release-asset "yaml/yamlscript" "${version}" "${filename}"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
     "${url}"
-
 tar --file="${uniget_cache_download}/${filename}" --list
 tar --file="${uniget_cache_download}/${filename}" --extract --xz --directory="${prefix}/bin" --strip-components=1 --no-same-owner
 rm -f "${prefix}/bin/Makefile"
+rm -f "${prefix}/bin/ys-${version}-build-report.html"
+mkdir -p "${prefix}/opt/ys"
+
+url="https://github.com/yaml/yamlscript/releases/download/${version}/libys-${version}-standalone.jar"
+filename="$( basename "${url}" )"
+check-github-release-asset "yaml/yamlscript" "${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+install --mode=0644 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/opt/ys/libys-standalone.jar"
+
+url="https://github.com/yaml/yamlscript/releases/download/${version}/yamlscript.cli-${version}-standalone.jar"
+filename="$( basename "${url}" )"
+check-github-release-asset "yaml/yamlscript" "${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+install --mode=0644 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/opt/ys/yamlscript.cli-standalone.jar"
 EOF
