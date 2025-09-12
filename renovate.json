@@ -8000,6 +8000,18 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "plandex-ai/plandex",
+      "extractVersionTemplate": "^cli/v(?<version>.+)$",
+      "fileMatch": [
+        "^tools/plandex/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "m1guelpf/plz-cli",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
