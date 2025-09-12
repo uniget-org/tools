@@ -65,9 +65,3 @@ jobs:
         dockerhub-password: ${{ secrets.DOCKERHUB_TOKEN }}
         sarif-file: sarif.output.json
         summary: true
-
-    - name: Upload SARIF result
-      id: upload-sarif
-      uses: github/codeql-action/upload-sarif@v2
-      with:
-        sarif_file: sarif.output.json
