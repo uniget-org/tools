@@ -12,6 +12,7 @@ tags:
 - category/development
 - lang/cojure
 - type/cli
+- format/yaml
 homepage: https://yamlscript.org/
 repository: https://github.com/yaml/yamlscript
 description: Programming in YAML
