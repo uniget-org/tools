@@ -4,7 +4,7 @@ name: argocd-autopilot
 license:
   name: Apache License 2.0
   link: https://github.com/argoproj-labs/argocd-autopilot/blob/main/LICENSE
-version: "0.4.19"
+version: "0.4.20"
 check: ${binary} version | tr -d v
 platforms:
 - linux/amd64
