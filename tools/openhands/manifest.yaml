@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: openhands
+license:
+  name: MIT License
+  link: https://github.com/All-Hands-AI/OpenHands/blob/main/LICENSE
+version: "0.56.0"
+check: ${binary} --version 2>/dev/null | cut -d' ' -f4
+build_dependencies:
+- python-3.12
+- shiv
+runtime_dependencies:
+- python-3.12
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/python
+- type/cli
+- type/daemon
+- ai
+- llm
+- mcp
+- coding
+- agent
+homepage: https://all-hands.dev/
+repository: https://github.com/All-Hands-AI/OpenHands
+description: Code Less, Make More
+renovate:
+  datasource: pypi
+  package: openhands-ai
+  priority: low
