@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: helm-plugins
-version: "0.2.0"
+version: "0.3.0"
 check: "" # No version
 build_dependencies:
 - helm
@@ -13,7 +13,6 @@ tags:
 - package
 - management
 - helm
-- kubernetes
 - k8s
 homepage: https://github.com/uniget-org/tools
 repository: https://github.com/uniget-org/tools
