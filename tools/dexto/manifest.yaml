@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: dexto
+license:
+  name: ELv2
+  link: https://github.com/truffle-ai/dexto/blob/main/LICENSE
+version: "1.1.4"
+check: ${binary}--version
+build_dependencies:
+- nodejs-lts
+- npm
+runtime_dependencies:
+- nodejs-lts
+platforms:
+- linux/amd64
+tags:
+- category/development
+- lang/javascript
+- type/cli
+- type/daemon
+- ai
+- llm
+- mcp
+- coding
+- agent
+homepage: https://dexto.ai
+repository: https://github.com/truffle-ai/dexto
+description: Orchestration Layer for AI agents
+renovate:
+  datasource: npm
+  package: dexto
+  priority: low
