@@ -9832,6 +9832,18 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "open-telemetry/opentelemetry-collector-contrib-releases",
+      "extractVersionTemplate": "^v(?<version>.+)$",
+      "fileMatch": [
+        "^tools/telemetrygen/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "gravitational/teleport",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
