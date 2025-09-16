@@ -17,5 +17,5 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
 
 install --mode=0755 \
     "${uniget_cache_download}/${filename}" \
-    "${prefix}/bin/scaleway-cli"
+    "${prefix}/bin/scw"
 EOF
