@@ -10414,6 +10414,18 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "upcloudltd/upcloud-cli",
+      "extractVersionTemplate": "^v(?<version>.+)$",
+      "fileMatch": [
+        "^tools/upctl/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "updatecli/updatecli",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [

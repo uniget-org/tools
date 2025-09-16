@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: upctl
+license:
+  name: MIT License
+  link: https://github.com/UpCloudLtd/upcloud-cli/blob/main/LICENSE
+version: "3.23.0"
+check: ${binary} version | tr -s ' ' | grep "^ Version:" | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/upcloud
+- category/operations
+- lang/go
+- type/cli
+- infrastructure
+- management
+- cloud/upcloud
+homepage: https://upcloudltd.github.io/upcloud-cli/
+repository: https://github.com/UpCloudLtd/upcloud-cli
+description: UpCloud command line client
+renovate:
+  datasource: github-releases
+  package: upcloudltd/upcloud-cli
+  extractVersion: ^v(?<version>.+)$
+  priority: low
