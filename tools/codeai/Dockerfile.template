@@ -1,0 +1,26 @@
+#syntax=docker/dockerfile:1.18.0@sha256:dabfc0969b935b2080555ace70ee69a5261af8a8f1b4df97b9e7fbcf6722eddf
+
+FROM ghcr.io/uniget-org/tools/go:latest AS go
+
+FROM registry.gitlab.com/uniget-org/images/build-base:3.22 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+COPY --link --from=go / /usr/local/
+WORKDIR /go/src/github.com/meysamhadeli/codai
+ARG name
+ARG version
+RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
+check-clone "https://github.com/meysamhadeli/codai" "v${version}"
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/meysamhadeli/codai .
+sed -i -E "s/Version: \".+\"/Version: \"${version}\"/" config/config.go
+go build -ldflags '-s -w -linkmode external -extldflags -static' -o "${prefix}/bin/codeai" .
+EOF
+RUN <<EOF
+"${prefix}/bin/codeai" completion bash >"${prefix}/share/bash-completion/completions/codeai"
+"${prefix}/bin/codeai" completion fish >"${prefix}/share/fish/vendor_completions.d/codeai.fish"
+"${prefix}/bin/codeai" completion zsh >"${prefix}/share/zsh/vendor-completions/_codeai"
+EOF
