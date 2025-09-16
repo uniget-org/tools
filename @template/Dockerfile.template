@@ -3,10 +3,10 @@
 #FROM ghcr.io/uniget-org/tools/make:latest AS make
 #FROM ghcr.io/uniget-org/tools/go:latest AS go
 #FROM ghcr.io/uniget-org/tools/rust:latest AS rust
-#FROM ghcr.io/uniget-org/tools/python:latest AS python
+#FROM ghcr.io/uniget-org/tools/python-3.12:latest AS python
 #FROM ghcr.io/uniget-org/tools/shiv:latest AS shiv
 #FROM ghcr.io/uniget-org/tools/pipx:latest AS pipx
-#FROM ghcr.io/uniget-org/tools/nodejs:latest AS nodejs
+#FROM ghcr.io/uniget-org/tools/nodejs-lts:latest AS nodejs
 #FROM ghcr.io/uniget-org/tools/npm:latest AS npm
 
 FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare

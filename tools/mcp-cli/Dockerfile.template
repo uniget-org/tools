@@ -1,31 +1,17 @@
 #syntax=docker/dockerfile:1.18.0@sha256:dabfc0969b935b2080555ace70ee69a5261af8a8f1b4df97b9e7fbcf6722eddf
 
-FROM ghcr.io/uniget-org/tools/make:latest AS make
-FROM ghcr.io/uniget-org/tools/go:latest AS go
-FROM ghcr.io/uniget-org/tools/golangci-lint:latest AS golangci-lint
+FROM ghcr.io/uniget-org/tools/python-3.12:latest AS python
+FROM ghcr.io/uniget-org/tools/shiv:latest AS shiv
 
 FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --link --from=go / /usr/local/
-COPY --link --from=make / /usr/local/
-COPY --link --from=golangci-lint / /usr/local/
-WORKDIR /go/src/github.com/jbovet/mcp-cli
 ARG name
 ARG version
-RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
-git clone -q --config advice.detachedHead=false --depth 1 https://github.com/jbovet/mcp-cli .
-make deps
-make vet
-make lint
-make test
-make build
-mv bin/mcp-cli "${prefix}/bin/"
-EOF
-RUN <<EOF
-"${prefix}/bin/mcp-cli" completion bash >"${prefix}/share/bash-completion/completions/mcp-cli"
-"${prefix}/bin/mcp-cli" completion fish >"${prefix}/share/fish/vendor_completions.d/mcp-cli.fish"
-"${prefix}/bin/mcp-cli" completion zsh >"${prefix}/share/zsh/vendor-completions/_mcp-cli"
+COPY --link --from=python / /usr/local/
+COPY --link --from=shiv / /usr/local/
+RUN --mount=type=cache,target=/root/.cache/pip <<EOF
+shiv --output-file "${prefix}/bin/mcp-cli" --console-script mcp-cli "mcp-cli==${version}"
 EOF

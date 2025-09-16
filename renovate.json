@@ -6535,6 +6535,17 @@
     {
       "customType": "regex",
       "datasourceTemplate": "pypi",
+      "depNameTemplate": "mcp-cli",
+      "fileMatch": [
+        "^tools/mcp-cli/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "pypi",
       "depNameTemplate": "mcp-client-cli",
       "fileMatch": [
         "^tools/mcp-client-cli/manifest.yaml$"
