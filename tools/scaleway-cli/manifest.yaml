@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: scaleway-cli
+license:
+  name: Apache License 2.0
+  link: https://github.com/scaleway/scaleway-cli/blob/master/LICENSE
+version: "2.42.0"
+check: ${binary} version | grep ^Version | tr -s ' ' | cut -d' ' -f
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/scaleway
+- category/operations
+- lang/go
+- type/cli
+- cloud/hetzner
+- infrastructure
+- management
+homepage: https://cli.scaleway.com/
+repository: https://github.com/scaleway/scaleway-cli
+description: Command Line Interface for Scaleway
+renovate:
+  datasource: github-releases
+  package: scaleway/scaleway-cli
+  extractVersion: ^v(?<version>.+)$
+  priority: low
