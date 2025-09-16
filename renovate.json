@@ -9035,18 +9035,6 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "scaleway/scaleway-cli",
-      "extractVersionTemplate": "^v(?<version>.+)$",
-      "fileMatch": [
-        "^tools/scaleway-cli/manifest.yaml$"
-      ],
-      "matchStrings": [
-        "version: \"?(?<currentValue>.*?)\"?\\n"
-      ]
-    },
-    {
-      "customType": "regex",
-      "datasourceTemplate": "github-releases",
       "depNameTemplate": "boyter/scc",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
@@ -9075,6 +9063,18 @@
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/scorecard/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "scaleway/scaleway-cli",
+      "extractVersionTemplate": "^v(?<version>.+)$",
+      "fileMatch": [
+        "^tools/scw/manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
