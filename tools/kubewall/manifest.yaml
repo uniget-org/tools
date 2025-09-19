@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: kubewall
+license:
+  name: Apache License 2.0
+  link: https://github.com/kubewall/kubewall/blob/main/LICENSE
+version: "0.0.13"
+check: ${binary} version | grep ^version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/go
+- type/cli
+- type/gui
+- kubernetes
+- k8s
+- ai
+- llm
+- mcp
+homepage: https://github.com/kubewall/kubewall
+repository: https://github.com/kubewall/kubewall
+description: Single-Binary Kubernetes Dashboard with Multi-Cluster Management & AI Integration
+renovate:
+  datasource: github-releases
+  package: kubewall/kubewall
+  extractVersion: ^v(?<version>.+)$
+  priority: low
