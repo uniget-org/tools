@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: win-ssh-agent
-version: "1.6.8"
+version: "1.6.9"
 binary: npiperelay.exe
 check: "" # TODO
 runtime_dependencies:
