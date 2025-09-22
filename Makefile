@@ -5,7 +5,6 @@ include make/metadata.mk
 include make/tool.mk
 include make/sbom.mk
 include make/ghcr.mk
-include make/helper.mk
 include make/git.mk
 
 check_defined = \
