@@ -292,7 +292,7 @@ jobs:
       uses: uniget-org/uniget-action@v1
       with:
         prefix: helper
-        tools: gojq
+        tools: gojq regclient
 
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v3
@@ -309,7 +309,7 @@ jobs:
 
     - name: Download full metadata
       run: |
-        make metadata-full.json--download
+        make metadata-full.json--download REGCTL="helper/usr/local/bin/regctl"
 
     - name: Update full metadata
       run: |

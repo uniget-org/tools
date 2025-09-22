@@ -24,9 +24,9 @@ metadata.json--download:%--download: \
 metadata-full.json--download:%--download: \
 		; $(info $(M) Downloading full metadata...)
 	@set -o errexit; \
-	regctl manifest get ghcr.io/uniget-org/tools/metadata:full --platform=local --format=raw-body \
+	$(REGCTL) manifest get ghcr.io/uniget-org/tools/metadata:full --platform=local --format=raw-body \
 	| jq --raw-output '.layers[0].digest' \
-	| xargs regctl blob get ghcr.io/uniget-org/tools/metadata \
+	| xargs $(REGCTL) blob get ghcr.io/uniget-org/tools/metadata \
 	| tar --extract --gzip --to-stdout metadata.json \
 	>$*
 

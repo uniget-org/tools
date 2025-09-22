@@ -30,6 +30,8 @@ HELPER              = helper
 BIN                 = $(HELPER)/usr/local/bin
 export PATH        := $(BIN):$(PATH)
 
+REGCTL             ?= regctl
+
 SUPPORTED_ARCH     := x86_64 aarch64
 SUPPORTED_ALT_ARCH := amd64 arm64
 ARCH               ?= $(shell uname -m)
