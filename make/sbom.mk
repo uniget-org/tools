@@ -7,8 +7,6 @@ $(addsuffix --sbom,$(ALL_TOOLS_RAW)):%--sbom: \
 		$(TOOLS_DIR)/%/sbom.json
 
 $(addsuffix /sbom.json,$(ALL_TOOLS)):$(TOOLS_DIR)/%/sbom.json: \
-		$(HELPER)/var/lib/uniget/manifests/gojq.json \
-		$(HELPER)/var/lib/uniget/manifests/syft.json \
 		$(TOOLS_DIR)/%/manifest.json \
 		$(TOOLS_DIR)/%/Dockerfile \
 		; $(info $(M) Creating sbom for $*...)
@@ -16,12 +14,10 @@ $(addsuffix /sbom.json,$(ALL_TOOLS)):$(TOOLS_DIR)/%/sbom.json: \
 	TOOL_VERSION="$$(jq --raw-output '.tools[].version' tools/$*/manifest.json)"; \
 	VERSION_TAG="$$( echo "$${TOOL_VERSION}" | tr '+' '-' )"; \
 	echo "Scanning image for $* v$${TOOL_VERSION} with tag $${VERSION_TAG}"; \
-	./helper/usr/local/bin/syft packages $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${VERSION_TAG} --quiet --output cyclonedx-json=$(TOOLS_DIR)/$*/sbom.json
+	syft packages $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${VERSION_TAG} --quiet --output cyclonedx-json=$(TOOLS_DIR)/$*/sbom.json
 
 .PHONY:
-grype-db-update: \
-		$(HELPER)/var/lib/uniget/manifests/grype.json \
-		; $(info $(M) Updating grype database...)
+grype-db-update: ; $(info $(M) Updating grype database...)
 	@set -o errexit; \
 	grype db update
 
@@ -35,10 +31,9 @@ $(addsuffix --bov,$(ALL_TOOLS_RAW)):%--bov: \
 		$(TOOLS_DIR)/%/bov.json
 
 $(addsuffix /bov.json,$(ALL_TOOLS)):$(TOOLS_DIR)/%/bov.json: \
-		$(HELPER)/var/lib/uniget/manifests/grype.json \
 		$(TOOLS_DIR)/%/sbom.json \
 		; $(info $(M) Creating bov for $*...)
-	@./helper/usr/local/bin/grype sbom:$(TOOLS_DIR)/$*/sbom.json --quiet --file $(TOOLS_DIR)/$*/bov.json --output cyclonedx-json
+	@grype sbom:$(TOOLS_DIR)/$*/sbom.json --quiet --file $(TOOLS_DIR)/$*/bov.json --output cyclonedx-json
 
 .PHONY:
 sarif: \
@@ -50,7 +45,6 @@ $(addsuffix --sarif,$(ALL_TOOLS_RAW)):%--sarif: \
 		$(TOOLS_DIR)/%/sarif.json
 
 $(addsuffix /sarif.json,$(ALL_TOOLS)):$(TOOLS_DIR)/%/sarif.json: \
-		$(HELPER)/var/lib/uniget/manifests/grype.json \
 		$(TOOLS_DIR)/%/bov.json \
 		; $(info $(M) Creating sarif for $*...)
 	@grype sbom:$(TOOLS_DIR)/$*/bov.json --quiet --file $(TOOLS_DIR)/$*/sarif.json --output sarif
@@ -62,7 +56,6 @@ report: \
 
 .PHONY:
 $(addsuffix --report,$(ALL_TOOLS_RAW)):%--report: \
-		$(HELPER)/var/lib/uniget/manifests/gojq.json \
 		$(TOOLS_DIR)/%/report.csv
 
 $(addsuffix /report.csv,$(ALL_TOOLS)):$(TOOLS_DIR)/%/report.csv: \
@@ -87,7 +80,6 @@ attest: \
 
 .PHONY:
 $(addsuffix --scan,$(ALL_TOOLS_RAW)):%--scan: \
-		$(HELPER)/var/lib/uniget/manifests/grype.json \
 		$(TOOLS_DIR)/%/sbom.json \
 		; $(info $(M) Scanning sbom for $*...)
 	@set -o errexit; \
@@ -95,7 +87,6 @@ $(addsuffix --scan,$(ALL_TOOLS_RAW)):%--scan: \
 
 .PHONY:
 $(addsuffix --attest,$(ALL_TOOLS_RAW)):%--attest: \
-		$(HELPER)/var/lib/uniget/manifests/cosign.json \
 		sbom/%.json \
 		cosign.key \
 		; $(info $(M) Attesting sbom for $*...)

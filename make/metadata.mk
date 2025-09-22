@@ -1,12 +1,10 @@
 metadata.json: \
-		$(HELPER)/var/lib/uniget/manifests/gojq.json \
 		$(addsuffix /manifest-minimal.json,$(ALL_TOOLS)) \
 		; $(info $(M) Creating $@...)
 	@jq --slurp --compact-output --arg revision "$(GIT_COMMIT_SHA)" '{"revision": $$revision, "tools": map(.tools[])}' $(addsuffix /manifest-minimal.json,$(ALL_TOOLS)) \
 	>$@
 
 metadata-full.json: \
-		$(HELPER)/var/lib/uniget/manifests/gojq.json \
 		$(addsuffix /manifest-full.json,$(ALL_TOOLS)) \
 		; $(info $(M) Creating $@...)
 	@jq --slurp --compact-output '{"tools": map(.tools[])}' $(addsuffix /$@,$(ALL_TOOLS)) \
@@ -14,8 +12,6 @@ metadata-full.json: \
 
 .PHONY:
 metadata.json--download:%--download: \
-		$(HELPER)/var/lib/uniget/manifests/regclient.json \
-		$(HELPER)/var/lib/uniget/manifests/gojq.json \
 		; $(info $(M) Downloading metadata...)
 	@set -o errexit; \
 	regctl manifest get ghcr.io/uniget-org/tools/metadata:main --platform=local --format=raw-body \
@@ -26,8 +22,6 @@ metadata.json--download:%--download: \
 
 .PHONY:
 metadata-full.json--download:%--download: \
-		$(HELPER)/var/lib/uniget/manifests/regclient.json \
-		$(HELPER)/var/lib/uniget/manifests/gojq.json \
 		; $(info $(M) Downloading full metadata...)
 	@set -o errexit; \
 	regctl manifest get ghcr.io/uniget-org/tools/metadata:full --platform=local --format=raw-body \
@@ -37,7 +31,6 @@ metadata-full.json--download:%--download: \
 	>$*
 
 $(addsuffix --metadata-full,$(ALL_TOOLS_RAW)):%--metadata-full: \
-		$(HELPER)/var/lib/uniget/manifests/gojq.json \
 		$(TOOLS_DIR)/%/manifest-full.json \
 		; $(info $(M) Updating full metadata for $*...)
 	@set -o errexit; \

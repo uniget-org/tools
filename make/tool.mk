@@ -59,16 +59,12 @@ $(addsuffix --pr,$(ALL_TOOLS_RAW)):%--pr:
 	git checkout "$${REPO_BRANCH}"
 
 $(addsuffix /manifest.json,$(ALL_TOOLS)):$(TOOLS_DIR)/%/manifest.json: \
-		$(HELPER)/var/lib/uniget/manifests/gojq.json \
-		$(HELPER)/var/lib/uniget/manifests/yq.json \
 		$(TOOLS_DIR)/%/manifest.yaml \
 		; $(info $(M) Creating manifest for $*...)
 	@set -o errexit; \
 	yq --output-format=json --indent=0 eval '{"tools": [.]}' $(TOOLS_DIR)/$*/manifest.yaml >$(TOOLS_DIR)/$*/manifest.json
 
 $(addsuffix /manifest-minimal.json,$(ALL_TOOLS)):$(TOOLS_DIR)/%/manifest-minimal.json: \
-		$(HELPER)/var/lib/uniget/manifests/gojq.json \
-		$(HELPER)/var/lib/uniget/manifests/yq.json \
 		$(TOOLS_DIR)/%/manifest.json \
 		; $(info $(M) Creating minimal manifest for $*...)
 	@set -o errexit; \
@@ -81,8 +77,6 @@ $(addsuffix /manifest-minimal.json,$(ALL_TOOLS)):$(TOOLS_DIR)/%/manifest-minimal
 	>$(TOOLS_DIR)/$*/manifest-minimal.json
 
 $(addsuffix /manifest-full.json,$(ALL_TOOLS)):$(TOOLS_DIR)/%/manifest-full.json: \
-		$(HELPER)/var/lib/uniget/manifests/gojq.json \
-		$(HELPER)/var/lib/uniget/manifests/yq.json \
 		$(TOOLS_DIR)/%/manifest.json \
 		; $(info $(M) Creating full manifest for $*...)
 	@set -o errexit; \
@@ -142,7 +136,6 @@ clean-builders: \
 
 .PHONY:
 $(ALL_TOOLS_RAW):%: \
-		$(HELPER)/var/lib/uniget/manifests/gojq.json \
 		$(TOOLS_DIR)/%/manifest.json \
 		$(TOOLS_DIR)/%/Dockerfile \
 		builders \
@@ -190,7 +183,6 @@ $(addsuffix --build-all,$(ALL_TOOLS_RAW)):%--build-all: $(TOOLS_DIR)/%/image-lin
 $(addsuffix --build-amd64,$(ALL_TOOLS_RAW)):%--build-amd64: tools/%/image-linux-amd64.json
 
 $(TOOLS_DIR)/%/image-linux-amd64.json: \
-		$(HELPER)/var/lib/uniget/manifests/gojq.json \
 		$(TOOLS_DIR)/%/manifest.json \
 		$(TOOLS_DIR)/%/Dockerfile \
 		; $(info $(M) Building image $(REGISTRY)/$(REPOSITORY_PREFIX)$* for amd64...)
@@ -245,7 +237,6 @@ $(TOOLS_DIR)/%/image-linux-amd64.json: \
 $(addsuffix --build-arm64,$(ALL_TOOLS_RAW)):%--build-arm64: $(TOOLS_DIR)/%/image-linux-arm64.json
 
 $(TOOLS_DIR)/%/image-linux-arm64.json: \
-		$(HELPER)/var/lib/uniget/manifests/gojq.json \
 		$(TOOLS_DIR)/%/manifest.json \
 		$(TOOLS_DIR)/%/Dockerfile \
 		; $(info $(M) Building image $(REGISTRY)/$(REPOSITORY_PREFIX)$*...)
@@ -300,7 +291,6 @@ $(TOOLS_DIR)/%/image-linux-arm64.json: \
 $(addsuffix --index,$(ALL_TOOLS_RAW)):%--index: $(TOOLS_DIR)/%/index.json
 
 $(TOOLS_DIR)/%/index.json: \
-		$(HELPER)/var/lib/uniget/manifests/regclient.json \
 		$(TOOLS_DIR)/%/manifest.json \
 		; $(info $(M) Creating index for $(REGISTRY)/$(REPOSITORY_PREFIX)$*...)
 	$(eval OS := linux)
@@ -330,8 +320,6 @@ $(TOOLS_DIR)/%/index.json: \
 
 .PHONY:
 $(addsuffix --sign,$(ALL_TOOLS_RAW)):%--sign: \
-		$(HELPER)/var/lib/uniget/manifests/cosign.json \
-		$(HELPER)/var/lib/uniget/manifests/regclient.json \
 		$(TOOLS_DIR)/%/manifest.json \
 		$(TOOLS_DIR)/%/index.json \
 		; $(info $(M) Signing image for $*...)
@@ -385,7 +373,6 @@ promote: \
 
 .PHONY:
 $(addsuffix --promote,$(ALL_TOOLS_RAW)):%--promote: \
-		$(HELPER)/var/lib/uniget/manifests/regclient.json \
 		$(TOOLS_DIR)/%/manifest.json \
 		; $(info $(M) Promoting image for $*...)
 	@TOOL_VERSION="$$(jq --raw-output '.tools[].version' tools/$*/manifest.json)"; \
@@ -395,7 +382,6 @@ $(addsuffix --promote,$(ALL_TOOLS_RAW)):%--promote: \
 
 .PHONY:
 $(addsuffix --inspect,$(ALL_TOOLS_RAW)):%--inspect: \
-		$(HELPER)/var/lib/uniget/manifests/regclient.json \
 		; $(info $(M) Inspecting image for $*...)
 	@TOOL_VERSION="$$(jq --raw-output '.tools[].version' tools/$*/manifest.json)"; \
 	VERSION_TAG="$$( echo "$${TOOL_VERSION}" | tr '+' '-' )"; \
@@ -409,7 +395,6 @@ $(addsuffix --install,$(ALL_TOOLS_RAW)):%--install: \
 
 .PHONY:
 $(addsuffix --debug,$(ALL_TOOLS_RAW)):%--debug: \
-		$(HELPER)/var/lib/uniget/manifests/gojq.json \
 		$(TOOLS_DIR)/%/manifest.json \
 		$(TOOLS_DIR)/%/Dockerfile \
 		; $(info $(M) Debugging image for $*...)
@@ -451,7 +436,6 @@ $(addsuffix --debug,$(ALL_TOOLS_RAW)):%--debug: \
 
 .PHONY:
 $(addsuffix --tar,$(ALL_TOOLS_RAW)):%--tar: \
-		$(HELPER)/var/lib/uniget/manifests/gojq.json \
 		$(TOOLS_DIR)/%/manifest.json \
 		$(TOOLS_DIR)/%/Dockerfile \
 		; $(info $(M) Building into tar for $*...)
@@ -483,8 +467,6 @@ $(addsuffix --tar,$(ALL_TOOLS_RAW)):%--tar: \
 
 .PHONY:
 $(addsuffix --buildg,$(ALL_TOOLS_RAW)):%--buildg: \
-		$(HELPER)/var/lib/uniget/manifests/gojq.json \
-		$(HELPER)/var/lib/uniget/manifests/buildg.json \
 		$(TOOLS_DIR)/%/manifest.json \
 		$(TOOLS_DIR)/%/Dockerfile \
 		; $(info $(M) Interactively debugging image for $*...)
