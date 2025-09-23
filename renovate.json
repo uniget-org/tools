@@ -4707,6 +4707,17 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "pypi",
+      "depNameTemplate": "johnnydep",
+      "fileMatch": [
+        "^tools/johnnydep/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "jmespath/jp",
       "fileMatch": [
