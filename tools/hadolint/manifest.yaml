@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: hadolint
-version: "2.13.1"
+version: "2.14.0"
 check: ${binary} --version | cut -d' ' -f4 | cut -d- -f1
 tags:
 - container/build
