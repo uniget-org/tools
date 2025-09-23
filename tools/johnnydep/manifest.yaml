@@ -4,7 +4,7 @@ name: johnnydep
 license:
   name: MIT License
   link: https://github.com/wimglenn/johnnydep/blob/main/LICENSE
-version: "0.1.2"
+version: "1.20.6"
 check: ""
 build_dependencies:
 - python-3.12
