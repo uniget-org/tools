@@ -24,6 +24,7 @@ tags:
 - coding
 - agent
 homepage: https://www.augmentcode.com/product/CLI
+repository: ""
 description: All the power of Augment in your terminal
 renovate:
   datasource: npm
