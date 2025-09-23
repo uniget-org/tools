@@ -3,7 +3,7 @@ name: yarn
 version: "1.22.22"
 check: ${binary} --version
 build_dependencies:
-- nodejs
+- nodejs-lts
 - npm
 runtime_dependencies:
 - nodejs-lts

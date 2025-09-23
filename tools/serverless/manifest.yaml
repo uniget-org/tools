@@ -3,7 +3,7 @@ name: serverless
 version: "4.19.1"
 check: ${binary} --version | grep ^Framework | cut -d' ' -f3
 build_dependencies:
-- nodejs
+- nodejs-lts
 - npm
 runtime_dependencies:
 - nodejs-lts
