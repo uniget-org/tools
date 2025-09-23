@@ -17,7 +17,7 @@ platforms:
 tags:
 - org/qodo
 - category/development
-- lang/?
+- lang/javascript
 - type/cli
 - ai
 - llm
