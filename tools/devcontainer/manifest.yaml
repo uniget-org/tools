@@ -4,7 +4,7 @@ version: "0.80.1"
 check: ${binary} --version
 build_dependencies:
 - python-3.12
-- nodejs
+- nodejs-lts
 - npm
 - make
 runtime_dependencies:

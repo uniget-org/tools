@@ -4,10 +4,10 @@ name: decktape
 version: "3.15.0"
 check: ${binary} version
 build_dependencies:
-- nodejs
+- nodejs-lts
 - npm
 runtime_dependencies:
-- nodejs
+- nodejs-lts
 platforms:
 - linux/amd64
 - linux/arm64

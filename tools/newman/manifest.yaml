@@ -3,7 +3,7 @@ name: newman
 version: "6.2.1"
 check: ${binary} --version
 build_dependencies:
-- nodejs
+- nodejs-lts
 - npm
 runtime_dependencies:
 - nodejs-lts

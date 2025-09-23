@@ -7,7 +7,7 @@ license:
 version: "10.17.1"
 check: ${binary} --version
 runtime_dependencies:
-- nodejs
+- nodejs-lts
 platforms:
 - linux/amd64
 - linux/arm64
