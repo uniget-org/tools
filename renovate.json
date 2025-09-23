@@ -7601,7 +7601,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "open-telemetry/opentelemetry-collector-contrib-releases",
+      "depNameTemplate": "open-telemetry/opentelemetry-collector-releases",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/opentelemetry-collector-contrib/manifest.yaml$"
@@ -7613,7 +7613,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "open-telemetry/opentelemetry-collector",
+      "depNameTemplate": "open-telemetry/opentelemetry-collector-releases",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/opentelemetry-collector-k8s/manifest.yaml$"
@@ -7625,7 +7625,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "open-telemetry/opentelemetry-collector",
+      "depNameTemplate": "open-telemetry/opentelemetry-collector-releases",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/opentelemetry-collector-otlp/manifest.yaml$"

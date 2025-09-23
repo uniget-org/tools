@@ -25,6 +25,6 @@ repository: https://github.com/open-telemetry/opentelemetry-collector
 description: OpenTelemetry distribution only contains the receiver and exporters for the OpenTelemetry Protocol (OTLP), including both gRPC and HTTP transport
 renovate:
   datasource: github-releases
-  package: open-telemetry/opentelemetry-collector
+  package: open-telemetry/opentelemetry-collector-releases
   extractVersion: ^v(?<version>.+)$
   priority: low

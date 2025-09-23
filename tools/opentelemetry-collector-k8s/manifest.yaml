@@ -27,6 +27,6 @@ repository: https://github.com/open-telemetry/opentelemetry-collector
 description: OpenTelemetry distribution made specifically to be used in a Kubernetes cluster to monitor Kubernetes and services running in Kubernetes
 renovate:
   datasource: github-releases
-  package: open-telemetry/opentelemetry-collector
+  package: open-telemetry/opentelemetry-collector-releases
   extractVersion: ^v(?<version>.+)$
   priority: low
