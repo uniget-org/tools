@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: guac
-version: "1.0.0"
+version: "1.0.1"
 binary: guacone
 check: "" # No version parameter
 build_dependencies:
