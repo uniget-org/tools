@@ -7551,6 +7551,17 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "npm",
+      "depNameTemplate": "opencode",
+      "fileMatch": [
+        "^tools/opencode/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "pypi",
       "depNameTemplate": "openhands-ai",
       "fileMatch": [
