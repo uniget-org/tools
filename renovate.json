@@ -203,6 +203,18 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "gitlab-releases",
+      "depNameTemplate": "uniget-org/renovate-custom",
+      "extractVersionTemplate": "^amazon-q/v(?<version>.+)$",
+      "fileMatch": [
+        "^tools/amazon-q/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "pypi",
       "depNameTemplate": "amulet-map-editor",
       "fileMatch": [
