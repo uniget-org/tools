@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: amazon-q
+license:
+  name: MIT License, Apache License 2.0
+  link: https://github.com/aws/amazon-q-developer-cli/blob/main/LICENSE.MIT
+version: "1.16.2"
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/amazon
+- category/development
+- lang/?
+- type/cli
+- ai
+- llm
+- coding
+- agent
+- mcp
+homepage: https://aws.amazon.com/de/q/
+repository: https://github.com/aws/amazon-q-developer-cli
+description: Agentic chat experience in your terminal. Build applications using natural language
+renovate:
+  datasource: github-releases
+  package: aws/amazon-q-developer-cli
+  extractVersion: ^v(?<version>.+)$
+  priority: low
