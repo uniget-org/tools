@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: sops
-version: "3.10.2"
+version: "3.11.0"
 check: ${binary} --version | head -n 1 | cut -d' ' -f2
 platforms:
 - linux/amd64
