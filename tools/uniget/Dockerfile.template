@@ -10,7 +10,7 @@ ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 check-github-release-asset "uniget-org/cli" "v${version}" "uniget_Linux_${arch}.tar.gz"
 curl --silent --show-error --location --fail \
-    "https://github.com/uniget-org/cli/releases/download/v${version}/uniget_Linux_${arch}.tar.gz" \
+    "https://gitlab.com/uniget-org/cli/-/releases/v${version}/downloads/uniget_Linux_${arch}.tar.gz" \
 | tar --extract --gzip --directory="${prefix}/bin" --no-same-owner \
     uniget
 chmod +x "${prefix}/bin/uniget"
