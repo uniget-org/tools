@@ -8,7 +8,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://downloads.lightbend.com/scala/${version}/scala-${version}.tgz"
+url="https://github.com/scala/scala/releases/download/v${version}/scala-${version}.tgz"
 filename="$(basename "${url}")"
 
 check-download "${url}"
