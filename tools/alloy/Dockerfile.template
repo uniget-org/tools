@@ -9,7 +9,7 @@ ARG name
 ARG version
 COPY alloy.service.go-template /uniget_bootstrap/etc/systemd/system/
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://github.com/grafana/alloy/releases/download/v{version}/alloy-linux-${alt_arch}.zip"
+url="https://github.com/grafana/alloy/releases/download/v${version}/alloy-linux-${alt_arch}.zip"
 filename="$(basename "${url}")"
 
 check-github-release-asset "grafana/alloy" "v${version}" "${filename}"
