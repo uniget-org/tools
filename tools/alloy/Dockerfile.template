@@ -17,7 +17,9 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
     "${url}"
 
 unzip -q -o -d "${prefix}/bin" "${uniget_cache_download}/${filename}"
-mv "${prefix}/bin/alloy-linux-${alt_arch}" "${prefix}/bin/alloy"
+install --mode=0755 \
+    "${prefix}/bin/alloy-linux-${alt_arch}" \
+    "${prefix}/bin/alloy"
 EOF
 RUN <<EOF
 "${prefix}/bin/alloy" completion bash >"${prefix}/share/bash-completion/completions/alloy"
