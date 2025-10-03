@@ -4,7 +4,7 @@ name: forgecode
 license:
   name: Apache License 2.0
   link: https://github.com/antinomyhq/forge/blob/main/LICENSE
-version: "0.122.1"
+version: "0.122.2"
 binary: forge
 check: ${binary} --version | cut -d' ' -f2
 build_dependencies:
