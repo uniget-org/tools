@@ -12,7 +12,7 @@ platforms:
 tags:
 - org/amazon
 - category/development
-- lang/?
+- lang/rust
 - type/cli
 - ai
 - llm
