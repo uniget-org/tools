@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: slidev
+license:
+  name: MIT License
+  link: https://github.com/slidevjs/slidev/blob/main/LICENSE
+version: "52.2.5"
+check: ${binary} --version
+build_dependencies:
+- nodejs-lts
+- npm
+runtime_dependencies:
+- nodejs-lts
+platforms:
+- linux/amd64
+tags:
+- category/development
+- lang/javascript
+- type/cli
+- format/markdown
+- slides
+- presentation
+homepage: https://sli.dev/
+repository: https://github.com/slidevjs/slidev
+description: Presentation Slides for Developers 
+renovate:
+  datasource: npm
+  package: "@slidev/cli"
+  priority: low
