@@ -82,4 +82,3 @@ RUN <<EOF
 "${prefix}/bin/gitsign" completion zsh >"${prefix}/share/zsh/vendor-completions/_gitsign"
 EOF
 COPY gitsign.service.go-template /uniget_bootstrap/etc/systemd/user/
-COPY gitsign.socket /uniget_bootstrap/etc/systemd/user/
