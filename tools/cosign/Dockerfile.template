@@ -7,8 +7,8 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG TARGETPLATFORM
 # renovate: datasource=github-releases depName=sigstore/cosign extractVersion=^v(?<version>.+?)$
-ARG COSIGN_VERSION=2.2.3
-COPY checksums.txt .
+ARG COSIGN_VERSION=2.6.1
+COPY cosign_checksums.txt .
 RUN --mount=type=cache,id=cosign_bootstrap,target=/var/cache/uniget/download <<EOF
 url="https://github.com/sigstore/cosign/releases/download/v${COSIGN_VERSION}/cosign-linux-${alt_arch}"
 filename="$( basename "${url}" )"
@@ -21,7 +21,7 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
 echo "### Checking cosign ${COSIGN_VERSION} for bootstrapping"
 LAST_PWD="${PWD}"
 pushd "${uniget_cache_download}"
-sha256sum --check --ignore-missing "${LAST_PWD}/checksums.txt"
+sha256sum --check --ignore-missing "${LAST_PWD}/cosign_checksums.txt"
 popd
 
 install --mode=0755 \
@@ -39,6 +39,7 @@ COPY --link --from=cosign-bootstrap /usr/local/bin/cosign /usr/local/bin/
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+set -x -e
 url="https://github.com/sigstore/cosign/releases/download/v${version}/cosign-linux-${alt_arch}"
 filename="$( basename "${url}" )"
 
@@ -47,22 +48,11 @@ echo "### Installing cosign ${version}"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
     "${url}"
 
-echo "### Checking PGP signature for cosign ${version}"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.sig" \
-    "${url}.sig"
-COSIGN_PUB_KEY="https://github.com/sigstore/cosign/releases/download/v${version}/release-cosign.pub"
-cosign verify-blob "${uniget_cache_download}/${filename}" \
-    --key "${COSIGN_PUB_KEY}" \
-    --signature "${uniget_cache_download}/${filename}.sig"
-
 echo "### Checking keyless signature for cosign ${version}"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}-keyless.pem" \
-    "${url}-keyless.pem"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}-keyless.sig" \
-    "${url}-keyless.sig"
-COSIGN_EXPERIMENTAL=1 cosign verify-blob "${uniget_cache_download}/${filename}" \
-    --cert "${uniget_cache_download}/${filename}-keyless.pem" \
-    --signature "${uniget_cache_download}/${filename}-keyless.sig" \
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.sigstore.json" \
+    "${url}.sigstore.json"
+cosign verify-blob "${uniget_cache_download}/${filename}" \
+    --bundle "${uniget_cache_download}/${filename}.sigstore.json" \
     --certificate-oidc-issuer https://accounts.google.com \
     --certificate-identity "keyless@projectsigstore.iam.gserviceaccount.com"
 
