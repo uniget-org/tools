@@ -23,6 +23,6 @@ homepage: https://github.com/robusta-dev/holmesgpt
 repository: https://github.com/robusta-dev/holmesgpt
 description: On-Call Assistant for Prometheus Alerts - Get a head start on fixing alerts with AI investigation
 renovate:
-  datasource: github-releases
-  package: robusta-dev/holmesgpt
+  datasource: ypi
+  package: holmesgpt
   priority: low
