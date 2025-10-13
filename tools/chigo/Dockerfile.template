@@ -1,22 +1,21 @@
 #syntax=docker/dockerfile:1.18.0@sha256:dabfc0969b935b2080555ace70ee69a5261af8a8f1b4df97b9e7fbcf6722eddf
 
+FROM ghcr.io/uniget-org/tools/go:latest AS go
+
 FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
+COPY --link --from=go / /usr/local/
+WORKDIR /go/src/github.com/UltiRequiem/chigo
 ARG name
 ARG version
-RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://github.com/UltiRequiem/chigo/releases/download/v${version}/chigo_${version}_linux_${alt_arch}.tar.gz"
-filename="$( basename "${url}" )"
-
-check-github-release-asset "UltiRequiem/chigo" "v${version}" "${filename}"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
-    "${url}"
-
-tar --file="${uniget_cache_download}/${filename}" --list
-tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
-    chigo
-ln --symbolic --relative --force chigo "${prefix}/bin/lolcat"
+RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
+check-clone "https://github.com/UltiRequiem/chigo" "v${version}"
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/UltiRequiem/chigo .
+go get -u ./...
+go mod tidy
+sed -i -e "s/const VERSION = \"1.0.0\"/const VERSION = \"1.4.1\"/" cmd/parameters.go
+go build -o "${prefix}/bin/chigo" .
 EOF
