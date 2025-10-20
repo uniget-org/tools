@@ -9219,6 +9219,18 @@
     {
       "customType": "regex",
       "fileMatch": [
+        "^tools/scala-cli/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ],
+      "depNameTemplate": "Virtuslab/scala-cli",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^v(?<version>.+)$"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": [
         "^tools/scc/manifest.yaml$"
       ],
       "matchStrings": [

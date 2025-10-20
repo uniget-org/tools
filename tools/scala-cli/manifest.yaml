@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: scala-cli
+license:
+  name: Apache License 2.0
+  link: https://github.com/VirtusLab/scala-cli/blob/main/LICENSE
+version: "1.9.1"
+check: ${binary} --version | grep "^Scala CLI" | cut -d' ' -f4
+platforms:
+- linux/amd64
+tags:
+- category/development
+- lang/scala
+- type/cli
+homepage: https://scala-cli.virtuslab.org/
+repository: https://github.com/Virtuslab/scala-cli
+description: Command-line tool to interact with the Scala language. It lets you compile, run, test, and package your Scala code
+renovate:
+  datasource: github-releases
+  package: Virtuslab/scala-cli
+  extractVersion: ^v(?<version>.+)$
+  priority: low
