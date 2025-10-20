@@ -9219,6 +9219,18 @@
     {
       "customType": "regex",
       "fileMatch": [
+        "^tools/scala3/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ],
+      "depNameTemplate": "scala/scala3",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^v(?<version>.+)$"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": [
         "^tools/scala-cli/manifest.yaml$"
       ],
       "matchStrings": [

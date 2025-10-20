@@ -1,0 +1,28 @@
+#syntax=docker/dockerfile:1.19.0@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/scala/scala3/releases/download/${version}/scala3-${version}-${arch}-pc-linux.tar.gz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "scala/scala3" "${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+mkdir -p "${prefix}/opt/scala3"
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/opt/scala3" --strip-components=1 --no-same-owner
+
+ln --symbolic --relative --force \
+    "${prefix}/opt/scala3/bin/scala" \
+    "${prefix}/bin/scala"
+ln --symbolic --relative --force \
+    "${prefix}/opt/scala3/bin/scalac" \
+    "${prefix}/bin/scalac"
+EOF

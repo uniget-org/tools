@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: scala3
+license:
+  name: Apache License 2.0
+  link: https://github.com/scala/scala3/blob/main/LICENSE
+version: "3.7.3"
+binary: scalac
+check: ${binary} --version 2>/dev/null | grep ^Scala | cut -d' ' -f4
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/scala
+- type/cli
+homepage: https://scala-lang.org/
+repository: https://github.com/scala/scala3
+description: Scala 3 compiler, also known as Dotty
+renovate:
+  datasource: github-releases
+  package: scala/scala3
+  extractVersion: ^v(?<version>.+)$
+  priority: low
