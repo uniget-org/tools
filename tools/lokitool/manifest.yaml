@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+name: lokitool
+license:
+  name: AGPLv3
+  link: https://github.com/grafana/loki/blob/main/LICENSE
+version: "3.5.7"
+check: ${binary} version | grep ^loki | cut -d' ' -f3
+tags:
+- org/grafana
+- observability/logs
+- o11y
+- category/monitoring
+- lang/go
+- type/cli
+homepage: https://grafana.com/loki
+repository: https://github.com/grafana/loki
+description: Command-line tool to manage Loki
+renovate:
+  datasource: github-releases
+  package: grafana/loki
+  extractVersion: ^v(?<version>.+)$
+  priority: low

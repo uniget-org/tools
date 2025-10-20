@@ -1,0 +1,21 @@
+#syntax=docker/dockerfile:1.19.0@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/grafana/loki/releases/download/v${version}/lokitool-linux-${alt_arch}.zip"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "grafana/loki" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+unzip -t "${uniget_cache_download}/${filename}"
+unzip -q -o -d "${prefix}/bin" "${uniget_cache_download}/${filename}"
+mv "${prefix}/bin/lokitool-linux-${alt_arch}" "${prefix}/bin/lokitool"
+EOF
