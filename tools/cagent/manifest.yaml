@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: cagent
+license:
+  name: Apache License 2.0
+  link: https://github.com/docker/cagent/blob/main/LICENSE
+version: "1.7.2"
+check: ${binary} version | grep ^cagent | cut -d' ' -f3 | tr -d v
+runtime_dependencies:
+- baz
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/docker
+- category/development
+- lang/go
+- type/cli
+- llm
+- ai
+homepage: https://github.com/docker/cagent
+repository: https://github.com/docker/cagent
+description: Agent Builder and Runtime by Docker Engineering
+messages:
+  update: |
+    Disble telemetry:
+
+      TELEMETRY_ENABLED=false cagent [...]
+
+    ... or...
+
+      export TELEMETRY_ENABLED=false
+      cagent [...]
+renovate:
+  datasource: github-releases
+  package: docker/cagent
+  extractVersion: ^v(?<version>.+)$
+  priority: low

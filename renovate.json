@@ -849,6 +849,18 @@
     {
       "customType": "regex",
       "fileMatch": [
+        "^tools/cagent/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ],
+      "depNameTemplate": "docker/cagent",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^v(?<version>.+)$"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": [
         "^tools/calicoctl/manifest.yaml$"
       ],
       "matchStrings": [
