@@ -20,3 +20,8 @@ install --mode=0755 \
     "${prefix}/bin/scala-cli.gz"
 gunzip "${prefix}/bin/scala-cli.gz"
 EOF
+RUN <<EOF
+"${prefix}/bin/scala-cli" install completions --env --shell=bash >"${prefix}/share/bash-completion/completions/scala-cli"
+"${prefix}/bin/scala-cli" install completions --env --shell=fish >"${prefix}/share/fish/vendor_completions.d/scala-cli.fish"
+"${prefix}/bin/scala-cli" install completions --env --shell=zsh >"${prefix}/share/zsh/vendor-completions/_scala-cli"
+EOF
