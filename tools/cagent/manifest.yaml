@@ -6,8 +6,6 @@ license:
   link: https://github.com/docker/cagent/blob/main/LICENSE
 version: "1.7.2"
 check: ${binary} version | grep ^cagent | cut -d' ' -f3 | tr -d v
-runtime_dependencies:
-- baz
 platforms:
 - linux/amd64
 - linux/arm64
