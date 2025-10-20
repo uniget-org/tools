@@ -1,0 +1,23 @@
+#syntax=docker/dockerfile:1.17.1@sha256:38387523653efa0039f8e1c89bb74a30504e76ee9f565e25c9a09841f9427b05
+
+FROM ghcr.io/uniget-org/tools/rust:latest AS rust
+
+FROM registry.gitlab.com/uniget-org/images/build-essential:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+COPY --link --from=rust / /usr/local/
+WORKDIR /tmp/github.com/mookid/diffr
+ARG name
+ARG version
+RUN --mount=type=cache,target=/target \
+    --mount=type=cache,target=/usr/local/cargo/registry <<EOF
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/mookid/diffr .
+export CARGO_HOME=/usr/local/cargo
+export CARGO_TARGET_DIR=/target
+export RUSTUP_HOME=/usr/local/rustup
+export RUSTFLAGS='-C target-feature=+crt-static'
+cargo build --release --target "${arch}-unknown-linux-gnu"
+cp "/target/${arch}-unknown-linux-gnu/release/diffr" "${prefix}/bin/"
+EOF
