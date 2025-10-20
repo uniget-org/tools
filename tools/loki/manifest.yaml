@@ -4,7 +4,7 @@ license:
   name: AGPLv3
   link: https://github.com/grafana/loki/blob/main/LICENSE
 version: "3.5.7"
-check: "" # Wrong version
+check: ${binary} --version | grep ^loki | cut -d' ' -f3
 tags:
 - org/grafana
 - observability/logs
