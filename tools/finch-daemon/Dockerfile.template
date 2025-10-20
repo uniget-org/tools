@@ -22,7 +22,7 @@ EOF
 COPY nerdctl.toml.go-template /uniget_bootstrap/var/lib/finch/nerdctl/
 COPY buildkitd.toml /uniget_bootstrap/etc/finch/buildkit/
 COPY finch-buildkitd.service.go-template /uniget_bootstrap/etc/systemd/system/
-COPY finch-buildkitd.socket.go-template /uniget_bootstrap/etc/systemd/system/
+COPY finch-buildkitd.socket /uniget_bootstrap/etc/systemd/system/
 COPY finch.yaml /uniget_bootstrap/etc/finch/
-COPY finch.service /uniget_bootstrap/etc/systemd/system/
+COPY finch.service.go-template /uniget_bootstrap/etc/systemd/system/
 COPY finch.socket /uniget_bootstrap/etc/systemd/system/

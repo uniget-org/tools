@@ -6,7 +6,7 @@ PartOf=finch.service
 Documentation=https://github.com/moby/buildkit
 
 [Service]
-ExecStart=/usr/libexec/finch/buildkitd --config /etc/finch/buildkit/buildkitd.toml --addr fd://
+ExecStart={{ .Target }}/libexec/finch/buildkitd --config /etc/finch/buildkit/buildkitd.toml --addr fd://
 
 [Install]
 WantedBy=multi-user.target
