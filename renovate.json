@@ -6472,6 +6472,18 @@
     {
       "customType": "regex",
       "fileMatch": [
+        "^tools/lokitool/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ],
+      "depNameTemplate": "grafana/loki",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^v(?<version>.+)$"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": [
         "^tools/lowcharts/manifest.yaml$"
       ],
       "matchStrings": [
