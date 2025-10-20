@@ -6,6 +6,9 @@ license:
   link: https://github.com/runfinch/finch-daemon/blob/main/LICENSE
 version: "0.17.2"
 check: ${binary} --version | cut -d' ' -f3
+build_dependencies:
+- go
+- make
 runtime_dependencies:
 - nerdctl
 - containerd
