@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: ripgrep
-version: "15.0.0"
+version: "15.1.0"
 binary: rg
 check: ${binary} --version | head -1 | cut -d' ' -f2
 tags:
