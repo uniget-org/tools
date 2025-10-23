@@ -1,20 +1,21 @@
 #syntax=docker/dockerfile:1.19.0@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6
 
+FROM ghcr.io/uniget-org/tools/make:latest AS make
+FROM ghcr.io/uniget-org/tools/go:latest AS go
+
 FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
+COPY --link --from=go / /usr/local/
+COPY --link --from=make / /usr/local/
+WORKDIR /go/src/github.com/minio/minio
 ARG name
 ARG version
-RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://dl.min.io/server/minio/release/linux-${alt_arch}/minio.RELEASE.${version}"
-filename="$(basename "${url}")"
-
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
-    "${url}"
-
-install --mode=0755 \
-    "${uniget_cache_download}/${filename}" \
-    "${prefix}/bin/minio"
+RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
+check-clone "https://github.com/minio/minio" "RELEASE.${version}"
+git clone -q --config advice.detachedHead=false --depth 1 --branch "RELEASE.${version}" https://github.com/minio/minio .
+make build
+cp minio "${prefix}/bin/"
 EOF
