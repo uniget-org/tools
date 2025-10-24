@@ -15,10 +15,9 @@ docker run \
     --env TOOL \
     --volume "${PWD}/metadata.json:/tmp/test/var/cache/uniget/metadata.json" \
     --volume ${PWD}/tools/${TOOL}/image.tar:/tmp/${TOOL}.tar \
-    registry.gitlab.com/uniget-org/images/ubuntu:24.04 \
+    registry.gitlab.com/uniget-org/cli:noble \
         bash -o errexit <<EOF
-curl -sLf https://github.com/uniget-org/cli/releases/latest/download/uniget_linux_$(uname -m).tar.gz \
-| tar -xzC /usr/local/bin uniget
+uniget --version
 uniget --prefix=/tmp/test install --path-to-tar-mappings=${TOOL}=/tmp/${TOOL}.tar ${TOOL}
 uniget --prefix=/tmp/test list --installed
 uniget --prefix=/tmp/test healthcheck "${TOOL}"
