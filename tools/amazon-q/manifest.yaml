@@ -5,6 +5,7 @@ license:
   name: MIT License, Apache License 2.0
   link: https://github.com/aws/amazon-q-developer-cli/blob/main/LICENSE.MIT
 version: "1.19.0"
+binary: q
 check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
