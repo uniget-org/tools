@@ -4,7 +4,7 @@ name: pushgateway
 license:
   name: Apache License 2.0
   link: https://github.com/prometheus/pushgateway/blob/master/LICENSE
-version: "1.11.1"
+version: "1.11.2"
 check: ${binary} --version | grep ^pushgateway | cut -d' ' -f3
 platforms:
 - linux/amd64
