@@ -8,7 +8,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://github.com/structurizr/cli/releases/download/v${version}/structurizr-cli-${version}.zip"
+url="https://github.com/structurizr/cli/releases/download/v${version}/structurizr-cli.zip"
 filename="$(basename "${url}")"
 
 check-github-release-asset "structurizr/cli" "v${version}" "${filename}"
