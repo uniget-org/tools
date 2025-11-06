@@ -7,11 +7,10 @@ license:
 version: "0.26.0"
 check: ${binary} --ver
 build_dependencies:
-- nodejs-lts
-- npm
+- nodejs22
 - python-3.12
 runtime_dependencies:
-- nodejs-lts
+- nodejs22
 platforms:
 - linux/amd64
 - linux/arm64
