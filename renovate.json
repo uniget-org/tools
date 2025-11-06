@@ -7324,6 +7324,18 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "gitlab-releases",
+      "depNameTemplate": "nodejs/node",
+      "extractVersionTemplate": "^v(?<version>22\\..+)$",
+      "fileMatch": [
+        "^tools/nodejs22/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "hashicorp/nomad",
       "extractVersionTemplate": "^v(?<version>.+)$",
