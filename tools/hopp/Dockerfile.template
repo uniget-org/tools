@@ -1,7 +1,6 @@
 #syntax=docker/dockerfile:1.19.0@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6
 
-FROM ghcr.io/uniget-org/tools/nodejs-lts:latest AS nodejs
-FROM ghcr.io/uniget-org/tools/npm:latest AS npm
+FROM ghcr.io/uniget-org/tools/nodejs22:latest AS nodejs
 FROM ghcr.io/uniget-org/tools/python-3.12:latest AS python
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 
@@ -12,16 +11,19 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-COPY --link --from=nodejs / /usr/local/
-COPY --link --from=npm / /usr/local/
+COPY --link --from=nodejs / /
 COPY --link --from=python / /usr/local/
 COPY --link --from=make / /usr/local/
 WORKDIR /uniget_bootstrap/libexec/hopp
 ARG name
 ARG version
 RUN <<EOF
+export PATH="/opt/node22/bin:${PATH}"
 npm install \
     --omit=dev \
     "@hoppscotch/cli@${version}"
-ln --symbolic --relative --force "${prefix}/libexec/hopp/node_modules/.bin/hopp" "${prefix}/bin/"
+EOF
+COPY --chmod=0755 <<"EOF" /uniget_bootstrap/bin/hopp.go-template
+#!/bin/bash
+exec node22 {{ .Target }}/libexec/hopp/node_modules/.bin/hopp "$@"
 EOF
