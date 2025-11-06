@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+name: nodejs22
+version: "22.21.1"
+binary: node22
+check: ${binary} --version | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- type/cli
+- category/development
+- lang/javascript
+homepage: https://github.com/nodejs/node
+repository: https://github.com/nodejs/node
+description: Node.js JavaScript runtime
+renovate:
+  datasource: gitlab-releases
+  package: nodejs/node
+  extractVersion: ^v(?<version>22\..+)$
+  priority: low
+license:
+  name: MIT License
+  link: https://github.com/nodejs/node/blob/main/LICENSE
