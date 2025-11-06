@@ -13,7 +13,7 @@ runtime_dependencies:
 - nodejs22
 platforms:
 - linux/amd64
-- linux/arm64
+#- linux/arm64
 tags:
 - org/hoppscotch
 - category/development
