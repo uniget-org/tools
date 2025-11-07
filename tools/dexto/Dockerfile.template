@@ -2,14 +2,16 @@
 
 FROM ghcr.io/uniget-org/tools/nodejs-lts:latest AS nodejs
 FROM ghcr.io/uniget-org/tools/npm:latest AS npm
+FROM ghcr.io/uniget-org/tools/python-3.12:latest AS python
 
-FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+FROM registry.gitlab.com/uniget-org/images/build-essential:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=nodejs / /usr/local/
 COPY --link --from=npm / /usr/local/
+COPY --link --from=python / /usr/local/
 WORKDIR /uniget_bootstrap/libexec/dexto
 ARG name
 ARG version
