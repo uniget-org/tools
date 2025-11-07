@@ -4,7 +4,7 @@ name: mergiraf
 license:
   name: GPLv3
   link: https://codeberg.org/mergiraf/mergiraf/src/branch/main/LICENSE.txt
-version: "0.15.0"
+version: "0.16.1"
 check: ""
 platforms:
 - linux/amd64
