@@ -16,5 +16,6 @@ ARG version
 RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
 check-clone "https://github.com/kro-run/kro" "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/kro-run/kro .
-go build -o "${prefix}/bin/kro" ./cmd/kro/
+cd cmd/kro
+go build -o "${prefix}/bin/kro" .
 EOF
