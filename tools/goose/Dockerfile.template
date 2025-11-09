@@ -23,8 +23,3 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
 tar --file="${uniget_cache_download}/${filename}" --list
 tar --file="${uniget_cache_download}/${filename}" --extract --bzip2 --directory="${prefix}/bin" --no-same-owner
 EOF
-RUN <<EOF
-"${prefix}/bin/temporal" completion bash >"${prefix}/share/bash-completion/completions/temporal"
-"${prefix}/bin/temporal" completion fish >"${prefix}/share/fish/vendor_completions.d/temporal.fish"
-"${prefix}/bin/temporal" completion zsh >"${prefix}/share/zsh/vendor-completions/_temporal"
-EOF
