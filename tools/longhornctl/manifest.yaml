@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: loghornctl
+license:
+  name: Apache License 2.0
+  link: https://github.com/longhorn/cli/blob/master/LICENSE
+version: "1.10.0"
+check: ${binary} version | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/go
+- type/cli
+homepage: https://github.com/longhorn/cli
+repository: https://github.com/longhorn/cli
+description: Headless way for preflighting, operating and troubleshooting Longhorn cluster
+renovate:
+  datasource: github-releases
+  package: longhorn/cli
+  extractVersion: ^v(?<version>.+)$
+  priority: low

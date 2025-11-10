@@ -6441,6 +6441,18 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "longhorn/cli",
+      "extractVersionTemplate": "^v(?<version>.+)$",
+      "fileMatch": [
+        "^tools/loghornctl/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "juan-leon/lowcharts",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
