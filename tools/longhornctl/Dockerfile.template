@@ -1,0 +1,30 @@
+#syntax=docker/dockerfile:1.19.0@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+base_url="https://github.com/longhorn/cli/releases/download/v${version}"
+
+for binary in longhornctl longhornctl-local; do
+    url="${base_url}/${binary}-linux-${alt_arch}"
+    filename="$( basename "${url}" )"
+
+    check-github-release-asset "longhorn/cli" "v${version}" "${filename}"
+    curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+        "${url}"
+
+    install --mode=0755 \
+        "${uniget_cache_download}/${filename}" \
+        "${prefix}/bin/${binary}"
+done
+EOF
+RUN <<EOF
+"${prefix}/bin/longhornctl" completion bash >"${prefix}/share/bash-completion/completions/longhornctl"
+"${prefix}/bin/longhornctl" completion fish >"${prefix}/share/fish/vendor_completions.d/longhornctl.fish"
+"${prefix}/bin/longhornctl" completion zsh >"${prefix}/share/zsh/vendor-completions/_longhornctl"
+EOF
