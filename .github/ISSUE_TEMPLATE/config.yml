@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Issues
+    url: https://gitlab.com/uniget-org/backlog/-/issues
+    about: Missing a tool?
+  - name: 📖 View supported / included tools
+    url: https://tools.uniget.dev
+    about: See which tools are supported / included in uniget
