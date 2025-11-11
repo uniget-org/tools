@@ -9,21 +9,27 @@ WORKDIR /tmp/monaspace
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://github.com/githubnext/monaspace/releases/download/v${version}/monaspace-v${version}.zip"
-filename="$(basename "${url}")"
+base_url="https://github.com/githubnext/monaspace/releases/download/v${version}"
 
-check-github-release-asset "githubnext/monaspace" "v${version}" "${filename}"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
-    "${url}"
+for file in monaspace-static monaspace-variable monaspace-webfont-static monaspace-webfont-variable; do
+    url="${base_url}/${file}-v${version}.zip"
+    filename="$(basename "${url}")"
 
-unzip -t "${uniget_cache_download}/${filename}"
-unzip -q -o "${uniget_cache_download}/${filename}"
+    check-github-release-asset "githubnext/monaspace" "v${version}" "${filename}"
+    curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+        "${url}"
 
-mkdir -p \
-    "${prefix}/share/monaspace" \
-    "${prefix}/share/fonts/monaspace"
-find "monaspace-v${version}" -type f -name \*.woff  -exec cp {} "${prefix}/share/monaspace/" \;
-find "monaspace-v${version}" -type f -name \*.woff2 -exec cp {} "${prefix}/share/monaspace/" \;
-find "monaspace-v${version}" -type f -name \*.otf   -exec cp {} "${prefix}/share/monaspace/" \;
-find "monaspace-v${version}" -type f -name \*.ttf   -exec cp {} "${prefix}/share/monaspace/" \;
+    unzip -t "${uniget_cache_download}/${filename}"
+    unzip -q -o "${uniget_cache_download}/${filename}"
+
+    mkdir -p \
+        "${prefix}/share/monaspace" \
+        "${prefix}/share/fonts/monaspace"
+done
+mv \
+    "Static Fonts" \
+    "Static Web Fonts" \
+    "Variable Fonts" \
+    "Variable Web Fonts" \
+    "${prefix}/share/monaspace/"
 EOF
