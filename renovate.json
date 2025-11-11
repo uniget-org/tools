@@ -2494,6 +2494,18 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "moby/moby",
+      "extractVersionTemplate": "^docker-v(?<version>.+)$",
+      "fileMatch": [
+        "^tools/docker/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "patrickhoefler/dockerfilegraph",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
