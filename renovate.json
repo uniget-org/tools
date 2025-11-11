@@ -2180,7 +2180,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "moby/moby",
-      "extractVersionTemplate": "^v(?<version>.+)$",
+      "extractVersionTemplate": "^docker-v(?<version>.+)$",
       "fileMatch": [
         "^tools/docker/manifest.yaml$"
       ],
@@ -2411,7 +2411,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "moby/moby",
-      "extractVersionTemplate": "^v(?<version>.+)$",
+      "extractVersionTemplate": "^docker-v(?<version>.+)$",
       "fileMatch": [
         "^tools/docker-manpages/manifest.yaml$"
       ],
@@ -2447,7 +2447,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "moby/moby",
-      "extractVersionTemplate": "^v(?<version>.+)$",
+      "extractVersionTemplate": "^docker-v(?<version>.+)$",
       "fileMatch": [
         "^tools/docker-preview/manifest.yaml$"
       ],
@@ -2459,7 +2459,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "moby/moby",
-      "extractVersionTemplate": "^v(?<version>.+)$",
+      "extractVersionTemplate": "^docker-v(?<version>.+)$",
       "fileMatch": [
         "^tools/docker-rootless/manifest.yaml$"
       ],
