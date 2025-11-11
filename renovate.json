@@ -8912,6 +8912,18 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "uniget-org/renovate-custom",
+      "extractVersionTemplate": "^ruby/(?<version>.+)$",
+      "fileMatch": [
+        "^tools/ruby/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "astral-sh/ruff",
       "fileMatch": [
         "^tools/ruff/manifest.yaml$"

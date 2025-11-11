@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: ruby
+license:
+  name: Custom
+  link: https://github.com/ruby/ruby/blob/master/COPYING
+version: "3.4.7"
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/c
+- type/cli
+homepage: https://www.ruby-lang.org/
+repository: https://github.com/ruby/ruby
+description: Ruby Programming Language
+renovate:
+  datasource: github-releases
+  package: uniget-org/renovate-custom
+  extractVersion: ^ruby/(?<version>.+)$
+  priority: low
