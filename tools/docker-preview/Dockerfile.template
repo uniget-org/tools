@@ -44,9 +44,9 @@ tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="
 EOF
 
 RUN <<EOF
-check-download "https://github.com/moby/moby/raw/v${version}/contrib/init/systemd/docker.service"
+check-download "https://github.com/moby/moby/raw/docker-v${version}/contrib/init/systemd/docker.service"
 curl --silent --show-error --location --fail --output "${prefix}/etc/systemd/system/${name}.service.go-template" \
-    "https://github.com/moby/moby/raw/v${version}/contrib/init/systemd/docker.service"
+    "https://github.com/moby/moby/raw/docker-v${version}/contrib/init/systemd/docker.service"
 sed -i "/^\[Service\]/a Environment=PATH=/usr/local/libexec/${name}/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin" "${prefix}/etc/systemd/system/${name}.service.go-template"
 sed -i -E "s|^ExecStart=/usr/bin/dockerd|ExecStart={{ .Target }}/bin/dockerd|" "${prefix}/etc/systemd/system/${name}.service.go-template"
 sed -i -n '/Type=notify/!p' "${prefix}/etc/systemd/system/${name}.service.go-template"
