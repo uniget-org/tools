@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: nave
+license:
+  name: BlueOak-1.0.0 License
+  link: https://github.com/isaacs/nave/blob/main/LICENSE.md
+version: "3.5.5"
+check: "" # No version parameter
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/shell
+- type/cli
+- version
+- management
+homepage: https://github.com/isaacs/nave
+repository: https://github.com/isaacs/nave
+description: Virtual Environments for Node
+renovate:
+  datasource: github-releases
+  package: isaacs/nave
+  extractVersion: ^v(?<version>.+)$
+  priority: low
