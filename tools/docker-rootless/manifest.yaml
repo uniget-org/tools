@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: docker-rootless
-version: "28.5.2"
+version: "29.0.0"
 binary: "false"
 check: "" # No binary
 runtime_dependencies:
@@ -39,7 +39,7 @@ messages:
 renovate:
   datasource: github-tags
   package: moby/moby
-  extractVersion: ^v(?<version>.+)$
+  extractVersion: ^docker-v(?<version>.+)$
   priority: high
 license:
   name: Apache License 2.0

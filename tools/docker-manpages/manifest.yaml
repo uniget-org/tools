@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: docker-manpages
-version: "28.5.2"
+version: "29.0.0"
 binary: "false"
 check: "" # No binary
 build_dependencies:
@@ -24,7 +24,7 @@ description: The Docker CLI
 renovate:
   datasource: github-tags
   package: moby/moby
-  extractVersion: ^v(?<version>.+)$
+  extractVersion: ^docker-v(?<version>.+)$
   priority: high
 license:
   name: Apache License 2.0

@@ -47,11 +47,11 @@ RUN <<EOF
 EOF
 
 RUN <<EOF
-check-download "https://github.com/moby/moby/raw/v${version}/contrib/init/systemd/docker.service"
+check-download "https://github.com/moby/moby/raw/docker-v${version}/contrib/init/systemd/docker.service"
 curl --silent --show-error --location --fail --output "${prefix}/etc/systemd/system/${name}.service.go-template" \
-    "https://github.com/moby/moby/raw/v${version}/contrib/init/systemd/docker.service"
+    "https://github.com/moby/moby/raw/docker-v${version}/contrib/init/systemd/docker.service"
 curl --silent --show-error --location --fail --output "${prefix}/etc/systemd/system/${name}.socket" \
-    "https://github.com/moby/moby/raw/v${version}/contrib/init/systemd/docker.socket"
+    "https://github.com/moby/moby/raw/docker-v${version}/contrib/init/systemd/docker.socket"
 sed -i -E 's|(After=network-online.target docker.socket).+|\1|' "${prefix}/etc/systemd/system/${name}.service.go-template"
 sed -i -E 's|(Wants=network-online.target).+|\1|' "${prefix}/etc/systemd/system/${name}.service.go-template"
 sed -i "/^\[Service\]/a Environment=PATH=/usr/local/libexec/${name}/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin" "${prefix}/etc/systemd/system/${name}.service.go-template"
