@@ -1,0 +1,38 @@
+#syntax=docker/dockerfile:1.19.0@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+echo "### Setting architecture string for ${TARGETPLATFORM}"
+case "${arch}" in
+    x86_64)
+        export arch_suffix="${arch}"
+        ;;
+    aarch64)
+        export arch_suffix="${alt_arch}"
+        ;;
+    *)
+        echo "ERROR: Unsupported architecture ${arch}."
+        exit 1
+        ;;
+esac
+echo "    Using ${arch_suffix}"
+
+url="https://github.com/spinel-coop/rv-ruby/releases/latest/download/ruby-${version}.${arch_suffix}_linux.tar.gz"
+filename="$( basename "${url}" )"
+
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+mkdir -p "${prefix}/opt/ruby"
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/opt/ruby" --strip-components=2 --no-same-owner
+find "${prefix}/opt/ruby/bin/" -type f -executable | xargs -I{} basename {} | xargs -I{} ln --symbolic --relative --force "${prefix}/opt/ruby/bin/{}" "${prefix}/bin/{}"
+#ln --symbolic --relative --force "${prefix}/opt/ruby/bin/ruby" "${prefix}/bin/"
+EOF
