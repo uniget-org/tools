@@ -11,6 +11,7 @@ tags:
 - password
 - management
 - standard/pass
+- pgp
 homepage: https://www.passwordstore.org/
 repository: https://www.passwordstore.org/
 description: The standard unix password manager

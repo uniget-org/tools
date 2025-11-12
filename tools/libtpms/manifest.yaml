@@ -12,7 +12,7 @@ platforms:
 tags:
 - category/development
 - lang/c
-- type/lib
+- type/library
 homepage: https://github.com/stefanberger/libtpms
 repository: https://github.com/stefanberger/libtpms
 description: Software emulation of a Trusted Platform Module (TPM 1.2 and TPM 2.0)

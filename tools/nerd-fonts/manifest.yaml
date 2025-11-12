@@ -6,7 +6,7 @@ check: "" # No binary
 tags:
 - slides
 - presentation
-- fonts
+- font
 homepage: https://NerdFonts.com
 repository: https://github.com/ryanoasis/nerd-fonts
 description: Iconic font aggregator, collection, and patcher
