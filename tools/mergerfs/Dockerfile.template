@@ -8,7 +8,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://github.com/trapexit/mergerfs/releases/download/${version}/mergerfs-static-linux_${alt_arch}.tar.gz"
+url="https://github.com/trapexit/mergerfs/releases/download/${version}/mergerfs-${version}-static-linux_${alt_arch}.tar.gz"
 filename="$( basename "${url}" )"
 
 check-github-release-asset "trapexit/mergerfs" "${version}" "${filename}"
