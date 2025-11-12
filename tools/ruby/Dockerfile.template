@@ -5,6 +5,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
+WORKDIR /tmp/ruby
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
@@ -30,9 +31,14 @@ check-download "${url}"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
     "${url}"
 
-mkdir -p "${prefix}/opt/ruby"
 tar --file="${uniget_cache_download}/${filename}" --list
-tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/opt/ruby" --strip-components=2 --no-same-owner
-find "${prefix}/opt/ruby/bin/" -type f -executable | xargs -I{} basename {} | xargs -I{} ln --symbolic --relative --force "${prefix}/opt/ruby/bin/{}" "${prefix}/bin/{}"
-#ln --symbolic --relative --force "${prefix}/opt/ruby/bin/ruby" "${prefix}/bin/"
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --strip-components=2 --no-same-owner
+
+cp -r \
+    bin \
+    include \
+    lib \
+    libexec \
+    share \
+    "${prefix}"
 EOF
