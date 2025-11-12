@@ -10,7 +10,7 @@ conflicts_with:
 tags:
 - org/docker
 - standard/docker
-- category/default
+- category/operations
 - container/compose
 - standard/compose
 - type/cli

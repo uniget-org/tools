@@ -22,7 +22,7 @@ tags:
 - standard/oci
 - container/runtime
 - container/build
-- category/default
+- category/operations
 - type/cli
 - type/daemon
 - lang/go
