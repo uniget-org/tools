@@ -21,37 +21,24 @@ check-github-release-asset "sigstore/rekor" "v${version}" "${filename}"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
     "${url}"
 
-echo "### Checking signature for rekor-cli ${version}"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.sig" \
-    "${url}.sig"
-cosign verify-blob \
-    --key "https://raw.githubusercontent.com/sigstore/rekor/v${version}/release/release-cosign.pub" \
-    --signature "${uniget_cache_download}/${filename}.sig" \
-    "${uniget_cache_download}/${filename}"
-
 echo "### Checking keyless signature for rekor-cli ${version}"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}-keyless.pem" \
-    "${url}-keyless.pem"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}-keyless.sig" \
-    "${url}-keyless.sig"
-COSIGN_EXPERIMENTAL=1 cosign verify-blob \
-    --cert "${uniget_cache_download}/${filename}-keyless.pem" \
-    --signature "${uniget_cache_download}/${filename}-keyless.sig" \
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}-keyless.sigstore.json" \
+    "${url}-keyless.sigstore.json"
+cosign verify-blob "${uniget_cache_download}/${filename}" \
+    --bundle "${uniget_cache_download}/${filename}-keyless.sigstore.json" \
     --certificate-oidc-issuer https://accounts.google.com \
-    --certificate-identity "keyless@projectsigstore.iam.gserviceaccount.com" \
-    "${uniget_cache_download}/${filename}"
+    --certificate-identity "keyless@projectsigstore.iam.gserviceaccount.com"
 
 echo "### Installing rekor-cli ${version}"
 install --mode=0755 \
     "${uniget_cache_download}/${filename}" \
     "${prefix}/bin/rekor-cli"
+"${prefix}/bin/rekor-cli" version
 
 echo "### Installing shell completion for rekor-cli ${version}"
 "${prefix}/bin/rekor-cli" completion bash >"${prefix}/share/bash-completion/completions/rekor-cli"
 "${prefix}/bin/rekor-cli" completion fish >"${prefix}/share/fish/vendor_completions.d/rekor-cli.fish"
 "${prefix}/bin/rekor-cli" completion zsh >"${prefix}/share/zsh/vendor-completions/_rekor-cli"
-
-"${prefix}/bin/rekor-cli" version
 EOF
 
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
@@ -62,35 +49,22 @@ echo "### Downloading rekor-server ${version}"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
     "${url}"
 
-echo "### Checking signature for rekor-server ${version}"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.sig" \
-    "${url}.sig"
-cosign verify-blob \
-    --key "https://raw.githubusercontent.com/sigstore/rekor/v${version}/release/release-cosign.pub" \
-    --signature "${uniget_cache_download}/${filename}.sig" \
-    "${uniget_cache_download}/${filename}"
-
 echo "### Checking keyless signature for rekor-server ${version}"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}-keyless.pem" \
-    "${url}-keyless.pem"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}-keyless.sig" \
-    "${url}-keyless.sig"
-COSIGN_EXPERIMENTAL=1 cosign verify-blob \
-    --cert "${uniget_cache_download}/${filename}-keyless.pem" \
-    --signature "${uniget_cache_download}/${filename}-keyless.sig" \
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}-keyless.sigstore.json" \
+    "${url}-keyless.sigstore.json"
+cosign verify-blob "${uniget_cache_download}/${filename}" \
+    --bundle "${uniget_cache_download}/${filename}-keyless.sigstore.json" \
     --certificate-oidc-issuer https://accounts.google.com \
-    --certificate-identity "keyless@projectsigstore.iam.gserviceaccount.com" \
-    "${uniget_cache_download}/${filename}"
+    --certificate-identity "keyless@projectsigstore.iam.gserviceaccount.com"
 
 echo "### Installing rekor-server ${version}"
 install --mode=0755 \
     "${uniget_cache_download}/${filename}" \
     "${prefix}/bin/rekor-server"
+"${prefix}/bin/rekor-server" version
 
 echo "### Installing shell completion for rekor-server ${version}"
 "${prefix}/bin/rekor-server" completion bash >"${prefix}/share/bash-completion/completions/rekor-server"
 "${prefix}/bin/rekor-server" completion fish >"${prefix}/share/fish/vendor_completions.d/rekor-server.fish"
 "${prefix}/bin/rekor-server" completion zsh >"${prefix}/share/zsh/vendor-completions/_rekor-server"
-
-"${prefix}/bin/rekor-server" version
 EOF
