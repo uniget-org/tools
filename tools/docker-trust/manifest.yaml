@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: docker
+version: "29.0.0"
+check: ""
+runtime_dependencies:
+- docker
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/docker
+- standard/docker
+- standard/oci
+- container/runtime
+- category/default
+- type/cli
+- lang/go
+homepage: https://mobyproject.org/
+repository: https://github.com/docker/cli/tree/v29.0.0/cmd/docker-trust
+description: Docker Content Trust
+renovate:
+  datasource: github-releases
+  package: moby/moby
+  extractVersion: ^docker-v(?<version>.+)$
+  priority: high
+license:
+  name: Apache License 2.0
+  link: https://github.com/moby/moby/blob/master/LICENSE
