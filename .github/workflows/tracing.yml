@@ -28,13 +28,7 @@ jobs:
       env:
         OTEL_SERVICE_NAME: grafanacloud-nicholasdille-traces
         OTEL_EXPORTER_OTLP_ENDPOINT: https://tempo-us-central1.grafana.net/tempo
-        # Additional OTLP headers. Useful for OTLP authentication.
-        # e.g.
-        # New Relic: api-key=YOUR_NEWRELIC_API_KEY
-        # Google Cloud Run: Authorization=Bearer <value of $(gcloud auth print-identity-token)>
-        # Basic Authentication: Authorization=Basic <base64-encoded value of userid:password>
-        OTEL_EXPORTER_OTLP_HEADERS:
-          Authorization=Basic ${ secrets.TRACES_AUTH_BASIC }
+        OTEL_EXPORTER_OTLP_HEADERS: "Authorization=Basic ${ secrets.TRACES_AUTH_BASIC }"
         OTEL_RESOURCE_ATTRIBUTES: 'app=uniget,component=tools'
       with:
         # Required for collecting workflow data
