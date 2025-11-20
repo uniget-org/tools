@@ -2,19 +2,16 @@ name: Send Telemetry after Other Workflow
 
 on:
   workflow_run:
-    # Specify the workflows you want to collect telemetry.
     workflows:
     - Approve
     - Automerge
     - Check
     - Renovate
     - Tag latest
-    # This action uses completed workflow for making traces and metrics.
     types:
     - completed
 
 permissions:
-  # Required for private repositories
   actions: read
 
 jobs:
@@ -31,5 +28,4 @@ jobs:
         OTEL_EXPORTER_OTLP_HEADERS: "Authorization=Basic ${ secrets.TRACES_AUTH_BASIC }"
         OTEL_RESOURCE_ATTRIBUTES: 'app=uniget,component=tools'
       with:
-        # Required for collecting workflow data
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
