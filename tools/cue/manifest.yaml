@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: cue
-version: "0.15.0"
+version: "0.15.1"
 check: ${binary} version | cut -d' ' -f3 | tr -d v
 tags:
 - type/cli
