@@ -3,7 +3,7 @@ name: loki
 license:
   name: AGPLv3
   link: https://github.com/grafana/loki/blob/main/LICENSE
-version: "3.5.8"
+version: "3.6.1"
 check: ${binary} --version | grep ^loki | cut -d' ' -f3
 tags:
 - org/grafana
