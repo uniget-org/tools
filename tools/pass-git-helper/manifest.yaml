@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: pass-git-helper
-version: "4.0.0"
+version: "4.1.0"
 check: "" # TODO
 build_dependencies:
 - python-3.12
