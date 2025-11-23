@@ -4,7 +4,7 @@ name: gitoxide
 license:
   name: MIT License, Apache License 2.0
   link: https://github.com/GitoxideLabs/gitoxide
-version: "0.46.0"
+version: "0.47.0"
 binary: gix
 check: "" # Empty version
 platforms:
