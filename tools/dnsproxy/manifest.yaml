@@ -4,7 +4,7 @@ name: dnsproxy
 license:
   name: Apache License 2.0
   link: https://github.com/AdguardTeam/dnsproxy/blob/master/LICENSE
-version: "0.78.0"
+version: "0.78.1"
 check: ${binary} --version | cut -d' ' -f3 | tr -d v
 platforms:
 - linux/amd64
