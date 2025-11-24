@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: aqua
-version: "2.55.1"
+version: "2.55.2"
 check: ${binary} --version | cut -d' ' -f3
 tags:
 - package
