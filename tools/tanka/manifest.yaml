@@ -4,7 +4,7 @@ name: tanka
 license:
   name: Apache License 2.0
   link: https://github.com/grafana/tanka/blob/main/LICENSE
-version: "0.36.1"
+version: "0.36.2"
 binary: tk
 check: ${binary} --version 2>&1 | cut -d' ' -f5 | tr -d v
 runtime_dependencies:
