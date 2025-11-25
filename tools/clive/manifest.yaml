@@ -4,7 +4,7 @@ name: clive
 license:
   name: MIT License
   link: https://github.com/koki-develop/clive/blob/main/LICENSE
-version: "0.12.14"
+version: "0.12.15"
 check: ${binary} --version | cut -d' ' -f3 | tr -d v
 platforms:
 - linux/amd64
