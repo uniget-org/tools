@@ -3,7 +3,7 @@ name: mitmproxy
 license:
   name: MIT License
   link: https://github.com/mitmproxy/mitmproxy/blob/main/LICENSE
-version: "12.2.0"
+version: "12.2.1"
 check: ${binary} --version | grep ^Mitmproxy | cut -d' ' -f2
 tags:
 - component/network
