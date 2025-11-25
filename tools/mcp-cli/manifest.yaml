@@ -4,7 +4,7 @@ name: mcp-cli
 license:
   name: Unknown
   link: ""
-version: "0.11"
+version: "0.11.1"
 check: "" # No version parameter
 build_dependencies:
 - python-3.12
