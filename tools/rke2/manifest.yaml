@@ -3,7 +3,7 @@ name: rke2
 license:
   name: Apache License 2.0
   link: https://github.com/rancher/rke2/blob/master/LICENSE
-version: "1.34.1.1"
+version: "1.34.2.1"
 check: ${binary} --version | grep ^rke2 | cut -d' ' -f3 | tr -d v
 platforms:
 - linux/amd64
