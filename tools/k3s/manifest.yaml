@@ -3,7 +3,7 @@ name: k3s
 license:
   name: Apache License 2.0
   link: https://github.com/k3s-io/k3s/blob/master/LICENSE
-version: "1.34.1.1"
+version: "1.34.2.1"
 check: ${binary} --version | head -n 1 | cut -d' ' -f3 | tr -d v
 platforms:
 - linux/amd64
