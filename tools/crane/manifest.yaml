@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: crane
-version: "0.20.6"
+version: "0.20.7"
 check: ${binary} version
 platforms:
 - linux/amd64
