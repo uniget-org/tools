@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: k6
-version: "1.4.1"
+version: "1.4.2"
 check: ${binary} version | cut -d' ' -f2 | tr -d v
 platforms:
 - linux/amd64
