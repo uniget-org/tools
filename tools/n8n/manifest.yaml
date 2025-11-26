@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: n8n
-version: "1.121.2"
+version: "1.121.3"
 check: ${binary} --version
 build_dependencies:
 - nodejs-lts
