@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: loki-canary
-version: "3.6.1"
+version: "3.6.2"
 check: ${binary} --version | grep ^loki | cut -d' ' -f3
 tags:
 - org/grafana
