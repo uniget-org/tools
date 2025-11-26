@@ -4,7 +4,7 @@ name: fabric
 license:
   name: MIT License
   link: https://github.com/danielmiessler/fabric/blob/main/LICENSE
-version: "1.4.332"
+version: "1.4.333"
 check: ${binary} --version | tr -d v
 build_dependencies:
 - make
