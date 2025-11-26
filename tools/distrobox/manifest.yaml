@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: distrobox
-version: "1.8.2.1"
+version: "1.8.2.2"
 binary: distrobox-create
 check: ${binary} --version | cut -d' ' -f2
 platforms:
