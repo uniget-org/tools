@@ -4,7 +4,7 @@ name: gkg
 license:
   name: GitLab Enterprise Edition License
   link: https://gitlab.com/gitlab-org/rust/knowledge-graph/-/blob/main/LICENSE.md?ref_type=heads
-version: "0.23.0"
+version: "0.24.0"
 check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
