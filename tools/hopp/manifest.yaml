@@ -4,7 +4,7 @@ name: hopp
 license:
   name: MIT License
   link: https://github.com/hoppscotch/hoppscotch/blob/main/LICENSE
-version: "0.26.0"
+version: "0.30.0"
 check: ${binary} --ver
 build_dependencies:
 - nodejs22
