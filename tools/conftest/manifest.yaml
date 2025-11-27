@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: conftest
-version: "0.64.0"
+version: "0.65.0"
 check: ${binary} --version | grep ^Conftest | cut -d' ' -f2
 tags:
 - type/cli
