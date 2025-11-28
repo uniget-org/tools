@@ -1,7 +1,6 @@
 #syntax=docker/dockerfile:1.20.0@sha256:26147acbda4f14c5add9946e2fd2ed543fc402884fd75146bd342a7f6271dc1d
 
 FROM ghcr.io/uniget-org/tools/nodejs-lts:latest AS nodejs
-FROM ghcr.io/uniget-org/tools/npm:latest AS npm
 
 FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
@@ -9,7 +8,6 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=nodejs / /usr/local/
-COPY --link --from=npm / /usr/local/
 WORKDIR /uniget_bootstrap/libexec/qodo
 ARG name
 ARG version
