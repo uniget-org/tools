@@ -4,7 +4,6 @@ version: "12.0.0"
 check: npm list --prefix=${target}/libexec/cdxgen | grep @cyclonedx/cdxgen | cut -d@ -f3
 build_dependencies:
 - nodejs-lts
-- npm
 runtime_dependencies:
 - nodejs-lts
 platforms:

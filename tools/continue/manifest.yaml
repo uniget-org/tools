@@ -9,7 +9,6 @@ binary: cn
 check: ${binary} --version 2>/dev/null
 build_dependencies:
 - nodejs-lts
-- npm
 runtime_dependencies:
 - nodejs-lts
 platforms:

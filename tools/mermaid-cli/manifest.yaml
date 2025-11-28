@@ -6,7 +6,6 @@ binary: mmdc
 check: ${binary} --version
 build_dependencies:
 - nodejs-lts
-- npm
 runtime_dependencies:
 - nodejs-lts
 platforms:
