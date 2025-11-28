@@ -6,7 +6,6 @@
 #FROM ghcr.io/uniget-org/tools/python:latest AS python
 #FROM ghcr.io/uniget-org/tools/shiv:latest AS shiv
 #FROM ghcr.io/uniget-org/tools/nodejs:latest AS nodejs
-#FROM ghcr.io/uniget-org/tools/npm:latest AS npm
 
 FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
 #FROM registry.gitlab.com/uniget-org/images/build-essential:24.04 AS prepare
@@ -146,7 +145,6 @@ EOF
 
 # node
 #COPY --link --from=nodejs / /usr/local/
-#COPY --link --from=npm / /usr/local/
 #WORKDIR /uniget_bootstrap/libexec/foo
 #ARG name
 #ARG version

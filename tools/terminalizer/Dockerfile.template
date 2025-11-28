@@ -3,7 +3,6 @@
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 FROM ghcr.io/uniget-org/tools/python-3.12:latest AS python
 FROM ghcr.io/uniget-org/tools/nodejs-lts:latest AS nodejs
-FROM ghcr.io/uniget-org/tools/npm:latest AS npm
 
 FROM registry.gitlab.com/uniget-org/images/build-essential:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
@@ -13,7 +12,6 @@ SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=make / /usr/local/
 COPY --link --from=python / /usr/local/
 COPY --link --from=nodejs / /usr/local/
-COPY --link --from=npm / /usr/local/
 WORKDIR /uniget_bootstrap/libexec/terminalizer
 ARG name
 ARG version
