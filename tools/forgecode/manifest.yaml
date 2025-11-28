@@ -9,7 +9,6 @@ binary: forge
 check: ${binary} --version | cut -d' ' -f2
 build_dependencies:
 - nodejs-lts
-- npm
 runtime_dependencies:
 - nodejs-lts
 platforms:

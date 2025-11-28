@@ -5,7 +5,6 @@ version: "15.4.0"
 check: ${binary} --version | tr -d v
 build_dependencies:
 - nodejs-lts
-- npm
 runtime_dependencies:
 - nodejs-lts
 platforms:
