@@ -5,7 +5,6 @@ check: ${binary} --version
 build_dependencies:
 - python-3.12
 - nodejs-lts
-- npm
 - make
 runtime_dependencies:
 - nodejs-lts

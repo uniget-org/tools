@@ -5,7 +5,6 @@ version: "1.2.11"
 check: "" # No version parameter
 build_dependencies:
 - nodejs-lts
-- npm
 runtime_dependencies:
 - nodejs-lts
 platforms:
