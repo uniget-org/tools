@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: coder
-version: "2.28.3"
+version: "2.28.4"
 check: ${binary} version | grep ^Coder | cut -d' ' -f2 | cut -d+ -f1 | tr -d v
 platforms:
 - linux/amd64
