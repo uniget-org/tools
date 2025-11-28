@@ -4,7 +4,6 @@ version: "0.4.4"
 check: ${binary} --version
 build_dependencies:
 - nodejs-lts
-- npm
 runtime_dependencies:
 - nodejs-lts
 platforms:

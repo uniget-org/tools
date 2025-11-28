@@ -8,7 +8,6 @@ version: "0.31.1"
 check: ${binary} --version 2>/dev/null | grep "@qodo/command" | tr -s ' ' | cut -d' ' -f3
 build_dependencies:
 - nodejs-lts
-- npm
 runtime_dependencies:
 - nodejs-lts
 platforms:

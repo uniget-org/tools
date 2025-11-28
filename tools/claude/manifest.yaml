@@ -8,7 +8,6 @@ version: "1.0.110"
 check: ${binary} --version | cut -d' ' -f1
 build_dependencies:
 - nodejs-lts
-- npm
 runtime_dependencies:
 - nodejs-lts
 platforms:

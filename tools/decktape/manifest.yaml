@@ -5,7 +5,6 @@ version: "3.15.0"
 check: ${binary} version
 build_dependencies:
 - nodejs-lts
-- npm
 runtime_dependencies:
 - nodejs-lts
 platforms:
