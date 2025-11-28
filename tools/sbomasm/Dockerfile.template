@@ -8,17 +8,31 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://github.com/interlynk-io/sbomasm/releases/download/v${version}/sbomasm-linux-${alt_arch}"
+echo "### Setting architecture string for ${TARGETPLATFORM}"
+case "${arch}" in
+    x86_64)
+        export arch_suffix="${arch}"
+        ;;
+    aarch64)
+        export arch_suffix="${alt_arch}"
+        ;;
+    *)
+        echo "ERROR: Unsupported architecture ${arch}."
+        exit 1
+        ;;
+esac
+echo "    Using ${arch_suffix}"
+
+url="https://github.com/interlynk-io/sbomasm/releases/download/v${version}/sbomasm_${version}_Linux_${arch_suffix}.tar.gz"
 filename="$( basename "${url}" )"
 
 check-github-release-asset "interlynk-io/sbomasm" "v${version}" "${filename}"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
     "${url}"
 
-install --mode=0755 \
-    "${uniget_cache_download}/${filename}" \
-    "${prefix}/bin/sbomasm"
-
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin" --no-same-owner \
+    sbomasm
 
 "${prefix}/bin/sbomasm" completion bash >"${prefix}/share/bash-completion/completions/sbomasm"
 "${prefix}/bin/sbomasm" completion fish >"${prefix}/share/fish/vendor_completions.d/sbomasm.fish"
