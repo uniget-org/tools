@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: octopilot
-version: "1.12.36"
+version: "1.12.37"
 check: ${binary} --version | cut -d, -f1 | cut -d' ' -f2
 platforms:
 - linux/amd64
