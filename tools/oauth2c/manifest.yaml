@@ -4,7 +4,7 @@ name: oauth2c
 license:
   name: Apache License 2.0
   link: https://github.com/cloudentity/oauth2c/blob/master/LICENSE
-version: "1.17.2"
+version: "1.18.0"
 check: ${binary} version 2>&1 | cut -d' ' -f3
 platforms:
 - linux/amd64
