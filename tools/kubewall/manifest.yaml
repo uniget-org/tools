@@ -4,7 +4,7 @@ name: kubewall
 license:
   name: Apache License 2.0
   link: https://github.com/kubewall/kubewall/blob/main/LICENSE
-version: "0.0.14"
+version: "0.0.15"
 check: ${binary} version | grep ^version | cut -d' ' -f2
 platforms:
 - linux/amd64
