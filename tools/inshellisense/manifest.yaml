@@ -4,12 +4,12 @@ name: inshellisense
 version: "0.0.1-rc.21"
 check: ${binary} --version
 build_dependencies:
-- nodejs22
-- nodejs22-is-node
+- node22
+- node22-is-node
 - python-3.12
 runtime_dependencies:
-- nodejs22
-- nodejs22-is-node
+- node22
+- node22-is-node
 platforms:
 - linux/amd64
 tags:

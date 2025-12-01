@@ -6,11 +6,11 @@ check: ${binary} --version
 build_dependencies:
 - make
 - python-3.12
-- nodejs22
-- nodejs22-is-node
+- node22
+- node22-is-node
 runtime_dependencies:
-- nodejs22
-- nodejs22-is-node
+- node22
+- node22-is-node
 platforms:
 - linux/amd64
 #- linux/arm64

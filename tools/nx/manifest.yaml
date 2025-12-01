@@ -3,9 +3,9 @@ name: nx
 version: "22.1.3"
 check: ${binary} --version | grep Global | cut -d' ' -f3 | tr -d v
 build_dependencies:
-- nodejs-lts
+- node-lts
 runtime_dependencies:
-- nodejs-lts
+- node-lts
 platforms:
 - linux/amd64
 tags:

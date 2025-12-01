@@ -5,9 +5,9 @@ version: "11.12.0"
 binary: mmdc
 check: ${binary} --version
 build_dependencies:
-- nodejs-lts
+- node-lts
 runtime_dependencies:
-- nodejs-lts
+- node-lts
 platforms:
 - linux/amd64
 - linux/arm64

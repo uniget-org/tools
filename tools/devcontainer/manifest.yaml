@@ -4,10 +4,10 @@ version: "0.80.2"
 check: ${binary} --version
 build_dependencies:
 - python-3.12
-- nodejs-lts
+- node-lts
 - make
 runtime_dependencies:
-- nodejs-lts
+- node-lts
 platforms:
 - linux/amd64
 - linux/arm64

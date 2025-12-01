@@ -4,9 +4,9 @@ name: alex
 version: "11.0.1"
 check: "" # No version parameter
 build_dependencies:
-- nodejs-lts
+- node-lts
 runtime_dependencies:
-- nodejs-lts
+- node-lts
 platforms:
 - linux/amd64
 - linux/arm64

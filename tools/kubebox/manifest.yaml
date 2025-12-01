@@ -3,9 +3,9 @@ name: kubebox
 version: "0.10.0"
 check: ${binary} --version | cut -d' ' -f2
 build_dependencies:
-- nodejs-lts
+- node-lts
 runtime_dependencies:
-- nodejs-lts
+- node-lts
 platforms:
 - linux/amd64
 - linux/arm64

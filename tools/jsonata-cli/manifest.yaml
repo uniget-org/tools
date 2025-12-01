@@ -4,9 +4,9 @@ name: jsonata-cli
 version: "2.0.6"
 check: ${binary} --version
 build_dependencies:
-- nodejs-lts
+- node-lts
 runtime_dependencies:
-- nodejs-lts
+- node-lts
 platforms:
 - linux/amd64
 - linux/arm64

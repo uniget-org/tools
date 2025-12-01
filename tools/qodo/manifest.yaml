@@ -7,9 +7,9 @@ license:
 version: "0.31.1"
 check: ${binary} --version 2>/dev/null | grep "@qodo/command" | tr -s ' ' | cut -d' ' -f3
 build_dependencies:
-- nodejs-lts
+- node-lts
 runtime_dependencies:
-- nodejs-lts
+- node-lts
 platforms:
 - linux/amd64
 - linux/arm64
