@@ -39,30 +39,29 @@ checksum_filename="$( basename "${url}" )"
 echo "### Downloading checksums"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${checksum_filename}" \
     "https://github.com/goreleaser/goreleaser/releases/download/v${version}/checksums.txt"
-pushd "${uniget_cache_download}"
-sha256sum --check --ignore-missing "${uniget_cache_download}/${checksum_filename}"
-popd
 
 echo "### Downloading signature and certificate"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${checksum_filename}.sig" \
-    "${url}.sig"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${checksum_filename}.pem" \
-    "${url}.pem"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${checksum_filename}.sigstore.json" \
+    "${url}.sigstore.json"
 
 echo "### Verifying keyless signature"
 SHA="$(
     git ls-remote --tags https://github.com/goreleaser/goreleaser "v${version}^{}" \
     | cut -f1
 )"
-COSIGN_EXPERIMENTAL=1 cosign verify-blob "${uniget_cache_download}/${checksum_filename}" \
-    --signature "${uniget_cache_download}/${checksum_filename}.sig" \
-    --certificate "${uniget_cache_download}/${checksum_filename}.pem" \
+cosign verify-blob "${uniget_cache_download}/${checksum_filename}" \
+    --bundle "${uniget_cache_download}/${checksum_filename}.sigstore.json" \
     --certificate-oidc-issuer https://token.actions.githubusercontent.com \
     --certificate-identity "https://github.com/goreleaser/goreleaser/.github/workflows/release.yml@refs/tags/v${version}" \
     --certificate-github-workflow-name release \
     --certificate-github-workflow-repository goreleaser/goreleaser \
     --certificate-github-workflow-ref "refs/tags/v${version}" \
     --certificate-github-workflow-sha "${SHA}"
+
+echo "### Verifying checksum"
+pushd "${uniget_cache_download}"
+sha256sum --check --ignore-missing "${uniget_cache_download}/${checksum_filename}"
+popd
 
 echo "### Unpacking"
 tar --file="${uniget_cache_download}/${filename}" --list
