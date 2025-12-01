@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: nodejs22-is-node
+version: "0.1.0"
+binary: "false"
+check: "" # No binary
+runtime_dependencies:
+- nodejs22
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- org/uniget-org
+- category/development
+- lang/shell
+- type/cli
+homepage: https://github.com/uniget-org/tools
+repository: https://github.com/uniget-org/tools
+description: Make node v22 available as node/npm command
