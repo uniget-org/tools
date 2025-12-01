@@ -1,11 +1,11 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
-name: nodejs22-is-node
+name: node22-is-node
 version: "0.1.0"
 binary: "false"
 check: "" # No binary
 runtime_dependencies:
-- nodejs22
+- node22
 platforms:
 - linux/amd64
 #- linux/arm64

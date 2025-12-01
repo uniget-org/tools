@@ -1,0 +1,38 @@
+#syntax=docker/dockerfile:1.20.0@sha256:26147acbda4f14c5add9946e2fd2ed543fc402884fd75146bd342a7f6271dc1d
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+case "${alt_arch}" in
+    amd64)
+        export arch_suffix=x64
+        ;;
+    arm64)
+        export arch_suffix=arm64
+        ;;
+    *)
+        echo "ERROR: Unknown architecture (${alt_arch})."
+        exit 1
+        ;;
+esac
+echo "    Using ${arch_suffix}"
+
+url="https://nodejs.org/dist/v${version}/node-v${version}-linux-${arch_suffix}.tar.xz"
+filename="$(basename "${url}")"
+
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --xz --directory="${prefix}" --strip-components=1 --no-same-owner \
+    "node-v${version}-linux-${arch_suffix}/bin" \
+    "node-v${version}-linux-${arch_suffix}/include" \
+    "node-v${version}-linux-${arch_suffix}/lib" \
+    "node-v${version}-linux-${arch_suffix}/share"
+EOF

@@ -2494,8 +2494,8 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "moby/moby",
-      "extractVersionTemplate": "^docker-v(?<version>.+)$",
+      "depNameTemplate": "docker/cli",
+      "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/docker/manifest.yaml$"
       ],
@@ -3393,7 +3393,7 @@
       "datasourceTemplate": "npm",
       "depNameTemplate": "@google/gemini-cli",
       "fileMatch": [
-        "^tools/gemini/manifest.yaml$"
+        "^tools/gemini-cli/manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
@@ -7337,10 +7337,46 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "nodejs/node",
+      "extractVersionTemplate": "^v(?<version>.+)$",
+      "fileMatch": [
+        "^tools/node/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "prometheus/node_exporter",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/node-exporter/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "gitlab-releases",
+      "depNameTemplate": "uniget-org/renovate-custom",
+      "extractVersionTemplate": "^nodejs-lts/(?<version>.+)$",
+      "fileMatch": [
+        "^tools/node-lts/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "gitlab-releases",
+      "depNameTemplate": "nodejs/node",
+      "extractVersionTemplate": "^v(?<version>22\\..+)$",
+      "fileMatch": [
+        "^tools/node22/manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
@@ -7413,18 +7449,6 @@
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/notation/manifest.yaml$"
-      ],
-      "matchStrings": [
-        "version: \"?(?<currentValue>.*?)\"?\\n"
-      ]
-    },
-    {
-      "customType": "regex",
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "npm/cli",
-      "extractVersionTemplate": "^v(?<version>.+)$",
-      "fileMatch": [
-        "^tools/npm/manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
