@@ -10,11 +10,12 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 COPY --link --from=go / /usr/local/
-WORKDIR /go/src/github.com/moby/moby
+WORKDIR /go/src/github.com/docker/cli
 ARG name
 ARG version
 RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
-check-clone "https://github.com/moby/moby" "docker-v${version}"
-git clone -q --config advice.detachedHead=false --depth 1 --branch "docker-v${version}" https://github.com/moby/moby .
-go build -o "${prefix}/bin/docker-trust" ./cmd/docker-trust/
+check-clone "https://github.com/docker/cli" "v${version}"
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/docker/cli .
+cd cmd/docker-trust
+go build -ldflags "-X github.com/docker/cli/cmd/docker-trust/internal/version.Version=${version}" -o "${prefix}/bin/docker-trust" .
 EOF
