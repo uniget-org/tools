@@ -6,9 +6,9 @@ check: ${binary} --version
 build_dependencies:
 - make
 - python-3.12
-- nodejs-lts
+- nodejs22
 runtime_dependencies:
-- nodejs-lts
+- nodejs22
 platforms:
 - linux/amd64
 #- linux/arm64
