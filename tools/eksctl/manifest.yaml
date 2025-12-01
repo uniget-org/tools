@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: eksctl
-version: "0.219.0"
+version: "0.220.0"
 check: ${binary} version
 platforms:
 - linux/amd64
