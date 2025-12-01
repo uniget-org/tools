@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
-name: nodejs
-version: "25.2.1"
+name: node-lts
+version: "24.11.1"
 binary: node
 check: ${binary} --version | tr -d v
 platforms:
@@ -10,17 +10,14 @@ tags:
 - type/cli
 - category/development
 - lang/javascript
-homepage: https://nodejs.org
+homepage: https://github.com/nodejs/node
 repository: https://github.com/nodejs/node
 description: Node.js JavaScript runtime
-messages:
-  usage: |
-    Replaced by "node"
 renovate:
-  datasource: github-releases
-  package: nodejs/node
-  extractVersion: ^v(?<version>.+)$
-  priority: medium
+  datasource: gitlab-releases
+  package: uniget-org/renovate-custom
+  extractVersion: ^nodejs-lts/(?<version>.+)$
+  priority: low
 license:
-  name: Custom
+  name: MIT License
   link: https://github.com/nodejs/node/blob/main/LICENSE

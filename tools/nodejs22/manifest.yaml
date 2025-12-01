@@ -13,6 +13,9 @@ tags:
 homepage: https://github.com/nodejs/node
 repository: https://github.com/nodejs/node
 description: Node.js JavaScript runtime
+messages:
+  usage: |
+    Replaced by "node22"
 renovate:
   datasource: gitlab-releases
   package: nodejs/node

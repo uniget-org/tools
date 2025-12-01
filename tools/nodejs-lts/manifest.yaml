@@ -13,6 +13,9 @@ tags:
 homepage: https://github.com/nodejs/node
 repository: https://github.com/nodejs/node
 description: Node.js JavaScript runtime
+messages:
+  usage: |
+    Replaced by "node-lts"
 renovate:
   datasource: gitlab-releases
   package: uniget-org/renovate-custom

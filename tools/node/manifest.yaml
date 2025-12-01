@@ -1,7 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
-name: nodejs
+name: node
 version: "25.2.1"
-binary: node
 check: ${binary} --version | tr -d v
 platforms:
 - linux/amd64
@@ -13,9 +12,6 @@ tags:
 homepage: https://nodejs.org
 repository: https://github.com/nodejs/node
 description: Node.js JavaScript runtime
-messages:
-  usage: |
-    Replaced by "node"
 renovate:
   datasource: github-releases
   package: nodejs/node
