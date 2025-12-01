@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: linux-kernel
-version: "6.17"
+version: "6.18"
 binary: "false"
 check: "" # No binary
 platforms:
