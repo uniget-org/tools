@@ -1,6 +1,7 @@
 #syntax=docker/dockerfile:1.20.0@sha256:26147acbda4f14c5add9946e2fd2ed543fc402884fd75146bd342a7f6271dc1d
 
-FROM ghcr.io/uniget-org/tools/nodejs22:latest AS nodejs
+FROM ghcr.io/uniget-org/tools/nodejs22:latest AS nodejs22
+FROM ghcr.io/uniget-org/tools/nodejs22-is-node:latest AS nodejs22-is-node
 FROM ghcr.io/uniget-org/tools/python-3.12:latest AS python
 
 FROM registry.gitlab.com/uniget-org/images/build-essential:24.04 AS prepare
@@ -8,7 +9,8 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --link --from=nodejs / /
+COPY --link --from=nodejs22 / /usr/local/
+COPY --link --from=nodejs22-is-node / /usr/local/
 COPY --link --from=python / /
 WORKDIR /uniget_bootstrap/libexec/inshellisense
 ARG name
