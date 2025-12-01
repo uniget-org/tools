@@ -4,7 +4,8 @@ name: inshellisense
 version: "0.0.1-rc.21"
 check: ${binary} --version
 build_dependencies:
-- nodejs-lts
+- nodejs22
+- python-3.12
 runtime_dependencies:
 - nodejs-lts
 platforms:
