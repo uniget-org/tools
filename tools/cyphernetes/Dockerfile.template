@@ -3,7 +3,7 @@
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 FROM ghcr.io/uniget-org/tools/go:latest AS go
 FROM ghcr.io/uniget-org/tools/goyacc:latest AS goyacc
-FROM ghcr.io/uniget-org/tools/nodejs-lts:latest AS nodejs
+FROM ghcr.io/uniget-org/tools/node-lts:latest AS node
 FROM ghcr.io/uniget-org/tools/pnpm:latest AS pnpm
 
 FROM registry.gitlab.com/uniget-org/images/build-essential:24.04 AS prepare
@@ -14,7 +14,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=go / /usr/local/
 COPY --link --from=goyacc / /usr/local/
 COPY --link --from=make / /usr/local/
-COPY --link --from=nodejs / /usr/local/
+COPY --link --from=node / /usr/local/
 COPY --link --from=pnpm / /usr/local/
 WORKDIR /go/src/github.com/AvitalTamir/cyphernetes
 ARG name

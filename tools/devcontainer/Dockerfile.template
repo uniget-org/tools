@@ -1,7 +1,7 @@
 #syntax=docker/dockerfile:1.20.0@sha256:26147acbda4f14c5add9946e2fd2ed543fc402884fd75146bd342a7f6271dc1d
 
 FROM ghcr.io/uniget-org/tools/python-3.12:latest AS python
-FROM ghcr.io/uniget-org/tools/nodejs-lts:latest AS nodejs
+FROM ghcr.io/uniget-org/tools/node-lts:latest AS node
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 
 FROM registry.gitlab.com/uniget-org/images/build-essential:24.04 AS prepare
@@ -10,7 +10,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=python / /usr/local/
-COPY --link --from=nodejs / /usr/local/
+COPY --link --from=node / /usr/local/
 COPY --link --from=make / /usr/local/
 WORKDIR /uniget_bootstrap/libexec/devcontainer
 ARG name

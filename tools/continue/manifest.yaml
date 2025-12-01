@@ -8,9 +8,9 @@ version: "1.5.18"
 binary: cn
 check: ${binary} --version 2>/dev/null
 build_dependencies:
-- nodejs-lts
+- node-lts
 runtime_dependencies:
-- nodejs-lts
+- node-lts
 platforms:
 - linux/amd64
 - linux/arm64

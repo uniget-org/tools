@@ -7,7 +7,7 @@ license:
 version: "0.14.11"
 check: ${binary} version | grep "^garden version" | cut -d' ' -f2
 runtime_dependencies:
-- nodejs-lts
+- node-lts
 platforms:
 - linux/amd64
 - linux/arm64
