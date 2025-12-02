@@ -7,10 +7,10 @@ license:
 version: "0.30.0"
 check: ${binary} --ver
 build_dependencies:
-- node22
+- node-lts
 - python-3.12
 runtime_dependencies:
-- node22
+- node-lts
 platforms:
 - linux/amd64
 #- linux/arm64
