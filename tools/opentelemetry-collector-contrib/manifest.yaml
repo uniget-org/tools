@@ -4,7 +4,7 @@ name: opentelemetry-collector-contrib
 license:
   name: Apache License 2.0
   link: https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/LICENSE
-version: "0.139.0"
+version: "0.141.0"
 binary: otelcol-contrib
 check: ""
 platforms:
