@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: linux-kernel-wsl
-version: "6.6.87.2"
+version: "6.6.114.1"
 binary: "false"
 check: "" # No binary
 platforms:
