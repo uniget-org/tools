@@ -157,6 +157,7 @@ ARG version
 #export PIPX_HOME="${prefix}/libexec/pipx"
 #export PIPX_BIN_DIR="${prefix}/bin"
 #pipx install foo
+#pipx-fix-venv-pyvenv-cfg foo
 #ln --symbolic --relative --force "${prefix}/libexec/pipx/venvs/foo/bin/foo" "${prefix}/bin/foo"
 #sed -i "s|#\!${prefix}/|#\!/|" "${prefix}/libexec/pipx/venvs/foo/bin/foo"
 #EOF

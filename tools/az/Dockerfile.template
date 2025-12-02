@@ -15,14 +15,11 @@ ARG version
 RUN --mount=type=cache,target=/root/.cache/pip <<EOF
 export PIPX_HOME="${prefix}/libexec/pipx"
 pipx install "azure-cli==${version}"
-EOF
-RUN <<EOF
+pipx-fix-venv-pyvenv-cfg azure-cli
+
 ln --symbolic --relative --force "${prefix}/libexec/pipx/venvs/azure-cli/bin/az" "${prefix}/bin/az"
 ln --symbolic --relative --force "${prefix}/bin/python3" "${prefix}/libexec/pipx/venvs/azure-cli/bin/python3.12"
 
 mv "${prefix}/libexec/pipx/venvs/azure-cli/bin/az" "${prefix}/libexec/pipx/venvs/azure-cli/bin/az.go-template"
 sed -i "s|#\!${prefix}|#\!{{ .Target }}|" "${prefix}/libexec/pipx/venvs/azure-cli/bin/az.go-template"
-
-mv "${prefix}/libexec/pipx/venvs/azure-cli/pyvenv.cfg" "${prefix}/libexec/pipx/venvs/azure-cli/pyvenv.cfg.go-template"
-sed -i "s|/usr/local|{{ .Target }}|; s|${prefix}|{{ .Target }}|" "${prefix}/libexec/pipx/venvs/azure-cli/pyvenv.cfg.go-template"
 EOF
