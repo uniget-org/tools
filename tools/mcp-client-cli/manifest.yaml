@@ -4,7 +4,7 @@ name: mcp-client-cli
 license:
   name: MIT License
   link: https://github.com/adhikasp/mcp-client-cli/blob/master/LICENSE
-version: "1.0.4"
+version: "1.0.5"
 binary: llm
 check: "" # No version parameter
 build_dependencies:
