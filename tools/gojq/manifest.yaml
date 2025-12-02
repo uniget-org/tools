@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: gojq
-version: "0.12.17"
+version: "0.12.18"
 check: ${binary} --version | cut -d' ' -f2
 conflicts_with:
 - jaq
