@@ -4,7 +4,7 @@ name: prometheus
 license:
   name: Apache License 2.0
   link: https://github.com/prometheus/prometheus/blob/main/LICENSE
-version: "3.7.3"
+version: "3.8.0"
 check: ${binary} --version | grep ^prometheus | cut -d' ' -f3
 runtime_dependencies:
 - promtool
