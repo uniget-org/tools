@@ -11,4 +11,5 @@ COPY --chmod=0755 \
     check-download.sh \
     check-github-release-asset.sh \
     check-clone.sh \
+    pipx-fix-pyvenv-cfg.sh \
     /uniget_bootstrap/etc/profile.d/
