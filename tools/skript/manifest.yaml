@@ -4,7 +4,7 @@ name: skript
 license:
   name: GPLv3
   link: https://github.com/SkriptLang/Skript/blob/master/LICENSE
-version: "2.13.1"
+version: "2.13.2"
 check: ""
 build_dependencies:
 - bar
