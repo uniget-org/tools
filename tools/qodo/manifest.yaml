@@ -4,7 +4,7 @@ name: qodo
 license:
   name: Custom
   link: https://github.com/qodo-ai/command/blob/main/LICENSE.md
-version: "0.31.1"
+version: "0.32.0"
 check: ${binary} --version 2>/dev/null | grep "@qodo/command" | tr -s ' ' | cut -d' ' -f3
 build_dependencies:
 - node-lts
