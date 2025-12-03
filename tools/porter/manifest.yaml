@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: porter
-version: "1.3.0"
+version: "1.4.0"
 check: ${binary} --version | cut -d' ' -f2 | tr -d v
 tags:
 - type/cli
