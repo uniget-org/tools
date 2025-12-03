@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kuttl
-version: "0.23.0"
+version: "0.24.0"
 binary: kubectl-kuttl
 check: ${binary} --version | cut -d' ' -f3
 platforms:
