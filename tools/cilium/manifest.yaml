@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: cilium
-version: "0.18.8"
+version: "0.18.9"
 check: timeout 3 ${binary} version 2>/dev/null | grep ^cilium-cli | cut -d' ' -f2 | tr -d v
 platforms:
 - linux/amd64
