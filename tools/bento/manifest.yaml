@@ -4,7 +4,7 @@ name: bento
 license:
   name: Custom
   link: https://github.com/warpstreamlabs/bento/blob/main/LICENSE
-version: "1.13.0"
+version: "1.13.1"
 check: ${binary} --version | grep ^Version | cut -d' ' -f2 | tr -d v
 build_dependencies:
 - make
