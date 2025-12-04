@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: autocert
-version: "0.20.3"
+version: "0.20.4"
 check: "" # No version parameter
 build_dependencies:
 - cosign
