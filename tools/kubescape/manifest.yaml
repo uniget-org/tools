@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kubescape
-version: "3.0.45"
+version: "3.0.46"
 check: ${binary} version 2>/dev/null | cut -d' ' -f5 | tr -d v
 platforms:
 - linux/amd64
