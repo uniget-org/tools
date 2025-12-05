@@ -4,7 +4,7 @@ name: garden
 license:
   name: MPLv2
   link: https://github.com/garden-io/garden/blob/main/LICENSE.md
-version: "0.14.11"
+version: "0.14.12"
 check: ${binary} version | grep "^garden version" | cut -d' ' -f2
 runtime_dependencies:
 - node-lts
