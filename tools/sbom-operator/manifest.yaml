@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: sbom-operator
-version: "0.39.0"
+version: "0.40.0"
 check: "" # No version parameter
 build_dependencies:
 - cosign
