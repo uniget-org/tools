@@ -4,7 +4,7 @@ name: pyenv
 license:
   name: MIT License
   link: https://github.com/pyenv/pyenv/blob/master/LICENSE
-version: "2.6.15"
+version: "2.6.16"
 check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
