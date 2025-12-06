@@ -4,7 +4,7 @@ name: blackbox-exporter
 license:
   name: Apache License 2.0
   link: https://github.com/prometheus/blackbox_exporter/blob/master/LICENSE
-version: "0.27.0"
+version: "0.28.0"
 binary: blackbox_exporter
 check: ${binary} --version | grep ^blackbox_exporter | cut -d' ' -f3
 platforms:
