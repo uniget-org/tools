@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: python
-version: "3.14.1.20251202"
+version: "3.14.2.20251205"
 check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
