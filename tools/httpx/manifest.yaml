@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: httpx
-version: "1.7.2"
+version: "1.7.3"
 check: ${binary} --version 2>&1 | grep "Current Version:" | cut -d' ' -f4 | tr -d v
 tags:
 - category/security
