@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: fq
-version: "0.15.1"
+version: "0.16.0"
 check: ${binary} --version | cut -d' ' -f1
 platforms:
 - linux/amd64
