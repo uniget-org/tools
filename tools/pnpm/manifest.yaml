@@ -4,7 +4,7 @@ name: pnpm
 license:
   name: MIT License
   link: https://github.com/pnpm/pnpm/blob/main/LICENSE
-version: "10.24.0"
+version: "10.25.0"
 check: ${binary} --version
 runtime_dependencies:
 - node-lts
