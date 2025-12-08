@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: chainsaw
-version: "0.2.13"
+version: "0.2.14"
 check: ${binary} version | grep ^Version | cut -d' ' -f2
 build_dependencies:
 - cosign
