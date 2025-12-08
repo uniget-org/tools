@@ -4,7 +4,7 @@ name: otel-tui
 license:
   name: Apache License 2.0
   link: https://github.com/ymtdzzz/otel-tui/blob/main/LICENSE
-version: "0.6.0"
+version: "0.6.1"
 check: ${binary} --version | cut -d' ' -f3
 platforms:
 - linux/amd64
