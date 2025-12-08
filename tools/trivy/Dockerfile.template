@@ -35,21 +35,18 @@ check-github-release-asset "aquasecurity/trivy" "v${version}" "${filename}"
 echo "### Downloading trivy ${version}"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
     "${url}"
-echo "    SHA256: $( sha256sum "${uniget_cache_download}/${filename}" | cut -d' ' -f1 )"
+sha256sum "${uniget_cache_download}/${filename}" | cut -d' ' -f1
 
 echo "### Checking keyless signature for trivy ${version}"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.pem" \
-      "${url}.pem"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.sig" \
-      "${url}.sig"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.sigstore.json" \
+      "${url}.sigstore.json"
 SHA="$(
     git ls-remote --tags https://github.com/aquasecurity/trivy "v${version}^{}" \
     | cut -f1
 )"
 echo "    SHA: ${SHA}"
-COSIGN_EXPERIMENTAL=1 cosign verify-blob \
-    --cert "${uniget_cache_download}/${filename}.pem" \
-    --signature "${uniget_cache_download}/${filename}.sig" \
+cosign verify-blob \
+    --bundle "${uniget_cache_download}/${filename}.sigstore.json" \
     --certificate-oidc-issuer https://token.actions.githubusercontent.com \
     --certificate-identity "https://github.com/aquasecurity/trivy/.github/workflows/reusable-release.yaml@refs/tags/v${version}" \
     --certificate-github-workflow-name Release \
