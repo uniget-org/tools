@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: telegraf
-version: "1.36.4"
+version: "1.37.0"
 check: ${binary} --version | cut -d' ' -f2
 tags:
 - org/influxdata
