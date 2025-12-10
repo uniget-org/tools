@@ -4,7 +4,7 @@ name: auggie
 license:
   name: Custom
   link: https://www.augmentcode.com/legal/community-terms-of-service
-version: "0.10.1"
+version: "0.11.0"
 check: ${binary} --version | cut -d' ' -f1
 build_dependencies:
 - node-lts
