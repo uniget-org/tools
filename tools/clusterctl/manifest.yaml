@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: clusterctl
-version: "1.11.3"
+version: "1.11.4"
 check: ${binary} version --output short 2>/dev/null | tr -d v
 platforms:
 - linux/amd64
