@@ -4,7 +4,7 @@ name: minecraft-server
 license:
   name: Custom
   link: https://www.minecraft.net/de-de/usage-guidelines
-version: "1.21.10"
+version: "1.21.11"
 binary: "false"
 check: "" # No binary
 runtime_dependencies:
