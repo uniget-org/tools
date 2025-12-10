@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: pacstall
-version: "6.3.7"
+version: "6.3.8"
 check: grep ^version_number ${binary} | cut -d= -f2 | tr -d '"'
 platforms:
 - linux/amd64
