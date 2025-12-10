@@ -4,7 +4,7 @@ name: kine
 license:
   name: Apache License 2.0
   link: https://github.com/k3s-io/kine/blob/master/LICENSE
-version: "0.14.7"
+version: "0.14.8"
 check: ${binary} --version | cut -d' ' -f3
 build_dependencies:
 - make
