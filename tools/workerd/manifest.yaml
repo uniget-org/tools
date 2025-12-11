@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: workerd
+license:
+  name: Apache License 2.0
+  link: https://github.com/cloudflare/workerd/blob/main/LICENSE
+version: "1.20251211.0"
+check: "" # Versions do not match
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/cloudflare
+- category/operations
+- lang/c
+- type/daemon
+homepage: https://blog.cloudflare.com/workerd-open-source-workers-runtime/
+repository: https://github.com/cloudflare/workerd
+description: The JavaScript / Wasm runtime that powers Cloudflare Workers 
+renovate:
+  datasource: github-releases
+  package: cloudflare/workerd
+  extractVersion: ^v(?<version>.+)$
+  priority: low
