@@ -3962,6 +3962,18 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "cweill/gotests",
+      "extractVersionTemplate": "^v(?<version>.+)$",
+      "fileMatch": [
+        "^tools/gotests/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "gotestyourself/gotestsum",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
