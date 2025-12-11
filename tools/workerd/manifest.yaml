@@ -14,6 +14,7 @@ tags:
 - category/operations
 - lang/c
 - type/daemon
+- cloud/cloudflare
 homepage: https://blog.cloudflare.com/workerd-open-source-workers-runtime/
 repository: https://github.com/cloudflare/workerd
 description: The JavaScript / Wasm runtime that powers Cloudflare Workers 
