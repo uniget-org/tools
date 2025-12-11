@@ -9818,6 +9818,17 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "pypi",
+      "depNameTemplate": "ssh-audit",
+      "fileMatch": [
+        "^tools/ssh-audit/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "benjojo/ssh-key-confirmer",
       "extractVersionTemplate": "^v(?<version>.+)$",
