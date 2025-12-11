@@ -21,18 +21,15 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
 echo "    - SHA256: $(cat ${uniget_cache_download}/${filename} | sha256sum  | cut -d' ' -f1)"
 
 echo "### Checking keyless signature for chainsaw ${version}"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.pem" \
-      "${url}.pem"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.sig" \
-      "${url}.sig"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.sigstore.json" \
+      "${url}.sigstore.json"
 SHA="$(
     git ls-remote --tags https://github.com/kyverno/chainsaw "v${version}^{}" \
     | cut -f1
 )"
 echo "    - SHA: ${SHA}"
-COSIGN_EXPERIMENTAL=1 cosign verify-blob \
-    --cert "${uniget_cache_download}/${filename}.pem" \
-    --signature "${uniget_cache_download}/${filename}.sig" \
+cosign verify-blob \
+    --bundle "${uniget_cache_download}/${filename}.sigstore.json" \
     --certificate-oidc-issuer "https://token.actions.githubusercontent.com" \
     --certificate-identity "https://github.com/kyverno/chainsaw/.github/workflows/release.yaml@refs/tags/v${version}" \
     --certificate-github-workflow-name "Release" \
