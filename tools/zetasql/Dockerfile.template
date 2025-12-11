@@ -8,20 +8,14 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://github.com/google/zetasql/releases/download/${version}/execute_query_linux.tar.gz"
+url="https://github.com/google/zetasql/releases/download/${version}/execute_query_linux"
 filename="$( basename "${url}" )"
 
 check-github-release-asset "google/zetasql" "${version}" "${filename}"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
     "${url}"
 
-mkdir -p "${prefix}/opt/zetasql"
-tar --file="${uniget_cache_download}/${filename}" --list
-tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/opt/zetasql" --strip-components=1 --no-same-owner
-EOF
-COPY --chmod=0755 <<EOF /uniget_bootstrap/bin/execute_query.go-template
-#!/bin/bash
-
-pushd "{{ .Target }}/opt/zetasql"
-exec "./execute_query" "\$@"
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/execute_query"
 EOF
