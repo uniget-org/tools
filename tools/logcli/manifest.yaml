@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: logcli
-version: "3.6.2"
+version: "3.6.3"
 check: "" # Wrong version
 tags:
 - org/grafana
