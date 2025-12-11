@@ -1,0 +1,44 @@
+#syntax=docker/dockerfile:1.20.0@sha256:26147acbda4f14c5add9946e2fd2ed543fc402884fd75146bd342a7f6271dc1d
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+echo "### Setting architecture string for ${TARGETPLATFORM}"
+case "${arch}" in
+    x86_64)
+        export arch_suffix="64"
+        ;;
+    aarch64)
+        export arch_suffix="${alt_arch}"
+        ;;
+    *)
+        echo "ERROR: Unsupported architecture ${arch}."
+        exit 1
+        ;;
+esac
+echo "    Using ${arch_suffix}"
+
+url="https://github.com/cloudflare/workerd/releases/download/v${version}/workerd-linux-${arch_suffix}.gz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "cloudflare/workerd" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/workerd.gz"
+gunzip "${prefix}/bin/workerd.gz"
+EOF
+WORKDIR /uniget_bootstrap/share/workerd
+RUN <<EOF
+curl --silent --show-error --location --fail --output "${prefix}/share/workerd/workerd.capnp" \
+    "https://github.com/cloudflare/workerd/raw/refs/tags/v${version}/src/workerd/server/workerd.capnp"
+EOF
+COPY workerd.socket /uniget_bootstrap/etc/systemd/system/
+COPY workerd.service.go-template /uniget_bootstrap/etc/systemd/system/

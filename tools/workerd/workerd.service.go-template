@@ -1,0 +1,23 @@
+[Unit]
+Description=workerd runtime
+After=local-fs.target remote-fs.target network-online.target
+Requires=local-fs.target remote-fs.target workerd.socket
+Wants=network-online.target
+
+[Service]
+Type=exec
+ExecStart={{ .Target }}/bin/workerd serve {{ .Target }}/etc/workerd/config.capnp --socket-fd http=3 --socket-fd https=4
+Sockets=workerd.socket
+
+# If workerd crashes, restart it.
+Restart=always
+
+# Run under an unprivileged user account.
+User=nobody
+Group=nogroup
+
+# Hardening measure: Do not allow workerd to run suid-root programs.
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target
