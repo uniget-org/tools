@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: gosec
-version: "2.22.10"
+version: "2.22.11"
 check: ${binary} -version | grep ^Version | cut -d' ' -f2
 platforms:
 - linux/amd64
