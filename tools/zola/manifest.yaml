@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: zola
+license:
+  name: MIT License
+  link: https://github.com/getzola/zola/blob/master/LICENSE
+version: "0.21.0"
+check: ${binary} getzola/zola/
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/rust
+- type/cli
+homepage: https://www.getzola.org/
+repository: https://github.com/getzola/zola
+description: Fast static site generator in a single binary with everything built-in
+renovate:
+  datasource: github-releases
+  package: getzola/zola
+  extractVersion: ^v(?<version>.+)$
+  priority: low
