@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: wrangler
+license:
+  name: MIT License, Apache License 2.0
+  link: https://github.com/cloudflare/workers-sdk
+version: "4.53.0"
+check: "" # Version cannot be parsed
+build_dependencies:
+- node-lts
+runtime_dependencies:
+- node-lts
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/cloudflare
+- category/development
+- lang/javascript
+- type/cli
+- cloud/cloudflare
+homepage: https://developers.cloudflare.com/workers/
+repository: https://github.com/cloudflare/workers-sdk
+description: CLI for Cloudflare Workers
+renovate:
+  datasource: github-releases
+  package: cloudflare/workers-sdk
+  extractVersion: ^wrangler@(?<version>.+)$
+  priority: low

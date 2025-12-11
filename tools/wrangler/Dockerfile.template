@@ -1,0 +1,22 @@
+#syntax=docker/dockerfile:1.20.0@sha256:26147acbda4f14c5add9946e2fd2ed543fc402884fd75146bd342a7f6271dc1d
+
+FROM ghcr.io/uniget-org/tools/node-lts:latest AS node
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+#FROM registry.gitlab.com/uniget-org/images/build-essential:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+COPY --link --from=node / /usr/local/
+WORKDIR /uniget_bootstrap/libexec/wrangler
+ARG name
+ARG version
+RUN <<EOF
+npm install \
+    --omit=dev \
+    "wrangler@${version}"
+ln --symbolic --relative --force "${prefix}/libexec/wrangler/node_modules/.bin/wrangler" "${prefix}/bin/"
+EOF
