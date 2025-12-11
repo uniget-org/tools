@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: gotests
+license:
+  name: Apache License 2.0
+  link: https://github.com/cweill/gotests/blob/develop/LICENSE
+version: "1.9.0"
+check: ${binary} --version | grep ^gotests | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/cli
+- quality
+- testing
+- tests
+homepage: https://github.com/cweill/gotests
+repository: https://github.com/cweill/gotests
+description: Automatically generate Go test boilerplate from your source code
+renovate:
+  datasource: github-releases
+  package: cweill/gotests
+  extractVersion: ^v(?<version>.+)$
+  priority: low
