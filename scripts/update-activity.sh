@@ -6,13 +6,14 @@ COMMIT_MAX_AGE_DAYS=95
 CONTRIBUTORS_MIN_COUNT=2
 
 if test -z "${GITHUB_TOKEN}"; then
-    echo "ERROR: GitHub token is required to prevent rate limiting."
+    echo "ERROR: GitHub token is required to prevent rate limiting. Set GITHUB_TOKEN."
     exit 1
 fi
 
 all_tools="$(
     jq --raw-output '.tools[] | .name' metadata.json \
     | sort \
+    | grep "^[l-z]" \
     | xargs
 )"
 
@@ -124,7 +125,7 @@ for NAME in ${all_tools}; do
                 --header "Authorization: Bearer ${GITHUB_TOKEN}" \
             | jq --raw-output 'length'
         )"
-        #echo "+ collaborator count: ${CONTRIBUTOR_COUNT}"
+        #echo "+ contributor count: ${CONTRIBUTOR_COUNT}"
         if test "${CONTRIBUTOR_COUNT}" -lt "${CONTRIBUTORS_MIN_COUNT}"; then
             CONTRIBUTORS_TOO_FEW=true
         fi

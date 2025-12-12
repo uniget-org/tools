@@ -47,6 +47,10 @@ done
 
 for NAME in ${all_tools}; do
     echo "${NAME}"
+    if ! test -f "tools/${NAME}/manifest.yaml"; then
+        echo "+ No manifest.yaml found"
+        continue
+    fi
 
     graduated="$(
         if jq --exit-status 'select(.tags[] | contains("cncf/graduated"))' <<<"${tool_json[${NAME}]}" >/dev/null; then

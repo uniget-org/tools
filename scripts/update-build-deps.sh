@@ -1,10 +1,11 @@
 #!/bin/bash
 set -o errexit
 
+make metadata.json
+
 grep -l "^FROM ghcr.io/uniget-org/tools/" tools/*/Dockerfile.template \
 | cut -d/ -f2 \
 | while read -r TOOL; do
-    make tools/${TOOL}/manifest.json
     DEPS="$(
         grep "^FROM registry.gitlab.com/uniget-org/tools/" tools/${TOOL}/Dockerfile.template \
         | cut -d' ' -f2 \
