@@ -1,0 +1,21 @@
+#syntax=docker/dockerfile:1.20.0@sha256:26147acbda4f14c5add9946e2fd2ed543fc402884fd75146bd342a7f6271dc1d
+
+FROM ghcr.io/uniget-org/tools/node-lts:latest AS node
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+COPY --link --from=node / /usr/local/
+WORKDIR /uniget_bootstrap/libexec/gitlab-ci-local
+ARG name
+ARG version
+RUN <<EOF
+npm install \
+    --omit=dev \
+    "gitlab-ci-local@${version}"
+ln --symbolic --relative --force "${prefix}/libexec/gitlab-ci-local/node_modules/.bin/gitlab-ci-local" "${prefix}/bin/"
+EOF
