@@ -23,10 +23,10 @@ case "${arch}" in
 esac
 echo "    Using ${arch_suffix}"
 
-url="https://github.com/microsoft/dev-proxy/releases/download/v${version}/dev-proxy-linux-${arch_suffix}-v${version}.zip"
+url="https://github.com/dotnet/dev-proxy/releases/download/v${version}/dev-proxy-linux-${arch_suffix}-v${version}.zip"
 filename="$(basename "${url}")"
 
-check-github-release-asset "microsoft/dev-proxy" "v${version}" "${filename}"
+check-github-release-asset "dotnet/dev-proxy" "v${version}" "${filename}"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
     "${url}"
 

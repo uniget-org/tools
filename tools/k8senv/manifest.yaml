@@ -11,6 +11,7 @@ tags:
 - lang/go
 - type/cli
 - state/onemanshow
+- state/stale
 homepage: https://github.com/navilg/k8senv
 repository: https://github.com/navilg/k8senv
 description: Version manager to manage multiple versions of kubectl, helm and velero clients on same system/jumpbox/bastion

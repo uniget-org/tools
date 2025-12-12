@@ -15,6 +15,7 @@ tags:
 - lang/javascript
 - type/cli
 - standard/jsonata
+- state/stale
 homepage: https://github.com/blgm/jfq
 repository: https://github.com/blgm/jfq
 description: JSONata on the command line

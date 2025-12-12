@@ -13,7 +13,6 @@ tags:
 - category/development
 - lang/rust
 - type/cli
-- state/stale
 homepage: https://pemistahl.github.io/grex-js/
 repository: https://github.com/pemistahl/grex
 description: CLI and Rust library with Python bindings for generating regular expressions from user-provided test cases

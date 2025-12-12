@@ -11,7 +11,6 @@ tags:
 - lang/go
 - type/cli
 - observability/metrics
-- state/stale
 homepage: https://github.com/influxdata/influx-cli
 repository: https://github.com/influxdata/influx-cli
 description: CLI for managing resources in InfluxDB v2

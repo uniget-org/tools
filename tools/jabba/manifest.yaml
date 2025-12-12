@@ -8,6 +8,7 @@ tags:
 - lang/go
 - version
 - management
+- state/stale
 homepage: https://github.com/Jabba-Team/jabba
 repository: https://github.com/Jabba-Team/jabba
 description: Java Version Manager

@@ -18,7 +18,6 @@ tags:
 - terminal
 - graph
 - plot
-- state/stale
 homepage: https://github.com/mkaz/termgraph
 repository: https://github.com/mkaz/termgraph
 description: Command-line tool which draws basic graphs in the terminal

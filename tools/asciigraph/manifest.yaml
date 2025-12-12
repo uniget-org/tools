@@ -9,6 +9,7 @@ tags:
 - graph
 - plot
 - visualization
+- state/stale
 homepage: https://pkg.go.dev/github.com/guptarohit/asciigraph
 repository: https://github.com/guptarohit/asciigraph
 description: Make lightweight ASCII line graph in command line apps

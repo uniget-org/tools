@@ -16,6 +16,7 @@ tags:
 - oauth2
 - oidc
 - authentication
+- state/stale
 homepage: https://github.com/nicholasdille/oidc-claims
 repository: https://github.com/nicholasdille/oidc-claims
 description: Authenticates using OIDC and displays the claims from the ID token

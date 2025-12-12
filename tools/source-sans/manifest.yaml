@@ -9,7 +9,6 @@ platforms:
 - linux/arm64
 tags:
 - font
-- state/stale
 homepage: https://adobe-fonts.github.io/source-sans
 repository: https://github.com/adobe-fonts/source-sans
 description: Sans serif font family for user interface environments

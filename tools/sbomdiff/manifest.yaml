@@ -17,6 +17,7 @@ tags:
 - sbom
 - format/spdx
 - format/cyclonedx
+- state/stale
 homepage: https://github.com/anthonyharrison/sbomdiff
 repository: https://github.com/anthonyharrison/sbomdiff
 description: Compares two Software Bill of Materials (SBOMs) and reports the differences

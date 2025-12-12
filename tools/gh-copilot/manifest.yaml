@@ -17,6 +17,7 @@ tags:
 - category/operations
 - lang/go
 - type/cli
+- state/deprecated
 homepage: https://docs.github.com/en/copilot/github-copilot-in-the-cli
 repository: https://github.com/github/gh-copilot
 description: Translates natural language into shell commands

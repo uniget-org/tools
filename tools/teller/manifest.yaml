@@ -8,8 +8,8 @@ tags:
 - category/security
 - type/cli
 - lang/go
-- cncf/sandbox
 - state/stale
+- cncf/archived
 messages:
   update: |
     Please make sure the following libraries are available:

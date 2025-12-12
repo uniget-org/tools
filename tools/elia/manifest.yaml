@@ -18,6 +18,7 @@ tags:
 - category/development
 - lang/python
 - type/cli
+- state/stale
 homepage: https://github.com/darrenburns/elia
 repository: https://github.com/darrenburns/elia
 description: Snappy, keyboard-centric terminal user interface for interacting with large language models

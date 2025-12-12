@@ -8,6 +8,7 @@ tags:
 - k8s
 - management
 - lang/go
+- state/deprecated
 homepage: https://github.com/danielb42/kubeswitch
 repository: https://github.com/danielb42/kubeswitch
 description: Visually select kubernetes context/namespace from tree

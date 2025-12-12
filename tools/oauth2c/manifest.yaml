@@ -3,7 +3,7 @@ $schema: https://tools.uniget.dev/schema.yaml
 name: oauth2c
 license:
   name: Apache License 2.0
-  link: https://github.com/cloudentity/oauth2c/blob/master/LICENSE
+  link: https://github.com/SecureAuthCorp/oauth2c/blob/master/LICENSE
 version: "1.18.0"
 check: ${binary} version 2>&1 | cut -d' ' -f3
 platforms:
@@ -17,10 +17,10 @@ tags:
 - oidc
 - authentication
 homepage: https://cloudentity.github.io/oauth2c/
-repository: https://github.com/cloudentity/oauth2c
+repository: https://github.com/SecureAuthCorp/oauth2c
 description: User-friendly OAuth2 CLI
 renovate:
   datasource: github-releases
-  package: cloudentity/oauth2c
+  package: SecureAuthCorp/oauth2c
   extractVersion: ^v(?<version>.+)$
   priority: low

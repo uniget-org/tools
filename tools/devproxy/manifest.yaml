@@ -3,7 +3,7 @@ $schema: https://tools.uniget.dev/schema.yaml
 name: devproxy
 license:
   name: MIT License
-  link: https://github.com/microsoft/dev-proxy/blob/main/LICENSE
+  link: https://github.com/dotnet/dev-proxy/blob/main/LICENSE
 version: "2.0.0"
 check: DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 ${binary} --version
 platforms:
@@ -15,7 +15,7 @@ tags:
 - lang/c
 - type/daemon
 homepage: https://aka.ms/devproxy
-repository: https://github.com/microsoft/dev-proxy
+repository: https://github.com/dotnet/dev-proxy
 description: API simulator that helps you effortlessly test your app beyond the happy path
 messages:
   internals: |
@@ -26,6 +26,6 @@ messages:
         DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
 renovate:
   datasource: github-releases
-  package: microsoft/dev-proxy
+  package: dotnet/dev-proxy
   extractVersion: ^v(?<version>.+)$
   priority: low

@@ -8,6 +8,7 @@ tags:
 - slides
 - presentation
 - font
+- state/stale
 homepage: https://github.com/microsoft/cascadia-code
 repository: https://github.com/microsoft/cascadia-code
 description: Monospaced font that includes programming ligatures

@@ -8,6 +8,7 @@ tags:
 - kernel/namespaces
 - lang/c
 - type/cli
+- state/stale
 homepage: https://github.com/containers/bubblewrap
 repository: https://github.com/containers/bubblewrap
 description: Unprivileged sandboxing tool

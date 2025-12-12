@@ -18,6 +18,7 @@ tags:
 - category/security
 - lang/python
 - type/cli
+- state/stale
 homepage: https://github.com/jtesta/ssh-audit
 repository: https://github.com/jtesta/ssh-audit
 description: SSH server & client security auditing

@@ -7,7 +7,6 @@ tags:
 - type/cli
 - lang/go
 - component/network
-- state/stale
 homepage: https://projectdiscovery.io
 repository: https://github.com/projectdiscovery/proxify
 description: Swiss Army knife Proxy tool for HTTP/HTTPS traffic capture, manipulation, and replay on the go.

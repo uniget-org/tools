@@ -10,12 +10,12 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 COPY --link --from=go / /usr/local/
-WORKDIR /go/src/github.com/kro-run/kro
+WORKDIR /go/src/github.com/kubernetes-sigs/kro
 ARG name
 ARG version
 RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
-check-clone "https://github.com/kro-run/kro" "v${version}"
-git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/kro-run/kro .
+check-clone "https://github.com/kubernetes-sigs/kro" "v${version}"
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/kubernetes-sigs/kro .
 cd cmd/kro
 go build -o "${prefix}/bin/kro" .
 EOF

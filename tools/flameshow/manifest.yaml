@@ -18,6 +18,7 @@ tags:
 - graph
 - plot
 - visualization
+- state/stale
 homepage: https://github.com/laixintao/flameshow
 repository: https://github.com/laixintao/flameshow
 description: Terminal flamegraph viewer

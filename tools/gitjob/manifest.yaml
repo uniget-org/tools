@@ -13,6 +13,7 @@ tags:
 - lang/go
 - standard/git
 - git
+- state/deprecated
 homepage: https://github.com/rancher/gitjob
 repository: https://github.com/rancher/gitjob
 description: Job controller to launch kubernetes jobs based on git event

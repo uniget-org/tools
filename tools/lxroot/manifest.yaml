@@ -10,6 +10,7 @@ tags:
 - category/operations
 - lang/c
 - type/cli
+- state/stale
 homepage: https://github.com/parke/lxroot
 repository: https://github.com/parke/lxroot
 description: Lightweight, flexible, and safer alternative to chroot and/or Docker

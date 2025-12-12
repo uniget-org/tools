@@ -10,6 +10,7 @@ tags:
 - type/cli
 - kubernetes
 - k8s
+- state/stale
 homepage: https://github.com/darxkies/k8s-tew
 repository: https://github.com/darxkies/k8s-tew
 description: Kubernetes - The Easier Way

@@ -8,10 +8,10 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://github.com/docker/machine/releases/download/v${version}/docker-machine-Linux-${arch}"
+url="https://github.com/docker-archive-public/docker.machine/releases/download/v${version}/docker-machine-Linux-${arch}"
 filename="$( basename "${url}" )"
 
-check-github-release-asset "docker/machine" "v${version}" "${filename}"
+check-github-release-asset "docker-archive-public/docker.machine" "v${version}" "${filename}"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
     "${url}"
 

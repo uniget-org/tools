@@ -8,6 +8,8 @@ tags:
 - cicd
 - lang/go
 - cloud/gitlab
+- state/stale
+- state/stale
 homepage: https://zaquestion.github.io/lab
 repository: https://github.com/zaquestion/lab
 description: Wraps Git or Hub, making it simple to clone, fork, and interact with repositories on GitLab

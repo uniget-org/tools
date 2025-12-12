@@ -10,6 +10,7 @@ tags:
 - lang/go
 - standard/docker
 - docker
+- state/stale
 homepage: https://github.com/EnvCLI/EnvCLI
 repository: https://github.com/EnvCLI/EnvCLI
 description: Don't install locally, use containers you define within your project

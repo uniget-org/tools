@@ -3,7 +3,7 @@ $schema: https://tools.uniget.dev/schema.yaml
 name: kro
 license:
   name: Apache License 2.0
-  link: https://github.com/kro-run/kro/blob/main/LICENSE
+  link: https://github.com/kubernetes-sigs/kro/blob/main/LICENSE
 version: "0.7.0"
 check: "" # No version parameter
 build_dependencies:
@@ -16,10 +16,10 @@ tags:
 - lang/go
 - type/daemon
 homepage: https://kro.run/
-repository: https://github.com/kro-run/kro
+repository: https://github.com/kubernetes-sigs/kro
 description: Kube Resource Orchestrator
 renovate:
   datasource: github-releases
-  package: kro-run/kro
+  package: kubernetes-sigs/kro
   extractVersion: ^v(?<version>.+)$
   priority: low

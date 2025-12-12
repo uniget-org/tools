@@ -10,6 +10,7 @@ tags:
 - type/cli
 - lang/go
 - sbom
+- state/stale
 homepage: https://github.com/devops-kung-fu/bomber
 repository: https://github.com/devops-kung-fu/bomber
 description: Scans Software Bill of Materials (SBOMs) for security vulnerabilities
