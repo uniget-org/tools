@@ -3591,6 +3591,17 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "npm",
+      "depNameTemplate": "gitlab-ci-local",
+      "fileMatch": [
+        "^tools/gitlab-ci-local/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "mvisonneau/gitlab-ci-pipelines-exporter",
       "extractVersionTemplate": "^v(?<version>.+)$",

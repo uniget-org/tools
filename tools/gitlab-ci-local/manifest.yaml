@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: gitlab-ci-local
+license:
+  name: MIT License
+  link: https://github.com/firecow/gitlab-ci-local/blob/master/LICENSE
+version: "4.63.0"
+check: ${binary} --version
+build_dependencies:
+- node-lts
+runtime_dependencies:
+- node-lts
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/typescript
+- type/cli
+- cicd
+- gitlab
+- standard/docker
+- docker
+homepage: https://github.com/firecow/gitlab-ci-local
+repository: https://github.com/firecow/gitlab-ci-local
+description: Tired of pushing to test your .gitlab-ci.yml? Run gitlab pipelines locally as shell executor or docker executor.
+renovate:
+  datasource: npm
+  package: gitlab-ci-local
+  priority: low
