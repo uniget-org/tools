@@ -9,6 +9,7 @@ tags:
 - container/init
 - type/cli
 - lang/c
+- state/stale
 homepage: https://github.com/krallin/tini
 repository: https://github.com/krallin/tini
 description: Tiny but valid init for containers

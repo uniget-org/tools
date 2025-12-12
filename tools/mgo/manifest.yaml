@@ -12,6 +12,7 @@ tags:
 - lang/go
 - type/cli
 - state/onemanshow
+- state/stale
 homepage: https://github.com/CAFxX/mgo
 repository: https://github.com/CAFxX/mgo
 description: Build and bundle multiple GOAMD64 variants in a single executable

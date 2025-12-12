@@ -11,12 +11,12 @@ tags:
 - type/cli
 - standard/git
 - git
-homepage: https://github.com/extrawurst/gitui
-repository: https://github.com/extrawurst/gitui
+homepage: https://github.com/gitui-org/gitui
+repository: https://github.com/gitui-org/gitui
 description: Blazing fast terminal-ui for git written in rust
 renovate:
   datasource: github-releases
-  package: extrawurst/gitui
+  package: gitui-org/gitui
   extractVersion: ^v(?<version>.+)$
   priority: low
 license:

@@ -6,6 +6,7 @@ tags:
 - type/cli
 - component/network
 - lang/rust
+- state/stale
 homepage: https://github.com/vi/websocat
 repository: https://github.com/vi/websocat
 description: Command-line client for WebSockets, like netcat (or curl) for ws:// with advanced socat-like functions

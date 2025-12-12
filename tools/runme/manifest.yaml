@@ -3,7 +3,7 @@ $schema: https://tools.uniget.dev/schema.yaml
 name: runme
 license:
   name: Apache License 2.0
-  link: https://github.com/stateful/runme/blob/main/LICENSE
+  link: https://github.com/runmedev/runme/blob/main/LICENSE
 version: "3.16.4"
 check: ${binary} --version | cut -d' ' -f3
 platforms:
@@ -15,10 +15,10 @@ tags:
 - type/cli
 - format/markdown
 homepage: https://runme.dev/
-repository: https://github.com/stateful/runme
+repository: https://github.com/runmedev/runme
 description: DevOps Notebooks Built with Markdown
 renovate:
   datasource: github-releases
-  package: stateful/runme
+  package: runmedev/runme
   extractVersion: ^v(?<version>.+)$
   priority: low

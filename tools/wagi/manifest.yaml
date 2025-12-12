@@ -12,6 +12,7 @@ tags:
 - webassembly
 - wasm
 - state/stale
+- state/deprecated
 messages:
   update: |
     Please provide the following libraries:

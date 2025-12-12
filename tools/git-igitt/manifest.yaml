@@ -8,7 +8,6 @@ tags:
 - lang/rust
 - standard/git
 - git
-- state/stale
 homepage: https://github.com/mlange-42/git-igitt
 repository: https://github.com/mlange-42/git-igitt
 description: Interactive, cross-platform Git terminal application with clear git graphs arranged for your branching model

@@ -10,6 +10,7 @@ tags:
 - lang/c
 - type/cli
 - format/json
+- state/stale
 homepage: https://github.com/tomnomnom/gron
 repository: https://github.com/tomnomnom/gron
 description: Make JSON greppable

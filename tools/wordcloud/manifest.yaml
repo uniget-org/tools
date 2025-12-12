@@ -15,6 +15,7 @@ tags:
 - category/development
 - lang/python
 - type/cli
+- state/stale
 homepage: https://amueller.github.io/word_cloud
 repository: https://github.com/amueller/word_cloud
 description: Little word cloud generator in Python

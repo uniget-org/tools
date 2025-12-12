@@ -16,8 +16,8 @@ tags:
 - lang/go
 - kubernetes
 - k8s
-- cncf/incubating
 - iac
+- cncf/graduated
 homepage: https://crossplane.io
 repository: https://github.com/crossplane/crossplane
 description: Cloud Native Control Planes

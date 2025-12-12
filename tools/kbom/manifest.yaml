@@ -13,6 +13,7 @@ tags:
 - sbom
 - kubernetes
 - k8s
+- state/stale
 homepage: https://github.com/rad-security/kbom
 repository: https://github.com/rad-security/kbom
 description: Kubernetes Bill of Materials

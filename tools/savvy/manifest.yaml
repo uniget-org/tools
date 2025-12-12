@@ -13,7 +13,6 @@ tags:
 - category/development
 - lang/go
 - type/cli
-- state/onemanshow
 homepage: https://getsavvy.so/
 repository: https://github.com/getsavvyinc/savvy-cli
 description: Create, share, and run runbooks from your terminal

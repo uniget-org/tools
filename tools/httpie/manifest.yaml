@@ -17,6 +17,7 @@ tags:
 - lang/python
 - type/cli
 - component/network
+- state/stale
 homepage: https://github.com/httpie/cli
 repository: https://github.com/httpie/cli
 description: Modern, user-friendly command-line HTTP client for the API era

@@ -23,10 +23,10 @@ case "${arch}" in
 esac
 echo "    Using ${arch_suffix}"
 
-url="https://github.com/stateful/runme/releases/download/v${version}/runme_linux_${arch_suffix}.tar.gz"
+url="https://github.com/runmedev/runme/releases/download/v${version}/runme_linux_${arch_suffix}.tar.gz"
 filename="$( basename "${url}" )"
 
-check-github-release-asset "stateful/runme" "v${version}" "${filename}"
+check-github-release-asset "runmedev/runme" "v${version}" "${filename}"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
     "${url}"
 

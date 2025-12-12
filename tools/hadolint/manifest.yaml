@@ -12,7 +12,6 @@ tags:
 - standard/docker
 - docker
 - lint
-- state/stale
 homepage: https://github.com/hadolint/hadolint
 repository: https://github.com/hadolint/hadolint
 description: Dockerfile linter, validate inline bash

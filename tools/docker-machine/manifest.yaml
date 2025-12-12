@@ -11,13 +11,8 @@ tags:
 - lang/go
 - docker
 homepage: https://docs.docker.com/machine/
-repository: https://github.com/docker/machine
+repository: https://github.com/docker-archive-public/docker.machine
 description: Machine management for a container-centric world
-renovate:
-  datasource: github-releases
-  package: docker/machine
-  extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: Apache License 2.0
-  link: https://github.com/docker/machine/blob/master/LICENSE
+  link: https://github.com/docker-archive-public/docker.machine/blob/master/LICENSE

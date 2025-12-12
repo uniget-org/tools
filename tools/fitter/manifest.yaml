@@ -15,6 +15,7 @@ tags:
 - type/cli
 - web
 - scraper
+- state/stale
 homepage: https://github.com/PxyUp/fitter
 repository: https://github.com/PxyUp/fitter
 description: New way for collect information from the API's/Websites

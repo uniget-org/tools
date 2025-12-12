@@ -9,7 +9,6 @@ tags:
 - kubernetes
 - k8s
 - org/vmware
-- state/stale
 homepage: https://github.com/buildpacks-community/kpack-cli
 repository: https://github.com/buildpacks-community/kpack-cli
 description: Command line interface for interacting with kpack

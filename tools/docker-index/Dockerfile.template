@@ -8,10 +8,10 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://github.com/docker/index-cli-plugin/releases/download/v${version}/docker-index_${version}_linux_${alt_arch}.tar.gz"
+url="https://github.com/docker-archive-public/docker.index-cli-plugin/releases/download/v${version}/docker-index_${version}_linux_${alt_arch}.tar.gz"
 filename="$( basename "${url}" )"
 
-check-github-release-asset "docker/index-cli-plugin" "v${version}" "${filename}"
+check-github-release-asset "docker-archive-public/docker.index-cli-plugin" "v${version}" "${filename}"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
     "${url}"
 

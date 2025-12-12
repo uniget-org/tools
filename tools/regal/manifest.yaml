@@ -3,7 +3,7 @@ $schema: https://tools.uniget.dev/schema.yaml
 name: regal
 license:
   name: Apache License 2.0
-  link: https://github.com/StyraInc/regal/blob/main/LICENSE
+  link: https://github.com/open-policy-agent/regal/blob/main/LICENSE
 version: "0.37.0"
 check: ${binary} version | grep ^Version | tr -s ' ' | cut -d' ' -f2
 platforms:
@@ -15,10 +15,10 @@ tags:
 - type/cli
 - lint
 homepage: https://docs.styra.com/regal
-repository: https://github.com/StyraInc/regal
+repository: https://github.com/open-policy-agent/regal
 description: Linter for Rego, with the goal of making your Rego magnificent
 renovate:
   datasource: github-releases
-  package: StyraInc/regal
+  package: open-policy-agent/regal
   extractVersion: ^v(?<version>.+)$
   priority: low

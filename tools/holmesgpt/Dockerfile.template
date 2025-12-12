@@ -4,7 +4,6 @@ FROM ghcr.io/uniget-org/tools/python-3.12:latest AS python
 FROM ghcr.io/uniget-org/tools/shiv:latest AS shiv
 
 FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
-#FROM registry.gitlab.com/uniget-org/images/build-essential:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -14,5 +13,5 @@ COPY --link --from=shiv / /usr/local/
 ARG name
 ARG version
 RUN --mount=type=cache,target=/root/.cache/pip <<EOF
-shiv --output-file "${prefix}/bin/holmes" --console-script holmes "https://github.com/robusta-dev/holmesgpt/archive/refs/tags/${version}.tar.gz"
+shiv --output-file "${prefix}/bin/holmes" --console-script holmes "https://github.com/HolmesGPT/holmesgpt/archive/refs/tags/${version}.tar.gz"
 EOF

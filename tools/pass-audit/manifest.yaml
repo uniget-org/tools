@@ -16,6 +16,7 @@ tags:
 - password
 - management
 - standard/pass
+- state/stale
 homepage: https://github.com/roddhjav/pass-audit
 repository: https://github.com/roddhjav/pass-audit
 description: Pass extension for importing data from most existing password managers

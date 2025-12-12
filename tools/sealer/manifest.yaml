@@ -11,7 +11,8 @@ tags:
 - type/cli
 - kubernetes
 - k8s
-- cncf/sandbox
+- cncf/archived
+- state/stale
 homepage: http://sealer.cool
 repository: https://github.com/sealerio/sealer
 description: Build, Share and Run Both Your Kubernetes Cluster and Distributed Applications

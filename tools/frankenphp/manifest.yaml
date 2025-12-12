@@ -10,14 +10,14 @@ tags:
 - category/development
 - lang/go
 - type/daemon
-homepage: https://github.com/dunglas/frankenphp
-repository: https://github.com/dunglas/frankenphp
+homepage: https://github.com/php/frankenphp
+repository: https://github.com/php/frankenphp
 description: Modern PHP app server
 renovate:
   datasource: github-releases
-  package: dunglas/frankenphp
+  package: php/frankenphp
   extractVersion: ^v(?<version>.+)$
   priority: low
 license:
   name: MIT License
-  link: https://github.com/dunglas/frankenphp/blob/main/LICENSE
+  link: https://github.com/php/frankenphp/blob/main/LICENSE

@@ -9,7 +9,6 @@ tags:
 - component/kernel
 - lang/c
 - category/monitoring
-- state/stale
 homepage: https://github.com/inotify-tools/inotify-tools
 repository: https://github.com/inotify-tools/inotify-tools
 description: Library and a set of command-line programs providing a simple interface to inotify

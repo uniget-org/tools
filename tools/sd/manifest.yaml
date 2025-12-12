@@ -14,6 +14,7 @@ tags:
 - lang/rust
 - type/cli
 - filter
+- state/stale
 homepage: https://github.com/chmln/sd
 repository: https://github.com/chmln/sd
 description: Intuitive find & replace CLI (sed alternative)

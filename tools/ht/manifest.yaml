@@ -13,7 +13,6 @@ tags:
 - category/development
 - lang/rust
 - type/cli
-- state/stale
 homepage: https://github.com/andyk/ht
 repository: https://github.com/andyk/ht
 description: headless terminal - wrap any binary with a terminal interface for easy programmatic access

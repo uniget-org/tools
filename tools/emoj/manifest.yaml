@@ -13,7 +13,6 @@ platforms:
 tags:
 - lang/javascript
 - type/cli
-- state/stale
 homepage: https://github.com/sindresorhus/emoj
 repository: https://github.com/sindresorhus/emoj
 description: Find relevant emoji from text on the command-line

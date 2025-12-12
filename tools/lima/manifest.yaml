@@ -9,7 +9,7 @@ tags:
 - vm
 - management
 - containerd
-- cncf/sandbox
+- cncf/incubating
 homepage: https://lima-vm.io/
 repository: https://github.com/lima-vm/lima
 description: Linux virtual machines, typically on macOS, for running containerd

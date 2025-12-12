@@ -12,6 +12,7 @@ tags:
 - troubleshooting
 - lang/go
 - docker
+- state/stale
 homepage: http://moncho.github.io/dry/
 repository: https://github.com/moncho/dry
 description: Docker manager for the terminal
