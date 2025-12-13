@@ -4,7 +4,7 @@ name: chalk
 license:
   name: GPLv3
   link: https://github.com/crashappsec/chalk/blob/main/LICENSE
-version: "0.6.3"
+version: "0.6.4"
 check: ${binary} version | sed -e 's/\x1b\[[0-9;]*m//g' | grep "Chalk version" | cut -d' ' -f5
 platforms:
 - linux/amd64
