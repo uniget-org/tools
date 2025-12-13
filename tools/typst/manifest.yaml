@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: typst
-version: "0.14.1"
+version: "0.14.2"
 check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
