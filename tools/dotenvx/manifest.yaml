@@ -4,7 +4,7 @@ name: dotenvx
 license:
   name: BSD 3-Clause License
   link: https://github.com/dotenvx/dotenvx/blob/main/LICENSE
-version: "1.51.1"
+version: "1.51.2"
 check: ${binary} --version
 platforms:
 - linux/amd64
