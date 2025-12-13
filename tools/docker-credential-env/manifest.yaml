@@ -4,7 +4,7 @@ name: docker-credential-env
 license:
   name: MIT License
   link: https://github.com/isometry/docker-credential-env/blob/main/LICENSE
-version: "1.5.1"
+version: "1.6.0"
 check: ${binary} version | cut -d' ' -f3
 platforms:
 - linux/amd64
