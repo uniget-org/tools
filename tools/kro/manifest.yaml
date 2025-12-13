@@ -4,7 +4,7 @@ name: kro
 license:
   name: Apache License 2.0
   link: https://github.com/kubernetes-sigs/kro/blob/main/LICENSE
-version: "0.7.0"
+version: "0.7.1"
 check: "" # No version parameter
 build_dependencies:
 - go
