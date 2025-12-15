@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: util-linux
-version: "2.41.2"
+version: "2.41.3"
 binary: lsns
 check: ${binary} --version | cut -d' ' -f4
 tags:
