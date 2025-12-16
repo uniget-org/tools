@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: jx
-version: "3.16.35"
+version: "3.16.39"
 check: ${binary} version --short
 platforms:
 - linux/amd64
