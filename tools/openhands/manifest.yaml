@@ -4,7 +4,7 @@ name: openhands
 license:
   name: MIT License
   link: https://github.com/All-Hands-AI/OpenHands/blob/main/LICENSE
-version: "0.59.0"
+version: "1.0.0"
 check: ${binary} --version 2>/dev/null | cut -d' ' -f4
 build_dependencies:
 - python-3.12
