@@ -4,7 +4,7 @@ name: rare
 license:
   name: GPLv3
   link: https://github.com/zix99/rare/blob/master/LICENSE
-version: "0.5.3"
+version: "0.5.4"
 check: ${binary} --version | cut -d, -f1 | cut -d' ' -f3
 platforms:
 - linux/amd64
