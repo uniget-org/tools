@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: php
-version: "8.5.0"
+version: "8.5.1"
 check: ${binary} --version | grep ^PHP | cut -d' ' -f2
 build_dependencies:
 - spc
