@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: dasel
-version: "3.0.0"
+version: "3.1.1"
 check: ${binary} --version | cut -d' ' -f3 | tr -d v
 tags:
 - type/cli
