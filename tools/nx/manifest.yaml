@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: nx
-version: "22.2.6"
+version: "22.2.7"
 check: ${binary} --version | grep Global | cut -d' ' -f3 | tr -d v
 build_dependencies:
 - node-lts
