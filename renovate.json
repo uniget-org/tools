@@ -2061,7 +2061,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "microsoft/dev-proxy",
+      "depNameTemplate": "dotnet/dev-proxy",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/devproxy/manifest.yaml$"
@@ -2372,18 +2372,6 @@
     },
     {
       "customType": "regex",
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "docker/index-cli-plugin",
-      "extractVersionTemplate": "^v(?<version>.+)$",
-      "fileMatch": [
-        "^tools/docker-index/manifest.yaml$"
-      ],
-      "matchStrings": [
-        "version: \"?(?<currentValue>.*?)\"?\\n"
-      ]
-    },
-    {
-      "customType": "regex",
       "datasourceTemplate": "gitlab-releases",
       "depNameTemplate": "uniget-org/renovate-custom",
       "extractVersionTemplate": "^docker-init/(?<version>.+)$",
@@ -2394,18 +2382,6 @@
         "version: \"?(?<currentValue>.*?)\"?\\n"
       ],
       "versioningTemplate": "loose"
-    },
-    {
-      "customType": "regex",
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "docker/machine",
-      "extractVersionTemplate": "^v(?<version>.+)$",
-      "fileMatch": [
-        "^tools/docker-machine/manifest.yaml$"
-      ],
-      "matchStrings": [
-        "version: \"?(?<currentValue>.*?)\"?\\n"
-      ]
     },
     {
       "customType": "regex",
@@ -3215,7 +3191,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "dunglas/frankenphp",
+      "depNameTemplate": "php/frankenphp",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/frankenphp/manifest.yaml$"
@@ -3697,7 +3673,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "extrawurst/gitui",
+      "depNameTemplate": "gitui-org/gitui",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/gitui/manifest.yaml$"
@@ -4355,7 +4331,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "robusta-dev/holmesgpt",
+      "depNameTemplate": "HolmesGPT/holmesgpt",
       "fileMatch": [
         "^tools/holmesgpt/manifest.yaml$"
       ],
@@ -5466,7 +5442,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "kro-run/kro",
+      "depNameTemplate": "kubernetes-sigs/kro",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/kro/manifest.yaml$"
@@ -6479,7 +6455,7 @@
       "depNameTemplate": "longhorn/cli",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
-        "^tools/loghornctl/manifest.yaml$"
+        "^tools/longhornctl/manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
@@ -7587,7 +7563,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "cloudentity/oauth2c",
+      "depNameTemplate": "SecureAuthCorp/oauth2c",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/oauth2c/manifest.yaml$"
@@ -8841,7 +8817,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "StyraInc/regal",
+      "depNameTemplate": "open-policy-agent/regal",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/regal/manifest.yaml$"
@@ -9041,7 +9017,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "stateful/runme",
+      "depNameTemplate": "runmedev/runme",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
         "^tools/runme/manifest.yaml$"
@@ -9092,6 +9068,17 @@
       "depNameTemplate": "rust-lang/rust",
       "fileMatch": [
         "^tools/rust/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "rustfs/rustfs",
+      "fileMatch": [
+        "^tools/rustfs/manifest.yaml$"
       ],
       "matchStrings": [
         "version: \"?(?<currentValue>.*?)\"?\\n"
