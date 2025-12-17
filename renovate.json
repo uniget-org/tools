@@ -9111,6 +9111,17 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "rustfs/rustfs",
+      "fileMatch": [
+        "^tools/rustfs/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "spinel-coop/rv",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
