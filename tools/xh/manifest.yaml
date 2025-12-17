@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: xh
-version: "0.25.0"
+version: "0.25.3"
 check: ${binary} --version | grep ^xh | cut -d' ' -f2
 platforms:
 - linux/amd64
