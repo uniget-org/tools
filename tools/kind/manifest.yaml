@@ -3,7 +3,7 @@ name: kind
 license:
   name: Apache License 2.0
   link: https://github.com/kubernetes-sigs/kind/blob/main/LICENSE
-version: "0.30.0"
+version: "0.31.0"
 check: ${binary} version | cut -d' ' -f1-2 | cut -d' ' -f2 | tr -d v
 runtime_dependencies:
 - docker
