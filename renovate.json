@@ -3733,6 +3733,18 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "junkdog/glim",
+      "extractVersionTemplate": "^glim-v(?<version>.+)$",
+      "fileMatch": [
+        "^tools/glim/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "charmbracelet/glow",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [

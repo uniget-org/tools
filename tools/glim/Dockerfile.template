@@ -1,0 +1,26 @@
+#syntax=docker/dockerfile:1.20.0@sha256:26147acbda4f14c5add9946e2fd2ed543fc402884fd75146bd342a7f6271dc1d
+
+FROM ghcr.io/uniget-org/tools/rust:latest AS rust
+
+FROM registry.gitlab.com/uniget-org/images/build-essential:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+RUN --mount=type=cache,target=/var/cache/apt <<EOF
+apt-get update
+apt-get -y install --no-install-recommends \
+    libssl-dev
+EOF
+COPY --link --from=rust / /usr/local/
+WORKDIR /tmp/github.com/junkdog/glim
+ARG name
+ARG version
+RUN <<EOF
+git clone -q --config advice.detachedHead=false --depth 1 --branch "glim-v${version}" https://github.com/junkdog/glim .
+export CARGO_HOME=/usr/local/cargo
+export RUSTUP_HOME=/usr/local/rustup
+export RUSTFLAGS='-C target-feature=+crt-static'
+cargo build --release --target "${arch}-unknown-linux-gnu"
+cp "target/${arch}-unknown-linux-gnu/release/glim" "${prefix}/bin/"
+EOF

@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: glim
+license:
+  name: MIT License
+  link: https://github.com/junkdog/glim/blob/main/LICENSE
+version: "0.2.1"
+check: ${binary} --version | cut -d' ' -f2
+build_dependencies:
+- rust
+platforms:
+- linux/amd64
+tags:
+- category/development
+- lang/rust
+- type/tui
+- gitlab
+homepage: https://github.com/junkdog/glim
+repository: https://github.com/junkdog/glim
+description: TUI for monitoring GitLab CI/CD pipelines and projects
+renovate:
+  datasource: github-releases
+  package: junkdog/glim
+  extractVersion: ^glim-v(?<version>.+)$
+  priority: low
