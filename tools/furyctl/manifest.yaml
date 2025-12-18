@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: furyctl
-version: "0.33.1"
+version: "0.33.2"
 check: ${binary} version | grep ^version | cut -d' ' -f2
 tags:
 - type/cli
