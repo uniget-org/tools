@@ -20,14 +20,9 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
     "${url}"
 
 echo "Verifying keyless signature for kubectl"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.sig" \
-    "${url}.sig"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.cert" \
-    "${url}.cert"
-
-COSIGN_EXPERIMENTAL=1 cosign verify-blob "${uniget_cache_download}/${filename}" \
-    --signature "${uniget_cache_download}/${filename}.sig" \
-    --certificate "${uniget_cache_download}/${filename}.cert" \
+cosign verify-blob "${uniget_cache_download}/${filename}" \
+    --signature "${url}.sig" \
+    --certificate "${url}.cert" \
     --certificate-oidc-issuer https://accounts.google.com \
     --certificate-identity krel-staging@k8s-releng-prod.iam.gserviceaccount.com
 
@@ -47,14 +42,9 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
     "${url}"
 
 echo "Verifying keyless signature for kubectl-convert"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.sig" \
-    "${url}.sig"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.cert" \
-    "${url}.cert"
-
-COSIGN_EXPERIMENTAL=1 cosign verify-blob "${uniget_cache_download}/${filename}" \
-    --signature "${uniget_cache_download}/${filename}.sig" \
-    --certificate "${uniget_cache_download}/${filename}.cert" \
+cosign verify-blob "${uniget_cache_download}/${filename}" \
+    --signature "${url}.sig" \
+    --certificate "${url}.cert" \
     --certificate-oidc-issuer https://accounts.google.com \
     --certificate-identity krel-staging@k8s-releng-prod.iam.gserviceaccount.com
 
