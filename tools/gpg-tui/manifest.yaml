@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: gpg-tui
+license:
+  name: MIT License
+  link: https://github.com/orhun/gpg-tui/blob/master/LICENSE
+version: "0.11.1"
+check: ""
+build_dependencies:
+- rust
+platforms:
+- linux/amd64
+tags:
+- category/operations
+- lang/rust
+- type/tui
+homepage: https://github.com/orhun/gpg-tui
+repository: https://github.com/orhun/gpg-tui
+description: Some description
+renovate:
+  datasource: github-releases
+  package: orhun/gpg-tui
+  extractVersion: ^v(?<version>.+)$
+  priority: low
