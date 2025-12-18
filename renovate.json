@@ -649,6 +649,17 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "pypi",
+      "depNameTemplate": "@usebruno/cli",
+      "fileMatch": [
+        "^tools/bruno/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "containers/bubblewrap",
       "extractVersionTemplate": "^v(?<version>.+)$",

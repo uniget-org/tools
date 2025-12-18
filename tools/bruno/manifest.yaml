@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: bruno
+license:
+  name: MIT License
+  link: https://github.com/usebruno/bruno/blob/main/license.md
+version: "2.15.1"
+binary: bru
+check: ${binary} --version
+build_dependencies:
+- python-3.12
+- shiv
+runtime_dependencies:
+- python-3.12
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/python
+- type/cli
+- testing
+- api
+homepage: https://www.usebruno.com/
+repository: https://github.com/usebruno/bruno
+description: Open source IDE For exploring and testing APIs
+renovate:
+  datasource: pypi
+  package: "@usebruno/cli"
+  priority: low

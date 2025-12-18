@@ -1,0 +1,25 @@
+#syntax=docker/dockerfile:1.20.0@sha256:26147acbda4f14c5add9946e2fd2ed543fc402884fd75146bd342a7f6271dc1d
+
+FROM ghcr.io/uniget-org/tools/node-lts:latest AS node
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+#FROM registry.gitlab.com/uniget-org/images/build-essential:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+COPY --link --from=node / /usr/local/
+WORKDIR /uniget_bootstrap/libexec/bru
+ARG name
+ARG version
+RUN <<EOF
+npm install \
+    --omit=dev \
+    "@usebruno/cli@${version}"
+ln --symbolic --relative --force "${prefix}/libexec/bru/node_modules/.bin/bru" "${prefix}/bin/"
+EOF
+#RUN <<EOF
+#"${prefix}/bin/bru" completion bash >"${prefix}/share/bash-completion/completions/bru"
+#"${prefix}/bin/bru" completion fish >"${prefix}/share/fish/vendor_completions.d/bru.fish"
+#"${prefix}/bin/bru" completion zsh >"${prefix}/share/zsh/vendor-completions/_bru"
+#EOF
