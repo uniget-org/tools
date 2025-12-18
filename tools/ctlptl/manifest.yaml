@@ -4,7 +4,7 @@ name: ctlptl
 license:
   name: Apache License 2.0
   link: https://github.com/tilt-dev/ctlptl/blob/main/LICENSE
-version: "0.8.43"
+version: "0.8.44"
 check: ${binary} version | cut -d, -f1 | tr -d v
 platforms:
 - linux/amd64
