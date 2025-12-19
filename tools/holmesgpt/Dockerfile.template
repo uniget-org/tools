@@ -1,7 +1,7 @@
 #syntax=docker/dockerfile:1.20.0@sha256:26147acbda4f14c5add9946e2fd2ed543fc402884fd75146bd342a7f6271dc1d
 
 FROM ghcr.io/uniget-org/tools/python-3.12:latest AS python
-FROM ghcr.io/uniget-org/tools/shiv:latest AS shiv
+FROM ghcr.io/uniget-org/tools/pipx:latest AS pipx
 
 FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
@@ -9,9 +9,14 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=python / /usr/local/
-COPY --link --from=shiv / /usr/local/
+COPY --link --from=pipx / /usr/local/
 ARG name
 ARG version
 RUN --mount=type=cache,target=/root/.cache/pip <<EOF
-shiv --output-file "${prefix}/bin/holmes" --console-script holmes "https://github.com/HolmesGPT/holmesgpt/archive/refs/tags/${version}.tar.gz"
+export PIPX_HOME="${prefix}/libexec/pipx"
+export PIPX_BIN_DIR="${prefix}/bin"
+pipx install holmesgpt=="${version}"
+pipx-fix-venv-pyvenv-cfg holmesgpt
+ln --symbolic --relative --force "${prefix}/libexec/pipx/venvs/holmesgpt/bin/holmes" "${prefix}/bin/"
+sed -i "s|#\!${prefix}/|#\!/|" "${prefix}/libexec/pipx/venvs/holmesgpt/bin/holmes"
 EOF
