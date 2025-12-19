@@ -8,16 +8,18 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://github.com/armosec/kubescape/releases/download/v${version}/kubescape-ubuntu-latest.tar.gz"
+url="https://github.com/kubescape/kubescape/releases/download/v${version}/kubescape_${version}_linux_${alt_arch}.tar.gz"
 filename="$( basename "${url}" )"
 
-check-github-release-asset "armosec/kubescape" "v${version}" "${filename}"
+check-github-release-asset "kubescape/kubescape" "v${version}" "${filename}"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
     "${url}"
 
 tar --file="${uniget_cache_download}/${filename}" --list
-tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin" --no-same-owner
-mv "${prefix}/bin/kubescape-ubuntu-latest" "${prefix}/bin/kubescape"
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin" --no-same-owner \
+    kubescape
+EOF
+RUN <<EOF
 "${prefix}/bin/kubescape" completion bash >"${prefix}/share/bash-completion/completions/kubescape"
 "${prefix}/bin/kubescape" completion fish >"${prefix}/share/fish/vendor_completions.d/kubescape.fish"
 "${prefix}/bin/kubescape" completion zsh >"${prefix}/share/zsh/vendor-completions/_kubescape"
