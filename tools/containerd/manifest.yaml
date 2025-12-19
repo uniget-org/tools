@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: containerd
-version: "2.2.0"
+version: "2.2.1"
 check: ${binary} --version | cut -d' ' -f3 | tr -d v
 build_dependencies:
 - go-md2man
