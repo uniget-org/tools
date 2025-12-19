@@ -5,7 +5,7 @@ license:
   name: MIT License
   link: https://github.com/orhun/gpg-tui/blob/master/LICENSE
 version: "0.11.1"
-check: ""
+check: ${binary} --version | cut -d' ' -f2
 build_dependencies:
 - rust
 platforms:
@@ -14,9 +14,10 @@ tags:
 - category/operations
 - lang/rust
 - type/tui
+- standard/pgp
 homepage: https://github.com/orhun/gpg-tui
 repository: https://github.com/orhun/gpg-tui
-description: Some description
+description: Manage your GnuPG keys with ease
 renovate:
   datasource: github-releases
   package: orhun/gpg-tui
