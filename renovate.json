@@ -7764,8 +7764,9 @@
     },
     {
       "customType": "regex",
-      "datasourceTemplate": "pypi",
-      "depNameTemplate": "openhands-ai",
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "OpenHands/OpenHands",
+      "extractVersionTemplate": "^(?<version>.+)-cli$",
       "fileMatch": [
         "^tools/openhands/manifest.yaml$"
       ],
