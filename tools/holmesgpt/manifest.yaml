@@ -9,7 +9,7 @@ binary: holmes
 check: ${binary} version | cut -d' ' -f2 | cut -d- -f1
 build_dependencies:
 - python-3.12
-- shiv
+- pipx
 runtime_dependencies:
 - python-3.12
 platforms:
