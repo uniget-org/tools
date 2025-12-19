@@ -7,11 +7,6 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-RUN --mount=type=cache,target=/var/cache/apt <<EOF
-apt-get update
-apt-get -y install --no-install-recommends \
-    musl-dev
-EOF
 COPY --link --from=rust / /usr/local/
 ARG name
 ARG version
@@ -21,8 +16,8 @@ git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" 
 export CARGO_HOME=/usr/local/cargo
 export RUSTUP_HOME=/usr/local/rustup
 export RUSTFLAGS="-Clink-arg=-lm"
-cargo build --release --target="${arch}-unknown-linux-musl" -p rustfs --bins
-cp "target/${arch}-unknown-linux-musl/release/rustfs" "${prefix}/bin/"
+cargo build --release --target="${arch}-unknown-linux-gnu" -p rustfs --bins
+cp "target/${arch}-unknown-linux-gnu/release/rustfs" "${prefix}/bin/"
 EOF
 COPY rustfs.service.go-template /uniget_bootstrap/etc/systemd/system/
 #RUN <<EOF
