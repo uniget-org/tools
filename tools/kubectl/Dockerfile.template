@@ -21,7 +21,7 @@ check-download "${url}"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
     "${url}"
 
-if test "${version}" == "1.35.0"; then
+if test "${version}" == "1.35.0" && test "${alt_arch}" == "amd64"; then
     echo "### Applying fix for 1.35.0"
 
     REKOR_UUID_KUBECTL=108e9186e8c5677a0d75f1d86fbb64dd10a3e796fe62fa95e6b4707ceec7e91cfe741ba456a23bc0
