@@ -15,12 +15,19 @@ RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 url="https://download.docker.com/linux/static/stable/${arch}/docker-${version}.tgz"
 filename="$( basename "${url}" )"
 
+echo "### Downloading Docker engine tarball"
 check-download "${url}"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
     "${url}"
+echo "+ SHA256: $( sha256sum "${uniget_cache_download}/${filename}" | cut -f2 )"
 
+echo "### Contents:"
 tar --file="${uniget_cache_download}/${filename}" --list
-tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/libexec/${name}/bin" --no-same-owner --strip-components=1
+
+echo "### Extracting Docker engine binaries"
+if ! tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/libexec/${name}/bin" --no-same-owner --strip-components=1; then
+    tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/libexec/${name}/bin" --no-same-owner --strip-components=1
+fi
 mv "${prefix}/libexec/${name}/bin/dockerd"      "${prefix}/bin/"
 mv "${prefix}/libexec/${name}/bin/docker"       "${prefix}/bin/"
 mv "${prefix}/libexec/${name}/bin/docker-proxy" "${prefix}/bin/"
