@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: gvisor
-version: "20251208"
+version: "20251215"
 binary: ${target}/bin/runsc
 check: ${binary} --version | grep ^runsc | cut -d' ' -f3 | cut -d- -f2 | cut -d. -f1
 runtime_dependencies:
