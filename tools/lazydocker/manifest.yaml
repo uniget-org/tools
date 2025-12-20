@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: lazydocker
-version: "0.24.2"
+version: "0.24.3"
 check: ${binary} --version | grep Version | cut -d' ' -f2
 runtime_dependencies:
 - docker
