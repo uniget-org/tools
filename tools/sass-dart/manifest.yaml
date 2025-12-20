@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: sass-dart
-version: "1.97.0"
+version: "1.97.1"
 binary: sass
 check: ${binary} --version
 runtime_dependencies:
