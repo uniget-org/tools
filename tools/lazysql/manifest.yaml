@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: lazysql
-version: "0.4.3"
+version: "0.4.4"
 check: "" # No version parameter
 platforms:
 - linux/amd64
