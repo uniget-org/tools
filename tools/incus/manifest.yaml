@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: incus
-version: "6.19.1"
+version: "6.20.0"
 check: "" # Prints truncated version
 platforms:
 - linux/amd64
