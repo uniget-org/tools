@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: podman-tui
-version: "1.9.0"
+version: "1.10.0"
 check: ${binary} version | cut -d' ' -f2 | tr -d v
 build_dependencies:
 - go
