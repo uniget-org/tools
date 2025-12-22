@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: zot
-version: "2.1.11"
+version: "2.1.12"
 check: ${binary} --version 2>&1 | jq --raw-output '.commit' | cut -d- -f1 | tr -d v
 tags:
 - standard/oci
