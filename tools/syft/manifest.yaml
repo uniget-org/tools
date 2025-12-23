@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: syft
-version: "1.38.2"
+version: "1.39.0"
 check: ${binary} version 2>&1 | grep ^Version | tr -s ' ' | cut -d' ' -f2
 platforms:
 - linux/amd64
