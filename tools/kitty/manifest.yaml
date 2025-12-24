@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: kitty
-version: "0.44.0"
+version: "0.45.0"
 check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
