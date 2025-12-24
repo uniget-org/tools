@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: aws
-version: "1.44.5"
+version: "1.44.6"
 check: ${binary} --version | cut -d' ' -f1 | cut -d/ -f2
 build_dependencies:
 - python-3.12
