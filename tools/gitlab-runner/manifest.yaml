@@ -3,7 +3,7 @@ name: gitlab-runner
 license:
   name: MIT License
   link: https://gitlab.com/gitlab-org/gitlab-runner/-/blob/main/LICENSE?ref_type=heads
-version: "18.7.0"
+version: "18.7.1"
 check: ${binary} --version | grep ^Version | tr -s ' ' | cut -d' ' -f2
 platforms:
 - linux/amd64
