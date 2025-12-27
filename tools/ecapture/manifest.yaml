@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: ecapture
-version: "1.5.1"
+version: "1.5.2"
 check: "${binary} --version | grep ^ecapture | cut -d: -f3 | tr -d v"
 platforms:
 - linux/amd64
