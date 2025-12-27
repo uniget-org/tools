@@ -4,7 +4,7 @@ name: goskyr
 license:
   name: GPLv3
   link: https://github.com/jakopako/goskyr/blob/main/LICENSE
-version: "0.7.6"
+version: "0.7.7"
 check: ${binary} -v | tr -d v
 build_dependencies:
 - go
