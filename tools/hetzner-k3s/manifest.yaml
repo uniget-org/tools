@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: hetzner-k3s
-version: "2.4.3"
+version: "2.4.4"
 check: ${binary} --version
 platforms:
 - linux/amd64
