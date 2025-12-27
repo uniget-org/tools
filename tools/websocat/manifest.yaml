@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: websocat
-version: "1.14.0"
+version: "1.14.1"
 check: ${binary} --version | cut -d' ' -f2
 tags:
 - type/cli
