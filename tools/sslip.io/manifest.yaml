@@ -4,7 +4,7 @@ name: sslip.io
 license:
   name: Apache License 2.0
   link: https://github.com/cunnie/sslip.io/blob/main/LICENSE
-version: "5.0.0"
+version: "5.0.1"
 check: "" # No version parameter
 platforms:
 - linux/amd64
