@@ -4,7 +4,7 @@ name: httpjail
 license:
   name: CC0-1.0
   link: https://github.com/coder/httpjail/blob/main/LICENSE
-version: "0.6.0"
+version: "0.6.1"
 check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
