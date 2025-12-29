@@ -4,7 +4,7 @@ name: ggshield
 license:
   name: MIT License
   link: https://github.com/GitGuardian/ggshield/blob/main/LICENSE
-version: "1.45.0"
+version: "1.46.0"
 check: ${binary} --version | cut -d' ' -f3
 build_dependencies:
 - python-3.12
