@@ -4,7 +4,7 @@ name: exo
 license:
   name: Apache License 2.0
   link: https://github.com/exoscale/cli/blob/master/LICENSE
-version: "1.88.0"
+version: "1.89.0"
 check: ${binary} version | cut -d' ' -f2
 platforms:
 - linux/amd64
