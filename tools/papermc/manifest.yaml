@@ -4,7 +4,7 @@ name: papermc
 license:
   name: GPLv3, MIT License
   link: https://github.com/PaperMC/Paper/blob/main/LICENSE.md
-version: "1.21.10-115"
+version: "1.21.11-69"
 binary: "false"
 check: "" # No binary
 runtime_dependencies:
