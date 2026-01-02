@@ -4,7 +4,7 @@ name: upctl
 license:
   name: MIT License
   link: https://github.com/UpCloudLtd/upcloud-cli/blob/main/LICENSE
-version: "3.26.0"
+version: "3.27.0"
 check: ${binary} version | tr -s ' ' | grep "^ Version:" | cut -d' ' -f3
 platforms:
 - linux/amd64
