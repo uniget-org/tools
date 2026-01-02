@@ -4,7 +4,7 @@ name: starship
 license:
   name: ISC
   link: https://github.com/starship/starship/blob/master/LICENSE
-version: "1.24.1"
+version: "1.24.2"
 check: ${binary} --version | grep ^starship | cut -d' ' -f2
 platforms:
 - linux/amd64
