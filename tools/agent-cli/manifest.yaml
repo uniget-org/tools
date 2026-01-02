@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: agent-cli
+license:
+  name: MIT License
+  link: https://github.com/basnijholt/agent-cli/blob/main/LICENSE
+version: "0.21.1"
+check: ""
+build_dependencies:
+- python-3.12
+- shiv
+runtime_dependencies:
+- python-3.12
+- zellij
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/python
+- type/cli
+- ai
+- llm
+homepage: https://github.com/basnijholt/agent-cli
+repository: https://github.com/basnijholt/agent-cli
+description: Suite of local AI-powered command-line tools
+renovate:
+  datasource: pypi
+  package: agent-cli
+  priority: low
