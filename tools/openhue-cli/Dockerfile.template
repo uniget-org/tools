@@ -34,8 +34,3 @@ tar --file="${uniget_cache_download}/${filename}" --list
 tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin" --no-same-owner \
     openhue
 EOF
-RUN <<EOF
-"${prefix}/bin/openhue" completion bash >"${prefix}/share/bash-completion/completions/openhue"
-"${prefix}/bin/openhue" completion fish >"${prefix}/share/fish/vendor_completions.d/openhue.fish"
-"${prefix}/bin/openhue" completion zsh >"${prefix}/share/zsh/vendor-completions/_openhue"
-EOF
