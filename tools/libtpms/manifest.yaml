@@ -4,7 +4,7 @@ name: libtpms
 license:
   name: Custom
   link: https://github.com/stefanberger/libtpms/blob/master/LICENSE
-version: "0.10.1"
+version: "0.10.2"
 check: cat ${prefix}/lib/pkgconfig/libtpms.pc | grep ^Version | cut -d' ' -f2
 platforms:
 - linux/amd64
