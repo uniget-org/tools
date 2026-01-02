@@ -9852,6 +9852,17 @@
     },
     {
       "customType": "regex",
+      "datasourceTemplate": "npm",
+      "depNameTemplate": "@anthropic-ai/sandbox-runtime",
+      "fileMatch": [
+        "^tools/srt/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
       "datasourceTemplate": "pypi",
       "depNameTemplate": "ssh-audit",
       "fileMatch": [
