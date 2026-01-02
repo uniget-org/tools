@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: nuclei
-version: "3.6.1"
+version: "3.6.2"
 check: ${binary} --version 2>&1 | grep "Nuclei Engine Version" | cut -dv -f2
 runtime_dependencies:
 - nuclei-templates
