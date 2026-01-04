@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: ezghsa
-version: "0.4.0"
+version: "0.4.1"
 check: "" # No useful output
 platforms:
 - linux/amd64
