@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: k0s
-version: "1.34.2+k0s.0"
+version: "1.34.3+k0s.0"
 check: ${binary} version
 platforms:
 - linux/amd64
