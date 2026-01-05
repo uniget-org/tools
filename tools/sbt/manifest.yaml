@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: sbt
-version: "1.11.7"
+version: "1.12.0"
 check: cat ${binary} | grep "declare init_sbt_version" | cut -d= -f2
 platforms:
 - linux/amd64
