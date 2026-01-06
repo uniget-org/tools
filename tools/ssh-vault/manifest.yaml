@@ -4,7 +4,7 @@ name: ssh-vault
 license:
   name: BSD-3-Clause
   link: https://github.com/ssh-vault/ssh-vault/blob/main/LICENSE
-version: "1.2.0"
+version: "1.2.1"
 check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
