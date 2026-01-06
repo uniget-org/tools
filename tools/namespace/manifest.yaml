@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: namespace
-version: "0.0.459"
+version: "0.0.460"
 binary: nsc
 check: ${binary} version | grep ^version | cut -d' ' -f2 | tr -d v
 platforms:
