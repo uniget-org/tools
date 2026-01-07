@@ -4,7 +4,7 @@ name: cagent
 license:
   name: Apache License 2.0
   link: https://github.com/docker/cagent/blob/main/LICENSE
-version: "1.18.5"
+version: "1.18.6"
 check: ${binary} version | grep ^cagent | cut -d' ' -f3 | tr -d v
 platforms:
 - linux/amd64
