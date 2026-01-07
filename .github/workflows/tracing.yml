@@ -24,7 +24,7 @@ jobs:
       uses: paper2/github-actions-opentelemetry@main
       env:
         OTEL_SERVICE_NAME: grafanacloud-nicholasdille-traces
-        OTEL_EXPORTER_OTLP_ENDPOINT: https://tempo-us-central1.grafana.net/tempo
+        OTEL_EXPORTER_OTLP_ENDPOINT: https://otlp-gateway-prod-us-central-0.grafana.net/otlp
         OTEL_EXPORTER_OTLP_HEADERS: "Authorization=Basic ${ secrets.TRACES_AUTH_BASIC }"
         OTEL_RESOURCE_ATTRIBUTES: 'app=uniget,component=tools'
       with:
