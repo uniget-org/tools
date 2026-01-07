@@ -25,7 +25,7 @@ jobs:
       env:
         OTEL_SERVICE_NAME: uniget-github-tools
         OTEL_EXPORTER_OTLP_ENDPOINT: https://otlp-gateway-prod-us-central-0.grafana.net/otlp
-        OTEL_EXPORTER_OTLP_HEADERS: "Authorization=Basic ${ secrets.TRACES_AUTH_BASIC }"
+        OTEL_EXPORTER_OTLP_HEADERS: "Authorization=Basic ${{ secrets.TRACES_AUTH_BASIC }}"
         OTEL_RESOURCE_ATTRIBUTES: 'app=uniget,component=tools'
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
