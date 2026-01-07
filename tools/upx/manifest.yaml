@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: upx
-version: "5.0.2"
+version: "5.1.0"
 check: ${binary} --version | grep ^upx | cut -d' ' -f2
 platforms:
 - linux/amd64
