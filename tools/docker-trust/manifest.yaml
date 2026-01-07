@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
-name: docker
+name: docker-trust
 version: "29.1.1"
 check: ""
 runtime_dependencies:
@@ -17,7 +17,7 @@ tags:
 - type/cli
 - lang/go
 homepage: https://mobyproject.org/
-repository: https://github.com/docker/cli/tree/v29.0.0/cmd/docker-trust
+repository: https://github.com/docker/cli/tree/master/cmd/docker-trust
 description: Docker Content Trust
 renovate:
   datasource: github-releases
