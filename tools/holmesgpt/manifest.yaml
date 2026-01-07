@@ -4,7 +4,7 @@ name: holmesgpt
 license:
   name: MIT License
   link: https://github.com/HolmesGPT/holmesgpt/blob/master/LICENSE.txt
-version: "0.18.2"
+version: "0.18.3"
 binary: holmes
 check: ${binary} version | cut -d' ' -f2 | cut -d- -f1
 build_dependencies:
