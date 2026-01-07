@@ -21,11 +21,11 @@ jobs:
     steps:
     - name: Run
       id: run
-      uses: paper2/github-actions-opentelemetry@main
+      uses: paper2/github-actions-opentelemetry@v0.9.2
       env:
-        OTEL_SERVICE_NAME: grafanacloud-nicholasdille-traces
+        OTEL_SERVICE_NAME: uniget-github-tools
         OTEL_EXPORTER_OTLP_ENDPOINT: https://otlp-gateway-prod-us-central-0.grafana.net/otlp
-        OTEL_EXPORTER_OTLP_HEADERS: "Authorization=Basic ${ secrets.TRACES_AUTH_BASIC }"
+        OTEL_EXPORTER_OTLP_HEADERS: "Authorization=Basic MTMyMzIzOmdsY19leUp2SWpvaU5EQTBNemMySWl3aWJpSTZJbk4wWVdOckxURXpNak15TXkxdmRHeHdMWGR5YVhSbExYVnVhV2RsZEMxMGIyOXNjeUlzSW1zaU9pSkROMGREVmpsV09FOW1PWGt3WlRkYU9EUTNhM2R0VVRFaUxDSnRJanA3SW5JaU9pSjFjeUo5ZlE9PQ=="
         OTEL_RESOURCE_ATTRIBUTES: 'app=uniget,component=tools'
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
