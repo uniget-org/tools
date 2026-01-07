@@ -4,7 +4,7 @@ name: mirrord
 license:
   name: MIT License
   link: https://github.com/metalbear-co/mirrord/blob/main/LICENSE
-version: "3.179.0"
+version: "3.180.0"
 check: ${binary} --version |cut -d' ' -f2
 platforms:
 - linux/amd64
