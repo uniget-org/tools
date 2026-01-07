@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: curl
-version: "8.17.0"
+version: "8.18.0"
 check: ${binary} --version | grep ^curl | cut -d' ' -f2
 platforms:
 - linux/amd64
