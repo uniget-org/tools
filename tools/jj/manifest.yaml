@@ -4,7 +4,7 @@ name: jj
 license:
   name: Apache License 2.0
   link: https://github.com/jj-vcs/jj/blob/main/LICENSE
-version: "0.36.0"
+version: "0.37.0"
 check: ${binary} --version | cut -d' ' -f2 | cut -d- -f1
 platforms:
 - linux/amd64
