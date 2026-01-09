@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: docker-credential-helpers
-version: "0.9.4"
+version: "0.9.5"
 binary: docker-credential-pass
 check: ${binary} version | cut -d' ' -f3 | tr -d v
 runtime_dependencies:
