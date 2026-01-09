@@ -62,7 +62,6 @@ plugins=(
     get-all
     graph
     grep
-    hns
     ice
     ingress-nginx
     images
