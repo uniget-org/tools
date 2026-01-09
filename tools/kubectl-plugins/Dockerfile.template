@@ -52,6 +52,7 @@ plugins=(
     evict-pod
     exec-as
     exec-cronjob
+    explore
     fields
     flame
     fleet
