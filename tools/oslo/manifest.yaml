@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: oslo
+license:
+  name: Apache License 2.0
+  link: https://github.com/OpenSLO/oslo/blob/main/LICENSE
+version: "0.13.0"
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/openslo
+- category/observability
+- lang/go
+- type/cli
+homepage: https://openslo.com/
+repository: https://github.com/OpenSLO/oslo
+description: CLI tool for the OpenSLO spec, the declarative language for service level objectives (SLO)
+renovate:
+  datasource: github-releases
+  package: OpenSLO/oslo
+  extractVersion: ^v(?<version>.+)$
+  priority: low
