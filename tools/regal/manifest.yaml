@@ -4,7 +4,7 @@ name: regal
 license:
   name: Apache License 2.0
   link: https://github.com/open-policy-agent/regal/blob/main/LICENSE
-version: "0.37.0"
+version: "0.38.0"
 check: ${binary} version | grep ^Version | tr -s ' ' | cut -d' ' -f2
 platforms:
 - linux/amd64
