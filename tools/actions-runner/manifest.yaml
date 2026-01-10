@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: actions-runner
-version: "2.330.0"
+version: "2.331.0"
 binary: ${target}/opt/actions-runner/bin/Runner.Listener
 check: ${binary} --version
 tags:
