@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: cosign
-version: "3.0.3"
+version: "3.0.4"
 check: ${binary} version 2>&1 | grep GitVersion | tr -s ' ' | cut -d' ' -f2 | tr -d v
 runtime_dependencies:
 - docker
