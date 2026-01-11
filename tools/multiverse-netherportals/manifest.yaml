@@ -4,7 +4,7 @@ name: multiverse-netherportals
 license:
   name: BSD-3-Clause
   link: https://github.com/Multiverse/Multiverse-NetherPortals/blob/main/LICENSE.md
-version: "5.0.3"
+version: "5.0.4"
 binary: "false"
 check: "" # No binary
 runtime_dependencies:
