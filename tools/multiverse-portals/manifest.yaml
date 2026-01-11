@@ -4,7 +4,7 @@ name: multiverse-portals
 license:
   name: BSD-3-Clause
   link: https://github.com/Multiverse/Multiverse-Portals/blob/main/LICENSE.md
-version: "5.1.1"
+version: "5.2.0"
 binary: "false"
 check: "" # No binary
 runtime_dependencies:
