@@ -13,6 +13,9 @@ tags:
 - category/development
 - lang/go
 - type/daemon
+- standard/opentelemetry
+- standard/otlp
+- observability/traces
 homepage: https://github.com/CtrlSpice/otel-desktop-viewer
 repository: https://github.com/CtrlSpice/otel-desktop-viewer
 description: CLI tool for receiving OpenTelemetry traces while working on your local machine

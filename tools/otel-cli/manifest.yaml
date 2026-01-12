@@ -14,6 +14,9 @@ tags:
 - lang/go
 - type/cli
 - state/stale
+- standard/opentelemetry
+- standard/otlp
+- observability/traces
 homepage: https://github.com/equinix-labs/otel-cli
 repository: https://github.com/equinix-labs/otel-cli
 description: OpenTelemetry command-line tool for sending events from shell scripts & similar environments
