@@ -21,12 +21,6 @@ homepage: https://k3s.io
 repository: https://github.com/k3s-io/k3s
 description: Lightweight Kubernetes
 renovate:
-  datasource: github-releases
-  package: k3s-io/k3s
-  extractVersion: ^v(?<version>.+)$
-  versioning: loose
-  priority: high
-renovate:
   datasource: gitlab-releases
   package: uniget-org/renovate-custom
   extractVersion: ^k3s/(?<version>.+)$

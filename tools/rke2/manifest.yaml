@@ -19,12 +19,6 @@ homepage: https://docs.rke2.io/
 repository: https://github.com/rancher/rke2
 description: Rancher's next-generation Kubernetes distribution
 renovate:
-  datasource: github-releases
-  package: rancher/rke2
-  extractVersion: ^v(?<version>.+)$
-  versioning: loose
-  priority: low
-renovate:
   datasource: gitlab-releases
   package: uniget-org/renovate-custom
   extractVersion: ^rke2/(?<version>.+)$
