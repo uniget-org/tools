@@ -7957,6 +7957,18 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "CtrlSpice/otel-desktop-viewer",
+      "extractVersionTemplate": "^v(?<version>.+)$",
+      "fileMatch": [
+        "^tools/otel-desktop-viewer/manifest.yaml$"
+      ],
+      "matchStrings": [
+        "version: \"?(?<currentValue>.*?)\"?\\n"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
       "depNameTemplate": "ymtdzzz/otel-tui",
       "extractVersionTemplate": "^v(?<version>.+)$",
       "fileMatch": [
