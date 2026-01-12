@@ -4,7 +4,7 @@ name: oidc
 license:
   name: Apache License 2.0
   link: https://github.com/ctron/oidc-cli/blob/main/LICENSE
-version: "0.6.4"
+version: "0.6.5"
 check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
