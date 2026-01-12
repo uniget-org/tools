@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: otel-desktop-viewer
+license:
+  name: MIT License, Apache License 2.0
+  link: https://github.com/CtrlSpice/otel-desktop-viewer
+version: "0.2.5"
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/daemon
+homepage: https://github.com/CtrlSpice/otel-desktop-viewer
+repository: https://github.com/CtrlSpice/otel-desktop-viewer
+description: CLI tool for receiving OpenTelemetry traces while working on your local machine
+renovate:
+  datasource: github-releases
+  package: CtrlSpice/otel-desktop-viewer
+  extractVersion: ^v(?<version>.+)$
+  priority: low
