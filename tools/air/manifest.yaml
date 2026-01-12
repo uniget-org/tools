@@ -4,7 +4,7 @@ name: air
 license:
   name: GPLv3
   link: https://github.com/air-verse/air/blob/master/LICENSE
-version: "1.63.9"
+version: "1.64.0"
 check: ${binary} -v | grep "built with Go" | cut -d, -f1 | cut -d' ' -f5
 platforms:
 - linux/amd64
