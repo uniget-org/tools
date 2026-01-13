@@ -13,7 +13,7 @@
   variables:
     DOCKER_CERT_DIR: ""
   services:
-  - name: docker:28.0.1-dind
+  - name: docker:28.0.4-dind@sha256:4de6a5668da5d138bf9c18b29d2702e43c8773daee085087ba4fac61a6d34b7f
 
 .uniget:
   before_script: |
@@ -80,7 +80,7 @@ metadata:
   - .docker_login
   - .dind
   - .docker_logout
-  image: docker:28.0.1
+  image: docker:28.0.4@sha256:4de6a5668da5d138bf9c18b29d2702e43c8773daee085087ba4fac61a6d34b7f
   script:
   - apk add --update-cache \
         curl \
