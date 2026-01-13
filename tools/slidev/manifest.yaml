@@ -4,7 +4,7 @@ name: slidev
 license:
   name: MIT License
   link: https://github.com/slidevjs/slidev/blob/main/LICENSE
-version: "52.11.2"
+version: "52.11.3"
 check: ${binary} --version
 build_dependencies:
 - node-lts
