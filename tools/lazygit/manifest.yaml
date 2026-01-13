@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: lazygit
-version: "0.58.0"
+version: "0.58.1"
 check: ${binary} --version | cut -d' ' -f6 | cut -d= -f2 | tr -d ,
 tags:
 - type/tui
