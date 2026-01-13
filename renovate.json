@@ -55,7 +55,7 @@
         "tools/*/manifest.yaml"
       ],
       "matchStrings": [
-        "tools.{\"datasource\":renovate.datasource,\"depName\":renovate.package,\"extractVersion\":renovate.extractVersion,\"currentValue\":version,\"versioning\":renovate.versioning,\"packageNameTemplate\":renovate.url,\"registryUrlTemplate\":renovate.api}"
+        "{\"datasource\":renovate.datasource,\"depName\":renovate.package,\"extractVersion\":renovate.extractVersion,\"currentValue\":version,\"versioning\":renovate.versioning,\"packageNameTemplate\":renovate.url,\"registryUrlTemplate\":renovate.api}"
       ]
     }
   ]
