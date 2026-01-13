@@ -7,8 +7,6 @@ if test -z "$tool"; then
   exit 1
 fi
 
-make renovate.json
-
 git branch "${tool}"
 git switch "${tool}"
 git add --all
