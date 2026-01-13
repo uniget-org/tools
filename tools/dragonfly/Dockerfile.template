@@ -17,29 +17,8 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
 
 tar --file="${uniget_cache_download}/${filename}" --list
 tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
-    dfget \
-    dfcache \
-    dfstore \
     scheduler \
     manager
-
-# https://github.com/dragonflyoss/dragonfly/raw/v${version}/build/package/nfpm/systemd/dfget-daemon.service
-# https://github.com/dragonflyoss/dragonfly/raw/v${version}/build/package/nfpm/systemd/fix.dfget-daemon.cpuset.sh
-# https://github.com/dragonflyoss/dragonfly/raw/v${version}/build/package/nfpm/systemd/dfget-daemon.service.d/CPUQuota.conf
-# https://github.com/dragonflyoss/dragonfly/raw/v${version}/build/package/nfpm/systemd/dfget-daemon.service.d/CPUShares.conf
-# https://github.com/dragonflyoss/dragonfly/raw/v${version}/build/package/nfpm/systemd/dfget-daemon.service.d/MemoryLimit.conf
-
-"${prefix}/bin/dfget" completion bash >"${prefix}/share/bash-completion/completions/dfget"
-"${prefix}/bin/dfget" completion fish >"${prefix}/share/fish/vendor_completions.d/dfget.fish"
-"${prefix}/bin/dfget" completion zsh >"${prefix}/share/zsh/vendor-completions/_dfget"
-
-"${prefix}/bin/dfcache" completion bash >"${prefix}/share/bash-completion/completions/dfcache"
-"${prefix}/bin/dfcache" completion fish >"${prefix}/share/fish/vendor_completions.d/dfcache.fish"
-"${prefix}/bin/dfcache" completion zsh >"${prefix}/share/zsh/vendor-completions/_dfcache"
-
-"${prefix}/bin/dfstore" completion bash >"${prefix}/share/bash-completion/completions/dfstore"
-"${prefix}/bin/dfstore" completion fish >"${prefix}/share/fish/vendor_completions.d/dfstore.fish"
-"${prefix}/bin/dfstore" completion zsh >"${prefix}/share/zsh/vendor-completions/_dfstore"
 
 "${prefix}/bin/manager" completion bash >"${prefix}/share/bash-completion/completions/manager"
 "${prefix}/bin/manager" completion fish >"${prefix}/share/fish/vendor_completions.d/manager.fish"
