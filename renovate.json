@@ -21,32 +21,61 @@
   "rebaseWhen": "conflicted",
   "rebaseLabel": "renovate/rebase",
   "stopUpdatingLabel": "renovate/stop-updating",
-  "recreateClosed": false,
-  "major":  { "labels": [ "bump/major",  "type/renovate" ] },
-  "minor":  { "labels": [ "bump/minor",  "type/renovate" ] },
-  "patch":  { "labels": [ "bump/patch",  "type/renovate" ] },
-  "pin":    { "labels": [ "bump/pin",    "type/renovate" ] },
-  "digest": { "labels": [ "bump/digest", "type/renovate" ] },
+  "recreateWhen": "auto",
+  "major": {
+    "labels": [
+      "bump/major",
+      "type/renovate"
+    ]
+  },
+  "minor": {
+    "labels": [
+      "bump/minor",
+      "type/renovate"
+    ]
+  },
+  "patch": {
+    "labels": [
+      "bump/patch",
+      "type/renovate"
+    ]
+  },
+  "pin": {
+    "labels": [
+      "bump/pin",
+      "type/renovate"
+    ]
+  },
+  "digest": {
+    "labels": [
+      "bump/digest",
+      "type/renovate"
+    ]
+  },
   "packageRules": [
     {
       "matchDatasources": [
         "docker"
       ],
-      "matchPackagePrefixes": [
-        "ghcr.io/uniget-org/tools/",
-        "ghcr.io/uniget-org/images/",
-        "registry.gitlab.com/uniget-org/images/"
-      ],
-      "enabled": false
+      "enabled": false,
+      "matchPackageNames": [
+        "ghcr.io/uniget-org/tools/{/,}**",
+        "ghcr.io/uniget-org/images/{/,}**",
+        "registry.gitlab.com/uniget-org/images/{/,}**"
+      ]
     }
   ],
   "customManagers": [
     {
-      "customType":           "regex",
-      "fileMatch":          [ "(^|/|\\.)Dockerfile[^/]*$" ],
-      "matchStrings":       [ "#syntax=(?<depName>[^:]+):(?<currentValue>[^@]+)(@.+)?\\n" ],
-      "datasourceTemplate":   "docker",
-      "depNameTemplate":      "docker/dockerfile"
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/(^|/|\\.)Dockerfile[^/]*$/"
+      ],
+      "matchStrings": [
+        "#syntax=(?<depName>[^:]+):(?<currentValue>[^@]+)(@.+)?\\n"
+      ],
+      "datasourceTemplate": "docker",
+      "depNameTemplate": "docker/dockerfile"
     },
     {
       "customType": "jsonata",
