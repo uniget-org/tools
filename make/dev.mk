@@ -1,10 +1,3 @@
-renovate.json: \
-		scripts/renovate.sh \
-		renovate-root.json \
-		metadata.json \
-		; $(info $(M) Updating $@...)
-	@bash scripts/renovate.sh
-
 .PHONY:
 size:
 	@set -o errexit; \
