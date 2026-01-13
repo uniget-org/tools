@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: docker-desktop
-version: "4.55.0.213807"
+version: "4.56.0.214940"
 binary: "false"
 check: "" # No version parameter
 platforms:
