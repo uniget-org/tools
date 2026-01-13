@@ -26,7 +26,7 @@
 collect:
   rules:
   - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-  image: alpine:3.21.2
+  image: alpine:3.21.5@sha256:5405e8f36ce1878720f71217d664aa3dea32e5e5df11acbf07fc78ef5661465b
   before_script:
   - |
     apk add --update-cache \
