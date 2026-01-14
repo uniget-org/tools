@@ -4,7 +4,7 @@ name: finch
 license:
   name: Apache License 2.0
   link: https://github.com/runfinch/finch/blob/main/LICENSE
-version: "1.13.0"
+version: "1.14.0"
 check: ${binary} --version | cut -d' ' -f3
 runtime_dependencies:
 - finch-daemon
