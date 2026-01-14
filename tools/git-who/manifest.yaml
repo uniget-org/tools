@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: git-who
+license:
+  name: MIT License
+  link: https://github.com/sinclairtarget/git-who/blob/master/LICENSE
+version: "1.2"
+check: "" # No version parameter
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/cli
+homepage: https://github.com/sinclairtarget/git-who
+repository: https://github.com/sinclairtarget/git-who
+description: Git blame for file trees
+renovate:
+  datasource: github-releases
+  package: sinclairtarget/git-who
+  extractVersion: ^v(?<version>.+)$
+  priority: low
