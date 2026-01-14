@@ -8,7 +8,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://github.com/ollama/ollama/releases/download/v${version}/ollama-linux-${alt_arch}.tgz"
+url="https://github.com/ollama/ollama/releases/download/v${version}/ollama-linux-${alt_arch}.tar.zst"
 filename="$( basename "${url}" )"
 
 check-github-release-asset "ollama/ollama" "v${version}" "${filename}"
@@ -16,5 +16,5 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
     "${url}"
 
 tar --file="${uniget_cache_download}/${filename}" --list
-tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}" --no-same-owner
+tar --file="${uniget_cache_download}/${filename}" --extract --zstd --directory="${prefix}" --no-same-owner
 EOF
