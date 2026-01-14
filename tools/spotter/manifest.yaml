@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: spotter
+license:
+  name: Apache License 2.0
+  link: https://github.com/madhuakula/spotter/blob/main/LICENSE
+version: "0.0.3"
+check: ${binary} version | grep ^Spotter | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/security
+- lang/go
+- type/cli
+homepage: https://spotter.run/
+repository: https://github.com/madhuakula/spotter
+description: Comprehensive Kubernetes security scanner that uses CEL-based rules to identify security vulnerabilities, misconfigurations, and compliance violations across your Kubernetes clusters, manifests, and CI/CD pipelines
+renovate:
+  datasource: github-releases
+  package: madhuakula/spotter
+  extractVersion: ^v(?<version>.+)$
+  priority: low
