@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: taws
+license:
+  name: MIT License
+  link: https://github.com/huseyinbabal/taws/blob/master/LICENSE
+version: "1.1.7"
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/rust
+- type/tui
+- cloud/aws
+homepage: https://github.com/huseyinbabal/taws
+repository: https://github.com/huseyinbabal/taws
+description: Terminal-based AWS resource viewer and manager
+renovate:
+  datasource: github-releases
+  package: huseyinbabal/taws
+  extractVersion: ^v(?<version>.+)$
+  priority: low
