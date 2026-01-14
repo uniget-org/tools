@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: witness
-version: "0.10.1"
+version: "0.10.2"
 check: ${binary} version | cut -d' ' -f2 | cut -d- -f1 | tr -d v
 tags:
 - type/cli
