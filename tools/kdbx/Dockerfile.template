@@ -1,0 +1,27 @@
+#syntax=docker/dockerfile:1.20.0@sha256:26147acbda4f14c5add9946e2fd2ed543fc402884fd75146bd342a7f6271dc1d
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/daxartio/kdbx/releases/download/${version}/kdbx-${version}-${arch}-unknown-linux-musl.tar.gz"
+filename="$( basename "${url}" )"
+
+check-download "${url}"
+check-github-release-asset "daxartio/kdbx" "${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin" --strip-components=1 --no-same-owner \
+    "kdbx-${version}-${arch}-unknown-linux-musl/kdbx"
+EOF
+RUN <<EOF
+"${prefix}/bin/kdbx" completion --shell=bash >"${prefix}/share/bash-completion/completions/kdbx"
+"${prefix}/bin/kdbx" completion --shell=fish >"${prefix}/share/fish/vendor_completions.d/kdbx.fish"
+"${prefix}/bin/kdbx" completion --shell=zsh >"${prefix}/share/zsh/vendor-completions/_kdbx"
+EOF
