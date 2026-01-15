@@ -3,7 +3,7 @@ $schema: https://tools.uniget.dev/schema.yaml
 name: mimir-systemd
 license:
   name: MIT License
-  link: https://github.com/uniget-org/tools/blob/main/LICENSE
+  link: https://gitlab.com/uniget-org/tools/blob/main/LICENSE
 version: "0.1.0"
 binary: "false"
 check: "" # No binary to check
@@ -19,7 +19,7 @@ tags:
 - lang/go
 - type/daemon
 homepage: https://uniget.dev
-repository: https://github.com/uniget-org/tools
+repository: https://gitlab.com/uniget-org/tools
 description: compose file for mimir with systemd
 messages:
   usage: |

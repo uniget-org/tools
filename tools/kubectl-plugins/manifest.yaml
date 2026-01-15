@@ -25,6 +25,6 @@ messages:
   usage: |
     Installed plugins are available as subcommands of kubectl. Use
     krew-uniget to manage globally installed plugins
-homepage: https://github.com/uniget-org/tools
-repository: https://github.com/uniget-org/tools
+homepage: https://gitlab.com/uniget-org/tools
+repository: https://gitlab.com/uniget-org/tools
 description: kubectl plugins
