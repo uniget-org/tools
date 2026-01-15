@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: cockroach
-version: "25.4.2"
+version: "25.4.3"
 check: ${binary} version --build-tag | tr -d v
 platforms:
 - linux/amd64
