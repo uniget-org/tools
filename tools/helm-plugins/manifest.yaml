@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: helm-plugins
-version: "0.3.0"
+version: "0.4.0"
 check: "" # No version
 build_dependencies:
 - helm
