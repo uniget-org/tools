@@ -19,6 +19,4 @@ tar --file="${uniget_cache_download}/${filename}" --list
 tar --file="${uniget_cache_download}/${filename}" --extract --gzip \
     --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
     "gojq_v${version}_linux_${alt_arch}/gojq"
-
-ln --symbolic --relative --force "${prefix}/bin/gojq" "${prefix}/bin/jq"
 EOF
