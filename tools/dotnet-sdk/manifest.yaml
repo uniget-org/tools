@@ -3,7 +3,7 @@ name: dotnet-sdk
 license:
   name: MIT License
   link: https://github.com/dotnet/sdk/blob/main/LICENSE.TXT
-version: "10.0.101"
+version: "10.0.102"
 binary: ${target}/opt/dotnet/dotnet
 check: ${binary} --version
 platforms:
