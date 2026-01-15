@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: depot
-version: "2.100.14"
+version: "2.101.0"
 check: ${binary} --version | grep ^depot | cut -d' ' -f3
 platforms:
 - linux/amd64
