@@ -2,7 +2,7 @@
 name: portainer-systemd
 license:
   name: MIT License
-  link: https://github.com/uniget-org/tools/blob/develop/LICENSE
+  link: https://gitlab.com/uniget-org/tools/blob/develop/LICENSE
 version: "0.1.0"
 binary: "false"
 check: "" # No binary to check
@@ -19,7 +19,7 @@ tags:
 - management
 - lang/go
 homepage: https://uniget.dev
-repository: https://github.com/uniget-org/tools
+repository: https://gitlab.com/uniget-org/tools
 description: compose file for portainer with systemd
 messages:
   usage: |
