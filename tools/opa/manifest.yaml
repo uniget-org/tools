@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: opa
-version: "1.12.2"
+version: "1.12.3"
 check: ${binary} version | grep ^Version | cut -d' ' -f2
 platforms:
 - linux/amd64
