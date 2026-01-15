@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: hubble
 version: "1.18.5"
-check: ${binary} version | cut -d' ' -f2
+check: ${binary} version | cut -d' ' -f2 | tr -d v
 tags:
 - type/cli
 - category/security

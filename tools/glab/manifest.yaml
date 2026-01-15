@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: glab
 version: "1.80.4"
-check: ${binary} version | cut -d' ' -f3
+check: ${binary} --version | cut -d' ' -f2
 tags:
 - org/gitlab
 - category/development

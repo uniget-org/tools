@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: promql-cli
 version: "0.3.0"
+binary: promql
 check: ${binary} --version | cut -d' ' -f3 | tr -d v
 tags:
 - standard/prometheus

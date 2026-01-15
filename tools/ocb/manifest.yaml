@@ -2,7 +2,7 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: ocb
 version: "0.142.0"
-check: ${binary} version 2>&1 | cut -d' ' -f3
+check: ${binary} version 2>&1 | cut -d' ' -f3 | cut -d+ -f1 | tr -d v
 platforms:
 - linux/amd64
 - linux/arm64

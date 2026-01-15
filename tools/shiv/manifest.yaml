@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: shiv
 version: "1.0.8"
-check: "" # Need python to run binary
+check: ${binary} --version | cut -d' ' -f3
 runtime_dependencies:
 - python-3.12
 platforms:

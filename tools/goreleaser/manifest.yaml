@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: goreleaser
 version: "2.13.3"
-check: ${binary} --version | head -1 | cut -d' ' -f3
+check: ${binary} --version | grep ^GitVersion | tr -d ' ' | cut -d':' -f2
 build_dependencies:
 - cosign
 runtime_dependencies:
