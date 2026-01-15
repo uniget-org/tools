@@ -22,7 +22,6 @@ tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="
 
 mv "${prefix}/bin/helpers/autocomplete/bash" "${prefix}/share/bash-completion/completions/gitlab-ci-pipelines-exporter"
 mv "${prefix}/bin/helpers/autocomplete/zsh" "${prefix}/share/zsh/vendor-completions/_gitlab-ci-pipelines-exporter"
-mv "${prefix}/bin/helpers/manpages/gitlab-ci-pipelines-exporter.1.gz" "${prefix}/share/man/man1/"
 rm -rf "${prefix}/bin/helpers"
 EOF
 COPY gitlab-ci-pipelines-exporter.yaml /uniget_bootstrap/etc/gitlab-ci-pipelines-exporter/
