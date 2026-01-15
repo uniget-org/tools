@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: gojq-is-jq
+version: "0.1.0"
+check: ""
+conflicts_with:
+- jaq
+- jq
+runtime_dependencies:
+- gojq
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- type/cli
+- standard/jq
+- format/json
+homepage: https://github.com/uniget-org/tools
+repository: https://github.com/uniget-org/tools
+description: Shim to map jq to gojq
