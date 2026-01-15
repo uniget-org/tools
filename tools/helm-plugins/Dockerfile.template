@@ -17,7 +17,6 @@ plugins=(
     https://github.com/mstrzele/helm-edit
     https://github.com/databus23/helm-diff
     https://github.com/aslafy-z/helm-git
-    https://github.com/sstarcher/helm-release
     https://github.com/maorfr/helm-backup
     https://github.com/technosophos/helm-keybase
     https://github.com/technosophos/helm-gpg
@@ -36,7 +35,7 @@ plugins=(
 for url in "${plugins[@]}"; do
     name="$(basename "${url}")"
     echo "Installing ${name}"
-    helm plugin install "${url}"
+    helm plugin install "${url}" --verify=false
     echo "Cleaning ${name}"
     rm -rf \
         "${HELM_PLUGINS}/${name}/.git" \
