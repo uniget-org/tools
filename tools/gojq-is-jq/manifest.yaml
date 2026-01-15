@@ -2,7 +2,8 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: gojq-is-jq
 version: "0.1.0"
-check: ""
+binary: "false"
+check: "" # No binary to check
 conflicts_with:
 - jaq
 - jq
