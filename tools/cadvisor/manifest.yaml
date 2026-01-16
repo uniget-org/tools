@@ -3,7 +3,7 @@ name: cadvisor
 license:
   name: Apache License 2.0
   link: https://github.com/google/cadvisor/blob/master/LICENSE
-version: "0.55.1"
+version: "0.56.1"
 check: ${binary} --version | cut -d' ' -f3 | tr -d v
 platforms:
 - linux/amd64
