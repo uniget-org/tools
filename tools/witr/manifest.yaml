@@ -4,7 +4,7 @@ name: witr
 license:
   name: Apache License 2.0
   link: https://github.com/pranshuparmar/witr/blob/main/LICENSE
-version: "0.2.4"
+version: "0.2.5"
 check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
