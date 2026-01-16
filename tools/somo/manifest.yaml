@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: somo
+license:
+  name: MIT License
+  link: https://github.com/theopfr/somo/blob/master/LICENSE
+version: "1.3.1"
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/console
+- lang/rust
+- type/cli
+homepage: https://github.com/theopfr/somo
+repository: https://github.com/theopfr/somo
+description: Some description
+renovate:
+  datasource: github-releases
+  package: theopfr/somo
+  extractVersion: ^v(?<version>.+)$
+  priority: low
