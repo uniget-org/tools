@@ -4,7 +4,7 @@ name: uv
 license:
   name: MIT License, Apache License 2.0
   link: https://github.com/astral-sh/uv
-version: "0.9.25"
+version: "0.9.26"
 check: ${binary} version | cut -d' ' -f2
 platforms:
 - linux/amd64
