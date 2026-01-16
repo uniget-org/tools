@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: snitch
+license:
+  name: MIT License
+  link: https://github.com/karol-broda/snitch/blob/master/LICENSE
+version: "0.2.2"
+check: ${binary} version | grep ^snitch | cut -d' ' -f2
+build_dependencies:
+- go
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/console
+- lang/go
+- type/cli
+homepage: https://github.com/karol-broda/snitch
+repository: https://github.com/karol-broda/snitch
+description: A prettier way to inspect network connections
+renovate:
+  datasource: github-releases
+  package: karol-broda/snitch
+  extractVersion: ^v(?<version>.+)$
+  priority: low

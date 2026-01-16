@@ -1,0 +1,28 @@
+#syntax=docker/dockerfile:1.20.0@sha256:26147acbda4f14c5add9946e2fd2ed543fc402884fd75146bd342a7f6271dc1d
+
+FROM ghcr.io/uniget-org/tools/go:latest AS go
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+COPY --link --from=go / /usr/local/
+WORKDIR /go/src/github.com/karol-broda/snitch
+ARG name
+ARG version
+RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
+check-clone "https://github.com/karol-broda/snitch" "v${version}"
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/karol-broda/snitch .
+commit="$( git rev-parse --short HEAD )"
+date="$( git log -1 --format=%cI )"
+export CGO_ENABLED=0
+go build -ldflags "-s -w -X github.com/karol-broda/snitch/cmd.Version=${version} -X github.com/karol-broda/snitch/cmd.Commit=${commit} -X github.com/karol-broda/snitch/cmd.Date=${date}" -o "${prefix}/bin/snitch" .
+EOF
+RUN <<EOF
+"${prefix}/bin/snitch" completion bash >"${prefix}/share/bash-completion/completions/snitch"
+"${prefix}/bin/snitch" completion fish >"${prefix}/share/fish/vendor_completions.d/snitch.fish"
+"${prefix}/bin/snitch" completion zsh >"${prefix}/share/zsh/vendor-completions/_snitch"
+EOF
