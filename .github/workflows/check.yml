@@ -33,7 +33,7 @@ jobs:
       uses: uniget-org/uniget-action@v1
       with:
         prefix: helper
-        tools: gojq regclient
+        tools: jq regclient
 
     - name: Collect
       id: collect
@@ -127,7 +127,7 @@ jobs:
       uses: uniget-org/uniget-action@v1
       with:
         prefix: helper
-        tools: gojq regclient
+        tools: jq regclient
 
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v3
@@ -194,7 +194,7 @@ jobs:
       uses: uniget-org/uniget-action@v1
       with:
         prefix: helper
-        tools: yq gojq
+        tools: yq jq
 
     - name: Extract versions
       id: extract_versions

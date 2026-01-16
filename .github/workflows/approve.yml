@@ -26,7 +26,7 @@ jobs:
       uses: uniget-org/uniget-action@v1
       with:
         prefix: helper
-        tools: gojq
+        tools: jq
 
     - name: Test
       env:

@@ -24,7 +24,7 @@ jobs:
       uses: uniget-org/uniget-action@v1
       with:
         prefix: helper
-        tools: gojq regclient
+        tools: jq regclient
 
     - name: Collect
       id: collect
