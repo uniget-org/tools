@@ -5,6 +5,7 @@ license:
   name: GPLv3
   link: https://github.com/SkriptLang/Skript/blob/master/LICENSE
 version: "2.14.0"
+binary: "false"
 check: ""
 platforms:
 - linux/amd64
