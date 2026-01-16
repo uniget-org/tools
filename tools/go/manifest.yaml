@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: go
-version: "1.25.5"
+version: "1.25.6"
 check: ${binary} version | cut -d' ' -f3 | tr -d go
 platforms:
 - linux/amd64
