@@ -6,10 +6,6 @@ license:
   link: https://github.com/SkriptLang/Skript/blob/master/LICENSE
 version: "2.14.0"
 check: ""
-build_dependencies:
-- bar
-runtime_dependencies:
-- baz
 platforms:
 - linux/amd64
 - linux/arm64
