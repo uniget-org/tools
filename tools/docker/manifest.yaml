@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: docker
-version: "29.1.4"
+version: "29.1.5"
 binary: dockerd
 check: ${binary} --version | cut -d, -f1 | cut -d' ' -f3
 runtime_dependencies:
