@@ -20,7 +20,7 @@
     apk add --update-cache \
         curl
   script: |
-    curl -sLf https://github.com/uniget-org/cli/releases/latest/download/uniget_Linux_$(uname -m).tar.gz \
+    curl -sLf https://gitlab.com/uniget-org/cli/-/releases/permalink/latest/downloads/uniget_Linux_$(uname -m).tar.gz \
     | tar -xzC /usr/local/bin uniget
 
 collect:
