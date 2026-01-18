@@ -4,7 +4,7 @@ name: viaversion
 license:
   name: GPLv3
   link: https://github.com/ViaVersion/ViaVersion/blob/master/LICENSE
-version: "5.7.0"
+version: "5.7.1"
 binary: "false"
 check: ""
 runtime_dependencies:
