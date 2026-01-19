@@ -4,7 +4,7 @@ name: mark
 license:
   name: Apache License 2.0
   link: https://github.com/kovetskiy/mark/blob/master/LICENSE
-version: "v15.2.0"
+version: "v15.3.0"
 check: ${binary} --version | cut -d' ' -f3
 platforms:
 - linux/amd64
