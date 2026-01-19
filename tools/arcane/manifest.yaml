@@ -4,7 +4,7 @@ name: arcane
 license:
   name: BSD-3-Clause
   link: https://github.com/getarcaneapp/arcane/blob/main/LICENSE
-version: "1.13.0"
+version: "1.13.1"
 check: ${binary} --version | cut -d' ' -f3
 platforms:
 - linux/amd64
