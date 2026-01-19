@@ -4,7 +4,7 @@ name: taws
 license:
   name: MIT License
   link: https://github.com/huseyinbabal/taws/blob/master/LICENSE
-version: "1.2.0"
+version: "1.2.1"
 check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
