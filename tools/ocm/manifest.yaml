@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: ocm
-version: "0.34.3"
+version: "0.35.0"
 check: ${binary} --version | cut -d' ' -f3
 platforms:
 - linux/amd64
