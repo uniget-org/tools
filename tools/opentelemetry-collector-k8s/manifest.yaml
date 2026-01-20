@@ -4,7 +4,7 @@ name: opentelemetry-collector-k8s
 license:
   name: Apache License 2.0
   link: https://github.com/open-telemetry/opentelemetry-collector/blob/main/LICENSE
-version: "0.143.1"
+version: "0.144.0"
 binary: otelcol-k8s
 check: ${binary} --version | cut -d' ' -f3
 platforms:
