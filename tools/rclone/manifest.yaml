@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: rclone
+license:
+  name: MIT License
+  link: https://github.com/rclone/rclone/blob/master/COPYING
+version: "1.72.1"
+check: ""
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/go
+- type/cli
+- storage
+- cloud/google
+- cloud/dropbox
+- cloud/azure
+- cloud/microsoft365
+- cloud/aws
+homepage: https://rclone.org/
+repository: https://github.com/rclone/rclone
+description: rsync for cloud storage
+renovate:
+  datasource: github-releases
+  package: rclone/rclone
+  extractVersion: ^v(?<version>.+)$
+  priority: low
