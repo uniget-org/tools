@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: docker-init
-version: "1.4.0-4.56.0.214940"
+version: "1.4.0-4.57.0.215387"
 binary: "false"
 check: ${binary} init --version | grep ^Version | cut -dv -f2
 platforms:
