@@ -11,7 +11,6 @@ RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 url="https://github.com/ViaVersion/ViaVersion/releases/download/${version}/ViaVersion-${version}.jar"
 filename="$( basename "${url}" )"
 
-check-download "${url}"
 check-github-release-asset "ViaVersion/ViaVersion" "${version}" "${filename}"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
     "${url}"

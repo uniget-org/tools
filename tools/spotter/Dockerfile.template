@@ -26,7 +26,6 @@ echo "    Using ${arch_suffix}"
 url="https://github.com/madhuakula/spotter/releases/download/v${version}/spotter_Linux_${arch_suffix}.tar.gz"
 filename="$( basename "${url}" )"
 
-check-download "${url}"
 check-github-release-asset "madhuakula/spotter" "v${version}" "${filename}"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
     "${url}"
