@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: watchexec
-version: "2.3.2"
+version: "2.3.3"
 check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
