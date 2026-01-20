@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: kube-burner
-version: "2.2.0"
+version: "2.2.1"
 check: ${binary} version | grep ^Version | cut -d' ' -f2
 platforms:
 - linux/amd64
