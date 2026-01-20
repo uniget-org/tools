@@ -11,7 +11,6 @@ RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 url="https://github.com/int128/kubelogin/releases/download/v${version}/kubelogin_linux_${alt_arch}.zip"
 filename="$(basename "${url}")"
 
-check-download "${url}"
 check-github-release-asset "int128/kubelogin" "v${version}" "${filename}"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
     "${url}"
