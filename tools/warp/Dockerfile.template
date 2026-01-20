@@ -23,16 +23,16 @@ case "${arch}" in
 esac
 echo "    Using ${arch_suffix}"
 
-url="https://github.com/minio/warp/releases/download/v${version}/warp_Linux_${arch_suffix}.tar.gz"
+url="https://dl.min.io/aistor/warp/release/linux-${alt_arch}/archive/warp.v${version}"
 filename="$( basename "${url}" )"
 
-check-github-release-asset "minio/warp" "v${version}" "${filename}"
+check-download "${url}"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
     "${url}"
 
-tar --file="${uniget_cache_download}/${filename}" --list
-tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
-    warp
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/warp"
 EOF
 COPY <<EOF /uniget_bootstrap/share/bash-completion/completions/vault.go-template
 complete -C {{ .Target }}/bin/vault vault
