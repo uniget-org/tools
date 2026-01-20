@@ -34,6 +34,6 @@ install --mode=0755 \
     "${uniget_cache_download}/${filename}" \
     "${prefix}/bin/warp"
 EOF
-COPY <<EOF /uniget_bootstrap/share/bash-completion/completions/vault.go-template
-complete -C {{ .Target }}/bin/vault vault
+COPY <<EOF /uniget_bootstrap/share/bash-completion/completions/warp.go-template
+complete -C {{ .Target }}/bin/warp warp
 EOF
