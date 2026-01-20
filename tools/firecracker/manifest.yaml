@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: firecracker
-version: "1.14.0"
+version: "1.14.1"
 check: ${binary} --version | grep "^Firecracker" | cut -d' ' -f2 | tr -d v
 tags:
 - type/daemon
