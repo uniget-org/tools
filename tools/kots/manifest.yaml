@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kots
-version: "1.129.2"
+version: "1.129.3"
 binary: kubectl-kots
 check: ${binary} version | head -n 1 | cut -d' ' -f3
 tags:
