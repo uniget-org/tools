@@ -4,7 +4,7 @@ name: hatch
 license:
   name: MIT License
   link: https://github.com/pypa/hatch/blob/master/LICENSE.txt
-version: "1.16.2"
+version: "1.16.3"
 check: ${binary} --version | cut -d' ' -f3
 build_dependencies:
 - python-3.12
