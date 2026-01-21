@@ -4,7 +4,7 @@ name: tempo
 license:
   name: AGPLv3
   link: https://github.com/grafana/tempo/blob/main/LICENSE
-version: "2.9.0"
+version: "2.9.1"
 check: ${binary} --version | grep ^tempo | cut -d' ' -f3
 platforms:
 - linux/amd64
