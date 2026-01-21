@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: stargz-snapshotter
-version: "0.18.1"
+version: "0.18.2"
 binary: containerd-stargz-grpc
 check: ${binary} -version | cut -d' ' -f2 | tr -d v
 runtime_dependencies:
