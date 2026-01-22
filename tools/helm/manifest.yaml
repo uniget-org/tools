@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: helm
-version: "4.0.5"
+version: "4.1.0"
 check: ${binary} version --short 2>/dev/null | cut -d+ -f1 | tr -d v
 platforms:
 - linux/amd64
