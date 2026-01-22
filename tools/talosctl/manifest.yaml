@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: talosctl
-version: "1.12.1"
+version: "1.12.2"
 check: ${binary} version --client --short | grep "^Client " | cut -d' ' -f2 | tr -d v
 platforms:
 - linux/amd64
