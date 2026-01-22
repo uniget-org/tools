@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: rekor
-version: "1.4.3"
+version: "1.5.0"
 binary: rekor-cli
 check: ${binary} version 2>&1 | grep ^GitVersion | cut -dv -f2
 build_dependencies:
