@@ -4,7 +4,7 @@ name: wrangler
 license:
   name: MIT License, Apache License 2.0
   link: https://github.com/cloudflare/workers-sdk
-version: "4.59.3"
+version: "4.60.0"
 check: "" # Version cannot be parsed
 build_dependencies:
 - node-lts
