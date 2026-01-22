@@ -4,7 +4,7 @@ name: zola
 license:
   name: MIT License
   link: https://github.com/getzola/zola/blob/master/LICENSE
-version: "0.22.0"
+version: "0.22.1"
 check: ${binary} getzola/zola/
 platforms:
 - linux/amd64
