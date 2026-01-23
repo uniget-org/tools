@@ -4,9 +4,6 @@ version: "0.13.0"
 check: ${binary} --version | grep ^gitsign | cut -d' ' -f3 | tr -d v
 build_dependencies:
 - cosign
-runtime_dependencies:
-- wslu
-- xdg-utils
 platforms:
 - linux/amd64
 - linux/arm64
@@ -23,6 +20,10 @@ description: Keyless Git signing using Sigstore
 messages:
   internals: |
     Enable the SystemD socket unit: systemctl --user enable --now gitsign.socket
+  usage: |
+    If you are using WSL install the following tools using uniget:
+    - wslu
+    - xdg-utils
 renovate:
   datasource: github-releases
   package: sigstore/gitsign

@@ -2,10 +2,6 @@
 name: cosign
 version: "3.0.4"
 check: ${binary} version 2>&1 | grep GitVersion | tr -s ' ' | cut -d' ' -f2 | tr -d v
-runtime_dependencies:
-- docker
-- wslu
-- xdg-utils
 platforms:
 - linux/amd64
 - linux/arm64
@@ -17,9 +13,16 @@ tags:
 - lang/go
 - org/chainguard
 - org/sigstore
+- standard/docker
+- standard/oci
 homepage: https://github.com/sigstore/cosign
 repository: https://github.com/sigstore/cosign
 description: Container Signing
+messages:
+  usage: |
+    If you are using WSL install the following tools using uniget:
+    - wslu
+    - xdg-utils
 renovate:
   datasource: github-releases
   package: sigstore/cosign
