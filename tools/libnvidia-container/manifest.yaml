@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: libnvidia-container
-version: "1.18.1"
+version: "1.18.2"
 binary: nvidia-container-cli
 check: ${binary} --version | grep ^cli | cut -d' ' -f2
 build_dependencies:
