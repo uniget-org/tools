@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: zig
+license:
+  name: MIT License
+  link: https://codeberg.org/ziglang/zig/src/branch/master/LICENSE
+version: "0.15.2"
+check: ${binary} version
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/zig
+- type/cli
+homepage: https://ziglang.org/
+repository: https://codeberg.org/ziglang/zig
+description: General-purpose programming language and toolchain for maintaining robust, optimal, and reusable software
+renovate:
+  datasource: git-tags
+  package: ziglang/zig
+  url: https://codeberg.org/ziglang/zig
+  extractVersion: ^v(?<version>.+)$
+  priority: low
