@@ -3,7 +3,7 @@ name: openjdk
 license:
   name: GPLv2
   link: https://github.com/openjdk/jdk/blob/master/LICENSE
-version: "25.0.1-8"
+version: "25.0.2-10"
 binary: javac
 check: ${binary} -version | cut -d' ' -f2
 build_dependencies:
