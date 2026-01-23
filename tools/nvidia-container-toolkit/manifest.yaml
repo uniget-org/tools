@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: nvidia-container-toolkit
-version: "1.18.0"
+version: "1.18.2"
 binary: nvidia-ctk
 check: ${binary} --version | grep ^NVIDIA | cut -d' ' -f6
 build_dependencies:
