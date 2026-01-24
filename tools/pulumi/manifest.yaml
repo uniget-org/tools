@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: pulumi
-version: "3.216.0"
+version: "3.217.0"
 check: ${binary} version | tr -d v
 platforms:
 - linux/amd64
