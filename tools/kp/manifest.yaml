@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kp
-version: "0.17.0"
+version: "0.17.1"
 check: ${binary} version | cut -d- -f1
 tags:
 - type/cli
