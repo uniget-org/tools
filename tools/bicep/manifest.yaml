@@ -4,7 +4,7 @@ name: bicep
 license:
   name: MIT License
   link: https://github.com/Azure/bicep/blob/main/LICENSE
-version: "0.39.26"
+version: "0.40.2"
 check: ${binary} --version | cut -d' ' -f4
 build_dependencies:
 - musl
