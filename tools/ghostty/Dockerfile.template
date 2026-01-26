@@ -21,8 +21,9 @@ EOF
 COPY --link --from=zig / /
 WORKDIR /tmp/ghostty
 RUN <<EOF
-curl --silent --show-error --fail --location "https://release.files.ghostty.org/${version}/ghostty-${version}.tar.gz" \
-| tar --extract --gzip --strip-components=1
+#curl --silent --show-error --fail --location "https://release.files.ghostty.org/${version}/ghostty-${version}.tar.gz" \
+#| tar --extract --gzip --strip-components=1
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/ghostty-org/ghostty .
 zig build \
     -Doptimize=ReleaseFast \
     -Dcpu=baseline
