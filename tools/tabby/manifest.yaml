@@ -4,7 +4,7 @@ name: tabby
 license:
   name: Apache License 2.0
   link: https://github.com/TabbyML/tabby/blob/main/LICENSE
-version: "0.31.2"
+version: "0.32.0"
 check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
