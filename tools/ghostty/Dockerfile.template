@@ -1,0 +1,29 @@
+#syntax=docker/dockerfile:1.21.0@sha256:26147acbda4f14c5add9946e2fd2ed543fc402884fd75146bd342a7f6271dc1d
+
+FROM ghcr.io/uniget-org/tools/zig:latest AS zig
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/apt <<EOF
+apt-get update
+apt-get -y install --no-install-recommends \
+    libgtk-4-dev \
+    libgtk-layer-shell-dev \
+    libadwaita-1-dev \
+    gettext \
+    libxml2-utils
+EOF
+COPY --link --from=zig / /
+WORKDIR /tmp/ghostty
+RUN <<EOF
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/ghostty-org/ghostty .
+zig build \
+    -Doptimize=ReleaseFast \
+    -Dcpu=baseline
+cp zig-out/bin/ghostty "${prefix}/bin/"
+EOF

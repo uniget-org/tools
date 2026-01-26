@@ -25,6 +25,7 @@ info: ; $(info $(M) Runtime info...)
 	@echo "GIT_COMMIT_SHA:     $(GIT_COMMIT_SHA)"
 	@echo "VERSION:            $(VERSION)"
 	@echo "DOCKER_TAG:         $(DOCKER_TAG)"
+	@echo "DOCKER_NETWORK:     $(DOCKER_NETWORK)"
 	@echo "OWNER:              $(OWNER)"
 	@echo "PROJECT:            $(PROJECT)"
 	@echo "REGISTRY:           $(REGISTRY)"

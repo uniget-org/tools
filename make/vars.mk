@@ -5,6 +5,7 @@ GIT_COMMIT_SHA      = $(shell git rev-parse HEAD)
 #VERSION            ?= $(patsubst v%,%,$(GIT_BRANCH))
 VERSION            ?= main
 DOCKER_TAG         ?= $(subst /,-,$(VERSION))
+DOCKER_NETWORK     ?= default
 TOOLS_DIR           = tools
 ALL_TOOLS           = $(shell find tools -type f -wholename \*/manifest.yaml | cut -d/ -f1-2 | sort)
 ALL_TOOLS_RAW       = $(subst tools/,,$(ALL_TOOLS))

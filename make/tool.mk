@@ -423,10 +423,12 @@ $(addsuffix --debug,$(ALL_TOOLS_RAW)):%--debug: \
 		--tag $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${VERSION_TAG} \
 		--target prepare \
 		--output type=docker,oci-mediatypes=true \
-		--progress plain && \
+		--progress plain \
+		--network=$(DOCKER_NETWORK) && \
 	docker container run \
 		--interactive \
 		--tty \
+		--net=$(DOCKER_NETWORK) \
 		--privileged \
 		--env name=$* \
 		--env version=$${TOOL_VERSION} \
