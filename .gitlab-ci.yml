@@ -13,7 +13,7 @@
   variables:
     DOCKER_CERT_DIR: ""
   services:
-  - name: docker:29.1.5-dind@sha256:3a33fc81fa4d38360f490f5b900e9846f725db45bb1d9b1fe02d849bd42a5cf2
+  - name: docker:29.2.0-dind@sha256:eb37f58646a901dc7727cf448cae36daaefaba79de33b5058dab79aa4c04aefb
 
 .uniget:
   before_script: |
@@ -80,7 +80,7 @@ metadata:
   - .docker_login
   - .dind
   - .docker_logout
-  image: docker:29.1.5@sha256:3a33fc81fa4d38360f490f5b900e9846f725db45bb1d9b1fe02d849bd42a5cf2
+  image: docker:29.2.0@sha256:eb37f58646a901dc7727cf448cae36daaefaba79de33b5058dab79aa4c04aefb
   script:
   - apk add --update-cache \
         curl \
