@@ -4,7 +4,7 @@ name: tempo-cli
 license:
   name: AGPLv3
   link: https://github.com/grafana/tempo/blob/main/LICENSE
-version: "2.9.1"
+version: "2.10.0"
 check: "" # No version parameter
 platforms:
 - linux/amd64
