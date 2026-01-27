@@ -4,7 +4,7 @@ name: multiverse
 license:
   name: BSD-3-Clause
   link: https://github.com/Multiverse/Multiverse-Core/blob/main/LICENSE.md
-version: "5.5.0"
+version: "5.5.1"
 binary: "false"
 check: "" # No binary
 runtime_dependencies:
