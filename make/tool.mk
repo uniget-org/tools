@@ -171,6 +171,7 @@ $(ALL_TOOLS_RAW):%: \
 			--metadata-file $(TOOLS_DIR)/$@/build-metadata.json \
 			--output type=registry,oci-mediatypes=true,rewrite-timestamp=true,push=$${PUSH} \
 			--progress plain \
+			--network=$(DOCKER_NETWORK) \
 			>$(TOOLS_DIR)/$@/build.log 2>&1; then \
 		cat $(TOOLS_DIR)/$@/build.log; \
 		exit 1; \
@@ -226,6 +227,7 @@ $(TOOLS_DIR)/%/image-linux-amd64.json: \
 			--tag=$(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(VERSION_TAG)-$(OS)-$(ARCH) \
 			--output=type=registry,oci-mediatypes=true \
 			--progress plain \
+			--network=$(DOCKER_NETWORK) \
 			>$(TOOLS_DIR)/$*/build-$(ARCH).log 2>&1; then \
 		cat $(TOOLS_DIR)/$*/build-$(ARCH).log; \
 		exit 1; \
@@ -280,6 +282,7 @@ $(TOOLS_DIR)/%/image-linux-arm64.json: \
 			--tag=$(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(VERSION_TAG)-$(OS)-$(ARCH) \
 			--output=type=registry,oci-mediatypes=true \
 			--progress plain \
+			--network=$(DOCKER_NETWORK) \
 			>$(TOOLS_DIR)/$*/build-$(ARCH).log 2>&1; then \
 		cat $(TOOLS_DIR)/$*/build-$(ARCH).log; \
 		exit 1; \
@@ -423,11 +426,13 @@ $(addsuffix --debug,$(ALL_TOOLS_RAW)):%--debug: \
 		--tag $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${VERSION_TAG} \
 		--target prepare \
 		--output type=docker,oci-mediatypes=true \
-		--progress plain && \
+		--progress plain \
+		--network=$(DOCKER_NETWORK) && \
 	docker container run \
 		--interactive \
 		--tty \
 		--privileged \
+		--network=$(DOCKER_NETWORK) \
 		--env name=$* \
 		--env version=$${TOOL_VERSION} \
 		--rm \
@@ -463,7 +468,8 @@ $(addsuffix --tar,$(ALL_TOOLS_RAW)):%--tar: \
 		--platform linux/amd64 \
 		--tag $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$${VERSION_TAG} \
 		--output type=tar,dest=$(TOOLS_DIR)/$*/image.tar,oci-mediatypes=true \
-		--progress plain
+		--progress plain \
+		--network=$(DOCKER_NETWORK)
 
 .PHONY:
 $(addsuffix --buildg,$(ALL_TOOLS_RAW)):%--buildg: \
