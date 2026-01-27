@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: nodejs
-version: "25.4.0"
+version: "25.5.0"
 binary: node
 check: ${binary} --version | tr -d v
 platforms:
