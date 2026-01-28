@@ -4,7 +4,7 @@ name: longhornctl
 license:
   name: Apache License 2.0
   link: https://github.com/longhorn/cli/blob/master/LICENSE
-version: "1.10.1"
+version: "1.10.2"
 check: ${binary} version | tr -d v
 platforms:
 - linux/amd64
