@@ -4,7 +4,7 @@ name: devproxy
 license:
   name: MIT License
   link: https://github.com/dotnet/dev-proxy/blob/main/LICENSE
-version: "2.0.0"
+version: "2.1.0"
 check: DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 ${binary} --version
 platforms:
 - linux/amd64
