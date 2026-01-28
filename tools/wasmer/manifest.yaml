@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: wasmer
-version: "6.1.0"
+version: "7.0.0"
 check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
