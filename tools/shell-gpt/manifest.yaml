@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: shell-gpt
-version: "1.4.5"
+version: "1.5.0"
 binary: sgpt
 check: "" # No help without OpenAI API key
 build_dependencies:
