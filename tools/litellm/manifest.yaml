@@ -4,7 +4,7 @@ name: litellm
 license:
   name: MIT License
   link: https://github.com/BerriAI/litellm/blob/main/LICENSE
-version: "1.81.3"
+version: "1.81.4"
 check: ${binary} --version | grep ^LiteLLM | cut -d' ' -f5
 build_dependencies:
 - python-3.12
