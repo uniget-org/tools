@@ -4,7 +4,7 @@ name: scala-cli
 license:
   name: Apache License 2.0
   link: https://github.com/VirtusLab/scala-cli/blob/main/LICENSE
-version: "1.12.0"
+version: "1.12.1"
 check: ${binary} --version | grep "^Scala CLI" | cut -d' ' -f4
 platforms:
 - linux/amd64
