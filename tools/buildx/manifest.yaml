@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: buildx
-version: "0.31.0"
+version: "0.31.1"
 binary: ${target}/libexec/docker/cli-plugins/docker-buildx
 check: ${binary} version | cut -d' ' -f2 | tr -d v
 runtime_dependencies:
