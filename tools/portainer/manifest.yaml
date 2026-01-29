@@ -3,7 +3,7 @@ name: portainer
 license:
   name: zlib License
   link: https://github.com/portainer/portainer/blob/develop/LICENSE
-version: "2.37.0"
+version: "2.38.0"
 check: ${binary} --version 2>&1
 runtime_dependencies:
 - docker-compose
