@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: vcluster
-version: "0.30.4"
+version: "0.31.0"
 check: ${binary} --version | cut -d' ' -f3
 tags:
 - type/cli
