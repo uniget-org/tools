@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: pwru
-version: "1.0.10"
+version: "1.0.11"
 check: ${binary} --version | cut -d' ' -f2 | tr -d v
 tags:
 - type/cli
