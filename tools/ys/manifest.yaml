@@ -4,7 +4,7 @@ name: ys
 license:
   name: MIT License
   link: https://github.com/yaml/yamlscript/blob/main/License
-version: "0.2.8"
+version: "0.2.9"
 check: ${binary} --version | cut -d' ' -f3
 platforms:
 - linux/amd64
