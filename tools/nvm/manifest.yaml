@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: nvm
-version: "0.40.3"
+version: "0.40.4"
 binary: "false"
 check: "" # No version parameter
 platforms:
