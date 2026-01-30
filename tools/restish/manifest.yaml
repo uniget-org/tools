@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: restish
+license:
+  name: MIT License
+  link: https://github.com/rest-sh/restish/blob/main/LICENSE.md
+version: "0.21.2"
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
+tags:
+- category/development
+- lang/go
+- type/cli
+homepage: https://rest.sh/
+repository: https://github.com/rest-sh/restish
+description: CLI for interacting with REST-ish HTTP APIs with some nice features built-in
+renovate:
+  datasource: github-releases
+  package: rest-sh/restish
+  extractVersion: ^v(?<version>.+)$
+  priority: low
