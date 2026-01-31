@@ -4,7 +4,7 @@ name: zetasql
 license:
   name: Apache License 2.0
   link: https://github.com/google/zetasql/blob/master/LICENSE
-version: "2025.12.1"
+version: "2026.01.1"
 binary: execute_query
 check: "" # No version parameter
 platforms:
