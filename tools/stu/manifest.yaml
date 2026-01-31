@@ -4,7 +4,7 @@ name: stu
 license:
   name: MIT License
   link: https://github.com/lusingander/stu/blob/master/LICENSE
-version: "0.7.5"
+version: "0.7.6"
 check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
