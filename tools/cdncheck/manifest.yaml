@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: cdncheck
-version: "1.2.20"
+version: "1.2.21"
 check: ${binary} --version 2>&1 | grep version | cut -d' ' -f4 | tr -d v
 platforms:
 - linux/amd64
