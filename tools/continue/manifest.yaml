@@ -4,7 +4,7 @@ name: continue
 license:
   name: Apache License 2.0
   link: https://github.com/continuedev/continue/blob/main/LICENSE
-version: "1.5.39"
+version: "1.5.40"
 binary: cn
 check: ${binary} --version 2>/dev/null
 build_dependencies:
