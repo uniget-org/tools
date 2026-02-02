@@ -4,7 +4,7 @@ name: alertmanager
 license:
   name: Apache License 2.0
   link: https://github.com/prometheus/alertmanager/blob/main/LICENSE
-version: "0.30.1"
+version: "0.31.0"
 check: ${binary} --version | grep ^alertmanager | cut -d' ' -f3
 platforms:
 - linux/amd64
