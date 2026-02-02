@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: fence
+license:
+  name: Apache License 2.0
+  link: https://github.com/Use-Tusk/fence/blob/main/LICENSE
+version: "0.1.17"
+check: ${binary} --version | tr -d ' ' | grep "^Version" | cut -d":" -f2
+runtime_dependencies:
+- bubblewrap
+- socat
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/cli
+homepage: https://github.com/Use-Tusk/fence
+repository: https://github.com/Use-Tusk/fence
+description: Lightweight, container-free sandbox for running commands with network and filesystem restrictions
+renovate:
+  datasource: github-releases
+  package: Use-Tusk/fence
+  extractVersion: ^v(?<version>.+)$
+  priority: low
