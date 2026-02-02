@@ -4,7 +4,7 @@ name: pyinfra
 license:
   name: MIT License
   link: https://github.com/pyinfra-dev/pyinfra/blob/3.x/LICENSE.md
-version: "3.6"
+version: "3.6.1"
 check: ${binary} --version | cut -d' ' -f2 | tr -d v
 build_dependencies:
 - python-3.12
