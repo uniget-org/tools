@@ -16,5 +16,5 @@ ARG version
 RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
 check-clone "https://github.com/jakopako/goskyr" "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/jakopako/goskyr .
-go build -mod=readonly -tags=timetzdata -ldflags "-s -w -X main.version=${version} -linkmode external -extldflags -static" -o "${prefix}/bin/goskyr" .
+go build -mod=readonly -tags=timetzdata -ldflags "-s -w -X main.version=${version} -linkmode external -extldflags -static" -o "${prefix}/bin/goskyr" ./cmd/goskyr
 EOF
