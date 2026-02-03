@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: docker-manpages
-version: "29.2.0"
+version: "29.2.1"
 binary: "false"
 check: "" # No binary
 build_dependencies:
