@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: eksctl-anywhere
+license:
+  name: Apache License 2.0
+  link: https://github.com/aws/eks-anywhere/blob/main/LICENSE
+version: "0.24.3"
+check: "" # No version without eksctl
+runtime_dependencies:
+- eksctl
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/amazon
+- category/operations
+- lang/go
+- type/cli
+- aws/eks
+- kubernetes
+- k8s
+homepage: https://anywhere.eks.amazonaws.com
+repository: https://github.com/aws/eks-anywhere
+description: Run Amazon EKS on your own infrastructure
+renovate:
+  datasource: github-releases
+  package: aws/eks-anywhere
+  extractVersion: ^v(?<version>.+)$
+  priority: low
