@@ -17,5 +17,5 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
 
 tar --file="${uniget_cache_download}/${filename}" --list
 tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin" --no-same-owner \
-    eksctl-anywhere
+    ./eksctl-anywhere
 EOF
