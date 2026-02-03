@@ -4,7 +4,7 @@ name: pkgx
 license:
   name: Apache License 2.0
   link: https://github.com/pkgxdev/pkgx/blob/main/LICENSE.txt
-version: "2.7.0"
+version: "2.9.0"
 check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
