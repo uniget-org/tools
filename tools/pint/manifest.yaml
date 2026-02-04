@@ -4,7 +4,7 @@ name: pint
 license:
   name: Apache License 2.0
   link: https://github.com/cloudflare/pint/blob/main/LICENSE
-version: "0.78.0"
+version: "0.79.0"
 check: ${binary} version | cut -d' ' -f1
 platforms:
 - linux/amd64
