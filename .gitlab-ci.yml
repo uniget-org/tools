@@ -26,13 +26,10 @@
 uniget-dev:
   image: golang:1.25.6
   script: |
-    go env
-    printenv
-    CGO_ENABLED=0 go install -ldflags "-w -s" ./cmd/dev/
-    cp "${GOBIN}/dev" ./uniget-dev
+    GOBIN="${PWD}" CGO_ENABLED=0 go install -ldflags "-w -s" gitlab.com/uniget-org/cli/cmd/dev@latest
   artifacts:
     paths:
-    - uniget-dev
+    - dev
 
 collect:
   rules:
@@ -41,7 +38,7 @@ collect:
   - uniget-dev
   image: alpine:3.23.3@sha256:25109184c71bdad752c8312a8623239686a9a2071e8825f20acb8f2198c3f659
   script: |
-    ./uniget-dev metadata changes
+    ./dev metadata changes
 
 #metadata:
 #  rules:
