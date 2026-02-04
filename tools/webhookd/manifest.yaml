@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: webhookd
-version: "1.20.2"
+version: "1.21.0"
 check: "" # Empty version
 tags:
 - category/development
