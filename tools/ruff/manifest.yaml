@@ -4,7 +4,7 @@ name: ruff
 license:
   name: MIT License
   link: https://github.com/astral-sh/ruff/blob/main/LICENSE
-version: "0.14.14"
+version: "0.15.0"
 check: ""
 platforms:
 - linux/amd64
