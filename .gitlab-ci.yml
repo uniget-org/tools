@@ -24,6 +24,8 @@
     | tar -xzC /usr/local/bin uniget
 
 uniget-dev:
+  rules:
+  - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   image: golang:1.25.6
   script: |
     GOBIN="${PWD}" CGO_ENABLED=0 go install -ldflags "-w -s" gitlab.com/uniget-org/cli/cmd/dev@main
