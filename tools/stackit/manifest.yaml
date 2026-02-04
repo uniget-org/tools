@@ -4,7 +4,7 @@ name: stackit
 license:
   name: Apache License 2.0
   link: https://github.com/stackitcloud/stackit-cli/blob/main/LICENSE.md
-version: "0.52.0"
+version: "0.53.1"
 check: ${binary} --version | grep ^Version | cut -d' ' -f2
 platforms:
 - linux/amd64
