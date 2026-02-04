@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: argo
-version: "3.7.9"
+version: "4.0.0"
 check: ${binary} version | grep ^argo | cut -d' ' -f2 | tr -d v
 tags:
 - type/cli
