@@ -23,68 +23,35 @@
     curl -sLf https://gitlab.com/uniget-org/cli/-/releases/permalink/latest/downloads/uniget_Linux_$(uname -m).tar.gz \
     | tar -xzC /usr/local/bin uniget
 
+uniget-dev:
+  image: golang:1.25.6
+  script: |
+    CGO_ENABLED=0 go build -ldflags "-w -s" -o uniget-dev ./cmd/dev/
+  artifacts:
+    paths:
+    - uniget-dev
+
 collect:
   rules:
   - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   image: alpine:3.23.3@sha256:25109184c71bdad752c8312a8623239686a9a2071e8825f20acb8f2198c3f659
-  before_script:
-  - |
-    apk add --update-cache \
-        curl \
-        git
-  - !reference [.uniget, script]
-  - uniget install jq regclient
-  script:
-  - |
-    type regctl
-    type jq
-    type git
-  - |
-    METADATA_SHA="$(
-        regctl manifest get registry.gitlab.com/uniget-org/tools/metadata:main \
-            --platform=linux/amd64 \
-            --format=raw-body \
-        | jq --raw-output '.layers[0].digest' \
-        | xargs -I{} \
-            regctl blob get registry.gitlab.com/uniget-org/tools/metadata:main {} \
-        | tar --extract --gzip --to-stdout \
-        | jq --raw-output '.revision'
-    )"
-    echo "### Fetching changed tools for ${METADATA_SHA}..${CI_COMMIT_SHA}"
-  - |
-    CHANGED_TOOLS="$(
-        git log --pretty=format: --name-only --diff-filter=d ${METADATA_SHA}..${CI_COMMIT_SHA} \
-        | sort \
-        | grep "^tools/" \
-        | cut -d/ -f2 \
-        | uniq \
-        | while read -r TOOL; do test -d "tools/${TOOL}" && echo "${TOOL}"; done \
-        | xargs
-    )"
-    echo "### Tools to process: ${CHANGED_TOOLS}."
-  - |
-    CHANGED_TOOLS_JSON="$(
-        echo -n "${CHANGED_TOOLS}" \
-        | tr ' ' '\n' \
-        | jq --raw-input '.' \
-        | jq --slurp --compact-output '.'
-    )"
-    echo "    JSON: ${CHANGED_TOOLS_JSON}"
+  script: |
+    ./uniget-dev metadata changes --platform=gitlab
 
-metadata:
-  rules:
-  - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-  needs:
-  - collect
-  extends:
-  - .docker_login
-  - .dind
-  - .docker_logout
-  image: docker:29.2.1@sha256:8bcbad4b45f0bff9d3e809d85a7ac589390f0be8acbc526850c998c35c1243fd
-  script:
-  - apk add --update-cache \
-        curl \
-        make \
-        bash
-  - !reference [.uniget, script]
-  - make metadata.json--push REGISTRY=${CI_REGISTRY}
+#metadata:
+#  rules:
+#  - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+#  needs:
+#  - collect
+#  extends:
+#  - .docker_login
+#  - .dind
+#  - .docker_logout
+#  image: docker:29.2.1@sha256:8bcbad4b45f0bff9d3e809d85a7ac589390f0be8acbc526850c998c35c1243fd
+#  script:
+#  - apk add --update-cache \
+#        curl \
+#        make \
+#        bash
+#  - !reference [.uniget, script]
+#  - make metadata.json--push REGISTRY=${CI_REGISTRY}
