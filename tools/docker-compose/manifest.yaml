@@ -13,6 +13,7 @@ tags:
 - org/docker
 - standard/docker
 - category/default
+- category/development
 - container/compose
 - standard/compose
 - type/cli

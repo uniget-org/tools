@@ -17,6 +17,7 @@ tags:
 - container/runtime
 - container/build
 - category/default
+- category/development
 - type/cli
 - type/daemon
 - lang/go

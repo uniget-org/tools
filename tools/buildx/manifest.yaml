@@ -14,6 +14,7 @@ tags:
 - type/cli
 - type/plugin
 - category/default
+- category/development
 - lang/go
 - sbom
 - container/build
