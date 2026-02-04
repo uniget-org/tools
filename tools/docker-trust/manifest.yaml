@@ -14,6 +14,7 @@ tags:
 - standard/oci
 - container/runtime
 - category/default
+- category/development
 - type/cli
 - lang/go
 homepage: https://mobyproject.org/
