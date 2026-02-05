@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: gatekeeper
-version: "3.21.0"
+version: "3.21.1"
 binary: gator
 check: ${binary} --version | grep "^Gator version" | cut -d' ' -f3 | tr -d v
 tags:
