@@ -1,0 +1,23 @@
+#syntax=docker/dockerfile:1.21.0@sha256:27f9262d43452075f3c410287a2c43f5ef1bf7ec2bb06e8c9eeb1b8d453087bc
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+WORKDIR /tmp/protocurl
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/qaware/protocurl/releases/download/v${version}/protocurl_${version}_linux_${alt_arch}.zip"
+filename="$(basename "${url}")"
+
+check-github-release-asset "qaware/protocurl" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+unzip -q -o "${uniget_cache_download}/${filename}"
+
+mv protocurl-internal/bin/protoc "${prefix}/bin/"
+mv protocurl-internal/include/google "${prefix}/include/"
+EOF
