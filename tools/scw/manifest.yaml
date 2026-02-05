@@ -4,7 +4,7 @@ name: scw
 license:
   name: Apache License 2.0
   link: https://github.com/scaleway/scaleway-cli/blob/master/LICENSE
-version: "2.51.0"
+version: "2.52.0"
 binary: scw
 check: ${binary} version | grep ^Version | tr -s ' ' | cut -d' ' -f
 platforms:
