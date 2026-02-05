@@ -4,7 +4,7 @@ name: eksctl-anywhere
 license:
   name: Apache License 2.0
   link: https://github.com/aws/eks-anywhere/blob/main/LICENSE
-version: "0.24.3"
+version: "0.24.4"
 check: "" # No version without eksctl
 runtime_dependencies:
 - eksctl
