@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: protocurl
+license:
+  name: Custom
+  link: https://github.com/qaware/protocurl/blob/main/LICENSE.md
+version: "1.20.1"
+check: ""
+build_dependencies:
+- bar
+runtime_dependencies:
+- baz
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/development
+- lang/go
+- type/cli
+homepage: https://github.com/qaware/protocurl
+repository: https://github.com/qaware/protocurl
+description: cURL for Protobuf - The command-line tool for interacting with Protobuf over HTTP REST endpoints using human-readable text formats
+renovate:
+  datasource: github-releases
+  package: qaware/protocurl
+  extractVersion: ^v(?<version>.+)$
+  priority: low
