@@ -3,7 +3,7 @@ name: trivy
 license:
   name: Apache License 2.0
   link: https://github.com/aquasecurity/trivy/blob/main/LICENSE
-version: "0.69.0"
+version: "0.69.1"
 check: ${binary} --version | grep ^Version | cut -d' ' -f2
 build_dependencies:
 - cosign
