@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: vale
-version: "3.13.0"
+version: "3.13.1"
 check: ${binary} --version | cut -d' ' -f3
 platforms:
 - linux/amd64
