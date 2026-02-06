@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: buildah
-version: "1.42.2"
+version: "1.43.0"
 check: ${binary} --version | cut -d' ' -f3
 build_dependencies:
 - go
