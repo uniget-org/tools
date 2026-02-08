@@ -4,7 +4,7 @@ name: redis
 license:
   name: Redis Source Available License 2.0
   link: https://github.com/redis/redis/blob/unstable/LICENSE.txt
-version: "8.2.3"
+version: "8.2.4"
 binary: redis-cli
 check: ${binary} --version | cut -d' ' -f2
 platforms:
