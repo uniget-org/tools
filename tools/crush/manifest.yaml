@@ -4,7 +4,7 @@ name: crush
 license:
   name: FSL-1.1-MIT
   link: https://github.com/charmbracelet/crush/blob/main/LICENSE.md
-version: "0.39.3"
+version: "0.40.0"
 check: ${binary} --version | cut -d' ' -f3 | tr -d v
 platforms:
 - linux/amd64
