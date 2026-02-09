@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: uniget
-version: "0.24.26"
+version: "0.24.27"
 check: ${binary} --version | cut -d' ' -f3
 platforms:
 - linux/amd64
