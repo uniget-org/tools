@@ -4,7 +4,7 @@ name: restify
 license:
   name: Apache License 2.0
   link: https://github.com/itzg/restify/blob/master/LICENSE.txt
-version: "1.7.11"
+version: "1.7.12"
 check: ${binary} --version foo 2>&1 | cut -d' ' -f4 | tr -d ,
 platforms:
 - linux/amd64
