@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: havener
-version: "2.2.6"
+version: "2.2.7"
 check: ${binary} version | cut -d, -f1 | cut -d' ' -f3
 tags:
 - type/tui
