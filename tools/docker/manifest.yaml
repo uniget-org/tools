@@ -16,7 +16,6 @@ tags:
 - standard/oci
 - container/runtime
 - container/build
-- category/default
 - category/development
 - type/cli
 - type/daemon
