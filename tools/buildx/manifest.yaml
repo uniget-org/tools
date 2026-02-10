@@ -13,7 +13,6 @@ tags:
 - standard/docker
 - type/cli
 - type/plugin
-- category/default
 - category/development
 - lang/go
 - sbom

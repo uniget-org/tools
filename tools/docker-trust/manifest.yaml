@@ -13,7 +13,6 @@ tags:
 - standard/docker
 - standard/oci
 - container/runtime
-- category/default
 - category/development
 - type/cli
 - lang/go
