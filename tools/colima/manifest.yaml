@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: colima
-version: "0.9.1"
+version: "0.10.0"
 check: ${binary} version 2>/dev/null | grep ^colima | cut -d' ' -f3 | tr -d v
 tags:
 - type/cli
