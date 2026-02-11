@@ -1,0 +1,31 @@
+#syntax=docker/dockerfile:1.21.0@sha256:27f9262d43452075f3c410287a2c43f5ef1bf7ec2bb06e8c9eeb1b8d453087bc
+
+FROM registry.gitlab.com/uniget-org/images/build-essential:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+RUN --mount=type=cache,target=/var/cache/apt <<EOF
+apt-get update
+apt-get -y install --no-install-recommends \
+    libtool \
+    libudev-dev \
+    libsystemd-dev \
+    glib-2.0-dev \
+    libgtk2.0-dev \
+    libreadline-dev
+EOF
+ARG name
+ARG version
+WORKDIR /tmp/miraclecast
+RUN <<EOF
+git clone -q --config advice.detachedHead=false --depth 1 --branch "master" https://github.com/albfan/miraclecast .
+./autogen.sh
+./configure CFLAGS='-g -O0 -ftrapv' \
+    --prefix="" \
+    --sysconfdir=/etc \
+    --localstatedir=/var \
+    --libdir=/usr/lib
+make
+make install DESTDIR="${prefix}"
+EOF
