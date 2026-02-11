@@ -4,7 +4,7 @@ name: fence
 license:
   name: Apache License 2.0
   link: https://github.com/Use-Tusk/fence/blob/main/LICENSE
-version: "0.1.21"
+version: "0.1.23"
 check: ${binary} --version | tr -d ' ' | grep "^Version" | cut -d":" -f2
 runtime_dependencies:
 - bubblewrap
