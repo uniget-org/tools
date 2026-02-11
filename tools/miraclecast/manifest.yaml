@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: miraclecast
+license:
+  name: Custom
+  link: https://github.com/albfan/miraclecast
+version: "0.0.0-master.0"
+check: ""
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- category/?
+- lang/c
+- type/cli
+homepage: https://github.com/albfan/miraclecast
+repository: https://github.com/albfan/miraclecast
+description: Connect external monitors to your system via Wifi-Display specification also known as Miracast
+#renovate:
+#  datasource: github-releases
+#  package: albfan/miraclecast
+#  extractVersion: ^v(?<version>.+)$
+#  priority: low
