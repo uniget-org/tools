@@ -5,12 +5,11 @@ license:
   name: Custom
   link: https://github.com/albfan/miraclecast
 version: "0.0.0-master.0"
-check: ""
+check: "" # No versioning
 platforms:
 - linux/amd64
-#- linux/arm64
 tags:
-- category/?
+- category/desktop
 - lang/c
 - type/cli
 homepage: https://github.com/albfan/miraclecast
