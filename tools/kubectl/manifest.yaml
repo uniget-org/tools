@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kubectl
-version: "1.35.0"
+version: "1.35.1"
 check: ${binary} version | grep ^Client | cut -d' ' -f3 | tr -d v
 build_dependencies:
 - cosign

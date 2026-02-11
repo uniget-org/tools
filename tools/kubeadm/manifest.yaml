@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kubeadm
-version: "1.35.0"
+version: "1.35.1"
 check: ${binary} version --output short | tr -d v
 build_dependencies:
 - cosign
