@@ -2,7 +2,7 @@
 name: traefik
 license:
   name: MIT License
-version: "3.6.7"
+version: "3.6.8"
 check: ${binary} version | grep ^Version | tr -s ' ' | cut -d' ' -f2
 platforms:
 - linux/amd64
