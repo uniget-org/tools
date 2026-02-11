@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: inshellisense
-version: "0.0.1-rc.21"
+version: "0.0.1-rc.31"
 check: ${binary} --version
 build_dependencies:
 - node22
