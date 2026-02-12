@@ -4,7 +4,7 @@ name: gemini-cli
 license:
   name: Apache License 2.0
   link: https://github.com/google-gemini/gemini-cli/blob/main/LICENSE
-version: "0.28.1"
+version: "0.28.2"
 binary: gemini
 check: ${binary} --version
 build_dependencies:
