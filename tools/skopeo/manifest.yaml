@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: skopeo
-version: "1.21.0"
+version: "1.22.0"
 check: ${binary} --version | cut -d' ' -f3
 build_dependencies:
 - go
