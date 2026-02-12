@@ -4,7 +4,7 @@ name: thanos
 license:
   name: Apache License 2.0
   link: https://github.com/thanos-io/thanos/blob/main/LICENSE
-version: "0.40.1"
+version: "0.41.0"
 check: ""
 platforms:
 - linux/amd64
