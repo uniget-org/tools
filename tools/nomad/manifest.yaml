@@ -4,7 +4,7 @@ name: nomad
 license:
   name: BSL-1.1
   link: https://github.com/hashicorp/nomad/blob/main/LICENSE
-version: "1.11.1"
+version: "1.11.2"
 check: ${binary} version | grep ^Nomad | cut -dv -f2
 runtime_dependencies:
 - cni
