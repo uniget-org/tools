@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: conmon
-version: "2.2.0"
+version: "2.2.1"
 check: ${binary} --version | grep "conmon version" | cut -d' ' -f3
 build_dependencies:
 - go-md2man
