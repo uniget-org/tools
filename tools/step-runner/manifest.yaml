@@ -4,7 +4,7 @@ name: step-runner
 license:
   name: MIT License
   link: https://gitlab.com/gitlab-org/step-runner/-/blob/main/LICENSE
-version: "0.27.0"
+version: "0.28.0"
 check: "" # No version parameter
 build_dependencies:
 - go
