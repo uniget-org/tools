@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: qemu
-version: "10.2.0"
+version: "10.2.1"
 binary: qemu-img
 check: ${binary} --version | grep qemu-img | cut -d' ' -f3
 build_dependencies:
