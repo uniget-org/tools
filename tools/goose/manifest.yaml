@@ -4,7 +4,7 @@ name: goose
 license:
   name: Apache License 2.0
   link: https://github.com/block/goose/blob/main/LICENSE
-version: "1.23.2"
+version: "1.24.0"
 check: ${binary} --version | tr -d ' '
 platforms:
 - linux/amd64
