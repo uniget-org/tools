@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: k8spacket
-version: "2.2.2"
+version: "2.2.3"
 check: "" # No version parameter
 build_dependencies:
 - go
