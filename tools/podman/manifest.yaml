@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: podman
-version: "5.7.1"
+version: "5.8.0"
 check: ${binary} --version | cut -d' ' -f3
 build_dependencies:
 - go
