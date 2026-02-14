@@ -4,7 +4,7 @@ name: alloy
 license:
   name: Apache License 2.0
   link: https://github.com/grafana/alloy/blob/main/LICENSE
-version: "1.13.0"
+version: "1.13.1"
 check: ${binary} --version | grep ^alloy | cut -d' ' -f3 | tr -d v
 platforms:
 - linux/amd64
