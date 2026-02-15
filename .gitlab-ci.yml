@@ -23,7 +23,7 @@
     curl -sLf https://gitlab.com/uniget-org/cli/-/releases/permalink/latest/downloads/uniget_Linux_$(uname -m).tar.gz \
     | tar -xzC /usr/local/bin uniget
 
-dev_download:
+.dev_download:
   rules:
   - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   - if: $CI_PIPELINE_SOURCE == "web"
@@ -33,7 +33,7 @@ dev_download:
         glab \
         jq
   script: |
-    glab auth login --hostname="${CI_SERVER_HOST}" --job-token="${CI_JOB_TOKEN}"
+    glab auth login --hostname="${CI_SERVER_HOST}" --token="${CLI_PACKAGE_TOKEN}"
     PACKAGE_NAME=dev
     PACKAGE_VERSION="$(
         glab api "/projects/${CI_PROJECT_ID}/packages?package_name=${PACKAGE_NAME}&order_by=created_at&sort=desc" \
@@ -46,7 +46,7 @@ dev_download:
     paths:
     - dev
 
-collect:
+.collect:
   rules:
   - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   - if: $CI_PIPELINE_SOURCE == "web"
