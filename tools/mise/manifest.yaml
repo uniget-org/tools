@@ -4,7 +4,7 @@ name: mise
 license:
   name: MIT License
   link: https://github.com/jdx/mise/blob/main/LICENSE
-version: "2026.2.11"
+version: "2026.2.13"
 check: ${binary} --version | tail -n 1 | cut -d' ' -f1
 platforms:
 - linux/amd64
