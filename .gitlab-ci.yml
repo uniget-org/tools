@@ -23,30 +23,21 @@
     curl -sLf https://gitlab.com/uniget-org/cli/-/releases/permalink/latest/downloads/uniget_Linux_$(uname -m).tar.gz \
     | tar -xzC /usr/local/bin uniget
 
-.go-cache:
-  variables:
-    GOPATH: $CI_PROJECT_DIR/.go
-  before_script:
-    - mkdir -p .go
-  cache:
-    paths:
-      - .go/pkg/mod/
-
-uniget-dev:
+dev_download:
   rules:
   - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   - if: $CI_PIPELINE_SOURCE == "web"
-  extends:
-  - .go-cache
-  variables:
-    GIT_CHECKOUT: false
-  image: golang:1.26.0@sha256:c83e68f3ebb6943a2904fa66348867d108119890a2c6a2e6f07b38d0eb6c25c5
+  image: registry.gitlab.com/gitlab-org/cli:v1.85.2
   script: |
-    git clone https://gitlab.com/uniget-org/cli
-    cd cli
-    COMMIT_SHA="$( git rev-parse --short HEAD )"
-    
-    CGO_ENABLED=0 go build -ldflags "-w -s -X main.version=${COMMIT_SHA}" -o ../dev ./cmd/dev/
+    glab auth login --hostname="${CI_SERVER_HOST}" --job-token="${CI_JOB_TOKEN}"
+    PACKAGE_NAME=dev
+    PACKAGE_VERSION="$(
+        glab api "/projects/${CI_PROJECT_ID}/packages?package_name=${PACKAGE_NAME}&order_by=created_at&sort=desc" \
+        | jq --raw-output '.[0].version'
+    )"
+    FILE_NAME=dev
+    glab api "/projects/${CI_PROJECT_ID}/packages/generic/${PACKAGE_NAME}/${PACKAGE_VERSION}/${FILE_NAME}" >dev
+    chmod +x dev
   artifacts:
     paths:
     - dev
@@ -56,7 +47,7 @@ collect:
   - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   - if: $CI_PIPELINE_SOURCE == "web"
   needs:
-  - uniget-dev
+  - dev_download
   image: alpine:3.23.3@sha256:25109184c71bdad752c8312a8623239686a9a2071e8825f20acb8f2198c3f659
   script: |
     ./dev metadata changes
