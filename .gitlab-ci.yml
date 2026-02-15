@@ -27,7 +27,11 @@ dev_download:
   rules:
   - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   - if: $CI_PIPELINE_SOURCE == "web"
-  image: registry.gitlab.com/gitlab-org/cli:v1.85.2
+  image: registry.gitlab.com/uniget-org/cli
+  before_script: |
+    uniget install \
+        glab \
+        jq
   script: |
     glab auth login --hostname="${CI_SERVER_HOST}" --job-token="${CI_JOB_TOKEN}"
     PACKAGE_NAME=dev
