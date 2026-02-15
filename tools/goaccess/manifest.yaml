@@ -4,7 +4,7 @@ name: goaccess
 license:
   name: MIT License
   link: https://github.com/allinurl/goaccess/blob/master/COPYING
-version: "1.9.4"
+version: "1.10.1"
 check: ${binary} --version | grep ^GoAccess | cut -d' ' -f3 | cut -d. -f1-3
 build_dependencies:
 - make
