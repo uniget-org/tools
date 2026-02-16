@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: wolfictl
-version: "0.39.0"
+version: "0.39.1"
 check: ${version} version | grep ^GitVersion | cut -dv -f2
 build_dependencies:
 - make
