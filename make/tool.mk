@@ -431,6 +431,7 @@ $(addsuffix --debug,$(ALL_TOOLS_RAW)):%--debug: \
 	docker container run \
 		--interactive \
 		--tty \
+		--net=$(DOCKER_NETWORK) \
 		--privileged \
 		--network=$(DOCKER_NETWORK) \
 		--env name=$* \

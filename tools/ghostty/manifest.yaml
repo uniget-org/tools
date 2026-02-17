@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: ghostty
+license:
+  name: MIT License
+  link: https://github.com/ghostty-org/ghostty/blob/main/LICENSE
+version: "1.2.3"
+check: ""
+build_dependencies:
+- zig
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/console
+- lang/zig
+- type/gui
+homepage: https://ghostty.org
+repository: https://github.com/ghostty-org/ghostty
+description: Fast, feature-rich, and cross-platform terminal emulator that uses platform-native UI and GPU acceleration
+renovate:
+  datasource: github-tags
+  package: ghostty-org/ghostty
+  extractVersion: ^v(?<version>.+)$
+  priority: low
