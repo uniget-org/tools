@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: docker-credential-gcr
-version: "2.1.31"
+version: "2.1.32"
 check: ${binary} version | cut -d' ' -f7
 build_dependencies:
 - go
