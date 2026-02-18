@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: gcloud
-version: "556.0.0"
+version: "557.0.0"
 check: ${binary} --version | head -n 1 | cut -d' ' -f4
 runtime_dependencies:
 - python-3.12
