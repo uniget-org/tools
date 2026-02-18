@@ -4,7 +4,7 @@ name: codex
 license:
   name: Apache License 2.0
   link: https://github.com/openai/codex/blob/main/LICENSE
-version: "0.101.0"
+version: "0.103.0"
 check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
