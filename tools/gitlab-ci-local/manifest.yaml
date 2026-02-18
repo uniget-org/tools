@@ -4,7 +4,7 @@ name: gitlab-ci-local
 license:
   name: MIT License
   link: https://github.com/firecow/gitlab-ci-local/blob/master/LICENSE
-version: "4.65.1"
+version: "4.66.1"
 check: ${binary} --version
 build_dependencies:
 - node-lts
