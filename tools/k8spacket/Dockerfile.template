@@ -11,7 +11,8 @@ SHELL [ "bash", "-clo", "errexit" ]
 RUN --mount=type=cache,target=/var/cache/apk <<EOF
 apk add --update-cache \
     clang \
-    llvm
+    llvm \
+    tar
 EOF
 COPY --link --from=bpftool / /usr/local/
 COPY --link --from=go / /usr/local/
