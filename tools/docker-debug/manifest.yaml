@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: docker-debug
-version: "0.0.47-4.60.1.218372"
+version: "0.0.47-4.61.0.219004"
 binary: "false"
 check: ${binary} debug --version | grep ^Version | cut -d' ' -f2
 platforms:
