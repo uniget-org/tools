@@ -11,6 +11,6 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 WORKDIR /uniget_bootstrap
-COPY --from=goaccess /bin/goaccess bin/
-COPY --from=goaccess /share/man/man1/goaccess.1 share/man/man1/
-COPY --from=goaccess /share/locale/ share/locale/
+COPY --from=goaccess /usr/bin/goaccess bin/
+COPY --from=goaccess /usr/share/man/man1/goaccess.1 share/man/man1/
+COPY --from=goaccess /usr/share/locale/ share/locale/
