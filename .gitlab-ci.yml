@@ -23,30 +23,20 @@
     curl -sLf https://gitlab.com/uniget-org/cli/-/releases/permalink/latest/downloads/uniget_Linux_$(uname -m).tar.gz \
     | tar -xzC /usr/local/bin uniget
 
-.dev_download:
+dev_download:
   rules:
   - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   - if: $CI_PIPELINE_SOURCE == "web"
-  image: registry.gitlab.com/uniget-org/cli
-  before_script: |
-    uniget install \
-        glab \
-        jq
+  image: registry.gitlab.com/uniget-org/images/ubuntu:24.04
   script: |
-    glab auth login --hostname="${CI_SERVER_HOST}" --token="${CLI_PACKAGE_TOKEN}"
-    PACKAGE_NAME=dev
-    PACKAGE_VERSION="$(
-        glab api "/projects/${CI_PROJECT_ID}/packages?package_name=${PACKAGE_NAME}&order_by=created_at&sort=desc" \
-        | jq --raw-output '.[0].version'
-    )"
-    FILE_NAME=dev
-    glab api "/projects/${CI_PROJECT_ID}/packages/generic/${PACKAGE_NAME}/${PACKAGE_VERSION}/${FILE_NAME}" >dev
-    chmod +x dev
+    curl --silent --show-error --location --fail https://gitlab.com/uniget-org/dev/-/releases/permalink/latest/downloads/dev_Linux_$(uname -m).tar.gz \
+    | tar --extract --gzip --directory=/usr/local/bin dev
+    dev --version
   artifacts:
     paths:
     - dev
 
-.collect:
+collect:
   rules:
   - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   - if: $CI_PIPELINE_SOURCE == "web"
