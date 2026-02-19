@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: iptables
-version: "1.8.11"
+version: "1.8.12"
 binary: ${target}/sbin/iptables
 check: ${binary} -V | cut -d' ' -f2 | tr -d v
 build_dependencies:
