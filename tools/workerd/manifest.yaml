@@ -4,7 +4,7 @@ name: workerd
 license:
   name: Apache License 2.0
   link: https://github.com/cloudflare/workerd/blob/main/LICENSE
-version: "1.20260218.0"
+version: "1.20260219.0"
 check: "" # Versions do not match
 platforms:
 - linux/amd64
