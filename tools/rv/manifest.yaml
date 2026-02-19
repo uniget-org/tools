@@ -4,7 +4,7 @@ name: rv
 license:
   name: Apache License 2.0, MIT License
   link: https://github.com/spinel-coop/rv
-version: "0.5.0"
+version: "0.5.2"
 check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
