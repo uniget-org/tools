@@ -3,7 +3,7 @@
 ARG version=latest
 FROM allinurl/goaccess:${version} AS goaccess
 
-FROM registry.gitlab.com/uniget-org/images/alpine:3.21 AS prepare
+FROM registry.gitlab.com/uniget-org/images/alpine:3.23@sha256:5362eda14a674766502855168c68a6592520ddc5f17109e4d0524d1ced54492e AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
