@@ -4,7 +4,7 @@ name: k8sgpt
 license:
   name: Apache License 2.0
   link: https://github.com/k8sgpt-ai/k8sgpt/blob/main/LICENSE
-version: "0.4.27"
+version: "0.4.30"
 check: ${binary} version | cut -d' ' -f2
 platforms:
 - linux/amd64
