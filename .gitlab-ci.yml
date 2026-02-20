@@ -30,8 +30,8 @@ dev_download:
   image: registry.gitlab.com/uniget-org/images/ubuntu:24.04
   script: |
     curl --silent --show-error --location --fail https://gitlab.com/uniget-org/dev/-/releases/permalink/latest/downloads/dev_Linux_$(uname -m).tar.gz \
-    | tar --extract --gzip --directory=/usr/local/bin dev
-    dev --version
+    | tar --extract --gzip dev
+    ./dev --version
   artifacts:
     paths:
     - dev
