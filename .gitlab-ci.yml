@@ -46,20 +46,15 @@ collect:
   script: |
     ./dev metadata changes
 
-#metadata:
-#  rules:
-#  - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-#  needs:
-#  - collect
-#  extends:
-#  - .docker_login
-#  - .dind
-#  - .docker_logout
-#  image: docker:29.2.1@sha256:8bcbad4b45f0bff9d3e809d85a7ac589390f0be8acbc526850c998c35c1243fd
-#  script:
-#  - apk add --update-cache \
-#        curl \
-#        make \
-#        bash
-#  - !reference [.uniget, script]
-#  - make metadata.json--push REGISTRY=${CI_REGISTRY}
+metadata:
+  rules:
+  - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  needs:
+  - collect
+  extends:
+  - .docker_login
+  - .dind
+  - .docker_logout
+  image: docker:29.2.1@sha256:8bcbad4b45f0bff9d3e809d85a7ac589390f0be8acbc526850c998c35c1243fd
+  script:
+  - ./dev metadata build
