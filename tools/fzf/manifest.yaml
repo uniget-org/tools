@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: fzf
-version: "0.67.0"
+version: "0.68.0"
 check: ${binary} --version | cut -d' ' -f1
 tags:
 - type/cli
