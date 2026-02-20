@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: localizer
-version: "1.15.18"
+version: "1.15.19"
 check: ${binary} --version | cut -d' ' -f3 | tr -d v
 tags:
 - type/cli
