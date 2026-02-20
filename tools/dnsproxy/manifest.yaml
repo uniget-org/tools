@@ -20,4 +20,5 @@ description: Simple DNS proxy with DoH, DoT, DoQ and DNSCrypt support
 renovate:
   datasource: github-releases
   package: AdguardTeam/dnsproxy
+  extractVersion: ^v(?<version>.+)$
   priority: low
