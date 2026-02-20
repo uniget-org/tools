@@ -1,19 +1,16 @@
-.docker_login:
+.docker:
+  variables:
+    DOCKER_CERT_DIR: ""
+  services:
+  - name: docker:29.2.1-dind@sha256:8bcbad4b45f0bff9d3e809d85a7ac589390f0be8acbc526850c998c35c1243fd
+  image: docker:29.2.1@sha256:8bcbad4b45f0bff9d3e809d85a7ac589390f0be8acbc526850c998c35c1243fd
   before_script: |
     echo "${CI_REGISTRY_PASSWORD}" \
     | docker login "${CI_REGISTRY}" \
         --username="${CI_REGISTRY_USER}" \
         --password-stdin
-
-.docker_logout:
   after_script: |
     docker logout "${CI_REGISTRY}"
-
-.dind:
-  variables:
-    DOCKER_CERT_DIR: ""
-  services:
-  - name: docker:29.2.1-dind@sha256:8bcbad4b45f0bff9d3e809d85a7ac589390f0be8acbc526850c998c35c1243fd
 
 .uniget:
   before_script: |
@@ -53,9 +50,7 @@ metadata:
   - dev_download
   - collect
   extends:
-  - .docker_login
-  - .dind
-  - .docker_logout
-  image: docker:29.2.1@sha256:8bcbad4b45f0bff9d3e809d85a7ac589390f0be8acbc526850c998c35c1243fd
+  - .docker
   script:
+  - docker buildx create --name=uniget --bootstrap --use
   - ./dev metadata build
