@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: aws2
-version: "2.33.25"
+version: "2.33.26"
 binary: aws
 check: ${binary} --version | cut -d' ' -f1 | cut -d/ -f2
 conflicts_with:
