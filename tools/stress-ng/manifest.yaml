@@ -4,7 +4,7 @@ name: stress-ng
 license:
   name: GPLv2
   link: https://github.com/ColinIanKing/stress-ng/blob/master/COPYING
-version: "0.20.00"
+version: "0.20.01"
 check: ${binary} --version | cut -d' ' -f3
 build_dependencies:
 - make
