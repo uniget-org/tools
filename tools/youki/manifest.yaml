@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: youki
-version: 0.5.7
+version: 0.6.0
 check: ${binary} --version | grep ^youki | cut -d' ' -f3
 build_dependencies:
 - rust
