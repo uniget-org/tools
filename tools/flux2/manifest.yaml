@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: flux2
-version: "2.8.0"
+version: "2.8.1"
 binary: flux
 check: ${binary} --version | cut -d' ' -f3
 conflicts_with:
