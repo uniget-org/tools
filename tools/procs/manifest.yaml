@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: procs
-version: "0.14.10"
+version: "0.14.11"
 check: ${binary} --version | cut -d' ' -f2 | tr -d '"'
 platforms:
 - linux/amd64
