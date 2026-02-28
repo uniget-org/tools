@@ -4,7 +4,7 @@ name: mcpo
 license:
   name: MIT License
   link: https://github.com/open-webui/mcpo/blob/main/LICENSE
-version: "0.0.19"
+version: "0.0.20"
 check: "" # No version parameter
 platforms:
 - linux/amd64
