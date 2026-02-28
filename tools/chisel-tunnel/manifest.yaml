@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: chisel-tunnel
-version: "1.11.3"
+version: "1.11.4"
 binary: chisel
 check: ${binary} | grep Version | tr -s ' ' | cut -d' ' -f3
 conflicts_with:
