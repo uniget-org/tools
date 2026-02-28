@@ -4,7 +4,7 @@ name: templ
 license:
   name: MIT License
   link: https://github.com/a-h/templ/blob/main/LICENSE
-version: "0.3.977"
+version: "0.3.1001"
 check: ""
 platforms:
 - linux/amd64
