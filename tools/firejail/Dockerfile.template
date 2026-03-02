@@ -9,13 +9,15 @@ RUN --mount=type=cache,target=/var/cache/apk <<EOF
 apk add --update-cache \
     gawk \
     libseccomp-dev \
-    libseccomp-static
+    libseccomp-static \
+    clang
 EOF
 WORKDIR /tmp/github.com/netblue30/firejail
 ARG name
 ARG version
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" https://github.com/netblue30/firejail .
+export CC=clang
 ./configure --prefix="${prefix}"
 make -j$(nproc)
 make install-strip
