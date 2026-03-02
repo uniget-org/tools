@@ -48,10 +48,10 @@ echo "    SHA: ${SHA}"
 cosign verify-blob \
     --bundle "${uniget_cache_download}/${filename}.sigstore.json" \
     --certificate-oidc-issuer https://token.actions.githubusercontent.com \
-    --certificate-identity "https://github.com/aquasecurity/trivy/.github/workflows/reusable-release.yaml@refs/tags/v${version}" \
+    --certificate-identity "https://github.com/aquasecurity/private-trivy/.github/workflows/reusable-release.yaml@refs/tags/v${version}" \
     --certificate-github-workflow-name Release \
     --certificate-github-workflow-ref "refs/tags/v${version}" \
-    --certificate-github-workflow-repository "aquasecurity/trivy" \
+    --certificate-github-workflow-repository "aquasecurity/private-trivy" \
     --certificate-github-workflow-sha "${SHA}" \
     --certificate-github-workflow-trigger push \
     "${uniget_cache_download}/${filename}"
