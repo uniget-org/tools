@@ -20,7 +20,6 @@ apk add --update-cache \
     libpcap-dev \
     libssh-dev \
     c-ares-dev \
-    c-ares-static \
     pcre-dev \
     libgpg-error-dev \
     libgpg-error-static \
