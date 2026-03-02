@@ -7,6 +7,10 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
+RUN --mount=type=cache,target=/var/cache/apk <<EOF
+apk add --update-cache \
+    clang
+EOF
 COPY --link --from=make / /usr/local/
 WORKDIR /tmp/libgmp
 ARG name
@@ -25,6 +29,7 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
 tar --file="${uniget_cache_download}/${filename}" --list
 tar --file="${uniget_cache_download}/${filename}" --extract --xz --strip-components=1 --no-same-owner
 
+export CC=clang
 ./configure \
     --prefix="${prefix}" \
     --enable-shared \
