@@ -38,6 +38,18 @@ if test "${version}" == "0.2"; then
  #include <dirent.h>
  #include <regex.h>
 EOP
+    cat <<EOP | patch -p0
+--- nslist.c.orig
++++ nslist.c
+@@ -22,6 +22,7 @@
+ #define _GNU_SOURCE
+ #include <stdio.h>
+ #include <stdlib.h>
++#include <libgen.h>
+ #include <unistd.h>
+ #include <stdint.h>
+ #include <string.h>
+EOP
 fi
 make -j$(nproc) LDFLAGS=-static
 make install
