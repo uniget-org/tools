@@ -2,6 +2,8 @@
 name: ncdu
 version: "2.9.2"
 check: ${binary} --version | cut -d' ' -f2
+build_dependencies:
+- zig
 platforms:
 - linux/amd64
 - linux/arm64
