@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: pv
-version: "1.8.10"
+version: "1.10.3"
 check: ${binary} --version | grep ^pv | cut -d' ' -f2
 build_dependencies:
 - make
