@@ -18,7 +18,8 @@ apk add --update-cache \
     tcl \
     asciidoc \
     xmlto \
-    pcre2-dev
+    pcre2-dev \
+    pcre2-static
 EOF
 WORKDIR /tmp/git
 ARG name
