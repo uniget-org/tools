@@ -21,6 +21,18 @@ COPY --link --from=make / /usr/local/
 WORKDIR /tmp/proot
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/proot-me/proot .
+cat <<EOP | patch -p0
+--- src/cli/cli.c.orig
++++ src/cli/cli.c
+@@ -22,6 +22,7 @@
+
+ #include <stdio.h>         /* printf(3), */
+ #include <stdbool.h>       /* bool, true, false,  */
++#include <libgen.h>
+ #include <linux/limits.h>  /* ARG_MAX, PATH_MAX, */
+ #include <string.h>        /* str*(3), basename(3),  */
+ #include <talloc.h>        /* talloc*,  */
+EOP
 make -C src -j$(nproc) LDFLAGS="-static -ltalloc"
 make -C doc proot/man.1
 cp src/proot "${prefix}/bin/"
