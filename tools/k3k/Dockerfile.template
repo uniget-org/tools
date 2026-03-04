@@ -1,0 +1,24 @@
+#syntax=docker/dockerfile:1.22.0@sha256:4a43a54dd1fedceb30ba47e76cfcf2b47304f4161c0caeac2db1c61804ea3c91
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+base_url="https://github.com/rancher/k3k/releases/download/v${version}"
+
+for binary in k3k-kubelet k3k k3kcli; do
+    url="${base_url}/${binary}-linux-${alt_arch}"
+    filename="$( basename "${url}" )"
+    check-github-release-asset "rancher/k3k" "v${version}" "${filename}"
+    curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+        "${url}"
+
+    install --mode=0755 \
+        "${uniget_cache_download}/${filename}" \
+        "${prefix}/bin/${binary}"
+done
+EOF
