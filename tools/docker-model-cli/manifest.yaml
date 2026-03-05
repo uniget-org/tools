@@ -4,9 +4,9 @@ name: docker-model-cli
 license:
   name: Apache License 2.0
   link: https://github.com/docker/model-runner/blob/main/LICENSE
-version: "1.0.1"
+version: "1.1.9"
 binary: docker-model
-check: ${binary} version 2>&1 | cut -d' ' -f5
+check: ${binary} version 2>&1 | tr -d ' ' | grep Version | head -n 1 | cut -d':' -f2
 build_dependencies:
 - go
 - make
@@ -19,11 +19,11 @@ tags:
 - lang/go
 - type/cli
 - ai
-homepage: https://github.com/docker/model-cli
-repository: https://github.com/docker/model-cli
+homepage: https://github.com/docker/model-runner
+repository: https://github.com/docker/model-runner
 description: Docker Model Runner CLI Plugin
 renovate:
-  datasource: github-tags
-  package: docker/model-cli
+  datasource: github-releases
+  package: docker/model-runner
   extractVersion: ^v(?<version>.+)$
   priority: low
