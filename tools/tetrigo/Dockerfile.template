@@ -1,0 +1,18 @@
+#syntax=docker/dockerfile:1.22.0@sha256:4a43a54dd1fedceb30ba47e76cfcf2b47304f4161c0caeac2db1c61804ea3c91
+
+FROM ghcr.io/uniget-org/tools/go:latest AS go
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+COPY --link --from=go / /usr/local/
+WORKDIR /go/src/github.com/Broderick-Westrope/tetrigo
+ARG name
+ARG version
+RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
+check-clone "https://github.com/Broderick-Westrope/tetrigo" "v${version}"
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/Broderick-Westrope/tetrigo .
+go build -trimpath -ldflags "-s -w" -o "${prefix}/bin/tetrigo" ./cmd/tetrigo/
+EOF
