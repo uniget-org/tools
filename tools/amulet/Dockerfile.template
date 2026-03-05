@@ -14,8 +14,14 @@ COPY --link --from=python / /usr/local/
 COPY --link --from=shiv / /usr/local/
 RUN --mount=type=cache,target=/var/cache/apt <<EOF
 apt-get update
+apt-get -y install \
+    gnupg
+curl -sSLf https://apt.kitware.com/keys/kitware-archive-latest.asc | gpg --dearmor - >/usr/share/keyrings/kitware-archive-keyring.gpg
+echo 'deb [signed-by=/usr/share/keyrings/kitware-archive-keyring.gpg] https://apt.kitware.com/ubuntu/ noble main' >/etc/apt/sources.list.d/kitware.list
+apt-get update
 apt-get -y install --no-install-recommends \
     clang \
+    cmake \
     zlib1g-dev
 EOF
 RUN --mount=type=cache,target=/root/.cache/pip <<EOF
