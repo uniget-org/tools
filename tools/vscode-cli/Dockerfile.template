@@ -23,7 +23,7 @@ case "${arch}" in
 esac
 echo "    Using ${arch_suffix}"
 
-url="https://update.code.visualstudio.com/${version}/cli-linux-${arch_suffix}/stable"
+url="https://code.visualstudio.com/sha/download?build=stable&version=${version}&os=cli-alpine-${arch_suffix}"
 filename="$(basename "${url}")"
 
 check-download "${url}"
