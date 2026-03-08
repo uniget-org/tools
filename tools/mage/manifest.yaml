@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: mage
-version: "1.15.0"
+version: "1.16.0"
 check: ${binary} --version | grep ^Mage | cut -d' ' -f4
 platforms:
 - linux/amd64
