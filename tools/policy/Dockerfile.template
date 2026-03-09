@@ -8,22 +8,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-echo "### Setting architecture string for ${TARGETPLATFORM}"
-case "${arch}" in
-    x86_64)
-        export arch_suffix="${arch}"
-        ;;
-    aarch64)
-        export arch_suffix="${alt_arch}"
-        ;;
-    *)
-        echo "ERROR: Unsupported architecture ${arch}."
-        exit 1
-        ;;
-esac
-echo "    Using ${arch_suffix}"
-
-url="https://github.com/opcr-io/policy/releases/download/v${version}/policy_linux_${arch_suffix}.zip"
+url="https://github.com/opcr-io/policy/releases/download/v${version}/policy_linux_${alt_arch}.zip"
 filename="$(basename "${url}")"
 
 check-github-release-asset "opcr-io/policy" "v${version}" "${filename}"
