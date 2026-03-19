@@ -20,17 +20,14 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
     "${url}"
 
 echo "### Checking keyless signature for autocert ${version}"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.pem" \
-    "${url}.pem"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.sig" \
-    "${url}.sig"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.sigstore.json" \
+    "${url}.sigstore.json"
 SHA="$(
     git ls-remote --tags https://github.com/smallstep/autocert "v${version}" \
     | cut -f1
 )"
 COSIGN_EXPERIMENTAL=1 cosign verify-blob \
-    --cert "${uniget_cache_download}/${filename}.pem" \
-    --signature "${uniget_cache_download}/${filename}.sig" \
+    --bundle "${uniget_cache_download}/${filename}.sigstore.json" \
     --certificate-oidc-issuer https://token.actions.githubusercontent.com \
     --certificate-identity "https://github.com/smallstep/workflows/.github/workflows/goreleaser.yml@refs/heads/main" \
     --certificate-github-workflow-name "Create Release & Upload Assets" \
