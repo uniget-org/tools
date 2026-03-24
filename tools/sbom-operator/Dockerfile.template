@@ -21,15 +21,13 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
 echo "    SHA256 checksum: $(sha256sum ${uniget_cache_download}/${filename} | cut -d' ' -f1)"
 
 echo "### Downloading signature and certificate"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.sig" \
-    "${url}.sig"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.pem" \
-    "${url}.pem"
+check-github-release-asset "ckotzbauer/sbom-operator" "${version}" "${filename}.sigstore.json"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.sigstore.json" \
+    "${url}.sigstore.json"
 
 echo "### Verifying signature"
 COSIGN_EXPERIMENTAL=1 cosign verify-blob "${uniget_cache_download}/${filename}" \
-    --certificate "${uniget_cache_download}/${filename}.pem" \
-    --signature "${uniget_cache_download}/${filename}.sig" \
+    --bundle "${uniget_cache_download}/${filename}.sigstore.json" \
     --certificate-oidc-issuer https://token.actions.githubusercontent.com \
     --certificate-identity-regexp 'https://github.com/ckotzbauer/actions-toolkit/.github/workflows/toolkit-release-goreleaser.yml@.+' \
     --certificate-github-workflow-repository ckotzbauer/sbom-operator \
