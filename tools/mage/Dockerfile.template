@@ -23,6 +23,9 @@ esac
 echo "    Using ${arch_suffix}"
 
 url="https://github.com/magefile/mage/releases/download/v${version}/mage_${version}_Linux-${arch_suffix}.tar.gz"
+if test "${version}" == "1.17.0"; then
+    url="https://github.com/magefile/mage/releases/download/v${version}/mage_${version}_linux_${alt_arch}Linux-${arch_suffix}.tar.gz"
+fi
 filename="$(basename "${url}")"
 
 check-github-release-asset "magefile/mage" "v${version}" "${filename}"
