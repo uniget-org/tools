@@ -20,8 +20,3 @@ messages:
 homepage: https://grafana.com/loki
 repository: https://github.com/grafana/loki
 description: Agent which ships the contents of local logs to Grafana Loki
-renovate:
-  datasource: github-releases
-  package: grafana/loki
-  extractVersion: ^v(?<version>.+)$
-  priority: low
