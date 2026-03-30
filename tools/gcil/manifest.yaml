@@ -1,8 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
-name: gitlabci-local
+name: gcil
 version: "13.0.2"
-binary: gcil
 check: ${binary} --version | cut -d' ' -f2
 build_dependencies:
 - python-3.12
@@ -31,5 +30,3 @@ renovate:
 license:
   name: Apache License 2.0
   link: https://gitlab.com/AdrianDC/gitlabci-local/-/blob/master/LICENSE?ref_type=heads
-lifecycle:
-  renamed_to: gcil
