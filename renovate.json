@@ -22,6 +22,7 @@
   "rebaseLabel": "renovate/rebase",
   "stopUpdatingLabel": "renovate/stop-updating",
   "recreateWhen": "auto",
+  "commitMessageTopic": "{{depName}}",
   "major": {
     "labels": [
       "bump/major",
