@@ -4,7 +4,7 @@ name: routedns
 license:
   name: BSD-3-Clause
   link: https://github.com/folbricht/routedns/blob/master/LICENSE
-version: "0.1.153"
+version: "0.1.154"
 check: ${binary} --version | grep ^Version | tr -s ' ' | cut -d' ' -f2 | tr -d v
 build_dependencies:
 - go
