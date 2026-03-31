@@ -82,7 +82,7 @@
         "tools/*/manifest.yaml"
       ],
       "matchStrings": [
-        "{\"datasource\":renovate.datasource,\"depName\":name\"packageName\":renovate.package,\"extractVersion\":renovate.extractVersion,\"currentValue\":version,\"versioning\":renovate.versioning,\"packageNameTemplate\":renovate.url,\"registryUrlTemplate\":renovate.api}"
+        "{\"datasource\":renovate.datasource,\"depName\":name,\"packageName\":renovate.package,\"extractVersion\":renovate.extractVersion,\"currentValue\":version,\"versioning\":renovate.versioning,\"packageNameTemplate\":renovate.url,\"registryUrlTemplate\":renovate.api}"
       ]
     }
   ]
