@@ -40,7 +40,8 @@ echo "### Downloading checksums"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${checksum_filename}" \
     "https://github.com/goreleaser/goreleaser/releases/download/v${version}/checksums.txt"
 
-if test "${version}" != "2.15.0"; then
+# Fix is planned for v3 (https://github.com/goreleaser/goreleaser/pull/6509)
+if test "${version}" != "2.15.0" && test "${version}" != "2.15.1"; then
     echo "### Downloading signature and certificate"
     curl --silent --show-error --location --fail --output "${uniget_cache_download}/${checksum_filename}.sigstore.json" \
         "${url}.sigstore.json"
