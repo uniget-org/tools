@@ -21,7 +21,7 @@ jobs:
     steps:
     - name: Run
       id: run
-      uses: paper2/github-actions-opentelemetry@v0.9.2
+      uses: paper2/github-actions-opentelemetry@e1027e95ff4cc4022e36a0fc03c44f402430bee6 # v0.10.0
       env:
         OTEL_SERVICE_NAME: uniget-github-tools
         OTEL_EXPORTER_OTLP_ENDPOINT: https://otlp-gateway-prod-us-central-0.grafana.net/otlp
