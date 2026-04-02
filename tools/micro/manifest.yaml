@@ -1,8 +1,8 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: micro
-version: "5.8.0"
-check: ${binary} --version | cut -d' ' -f3
+version: "5.19.1"
+check: ${binary} --version 2>/dev/null | cut -d' ' -f3
 platforms:
 - linux/amd64
 - linux/arm64

@@ -8,7 +8,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://github.com/micro/go-micro/releases/download/v${version}/micro-v${version}-linux-${alt_arch}.tar.gz"
+url="https://github.com/micro/go-micro/releases/download/v${version}/micro_linux_${alt_arch}.tar.gz"
 filename="$( basename "${url}" )"
 
 check-github-release-asset "micro/go-micro" "v${version}" "${filename}"
