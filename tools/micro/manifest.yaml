@@ -11,11 +11,11 @@ tags:
 - lang/go
 - type/cli
 homepage: https://micro.dev
-repository: https://github.com/micro/micro
+repository: https://github.com/micro/go-micro
 description: API first development platform
 renovate:
   datasource: github-releases
-  package: micro/micro
+  package: micro/go-micro
   extractVersion: ^v(?<version>.+)$
   priority: low
 license:

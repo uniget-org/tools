@@ -29,7 +29,7 @@ messages:
     - libc-ares-dev
 renovate:
   datasource: gitlab-tags
-  package: wireshark/wiresharkar
+  package: wireshark/wireshark
   extractVersion: ^v(?<version>.+)$
   priority: low
 license:

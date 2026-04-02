@@ -21,6 +21,6 @@ repository: https://github.com/open-telemetry/opentelemetry-collector-contrib/tr
 description: Telemetry generator for OpenTelemetry
 renovate:
   datasource: github-releases
-  package: open-telemetry/opentelemetry-collector-contrib-releases
+  package: open-telemetry/opentelemetry-collector-contrib
   extractVersion: ^v(?<version>.+)$
   priority: low

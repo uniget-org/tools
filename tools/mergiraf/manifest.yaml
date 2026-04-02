@@ -19,6 +19,6 @@ description: Syntax-aware git merge driver for a growing collection of programmi
 renovate:
   datasource: git-tags
   package: mergiraf/mergiraf
-  url: https://codeberg.org/mergiraf/mergiraf
+  api: https://codeberg.org/mergiraf/mergiraf
   extractVersion: ^v(?<version>.+)$
   priority: low

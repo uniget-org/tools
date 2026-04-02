@@ -28,5 +28,5 @@ repository: https://github.com/sst/opencode
 description: AI coding agent, built for the terminal
 renovate:
   datasource: npm
-  package: opencode
+  package: opencode-ai
   priority: low
