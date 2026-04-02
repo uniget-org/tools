@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: forgejo
-version: "1.21.11-2"
+version: "14.0.3"
 check: ${binary} --version | cut -d' ' -f3
 platforms:
 - linux/amd64

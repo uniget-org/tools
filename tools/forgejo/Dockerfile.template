@@ -18,7 +18,10 @@ url="$(
         | .browser_download_url
     '
 )"
-test -n "${url}"
+if test -n "${url}"; then
+    echo "ERROR: Unable to determine download URL."
+    exit 1
+fi
 filename="$(basename "${url}")"
 
 check-download "${url}"
