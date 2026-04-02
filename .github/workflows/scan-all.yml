@@ -21,7 +21,7 @@ jobs:
     steps:
 
     - name: Install uniget
-      uniget-org/uniget-action@2801de6989bb0c244342f750b29e6451498ba742 # v1.0.4
+      uses: uniget-org/uniget-action@2801de6989bb0c244342f750b29e6451498ba742 # v1.0.4
       with:
         prefix: helper
         tools: jq regclient

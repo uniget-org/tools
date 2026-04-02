@@ -39,7 +39,7 @@ jobs:
         fetch-depth: 0
 
     - name: Install uniget
-      uniget-org/uniget-action@2801de6989bb0c244342f750b29e6451498ba742 # v1.0.4
+      uses: uniget-org/uniget-action@2801de6989bb0c244342f750b29e6451498ba742 # v1.0.4
       with:
         prefix: helper
         tools: jq regclient
@@ -99,7 +99,7 @@ jobs:
       uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
     - name: Install uniget
-      uniget-org/uniget-action@2801de6989bb0c244342f750b29e6451498ba742 # v1.0.4
+      uses: uniget-org/uniget-action@2801de6989bb0c244342f750b29e6451498ba742 # v1.0.4
       with:
         prefix: helper
         tools: yq jq
@@ -155,7 +155,7 @@ jobs:
         fetch-depth: 0
 
     - name: Install uniget
-      uniget-org/uniget-action@2801de6989bb0c244342f750b29e6451498ba742 # v1.0.4
+      uses: uniget-org/uniget-action@2801de6989bb0c244342f750b29e6451498ba742 # v1.0.4
       with:
         prefix: helper
         tools: jq regclient yq
@@ -249,7 +249,7 @@ jobs:
         fetch-depth: 0
 
     - name: Install uniget
-      uniget-org/uniget-action@2801de6989bb0c244342f750b29e6451498ba742 # v1.0.4
+      uses: uniget-org/uniget-action@2801de6989bb0c244342f750b29e6451498ba742 # v1.0.4
       with:
         prefix: helper
         tools: jq regclient yq
@@ -289,7 +289,7 @@ jobs:
         fetch-depth: 0
 
     - name: Install uniget
-      uniget-org/uniget-action@2801de6989bb0c244342f750b29e6451498ba742 # v1.0.4
+      uses: uniget-org/uniget-action@2801de6989bb0c244342f750b29e6451498ba742 # v1.0.4
       with:
         prefix: helper
         tools: jq regclient
