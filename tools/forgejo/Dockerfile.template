@@ -10,7 +10,6 @@ ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 url="$(
     curl --silent --show-error --location --fail "https://codeberg.org/api/v1/repos/forgejo/forgejo/releases" \
-    | tee /tmp/forgejo-releases.json \
     | jq --raw-output --arg version "${version}" --arg alt_arch "${alt_arch}" '
         .[] 
         | select(.tag_name == "v\($version)")
@@ -19,9 +18,8 @@ url="$(
         | .browser_download_url
     '
 )"
-if test -n "${url}"; then
+if test -z "${url}"; then
     echo "ERROR: Unable to determine download URL."
-    jq . /tmp/forgejo-releases.json
     exit 1
 fi
 filename="$(basename "${url}")"
