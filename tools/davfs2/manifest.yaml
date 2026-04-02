@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: davfs2
+license:
+  name: GPLv3
+  link: https://github.com/alisarctl/davfs2/blob/main/COPYING
+version: "1.7.3"
+check: ""
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- category/console
+- lang/c
+- type/cli
+- fuse
+- webdav
+- component/storage
+homepage: https://github.com/alisarctl/davfs2
+repository: https://github.com/alisarctl/davfs2
+description: FuseFS based WebDAV implementation
+messages:
+  usage: |
+    Please install libneon:
+    - Ubuntu: apt-get install libneon27
+renovate:
+  datasource: gitlab-releases
+  package: uniget-org/renovate-custom
+  extractVersion: ^davfs2/(?<version>.+)$
+  versioning: loose
+  priority: low

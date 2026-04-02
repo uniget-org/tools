@@ -1,0 +1,23 @@
+#syntax=docker/dockerfile:1.23.0@sha256:2780b5c3bab67f1f76c781860de469442999ed1a0d7992a5efdf2cffc0e3d769
+
+FROM registry.gitlab.com/uniget-org/images/build-essential:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/apt <<EOF
+apt-get update
+apt-get -y install --no-install-recommends \
+    libneon27-dev
+EOF
+WORKDIR /tmp/davfs2
+RUN <<EOF
+url="https://github.com/alisarctl/davfs2/releases/download/rel-${version//./-}/davfs2-${version}.tar.gz"
+curl --silent --show-error --location --fail "${url}" \
+| tar --extract --gzip --strip-components=1
+./configure --prefix="${prefix}"
+make -j$(nproc)
+make install
+EOF
