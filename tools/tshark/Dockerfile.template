@@ -27,7 +27,8 @@ apk add --update-cache \
     gettext-dev \
     gettext-static \
     zlib-dev \
-    zlib-static
+    zlib-static \
+    libxml2-dev
 EOF
 COPY --link --from=make / /usr/local/
 COPY --link --from=speexdsp / /usr/local/
