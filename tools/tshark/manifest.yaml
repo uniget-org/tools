@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: tshark
-version: "4.2.14"
+version: "4.6.4"
 check: "" # Missing shared libraries
 build_dependencies:
 - make
