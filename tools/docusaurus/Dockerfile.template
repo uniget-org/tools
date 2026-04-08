@@ -1,0 +1,23 @@
+#syntax=docker/dockerfile:1.23.0@sha256:2780b5c3bab67f1f76c781860de469442999ed1a0d7992a5efdf2cffc0e3d769
+
+FROM ghcr.io/uniget-org/tools/node-lts:latest AS node
+FROM ghcr.io/uniget-org/tools/npm:latest AS npm
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+COPY --link --from=node / /usr/local/
+COPY --link --from=npm / /usr/local/
+WORKDIR /uniget_bootstrap/libexec/docusaurus
+ARG name
+ARG version
+RUN <<EOF
+npm install \
+    --omit=dev \
+    "@docusaurus/core@${version}"
+ln --symbolic --relative --force "${prefix}/libexec/docusaurus/node_modules/.bin/docusaurus" "${prefix}/bin/"
+EOF
