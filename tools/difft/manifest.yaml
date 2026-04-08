@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: difft
+license:
+  name: MIT License
+  link: https://github.com/Wilfred/difftastic/blob/master/LICENSE
+version: "0.68.0"
+check: ${binary} --version | grep ^Difftastic | cut -d' ' -f2
+build_dependencies:
+- rust
+platforms:
+- linux/amd64
+tags:
+- category/development
+- lang/rust
+- type/cli
+homepage: https://github.com/Wilfred/difftastic
+repository: https://github.com/Wilfred/difftastic
+description: Structural diff that understands syntax (difftastic)
+renovate:
+  datasource: github-releases
+  package: Wilfred/difftastic
+  priority: low
