@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: rc
+license:
+  name: MIT License, Apache License 2.0
+  link: https://github.com/rustfs/cli
+version: "0.1.9"
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/rust
+- type/cli
+- component/storage
+- standard/s3
+homepage: https://github.com/rustfs/cli
+repository: https://github.com/rustfs/cli
+description: S3-compatible command-line client written in Rust
+renovate:
+  datasource: github-releases
+  package: rustfs/cli
+  extractVersion: ^v(?<version>.+)$
+  priority: low
