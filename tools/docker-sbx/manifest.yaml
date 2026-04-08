@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: docker-sbx
+license:
+  name: Custom
+  link: https://github.com/docker/sbx-releases/blob/main/LICENSE
+version: "0.24.1"
+binary: sbx
+check: ${binary} version | grep ^Client | tr -s ' ' | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
+tags:
+- org/docker
+- category/development
+- lang/go
+- type/cli
+- agent
+- sandbox
+- ai
+homepage: https://docs.docker.com/ai/sandboxes
+repository: https://github.com/docker/sbx-releases
+description: Run AI coding agents in isolated microVM sandboxes
+renovate:
+  datasource: github-releases
+  package: docker/sbx-releases
+  extractVersion: ^v(?<version>.+)$
+  priority: low
