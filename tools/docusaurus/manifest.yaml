@@ -5,19 +5,21 @@ license:
   name: MIT License
   link: https://github.com/facebook/docusaurus/blob/main/LICENSE
 version: "3.10.0"
-check: ""
+check: ${binary} --version 2>/dev/null | grep "Docusaurus version" | cut -d' ' -f4
 build_dependencies:
-- bar
+- node-lts
 runtime_dependencies:
-- baz
+- node-lts
 platforms:
 - linux/amd64
-#- linux/arm64
+- linux/arm64
 tags:
 - org/facebook
 - category/development
 - lang/javascript
 - type/cli
+- website
+- format/markdown
 homepage: https://docusaurus.io/
 repository: https://github.com/facebook/docusaurus
 description: Easy to maintain open source documentation websites
