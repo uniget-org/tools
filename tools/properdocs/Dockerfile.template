@@ -1,0 +1,26 @@
+#syntax=docker/dockerfile:1.23.0@sha256:2780b5c3bab67f1f76c781860de469442999ed1a0d7992a5efdf2cffc0e3d769
+
+FROM ghcr.io/uniget-org/tools/python-3.12:latest AS python
+FROM ghcr.io/uniget-org/tools/shiv:latest AS shiv
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+COPY --link --from=python / /usr/local/
+COPY --link --from=shiv / /usr/local/
+ARG name
+ARG version
+WORKDIR /uniget_bootstrap/libexec/properdocs
+RUN --mount=type=cache,target=/root/.cache/pip <<EOF
+shiv --output-file "${prefix}/bin/properdocs" --console-script properdocs \
+    "properdocs==${version}" \
+    mkdocs-material \
+    mkdocs-material-extensions \
+    pymdown-extensions \
+    mkdocs-minify-plugin \
+    mkdocs-macros-plugin \
+    mkdocs-redirects \
+    regex
+EOF
