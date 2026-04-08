@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: docusaurus
+license:
+  name: MIT License
+  link: https://github.com/facebook/docusaurus/blob/main/LICENSE
+version: "3.10.0"
+check: ""
+build_dependencies:
+- bar
+runtime_dependencies:
+- baz
+platforms:
+- linux/amd64
+#- linux/arm64
+tags:
+- org/facebook
+- category/development
+- lang/javascript
+- type/cli
+homepage: https://docusaurus.io/
+repository: https://github.com/facebook/docusaurus
+description: Easy to maintain open source documentation websites
+renovate:
+  datasource: npm
+  package: "@docusaurus/core"
+  priority: low
