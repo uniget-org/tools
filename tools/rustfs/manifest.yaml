@@ -5,11 +5,12 @@ license:
   name: Apache License 2.0
   link: https://github.com/rustfs/rustfs/blob/main/LICENSE
 version: "1.0.0-alpha.91"
-check: ${binary} -version | grep ^rustfs | cut -d' ' -f2
+check: ${binary} --version | grep ^rustfs | cut -d' ' -f2
 build_dependencies:
 - rust
 platforms:
 - linux/amd64
+- linux/arm64
 tags:
 - component/storage
 - lang/rust
