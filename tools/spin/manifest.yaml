@@ -11,6 +11,7 @@ tags:
 - category/development
 - lang/rust
 - type/cli
+- cncf/sandbox
 homepage: https://developer.fermyon.com/spin
 repository: https://github.com/spinframework/spin
 description: Open source developer tool for building and running serverless applications powered by WebAssembly
