@@ -4,7 +4,7 @@ name: docker-sbx
 license:
   name: Custom
   link: https://github.com/docker/sbx-releases/blob/main/LICENSE
-version: "0.24.1"
+version: "0.24.2"
 binary: sbx
 check: ${binary} version | grep ^Client | tr -s ' ' | cut -d' ' -f3 | tr -d v
 platforms:
