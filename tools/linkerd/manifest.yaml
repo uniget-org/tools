@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: linkerd
+license:
+  name: Apache License 2.0
+  link: https://github.com/linkerd/linkerd2/blob/main/LICENSE
+version: "26.4.1"
+check: ${binary} version --client | cut -d- -f2
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/operations
+- lang/go
+- lang/rust
+- type/cli
+- type/daemon
+- service
+- mesh
+- kubernetes
+- k8s
+homepage: https://linkerd.io
+repository: https://github.com/linkerd/linkerd2
+description: Ultralight, security-first service mesh for Kubernetes
+renovate:
+  datasource: github-releases
+  package: linkerd/linkerd2
+  extractVersion: ^edge-(?<version>.+)$
+  priority: low
