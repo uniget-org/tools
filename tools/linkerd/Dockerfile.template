@@ -1,0 +1,26 @@
+#syntax=docker/dockerfile:1.23.0@sha256:2780b5c3bab67f1f76c781860de469442999ed1a0d7992a5efdf2cffc0e3d769
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/linkerd/linkerd2/releases/download/edge-${version}/linkerd2-cli-edge-${version}-linux-${alt_arch}"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "linkerd/linkerd2" "edge-${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/linkerd"
+EOF
+RUN <<EOF
+"${prefix}/bin/linkerd" completion bash >"${prefix}/share/bash-completion/completions/linkerd"
+"${prefix}/bin/linkerd" completion fish >"${prefix}/share/fish/vendor_completions.d/linkerd.fish"
+"${prefix}/bin/linkerd" completion zsh >"${prefix}/share/zsh/vendor-completions/_linkerd"
+EOF
