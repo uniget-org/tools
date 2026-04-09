@@ -19,6 +19,7 @@ tags:
 - lang/python
 - type/cli
 - ai
+- cncf/sandbox
 homepage: https://github.com/HolmesGPT/holmesgpt
 repository: https://github.com/HolmesGPT/holmesgpt
 description: On-Call Assistant for Prometheus Alerts - Get a head start on fixing alerts with AI investigation
