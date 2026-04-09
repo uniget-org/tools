@@ -21,6 +21,7 @@ tags:
 - cloud/github
 - cloud/gitlab
 - iac
+- state/deprecated
 homepage: https://github.com/GoogleCloudPlatform/terraformer
 repository: https://github.com/GoogleCloudPlatform/terraformer
 description: Generate terraform files from existing infrastructure (reverse Terraform)

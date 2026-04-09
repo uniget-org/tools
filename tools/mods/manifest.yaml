@@ -12,6 +12,7 @@ tags:
 - lang/go
 - type/cli
 - ai
+- state/deprecated
 homepage: https://github.com/charmbracelet/mods
 repository: https://github.com/charmbracelet/mods
 description: AI on the command line

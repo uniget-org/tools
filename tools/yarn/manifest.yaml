@@ -15,7 +15,6 @@ tags:
 - type/cli
 - dependency
 - management
-- state/stale
 homepage: https://classic.yarnpkg.com/
 repository: https://github.com/yarnpkg/yarn
 description: Fast, reliable, and secure dependency management

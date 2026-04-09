@@ -11,7 +11,6 @@ tags:
 - category/development
 - lang/go
 - type/cli
-- state/stale
 homepage: https://github.com/liamg/tml
 repository: https://github.com/liamg/tml
 description: Tiny markup language for terminal output

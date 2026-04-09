@@ -13,6 +13,7 @@ tags:
 - category/terminal
 - lang/go
 - type/cli
+- state/stale
 homepage: https://github.com/oz/tz
 repository: https://github.com/oz/tz
 description: Time zone helper
