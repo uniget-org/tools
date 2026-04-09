@@ -10,7 +10,6 @@ tags:
 - terminal
 - lang/go
 - category/operations
-- state/stale
 homepage: https://github.com/justjanne/powerline-go
 repository: https://github.com/justjanne/powerline-go
 description: Beautiful and useful low-latency prompt for your shell

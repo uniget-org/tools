@@ -10,6 +10,7 @@ tags:
 - k8s
 - management
 - lang/go
+- state/stale
 homepage: https://danielfoehrkn.medium.com/the-case-of-kubeswitch-aff4b6a04ae7
 repository: https://github.com/danielfoehrKn/kubeswitch
 description: The kubectx for operators

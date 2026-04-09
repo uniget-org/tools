@@ -11,6 +11,7 @@ tags:
 - k8s
 - lang/go
 - category/operations
+- state/stale
 homepage: https://popeyecli.io
 repository: https://github.com/derailed/popeye
 description: Kubernetes cluster resource sanitizer

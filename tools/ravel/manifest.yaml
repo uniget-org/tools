@@ -14,6 +14,9 @@ tags:
 - category/operations
 - lang/go
 - type/daemon
+- state/stale
+- state/onemanshow
+- state/deprecated
 homepage: https://valyent.cloud/
 repository: https://github.com/valyentdev/ravel
 description: Open-source containers-as-microVMs orchestrator

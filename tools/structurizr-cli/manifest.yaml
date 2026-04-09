@@ -9,6 +9,7 @@ tags:
 - category/development
 - lang/java
 - type/cli
+- state/deprecated
 homepage: https://docs.structurizr.com/cli
 repository: https://github.com/structurizr/cli
 description: CLI for Structurizr
