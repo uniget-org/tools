@@ -4,7 +4,7 @@ name: kl
 license:
   name: MIT License
   link: https://github.com/robinovitch61/kl/blob/main/LICENSE
-version: "0.8.0"
+version: "0.9.0"
 check: ${binary} --version | cut -d' ' -f2 | tr -d v
 platforms:
 - linux/amd64
