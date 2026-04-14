@@ -12,12 +12,8 @@ ARG version
 RUN <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
-    git \
-    curl \
-    wget \
     gpg \
     blueprint-compiler \
-    build-essential \
     debhelper \
     devscripts \
     pandoc \
