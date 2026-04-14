@@ -17,7 +17,7 @@ messages:
   usage: |
     Replaced by "node22"
 renovate:
-  datasource: gitlab-releases
+  datasource: github-releases
   package: nodejs/node
   extractVersion: ^v(?<version>22\..+)$
   priority: low

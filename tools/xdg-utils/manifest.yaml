@@ -15,9 +15,9 @@ homepage: https://www.freedesktop.org/wiki/Software/xdg-utils/
 repository: https://www.freedesktop.org/wiki/Software/xdg-utils/
 description: Desktop integration utilities
 renovate:
-  datasource: gitlab-tags
+  datasource: git-tags
   package: xdg/xdg-utils
-  api: https://gitlab.freedesktop.org/xdg/xdg-utils
+  api: https://gitlab.freedesktop.org/xdg/xdg-utils.git
   extractVersion: ^v(?<version>\d+\.\d+(\.\d+)?)$
   priority: low
 license:
