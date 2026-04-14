@@ -1,0 +1,44 @@
+#syntax=docker/dockerfile:1.22.0@sha256:4a43a54dd1fedceb30ba47e76cfcf2b47304f4161c0caeac2db1c61804ea3c91
+
+FROM registry.gitlab.com/uniget-org/images/build-base:3.23 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+WORKDIR /tmp/libsodium
+RUN --mount=type=cache,target=/var/cache/apt <<EOF
+curl --silent --show-error --location --fail https://download.libsodium.org/libsodium/releases/LATEST.tar.gz \
+| tar --extract --gzip --strip-components=1
+env CPPFLAGS="-DED25519_NONDETERMINISTIC=1" \
+    ./configure \
+        --disable-dependency-tracking
+make -j"$(nproc)" check
+make install
+EOF
+RUN <<EOF
+apk add --no-cache \
+    cmake \
+    pkgconfig \
+    catatonit
+EOF
+WORKDIR /tmp/minisign
+RUN <<EOF
+check-clone "https://github.com/jedisct1/minisign" "${version}"
+git clone -q --config advice.detachedHead=false --depth 1 --branch "master" https://github.com/jedisct1/minisign .
+mkdir build
+cd build
+cmake \
+    -DCMAKE_BUILD_TYPE=MinSizeRel \
+    -DCMAKE_C_FLAGS="-fstack-protector-strong -D_FORTIFY_SOURCE=2 -fPIE" \
+    -DCMAKE_EXE_LINKER_FLAGS="-pie -Wl,-z,relro,-z,now" \
+    -DBUILD_STATIC_EXECUTABLES=1 \
+    ..
+make -j$(nproc)
+cp build/minisign "${prefix}/bin/"
+EOF
+RUN <<EOF
+curl --silent --show-error --location --fail --output "${prefix}/share/man/man1/minisign.1" \
+    "https://github.com/jedisct1/minisign/raw/refs/heads/master/share/man/man1/minisign.1"
+EOF
