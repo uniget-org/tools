@@ -27,7 +27,7 @@ repository: https://www.netfilter.org/projects/iptables/index.html
 description: Userspace command line program used to configure kernel packet filtering ruleset
 renovate:
   datasource: git-tags
-  package: https://git.netfilter.org/iptables/
+  package: git://git.netfilter.org/iptables.git
   extractVersion: ^v(?<version>.+)$
   priority: low
 license:

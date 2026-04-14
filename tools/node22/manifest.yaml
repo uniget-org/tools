@@ -13,7 +13,7 @@ homepage: https://github.com/nodejs/node
 repository: https://github.com/nodejs/node
 description: Node.js JavaScript runtime
 renovate:
-  datasource: gitlab-releases
+  datasource: github-releases
   package: nodejs/node
   extractVersion: ^v(?<version>22\..+)$
   priority: low

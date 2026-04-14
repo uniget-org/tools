@@ -17,9 +17,9 @@ homepage: https://gitlab.xiph.org/xiph/speex
 repository: https://gitlab.xiph.org/xiph/speex
 description: Speex voice codec
 renovate:
-  datasource: gitlab-releases
+  datasource: git-tags
   package: xiph/speex
-  api: https://gitlab.xiph.org
+  api: https://gitlab.xiph.org/xiph/speex.git
   extractVersion: ^Speex-(?<version>.+)$
   priority: low
 license:

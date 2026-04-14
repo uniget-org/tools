@@ -21,7 +21,7 @@ messages:
 renovate:
   datasource: git-tags
   package: pass
-  api: https://git.zx2c4.com/password-store
+  api: git://git.zx2c4.com/password-store.git
   versioning: loose
   priority: low
 license:

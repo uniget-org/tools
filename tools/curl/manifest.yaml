@@ -14,10 +14,9 @@ homepage: https://curl.se/
 repository: https://github.com/curl/curl
 description: Tool and library for transferring data with URL syntax
 renovate:
-  datasource: custom.curl
-  datasourceUrl: https://api.github.com/repos/curl/curl/releases
-  datasourceTramsformJsonata: "{ \"releases\": [ $[].{ \"version\": $replace( $substring( tag_name, 5 ), '_', '.' ) } ] }"
-  package: curl/curl
+  datasource: gitlab-releases
+  package: uniget-org/renovate-custom
+  extractVersion: ^curl/(?<version>.+)$
   priority: low
 license:
   name: curl

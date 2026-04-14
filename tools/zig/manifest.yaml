@@ -19,6 +19,6 @@ description: General-purpose programming language and toolchain for maintaining 
 renovate:
   datasource: git-tags
   package: ziglang/zig
-  api: https://codeberg.org/ziglang/zig
+  api: https://codeberg.org/ziglang/zig.git
   extractVersion: ^v(?<version>.+)$
   priority: low

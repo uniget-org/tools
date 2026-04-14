@@ -20,7 +20,7 @@ description: Go Implementation of WireGuard
 renovate:
   datasource: git-tags
   package: wireguard-go
-  api: https://git.zx2c4.com/wireguard-go
+  api: git://git.zx2c4.com/wireguard-go.git
   priority: low
 license:
   name: Custom
