@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: node22
-version: "22.21.1"
+version: "22.22.2"
 check: ${binary} --version | tr -d v
 platforms:
 - linux/amd64
