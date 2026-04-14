@@ -15,11 +15,9 @@ tags:
 - lang/rust
 - type/cli
 - cloud/codeberg
+- state/archived
 homepage: https://codeberg.org/Aviac/codeberg-cli
 repository: https://codeberg.org/Aviac/codeberg-cli
 description: CLI Tool for forgejo similar to gh, glab and tea
-renovate:
-  datasource: git-tags
-  package: https://codeberg.org/Aviac/codeberg-cli.git
-  extractVersion: ^v(?<version>.+)$
-  priority: low
+lifecycle:
+  removed_with_reason: Archived. Please use fj.
