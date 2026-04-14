@@ -26,5 +26,5 @@ repository: https://github.com/usebruno/bruno
 description: Open source IDE For exploring and testing APIs
 renovate:
   datasource: pypi
-  package: @usebruno/cli
+  package: "@usebruno/cli"
   priority: low

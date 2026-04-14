@@ -28,5 +28,5 @@ repository: https://github.com/anthropics/claude-code
 description: Agentic coding tool that lives in your terminal
 renovate:
   datasource: npm
-  package: @anthropic/claude-code
+  package: "@anthropic/claude-code"
   priority: low
