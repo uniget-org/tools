@@ -19,7 +19,7 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
     "${url}"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.minisig" \
     "${url}.minisig"
-minisign -Vm "zig-${arch}-linux-${ZIG_VERSION}.tar.xz" -P "RWSGOq2NVecA2UPNdBUZykf1CCb147pkmdtYxgb3Ti+JO/wCYvhbAb/U"
+minisign -Vm "zig-${arch}-linux-${version}.tar.xz" -P "RWSGOq2NVecA2UPNdBUZykf1CCb147pkmdtYxgb3Ti+JO/wCYvhbAb/U"
 
 mkdir -p "${prefix}/opt/zig"
 tar --file="${uniget_cache_download}/${filename}" --list
