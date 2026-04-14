@@ -1,10 +1,13 @@
 #syntax=docker/dockerfile:1.23.0@sha256:2780b5c3bab67f1f76c781860de469442999ed1a0d7992a5efdf2cffc0e3d769
 
+FROM ghcr.io/uniget-org/tools/minisign:latest AS minisign
+
 FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
+COPY --from=minisign / /usr/local/
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
@@ -14,6 +17,9 @@ filename="$( basename "${url}" )"
 check-download "${url}"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
     "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.minisig" \
+    "${url}.minisig"
+minisign -Vm "zig-${arch}-linux-${ZIG_VERSION}.tar.xz" -P "RWSGOq2NVecA2UPNdBUZykf1CCb147pkmdtYxgb3Ti+JO/wCYvhbAb/U"
 
 mkdir -p "${prefix}/opt/zig"
 tar --file="${uniget_cache_download}/${filename}" --list
