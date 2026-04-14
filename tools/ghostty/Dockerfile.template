@@ -16,7 +16,8 @@ apt-get -y install --no-install-recommends \
     libgtk-layer-shell-dev \
     libadwaita-1-dev \
     gettext \
-    libxml2-utils
+    libxml2-utils \
+    blueprint-compiler
 EOF
 COPY --link --from=zig / /
 WORKDIR /tmp/ghostty
