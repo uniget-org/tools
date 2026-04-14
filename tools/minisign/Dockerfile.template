@@ -36,7 +36,7 @@ cmake \
     -DBUILD_STATIC_EXECUTABLES=1 \
     ..
 make -j$(nproc)
-cp build/minisign "${prefix}/bin/"
+cp minisign "${prefix}/bin/"
 EOF
 RUN <<EOF
 curl --silent --show-error --location --fail --output "${prefix}/share/man/man1/minisign.1" \
