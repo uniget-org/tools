@@ -2,12 +2,16 @@
 
 FROM ghcr.io/uniget-org/tools/rust:latest AS rust
 
-FROM registry.gitlab.com/uniget-org/images/build-essential:24.04 AS prepare
+FROM registry.gitlab.com/uniget-org/images/build-base:3.23 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=rust / /usr/local/
+RUN --mount=type=cache,target=/var/cache/apk <<EOF
+apk add --update-cache \
+    openssl-dev
+EOF
 WORKDIR /tmp/codeberg.org/forgejo-contrib/forgejo-cli
 ARG name
 ARG version
