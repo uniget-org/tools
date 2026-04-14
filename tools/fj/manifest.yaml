@@ -6,6 +6,8 @@ license:
   link: https://codeberg.org/forgejo-contrib/forgejo-cli
 version: "0.4.1"
 check: ${binary} version | grep ^fj | cut -d' ' -f2 | tr -d v
+build_dependencies:
+- rust
 platforms:
 - linux/amd64
 tags:
