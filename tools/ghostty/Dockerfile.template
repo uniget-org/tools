@@ -1,8 +1,8 @@
 #syntax=docker/dockerfile:1.21.0@sha256:26147acbda4f14c5add9946e2fd2ed543fc402884fd75146bd342a7f6271dc1d
 
-FROM ghcr.io/uniget-org/tools/zig:latest AS zig
+#FROM ghcr.io/uniget-org/tools/zig:latest AS zig
 
-FROM registry.gitlab.com/uniget-org/images/ubuntu:rolling AS prepare
+FROM registry.gitlab.com/uniget-org/images/build-essential:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -12,19 +12,51 @@ ARG version
 RUN <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
-    libgtk-4-dev \
+    git \
+    curl \
+    wget \
+    gpg \
+    blueprint-compiler \
+    build-essential \
+    debhelper \
+    devscripts \
+    pandoc \
+    libonig-dev \
+    libbz2-dev \
     libgtk-layer-shell-dev \
+    libgtk-4-dev \
     libadwaita-1-dev \
-    gettext \
-    libxml2-utils \
-    blueprint-compiler
+    minisign \
+    libxml2-utils
 EOF
-COPY --link --from=zig / /
+#COPY --link --from=zig / /
+WORKDIR /tmp
+ARG ZIG_VERSION=0.15.2
+RUN <<EOF
+curl -sSLfO "https://ziglang.org/download/${ZIG_VERSION}/zig-${arch}-linux-${ZIG_VERSION}.tar.xz"
+curl -sSLfO "https://ziglang.org/download/${ZIG_VERSION}/zig-${arch}-linux-${ZIG_VERSION}.tar.xz.minisig"
+minisign -Vm "zig-${arch}-linux-${ZIG_VERSION}.tar.xz" -P "RWSGOq2NVecA2UPNdBUZykf1CCb147pkmdtYxgb3Ti+JO/wCYvhbAb/U"
+tar -xJC /opt -f "zig-${arch}-linux-${ZIG_VERSION}.tar.xz"
+ln --symbolic --relative --force "/opt/zig-${arch}-linux-${ZIG_VERSION}/zig" /usr/local/bin/zig
+zig version
+EOF
+RUN <<EOF
+curl -sSLfO "https://release.files.ghostty.org/${version}/ghostty-${version}.tar.gz"
+curl -sSLfO "https://release.files.ghostty.org/${version}/ghostty-${version}.tar.gz.minisig"
+minisign -Vm "ghostty-${version}.tar.gz" -P "RWQlAjJC23149WL2sEpT/l0QKy7hMIFhYdQOFy0Z7z7PbneUgvlsnYcV"
+EOF
 WORKDIR /tmp/ghostty
 RUN <<EOF
-git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/ghostty-org/ghostty .
+tar -xzf "/tmp/ghostty-${version}.tar.gz" --strip-components=1
+EOF
+RUN <<EOF
 zig build \
+    --summary all \
+    --prefix "${prefix}" \
     -Doptimize=ReleaseFast \
-    -Dcpu=baseline
-cp zig-out/bin/ghostty "${prefix}/bin/"
+    -Dcpu=baseline \
+    -Dpie=true \
+    -Demit-docs \
+    -Dversion-string=${version} \
+    -fno-sys=gtk4-layer-shell
 EOF
