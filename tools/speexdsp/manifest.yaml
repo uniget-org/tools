@@ -18,8 +18,7 @@ repository: https://gitlab.xiph.org/xiph/speexdsp
 description: DSP library derived from speex
 renovate:
   datasource: git-tags
-  package: xiph/speexdsp
-  api: https://gitlab.xiph.org/xiph/speexdsp.git
+  package: https://gitlab.xiph.org/xiph/speexdsp.git
   extractVersion: ^SpeexDSP-(?<version>.+)$
   priority: low
 license:
