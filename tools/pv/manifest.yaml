@@ -18,8 +18,7 @@ repository: https://codeberg.org/a-j-wood/pv
 description: Monitor the progress of data through a pipe
 renovate:
   datasource: git-tags
-  package: a-j-wood/pv
-  api: https://codeberg.org/a-j-wood/pv
+  package: https://codeberg.org/a-j-wood/pv.git
   extractVersion: ^v(?<version>\d+\.\d+\.\d+-\d+)$
   priority: low
 license:

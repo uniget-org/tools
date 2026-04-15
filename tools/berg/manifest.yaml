@@ -20,7 +20,6 @@ repository: https://codeberg.org/Aviac/codeberg-cli
 description: CLI Tool for forgejo similar to gh, glab and tea
 renovate:
   datasource: git-tags
-  package: Aviac/codeberg-cli
-  api: https://codeberg.org/Aviac/codeberg-cli
+  package: https://codeberg.org/Aviac/codeberg-cli.git
   extractVersion: ^v(?<version>.+)$
   priority: low
