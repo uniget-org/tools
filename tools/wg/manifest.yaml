@@ -18,8 +18,7 @@ repository: https://git.zx2c4.com/wireguard-tools
 description: Tools for configuring WireGuard
 renovate:
   datasource: git-tags
-  package: wireguard-tools
-  api: git://git.zx2c4.com/wireguard-tools.git
+  package: git://git.zx2c4.com/wireguard-tools.git
   extractVersion: ^v(?<version>.+)$
   priority: low
 license:

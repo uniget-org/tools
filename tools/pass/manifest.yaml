@@ -20,8 +20,7 @@ messages:
     Requires bash, git and gpg.
 renovate:
   datasource: git-tags
-  package: pass
-  api: git://git.zx2c4.com/password-store.git
+  package: https://git.zx2c4.com/password-store.git
   versioning: loose
   priority: low
 license:
