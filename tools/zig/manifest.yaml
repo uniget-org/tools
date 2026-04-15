@@ -18,7 +18,5 @@ repository: https://codeberg.org/ziglang/zig
 description: General-purpose programming language and toolchain for maintaining robust, optimal, and reusable software
 renovate:
   datasource: git-tags
-  package: ziglang/zig
-  api: https://codeberg.org/ziglang/zig.git
-  extractVersion: ^v(?<version>.+)$
+  package: https://codeberg.org/ziglang/zig.git
   priority: low

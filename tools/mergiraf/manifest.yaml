@@ -18,7 +18,6 @@ repository: https://codeberg.org/mergiraf/mergiraf
 description: Syntax-aware git merge driver for a growing collection of programming languages and file formats
 renovate:
   datasource: git-tags
-  package: mergiraf/mergiraf
-  api: https://codeberg.org/mergiraf/mergiraf.git
+  package: https://codeberg.org/mergiraf/mergiraf.git
   extractVersion: ^v(?<version>.+)$
   priority: low

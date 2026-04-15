@@ -17,9 +17,8 @@ repository: https://codeberg.org/forgejo/forgejo
 description: Beyond coding. We forge.
 renovate:
   datasource: git-tags
-  package: forgejo/forgejo
-  api: https://codeberg.org/forgejo/forgejo
-  extractVersion: ^v(?<version>\d+\.\d+\.\d+-\d+)$
+  package: https://codeberg.org/forgejo/forgejo.git
+  extractVersion: ^v(?<version>.+)$
   versioning: regex:^(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-(?<build>\d+)$
   priority: low
 license:
