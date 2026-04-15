@@ -4,7 +4,7 @@ name: zig
 license:
   name: MIT License
   link: https://codeberg.org/ziglang/zig/src/branch/master/LICENSE
-version: "0.15.2"
+version: "0.16.0"
 check: ${binary} version
 platforms:
 - linux/amd64
