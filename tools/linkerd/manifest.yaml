@@ -4,7 +4,7 @@ name: linkerd
 license:
   name: Apache License 2.0
   link: https://github.com/linkerd/linkerd2/blob/main/LICENSE
-version: "26.4.2"
+version: "26.4.3"
 check: ${binary} version --client | cut -d- -f2
 platforms:
 - linux/amd64
