@@ -3,7 +3,7 @@
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 FROM ghcr.io/uniget-org/tools/speexdsp:latest AS speexdsp
 
-FROM registry.gitlab.com/uniget-org/images/build-base:3.23@sha256:d825efbc91fe80b16c4831fe356461f71e7f4415435a351e35a621b006f34d2b AS prepare
+FROM registry.gitlab.com/uniget-org/images/build-base:3.23@sha256:b3f7e2f78a9eda4260453779505b7054d137bf5c136dead92fc8e9240eb00835 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
