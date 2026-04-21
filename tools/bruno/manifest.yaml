@@ -4,7 +4,7 @@ name: bruno
 license:
   name: MIT License
   link: https://github.com/usebruno/bruno/blob/main/license.md
-version: "2.15.1"
+version: "3.2.2"
 binary: bru
 check: ${binary} --version
 build_dependencies:
