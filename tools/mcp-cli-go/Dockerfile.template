@@ -16,7 +16,8 @@ WORKDIR /go/src/github.com/jbovet/mcp-cli
 ARG name
 ARG version
 RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
-git clone -q --config advice.detachedHead=false --depth 1 https://github.com/jbovet/mcp-cli .
+git clone https://github.com/jbovet/mcp-cli .
+git checkout "${version}"
 make deps
 make vet
 make lint
