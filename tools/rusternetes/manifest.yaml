@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: rusternetes
+license:
+  name: Apache License 2.0
+  link: https://github.com/calfonso/rusternetes/blob/main/LICENSE
+version: "70ca188c6314048cc7fcb5f44256e754108a2133"
+check: ""
+build_dependencies:
+- rust
+platforms:
+- linux/amd64
+tags:
+- category/operations
+- lang/rust
+- type/cli
+- kubernetes
+- k8s
+homepage: https://github.com/calfonso/rusternetes
+repository: https://github.com/calfonso/rusternetes
+description: kubernetes, reimplemented in Rust
+renovate:
+  datasource: git-refs
+  package: https://github.com/calfonso/rusternetes
+  ref: main
