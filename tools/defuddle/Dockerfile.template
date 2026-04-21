@@ -1,0 +1,30 @@
+#syntax=docker/dockerfile:1.23.0@sha256:2780b5c3bab67f1f76c781860de469442999ed1a0d7992a5efdf2cffc0e3d769
+
+FROM ghcr.io/uniget-org/tools/node-lts:latest AS node
+FROM ghcr.io/uniget-org/tools/npm:latest AS npm
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+#FROM registry.gitlab.com/uniget-org/images/build-essential:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+
+COPY --link --from=node / /usr/local/
+COPY --link --from=npm / /usr/local/
+WORKDIR /uniget_bootstrap/libexec/defuddle
+ARG name
+ARG version
+RUN <<EOF
+npm install \
+    --omit=dev \
+    "defuddle@${version}"
+ln --symbolic --relative --force "${prefix}/libexec/defuddle/node_modules/.bin/defuddle" "${prefix}/bin/"
+EOF
+#RUN <<EOF
+#"${prefix}/bin/defuddle" completion bash >"${prefix}/share/bash-completion/completions/defuddle"
+#"${prefix}/bin/defuddle" completion fish >"${prefix}/share/fish/vendor_completions.d/defuddle.fish"
+#"${prefix}/bin/defuddle" completion zsh >"${prefix}/share/zsh/vendor-completions/_defuddle"
+#EOF
