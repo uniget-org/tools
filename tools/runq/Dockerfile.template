@@ -21,7 +21,8 @@ WORKDIR /go/src/github.com/gotoz/runq
 ARG name
 ARG version
 RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
-git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" --recurse-submodules https://github.com/gotoz/runq .
+git clone https://github.com/gotoz/runq .
+git checkout "${version}"
 make -j$(nproc)
 EOF
 RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF

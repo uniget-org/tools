@@ -12,7 +12,8 @@ WORKDIR /go/src/github.com/maaslalani/confetty
 ARG name
 ARG version
 RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
-git clone -q --config advice.detachedHead=false --depth 1 https://github.com/maaslalani/confetty .
+git clone https://github.com/maaslalani/confetty .
+git checkout "${version}"
 go get -u ./...
 go build -o "${prefix}/bin/confetty" .
 EOF
