@@ -1,0 +1,43 @@
+#syntax=docker/dockerfile:1.23.0@sha256:2780b5c3bab67f1f76c781860de469442999ed1a0d7992a5efdf2cffc0e3d769
+
+FROM ghcr.io/uniget-org/tools/rust:latest AS rust
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
+#FROM registry.gitlab.com/uniget-org/images/build-essential:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+
+# apt
+#RUN --mount=type=cache,target=/var/cache/apt <<EOF
+#apt-get update
+#apt-get -y install --no-install-recommends \
+#    foo
+#EOF
+
+# apk
+#RUN --mount=type=cache,target=/var/cache/apk <<EOF
+#apk add --update-cache \
+#    foo
+#EOF
+
+COPY --link --from=rust / /usr/local/
+WORKDIR /tmp/github.com/flamestro/deff
+RUN <<EOF
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/flamestro/deff .
+export CARGO_HOME=/usr/local/cargo
+export RUSTUP_HOME=/usr/local/rustup
+export RUSTFLAGS='-C target-feature=+crt-static'
+cargo build --release --target "${arch}-unknown-linux-gnu"
+cp "target/${arch}-unknown-linux-gnu/release/deff" "${prefix}/bin/"
+EOF
+
+# completion
+#RUN <<EOF
+#"${prefix}/bin/foo" completion bash >"${prefix}/share/bash-completion/completions/foo"
+#"${prefix}/bin/foo" completion fish >"${prefix}/share/fish/vendor_completions.d/foo.fish"
+#"${prefix}/bin/foo" completion zsh >"${prefix}/share/zsh/vendor-completions/_foo"
+#EOF
