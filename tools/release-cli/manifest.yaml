@@ -13,6 +13,7 @@ tags:
 - type/cli
 - cloud/gitlab
 - standard/gitlab
+- state/deprecated
 homepage: https://gitlab.com/gitlab-org/release-cli
 repository: https://gitlab.com/gitlab-org/release-cli
 description: CLI to interact with GitLab's Releases API
@@ -24,3 +25,5 @@ renovate:
 license:
   name: MIT License
   link: https://gitlab.com/gitlab-org/release-cli/-/blob/master/LICENSE?ref_type=heads
+lifecycle:
+  renamed_to: glab
