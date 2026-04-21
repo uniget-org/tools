@@ -24,7 +24,7 @@ if ! docker run \
     --cgroupns=host \
     --volume /sys/fs/cgroup:/sys/fs/cgroup:rw \
     --pull always \
-    ghcr.io/uniget-org/cli:latest \
+    registry.gitlab.com/uniget-org/images/systemd:24.04 \
         sleep infinity
 then
     echo "### Failed to create container"
@@ -33,6 +33,8 @@ fi
         
 echo "### Executing test"
 if ! time docker exec --interactive --env name --env version "${container}" bash -e <<"EOF"
+curl --silent --show-error --location --fail https://gitlab.com/uniget-org/cli/-/releases/permalink/latest/downloads/uniget_Linux_$(uname -m).tar.gz \
+| sudo tar --extract --gzip -xzC /usr/local/bin uniget
 uniget --version
 
 uniget update
@@ -43,8 +45,9 @@ TOOL_VERSION="$( jq -r --arg name "${name}" '.tools[] | select(.name == "\($name
 echo "tool version in uniget now: ${TOOL_VERSION}"
 
 groupadd --system docker
-uniget install docker nftables
-#ldconfig
+uniget install docker
+apt-get update
+apt-get install -y iptables
 
 ls -l /etc/systemd/system/
 systemctl daemon-reload
