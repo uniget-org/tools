@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: matchlock
+license:
+  name: Apache License 2.0
+  link: https://github.com/afshinm/zerobox/blob/main/LICENSE
+version: "0.2.6"
+check: ""
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/security
+- lang/rust
+- type/cli
+- sandbox
+homepage: https://github.com/afshinm/zerobox
+repository: https://github.com/afshinm/zerobox
+description: Lightweight, cross-platform process sandboxing powered by OpenAI Codex's runtime. Sandbox any command with file, network, and credential controls
+renovate:
+  datasource: github-releases
+  package: afshinm/zerobox
+  extractVersion: ^v(?<version>.+)$
+  priority: low
