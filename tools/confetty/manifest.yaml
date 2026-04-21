@@ -4,7 +4,7 @@ name: confetty
 license:
   name: MIT License
   link: https://github.com/maaslalani/confetty/blob/main/LICENSE
-version: "master"
+version: "f05b7002b19afd4b36424ec7566b2021fb02069a"
 check: ""
 build_dependencies:
 - go
@@ -18,3 +18,7 @@ tags:
 homepage: https://github.com/maaslalani/confetty
 repository: https://github.com/maaslalani/confetty
 description: Confetti in your TTY
+renovate:
+  datasource: git-refs
+  package: https://github.com/maaslalani/confetty
+  ref: main

@@ -4,7 +4,7 @@ name: mcp-cli-go
 license:
   name: MIT License
   link: https://github.com/jbovet/mcp-cli/blob/main/LICENSE.md
-version: "master"
+version: "317ce0f13e4ad82004fad6ea93a9c2c729e24452"
 check: "" # No releases
 build_dependencies:
 - go
@@ -21,8 +21,7 @@ tags:
 homepage: https://github.com/jbovet/mcp-cli
 repository: https://github.com/jbovet/mcp-cli
 description: Command-line interface for interacting with the Model Context Protocol (MCP)
-#renovate:
-#  datasource: github-releases
-#  package: foo/bar
-#  extractVersion: ^v(?<version>.+)$
-#  priority: low
+renovate:
+  datasource: git-refs
+  package: https://github.com/jbovet/mcp-cli
+  ref: main

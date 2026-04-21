@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: runq
-version: master
+version: "841a979a68c4cc75648bf56bf33e524847f73714"
 binary: ${target}/var/lib/runq/runq
 check: "" # No tag/release
 build_dependencies:
@@ -41,3 +41,7 @@ messages:
 license:
   name: Apache License 2.0
   link: https://github.com/gotoz/runq/blob/master/LICENSE
+renovate:
+  dataasource: git-refs
+  package: https://github.com/gotoz/runq
+  ref: master
