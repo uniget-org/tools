@@ -4,7 +4,7 @@ name: confetty
 license:
   name: MIT License
   link: https://github.com/maaslalani/confetty/blob/main/LICENSE
-version: "f05b7002b19afd4b36424ec7566b2021fb02069a"
+version: "6c6f1b5b605f78c3ed3bab2d2a1357c0dd794221"
 check: ""
 build_dependencies:
 - go
