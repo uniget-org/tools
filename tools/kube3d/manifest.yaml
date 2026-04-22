@@ -5,7 +5,7 @@ license:
   name: Unknown
   link: https://github.com/jlandersen/k8s-unix-system
 version: "1.4.0"
-check: ""
+check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
 - linux/arm64
