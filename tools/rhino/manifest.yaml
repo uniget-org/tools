@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: rhino
+license:
+  name: Apache License 2.0
+  link: https://github.com/calfonso/rusternetes/blob/main/LICENSE
+version: "d5bcfa994dcc565a91c19e51f51a8e41181daa07"
+binary: rhino-server
+check: ""
+build_dependencies:
+- rust
+platforms:
+- linux/amd64
+tags:
+- category/operations
+- lang/rust
+- type/daemon
+- kubernetes
+- k8s
+- etcd
+homepage: https://github.com/calfonso/rusternetes
+repository: https://github.com/calfonso/rusternetes
+description: Drop-in etcd v3 gRPC server that stores everything in a relational database
+renovate:
+  datasource: git-refs
+  package: https://github.com/calfonso/rusternetes
+  ref: main
