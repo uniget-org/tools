@@ -2,42 +2,38 @@
 
 FROM ghcr.io/uniget-org/tools/rust:latest AS rust
 
-FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
-#FROM registry.gitlab.com/uniget-org/images/build-essential:24.04 AS prepare
+FROM registry.gitlab.com/uniget-org/images/build-essential:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-
-# apt
-#RUN --mount=type=cache,target=/var/cache/apt <<EOF
-#apt-get update
-#apt-get -y install --no-install-recommends \
-#    foo
-#EOF
-
-# apk
-#RUN --mount=type=cache,target=/var/cache/apk <<EOF
-#apk add --update-cache \
-#    foo
-#EOF
-
+RUN --mount=type=cache,target=/var/cache/apt <<EOF
+apt-get update
+apt-get -y install --no-install-recommends \
+    libssl-dev \
+    protobuf-compiler
+EOF
 COPY --link --from=rust / /usr/local/
 WORKDIR /tmp/github.com/calfonso/rusternetes
 RUN <<EOF
-git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" https://github.com/calfonso/rusternetes .
+git clone https://github.com/calfonso/rusternetes .
+git checkout "${version}"
 export CARGO_HOME=/usr/local/cargo
 export RUSTUP_HOME=/usr/local/rustup
 export RUSTFLAGS='-C target-feature=+crt-static'
-cargo build --release --target "${arch}-unknown-linux-gnu"
+cargo build --release --target "${arch}-unknown-linux-gnu" --profile rusternetes
+cp "target/${arch}-unknown-linux-gnu/release/api-server" "${prefix}/bin/"
+cp "target/${arch}-unknown-linux-gnu/release/controller-manager" "${prefix}/bin/"
+cp "target/${arch}-unknown-linux-gnu/release/kube-proxy" "${prefix}/bin/"
+cp "target/${arch}-unknown-linux-gnu/release/kubectl" "${prefix}/bin/"
+cp "target/${arch}-unknown-linux-gnu/release/kubelet" "${prefix}/bin/"
 cp "target/${arch}-unknown-linux-gnu/release/rusternetes" "${prefix}/bin/"
+cp "target/${arch}-unknown-linux-gnu/release/scheduler" "${prefix}/bin/"
 EOF
-
-# completion
-#RUN <<EOF
-#"${prefix}/bin/rusternetes" completion bash >"${prefix}/share/bash-completion/completions/rusternetes"
-#"${prefix}/bin/rusternetes" completion fish >"${prefix}/share/fish/vendor_completions.d/rusternetes.fish"
-#"${prefix}/bin/rusternetes" completion zsh >"${prefix}/share/zsh/vendor-completions/_rusternetes"
-#EOF
+RUN <<EOF
+"${prefix}/bin/kubectl" completion bash >"${prefix}/share/bash-completion/completions/kubectl"
+"${prefix}/bin/kubectl" completion fish >"${prefix}/share/fish/vendor_completions.d/kubectl.fish"
+"${prefix}/bin/kubectl" completion zsh >"${prefix}/share/zsh/vendor-completions/_kubectl"
+EOF

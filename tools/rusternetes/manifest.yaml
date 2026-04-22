@@ -6,6 +6,13 @@ license:
   link: https://github.com/calfonso/rusternetes/blob/main/LICENSE
 version: "70ca188c6314048cc7fcb5f44256e754108a2133"
 check: ""
+conflicts_with:
+- kubectl
+- kube-apiserver
+- kube-controller-manager
+- kube-proxy
+- kube-scheduler
+- kubelet
 build_dependencies:
 - rust
 platforms:
