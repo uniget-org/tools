@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: nodeadm
+license:
+  name: Apache License 2.0
+  link: https://github.com/aws/eks-hybrid/blob/main/LICENSE
+version: "1.0.18"
+check: ${binary} --version | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- org/aws
+- category/operations
+- lang/go
+- type/cli
+- kubernetes
+- k8s
+- cloud/aws
+- aws/eks
+homepage: https://aws.amazon.com/eks/hybrid-nodes/
+repository: https://github.com/aws/eks-hybrid
+description: Some description
+renovate:
+  datasource: github-releases
+  package: aws/eks-hybrid
+  extractVersion: ^v(?<version>.+)$
+  priority: low
