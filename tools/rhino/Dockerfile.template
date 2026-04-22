@@ -1,0 +1,27 @@
+#syntax=docker/dockerfile:1.23.0@sha256:2780b5c3bab67f1f76c781860de469442999ed1a0d7992a5efdf2cffc0e3d769
+
+FROM ghcr.io/uniget-org/tools/rust:latest AS rust
+
+FROM registry.gitlab.com/uniget-org/images/build-essential:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN <<EOF
+apt-get update
+apt-get -y install --no-install-recommends \
+    protobuf-compiler
+EOF
+COPY --link --from=rust / /usr/local/
+WORKDIR /tmp/github.com/calfonso/rhino
+RUN <<EOF
+git clone https://github.com/calfonso/rhino .
+git checkout "${version}"
+export CARGO_HOME=/usr/local/cargo
+export RUSTUP_HOME=/usr/local/rustup
+export RUSTFLAGS='-C target-feature=+crt-static'
+cargo build --release --target "${arch}-unknown-linux-gnu" --bin rhino-server
+cp "target/${arch}-unknown-linux-gnu/release/rhino-server" "${prefix}/bin/"
+EOF
