@@ -5,7 +5,7 @@ license:
   name: MIT License
   link: https://github.com/flamestro/deff/blob/main/LICENSE
 version: "0.3.0"
-check: ""
+check: "" # No version parameter
 build_dependencies:
 - rust
 platforms:
