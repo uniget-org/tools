@@ -2,28 +2,18 @@
 
 FROM ghcr.io/uniget-org/tools/rust:latest AS rust
 
-FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
-#FROM registry.gitlab.com/uniget-org/images/build-essential:24.04 AS prepare
+FROM registry.gitlab.com/uniget-org/images/build-essential:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-
-# apt
-#RUN --mount=type=cache,target=/var/cache/apt <<EOF
-#apt-get update
-#apt-get -y install --no-install-recommends \
-#    foo
-#EOF
-
-# apk
-#RUN --mount=type=cache,target=/var/cache/apk <<EOF
-#apk add --update-cache \
-#    foo
-#EOF
-
+RUN <<EOF
+apt-get update
+apt-get -y install --no-install-recommends \
+    protobuf-compiler
+EOF
 COPY --link --from=rust / /usr/local/
 WORKDIR /tmp/github.com/calfonso/rhino
 RUN <<EOF
@@ -35,10 +25,3 @@ export RUSTFLAGS='-C target-feature=+crt-static'
 cargo build --release --target "${arch}-unknown-linux-gnu" --bin rhino-server
 cp "target/${arch}-unknown-linux-gnu/release/rhino-server" "${prefix}/bin/"
 EOF
-
-# completion
-#RUN <<EOF
-#"${prefix}/bin/rhino" completion bash >"${prefix}/share/bash-completion/completions/rhino"
-#"${prefix}/bin/rhino" completion fish >"${prefix}/share/fish/vendor_completions.d/rhino.fish"
-#"${prefix}/bin/rhino" completion zsh >"${prefix}/share/zsh/vendor-completions/_rhino"
-#EOF

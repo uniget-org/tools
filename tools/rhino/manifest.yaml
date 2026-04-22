@@ -4,7 +4,7 @@ name: rhino
 license:
   name: Apache License 2.0
   link: https://github.com/calfonso/rusternetes/blob/main/LICENSE
-version: "70ca188c6314048cc7fcb5f44256e754108a2133"
+version: "d5bcfa994dcc565a91c19e51f51a8e41181daa07"
 binary: rhino-server
 check: ""
 build_dependencies:
