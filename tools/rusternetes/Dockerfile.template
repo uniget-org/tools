@@ -23,7 +23,7 @@ git checkout "${version}"
 export CARGO_HOME=/usr/local/cargo
 export RUSTUP_HOME=/usr/local/rustup
 export RUSTFLAGS='-C target-feature=+crt-static'
-cargo build --release --target "${arch}-unknown-linux-gnu" --profile rusternetes
+cargo build --release --target "${arch}-unknown-linux-gnu"
 cp "target/${arch}-unknown-linux-gnu/release/api-server" "${prefix}/bin/"
 cp "target/${arch}-unknown-linux-gnu/release/controller-manager" "${prefix}/bin/"
 cp "target/${arch}-unknown-linux-gnu/release/kube-proxy" "${prefix}/bin/"
