@@ -5,7 +5,7 @@ license:
   name: MIT License
   link: https://github.com/kepano/defuddle/blob/main/LICENSE
 version: "0.17.0"
-check: ""
+check: ${binary} --version
 build_dependencies:
 - node-lts
 - npm
