@@ -8,20 +8,19 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://github.com/afshinm/zerobox/releases/download/v${version}/zerobox-${arch}-unknown-linux-musl.tar.gz"
+url="https://github.com/jingkaihe/matchlock/releases/download/v${version}/matchlock-linux-${alt_arch}"
 filename="$( basename "${url}" )"
 
-check-github-release-asset "afshinm/zerobox" "v${version}" "${filename}"
+check-github-release-asset "jingkaihe/matchlock" "v${version}" "${filename}"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
     "${url}"
 
-tar --file="${uniget_cache_download}/${filename}" --list
-tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin" --no-same-owner
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/matchlock"
 EOF
-
-# completion
-#RUN <<EOF
-#"${prefix}/bin/foo" completion bash >"${prefix}/share/bash-completion/completions/foo"
-#"${prefix}/bin/foo" completion fish >"${prefix}/share/fish/vendor_completions.d/foo.fish"
-#"${prefix}/bin/foo" completion zsh >"${prefix}/share/zsh/vendor-completions/_foo"
-#EOF
+RUN <<EOF
+"${prefix}/bin/matchlock" completion bash >"${prefix}/share/bash-completion/completions/matchlock"
+"${prefix}/bin/matchlock" completion fish >"${prefix}/share/fish/vendor_completions.d/matchlock.fish"
+"${prefix}/bin/matchlock" completion zsh >"${prefix}/share/zsh/vendor-completions/_matchlock"
+EOF
