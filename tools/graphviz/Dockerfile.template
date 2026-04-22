@@ -6,7 +6,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
 ARG DEBIAN_FRONTEND=noninteractive
-RUN --mount=type=cache,target=/var/cache/apk <<EOF
+RUN <<EOF
 apk add --update-cache \
     python3 \
     libltdl \
@@ -18,7 +18,7 @@ EOF
 WORKDIR /tmp/graphviz
 ARG name
 ARG version
-RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+RUN <<EOF
 url="https://gitlab.com/graphviz/graphviz/-/archive/${version}/graphviz-${version}.tar.gz"
 filename="$( basename "${url}" )"
 
