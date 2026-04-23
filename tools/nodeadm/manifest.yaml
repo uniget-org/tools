@@ -20,7 +20,7 @@ tags:
 - aws/eks
 homepage: https://aws.amazon.com/eks/hybrid-nodes/
 repository: https://github.com/aws/eks-hybrid
-description: Some description
+description: Simplify the installation, configuration, registration, and uninstall of the EKS hybrid nodes components
 renovate:
   datasource: github-releases
   package: aws/eks-hybrid
