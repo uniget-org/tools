@@ -2,14 +2,10 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: amulet
 license:
-  name: Unknown
-  link: ""
+  name: Custom
+  link: https://github.com/Amulet-Team/Amulet-Map-Editor/blob/0.10/LICENSE
 version: "0.10.55"
 check: ""
-build_dependencies:
-- python-3.12
-runtime_dependencies:
-- python-3.12
 platforms:
 - linux/amd64
 tags:
@@ -29,3 +25,5 @@ renovate:
   datasource: pypi
   package: amulet-map-editor
   priority: low
+lifecycle:
+  removed_with_reason: Requires a license.
