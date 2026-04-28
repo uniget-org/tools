@@ -20,8 +20,5 @@ tags:
 homepage: https://valyent.cloud/
 repository: https://github.com/valyentdev/ravel
 description: Open-source containers-as-microVMs orchestrator
-renovate:
-  datasource: github-releases
-  package: valyentdev/ravel
-  extractVersion: ^v(?<version>.+)$
-  priority: low
+lifecycle:
+  removed_with_reason: Repository was archived.

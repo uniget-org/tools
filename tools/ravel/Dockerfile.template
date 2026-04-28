@@ -1,38 +1,10 @@
 #syntax=docker/dockerfile:1.23.0@sha256:2780b5c3bab67f1f76c781860de469442999ed1a0d7992a5efdf2cffc0e3d769
 
-FROM ghcr.io/uniget-org/tools/go:latest AS go
-FROM ghcr.io/uniget-org/tools/goreleaser:latest AS goreleaser
-
 FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:0aa2d228f23334e74ff9b4b56fa4b35a720e29280b934b6b925ad9a221e804d3 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-ARG name
-ARG version
-COPY --link --from=go / /usr/local/
-COPY --link --from=goreleaser / /usr/local/
-WORKDIR /go/src/github.com/valyentdev/ravel
-ARG name
-ARG version
-RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
-check-clone "https://github.com/valyentdev/ravel" "v${version}"
-git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/valyentdev/ravel .
-goreleaser build --single-target
-cp \
-    dist/ravel_linux_amd64_v1/ravel \
-    dist/initd_linux_amd64_v1/initd \
-    dist/ravel-proxy_linux_amd64_v1/ravel-proxy \
-    dist/jailer_linux_amd64_v1/jailer \
-    "${prefix}/bin/"
-EOF
-
 RUN <<EOF
-"${prefix}/bin/ravel" completion bash >"${prefix}/share/bash-completion/completions/ravel"
-"${prefix}/bin/ravel" completion fish >"${prefix}/share/fish/vendor_completions.d/ravel.fish"
-"${prefix}/bin/ravel" completion zsh >"${prefix}/share/zsh/vendor-completions/_ravel"
-
-"${prefix}/bin/ravel-proxy" completion bash >"${prefix}/share/bash-completion/completions/ravel-proxy"
-"${prefix}/bin/ravel-proxy" completion fish >"${prefix}/share/fish/vendor_completions.d/ravel-proxy.fish"
-"${prefix}/bin/ravel-proxy" completion zsh >"${prefix}/share/zsh/vendor-completions/_ravel-proxy"
+touch "${prefix}/.keep"
 EOF

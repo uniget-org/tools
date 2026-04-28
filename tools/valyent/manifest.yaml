@@ -20,8 +20,5 @@ tags:
 homepage: https://valyent.dev/
 repository: https://github.com/valyentdev/cli
 description: Interact with Valyent's API from your terminal
-renovate:
-  datasource: github-releases
-  package: valyentdev/cli
-  extractVersion: ^v(?<version>.+)$
-  priority: low
+lifecycle:
+  removed_with_reason: Repository was archived.
