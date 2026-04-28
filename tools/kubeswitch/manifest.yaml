@@ -1,22 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kubeswitch
-version: "1.5.8"
+license:
+  name: MIT License
+  link: https://github.com/Breee/kubeswitch/blob/master/LICENSE
+version: "2.0.0"
 check: "" # No version parameter
+platforms:
+- linux/amd64
 tags:
 - type/cli
 - kubernetes
 - k8s
 - management
 - lang/go
-- state/deprecated
-homepage: https://github.com/danielb42/kubeswitch
-repository: https://github.com/danielb42/kubeswitch
+homepage: https://github.com/Breee/kubeswitch
+repository: https://github.com/Breee/kubeswitch
 description: Visually select kubernetes context/namespace from tree
 renovate:
   datasource: github-releases
-  package: danielb42/kubeswitch
+  package: Breee/kubeswitch
   extractVersion: ^v(?<version>.+)$
   priority: high
-license:
-  name: MIT License
-  link: https://github.com/danielb42/kubeswitch/blob/master/LICENSE
