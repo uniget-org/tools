@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: docker-ai
-version: "1.20.2-4.70.0.224270"
+version: "1.20.2-4.71.0.225177"
 binary: "false"
 check: ${binary} ai version | tr -d v
 platforms:
