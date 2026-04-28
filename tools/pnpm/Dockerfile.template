@@ -23,7 +23,7 @@ case "${arch}" in
 esac
 echo "    Using ${arch_suffix}"
 
-url="https://github.com/pnpm/pnpm/releases/download/v${version}/pnpm-linuxstatic-${arch_suffix}"
+url="https://github.com/pnpm/pnpm/releases/download/v${version}/pnpm-linux-${arch_suffix}-musl.tar.gz"
 filename="$( basename "${url}" )"
 
 check-github-release-asset "pnpm/pnpm" "v${version}" "${filename}"
@@ -33,7 +33,8 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
 install --mode=0755 \
     "${uniget_cache_download}/${filename}" \
     "${prefix}/bin/pnpm"
-
+EOF
+RUN <<EOF
 "${prefix}/bin/pnpm" completion bash >"${prefix}/share/bash-completion/completions/pnpm"
 "${prefix}/bin/pnpm" completion fish >"${prefix}/share/fish/vendor_completions.d/pnpm.fish"
 "${prefix}/bin/pnpm" completion zsh >"${prefix}/share/zsh/vendor-completions/_pnpm"

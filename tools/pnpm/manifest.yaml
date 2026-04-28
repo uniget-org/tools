@@ -15,6 +15,8 @@ tags:
 - category/development
 - lang/javascript
 - type/cli
+- package
+- management
 homepage: https://pnpm.io/
 repository: https://github.com/pnpm/pnpm
 description: Fast, disk space efficient package manager
