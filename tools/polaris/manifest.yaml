@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: polaris
-version: "v10.2.0"
+version: "10.2.0"
 check: "${binary} version | cut -d: -f2"
 tags:
 - type/cli
@@ -14,6 +14,7 @@ description: Validation of best practices in your Kubernetes clusters
 renovate:
   datasource: github-releases
   package: FairwindsOps/polaris
+  extractVersion: ^v(?<version>.+)$
   priority: low
 license:
   name: Apache License 2.0
