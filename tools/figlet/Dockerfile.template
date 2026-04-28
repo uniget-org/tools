@@ -17,7 +17,7 @@ WORKDIR /tmp/figlet
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="http://ftp.figlet.org/pub/figlet/program/unix/figlet-${version}.tar.gz"
+url="https://github.com/cmatsuoka/figlet/archive/refs/tags/${version}.tar.gz"
 filename="$( basename "${url}" )"
 
 check-download "${url}"
