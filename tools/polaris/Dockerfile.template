@@ -8,7 +8,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://github.com/FairwindsOps/polaris/releases/download/${version}/polaris_linux_${alt_arch}.tar.gz"
+url="https://github.com/FairwindsOps/polaris/releases/download/v${version}/polaris_${version}_linux_${alt_arch}.tar.gz"
 filename="$( basename "${url}" )"
 
 check-github-release-asset "FairwindsOps/polaris" "${version}" "${filename}"
