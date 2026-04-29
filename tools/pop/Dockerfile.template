@@ -31,10 +31,10 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
     "${url}"
 
 tar --file="${uniget_cache_download}/${filename}" --list
-tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
-    pop \
-    manpages \
-    completions
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
+    "pop_${version}_Linux_${arch_suffix}/pop" \
+    "pop_${version}_Linux_${arch_suffix}/manpages" \
+    "pop_${version}_Linux_${arch_suffix}/completions"
 
 mv "${prefix}/bin/manpages/pop.1.gz" "${prefix}/share/man/man1/"
 rmdir "${prefix}/bin/manpages"
