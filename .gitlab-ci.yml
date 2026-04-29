@@ -42,16 +42,19 @@ collect:
   image: alpine:3.23.4@sha256:5b10f432ef3da1b8d4c7eb6c487f2f5a8f096bc91145e68878dd4a5019afde11
   script: |
     ./dev metadata changes | tee changes.txt
-    cat >>build.yaml <<EOF
+    cat >>build.yaml.envsubst <<EOF
     build:
       parallel:
         matrix:
-        - TOOL: [a, b, c]
+        - TOOL: [$TOOLS]
       script: echo "TOOL=${TOOL}"
     EOF
+    TOOLS="$( cat changes.txt | xargs echo | tr ' ' , )"
+    cat build.yaml.envsubst | envsubst '$TOOLS' >build.yaml
   artifacts:
     paths:
     - changes.txt
+    - build.yaml.envsubst
     - build.yaml
 
 build_trigger:
