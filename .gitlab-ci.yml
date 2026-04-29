@@ -2,7 +2,7 @@ spec:
   inputs:
     metadata-changes-from-sha:
       description: Force pipeline to collect changes relative to supplied commit SHA
-      regex: ^[0-9a-f]{40}$
+      regex: ^[0-9a-f]{40}?$
       default: ""
 
 ---
