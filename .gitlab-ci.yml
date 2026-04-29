@@ -1,24 +1,8 @@
-spec:
-  inputs:
-    mode:
-      description: How to run pipeline
-      default: default
-      options:
-      - default
-      - build-single
-    metadata-changes-from-sha:
-      description: Force pipeline to collect changes relative to supplied commit SHA
-      default: ""
-    build-tool-name:
-      description: Name of tool to build
-      default: ""
-    build-tool-archs:
-      type: array
-      description: Architectures to build
-      default:
-      - amd64
-
----
+variables:
+  METADATA_CHANGES_FROM_SHA:
+    description: Force pipeline to collect changes relative to supplied commit SHA
+  BUILD_TOOL_NAME:
+    description: Name of tool to build
 
 .docker:
   variables:
@@ -36,7 +20,7 @@ spec:
 
 build_single:
   rules:
-  - if: $CI_PIPELINE_SOURCE == "web" && $[[ inputs.mode ]] == "build-single"
+  - if: $CI_PIPELINE_SOURCE == "web" && $BUILD_TOOL_NAME
   trigger:
     include:
     - local: pipeline/build.yaml
@@ -47,7 +31,7 @@ build_single:
 dev_download:
   rules:
   - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-  - if: $CI_PIPELINE_SOURCE == "web" && $[[ inputs.mode ]] == "default"
+  - if: $CI_PIPELINE_SOURCE == "web" && $BUILD_TOOL_NAME == ""
   image: registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:0aa2d228f23334e74ff9b4b56fa4b35a720e29280b934b6b925ad9a221e804d3
   script: |
     curl --silent --show-error --location --fail https://gitlab.com/uniget-org/dev/-/releases/permalink/latest/downloads/dev_Linux_$(uname -m).tar.gz \
@@ -60,7 +44,7 @@ dev_download:
 collect:
   rules:
   - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-  - if: $CI_PIPELINE_SOURCE == "web" && $[[ inputs.mode ]] == "default"
+  - if: $CI_PIPELINE_SOURCE == "web" && $BUILD_TOOL_NAME == ""
   needs:
   - dev_download
   image: alpine:3.23.4@sha256:5b10f432ef3da1b8d4c7eb6c487f2f5a8f096bc91145e68878dd4a5019afde11
@@ -87,7 +71,7 @@ collect:
 build_trigger:
   rules:
   - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-  - if: $CI_PIPELINE_SOURCE == "web" && $[[ inputs.mode ]] == "default"
+  - if: $CI_PIPELINE_SOURCE == "web" && $BUILD_TOOL_NAME == ""
   needs:
   - collect
   trigger:
