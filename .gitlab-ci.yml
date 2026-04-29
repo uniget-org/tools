@@ -1,3 +1,11 @@
+spec:
+  inputs:
+    metadata-changes-from-sha:
+      description: Force pipeline to collect changes relative to supplied commit SHA
+      regex: ^[0-9a-f]{40}$
+
+---
+
 .docker:
   variables:
     DOCKER_CERT_DIR: ""
@@ -41,7 +49,7 @@ collect:
   - dev_download
   image: alpine:3.23.4@sha256:5b10f432ef3da1b8d4c7eb6c487f2f5a8f096bc91145e68878dd4a5019afde11
   script: |
-    ./dev metadata changes | tee changes.txt
+    ./dev metadata changes --from="$[[ inputs.metadata-changes-from-sha ]]" | tee changes.txt
     TOOLS="$( cat changes.txt | xargs echo | tr ' ' , )"
     cat >build.yaml <<EOF
     build:
