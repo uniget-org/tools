@@ -13,6 +13,7 @@ spec:
       type: array
       default:
       - amd64
+
 ---
 
 .docker_login:
@@ -48,15 +49,14 @@ build_single:
     apk add \
         bash \
         make \
-        curl \
-        jq \
-        git
+        curl
   - |
-    git clone --bare --depth 1 "https://github.com/uniget-org/tools" .git2
-    git --git-dir=.git2 --work-tree=. checkout --force
-  - |
-    curl -sLf https://github.com/uniget-org/cli/releases/latest/download/uniget_Linux_$(uname -m).tar.gz \
+    curl -sLf https://gitlab.com/uniget-org/cli/-/releases/permalink/latest/downloads/uniget_Linux_$(uname -m).tar.gz \
     | tar -xzC "/usr/local/bin" uniget
+  - |
+    uniget install \
+        jq \
+        yq
   - |
     make builders $[[ inputs.name ]]--build-${arch} \
         REGISTRY=${CI_REGISTRY} \
@@ -83,19 +83,15 @@ create_index_regctl:
     apk add --update-cache \
         bash \
         make \
-        curl \
-        jq \
-        git
+        curl
   - |
-    curl -sSLfo /usr/local/bin/regctl \
-        https://github.com/regclient/regclient/releases/latest/download/regctl-linux-amd64
-    chmod +x /usr/local/bin/regctl
-  - |
-    git clone --bare --depth 1 "https://github.com/uniget-org/tools" .git2
-    git --git-dir=.git2 --work-tree=. checkout --force
-  - |
-    curl -sSLf https://github.com/uniget-org/cli/releases/latest/download/uniget_Linux_$(uname -m).tar.gz \
+    curl -sLf https://gitlab.com/uniget-org/cli/-/releases/permalink/latest/downloads/uniget_Linux_$(uname -m).tar.gz \
     | tar -xzC "/usr/local/bin" uniget
+  - |
+    uniget install \
+        jq \
+        yq \
+        regclient
   - |
     echo "### Creating index ${CI_REGISTRY_IMAGE}/$[[ inputs.name ]]"
     make $[[ inputs.name ]]--index \
@@ -110,7 +106,7 @@ create_index_regctl:
     reports:
       dotenv: index.env
   
-sign:
+.sign:
   extends:
   - .docker_login
   - .docker_logout
@@ -127,20 +123,18 @@ sign:
     apk add --update-cache \
         bash \
         curl \
-        git \
         make
   - |
-    git clone --bare --depth 1 "https://github.com/uniget-org/tools" .git2
-    git --git-dir=.git2 --work-tree=. checkout --force
-  - |
-    curl -sSLf https://github.com/uniget-org/cli/releases/latest/download/uniget_Linux_$(uname -m).tar.gz \
+    curl -sLf https://gitlab.com/uniget-org/cli/-/releases/permalink/latest/downloads/uniget_Linux_$(uname -m).tar.gz \
     | tar -xzC "/usr/local/bin" uniget
   - |
-    echo "Got index digest: ${INDEX_DIGEST}"
+    uniget install \
+        jq \
+        yq \
+        regclient \
+        cosign
   - |
-    curl -sSLfo /usr/local/bin/cosign \
-        https://github.com/sigstore/cosign/releases/latest/download/cosign-linux-amd64
-    chmod +x /usr/local/bin/cosign
+    echo "Got index digest: ${INDEX_DIGEST}"
   - |
     echo "### Sign ${IMAGE}"
     make $[[ inputs.name ]]--sign \
