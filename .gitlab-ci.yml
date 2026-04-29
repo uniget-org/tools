@@ -43,9 +43,6 @@ collect:
   script: |
     ./dev metadata changes | tee changes.txt
     TOOLS="$( cat changes.txt | xargs echo | tr ' ' , )"
-    if test "${TOOLS}" == ""; then
-        exit 0
-    fi
     cat >>build.yaml <<EOF
     build:
       parallel:
@@ -68,13 +65,14 @@ build_trigger:
     include:
     - artifact: build.yaml
       job: collect
+    strategy: mirror
 
 metadata:
   rules:
   - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   needs:
   - dev_download
-  - collect
+  - build_trigger
   extends:
   - .docker
   script:
