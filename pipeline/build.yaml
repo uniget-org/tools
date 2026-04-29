@@ -1,0 +1,159 @@
+spec:
+  inputs:
+    name:
+      description: Name of the tools to build
+      type: string
+    os:
+      description: Operating systems to build
+      type: array
+      default:
+      - linux
+    arch:
+      description: Architectures to build
+      type: array
+      default:
+      - amd64
+    rules:
+      type: array
+      default: []
+---
+
+.docker_login:
+  before_script: |
+    echo "${CI_REGISTRY_PASSWORD}" \
+    | docker login "${CI_REGISTRY}" \
+        --username="${CI_REGISTRY_USER}" \
+        --password-stdin
+
+.docker_logout:
+  after_script: |
+    docker logout "${CI_REGISTRY}"
+
+.dind:
+  variables:
+    DOCKER_CERT_DIR: ""
+  services:
+  - name: docker:29.4.1-dind@sha256:c77e5d7912f9b137cc67051fdc2991d8f5ae22c55ddf532bb836dcb693a04940
+
+build_single:
+  rules: $[[ inputs.rules ]]
+  parallel:
+    matrix:
+    - os: $[[ inputs.os ]]
+      arch: $[[ inputs.arch ]]
+  extends:
+  - .docker_login
+  - .dind
+  - .docker_logout
+  image: docker:29.4.1@sha256:c77e5d7912f9b137cc67051fdc2991d8f5ae22c55ddf532bb836dcb693a04940
+  script:
+  - |
+    apk update
+    apk add \
+        bash \
+        make \
+        curl \
+        jq \
+        git
+  - |
+    git clone --bare --depth 1 "https://github.com/uniget-org/tools" .git2
+    git --git-dir=.git2 --work-tree=. checkout --force
+  - |
+    curl -sLf https://github.com/uniget-org/cli/releases/latest/download/uniget_Linux_$(uname -m).tar.gz \
+    | tar -xzC "/usr/local/bin" uniget
+  - |
+    make builders $[[ inputs.name ]]--build-${arch} \
+        REGISTRY=${CI_REGISTRY} \
+        REPOSITORY_PREFIX=${CI_PROJECT_PATH}/
+  artifacts:
+    paths:
+    - tools/*/image-*.json
+  tags:
+  - saas-${os}-medium-${arch}
+
+create_index_regctl:
+  rules: $[[ inputs.rules ]]
+  extends:
+  - .docker_login
+  - .docker_logout
+  needs:
+  - job: build_single
+    parallel:
+      matrix:
+      - os: $[[ inputs.os ]]
+        arch: $[[ inputs.arch ]]
+  image: docker:29.4.1@sha256:c77e5d7912f9b137cc67051fdc2991d8f5ae22c55ddf532bb836dcb693a04940
+  script:
+  - |
+    apk add --update-cache \
+        bash \
+        make \
+        curl \
+        jq \
+        git
+  - |
+    curl -sSLfo /usr/local/bin/regctl \
+        https://github.com/regclient/regclient/releases/latest/download/regctl-linux-amd64
+    chmod +x /usr/local/bin/regctl
+  - |
+    git clone --bare --depth 1 "https://github.com/uniget-org/tools" .git2
+    git --git-dir=.git2 --work-tree=. checkout --force
+  - |
+    curl -sSLf https://github.com/uniget-org/cli/releases/latest/download/uniget_Linux_$(uname -m).tar.gz \
+    | tar -xzC "/usr/local/bin" uniget
+  - |
+    echo "### Creating index ${CI_REGISTRY_IMAGE}/$[[ inputs.name ]]"
+    make $[[ inputs.name ]]--index \
+        REGISTRY=${CI_REGISTRY} \
+        REPOSITORY_PREFIX=${CI_PROJECT_PATH}/
+    INDEX_DIGEST="$( cat tools/$[[ inputs.name ]]/index.json | sha256sum | cut -d' ' -f1 )"
+    echo "Got index digest: ${INDEX_DIGEST}"
+    echo "INDEX_DIGEST=${INDEX_DIGEST}" >index.env
+  artifacts:
+    paths:
+    - tools/*/index.json
+    reports:
+      dotenv: index.env
+  
+sign:
+  rules: $[[ inputs.rules ]]
+  extends:
+  - .docker_login
+  - .docker_logout
+  needs:
+  - create_index_regctl
+  image: docker:29.4.1@sha256:c77e5d7912f9b137cc67051fdc2991d8f5ae22c55ddf532bb836dcb693a04940
+  id_tokens:
+    SIGSTORE_ID_TOKEN:
+      aud: sigstore
+  variables:
+    COSIGN_EXPERIMENTAL: 1
+  script:
+  - |
+    apk add --update-cache \
+        bash \
+        curl \
+        git \
+        make
+  - |
+    git clone --bare --depth 1 "https://github.com/uniget-org/tools" .git2
+    git --git-dir=.git2 --work-tree=. checkout --force
+  - |
+    curl -sSLf https://github.com/uniget-org/cli/releases/latest/download/uniget_Linux_$(uname -m).tar.gz \
+    | tar -xzC "/usr/local/bin" uniget
+  - |
+    echo "Got index digest: ${INDEX_DIGEST}"
+  - |
+    curl -sSLfo /usr/local/bin/cosign \
+        https://github.com/sigstore/cosign/releases/latest/download/cosign-linux-amd64
+    chmod +x /usr/local/bin/cosign
+  - |
+    echo "### Sign ${IMAGE}"
+    make $[[ inputs.name ]]--sign \
+        REGISTRY=${CI_REGISTRY} \
+        REPOSITORY_PREFIX=${CI_PROJECT_PATH}/
+  artifacts:
+    paths:
+    - tools/*/cosign*
+  tags:
+  - saas-linux-medium-amd64

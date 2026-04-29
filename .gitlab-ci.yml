@@ -43,12 +43,17 @@ collect:
   script: |
     ./dev metadata changes | tee changes.txt
     TOOLS="$( cat changes.txt | xargs echo | tr ' ' , )"
-    cat >>build.yaml <<EOF
+    cat >build.yaml <<EOF
     build:
       parallel:
         matrix:
         - TOOL: [$TOOLS]
-      script: echo "TOOL=\${TOOL}"
+      trigger:
+        include:
+        - local: pipeline/build.yaml
+          inputs:
+            name: \${TOOL}
+            arch: [amd64]
     EOF
   artifacts:
     paths:
