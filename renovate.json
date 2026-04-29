@@ -53,6 +53,12 @@
       "type/renovate"
     ]
   },
+    "gitlabci": {
+        "managerFilePatterns": [
+            "/\\.gitlab-ci\\.ya?ml$/",
+            "/^pipeline\/.+\\.ya?ml$/"
+        ]
+    },
   "packageRules": [
     {
       "matchDatasources": [
