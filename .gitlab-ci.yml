@@ -43,6 +43,9 @@ collect:
   script: |
     ./dev metadata changes | tee changes.txt
     TOOLS="$( cat changes.txt | xargs echo | tr ' ' , )"
+    if test "${TOOLS}" == ""; then
+        exit 0
+    fi
     cat >>build.yaml <<EOF
     build:
       parallel:
