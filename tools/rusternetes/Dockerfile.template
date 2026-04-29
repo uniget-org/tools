@@ -11,9 +11,13 @@ ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/apt <<EOF
 apt-get update
+# libssl-dev: required for TLS support in Rust crates
+# protobuf-compiler: provides protoc for compiling .proto files
+# libprotobuf-dev: provides well-known proto types (e.g. google/protobuf/any.proto)
 apt-get -y install --no-install-recommends \
     libssl-dev \
-    protobuf-compiler
+    protobuf-compiler \
+    libprotobuf-dev
 EOF
 COPY --link --from=rust / /usr/local/
 WORKDIR /tmp/github.com/calfonso/rusternetes
