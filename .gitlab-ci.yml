@@ -20,6 +20,20 @@ spec:
 
 ---
 
+.docker:
+  variables:
+    DOCKER_CERT_DIR: ""
+  services:
+  - name: docker:29.4.1-dind@sha256:c77e5d7912f9b137cc67051fdc2991d8f5ae22c55ddf532bb836dcb693a04940
+  image: docker:29.4.1@sha256:c77e5d7912f9b137cc67051fdc2991d8f5ae22c55ddf532bb836dcb693a04940
+  before_script: |
+    echo "${CI_REGISTRY_PASSWORD}" \
+    | docker login "${CI_REGISTRY}" \
+        --username="${CI_REGISTRY_USER}" \
+        --password-stdin
+  after_script: |
+    docker logout "${CI_REGISTRY}"
+
 build_single:
   rules:
   - if: $CI_PIPELINE_SOURCE == "web" && $[[ inputs.mode ]] == "build-single"
