@@ -19,3 +19,5 @@ renovate:
 license:
   name: GPLv2
   link: https://github.com/alpinelinux/apk-tools/blob/master/LICENSE
+platforms:
+- linux/amd64

@@ -20,3 +20,5 @@ renovate:
 license:
   name: GPLv2
   link: https://repo.or.cz/socat.git/blob/HEAD:/COPYING
+platforms:
+- linux/amd64

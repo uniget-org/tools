@@ -22,3 +22,5 @@ renovate:
 license:
   name: MIT License
   link: https://github.com/k3d-io/k3d/blob/main/LICENSE
+platforms:
+- linux/amd64

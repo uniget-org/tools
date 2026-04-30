@@ -19,3 +19,5 @@ renovate:
 license:
   name: MIT License
   link: https://github.com/charmbracelet/glow/blob/master/LICENSE
+platforms:
+- linux/amd64

@@ -31,3 +31,5 @@ messages:
           systemctl enable docker-compose@promtail
     - Configure promtail using environment variables:
           systemctl edit docker-compose@promtail
+platforms:
+- linux/amd64

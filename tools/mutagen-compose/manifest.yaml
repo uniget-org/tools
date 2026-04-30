@@ -24,3 +24,5 @@ renovate:
 license:
   name: Custom
   link: https://github.com/mutagen-io/mutagen-compose/blob/main/LICENSE
+platforms:
+- linux/amd64

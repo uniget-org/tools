@@ -22,3 +22,5 @@ repository: https://github.com/grafana/loki
 description: Agent which ships the contents of local logs to Grafana Loki
 lifecycle:
   removed_with_reason: Deprecated. Consider using OpenTelemetry Collector or Grafana Alloy.
+platforms:
+- linux/amd64

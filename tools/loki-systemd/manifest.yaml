@@ -19,3 +19,5 @@ tags:
 homepage: https://uniget.dev
 repository: https://gitlab.com/uniget-org/tools
 description: compose file for loki with systemd
+platforms:
+- linux/amd64

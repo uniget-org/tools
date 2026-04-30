@@ -16,3 +16,5 @@ renovate:
 license:
   name: MIT License
   link: https://github.com/bbl/secretize/blob/main/LICENSE
+platforms:
+- linux/amd64

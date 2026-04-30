@@ -17,3 +17,5 @@ renovate:
 license:
   name: Zero-Clause BSD
   link: https://github.com/bigskysoftware/htmx/blob/master/LICENSE
+platforms:
+- linux/amd64

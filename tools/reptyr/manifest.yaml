@@ -19,3 +19,5 @@ renovate:
   priority: low
 license:
   name: MIT License
+platforms:
+- linux/amd64

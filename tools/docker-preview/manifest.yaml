@@ -39,3 +39,5 @@ renovate:
 license:
   name: Apache License 2.0
   link: https://github.com/moby/moby/blob/master/LICENSE
+platforms:
+- linux/amd64

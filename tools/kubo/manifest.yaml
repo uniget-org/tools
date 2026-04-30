@@ -24,3 +24,5 @@ renovate:
 license:
   name: Custom
   link: https://github.com/ipfs/kubo/blob/master/LICENSE
+platforms:
+- linux/amd64

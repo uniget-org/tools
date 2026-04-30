@@ -21,3 +21,5 @@ renovate:
   priority: low
 license:
   name: GPLv3
+platforms:
+- linux/amd64

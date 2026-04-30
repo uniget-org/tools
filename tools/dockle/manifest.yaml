@@ -20,3 +20,5 @@ renovate:
 license:
   name: Apache License 2.0
   link: https://github.com/goodwithtech/dockle/blob/master/LICENSE
+platforms:
+- linux/amd64

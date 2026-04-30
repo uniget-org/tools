@@ -21,3 +21,5 @@ renovate:
 license:
   name: Custom
   link: https://github.com/mutagen-io/mutagen/blob/master/LICENSE
+platforms:
+- linux/amd64

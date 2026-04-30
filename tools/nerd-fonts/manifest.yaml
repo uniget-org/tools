@@ -21,3 +21,5 @@ renovate:
 license:
   name: Custom
   link: https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE
+platforms:
+- linux/amd64

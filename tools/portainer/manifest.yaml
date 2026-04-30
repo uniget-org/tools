@@ -7,6 +7,8 @@ version: "2.41.0"
 check: ${binary} --version 2>&1
 runtime_dependencies:
 - docker-compose
+platforms:
+- linux/amd64
 tags:
 - org/portainer
 - standard/docker

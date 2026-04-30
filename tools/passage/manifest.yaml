@@ -27,3 +27,5 @@ renovate:
   package: uniget-org/renovate-custom
   extractVersion: ^passage/(?<version>.+)$
   versioning: loose
+platforms:
+- linux/amd64

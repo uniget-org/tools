@@ -22,3 +22,5 @@ renovate:
 license:
   name: Apache License 2.0
   link: https://github.com/helm/chart-testing/blob/main/LICENSE
+platforms:
+- linux/amd64

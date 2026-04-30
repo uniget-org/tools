@@ -19,3 +19,5 @@ renovate:
 license:
   name: Creative Commons Zero v1.0 Universal
   link: https://github.com/zaquestion/lab/blob/master/LICENSE
+platforms:
+- linux/amd64

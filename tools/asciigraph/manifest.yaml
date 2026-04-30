@@ -21,3 +21,5 @@ renovate:
 license:
   name: BSD 3-Clause License
   link: https://github.com/guptarohit/asciigraph/blob/master/LICENSE
+platforms:
+- linux/amd64

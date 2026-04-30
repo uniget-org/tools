@@ -17,3 +17,5 @@ renovate:
 license:
   name: Custom
   link: https://github.com/fidian/ansi/blob/master/LICENSE.md
+platforms:
+- linux/amd64

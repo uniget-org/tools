@@ -24,3 +24,5 @@ renovate:
 license:
   name: GPLv3
   link: https://github.com/roddhjav/pass-update/blob/master/LICENSE
+platforms:
+- linux/amd64

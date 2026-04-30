@@ -24,3 +24,5 @@ renovate:
 license:
   name: SIL Open Font License 1.1
   link: https://github.com/microsoft/cascadia-code/blob/main/LICENSE
+platforms:
+- linux/amd64

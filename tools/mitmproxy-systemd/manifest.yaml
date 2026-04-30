@@ -26,3 +26,5 @@ messages:
           systemctl enable docker-compose@mitmproxy
     - Configure mitmproxy using environment variables:
           systemctl edit docker-compose@mitmproxy
+platforms:
+- linux/amd64

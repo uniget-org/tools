@@ -21,3 +21,5 @@ renovate:
 license:
   name: GPLv3
   link: https://github.com/omrikiei/ktunnel/blob/master/LICENSE
+platforms:
+- linux/amd64

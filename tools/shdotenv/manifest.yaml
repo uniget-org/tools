@@ -18,3 +18,5 @@ renovate:
 license:
   name: MIT License
   link: https://github.com/ko1nksm/shdotenv/blob/main/LICENSE
+platforms:
+- linux/amd64

@@ -26,3 +26,5 @@ renovate:
 license:
   name: GPLv2
   link: https://git.zx2c4.com/password-store/tree/COPYING
+platforms:
+- linux/amd64

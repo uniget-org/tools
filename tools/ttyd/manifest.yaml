@@ -17,3 +17,5 @@ renovate:
 license:
   name: MIT License
   link: https://github.com/tsl0922/ttyd/blob/main/LICENSE
+platforms:
+- linux/amd64

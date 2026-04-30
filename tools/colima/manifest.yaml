@@ -18,3 +18,5 @@ renovate:
 license:
   name: MIT License
   link: https://github.com/abiosoft/colima/blob/main/LICENSE
+platforms:
+- linux/amd64

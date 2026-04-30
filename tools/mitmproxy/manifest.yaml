@@ -18,3 +18,5 @@ renovate:
   package: mitmproxy/mitmproxy
   extractVersion: ^v(?<version>.+)$
   priority: low
+platforms:
+- linux/amd64

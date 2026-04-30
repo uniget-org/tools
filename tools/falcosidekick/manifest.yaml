@@ -16,3 +16,5 @@ renovate:
 license:
   name: Apache License 2.0
   link: https://github.com/falcosecurity/falcosidekick/blob/master/LICENSE
+platforms:
+- linux/amd64

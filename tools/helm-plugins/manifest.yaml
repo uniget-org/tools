@@ -17,3 +17,5 @@ tags:
 homepage: https://gitlab.com/uniget-org/tools
 repository: https://gitlab.com/uniget-org/tools
 description: Helm plugins
+platforms:
+- linux/amd64

@@ -22,3 +22,5 @@ renovate:
 license:
   name: MIT License
   link: https://gitlab.freedesktop.org/xdg/xdg-utils/-/blob/master/LICENSE?ref_type=heads
+platforms:
+- linux/amd64

@@ -22,3 +22,5 @@ renovate:
 license:
   name: GPLv3
   link: https://github.com/little-angry-clouds/kubectl-ssh-proxy/blob/master/LICENSE
+platforms:
+- linux/amd64

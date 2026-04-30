@@ -24,3 +24,5 @@ renovate:
   priority: low
 license:
   name: BSD 3-Clause License
+platforms:
+- linux/amd64

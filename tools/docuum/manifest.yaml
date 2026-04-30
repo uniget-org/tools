@@ -24,3 +24,5 @@ renovate:
 license:
   name: Custom
   link: https://github.com/stepchowfun/docuum/blob/main/LICENSE.md
+platforms:
+- linux/amd64

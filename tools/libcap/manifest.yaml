@@ -22,3 +22,5 @@ renovate:
 license:
   name: BSD 3-Clause License, GPLv2-only
   link: https://git.kernel.org/pub/scm/libs/libcap/libcap.git/tree/License
+platforms:
+- linux/amd64

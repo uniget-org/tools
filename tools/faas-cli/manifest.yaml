@@ -16,3 +16,5 @@ renovate:
 license:
   name: Custom
   link: https://github.com/openfaas/faas-cli/blob/master/LICENSE
+platforms:
+- linux/amd64

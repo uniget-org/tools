@@ -25,3 +25,5 @@ renovate:
   priority: low
 license:
   name: LGPLv2.1
+platforms:
+- linux/amd64

@@ -20,3 +20,5 @@ renovate:
 license:
   name: Apache License 2.0
   link: https://github.com/kubeshark/kubeshark/blob/master/LICENSE
+platforms:
+- linux/amd64

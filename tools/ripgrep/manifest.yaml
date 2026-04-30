@@ -16,3 +16,5 @@ renovate:
   priority: low
 license:
   name: The Unlicense
+platforms:
+- linux/amd64

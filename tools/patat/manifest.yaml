@@ -20,3 +20,5 @@ renovate:
 license:
   name: GPLv2
   link: https://github.com/jaspervdj/patat/blob/main/LICENSE
+platforms:
+- linux/amd64

@@ -16,3 +16,5 @@ description: Machine management for a container-centric world
 license:
   name: Apache License 2.0
   link: https://github.com/docker-archive-public/docker.machine/blob/master/LICENSE
+platforms:
+- linux/amd64

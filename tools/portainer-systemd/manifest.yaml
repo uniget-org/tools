@@ -29,3 +29,5 @@ messages:
           systemctl start docker-compose@portainer
     - Enable the service using:
           systemctl enable docker-compose@portainer
+platforms:
+- linux/amd64

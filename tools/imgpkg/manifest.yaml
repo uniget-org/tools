@@ -19,3 +19,5 @@ renovate:
 license:
   name: Apache License 2.0
   link: https://github.com/carvel-dev/imgpkg/blob/develop/LICENSE
+platforms:
+- linux/amd64

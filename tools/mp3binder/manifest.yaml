@@ -18,3 +18,5 @@ renovate:
 license:
   name: MIT License
   link: https://github.com/crra/mp3binder/blob/main/LICENSE
+platforms:
+- linux/amd64

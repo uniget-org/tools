@@ -18,3 +18,5 @@ tags:
 homepage: https://github.com/containers/podman
 repository: https://github.com/containers/podman
 description: Shim to call Podman instead of Docker
+platforms:
+- linux/amd64

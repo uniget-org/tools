@@ -19,3 +19,5 @@ renovate:
   priority: low
 license:
   name: GPLv2
+platforms:
+- linux/amd64

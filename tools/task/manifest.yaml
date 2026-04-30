@@ -19,3 +19,5 @@ renovate:
 license:
   name: MIT License
   link: https://github.com/go-task/task/blob/main/LICENSE
+platforms:
+- linux/amd64

@@ -19,3 +19,5 @@ renovate:
 license:
   name: Artistic License 2.0
   link: https://github.com/Code-Hex/Neo-cowsay/blob/master/LICENSE
+platforms:
+- linux/amd64

@@ -22,3 +22,5 @@ renovate:
 license:
   name: MIT License
   link: https://github.com/EnvCLI/EnvCLI/blob/main/LICENSE
+platforms:
+- linux/amd64
