@@ -4,7 +4,7 @@ name: docusaurus
 license:
   name: MIT License
   link: https://github.com/facebook/docusaurus/blob/main/LICENSE
-version: "3.10.0"
+version: "3.10.1"
 check: ${binary} --version 2>/dev/null | grep "Docusaurus version" | cut -d' ' -f4
 build_dependencies:
 - node-lts
