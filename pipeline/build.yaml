@@ -58,7 +58,7 @@ build_single:
         jq \
         yq
   - |
-    make builders $[[ inputs.name ]]--build-${arch} \
+    make $[[ inputs.name ]]--build-${arch} \
         REGISTRY=${CI_REGISTRY} \
         REPOSITORY_PREFIX=${CI_PROJECT_PATH}/
   artifacts:
