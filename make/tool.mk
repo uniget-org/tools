@@ -201,7 +201,6 @@ $(TOOLS_DIR)/%/image-linux-amd64.json: \
 	rm -f image-linux-$(ARCH).json; \
 	export SOURCE_DATE_EPOCH="$(SOURCE_DATE_EPOCH)"; \
     if ! docker buildx build $(TOOLS_DIR)/$* \
-			--builder=$(BUILDER) \
 			--build-arg=branch=$(DOCKER_TAG) \
 			--build-arg=ref=$(DOCKER_TAG) \
 			--build-arg=name=$* \
@@ -256,7 +255,6 @@ $(TOOLS_DIR)/%/image-linux-arm64.json: \
 	rm -f image-linux-$(ARCH).json; \
 	export SOURCE_DATE_EPOCH="$(SOURCE_DATE_EPOCH)"; \
     if ! docker buildx build $(TOOLS_DIR)/$* \
-			--builder=$(BUILDER) \
 			--build-arg=branch=$(DOCKER_TAG) \
 			--build-arg=ref=$(DOCKER_TAG) \
 			--build-arg=name=$* \
