@@ -61,7 +61,7 @@ collect:
         - local: pipeline/build.yaml
           inputs:
             name: \${TOOL}
-            arch: [amd64]
+            arch: [amd64, arm64]
         strategy: mirror
     EOF
   artifacts:
