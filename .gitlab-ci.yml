@@ -51,7 +51,14 @@ collect:
   script: |
     ./dev metadata changes --from="$METADATA_CHANGES_FROM_SHA" | tee changes.txt
     TOOLS="$( cat changes.txt | xargs echo | tr ' ' , )"
-    cat >build.yaml <<EOF
+    if test "${TOOLS}" == ""; then
+        cat >build.yaml <<EOF
+    build:
+      script: echo "No tools to build"
+    EOF
+
+    else
+        cat >build.yaml <<EOF
     build:
       parallel:
         matrix:
@@ -64,6 +71,7 @@ collect:
             arch: [amd64, arm64]
         strategy: mirror
     EOF
+    fi
   artifacts:
     paths:
     - changes.txt
