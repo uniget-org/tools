@@ -63,6 +63,7 @@ build_single:
         REPOSITORY_PREFIX=${CI_PROJECT_PATH}/
   artifacts:
     paths:
+    - tools/*/build-*.log
     - tools/*/image-*.json
   tags:
   - saas-${os}-medium-${arch}
