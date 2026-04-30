@@ -65,6 +65,7 @@ build_single:
     paths:
     - tools/*/build-*.log
     - tools/*/image-*.json
+    expire_in: 4 days
   tags:
   - saas-${os}-medium-${arch}
 
@@ -104,6 +105,7 @@ create_index_regctl:
   artifacts:
     paths:
     - tools/*/index.json
+    expire_in: 4 days
     reports:
       dotenv: index.env
   
@@ -144,5 +146,6 @@ create_index_regctl:
   artifacts:
     paths:
     - tools/*/cosign*
+    expire_in: 4 days
   tags:
   - saas-linux-medium-amd64

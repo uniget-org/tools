@@ -68,6 +68,7 @@ collect:
     paths:
     - changes.txt
     - build.yaml
+    expire_in: 4 days
 
 build_trigger:
   rules:
