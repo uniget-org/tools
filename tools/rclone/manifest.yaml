@@ -4,7 +4,7 @@ name: rclone
 license:
   name: MIT License
   link: https://github.com/rclone/rclone/blob/master/COPYING
-version: "1.73.5"
+version: "1.74.0"
 check: ""
 platforms:
 - linux/amd64
