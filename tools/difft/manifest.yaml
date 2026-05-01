@@ -4,7 +4,7 @@ name: difft
 license:
   name: MIT License
   link: https://github.com/Wilfred/difftastic/blob/master/LICENSE
-version: "0.68.0"
+version: "0.69.0"
 check: ${binary} --version | grep ^Difftastic | cut -d' ' -f2
 build_dependencies:
 - rust
