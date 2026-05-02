@@ -4,7 +4,7 @@ name: matchlock
 license:
   name: MIT License
   link: https://github.com/jingkaihe/matchlock/blob/main/LICENSE
-version: "0.2.9"
+version: "0.2.10"
 check: ${binary} --version | cut -d' ' -f3
 platforms:
 - linux/amd64
