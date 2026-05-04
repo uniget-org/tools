@@ -21,17 +21,14 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
     "${url}"
 
 echo "### Checking keyless signature for gitsign ${version}"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.pem" \
-    "${url}.pem"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.sig" \
-    "${url}.sig"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.bundle" \
+    "${url}.bundle"
 SHA="$(
     git ls-remote --tags https://github.com/sigstore/gitsign "v${version}^{}" \
     | cut -f1
 )"
 COSIGN_EXPERIMENTAL=1 cosign verify-blob \
-    --cert "${uniget_cache_download}/${filename}.pem" \
-    --signature "${uniget_cache_download}/${filename}.sig" \
+    --bundle "${uniget_cache_download}/${filename}.bundle" \
     --certificate-oidc-issuer https://token.actions.githubusercontent.com \
     --certificate-identity "https://github.com/sigstore/gitsign/.github/workflows/release.yml@refs/tags/v${version}" \
     --certificate-github-workflow-name release \
