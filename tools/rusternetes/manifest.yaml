@@ -4,7 +4,7 @@ name: rusternetes
 license:
   name: Apache License 2.0
   link: https://github.com/calfonso/rusternetes/blob/main/LICENSE
-version: "99fd1f5ce85a96a6b78b74b0daf8151b062e025d"
+version: "0fc4ef98f0bb461919849644715d45e62631abd0"
 check: ""
 conflicts_with:
 - kubectl
