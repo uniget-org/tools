@@ -4,7 +4,7 @@ name: zellij
 license:
   name: MIT License
   link: https://github.com/zellij-org/zellij/blob/main/LICENSE.md
-version: "0.44.1"
+version: "0.44.2"
 check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
