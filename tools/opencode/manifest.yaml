@@ -4,7 +4,7 @@ name: opencode
 license:
   name: MIT License
   link: https://github.com/sst/opencode/blob/dev/LICENSE
-version: "1.14.33"
+version: "1.14.35"
 check: ${binary} --version
 build_dependencies:
 - node-lts
