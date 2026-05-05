@@ -3,7 +3,7 @@
 FROM ghcr.io/uniget-org/tools/cosign:latest AS cosign
 FROM ghcr.io/uniget-org/tools/rekor:latest AS rekor
 
-FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:0aa2d228f23334e74ff9b4b56fa4b35a720e29280b934b6b925ad9a221e804d3 AS prepare
+FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:99a2bccd1ad68bfc5b1d1eb356cf54b7dd94e45c5216b89c87b9e21c70e12b9f AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
