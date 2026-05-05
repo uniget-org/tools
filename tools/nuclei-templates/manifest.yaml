@@ -6,9 +6,10 @@ license:
   name: MIT License
 homepage: https://github.com/projectdiscovery/nuclei
 repository: https://github.com/projectdiscovery/nuclei-templates
-version: "10.4.2"
+version: "10.4.3"
 tags:
 - category/security
+binary: "false"
 check: "" # No binary and no version file
 platforms:
 - linux/amd64
@@ -17,4 +18,3 @@ renovate:
   datasource: github-releases
   package: projectdiscovery/nuclei-templates
   extractVersion: ^v(?<version>.+)$
-binary: "false"
