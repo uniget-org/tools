@@ -13,7 +13,7 @@ FROM ghcr.io/uniget-org/tools/cosign:latest AS cosign
 FROM ghcr.io/uniget-org/tools/syft:latest AS syft
 FROM ghcr.io/uniget-org/tools/grype:latest AS grype
 
-FROM ubuntu:26.04@sha256:5e275723f82c67e387ba9e3c24baa0abdcb268917f276a0561c97bef9450d0b4
+FROM ubuntu:26.04@sha256:f3d28607ddd78734bb7f71f117f3c6706c666b8b76cbff7c9ff6e5718d46ff64
 COPY --link --from=ghcr.io/uniget-org/tools/uniget:latest / /usr/local
 COPY --link --from=ghcr.io/uniget-org/tools/git:latest / /usr/local
 COPY --link --from=ghcr.io/uniget-org/tools/make:latest / /usr/local
