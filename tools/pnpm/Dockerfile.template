@@ -5,14 +5,14 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-RUN --mount=type=cache,target=/var/cache/apt <<EOF
+RUN <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
     libatomic1
 EOF
 ARG name
 ARG version
-RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+RUN <<EOF
 echo "### Setting architecture string for ${TARGETPLATFORM}"
 case "${arch}" in
     x86_64)
