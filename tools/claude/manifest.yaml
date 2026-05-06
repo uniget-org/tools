@@ -4,7 +4,7 @@ name: claude
 license:
   name: Custom
   link: https://github.com/anthropics/claude-code/blob/main/LICENSE.md
-version: "2.1.128"
+version: "2.1.129"
 check: ${binary} --version | cut -d' ' -f1
 build_dependencies:
 - node-lts
