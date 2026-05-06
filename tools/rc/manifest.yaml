@@ -4,7 +4,7 @@ name: rc
 license:
   name: MIT License, Apache License 2.0
   link: https://github.com/rustfs/cli
-version: "0.1.13"
+version: "0.1.14"
 check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
