@@ -1,6 +1,12 @@
 variables:
   METADATA_CHANGES_FROM_SHA:
     description: Force pipeline to collect changes relative to supplied commit SHA
+  METADATA_ONLY:
+    description: Build metadata only
+    value: "false"
+    options:
+    - "false"
+    - "true"
   BUILD_TOOL_NAME:
     description: Name of tool to build
 
@@ -32,6 +38,7 @@ dev_download:
   rules:
   - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   - if: $CI_PIPELINE_SOURCE == "web" && $BUILD_TOOL_NAME == ""
+  - if: $METADATA_ONLY == "true"
   image: registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:99a2bccd1ad68bfc5b1d1eb356cf54b7dd94e45c5216b89c87b9e21c70e12b9f
   script: |
     curl --silent --show-error --location --fail https://gitlab.com/uniget-org/dev/-/releases/permalink/latest/downloads/dev_Linux_$(uname -m).tar.gz \
@@ -44,9 +51,13 @@ dev_download:
 collect:
   rules:
   - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    needs:
+    - dev_download
   - if: $CI_PIPELINE_SOURCE == "web" && $BUILD_TOOL_NAME == ""
-  needs:
-  - dev_download
+    needs:
+    - dev_download
+  - if: $METADATA_ONLY == "true"
+    when: never
   image: alpine:3.23.4@sha256:5b10f432ef3da1b8d4c7eb6c487f2f5a8f096bc91145e68878dd4a5019afde11
   script: |
     ./dev metadata changes --from="$METADATA_CHANGES_FROM_SHA" | tee changes.txt
@@ -81,9 +92,13 @@ collect:
 build_trigger:
   rules:
   - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    needs:
+    - collect
   - if: $CI_PIPELINE_SOURCE == "web" && $BUILD_TOOL_NAME == ""
-  needs:
-  - collect
+    needs:
+    - collect
+  - if: $METADATA_ONLY == "true"
+    when: never
   trigger:
     include:
     - artifact: build.yaml
@@ -93,9 +108,12 @@ build_trigger:
 metadata:
   rules:
   - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-  needs:
-  - dev_download
-  - build_trigger
+    needs:
+    - dev_download
+    - build_trigger
+  - if: $METADATA_ONLY == "true"
+    needs:
+    - dev_download
   extends:
   - .docker
   script:
