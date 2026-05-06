@@ -50,14 +50,14 @@ dev_download:
 
 collect:
   rules:
+  - if: $METADATA_ONLY == "true"
+    when: never
   - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
     needs:
     - dev_download
   - if: $CI_PIPELINE_SOURCE == "web" && $BUILD_TOOL_NAME == ""
     needs:
     - dev_download
-  - if: $METADATA_ONLY == "true"
-    when: never
   image: alpine:3.23.4@sha256:5b10f432ef3da1b8d4c7eb6c487f2f5a8f096bc91145e68878dd4a5019afde11
   script: |
     ./dev metadata changes --from="$METADATA_CHANGES_FROM_SHA" | tee changes.txt
@@ -91,14 +91,14 @@ collect:
 
 build_trigger:
   rules:
+  - if: $METADATA_ONLY == "true"
+    when: never
   - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
     needs:
     - collect
   - if: $CI_PIPELINE_SOURCE == "web" && $BUILD_TOOL_NAME == ""
     needs:
     - collect
-  - if: $METADATA_ONLY == "true"
-    when: never
   trigger:
     include:
     - artifact: build.yaml
