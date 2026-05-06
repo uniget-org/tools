@@ -32,12 +32,12 @@ url="https://github.com/pnpm/pnpm/releases/download/v${version}/pnpm-linux-${arc
 filename="$( basename "${url}" )"
 
 check-github-release-asset "pnpm/pnpm" "v${version}" "${filename}"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+curl --silent --show-error --location --fail --output "/tmp/${filename}" \
     "${url}"
 
 mkdir "${prefix}/opt/pnpm"
-tar --file="${uniget_cache_download}/${filename}" --list
-tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/opt/pnpm" --no-same-owner
+tar --file="/tmp/${filename}" --list
+tar --file="/tmp/${filename}" --extract --gzip --directory="${prefix}/opt/pnpm" --no-same-owner
 ln --symbolic --relative --force "${prefix}/opt/pnpm/pnpm" "${prefix}/bin/"
 EOF
 RUN <<EOF
