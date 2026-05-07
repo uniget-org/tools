@@ -8,14 +8,14 @@ SHELL [ "bash", "-clo", "errexit" ]
 WORKDIR /uniget_bootstrap/share/nuclei-templates
 ARG name
 ARG version
-RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+RUN <<EOF
 url="https://github.com/projectdiscovery/nuclei-templates/archive/refs/tags/v${version}.tar.gz"
 filename="$( basename "${url}" )"
 
 check-download "${url}"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+curl --silent --show-error --location --fail --output "/tmp/${filename}" \
     "${url}"
 
-tar --file="${uniget_cache_download}/${filename}" --list
-tar --file="${uniget_cache_download}/${filename}" --extract --gzip --strip-components=1 --no-same-owner
+tar --file="/tmp/${filename}" --list
+tar --file="/tmp/${filename}" --extract --gzip --strip-components=1 --no-same-owner
 EOF
