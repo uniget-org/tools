@@ -1,0 +1,17 @@
+#syntax=docker/dockerfile:1.23.0@sha256:2780b5c3bab67f1f76c781860de469442999ed1a0d7992a5efdf2cffc0e3d769
+
+FROM ghcr.io/uniget-org/tools/python-3.12:latest AS python
+FROM ghcr.io/uniget-org/tools/shiv:latest AS shiv
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:99a2bccd1ad68bfc5b1d1eb356cf54b7dd94e45c5216b89c87b9e21c70e12b9f AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+COPY --link --from=python / /usr/local/
+COPY --link --from=shiv / /usr/local/
+RUN --mount=type=cache,target=/root/.cache/pip <<EOF
+shiv --output-file "${prefix}/bin/osb" --console-script osb "opensandbox-cli==${version}"
+EOF
