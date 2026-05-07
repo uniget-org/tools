@@ -4,7 +4,7 @@ name: cagent
 license:
   name: Apache License 2.0
   link: https://github.com/docker/docker-agent/blob/main/LICENSE
-version: "1.54.0"
+version: "1.55.0"
 binary: ${target}/libexec/docker/cli-plugins/docker-agent
 check: ${binary} version | grep ^docker-agent | cut -d' ' -f3 | tr -d v
 platforms:
