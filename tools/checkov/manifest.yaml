@@ -6,7 +6,7 @@ license:
   link: https://github.com/bridgecrewio/checkov/blob/main/LICENSE
 homepage: https://github.com/bridgecrewio/checkov
 repository: https://github.com/bridgecrewio/checkov
-version: "3.2.526"
+version: "3.2.527"
 tags:
 - category/security
 - lang/python
