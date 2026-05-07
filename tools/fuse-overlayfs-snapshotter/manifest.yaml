@@ -1,26 +1,26 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: fuse-overlayfs-snapshotter
+description: fuse-overlayfs plugin for rootless containerd
+license:
+  name: Apache License 2.0
+  link: https://github.com/containerd/fuse-overlayfs-snapshotter/blob/master/LICENSE
+homepage: https://github.com/containerd/fuse-overlayfs-snapshotter
+repository: https://github.com/containerd/fuse-overlayfs-snapshotter
 version: "2.1.7"
-binary: containerd-fuse-overlayfs-grpc
-check: ${binary} --help 2>&1 | grep Version | cut -d' ' -f4 | cut -d= -f2 | tr -d '\\"v'
-runtime_dependencies:
-- fuse-overlayfs
-- containerd
 tags:
 - org/cncf
 - org/containerd
 - component/storage
 - type/daemon
 - lang/go
-homepage: https://github.com/containerd/fuse-overlayfs-snapshotter
-repository: https://github.com/containerd/fuse-overlayfs-snapshotter
-description: fuse-overlayfs plugin for rootless containerd
+check: ${binary} --help 2>&1 | grep Version | cut -d' ' -f4 | cut -d= -f2 | tr -d '\\"v'
+runtime_dependencies:
+- fuse-overlayfs
+- containerd
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: containerd/fuse-overlayfs-snapshotter
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/containerd/fuse-overlayfs-snapshotter/blob/master/LICENSE
-platforms:
-- linux/amd64
+binary: containerd-fuse-overlayfs-grpc

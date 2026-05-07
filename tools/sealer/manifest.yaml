@@ -1,10 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: sealer
+description: Build, Share and Run Both Your Kubernetes Cluster and Distributed Applications
+license:
+  name: Apache License 2.0
+  link: https://github.com/sealerio/sealer/blob/main/LICENSE
+homepage: http://sealer.cool
+repository: https://github.com/sealerio/sealer
 version: "0.11.0"
-check: ${binary} version | jq --raw-output '.gitVersion' | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/go
@@ -13,13 +15,11 @@ tags:
 - k8s
 - cncf/archived
 - state/stale
-homepage: http://sealer.cool
-repository: https://github.com/sealerio/sealer
-description: Build, Share and Run Both Your Kubernetes Cluster and Distributed Applications
+check: ${binary} version | jq --raw-output '.gitVersion' | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: sealerio/sealer
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/sealerio/sealer/blob/main/LICENSE

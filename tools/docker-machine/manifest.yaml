@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: docker-machine
+description: Machine management for a container-centric world
+license:
+  name: Apache License 2.0
+  link: https://github.com/docker-archive-public/docker.machine/blob/master/LICENSE
+homepage: https://docs.docker.com/machine/
+repository: https://github.com/docker-archive-public/docker.machine
 version: "0.16.2"
-check: ${binary} --version | cut -d, -f1 | cut -d' ' -f3
 tags:
 - standard/docker
 - org/docker
@@ -10,11 +15,6 @@ tags:
 - state/deprecated
 - lang/go
 - docker
-homepage: https://docs.docker.com/machine/
-repository: https://github.com/docker-archive-public/docker.machine
-description: Machine management for a container-centric world
-license:
-  name: Apache License 2.0
-  link: https://github.com/docker-archive-public/docker.machine/blob/master/LICENSE
+check: ${binary} --version | cut -d, -f1 | cut -d' ' -f3
 platforms:
 - linux/amd64

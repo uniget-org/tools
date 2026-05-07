@@ -1,7 +1,18 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: nftables
+description: nftables replaces the popular iptables, arptables, ebtables
+license:
+  name: GPLv2
+  link: https://git.netfilter.org/nftables/tree/COPYING
+homepage: https://www.netfilter.org/projects/nftables/index.html
+repository: https://git.netfilter.org/nftables/
 version: "1.1.6"
-binary: ${target}/sbin/nft
+tags:
+- org/netfilter
+- component/network
+- category/operations
+- type/cli
+- lang/c
 check: ${binary} --version | cut -d' ' -f2 | tr -d v
 build_dependencies:
 - make
@@ -20,19 +31,8 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 #- linux/arm64
-tags:
-- org/netfilter
-- component/network
-- category/operations
-- type/cli
-- lang/c
-homepage: https://www.netfilter.org/projects/nftables/index.html
-repository: https://git.netfilter.org/nftables/
-description: nftables replaces the popular iptables, arptables, ebtables
 renovate:
   datasource: git-tags
   package: https://git.netfilter.org/nftables/
   extractVersion: ^v(?<version>.+)$
-license:
-  name: GPLv2
-  link: https://git.netfilter.org/nftables/tree/COPYING
+binary: ${target}/sbin/nft

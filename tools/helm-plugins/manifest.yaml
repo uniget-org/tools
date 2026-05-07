@@ -1,11 +1,9 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: helm-plugins
+description: Helm plugins
+homepage: https://gitlab.com/uniget-org/tools
+repository: https://gitlab.com/uniget-org/tools
 version: "0.4.0"
-check: "" # No version
-build_dependencies:
-- helm
-runtime_dependencies:
-- helm
 tags:
 - type/plugin
 - kubernetes
@@ -14,8 +12,10 @@ tags:
 - management
 - helm
 - k8s
-homepage: https://gitlab.com/uniget-org/tools
-repository: https://gitlab.com/uniget-org/tools
-description: Helm plugins
+check: "" # No version
+build_dependencies:
+- helm
+runtime_dependencies:
+- helm
 platforms:
 - linux/amd64

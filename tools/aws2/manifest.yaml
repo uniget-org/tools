@@ -1,24 +1,24 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: aws2
+description: Universal CLI for Amazon Web Services
+license:
+  name: Apache License 2.0
+  link: https://github.com/aws/aws-cli/blob/develop/LICENSE.txt
+homepage: https://github.com/aws/aws-cli
+repository: https://github.com/aws/aws-cli
 version: "2.34.44"
-binary: aws
-check: ${binary} --version | cut -d' ' -f1 | cut -d/ -f2
-conflicts_with:
-- aws
-platforms:
-- linux/amd64
 tags:
 - org/amazon
 - category/development
 - lang/python
 - cloud/aws
 - type/cli
-homepage: https://github.com/aws/aws-cli
-repository: https://github.com/aws/aws-cli
-description: Universal CLI for Amazon Web Services
+check: ${binary} --version | cut -d' ' -f1 | cut -d/ -f2
+platforms:
+- linux/amd64
 renovate:
   datasource: github-tags
   package: aws/aws-cli
-license:
-  name: Apache License 2.0
-  link: https://github.com/aws/aws-cli/blob/develop/LICENSE.txt
+binary: aws
+conflicts_with:
+- aws

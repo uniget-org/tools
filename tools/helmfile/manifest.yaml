@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: helmfile
+description: Deploy Kubernetes Helm Charts
+license:
+  name: MIT License
+  link: https://github.com/roboll/helmfile/blob/master/LICENSE
+homepage: https://github.com/roboll/helmfile
+repository: https://github.com/roboll/helmfile
 version: "0.144.0"
-check: ${binary} --version | cut -d' ' -f3 | tr -d v
 tags:
 - type/cli
 - kubernetes
@@ -10,15 +15,10 @@ tags:
 - state/stale
 - k8s
 - helm
-homepage: https://github.com/roboll/helmfile
-repository: https://github.com/roboll/helmfile
-description: Deploy Kubernetes Helm Charts
+check: ${binary} --version | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: roboll/helmfile
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/roboll/helmfile/blob/master/LICENSE
-platforms:
-- linux/amd64

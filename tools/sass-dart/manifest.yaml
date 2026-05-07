@@ -1,24 +1,24 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: sass-dart
+description: Reference implementation of Sass
+license:
+  name: MIT License
+  link: https://github.com/sass/dart-sass/blob/main/LICENSE
+homepage: https://sass-lang.com/dart-sass
+repository: https://github.com/sass/dart-sass
 version: "1.99.0"
-binary: sass
+tags:
+- category/development
+- lang/dart
+- type/cli
 check: ${binary} --version
 runtime_dependencies:
 - dart
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/development
-- lang/dart
-- type/cli
-homepage: https://sass-lang.com/dart-sass
-repository: https://github.com/sass/dart-sass
-description: Reference implementation of Sass
 renovate:
   datasource: github-releases
   package: sass/dart-sass
-license:
-  name: MIT License
-  link: https://github.com/sass/dart-sass/blob/main/LICENSE
+binary: sass

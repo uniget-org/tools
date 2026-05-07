@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: woodpecker
+description: Community fork of the Drone CI system
+license:
+  name: Apache License 2.0
+  link: https://github.com/woodpecker-ci/woodpecker/blob/main/LICENSE
+homepage: https://woodpecker-ci.org
+repository: https://github.com/woodpecker-ci/woodpecker
 version: "3.14.0"
-binary: woodpecker-server
-check: ${binary} --version | cut -d' ' -f3
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - type/cli
 - type/daemon
 - cicd
 - lang/go
-homepage: https://woodpecker-ci.org
-repository: https://github.com/woodpecker-ci/woodpecker
-description: Community fork of the Drone CI system
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: woodpecker-ci/woodpecker
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/woodpecker-ci/woodpecker/blob/main/LICENSE
+binary: woodpecker-server

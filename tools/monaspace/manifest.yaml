@@ -1,28 +1,28 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: monaspace
+description: Innovative superfamily of fonts for code
+license:
+  name: SIL Open Font License 1.1
+  link: https://github.com/githubnext/monaspace/blob/main/LICENSE
+homepage: https://monaspace.githubnext.com
+repository: https://github.com/githubnext/monaspace
 version: "1.400"
-binary: "false"
-check: "" # No binary
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/github
 - slides
 - presentation
 - font
-homepage: https://monaspace.githubnext.com
-repository: https://github.com/githubnext/monaspace
-description: Innovative superfamily of fonts for code
-messages:
-  update: |
-    Please run: fc-cache -f -v
+check: "" # No binary
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: githubnext/monaspace
   extractVersion: ^v(?<version>.+)$
   versioning: loose
-license:
-  name: SIL Open Font License 1.1
-  link: https://github.com/githubnext/monaspace/blob/main/LICENSE
+binary: "false"
+messages:
+  update: |
+    Please run: fc-cache -f -v

@@ -1,19 +1,19 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: just
+description: Just a command runner
+license:
+  name: Creative Commons Zero v1.0 Universal
+  link: https://github.com/casey/just/blob/master/LICENSE
+homepage: https://just.systems
+repository: https://github.com/casey/just
 version: "1.50.0"
-check: ${binary} --version | cut -d' ' -f2
 tags:
 - category/development
 - lang/rust
 - make
-homepage: https://just.systems
-repository: https://github.com/casey/just
-description: Just a command runner
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: casey/just
-license:
-  name: Creative Commons Zero v1.0 Universal
-  link: https://github.com/casey/just/blob/master/LICENSE
-platforms:
-- linux/amd64

@@ -1,28 +1,28 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: libcgroup
+description: Library and tools to manage cgroups
+license:
+  name: LGPLv2.1
+homepage: https://github.com/libcgroup/libcgroup
+repository: https://github.com/libcgroup/libcgroup
 version: "3.2.0"
-binary: ${target}/bin/lscgroup
-check: "" # No version parameter
-build_dependencies:
-- make
 tags:
 - kernel/cgroups
 - type/cli
 - lang/c
 - category/operations
-homepage: https://github.com/libcgroup/libcgroup
-repository: https://github.com/libcgroup/libcgroup
-description: Library and tools to manage cgroups
+check: "" # No version parameter
+build_dependencies:
+- make
+platforms:
+- linux/amd64
+renovate:
+  datasource: github-releases
+  package: libcgroup/libcgroup
+  extractVersion: ^v(?<version>.+)$
+binary: ${target}/bin/lscgroup
 messages:
   update: |
     Please run the following command to update the library cache:
 
     ldconfig
-renovate:
-  datasource: github-releases
-  package: libcgroup/libcgroup
-  extractVersion: ^v(?<version>.+)$
-license:
-  name: LGPLv2.1
-platforms:
-- linux/amd64

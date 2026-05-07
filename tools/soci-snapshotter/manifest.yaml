@@ -1,24 +1,24 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: soci-snapshotter
+description: containerd snapshotter plugin which enables standard OCI images to be lazily loaded without requiring a build-time conversion step
+license:
+  name: Apache License 2.0
+  link: https://github.com/awslabs/soci-snapshotter/blob/main/LICENSE
+homepage: https://github.com/awslabs/soci-snapshotter
+repository: https://github.com/awslabs/soci-snapshotter
 version: "0.13.0"
-binary: soci-snapshotter-grpc
-check: ${binary} --version | cut -d' ' -f3 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/amazon
 - category/operations
 - lang/go
 - type/plugin
-homepage: https://github.com/awslabs/soci-snapshotter
-repository: https://github.com/awslabs/soci-snapshotter
-description: containerd snapshotter plugin which enables standard OCI images to be lazily loaded without requiring a build-time conversion step
+check: ${binary} --version | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: awslabs/soci-snapshotter
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/awslabs/soci-snapshotter/blob/main/LICENSE
+binary: soci-snapshotter-grpc

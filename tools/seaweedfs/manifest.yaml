@@ -1,14 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: seaweedfs
+description: Distributed storage system for object storage (S3), file systems, and Iceberg tables, designed to handle billions of files with O(1) disk access and effortless horizontal scaling
 license:
   name: Apache License 2.0
   link: https://github.com/seaweedfs/seaweedfs/blob/master/LICENSE
+homepage: https://seaweedfs.com/
+repository: https://github.com/seaweedfs/seaweedfs
 version: "4.23"
-binary: weed
-check: ${binary} version 2>/dev/null | grep ^version | cut -d' ' -f3
-platforms:
-- linux/amd64
 tags:
 - category/operations
 - lang/go
@@ -16,10 +15,11 @@ tags:
 - type/daemon
 - component/storage
 - standard/s3
-homepage: https://seaweedfs.com/
-repository: https://github.com/seaweedfs/seaweedfs
-description: Distributed storage system for object storage (S3), file systems, and Iceberg tables, designed to handle billions of files with O(1) disk access and effortless horizontal scaling
+check: ${binary} version 2>/dev/null | grep ^version | cut -d' ' -f3
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: seaweedfs/seaweedfs
   versioning: loose
+binary: weed

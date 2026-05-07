@@ -1,8 +1,20 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: nvidia-container-toolkit
+description: Build and run containers leveraging NVIDIA GPUs
+license:
+  name: Apache License 2.0
+  link: https://github.com/NVIDIA/nvidia-container-toolkit/blob/main/LICENSE
+homepage: https://github.com/NVIDIA/nvidia-container-toolkit
+repository: https://github.com/NVIDIA/nvidia-container-toolkit
 version: "1.19.0"
-binary: nvidia-ctk
+tags:
+- org/nvidia
+- category/operations
+- lang/c
+- type/cli
+- standard/docker
+- docker
 check: ${binary} --version | grep ^NVIDIA | cut -d' ' -f6
 build_dependencies:
 - make
@@ -12,16 +24,11 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- org/nvidia
-- category/operations
-- lang/c
-- type/cli
-- standard/docker
-- docker
-homepage: https://github.com/NVIDIA/nvidia-container-toolkit
-repository: https://github.com/NVIDIA/nvidia-container-toolkit
-description: Build and run containers leveraging NVIDIA GPUs
+renovate:
+  datasource: github-releases
+  package: NVIDIA/nvidia-container-toolkit
+  extractVersion: ^v(?<version>.+)$
+binary: nvidia-ctk
 messages:
   usage: |
     Please refer to the official documentation to learn how to configure...
@@ -32,10 +39,3 @@ messages:
     - rootless
 
     https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html
-renovate:
-  datasource: github-releases
-  package: NVIDIA/nvidia-container-toolkit
-  extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/NVIDIA/nvidia-container-toolkit/blob/main/LICENSE

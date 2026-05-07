@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: gama
+description: Manage your GitHub Actions from Terminal with great UI
 license:
   name: GPLv3
   link: https://github.com/termkit/gama/blob/main/LICENSE
+homepage: https://github.com/termkit/gama
+repository: https://github.com/termkit/gama
 version: "1.2.1"
-check: "" # No version parameter
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/go
 - type/tui
-homepage: https://github.com/termkit/gama
-repository: https://github.com/termkit/gama
-description: Manage your GitHub Actions from Terminal with great UI
+check: "" # No version parameter
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: termkit/gama

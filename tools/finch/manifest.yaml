@@ -1,24 +1,28 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: finch
+description: Open source client for container development
 license:
   name: Apache License 2.0
   link: https://github.com/runfinch/finch/blob/main/LICENSE
+homepage: https://runfinch.com
+repository: https://github.com/runfinch/finch
 version: "1.17.0"
+tags:
+- category/development
+- lang/go
+- type/cli
+- standard/docker
 check: ${binary} --version | cut -d' ' -f3
 runtime_dependencies:
 - finch-daemon
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/development
-- lang/go
-- type/cli
-- standard/docker
-homepage: https://runfinch.com
-repository: https://github.com/runfinch/finch
-description: Open source client for container development
+renovate:
+  datasource: github-releases
+  package: runfinch/finch
+  extractVersion: ^v(?<version>.+)$
 messages:
   internals: |
     To run finch as a user:
@@ -36,7 +40,3 @@ messages:
         chmod +s /usr/local/bin/nerdctl
         chgrp "finch" /usr/bin/finch
         chmod +s /usr/bin/finch
-renovate:
-  datasource: github-releases
-  package: runfinch/finch
-  extractVersion: ^v(?<version>.+)$

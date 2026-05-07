@@ -1,20 +1,20 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: fzf
+description: Command-line fuzzy finder
+license:
+  name: MIT License
+  link: https://github.com/junegunn/fzf/blob/master/LICENSE
+homepage: https://junegunn.github.io/fzf/
+repository: https://github.com/junegunn/fzf
 version: "0.72.0"
-check: ${binary} --version | cut -d' ' -f1
 tags:
 - type/cli
 - terminal
 - lang/go
-homepage: https://junegunn.github.io/fzf/
-repository: https://github.com/junegunn/fzf
-description: Command-line fuzzy finder
+check: ${binary} --version | cut -d' ' -f1
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: junegunn/fzf
   extractVersion: ^v?(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/junegunn/fzf/blob/master/LICENSE
-platforms:
-- linux/amd64

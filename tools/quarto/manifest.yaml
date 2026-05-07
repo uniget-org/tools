@@ -1,8 +1,17 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: quarto
+description: Open-source scientific and technical publishing system built on Pandoc
+license:
+  name: MIT License
+  link: https://github.com/quarto-dev/quarto-cli/blob/main/COPYING.md
+homepage: https://quarto.org
+repository: https://github.com/quarto-dev/quarto-cli
 version: "1.9.37"
-binary: ${target}/opt/quarto/bin/quarto
+tags:
+- category/development
+- lang/javascript
+- type/cli
 check: ${binary} --version
 runtime_dependencies:
 - esbuild
@@ -12,17 +21,8 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/development
-- lang/javascript
-- type/cli
-homepage: https://quarto.org
-repository: https://github.com/quarto-dev/quarto-cli
-description: Open-source scientific and technical publishing system built on Pandoc
 renovate:
   datasource: github-releases
   package: quarto-dev/quarto-cli
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/quarto-dev/quarto-cli/blob/main/COPYING.md
+binary: ${target}/opt/quarto/bin/quarto

@@ -1,6 +1,17 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: gsutil
+description: CLI for interacting with cloud storage services
+license:
+  name: Apache License 2.0
+  link: https://github.com/GoogleCloudPlatform/gsutil/blob/master/LICENSE
+homepage: https://github.com/GoogleCloudPlatform/gsutil
+repository: https://github.com/GoogleCloudPlatform/gsutil
 version: "5.37"
+tags:
+- org/google
+- category/development
+- lang/python
+- cloud/google
 check: ${binary} version | cut -d' ' -f3
 build_dependencies:
 - python-3.12
@@ -10,17 +21,6 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- org/google
-- category/development
-- lang/python
-- cloud/google
-homepage: https://github.com/GoogleCloudPlatform/gsutil
-repository: https://github.com/GoogleCloudPlatform/gsutil
-description: CLI for interacting with cloud storage services
 renovate:
   datasource: pypi
   package: gsutil
-license:
-  name: Apache License 2.0
-  link: https://github.com/GoogleCloudPlatform/gsutil/blob/master/LICENSE

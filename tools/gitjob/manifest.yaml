@@ -1,10 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: gitjob
+description: Job controller to launch kubernetes jobs based on git event
+license:
+  name: Apache License 2.0
+  link: https://github.com/rancher/gitjob/blob/release/fleet/v0.9/LICENSE
+homepage: https://github.com/rancher/gitjob
+repository: https://github.com/rancher/gitjob
 version: "0.9.26"
-check: "" # Empty version
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - type/daemon
 - category/development
@@ -14,13 +16,11 @@ tags:
 - standard/git
 - git
 - state/deprecated
-homepage: https://github.com/rancher/gitjob
-repository: https://github.com/rancher/gitjob
-description: Job controller to launch kubernetes jobs based on git event
+check: "" # Empty version
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: rancher/gitjob
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/rancher/gitjob/blob/release/fleet/v0.9/LICENSE

@@ -1,10 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: lstags
+description: Explore Docker registries and manipulate Docker images
+license:
+  name: Apache License 2.0
+  link: https://github.com/ivanilves/lstags/blob/master/LICENSE
+homepage: https://github.com/ivanilves/lstags
+repository: https://github.com/ivanilves/lstags
 version: "1.2.23"
-check: ${binary} --version | cut -d' ' -f2
-platforms:
-- linux/amd64
 tags:
 - category/operations
 - lang/go
@@ -12,13 +15,10 @@ tags:
 - container/image
 - container/registry
 - state/stale
-homepage: https://github.com/ivanilves/lstags
-repository: https://github.com/ivanilves/lstags
-description: Explore Docker registries and manipulate Docker images
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: ivanilves/lstags
   extractVersion: ^v(?<version>\d+\.\d+\.\d+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/ivanilves/lstags/blob/master/LICENSE

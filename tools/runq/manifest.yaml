@@ -1,7 +1,17 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: runq
+description: Run regular Docker images in KVM/Qemu
+license:
+  name: Apache License 2.0
+  link: https://github.com/gotoz/runq/blob/master/LICENSE
+homepage: https://github.com/gotoz/runq
+repository: https://github.com/gotoz/runq
 version: "841a979a68c4cc75648bf56bf33e524847f73714"
-binary: ${target}/var/lib/runq/runq
+tags:
+- container/runtime
+- standard/oci
+- lang/go
+- category/security
 check: "" # No tag/release
 build_dependencies:
 - go
@@ -12,14 +22,11 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 #- linux/arm64
-tags:
-- container/runtime
-- standard/oci
-- lang/go
-- category/security
-homepage: https://github.com/gotoz/runq
-repository: https://github.com/gotoz/runq
-description: Run regular Docker images in KVM/Qemu
+renovate:
+  package: https://github.com/gotoz/runq
+  dataasource: git-refs
+  ref: master
+binary: ${target}/var/lib/runq/runq
 messages:
   update: |
     Add crun to Docker runtimes by merging the following into
@@ -38,10 +45,3 @@ messages:
             }
         }
     }
-license:
-  name: Apache License 2.0
-  link: https://github.com/gotoz/runq/blob/master/LICENSE
-renovate:
-  dataasource: git-refs
-  package: https://github.com/gotoz/runq
-  ref: master

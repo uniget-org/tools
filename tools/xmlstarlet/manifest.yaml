@@ -1,25 +1,25 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: xmlstarlet
+description: Command line XML toolkit
+license:
+  name: Custom
+  link: https://sourceforge.net/p/xmlstar/code/ci/master/tree/Copyright
+homepage: https://sourceforge.net/projects/xmlstar/
+repository: https://sourceforge.net/projects/xmlstar/
 version: "1.6.1"
-binary: xml
+tags:
+- category/development
+- lang/c
+- type/cli
+- format/xml
 check: ${binary} --version | head -n 1
 build_dependencies:
 - make
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/development
-- lang/c
-- type/cli
-- format/xml
-homepage: https://sourceforge.net/projects/xmlstar/
-repository: https://sourceforge.net/projects/xmlstar/
-description: Command line XML toolkit
 renovate:
   datasource: git-tags
   package: https://git.code.sf.net/p/xmlstar/code
-license:
-  name: Custom
-  link: https://sourceforge.net/p/xmlstar/code/ci/master/tree/Copyright
+binary: xml

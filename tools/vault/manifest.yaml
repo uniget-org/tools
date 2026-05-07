@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: vault
+description: Secrets management, encryption as a service, and privileged access management
+license:
+  name: BSL-1.1
+  link: https://github.com/hashicorp/vault/blob/main/LICENSE
+homepage: https://www.vaultproject.io/
+repository: https://github.com/hashicorp/vault
 version: "2.0.0"
-check: ${binary} --version | cut -d' ' -f2 | tr -d v
 tags:
 - type/cli
 - type/daemon
@@ -9,15 +14,10 @@ tags:
 - org/hashicorp
 - lang/go
 - management
-homepage: https://www.vaultproject.io/
-repository: https://github.com/hashicorp/vault
-description: Secrets management, encryption as a service, and privileged access management
+check: ${binary} --version | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: hashicorp/vault
   extractVersion: ^v(?<version>.+)$
-license:
-  name: BSL-1.1
-  link: https://github.com/hashicorp/vault/blob/main/LICENSE
-platforms:
-- linux/amd64

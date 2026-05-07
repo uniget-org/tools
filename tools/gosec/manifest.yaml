@@ -1,20 +1,20 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: gosec
+description: Golang security checker
+license:
+  name: Apache License 2.0
+homepage: https://securego.io
+repository: https://github.com/securego/gosec
 version: "2.26.1"
-check: ${binary} -version | grep ^Version | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/security
 - lang/go
 - type/cli
-homepage: https://securego.io
-repository: https://github.com/securego/gosec
-description: Golang security checker
+check: ${binary} -version | grep ^Version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: securego/gosec
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0

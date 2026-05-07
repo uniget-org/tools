@@ -1,30 +1,30 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: devproxy
+description: API simulator that helps you effortlessly test your app beyond the happy path
 license:
   name: MIT License
   link: https://github.com/dotnet/dev-proxy/blob/main/LICENSE
+homepage: https://aka.ms/devproxy
+repository: https://github.com/dotnet/dev-proxy
 version: "2.4.0"
-check: DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 ${binary} --version
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/microsoft
 - category/development
 - lang/c
 - type/daemon
-homepage: https://aka.ms/devproxy
-repository: https://github.com/dotnet/dev-proxy
-description: API simulator that helps you effortlessly test your app beyond the happy path
+check: DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 ${binary} --version
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: dotnet/dev-proxy
+  extractVersion: ^v(?<version>.+)$
 messages:
   internals: |
     dotnet programs require libicu for globalization. To avoid this
     dependency, set the following environment variable before running
     dotnet programs (https://aka.ms/dotnet-missing-libicu):
-    
+
         DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
-renovate:
-  datasource: github-releases
-  package: dotnet/dev-proxy
-  extractVersion: ^v(?<version>.+)$

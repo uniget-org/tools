@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: workerd
+description: The JavaScript / Wasm runtime that powers Cloudflare Workers
 license:
   name: Apache License 2.0
   link: https://github.com/cloudflare/workerd/blob/main/LICENSE
+homepage: https://blog.cloudflare.com/workerd-open-source-workers-runtime/
+repository: https://github.com/cloudflare/workerd
 version: "1.20260507.1"
-check: "" # Versions do not match
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/cloudflare
 - category/operations
 - lang/c
 - type/daemon
 - cloud/cloudflare
-homepage: https://blog.cloudflare.com/workerd-open-source-workers-runtime/
-repository: https://github.com/cloudflare/workerd
-description: The JavaScript / Wasm runtime that powers Cloudflare Workers 
+check: "" # Versions do not match
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: cloudflare/workerd

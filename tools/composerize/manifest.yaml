@@ -1,15 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: composerize
+description: Turns docker run commands into docker-compose files
+license:
+  name: MIT License
+  link: https://github.com/composerize/composerize/blob/master/LICENSE
+homepage: https://github.com/composerize/composerize
+repository: https://github.com/composerize/composerize
 version: "1.7.5"
-check: "" # No version parameter
-build_dependencies:
-- node-lts
-runtime_dependencies:
-- node-lts
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/javascript
@@ -18,12 +16,14 @@ tags:
 - standard/docker
 - docker
 - state/stale
-homepage: https://github.com/composerize/composerize
-repository: https://github.com/composerize/composerize
-description: Turns docker run commands into docker-compose files
+check: "" # No version parameter
+build_dependencies:
+- node-lts
+runtime_dependencies:
+- node-lts
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: npm
   package: composerize
-license:
-  name: MIT License
-  link: https://github.com/composerize/composerize/blob/master/LICENSE

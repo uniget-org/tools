@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: lazygit
+description: Simple terminal UI for git commands
+license:
+  name: MIT License
+  link: https://github.com/jesseduffield/lazygit/blob/master/LICENSE
+homepage: https://github.com/jesseduffield/lazygit
+repository: https://github.com/jesseduffield/lazygit
 version: "0.61.1"
-check: ${binary} --version | cut -d' ' -f6 | cut -d= -f2 | tr -d ,
 tags:
 - type/tui
 - category/development
@@ -9,15 +14,10 @@ tags:
 - lang/go
 - standard/git
 - git
-homepage: https://github.com/jesseduffield/lazygit
-repository: https://github.com/jesseduffield/lazygit
-description: Simple terminal UI for git commands
+check: ${binary} --version | cut -d' ' -f6 | cut -d= -f2 | tr -d ,
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: jesseduffield/lazygit
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/jesseduffield/lazygit/blob/master/LICENSE
-platforms:
-- linux/amd64

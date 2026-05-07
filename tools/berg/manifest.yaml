@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: berg
+description: CLI Tool for forgejo similar to gh, glab and tea
 license:
   name: GAPL-3.0
   link: https://codeberg.org/Aviac/codeberg-cli/src/branch/main/LICENSE
+homepage: https://codeberg.org/Aviac/codeberg-cli
+repository: https://codeberg.org/Aviac/codeberg-cli
 version: "0.5.5"
-check: ${binary} --version | cut -d' ' -f2
-build_dependencies:
-- rust
-platforms:
-- linux/amd64
 tags:
 - category/development
 - lang/rust
 - type/cli
 - cloud/codeberg
 - state/archived
-homepage: https://codeberg.org/Aviac/codeberg-cli
-repository: https://codeberg.org/Aviac/codeberg-cli
-description: CLI Tool for forgejo similar to gh, glab and tea
+check: ${binary} --version | cut -d' ' -f2
+build_dependencies:
+- rust
+platforms:
+- linux/amd64
 lifecycle:
   removed_with_reason: Archived. Please use fj.

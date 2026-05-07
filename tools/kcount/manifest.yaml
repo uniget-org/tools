@@ -1,9 +1,11 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kcount
+description: Count Kubernetes objects across namespaces and clusters
+license:
+  name: None
+homepage: https://github.com/pan-net-security/kcount
+repository: https://github.com/pan-net-security/kcount
 version: "0.5.3"
-check: "" # No version argument
-platforms:
-- linux/amd64
 tags:
 - category/operations
 - lang/go
@@ -12,12 +14,10 @@ tags:
 - kubernetes
 - k8s
 - state/stale
-homepage: https://github.com/pan-net-security/kcount
-repository: https://github.com/pan-net-security/kcount
-description: Count Kubernetes objects across namespaces and clusters
+check: "" # No version argument
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: pan-net-security/kcount
   extractVersion: ^v(?<version>.+)$
-license:
-  name: None

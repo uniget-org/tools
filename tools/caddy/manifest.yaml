@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: caddy
+description: Fast and extensible multi-platform HTTP/1-2-3 web server with automatic HTTPS
+license:
+  name: Apache License 2.0
+  link: https://github.com/caddyserver/caddy/blob/master/LICENSE
+homepage: https://caddyserver.com
+repository: https://github.com/caddyserver/caddy
 version: "2.11.2"
-check: ${binary} version | cut -d' ' -f1 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/go
 - type/daemon
-homepage: https://caddyserver.com
-repository: https://github.com/caddyserver/caddy
-description: Fast and extensible multi-platform HTTP/1-2-3 web server with automatic HTTPS
+check: ${binary} version | cut -d' ' -f1 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: caddyserver/caddy
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/caddyserver/caddy/blob/master/LICENSE

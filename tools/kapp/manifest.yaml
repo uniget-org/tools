@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kapp
+description: Simple deployment tool focused on the concept of "Kubernetes application" — a set of resources with the same label
+license:
+  name: Apache License 2.0
+  link: https://github.com/carvel-dev/kapp/blob/develop/LICENSE
+homepage: https://carvel.dev/kapp
+repository: https://github.com/carvel-dev/kapp
 version: "0.65.2"
-check: ${binary} version | head -n 1 | cut -d' ' -f3
 tags:
 - org/vmware
 - type/cli
@@ -11,15 +16,10 @@ tags:
 - package
 - management
 - lang/go
-homepage: https://carvel.dev/kapp
-repository: https://github.com/carvel-dev/kapp
-description: Simple deployment tool focused on the concept of "Kubernetes application" — a set of resources with the same label
+check: ${binary} version | head -n 1 | cut -d' ' -f3
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: carvel-dev/kapp
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/carvel-dev/kapp/blob/develop/LICENSE
-platforms:
-- linux/amd64

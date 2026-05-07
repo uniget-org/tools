@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: lima
+description: Linux virtual machines, typically on macOS, for running containerd
+license:
+  name: Apache License 2.0
+  link: https://github.com/lima-vm/lima/blob/master/LICENSE
+homepage: https://lima-vm.io/
+repository: https://github.com/lima-vm/lima
 version: "2.1.1"
-check: limactl --version | cut -d' ' -f3
 tags:
 - type/cli
 - category/development
@@ -10,15 +15,10 @@ tags:
 - management
 - containerd
 - cncf/incubating
-homepage: https://lima-vm.io/
-repository: https://github.com/lima-vm/lima
-description: Linux virtual machines, typically on macOS, for running containerd
+check: limactl --version | cut -d' ' -f3
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: lima-vm/lima
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/lima-vm/lima/blob/master/LICENSE
-platforms:
-- linux/amd64

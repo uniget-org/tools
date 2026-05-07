@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: diffr
+description: Yet another diff highlighting tool
 license:
   name: MIT License
   link: https://github.com/mookid/diffr/blob/master/LICENSE.txt
+homepage: https://github.com/mookid/diffr
+repository: https://github.com/mookid/diffr
 version: "0.1.5"
+tags:
+- category/development
+- lang/rust
+- type/cli
 check: ${binary} --version 2>&1 | cut -d' ' -f2
 build_dependencies:
 - rust
 platforms:
 - linux/amd64
-tags:
-- category/development
-- lang/rust
-- type/cli
-homepage: https://github.com/mookid/diffr
-repository: https://github.com/mookid/diffr
-description: Yet another diff highlighting tool
 renovate:
   datasource: github-releases
   package: mookid/diffr

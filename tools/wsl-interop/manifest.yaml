@@ -1,17 +1,19 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: wsl-interop
+description: Workaround for WSL interop issue
+license:
+  name: None
+homepage: https://github.com/microsoft/WSL/issues/8843
+repository: https://github.com/microsoft/WSL/issues/8843
 version: "0.1.0"
-binary: "false"
+tags:
+- wsl
 check: "" # No binary
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- wsl
-homepage: https://github.com/microsoft/WSL/issues/8843
-repository: https://github.com/microsoft/WSL/issues/8843
-description: Workaround for WSL interop issue
+binary: "false"
 messages:
   internals: |
     - This tool is a workaround for WSL interop issue described in microsoft/WSL/issues#8842
@@ -21,5 +23,3 @@ messages:
       systemctl daemon-reload
       systemctl enable wslinterop-force.service wslinterop-monitor.path
       systemctl start wslinterop-force.service wslinterop-monitor.path
-license:
-  name: None

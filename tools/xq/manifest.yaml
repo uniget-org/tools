@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: xq
+description: Command-line XML and HTML beautifier and content extractor
+license:
+  name: MIT License
+  link: https://github.com/sibprogrammer/xq/blob/master/LICENSE
+homepage: https://github.com/sibprogrammer/xq
+repository: https://github.com/sibprogrammer/xq
 version: "1.4.0"
-check: ${binary} --version | cut -d' ' -f3
 tags:
 - category/development
 - type/cli
 - lang/go
 - format/xml
 - standard/xpath
-homepage: https://github.com/sibprogrammer/xq
-repository: https://github.com/sibprogrammer/xq
-description: Command-line XML and HTML beautifier and content extractor
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: sibprogrammer/xq
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/sibprogrammer/xq/blob/master/LICENSE
-platforms:
-- linux/amd64

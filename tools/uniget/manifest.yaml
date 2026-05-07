@@ -1,10 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: uniget
+description: Universal installer and updater for (container) tools
+license:
+  name: MIT License
+  link: https://github.com/uniget-org/cli/blob/main/LICENSE
+homepage: https://uniget.dev
+repository: https://gitlab.com/uniget-org/cli
 version: "0.27.0"
-check: ${binary} --version | cut -d' ' -f3
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/uniget
 - category/operations
@@ -13,13 +15,11 @@ tags:
 - package
 - management
 - standard/oci
-homepage: https://uniget.dev
-repository: https://gitlab.com/uniget-org/cli
-description: Universal installer and updater for (container) tools
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: gitlab-releases
   package: uniget-org/cli
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/uniget-org/cli/blob/main/LICENSE

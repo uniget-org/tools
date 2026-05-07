@@ -1,20 +1,20 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: dnsx
+description: dnsx is a fast and multi-purpose DNS toolkit allow to run multiple DNS queries of your choice with a list of user-supplied resolvers.
+license:
+  name: MIT License
+homepage: https://docs.projectdiscovery.io/tools/dnsx
+repository: https://github.com/projectdiscovery/dnsx
 version: "1.2.3"
-check: ${binary} --version 2>&1 | grep "Current Version:" | cut -d' ' -f4
 tags:
 - category/security
 - type/cli
 - lang/go
 - standard/dns
-homepage: https://docs.projectdiscovery.io/tools/dnsx
-repository: https://github.com/projectdiscovery/dnsx
-description: dnsx is a fast and multi-purpose DNS toolkit allow to run multiple DNS queries of your choice with a list of user-supplied resolvers.
+check: ${binary} --version 2>&1 | grep "Current Version:" | cut -d' ' -f4
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: projectdiscovery/dnsx
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-platforms:
-- linux/amd64

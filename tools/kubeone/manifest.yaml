@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: kubeone
+description: Automate cluster operations on all your cloud, on-prem, edge, and IoT environments
 license:
   name: Apache License 2.0
   link: https://github.com/kubermatic/kubeone/blob/main/LICENSE
+homepage: https://kubeone.io/
+repository: https://github.com/kubermatic/kubeone
 version: "1.13.4"
-check: ${binary} version | jq --raw-output ".kubeone.gitVersion"
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/kubermatic
 - category/operations
 - lang/go
 - type/cli
-homepage: https://kubeone.io/
-repository: https://github.com/kubermatic/kubeone
-description: Automate cluster operations on all your cloud, on-prem, edge, and IoT environments
+check: ${binary} version | jq --raw-output ".kubeone.gitVersion"
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: kubermatic/kubeone

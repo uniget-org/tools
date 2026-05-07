@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: ruff
+description: Extremely fast Python linter and code formatter
 license:
   name: MIT License
   link: https://github.com/astral-sh/ruff/blob/main/LICENSE
+homepage: https://docs.astral.sh/ruff
+repository: https://github.com/astral-sh/ruff
 version: "0.15.12"
-check: ""
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/rust
 - type/cli
 - lint
 - python
-homepage: https://docs.astral.sh/ruff
-repository: https://github.com/astral-sh/ruff
-description: Extremely fast Python linter and code formatter
+check: ""
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: astral-sh/ruff

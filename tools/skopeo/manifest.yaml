@@ -1,10 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: skopeo
+description: Work with remote images registries
+license:
+  name: Apache License 2.0
+  link: https://github.com/containers/skopeo/blob/main/LICENSE
+homepage: https://github.com/containers/skopeo
+repository: https://github.com/containers/skopeo
 version: "1.22.2"
-check: ${binary} --version | cut -d' ' -f3
-build_dependencies:
-- go
-- go-md2man
 tags:
 - org/redhat
 - standard/oci
@@ -12,15 +14,13 @@ tags:
 - container/image
 - type/cli
 - lang/go
-homepage: https://github.com/containers/skopeo
-repository: https://github.com/containers/skopeo
-description: Work with remote images registries
+check: ${binary} --version | cut -d' ' -f3
+build_dependencies:
+- go
+- go-md2man
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: containers/skopeo
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/containers/skopeo/blob/main/LICENSE
-platforms:
-- linux/amd64

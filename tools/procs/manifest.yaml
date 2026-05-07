@@ -1,20 +1,20 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: procs
+description: Modern replacement for ps written in Rust
+license:
+  name: MIT License
+  link: https://github.com/dalance/procs/blob/master/LICENSE
+homepage: https://github.com/dalance/procs
+repository: https://github.com/dalance/procs
 version: "0.14.11"
-check: ${binary} --version | cut -d' ' -f2 | tr -d '"'
-platforms:
-- linux/amd64
 tags:
 - category/operations
 - type/cli
 - lang/rust
-homepage: https://github.com/dalance/procs
-repository: https://github.com/dalance/procs
-description: Modern replacement for ps written in Rust
+check: ${binary} --version | cut -d' ' -f2 | tr -d '"'
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: dalance/procs
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/dalance/procs/blob/master/LICENSE

@@ -1,11 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: docker-scout
+description: Secure your supply chain at every layer
+license:
+  name: Docker Subscription Service Agreement
+  link: https://www.docker.com/legal/docker-subscription-service-agreement
+homepage: https://docker.com/products/docker-scout
+repository: https://github.com/docker/scout-cli
 version: "1.20.4"
-binary: ${target}/libexec/docker/cli-plugins/docker-scout
-check: ${binary} version | grep ^version | cut -d' ' -f2 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/docker
 - category/security
@@ -19,13 +20,12 @@ tags:
 - standard/cyclonedx
 - format/spdx
 - format/cyclonedx
-homepage: https://docker.com/products/docker-scout
-repository: https://github.com/docker/scout-cli
-description: Secure your supply chain at every layer
+check: ${binary} version | grep ^version | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: docker/scout-cli
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Docker Subscription Service Agreement
-  link: https://www.docker.com/legal/docker-subscription-service-agreement
+binary: ${target}/libexec/docker/cli-plugins/docker-scout

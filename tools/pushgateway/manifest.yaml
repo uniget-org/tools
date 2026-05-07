@@ -1,14 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: pushgateway
+description: Push acceptor for ephemeral and batch jobs
 license:
   name: Apache License 2.0
   link: https://github.com/prometheus/pushgateway/blob/master/LICENSE
+homepage: https://github.com/prometheus/pushgateway
+repository: https://github.com/prometheus/pushgateway
 version: "1.11.2"
-check: ${binary} --version | grep ^pushgateway | cut -d' ' -f3
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/prometheus
 - category/operations
@@ -16,9 +15,10 @@ tags:
 - type/daemon
 - standard/prometheus
 - exporter
-homepage: https://github.com/prometheus/pushgateway
-repository: https://github.com/prometheus/pushgateway
-description: Push acceptor for ephemeral and batch jobs
+check: ${binary} --version | grep ^pushgateway | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: prometheus/pushgateway

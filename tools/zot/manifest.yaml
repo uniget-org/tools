@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: zot
+description: Production-ready vendor-neutral OCI image registry server purely based on OCI Distribution Specification
+license:
+  name: Apache License 2.0
+  link: https://github.com/project-zot/zot/blob/main/LICENSE
+homepage: https://zotregistry.dev
+repository: https://github.com/project-zot/zot
 version: "2.1.16"
-check: ${binary} --version 2>&1 | jq --raw-output '.commit' | cut -d- -f1 | tr -d v
 tags:
 - standard/oci
 - container/registry
@@ -9,15 +14,10 @@ tags:
 - type/daemon
 - lang/go
 - cncf/sandbox
-homepage: https://zotregistry.dev
-repository: https://github.com/project-zot/zot
-description: Production-ready vendor-neutral OCI image registry server purely based on OCI Distribution Specification
+check: ${binary} --version 2>&1 | jq --raw-output '.commit' | cut -d- -f1 | tr -d v
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: project-zot/zot
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/project-zot/zot/blob/main/LICENSE
-platforms:
-- linux/amd64

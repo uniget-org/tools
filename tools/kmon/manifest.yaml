@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kmon
+description: Linux Kernel Manager and Activity Monitor
+license:
+  name: GPLv3
+  link: https://github.com/orhun/kmon/blob/master/LICENSE
+homepage: https://kmon.cli.rs
+repository: https://github.com/orhun/kmon
 version: "1.7.1"
-check: ${binary} --version | cut -d' ' -f2
 tags:
 - type/tui
 - management
 - lang/rust
 - category/monitoring
-homepage: https://kmon.cli.rs
-repository: https://github.com/orhun/kmon
-description: Linux Kernel Manager and Activity Monitor
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: orhun/kmon
   extractVersion: ^v(?<version>.+)$
-license:
-  name: GPLv3
-  link: https://github.com/orhun/kmon/blob/master/LICENSE
-platforms:
-- linux/amd64

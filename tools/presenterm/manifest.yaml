@@ -1,11 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: presenterm
+description: Markdown terminal slideshow tool
+license:
+  name: BSD 2-Clause License
+  link: https://github.com/mfontanini/presenterm/blob/master/LICENSE
+homepage: https://mfontanini.github.io/presenterm/
+repository: https://github.com/mfontanini/presenterm
 version: "0.16.1"
-check: ${binary} --version | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/rust
@@ -13,13 +15,11 @@ tags:
 - format/markdown
 - slides
 - presentation
-homepage: https://mfontanini.github.io/presenterm/
-repository: https://github.com/mfontanini/presenterm
-description: Markdown terminal slideshow tool
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: mfontanini/presenterm
   extractVersion: ^v(?<version>.+)$
-license:
-  name: BSD 2-Clause License
-  link: https://github.com/mfontanini/presenterm/blob/master/LICENSE

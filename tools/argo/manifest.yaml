@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: argo
+description: Workflow engine for Kubernetes
+license:
+  name: Apache License 2.0
+  link: https://github.com/argoproj/argo-workflows/blob/main/LICENSE
+homepage: https://argo-workflows.readthedocs.io/
+repository: https://github.com/argoproj/argo-workflows
 version: "4.0.5"
-check: ${binary} version | grep ^argo | cut -d' ' -f2 | tr -d v
 tags:
 - type/cli
 - kubernetes
@@ -10,15 +15,10 @@ tags:
 - lang/go
 - kubernetes
 - k8s
-homepage: https://argo-workflows.readthedocs.io/
-repository: https://github.com/argoproj/argo-workflows
-description: Workflow engine for Kubernetes
+check: ${binary} version | grep ^argo | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: argoproj/argo-workflows
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/argoproj/argo-workflows/blob/main/LICENSE
-platforms:
-- linux/amd64

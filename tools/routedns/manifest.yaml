@@ -1,24 +1,24 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: routedns
+description: DNS stub resolver, proxy and router with support for DoT, DoH, DoQ, and DTLS
 license:
   name: BSD-3-Clause
   link: https://github.com/folbricht/routedns/blob/master/LICENSE
+homepage: https://github.com/folbricht/routedns
+repository: https://github.com/folbricht/routedns
 version: "0.1.169"
+tags:
+- category/operations
+- lang/go
+- type/daemon
+- standard/dns
 check: ${binary} --version | grep ^Version | tr -s ' ' | cut -d' ' -f2 | tr -d v
 build_dependencies:
 - go
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/operations
-- lang/go
-- type/daemon
-- standard/dns
-homepage: https://github.com/folbricht/routedns
-repository: https://github.com/folbricht/routedns
-description: DNS stub resolver, proxy and router with support for DoT, DoH, DoQ, and DTLS
 renovate:
   datasource: github-releases
   package: folbricht/routedns

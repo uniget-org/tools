@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kp
+description: Command line interface for interacting with kpack
+license:
+  name: Apache License 2.0
+  link: https://github.com/buildpacks-community/kpack-cli/blob/main/LICENSE
+homepage: https://github.com/buildpacks-community/kpack-cli
+repository: https://github.com/buildpacks-community/kpack-cli
 version: "0.17.1"
-check: ${binary} version | cut -d- -f1
 tags:
 - type/cli
 - container/build
@@ -9,15 +14,10 @@ tags:
 - kubernetes
 - k8s
 - org/vmware
-homepage: https://github.com/buildpacks-community/kpack-cli
-repository: https://github.com/buildpacks-community/kpack-cli
-description: Command line interface for interacting with kpack
+check: ${binary} version | cut -d- -f1
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: buildpacks-community/kpack-cli
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/buildpacks-community/kpack-cli/blob/main/LICENSE
-platforms:
-- linux/amd64

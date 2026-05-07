@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: distrobox
+description: Use any linux distribution inside your terminal
+license:
+  name: GPLv3
+homepage: https://distrobox.it/
+repository: https://github.com/89luca89/distrobox
 version: "1.8.2.5"
-binary: distrobox-create
-check: ${binary} --version | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/shell
 - type/cli
-homepage: https://distrobox.it/
-repository: https://github.com/89luca89/distrobox
-description: Use any linux distribution inside your terminal
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: 89luca89/distrobox
   versioning: loose
-license:
-  name: GPLv3
+binary: distrobox-create

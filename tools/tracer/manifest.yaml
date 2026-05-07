@@ -1,18 +1,18 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: tracer
+description: Kernel tracer that attaches eBPF probes to containers for capturing TLS traffic
+homepage: https://github.com/kubeshark/tracer
+repository: https://github.com/kubeshark/tracer
 version: "52.3.89"
-check: "" # No version parameter
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/security
 - lang/c
 - type/cli
-homepage: https://github.com/kubeshark/tracer
-repository: https://github.com/kubeshark/tracer
-description: Kernel tracer that attaches eBPF probes to containers for capturing TLS traffic
+check: "" # No version parameter
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: kubeshark/tracer

@@ -1,25 +1,25 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: trillian
+description: Transparent, highly scalable and cryptographically verifiable data store
+license:
+  name: Apache License 2.0
+  link: https://github.com/google/trillian/blob/master/LICENSE
+homepage: https://github.com/google/trillian
+repository: https://github.com/google/trillian
 version: "1.7.3"
-binary: trillian_log_server
+tags:
+- org/google
+- category/security
+- type/daemon
+- lang/go
 check: "" # No version parameter
 build_dependencies:
 - go
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- org/google
-- category/security
-- type/daemon
-- lang/go
-homepage: https://github.com/google/trillian
-repository: https://github.com/google/trillian
-description: Transparent, highly scalable and cryptographically verifiable data store
 renovate:
   datasource: github-releases
   package: google/trillian
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/google/trillian/blob/master/LICENSE
+binary: trillian_log_server

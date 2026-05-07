@@ -1,10 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kustomize
+description: Customization of kubernetes YAML configurations
+license:
+  name: Apache License 2.0
+  link: https://github.com/kubernetes-sigs/kustomize/blob/master/LICENSE
+homepage: https://github.com/kubernetes-sigs/kustomize
+repository: https://github.com/kubernetes-sigs/kustomize
 version: "5.8.1"
-check: ${binary} version --short | tr -s ' ' | cut -d' ' -f1 | cut -d/ -f2 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/cncf
 - org/kubernetes
@@ -14,13 +16,11 @@ tags:
 - templating
 - management
 - lang/go
-homepage: https://github.com/kubernetes-sigs/kustomize
-repository: https://github.com/kubernetes-sigs/kustomize
-description: Customization of kubernetes YAML configurations
+check: ${binary} version --short | tr -s ' ' | cut -d' ' -f1 | cut -d/ -f2 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: kubernetes-sigs/kustomize
   extractVersion: ^kustomize/v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/kubernetes-sigs/kustomize/blob/master/LICENSE

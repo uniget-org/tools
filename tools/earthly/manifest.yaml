@@ -1,24 +1,24 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: earthly
+description: Effortless CI/CD framework that runs anywhere
+license:
+  name: Mozilla Public License 2.0
+  link: https://github.com/earthly/earthly/blob/main/LICENSE
+homepage: https://earthly.dev
+repository: https://github.com/earthly/earthly
 version: "0.8.16"
+tags:
+- type/cli
+- category/development
+- cicd
+- lang/go
 check: ${binary} --version | cut -d' ' -f3 | tr -d v
 runtime_dependencies:
 - docker
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- type/cli
-- category/development
-- cicd
-- lang/go
-homepage: https://earthly.dev
-repository: https://github.com/earthly/earthly
-description: Effortless CI/CD framework that runs anywhere
 renovate:
   datasource: github-releases
   package: earthly/earthly
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Mozilla Public License 2.0
-  link: https://github.com/earthly/earthly/blob/main/LICENSE

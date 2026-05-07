@@ -1,6 +1,19 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: sbomdiff
+description: Compares two Software Bill of Materials (SBOMs) and reports the differences
+license:
+  name: Apache License 2.0
+  link: https://github.com/anthonyharrison/sbomdiff/blob/main/LICENSE
+homepage: https://github.com/anthonyharrison/sbomdiff
+repository: https://github.com/anthonyharrison/sbomdiff
 version: "0.6.0"
+tags:
+- category/security
+- lang/python
+- type/cli
+- sbom
+- format/spdx
+- format/cyclonedx
 check: ${binary} --version
 build_dependencies:
 - python-3.12
@@ -10,19 +23,6 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/security
-- lang/python
-- type/cli
-- sbom
-- format/spdx
-- format/cyclonedx
-homepage: https://github.com/anthonyharrison/sbomdiff
-repository: https://github.com/anthonyharrison/sbomdiff
-description: Compares two Software Bill of Materials (SBOMs) and reports the differences
 renovate:
   datasource: pypi
   package: sbomdiff
-license:
-  name: Apache License 2.0
-  link: https://github.com/anthonyharrison/sbomdiff/blob/main/LICENSE

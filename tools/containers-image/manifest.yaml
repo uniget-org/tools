@@ -1,29 +1,29 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: containers-image
+description: Work with containers' images
+license:
+  name: Apache License 2.0
+  link: https://github.com/containers/image/blob/main/LICENSE
+homepage: https://github.com/containers/image
+repository: https://github.com/containers/image
 version: "5.36.2"
-binary: "false"
+tags:
+- org/redhat
+- type/configuration
+- type/documentation
 check: "" # No binary
 build_dependencies:
 - go-md2man
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- org/redhat
-- type/configuration
-- type/documentation
-homepage: https://github.com/containers/image
-repository: https://github.com/containers/image
-description: Work with containers' images
-messages:
-  update: |
-    The following default configuration file(s) must be copied to the final locations:
-    - {{ .Target }}/etc/containers/registries.conf -> /etc/containers/
 renovate:
   datasource: github-releases
   package: containers/image
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/containers/image/blob/main/LICENSE
+binary: "false"
+messages:
+  update: |
+    The following default configuration file(s) must be copied to the final locations:
+    - {{ .Target }}/etc/containers/registries.conf -> /etc/containers/

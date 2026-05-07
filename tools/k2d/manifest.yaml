@@ -1,14 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: k2d
+description: Kubernetes to Docker translator
+license:
+  name: Custom
+  link: https://github.com/portainer/k2d/blob/develop/LICENSE
+homepage: https://github.com/portainer/k2d
+repository: https://github.com/portainer/k2d
 version: "1.0.0"
-check: "" # No version parameter
-build_dependencies:
-- go
-- make
-platforms:
-- linux/amd64
-#- linux/arm64
 tags:
 - org/portainer
 - category/operations
@@ -19,12 +18,13 @@ tags:
 - k8s
 - state/deprecated
 - state/stale
-homepage: https://github.com/portainer/k2d
-repository: https://github.com/portainer/k2d
-description: Kubernetes to Docker translator
+check: "" # No version parameter
+build_dependencies:
+- go
+- make
+platforms:
+- linux/amd64
+#- linux/arm64
 renovate:
   datasource: github-releases
   package: portainer/k2d
-license:
-  name: Custom
-  link: https://github.com/portainer/k2d/blob/develop/LICENSE

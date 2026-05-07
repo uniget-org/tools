@@ -1,28 +1,28 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: huber
+description: Package Manager for GitHub repos
+license:
+  name: Apache License 2.0
+  link: https://github.com/innobead/huber/blob/main/LICENSE
+homepage: https://github.com/innobead/huber
+repository: https://github.com/innobead/huber
 version: "1.0.11"
-check: ${binary} --version | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - type/cli
 - category/development
 - lang/rust
 - package
 - management
-homepage: https://github.com/innobead/huber
-repository: https://github.com/innobead/huber
-description: Package Manager for GitHub repos
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: innobead/huber
+  extractVersion: ^v(?<version>.+)$
 messages:
   usage: |
     Install the following packages:
     - libarchive-dev
     - http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.20_amd64.deb
-renovate:
-  datasource: github-releases
-  package: innobead/huber
-  extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/innobead/huber/blob/main/LICENSE

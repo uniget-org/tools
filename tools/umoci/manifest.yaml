@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: umoci
+description: Modifies Open Container images
+license:
+  name: Apache License 2.0
+homepage: https://umo.ci
+repository: https://github.com/opencontainers/umoci
 version: "0.6.0"
-check: ${binary} --version | cut -d' ' -f3
 tags:
 - org/oci
 - standard/oci
 - container/image
 - type/cli
 - lang/go
-homepage: https://umo.ci
-repository: https://github.com/opencontainers/umoci
-description: Modifies Open Container images
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: opencontainers/umoci
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-platforms:
-- linux/amd64

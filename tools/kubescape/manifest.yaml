@@ -1,9 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kubescape
+description: Risk analysis, security compliance, RBAC visualizer and image vulnerabilities scanning
+license:
+  name: Apache License 2.0
+  link: https://github.com/kubescape/kubescape/blob/master/LICENSE
+homepage: https://kubescape.io
+repository: https://github.com/kubescape/kubescape
 version: "4.0.6"
-check: ${binary} version 2>/dev/null | cut -d' ' -f5 | tr -d v
-platforms:
-- linux/amd64
 tags:
 - type/cli
 - category/security
@@ -11,13 +14,10 @@ tags:
 - k8s
 - lang/go
 - cncf/incubating
-homepage: https://kubescape.io
-repository: https://github.com/kubescape/kubescape
-description: Risk analysis, security compliance, RBAC visualizer and image vulnerabilities scanning
+check: ${binary} version 2>/dev/null | cut -d' ' -f5 | tr -d v
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: kubescape/kubescape
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/kubescape/kubescape/blob/master/LICENSE

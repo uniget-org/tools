@@ -1,9 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: pass-tail
+description: Pass extension to avoid printing the password to the console
+license:
+  name: GPLv3
+  link: https://github.com/palortoff/pass-extension-tail/blob/master/LICENSE
+homepage: https://github.com/palortoff/pass-extension-tail
+repository: https://github.com/palortoff/pass-extension-tail
 version: "1.2.0"
-check: "" # TODO
-runtime_dependencies:
-- pass
 tags:
 - category/security
 - lang/shell
@@ -12,15 +15,12 @@ tags:
 - password
 - management
 - standard/pass
-homepage: https://github.com/palortoff/pass-extension-tail
-repository: https://github.com/palortoff/pass-extension-tail
-description: Pass extension to avoid printing the password to the console
+check: "" # TODO
+runtime_dependencies:
+- pass
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: palortoff/pass-extension-tail
   extractVersion: ^v(?<version>.+)$
-license:
-  name: GPLv3
-  link: https://github.com/palortoff/pass-extension-tail/blob/master/LICENSE
-platforms:
-- linux/amd64

@@ -1,20 +1,20 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: dua
+description: View disk space usage and delete unwanted data, fast.
+license:
+  name: MIT License
+  link: https://github.com/Byron/dua-cli/blob/main/LICENSE
+homepage: https://lib.rs/crates/dua-cli
+repository: https://github.com/Byron/dua-cli
 version: "2.34.0"
-check: ${binary} --version | cut -d' ' -f2
-platforms:
-- linux/amd64
 tags:
 - category/operations
 - type/cli
 - lang/rust
-homepage: https://lib.rs/crates/dua-cli
-repository: https://github.com/Byron/dua-cli
-description: View disk space usage and delete unwanted data, fast.
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: Byron/dua-cli
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/Byron/dua-cli/blob/main/LICENSE

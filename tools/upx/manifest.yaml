@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: upx
+description: The Ultimate Packer for eXecutables
+license:
+  name: Custom
+  link: https://github.com/upx/upx/blob/devel/LICENSE
+homepage: https://upx.github.io
+repository: https://github.com/upx/upx
 version: "5.1.1"
-check: ${binary} --version | grep ^upx | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/c
 - type/cli
-homepage: https://upx.github.io
-repository: https://github.com/upx/upx
-description: The Ultimate Packer for eXecutables
+check: ${binary} --version | grep ^upx | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: upx/upx
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Custom
-  link: https://github.com/upx/upx/blob/devel/LICENSE

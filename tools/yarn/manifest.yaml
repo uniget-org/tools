@@ -1,6 +1,18 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: yarn
+description: Fast, reliable, and secure dependency management
+license:
+  name: BSD 2-Clause License
+  link: https://github.com/yarnpkg/yarn/blob/master/LICENSE
+homepage: https://classic.yarnpkg.com/
+repository: https://github.com/yarnpkg/yarn
 version: "1.22.22"
+tags:
+- category/development
+- lang/javascript
+- type/cli
+- dependency
+- management
 check: ${binary} --version
 build_dependencies:
 - node-lts
@@ -9,18 +21,6 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/development
-- lang/javascript
-- type/cli
-- dependency
-- management
-homepage: https://classic.yarnpkg.com/
-repository: https://github.com/yarnpkg/yarn
-description: Fast, reliable, and secure dependency management
 renovate:
   datasource: npm
   package: yarn
-license:
-  name: BSD 2-Clause License
-  link: https://github.com/yarnpkg/yarn/blob/master/LICENSE

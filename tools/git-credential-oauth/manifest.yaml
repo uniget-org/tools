@@ -1,11 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: git-credential-oauth
+description: Git credential helper that securely authenticates to GitHub, GitLab and BitBucket using OAuth
+license:
+  name: Apache License 2.0
+homepage: https://github.com/hickford/git-credential-oauth
+repository: https://github.com/hickford/git-credential-oauth
 version: "0.17.2"
-check: ${binary} version | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/security
 - lang/go
@@ -15,12 +16,11 @@ tags:
 - oauth2
 - oidc
 - authentication
-homepage: https://github.com/hickford/git-credential-oauth
-repository: https://github.com/hickford/git-credential-oauth
-description: Git credential helper that securely authenticates to GitHub, GitLab and BitBucket using OAuth
+check: ${binary} version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: hickford/git-credential-oauth
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0

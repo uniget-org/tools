@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: n
+description: Node version management
 license:
   name: MIT License
   link: https://github.com/tj/n/blob/master/LICENSE
+homepage: https://github.com/tj/n
+repository: https://github.com/tj/n
 version: "10.2.0"
-check: ${binary} --version
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/shell
 - type/cli
 - version
 - management
-homepage: https://github.com/tj/n
-repository: https://github.com/tj/n
-description: Node version management
+check: ${binary} --version
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: tj/n

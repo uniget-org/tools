@@ -1,24 +1,24 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: rustfs
+description: Open-source, S3-compatible high-performance object storage system supporting migration and coexistence with other S3-compatible platforms such as MinIO and Ceph
 license:
   name: Apache License 2.0
   link: https://github.com/rustfs/rustfs/blob/main/LICENSE
+homepage: https://rustfs.com/download/
+repository: https://github.com/rustfs/rustfs
 version: "1.0.0-alpha.91"
+tags:
+- component/storage
+- lang/rust
+- type/daemon
+- standard/s3
 check: ${binary} --version | grep ^rustfs | cut -d' ' -f2
 build_dependencies:
 - rust
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- component/storage
-- lang/rust
-- type/daemon
-- standard/s3
-homepage: https://rustfs.com/download/
-repository: https://github.com/rustfs/rustfs
-description: Open-source, S3-compatible high-performance object storage system supporting migration and coexistence with other S3-compatible platforms such as MinIO and Ceph
 renovate:
   datasource: github-releases
   package: rustfs/rustfs

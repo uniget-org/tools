@@ -1,8 +1,18 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: toolong
+description: Terminal application to view, tail, merge, and search log files (plus JSONL)
+license:
+  name: MIT License
+  link: https://github.com/Textualize/toolong/blob/main/LICENSE
+homepage: https://www.textualize.io/
+repository: https://github.com/Textualize/toolong
 version: "1.5.0"
-binary: tl
+tags:
+- category/development
+- lang/python
+- type/cli
+- state/stale
 check: ${binary} --version | cut -d' ' -f3
 build_dependencies:
 - python-3.12
@@ -12,17 +22,7 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/development
-- lang/python
-- type/cli
-- state/stale
-homepage: https://www.textualize.io/
-repository: https://github.com/Textualize/toolong
-description: Terminal application to view, tail, merge, and search log files (plus JSONL)
 renovate:
   datasource: pypi
   package: toolong
-license:
-  name: MIT License
-  link: https://github.com/Textualize/toolong/blob/main/LICENSE
+binary: tl

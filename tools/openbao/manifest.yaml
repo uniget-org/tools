@@ -1,25 +1,25 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: openbao
+description: Manage, store, and distribute sensitive data including secrets, certificates, and keys
 license:
   name: MPL-2.0
   link: https://github.com/openbao/openbao/blob/main/LICENSE
+homepage: https://openbao.org/
+repository: https://github.com/openbao/openbao
 version: "2.5.3"
-binary: bao
-check: ${binary} --version | cut -d' ' -f2 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/security
 - lang/go
 - type/daemon
 - type/cli
 - management
-homepage: https://openbao.org/
-repository: https://github.com/openbao/openbao
-description: Manage, store, and distribute sensitive data including secrets, certificates, and keys
+check: ${binary} --version | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: openbao/openbao
   extractVersion: ^v(?<version>.+)$
+binary: bao

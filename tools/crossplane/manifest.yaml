@@ -1,13 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: crossplane
+description: Cloud Native Control Planes
+license:
+  name: Apache License 2.0
+  link: https://github.com/crossplane/crossplane/blob/master/LICENSE
+homepage: https://crossplane.io
+repository: https://github.com/crossplane/crossplane
 version: "2.2.1"
-binary: kubectl-crossplane
-check: ${binary} --version | tr -d v
-runtime_dependencies:
-- kubectl
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - type/cli
 - type/plugin
@@ -18,13 +17,14 @@ tags:
 - k8s
 - iac
 - cncf/graduated
-homepage: https://crossplane.io
-repository: https://github.com/crossplane/crossplane
-description: Cloud Native Control Planes
+check: ${binary} --version | tr -d v
+runtime_dependencies:
+- kubectl
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: crossplane/crossplane
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/crossplane/crossplane/blob/master/LICENSE
+binary: kubectl-crossplane

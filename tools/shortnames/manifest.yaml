@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: shortnames
+description: Collecting registry alias names for shortnames to fully specified container image names
+license:
+  name: Apache License 2.0
+  link: https://github.com/containers/shortnames/blob/main/LICENSE
+homepage: https://github.com/containers/shortnames
+repository: https://github.com/containers/shortnames
 version: "2025.03.19"
-binary: "false"
-check: "" # No binary
 tags:
 - org/redhat
 - type/configuration
-homepage: https://github.com/containers/shortnames
-repository: https://github.com/containers/shortnames
-description: Collecting registry alias names for shortnames to fully specified container image names
+check: "" # No binary
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: containers/shortnames
   extractVersion: ^v(?<version>.+)$
   versioning: loose
-license:
-  name: Apache License 2.0
-  link: https://github.com/containers/shortnames/blob/main/LICENSE
-platforms:
-- linux/amd64
+binary: "false"

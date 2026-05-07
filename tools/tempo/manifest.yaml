@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: tempo
+description: High volume, minimal dependency distributed tracing backend
 license:
   name: AGPLv3
   link: https://github.com/grafana/tempo/blob/main/LICENSE
+homepage: https://grafana.com/
+repository: https://github.com/grafana/tempo
 version: "2.10.5"
-check: ${binary} --version | grep ^tempo | cut -d' ' -f3
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/grafana
 - category/operations
 - lang/go
 - type/daemon
-homepage: https://grafana.com/
-repository: https://github.com/grafana/tempo
-description: High volume, minimal dependency distributed tracing backend
+check: ${binary} --version | grep ^tempo | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: grafana/tempo

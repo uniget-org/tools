@@ -1,25 +1,25 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: speex
+description: Speex voice codec
+license:
+  name: Custom
+  link: https://gitlab.xiph.org/xiph/speex/-/blob/master/COPYING?ref_type=heads
+homepage: https://gitlab.xiph.org/xiph/speex
+repository: https://gitlab.xiph.org/xiph/speex
 version: "1.2.1"
-binary: "false"
+tags:
+- category/development
+- lang/c
+- type/library
 check: cat ${prefix}/lib/pkgconfig/speex.pc | grep ^Version | cut -d' ' -f2
 build_dependencies:
 - make
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/development
-- lang/c
-- type/library
-homepage: https://gitlab.xiph.org/xiph/speex
-repository: https://gitlab.xiph.org/xiph/speex
-description: Speex voice codec
 renovate:
   datasource: git-tags
   package: https://gitlab.xiph.org/xiph/speex.git
   extractVersion: ^Speex-(?<version>.+)$
-license:
-  name: Custom
-  link: https://gitlab.xiph.org/xiph/speex/-/blob/master/COPYING?ref_type=heads
+binary: "false"

@@ -1,10 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: sops
+description: Simple and flexible tool for managing secrets
+license:
+  name: Mozilla Public License 2.0
+  link: https://github.com/getsops/sops/blob/main/LICENSE
+homepage: https://getsops.io/
+repository: https://github.com/getsops/sops
 version: "3.12.2"
-check: ${binary} --version | head -n 1 | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/mozilla
 - category/security
@@ -12,13 +14,11 @@ tags:
 - cicd
 - lang/go
 - cncf/sandbox
-homepage: https://getsops.io/
-repository: https://github.com/getsops/sops
-description: Simple and flexible tool for managing secrets
+check: ${binary} --version | head -n 1 | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: getsops/sops
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Mozilla Public License 2.0
-  link: https://github.com/getsops/sops/blob/main/LICENSE

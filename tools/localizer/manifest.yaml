@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: localizer
+description: No-frills local development tool for service developers working in Kubernetes
+license:
+  name: Apache License 2.0
+  link: https://github.com/getoutreach/localizer/blob/main/LICENSE
+homepage: https://blog.jaredallard.me/localizer-an-adventure-in-creating-a-reverse-tunnel-and-tunnel-manager-for-kubernetes/
+repository: https://github.com/getoutreach/localizer
 version: "1.15.19"
-check: ${binary} --version | cut -d' ' -f3 | tr -d v
 tags:
 - type/cli
 - category/development
 - lang/go
 - kubernetes
 - k8s
-homepage: https://blog.jaredallard.me/localizer-an-adventure-in-creating-a-reverse-tunnel-and-tunnel-manager-for-kubernetes/
-repository: https://github.com/getoutreach/localizer
-description: No-frills local development tool for service developers working in Kubernetes
+check: ${binary} --version | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: getoutreach/localizer
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/getoutreach/localizer/blob/main/LICENSE
-platforms:
-- linux/amd64

@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: hub-tool
+description: Docker Hub experimental CLI tool
+license:
+  name: Apache License 2.0
+  link: https://github.com/docker/hub-tool/blob/main/LICENSE
+homepage: https://github.com/docker/hub-tool
+repository: https://github.com/docker/hub-tool
 version: "0.4.6"
-check: ${binary} --version | cut -d, -f1 | cut -d' ' -f4 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/docker
 - type/cli
 - lang/go
 - state/stale
-homepage: https://github.com/docker/hub-tool
-repository: https://github.com/docker/hub-tool
-description: Docker Hub experimental CLI tool
+check: ${binary} --version | cut -d, -f1 | cut -d' ' -f4 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: docker/hub-tool
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/docker/hub-tool/blob/main/LICENSE

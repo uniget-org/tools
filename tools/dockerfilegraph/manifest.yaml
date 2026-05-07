@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: dockerfilegraph
+description: Visualize your multi-stage Dockerfiles
+license:
+  name: MIT License
+  link: https://github.com/patrickhoefler/dockerfilegraph/blob/main/LICENSE
+homepage: https://github.com/patrickhoefler/dockerfilegraph
+repository: https://github.com/patrickhoefler/dockerfilegraph
 version: "0.21.0"
-check: ${binary} --version | jq --raw-output '.GitVersion'
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/go
 - type/cli
 - standard/docker
-homepage: https://github.com/patrickhoefler/dockerfilegraph
-repository: https://github.com/patrickhoefler/dockerfilegraph
-description: Visualize your multi-stage Dockerfiles
+check: ${binary} --version | jq --raw-output '.GitVersion'
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: patrickhoefler/dockerfilegraph
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/patrickhoefler/dockerfilegraph/blob/main/LICENSE

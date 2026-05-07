@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: wsl-open
+description: Open files with xdg-open on Bash for Windows in Windows applications
+license:
+  name: MIT License
+  link: https://github.com/4U6U57/wsl-open/blob/master/LICENSE
+homepage: http://gitlab.com/4U6U57/wsl-open
+repository: https://github.com/4U6U57/wsl-open
 version: "2.2.1"
-check: grep 2.2.1 ${binary} | grep @version | cut -d' ' -f3
 tags:
 - wsl
 - lang/shell
 - state/stale
 - type/cli
 - category/terminal
-homepage: http://gitlab.com/4U6U57/wsl-open
-repository: https://github.com/4U6U57/wsl-open
-description: Open files with xdg-open on Bash for Windows in Windows applications
+check: grep 2.2.1 ${binary} | grep @version | cut -d' ' -f3
+platforms:
+- linux/amd64
 renovate:
   datasource: github-tags
   package: 4U6U57/wsl-open
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/4U6U57/wsl-open/blob/master/LICENSE
-platforms:
-- linux/amd64

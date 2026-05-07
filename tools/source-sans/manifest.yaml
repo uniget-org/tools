@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: source-sans
+description: Sans serif font family for user interface environments
+license:
+  name: SIL Open Font License 1.1
+homepage: https://adobe-fonts.github.io/source-sans
+repository: https://github.com/adobe-fonts/source-sans
 version: "3.052"
-binary: "false"
+tags:
+- font
+- state/stale
 check: "" # No binary
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- font
-- state/stale
-homepage: https://adobe-fonts.github.io/source-sans
-repository: https://github.com/adobe-fonts/source-sans
-description: Sans serif font family for user interface environments
 renovate:
   datasource: github-releases
   package: adobe-fonts/source-sans
   extractVersion: ^(?<version>.+)R$
-license:
-  name: SIL Open Font License 1.1
+binary: "false"

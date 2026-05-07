@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: jqp
+description: TUI playground to experiment with jq
+license:
+  name: MIT License
+  link: https://github.com/noahgorstein/jqp/blob/main/LICENSE
+homepage: https://github.com/noahgorstein/jqp
+repository: https://github.com/noahgorstein/jqp
 version: "0.8.0"
-check: ${binary} --version | cut -d' ' -f3
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/go
 - type/tui
 - standard/jq
 - format/json
-homepage: https://github.com/noahgorstein/jqp
-repository: https://github.com/noahgorstein/jqp
-description: TUI playground to experiment with jq
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: noahgorstein/jqp
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/noahgorstein/jqp/blob/main/LICENSE

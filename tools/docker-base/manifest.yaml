@@ -1,12 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: docker-base
+description: Docker CLI plugin to detect base images
+license:
+  name: Apache License 2.0
+  link: https://github.com/docker/base-cli-plugin/blob/main/LICENSE
+homepage: https://github.com/docker/base-cli-plugin
+repository: https://github.com/docker/base-cli-plugin
 version: "0.3.0"
-check: "" # No version parameter
-runtime_dependencies:
-- docker
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - standard/docker
 - org/docker
@@ -15,13 +15,13 @@ tags:
 - lang/go
 - state/stale
 - docker
-homepage: https://github.com/docker/base-cli-plugin
-repository: https://github.com/docker/base-cli-plugin
-description: Docker CLI plugin to detect base images
+check: "" # No version parameter
+runtime_dependencies:
+- docker
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: docker/base-cli-plugin
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/docker/base-cli-plugin/blob/main/LICENSE

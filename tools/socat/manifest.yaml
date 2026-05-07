@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: socat
+description: Multipurpose relay
+license:
+  name: GPLv2
+  link: https://repo.or.cz/socat.git/blob/HEAD:/COPYING
+homepage: http://www.dest-unreach.org/socat/
+repository: http://www.dest-unreach.org/socat/
 version: "1.8.1.1"
-check: ${binary} -V | grep "^socat version" | cut -d' ' -f3
-build_dependencies:
-- make
 tags:
 - type/cli
 - component/network
 - lang/c
-homepage: http://www.dest-unreach.org/socat/
-repository: http://www.dest-unreach.org/socat/
-description: Multipurpose relay
+check: ${binary} -V | grep "^socat version" | cut -d' ' -f3
+build_dependencies:
+- make
+platforms:
+- linux/amd64
 renovate:
   datasource: git-tags
   package: git://repo.or.cz/socat.git
   extractVersion: ^tag-(?<version>\d+\.\d+\.\d+(\.\d+)?)$
   versioning: loose
-license:
-  name: GPLv2
-  link: https://repo.or.cz/socat.git/blob/HEAD:/COPYING
-platforms:
-- linux/amd64

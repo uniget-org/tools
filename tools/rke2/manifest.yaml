@@ -1,12 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: rke2
+description: Rancher's next-generation Kubernetes distribution
 license:
   name: Apache License 2.0
   link: https://github.com/rancher/rke2/blob/master/LICENSE
+homepage: https://docs.rke2.io/
+repository: https://github.com/rancher/rke2
 version: "1.35.4.1"
-check: ${binary} --version | grep ^rke2 | cut -d' ' -f3 | tr -d v
-platforms:
-- linux/amd64
 tags:
 - org/rancher
 - category/operations
@@ -15,9 +15,9 @@ tags:
 - kubernetes
 - k8s
 - management
-homepage: https://docs.rke2.io/
-repository: https://github.com/rancher/rke2
-description: Rancher's next-generation Kubernetes distribution
+check: ${binary} --version | grep ^rke2 | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
 renovate:
   datasource: gitlab-releases
   package: uniget-org/renovate-custom

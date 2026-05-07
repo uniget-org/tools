@@ -1,19 +1,19 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kubectl-aliases
+description: Programmatically generated handy kubectl aliases
+license:
+  name: Apache License 2.0
+  link: https://github.com/ahmetb/kubectl-aliases/blob/master/LICENSE
+homepage: https://github.com/ahmetb/kubectl-aliases
+repository: https://github.com/ahmetb/kubectl-aliases
 version: "1.0.0"
-check: "" # No executables
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/shell
 - type/cli
 - kubernetes
 - k8s
-homepage: https://github.com/ahmetb/kubectl-aliases
-repository: https://github.com/ahmetb/kubectl-aliases
-description: Programmatically generated handy kubectl aliases
-license:
-  name: Apache License 2.0
-  link: https://github.com/ahmetb/kubectl-aliases/blob/master/LICENSE
+check: "" # No executables
+platforms:
+- linux/amd64
+- linux/arm64

@@ -1,24 +1,24 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: gitoxide
+description: Idiomatic, lean, fast & safe pure Rust implementation of Git
 license:
   name: MIT License, Apache License 2.0
   link: https://github.com/GitoxideLabs/gitoxide
+homepage: https://github.com/GitoxideLabs/gitoxide
+repository: https://github.com/GitoxideLabs/gitoxide
 version: "0.53.0"
-binary: gix
-check: "" # Empty version
-platforms:
-- linux/amd64
 tags:
 - category/development
 - lang/rust
 - type/cli
 - standard/git
 - git
-homepage: https://github.com/GitoxideLabs/gitoxide
-repository: https://github.com/GitoxideLabs/gitoxide
-description: Idiomatic, lean, fast & safe pure Rust implementation of Git
+check: "" # Empty version
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: GitoxideLabs/gitoxide
   extractVersion: ^v(?<version>.+)$
+binary: gix

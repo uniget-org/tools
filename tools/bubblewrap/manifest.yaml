@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: bubblewrap
+description: Unprivileged sandboxing tool
+license:
+  name: LGPLv2
+  link: https://github.com/containers/bubblewrap/blob/main/COPYING
+homepage: https://github.com/containers/bubblewrap
+repository: https://github.com/containers/bubblewrap
 version: "0.11.2"
-binary: bwrap
-check: ${binary} --version | cut -d' ' -f2
 tags:
 - org/redhat
 - kernel/namespaces
 - lang/c
 - type/cli
 - state/stale
-homepage: https://github.com/containers/bubblewrap
-repository: https://github.com/containers/bubblewrap
-description: Unprivileged sandboxing tool
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: containers/bubblewrap
   extractVersion: ^v(?<version>.+)$
-license:
-  name: LGPLv2
-  link: https://github.com/containers/bubblewrap/blob/main/COPYING
-platforms:
-- linux/amd64
+binary: bwrap

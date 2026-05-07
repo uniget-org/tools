@@ -1,24 +1,24 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: vale
+description: Markup-aware linter for prose built with speed and extensibility in mind
+license:
+  name: MIT License
+  link: https://github.com/errata-ai/vale/blob/v3/LICENSE
+homepage: https://vale.sh
+repository: https://github.com/errata-ai/vale
 version: "3.14.1"
-check: ${binary} --version | cut -d' ' -f3
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/go
 - type/cli
 - ai
 - lint
-homepage: https://vale.sh
-repository: https://github.com/errata-ai/vale
-description: Markup-aware linter for prose built with speed and extensibility in mind
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: errata-ai/vale
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/errata-ai/vale/blob/v3/LICENSE

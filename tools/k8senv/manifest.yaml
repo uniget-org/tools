@@ -1,24 +1,24 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: k8senv
+description: Version manager to manage multiple versions of kubectl, helm and velero clients on same system/jumpbox/bastion
+license:
+  name: MIT License
+  link: https://github.com/navilg/k8senv/blob/main/LICENSE
+homepage: https://github.com/navilg/k8senv
+repository: https://github.com/navilg/k8senv
 version: "1.1.1"
-check: ${binary} version | cut -d, -f2 | cut -d'"' -f4 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/go
 - type/cli
 - state/onemanshow
 - state/stale
-homepage: https://github.com/navilg/k8senv
-repository: https://github.com/navilg/k8senv
-description: Version manager to manage multiple versions of kubectl, helm and velero clients on same system/jumpbox/bastion
+check: ${binary} version | cut -d, -f2 | cut -d'"' -f4 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: navilg/k8senv
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/navilg/k8senv/blob/main/LICENSE

@@ -1,9 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kubectl-build
+description: Tool for building container images with your Kubernetes cluster
+license:
+  name: Apache License 2.0
+  link: https://github.com/vmware-archive/buildkit-cli-for-kubectl/blob/main/LICENSE
+homepage: https://github.com/vmware-archive/buildkit-cli-for-kubectl
+repository: https://github.com/vmware-archive/buildkit-cli-for-kubectl
 version: "0.1.6"
-check: "" # No version parameter
-runtime_dependencies:
-- kubectl
 tags:
 - org/vmware
 - container/build
@@ -16,15 +19,12 @@ tags:
 - lang/go
 - state/stale
 - state/deprecated
-homepage: https://github.com/vmware-archive/buildkit-cli-for-kubectl
-repository: https://github.com/vmware-archive/buildkit-cli-for-kubectl
-description: Tool for building container images with your Kubernetes cluster
+check: "" # No version parameter
+runtime_dependencies:
+- kubectl
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: vmware-archive/buildkit-cli-for-kubectl
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/vmware-archive/buildkit-cli-for-kubectl/blob/main/LICENSE
-platforms:
-- linux/amd64

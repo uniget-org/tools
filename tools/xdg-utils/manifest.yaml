@@ -1,25 +1,25 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: xdg-utils
+description: Desktop integration utilities
+license:
+  name: MIT License
+  link: https://gitlab.freedesktop.org/xdg/xdg-utils/-/blob/master/LICENSE?ref_type=heads
+homepage: https://www.freedesktop.org/wiki/Software/xdg-utils/
+repository: https://www.freedesktop.org/wiki/Software/xdg-utils/
 version: "1.2.1"
-binary: xdg-open
-check: ${binary} --version | cut -d' ' -f2
-build_dependencies:
-- make
 tags:
 - wsl
 - lang/shell
 - state/stale
 - type/cli
 - category/terminal
-homepage: https://www.freedesktop.org/wiki/Software/xdg-utils/
-repository: https://www.freedesktop.org/wiki/Software/xdg-utils/
-description: Desktop integration utilities
+check: ${binary} --version | cut -d' ' -f2
+build_dependencies:
+- make
+platforms:
+- linux/amd64
 renovate:
   datasource: git-tags
   package: https://gitlab.freedesktop.org/xdg/xdg-utils.git
   extractVersion: ^v(?<version>\d+\.\d+(\.\d+)?)$
-license:
-  name: MIT License
-  link: https://gitlab.freedesktop.org/xdg/xdg-utils/-/blob/master/LICENSE?ref_type=heads
-platforms:
-- linux/amd64
+binary: xdg-open

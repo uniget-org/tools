@@ -1,24 +1,24 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: libcap-ng
+description: Library for Linux that makes using posix capabilities easy
+license:
+  name: GPLv2
+homepage: https://github.com/stevegrubb/libcap-ng
+repository: https://github.com/stevegrubb/libcap-ng
 version: "0.9.3"
-binary: captest
+tags:
+- kernel/capabilities
+- type/cli
+- lang/c
+- category/operations
 check: "" # No version parameter
 build_dependencies:
 - make
 platforms:
 - linux/amd64
 #-linux/arm64
-tags:
-- kernel/capabilities
-- type/cli
-- lang/c
-- category/operations
-homepage: https://github.com/stevegrubb/libcap-ng
-repository: https://github.com/stevegrubb/libcap-ng
-description: Library for Linux that makes using posix capabilities easy
 renovate:
   datasource: github-releases
   package: stevegrubb/libcap-ng
   extractVersion: ^v(?<version>.+)$
-license:
-  name: GPLv2
+binary: captest

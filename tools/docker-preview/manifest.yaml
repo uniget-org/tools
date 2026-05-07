@@ -1,11 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: docker-preview
+description: The Docker CLI
+license:
+  name: Apache License 2.0
+  link: https://github.com/moby/moby/blob/master/LICENSE
+homepage: https://mobyproject.org/
+repository: https://www.docker.com/
 version: "29.4.3"
-binary: ${target}/libexec/docker-preview/bin/docker
-check: ${binary} --version | cut -d, -f1 | cut -d' ' -f3
-runtime_dependencies:
-- fuse-overlayfs
 tags:
 - org/docker
 - standard/docker
@@ -17,9 +19,17 @@ tags:
 - stability/prerelease
 - lang/go
 - docker
-homepage: https://mobyproject.org/
-repository: https://www.docker.com/
-description: The Docker CLI
+check: ${binary} --version | cut -d, -f1 | cut -d' ' -f3
+runtime_dependencies:
+- fuse-overlayfs
+platforms:
+- linux/amd64
+renovate:
+  datasource: github-tags
+  package: moby/moby
+  extractVersion: ^docker-v(?<version>.+)$
+  allowPrereleases: true
+binary: ${target}/libexec/docker-preview/bin/docker
 messages:
   internals: |
     - This is a preview release of the Docker CLI
@@ -30,13 +40,3 @@ messages:
     - Working directory is ${prefix}/var/lib/docker-preview
     - Settings are stored in ${prefix}/etc/docker-preview
     - IPTables is disabled to prevent interference with the stable Docker CLI => port publishings are not working
-renovate:
-  datasource: github-tags
-  package: moby/moby
-  extractVersion: ^docker-v(?<version>.+)$
-  allowPrereleases: true
-license:
-  name: Apache License 2.0
-  link: https://github.com/moby/moby/blob/master/LICENSE
-platforms:
-- linux/amd64

@@ -1,10 +1,18 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: defuddle
+description: Get the main content of any page as Markdown
 license:
   name: MIT License
   link: https://github.com/kepano/defuddle/blob/main/LICENSE
+homepage: https://defuddle.md/
+repository: https://github.com/kepano/defuddle
 version: "0.18.1"
+tags:
+- category/development
+- lang/javascript
+- type/cli
+- format/markdown
 check: ${binary} --version
 build_dependencies:
 - node-lts
@@ -14,14 +22,6 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/development
-- lang/javascript
-- type/cli
-- format/markdown
-homepage: https://defuddle.md/
-repository: https://github.com/kepano/defuddle
-description: Get the main content of any page as Markdown
 renovate:
   datasource: npm
   package: defuddle

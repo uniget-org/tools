@@ -1,7 +1,19 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: gita
+description: Manage many git repos with sanity
+license:
+  name: MIT License
+  link: https://github.com/nosarthur/gita/blob/master/LICENSE
+homepage: https://github.com/nosarthur/gita
+repository: https://github.com/nosarthur/gita
 version: "0.16.8.2"
+tags:
+- category/development
+- lang/python
+- type/cli
+- standard/git
+- git
 check: ${binary} --version | cut -d' ' -f2
 build_dependencies:
 - python-3.12
@@ -11,18 +23,6 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/development
-- lang/python
-- type/cli
-- standard/git
-- git
-homepage: https://github.com/nosarthur/gita
-repository: https://github.com/nosarthur/gita
-description: Manage many git repos with sanity
 renovate:
   datasource: pypi
   package: gita
-license:
-  name: MIT License
-  link: https://github.com/nosarthur/gita/blob/master/LICENSE

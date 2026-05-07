@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kustomizer
+description: Experimental package manager for distributing Kubernetes configuration as OCI artifacts
+license:
+  name: Apache License 2.0
+  link: https://github.com/stefanprodan/kustomizer/blob/main/LICENSE
+homepage: https://kustomizer.dev
+repository: https://github.com/stefanprodan/kustomizer
 version: "2.2.1"
-check: ${binary} --version | cut -d' ' -f3
 tags:
 - type/cli
 - kubernetes
@@ -13,15 +18,10 @@ tags:
 - standard/oci
 - category/operations
 - state/stale
-homepage: https://kustomizer.dev
-repository: https://github.com/stefanprodan/kustomizer
-description: Experimental package manager for distributing Kubernetes configuration as OCI artifacts
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: stefanprodan/kustomizer
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/stefanprodan/kustomizer/blob/main/LICENSE
-platforms:
-- linux/amd64

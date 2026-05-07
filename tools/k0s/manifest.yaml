@@ -1,11 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: k0s
+description: Zero Friction Kubernetes
+license:
+  name: Apache License 2.0
+  link: https://github.com/k0sproject/k0s/blob/main/LICENSE
+homepage: https://docs.k0sproject.io
+repository: https://github.com/k0sproject/k0s
 version: "1.35.3+k0s.0"
-check: ${binary} version
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/go
@@ -13,14 +15,12 @@ tags:
 - kubernetes
 - k8s
 - cncf/sandbox
-homepage: https://docs.k0sproject.io
-repository: https://github.com/k0sproject/k0s
-description: Zero Friction Kubernetes
+check: ${binary} version
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: k0sproject/k0s
   extractVersion: ^v(?<version>.+)$
   versioning: loose
-license:
-  name: Apache License 2.0
-  link: https://github.com/k0sproject/k0s/blob/main/LICENSE

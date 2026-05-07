@@ -1,14 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: goose
+description: Open source, extensible AI agent that goes beyond code suggestions
 license:
   name: Apache License 2.0
   link: https://github.com/block/goose/blob/main/LICENSE
+homepage: https://block.github.io/goose/
+repository: https://github.com/block/goose
 version: "1.33.1"
-check: ${binary} --version | tr -d ' '
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/rust
@@ -18,9 +17,14 @@ tags:
 - mcp
 - coding
 - agent
-homepage: https://block.github.io/goose/
-repository: https://github.com/block/goose
-description: Open source, extensible AI agent that goes beyond code suggestions
+check: ${binary} --version | tr -d ' '
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: block/goose
+  extractVersion: ^v(?<version>.+)$
 messages:
   usage: |
     You must make sure the following libraries are installed:
@@ -29,7 +33,3 @@ messages:
     Ubuntu:
         apt-get install \
             libxcb1
-renovate:
-  datasource: github-releases
-  package: block/goose
-  extractVersion: ^v(?<version>.+)$

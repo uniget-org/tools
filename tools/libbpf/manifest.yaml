@@ -1,25 +1,25 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: libbpf
+description: libbpf
+license:
+  name: LGPLv2.1 OR BSD 2-Clause
+  link: https://github.com/libbpf/libbpf/blob/master/LICENSE
+homepage: https://github.com/libbpf/libbpf
+repository: https://github.com/libbpf/libbpf
 version: "1.7.0"
-binary: "false"
+tags:
+- category/development
+- lang/c
+- type/library
 check: "" # No binary
 build_dependencies:
 - make
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/development
-- lang/c
-- type/library
-homepage: https://github.com/libbpf/libbpf
-repository: https://github.com/libbpf/libbpf
-description: libbpf
 renovate:
   datasource: github-releases
   package: libbpf/libbpf
   extractVersion: ^v(?<version>.+)$
-license:
-  name: LGPLv2.1 OR BSD 2-Clause
-  link: https://github.com/libbpf/libbpf/blob/master/LICENSE
+binary: "false"

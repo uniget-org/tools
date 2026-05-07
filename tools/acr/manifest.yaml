@@ -1,7 +1,19 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: acr
+description: CLI for interacting with Azure Container Registry Images
+license:
+  name: MIT License
+  link: https://github.com/Azure/acr-cli/blob/main/LICENSE
+homepage: https://github.com/Azure/acr-cli
+repository: https://github.com/Azure/acr-cli
 version: "0.19"
+tags:
+- org/microsoft
+- category/operations
+- lang/go
+- type/cli
+- cloud/azure
 check: "" # No usable version output
 build_dependencies:
 - go
@@ -9,20 +21,8 @@ build_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- org/microsoft
-- category/operations
-- lang/go
-- type/cli
-- cloud/azure
-homepage: https://github.com/Azure/acr-cli
-repository: https://github.com/Azure/acr-cli
-description: CLI for interacting with Azure Container Registry Images
 renovate:
   datasource: github-releases
   package: Azure/acr-cli
   extractVersion: ^v(?<version>.+)$
   versioning: loose
-license:
-  name: MIT License
-  link: https://github.com/Azure/acr-cli/blob/main/LICENSE

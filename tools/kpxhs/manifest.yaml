@@ -1,20 +1,27 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: kpxhs
+description: Interactive Keepass database TUI viewer
+license:
+  name: GPLv3
+  link: https://github.com/akazukin5151/kpxhs/blob/master/LICENSE
+homepage: https://github.com/akazukin5151/kpxhs
+repository: https://github.com/akazukin5151/kpxhs
 version: "1.11"
-check: ${binary} --version | tr -d '"'
-build_dependencies:
-- make
-platforms:
-- linux/amd64
 tags:
 - lang/haskell
 - type/cli
 - state/onemanshow
 - state/stale
-homepage: https://github.com/akazukin5151/kpxhs
-repository: https://github.com/akazukin5151/kpxhs
-description: Interactive Keepass database TUI viewer
+check: ${binary} --version | tr -d '"'
+build_dependencies:
+- make
+platforms:
+- linux/amd64
+renovate:
+  datasource: github-releases
+  package: akazukin5151/kpxhs
+  extractVersion: ^v(?<version>.+)$
 messages:
   usage: |
     Dynamically linked against:
@@ -26,10 +33,3 @@ messages:
         apt-get install \
             libtinfo6 \
             libgmp10
-renovate:
-  datasource: github-releases
-  package: akazukin5151/kpxhs
-  extractVersion: ^v(?<version>.+)$
-license:
-  name: GPLv3
-  link: https://github.com/akazukin5151/kpxhs/blob/master/LICENSE

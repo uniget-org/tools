@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: faasd
+description: Lightweight & portable faas engine
+license:
+  name: MIT License
+  link: https://github.com/openfaas/faasd/blob/master/LICENSE
+homepage: https://store.openfaas.com/l/serverless-for-everyone-else
+repository: https://github.com/openfaas/faasd
 version: "0.19.7"
-check: ${binary} version | grep faasd | tr '\t' ' ' | cut -d' ' -f3
-runtime_dependencies:
-- containerd
-- faas-cli
 tags:
 - category/serverless
 - type/daemon
 - lang/go
-homepage: https://store.openfaas.com/l/serverless-for-everyone-else
-repository: https://github.com/openfaas/faasd
-description: Lightweight & portable faas engine
+check: ${binary} version | grep faasd | tr '\t' ' ' | cut -d' ' -f3
+runtime_dependencies:
+- containerd
+- faas-cli
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: openfaas/faasd
-license:
-  name: MIT License
-  link: https://github.com/openfaas/faasd/blob/master/LICENSE
-platforms:
-- linux/amd64

@@ -1,44 +1,44 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: dotnet-sdk
+description: Core functionality needed to create .NET Core projects
 license:
   name: MIT License
   link: https://github.com/dotnet/sdk/blob/main/LICENSE.TXT
+homepage: https://dot.net/core
+repository: https://github.com/dotnet/sdk
 version: "10.0.201"
-binary: ${target}/opt/dotnet/dotnet
-check: ${binary} --version
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/microsoft
 - category/development
 - lang/c
 - type/cli
-homepage: https://dot.net/core
-repository: https://github.com/dotnet/sdk
-description: Core functionality needed to create .NET Core projects
+check: ${binary} --version
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: dotnet/sdk
+  extractVersion: ^v(?<version>.+)$
+binary: ${target}/opt/dotnet/dotnet
 messages:
   internals: |
     dotnet programs require libicu for globalization. To avoid this
     dependency, set the following environment variable before running
     dotnet programs (https://aka.ms/dotnet-missing-libicu):
-    
+
         DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
 
     To opt out of telemetry, set the following environment variable
     before running dotnet programs (https://aka.ms/dotnet-cli-telemetry):
-    
+
         DOTNET_CLI_TELEMETRY_OPTOUT=1
-    
+
     To set the location of the dotnet SDK, set the following environment
     variable before running dotnet programs:
-    
+
         DOTNET_ROOT=$target/share/dotnet
 
     With dotnet in a well-known location like /usr or /usr/local and dotnet
     in the PATH, this may not be necessary.
     Read more here: https://github.com/dotnet/designs/blob/main/accepted/2020/install-locations.md
-renovate:
-  datasource: github-releases
-  package: dotnet/sdk
-  extractVersion: ^v(?<version>.+)$

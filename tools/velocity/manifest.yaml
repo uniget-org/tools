@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: velocity
+description: Modern, next-generation Minecraft server proxy
 license:
   name: GPLv3
   link: https://github.com/PaperMC/Velocity/blob/dev/3.0.0/LICENSE
@@ -10,21 +11,20 @@ license:
 # curl --silent --show-error --location --fail \
 #     "https://api.papermc.io/v2/projects/velocity/versions/3.4.0-SNAPSHOT/builds" \
 # | jq --raw-output '.builds | map(select(.channel == "default")) | .[-1].downloads.application.name'
+homepage: https://papermc.io/software/velocity
+repository: https://github.com/PaperMC/Velocity
 version: "3.4.0-SNAPSHOT.459"
+tags:
+- org/papermc
+- category/games
+- lang/java
+- type/daemon
 check: ""
 runtime_dependencies:
 - openjdk-jre
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- org/papermc
-- category/games
-- lang/java
-- type/daemon
-homepage: https://papermc.io/software/velocity
-repository: https://github.com/PaperMC/Velocity
-description: Modern, next-generation Minecraft server proxy
 renovate:
   datasource: gitlab-releases
   package: uniget-org/renovate-custom

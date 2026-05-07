@@ -1,10 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: gh
+description: GitHub's official command line tool
+license:
+  name: MIT License
+  link: https://github.com/cli/cli/blob/trunk/LICENSE
+homepage: https://cli.github.com
+repository: https://github.com/cli/cli
 version: "2.92.0"
-check: ${binary} --version | head -n 1 | cut -d' ' -f3
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/github
 - category/development
@@ -13,13 +15,11 @@ tags:
 - lang/go
 - cloud/github
 - standard/github
-homepage: https://cli.github.com
-repository: https://github.com/cli/cli
-description: GitHub's official command line tool
+check: ${binary} --version | head -n 1 | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: cli/cli
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/cli/cli/blob/trunk/LICENSE

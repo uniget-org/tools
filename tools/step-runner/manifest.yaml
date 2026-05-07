@@ -1,10 +1,18 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: step-runner
+description: RFC implementation for GitLab Steps
 license:
   name: MIT License
   link: https://gitlab.com/gitlab-org/step-runner/-/blob/main/LICENSE
+homepage: https://docs.gitlab.com/ee/ci/steps/
+repository: https://gitlab.com/gitlab-org/step-runner
 version: "0.36.0"
+tags:
+- org/gitlab
+- category/development
+- lang/go
+- type/cli
 check: "" # No version parameter
 build_dependencies:
 - go
@@ -12,14 +20,6 @@ build_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- org/gitlab
-- category/development
-- lang/go
-- type/cli
-homepage: https://docs.gitlab.com/ee/ci/steps/
-repository: https://gitlab.com/gitlab-org/step-runner
-description: RFC implementation for GitLab Steps
 renovate:
   datasource: gitlab-releases
   package: gitlab-org/step-runner

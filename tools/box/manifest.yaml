@@ -1,7 +1,17 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: box
+description: Fast, zero config application bundler with PHARs
+license:
+  name: MIT License
+  link: https://github.com/box-project/box/blob/main/LICENSE
+homepage: https://box-project.github.io/box
+repository: https://github.com/box-project/box
 version: "4.7.0"
+tags:
+- category/development
+- lang/php
+- type/cli
 check: ${binary} --version | cut -d' ' -f3 | cut -d@ -f1
 build_dependencies:
 - php
@@ -9,16 +19,6 @@ runtime_dependencies:
 - php
 platforms:
 - linux/amd64
-tags:
-- category/development
-- lang/php
-- type/cli
-homepage: https://box-project.github.io/box
-repository: https://github.com/box-project/box
-description: Fast, zero config application bundler with PHARs
 renovate:
   datasource: github-releases
   package: box-project/box
-license:
-  name: MIT License
-  link: https://github.com/box-project/box/blob/main/LICENSE

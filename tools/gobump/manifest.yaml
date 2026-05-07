@@ -1,10 +1,18 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: gobump
+description: Declaratively bump dependencies
 license:
   name: Apache License 2.0
   link: https://github.com/chainguard-dev/gobump/blob/main/LICENSE
+homepage: https://github.com/chainguard-dev/gobump
+repository: https://github.com/chainguard-dev/gobump
 version: "0.9.4"
+tags:
+- org/chainguard
+- category/development
+- lang/go
+- type/cli
 check: ${binary} version | grep GitVersion | tr -s ' ' | cut -d' ' -f2 | tr -d v
 build_dependencies:
 - make
@@ -12,14 +20,6 @@ build_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- org/chainguard
-- category/development
-- lang/go
-- type/cli
-homepage: https://github.com/chainguard-dev/gobump
-repository: https://github.com/chainguard-dev/gobump
-description: Declaratively bump dependencies
 renovate:
   datasource: github-releases
   package: chainguard-dev/gobump

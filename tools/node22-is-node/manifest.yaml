@@ -1,19 +1,19 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: node22-is-node
+description: Make node v22 available as node/npm command
+homepage: https://gitlab.com/uniget-org/tools
+repository: https://gitlab.com/uniget-org/tools
 version: "0.1.0"
-binary: "false"
+tags:
+- org/uniget-org
+- category/development
+- lang/shell
+- type/cli
 check: "" # No binary
 runtime_dependencies:
 - node22
 platforms:
 - linux/amd64
 #- linux/arm64
-tags:
-- org/uniget-org
-- category/development
-- lang/shell
-- type/cli
-homepage: https://gitlab.com/uniget-org/tools
-repository: https://gitlab.com/uniget-org/tools
-description: Make node v22 available as node/npm command
+binary: "false"

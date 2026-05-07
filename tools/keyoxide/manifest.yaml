@@ -1,6 +1,16 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: keyoxide
+description: CLI to locally verify online distributed identities, powered by the same method used by keyoxide.org
+license:
+  name: AGPL
+  link: https://codeberg.org/keyoxide/keyoxide-cli/src/branch/main/LICENSE
+homepage: https://codeberg.org/keyoxide/keyoxide-cli
+repository: https://codeberg.org/keyoxide/keyoxide-cli
 version: "0.4.4"
+tags:
+- category/security
+- lang/javascript
+- type/cli
 check: ${binary} --version
 build_dependencies:
 - node-lts
@@ -9,16 +19,6 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/security
-- lang/javascript
-- type/cli
-homepage: https://codeberg.org/keyoxide/keyoxide-cli
-repository: https://codeberg.org/keyoxide/keyoxide-cli
-description: CLI to locally verify online distributed identities, powered by the same method used by keyoxide.org
 renovate:
   datasource: npm
   package: keyoxide
-license:
-  name: AGPL
-  link: https://codeberg.org/keyoxide/keyoxide-cli/src/branch/main/LICENSE

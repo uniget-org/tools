@@ -1,8 +1,19 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: shell-gpt
+description: Command-line productivity tool powered by GPT-3 and GPT-4, will help you accomplish your tasks faster and more efficiently
+license:
+  name: MIT License
+  link: https://github.com/TheR1D/shell_gpt/blob/main/LICENSE
+homepage: https://github.com/TheR1D/shell_gpt
+repository: https://github.com/TheR1D/shell_gpt
 version: "1.5.1"
-binary: sgpt
+tags:
+- category/operations
+- lang/python
+- type/cli
+- ai
+- llm
 check: "" # No help without OpenAI API key
 build_dependencies:
 - python-3.12
@@ -12,18 +23,7 @@ runtime_dependencies:
 - python-3.12
 platforms:
 - linux/amd64
-tags:
-- category/operations
-- lang/python
-- type/cli
-- ai
-- llm
-homepage: https://github.com/TheR1D/shell_gpt
-repository: https://github.com/TheR1D/shell_gpt
-description: Command-line productivity tool powered by GPT-3 and GPT-4, will help you accomplish your tasks faster and more efficiently
 renovate:
   datasource: pypi
   package: shell-gpt
-license:
-  name: MIT License
-  link: https://github.com/TheR1D/shell_gpt/blob/main/LICENSE
+binary: sgpt

@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: hugo
+description: World’s fastest framework for building websites
+license:
+  name: Apache License 2.0
+  link: https://github.com/gohugoio/hugo/blob/master/LICENSE
+homepage: https://gohugo.io
+repository: https://github.com/gohugoio/hugo
 version: "0.161.1"
-check: ${binary} version | cut -d' ' -f2 | cut -d- -f1 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/go
 - website
 - type/cli
 - format/markdown
-homepage: https://gohugo.io
-repository: https://github.com/gohugoio/hugo
-description: World’s fastest framework for building websites
+check: ${binary} version | cut -d' ' -f2 | cut -d- -f1 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: gohugoio/hugo
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/gohugoio/hugo/blob/master/LICENSE

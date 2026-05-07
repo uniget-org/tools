@@ -1,10 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: registry
+description: Toolkit to pack, ship, store, and deliver container content
+license:
+  name: Apache License 2.0
+  link: https://github.com/distribution/distribution/blob/main/LICENSE
+homepage: https://distribution.github.io/distribution
+repository: https://github.com/distribution/distribution
 version: "3.1.1"
-check: ${binary} --version | cut -d' ' -f3 | cut -d+ -f1 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/cncf
 - standard/oci
@@ -12,13 +14,11 @@ tags:
 - type/daemon
 - lang/go
 - cncf/sandbox
-homepage: https://distribution.github.io/distribution
-repository: https://github.com/distribution/distribution
-description: Toolkit to pack, ship, store, and deliver container content
+check: ${binary} --version | cut -d' ' -f3 | cut -d+ -f1 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: distribution/distribution
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/distribution/distribution/blob/main/LICENSE

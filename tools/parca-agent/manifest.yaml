@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: parca-agent
+description: eBPF based always-on profiler auto-discovering targets in Kubernetes and systemd, zero code changes or restarts needed!
+license:
+  name: Apache License 2.0
+  link: https://github.com/parca-dev/parca-agent/blob/main/LICENSE
+homepage: https://parca.dev/
+repository: https://github.com/parca-dev/parca-agent
 version: "0.47.1"
-check: "" # No version parameter
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/monitoring
 - type/daemon
 - lang/go
 - observability/metrics
-homepage: https://parca.dev/
-repository: https://github.com/parca-dev/parca-agent
-description: eBPF based always-on profiler auto-discovering targets in Kubernetes and systemd, zero code changes or restarts needed!
+check: "" # No version parameter
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: parca-dev/parca-agent
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/parca-dev/parca-agent/blob/main/LICENSE

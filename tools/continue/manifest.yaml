@@ -1,19 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: continue
+description: Build and run custom agents across your IDE, terminal, and CI
 license:
   name: Apache License 2.0
   link: https://github.com/continuedev/continue/blob/main/LICENSE
+homepage: https://docs.continue.dev/
+repository: https://github.com/continuedev/continue
 version: "1.5.45"
-binary: cn
-check: ${binary} --version 2>/dev/null
-build_dependencies:
-- node-lts
-runtime_dependencies:
-- node-lts
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/javascript
@@ -23,9 +17,15 @@ tags:
 - mcp
 - coding
 - agent
-homepage: https://docs.continue.dev/
-repository: https://github.com/continuedev/continue
-description: Build and run custom agents across your IDE, terminal, and CI
+check: ${binary} --version 2>/dev/null
+build_dependencies:
+- node-lts
+runtime_dependencies:
+- node-lts
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: npm
   package: "@continuedev/cli"
+binary: cn

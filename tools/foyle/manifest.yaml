@@ -1,28 +1,28 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: foyle
+description: Copilot to help developers deploy and operate their applications
 license:
   name: Apache License 2.0
   link: https://github.com/jlewi/foyle/blob/main/LICENSE
+homepage: https://foyle.io/
+repository: https://github.com/jlewi/foyle
 version: "0.0.45"
+tags:
+- category/operations
+- lang/go
+- type/cli
+- type/daemon
 check: ${binary} version | cut -d, -f1 | cut -d' ' -f2
 runtime_dependencies:
 - runme
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/operations
-- lang/go
-- type/cli
-- type/daemon
-homepage: https://foyle.io/
-repository: https://github.com/jlewi/foyle
-description: Copilot to help developers deploy and operate their applications
-messages:
-  usage: |
-    You need Visual Studio Code to use this tool.
 renovate:
   datasource: github-releases
   package: jlewi/foyle
   extractVersion: ^v(?<version>.+)$
+messages:
+  usage: |
+    You need Visual Studio Code to use this tool.

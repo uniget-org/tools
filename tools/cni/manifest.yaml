@@ -1,11 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: cni
+description: Some reference and example networking plugins
+license:
+  name: Apache License 2.0
+  link: https://github.com/containernetworking/plugins/blob/main/LICENSE
+homepage: https://github.com/containernetworking/plugins
+repository: https://github.com/containernetworking/plugins
 version: "1.9.1"
-binary: ${target}/libexec/cni/loopback
-check: ${binary} 2>&1 | head -n 1 | cut -d' ' -f4 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - kubernetes
 - k8s
@@ -13,13 +14,12 @@ tags:
 - type/plugin
 - lang/go
 - standard/cni
-homepage: https://github.com/containernetworking/plugins
-repository: https://github.com/containernetworking/plugins
-description: Some reference and example networking plugins
+check: ${binary} 2>&1 | head -n 1 | cut -d' ' -f4 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: containernetworking/plugins
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/containernetworking/plugins/blob/main/LICENSE
+binary: ${target}/libexec/cni/loopback

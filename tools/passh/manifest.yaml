@@ -1,9 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: passh
+description: sshpass is broken by design
+license:
+  name: GPLv3
+  link: https://github.com/clarkwang/passh/blob/master/LICENSE
+homepage: https://github.com/clarkwang/passh
+repository: https://github.com/clarkwang/passh
 version: "1.0.2"
-check: ${binary} --version | cut -d' ' -f2
-build_dependencies:
-- make
 tags:
 - type/cli
 - category/security
@@ -11,15 +14,12 @@ tags:
 - ssh
 - password
 - management
-homepage: https://github.com/clarkwang/passh
-repository: https://github.com/clarkwang/passh
-description: sshpass is broken by design
+check: ${binary} --version | cut -d' ' -f2
+build_dependencies:
+- make
+platforms:
+- linux/amd64
 renovate:
   datasource: github-tags
   package: clarkwang/passh
   extractVersion: ^v(?<version>.+)$
-license:
-  name: GPLv3
-  link: https://github.com/clarkwang/passh/blob/master/LICENSE
-platforms:
-- linux/amd64

@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: jabba
+description: Java Version Manager
+license:
+  name: Apache License 2.0
+  link: https://github.com/Jabba-Team/jabba/blob/main/LICENSE
+homepage: https://github.com/Jabba-Team/jabba
+repository: https://github.com/Jabba-Team/jabba
 version: "0.15.0"
-check: ${binary} --version
 tags:
 - type/cli
 - category/development
@@ -9,14 +14,9 @@ tags:
 - version
 - management
 - state/stale
-homepage: https://github.com/Jabba-Team/jabba
-repository: https://github.com/Jabba-Team/jabba
-description: Java Version Manager
+check: ${binary} --version
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: Jabba-Team/jabba
-license:
-  name: Apache License 2.0
-  link: https://github.com/Jabba-Team/jabba/blob/main/LICENSE
-platforms:
-- linux/amd64

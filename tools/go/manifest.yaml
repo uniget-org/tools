@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: go
+description: Go programming language
+license:
+  name: BSD 3-Clause License
+  link: https://github.com/golang/go/blob/master/LICENSE
+homepage: https://go.dev
+repository: https://github.com/golang/go
 version: "1.26.3"
-check: ${binary} version | cut -d' ' -f3 | tr -d go
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - type/cli
 - category/development
 - lang/go
-homepage: https://go.dev
-repository: https://github.com/golang/go
-description: Go programming language
+check: ${binary} version | cut -d' ' -f3 | tr -d go
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-tags
   package: golang/go
   extractVersion: ^go(?<version>.+)$
-license:
-  name: BSD 3-Clause License
-  link: https://github.com/golang/go/blob/master/LICENSE

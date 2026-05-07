@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kcp
+description: Prototype of a multi-tenant Kubernetes control plane
+license:
+  name: Apache License 2.0
+  link: https://github.com/kcp-dev/kcp/blob/main/LICENSE
+homepage: https://kcp.io
+repository: https://github.com/kcp-dev/kcp
 version: "0.31.1"
-check: ${binary} --version | cut -d' ' -f3 | cut -dv -f3
 tags:
 - type/cli
 - type/daemon
@@ -10,15 +15,10 @@ tags:
 - k8s
 - lang/go
 - cncf/sandbox
-homepage: https://kcp.io
-repository: https://github.com/kcp-dev/kcp
-description: Prototype of a multi-tenant Kubernetes control plane
+check: ${binary} --version | cut -d' ' -f3 | cut -dv -f3
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: kcp-dev/kcp
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/kcp-dev/kcp/blob/main/LICENSE
-platforms:
-- linux/amd64

@@ -1,17 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: yamlfmt-kyaml
+description: Some description
 license:
   name: MIT License
   link: https://github.com/kubernetes-sigs/yaml/blob/master/LICENSE
+homepage: https://github.com/kubernetes-sigs/yaml/blob/master/yamlfmt/
+repository: https://github.com/kubernetes-sigs/yaml/blob/master/yamlfmt/
 version: "1.6.0"
-binary: yamlfmt
-check: "" # No version parameter
-build_dependencies:
-- go
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/kubernetes
 - category/development
@@ -19,10 +15,14 @@ tags:
 - type/cli
 - kyaml
 - format/yaml
-homepage: https://github.com/kubernetes-sigs/yaml/blob/master/yamlfmt/
-repository: https://github.com/kubernetes-sigs/yaml/blob/master/yamlfmt/
-description: Some description
+check: "" # No version parameter
+build_dependencies:
+- go
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: kubernetes-sigs/yaml
   extractVersion: ^v(?<version>.+)$
+binary: yamlfmt

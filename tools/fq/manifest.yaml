@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: fq
+description: jq for binary formats
+license:
+  name: MIT License
+  link: https://github.com/wader/fq/blob/master/LICENSE
+homepage: https://github.com/wader/fq
+repository: https://github.com/wader/fq
 version: "0.17.0"
-check: ${binary} --version | cut -d' ' -f1
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/go
 - type/cli
-homepage: https://github.com/wader/fq
-repository: https://github.com/wader/fq
-description: jq for binary formats
+check: ${binary} --version | cut -d' ' -f1
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: wader/fq
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/wader/fq/blob/master/LICENSE

@@ -1,21 +1,21 @@
 $schema: https://tools.uniget.dev/schema.yaml
 name: xurls
+description: Extract urls from text
+license:
+  name: BSD 3-Clause License
+  link: https://github.com/mvdan/xurls/blob/master/LICENSE
+homepage: https://github.com/mvdan/xurls
+repository: https://github.com/mvdan/xurls
 version: "2.6.0"
-check: ${binary} --version | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/go
 - type/cli
-homepage: https://github.com/mvdan/xurls
-repository: https://github.com/mvdan/xurls
-description: Extract urls from text
+check: ${binary} --version | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: mvdan/xurls
   extractVersion: ^v(?<version>.+)$
-license:
-  name: BSD 3-Clause License
-  link: https://github.com/mvdan/xurls/blob/master/LICENSE

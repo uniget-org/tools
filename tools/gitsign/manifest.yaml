@@ -1,12 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: gitsign
+description: Keyless Git signing using Sigstore
+license:
+  name: Apache License 2.0
+  link: https://github.com/sigstore/gitsign/blob/main/LICENSE
+homepage: https://github.com/sigstore/gitsign
+repository: https://github.com/sigstore/gitsign
 version: "0.16.0"
-check: ${binary} --version | grep ^gitsign | cut -d' ' -f3 | tr -d v
-build_dependencies:
-- cosign
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - category/security
@@ -14,9 +14,16 @@ tags:
 - lang/go
 - standard/git
 - git
-homepage: https://github.com/sigstore/gitsign
-repository: https://github.com/sigstore/gitsign
-description: Keyless Git signing using Sigstore
+check: ${binary} --version | grep ^gitsign | cut -d' ' -f3 | tr -d v
+build_dependencies:
+- cosign
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: sigstore/gitsign
+  extractVersion: ^v(?<version>.+)$
 messages:
   internals: |
     Enable the SystemD socket unit: systemctl --user enable --now gitsign.socket
@@ -24,10 +31,3 @@ messages:
     If you are using WSL install the following tools using uniget:
     - wslu
     - xdg-utils
-renovate:
-  datasource: github-releases
-  package: sigstore/gitsign
-  extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/sigstore/gitsign/blob/main/LICENSE

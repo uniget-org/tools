@@ -1,16 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: gitlab-tofu
+description: Some description
 license:
   name: MIT License
   link: https://gitlab.com/components/opentofu/-/blob/main/LICENSE?ref_type=heads
+homepage: https://gitlab.com/components/opentofu
+repository: https://gitlab.com/components/opentofu
 version: "4.5.0"
-check: "" # No version parameter
-runtime_dependencies:
-- opentofu
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/gitlab
 - category/operations
@@ -19,9 +16,12 @@ tags:
 - type/cli
 - iac
 - cloud/gitlab
-homepage: https://gitlab.com/components/opentofu
-repository: https://gitlab.com/components/opentofu
-description: Some description
+check: "" # No version parameter
+runtime_dependencies:
+- opentofu
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: gitlab-releases
   package: components/opentofu

@@ -1,24 +1,24 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: stdin-spinner
+description: Terminal spinner indicating whether data is coming in on stdin
+license:
+  name: MIT License
+  link: https://github.com/sgreben/stdin-spinner/blob/master/LICENSE
+homepage: https://github.com/sgreben/stdin-spinner
+repository: https://github.com/sgreben/stdin-spinner
 version: "1.0.6"
-check: "" # No version parameter
-build_dependencies:
-- go
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/go
 - type/cli
 - state/stale
 - state/onemanshow
-homepage: https://github.com/sgreben/stdin-spinner
-repository: https://github.com/sgreben/stdin-spinner
-description: Terminal spinner indicating whether data is coming in on stdin
+check: "" # No version parameter
+build_dependencies:
+- go
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: sgreben/stdin-spinner
-license:
-  name: MIT License
-  link: https://github.com/sgreben/stdin-spinner/blob/master/LICENSE

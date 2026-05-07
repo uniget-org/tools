@@ -1,13 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: keydex
+description: Terminal based password manager for KeePass databases
 license:
   name: MIT License
   link: https://github.com/shikaan/keydex/blob/main/LICENSE
+homepage: https://github.com/shikaan/keydex
+repository: https://github.com/shikaan/keydex
 version: "0.12.0"
-check: ${binary} --version | cut -d' ' -f3
-platforms:
-- linux/amd64
 tags:
 - category/console
 - lang/go
@@ -15,9 +15,9 @@ tags:
 - standard/keypass
 - password
 - manager
-homepage: https://github.com/shikaan/keydex
-repository: https://github.com/shikaan/keydex
-description: Terminal based password manager for KeePass databases
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: shikaan/keydex

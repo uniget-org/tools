@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: hcloud
+description: Command-line interface for Hetzner Cloud
+license:
+  name: MIT License
+  link: https://github.com/hetznercloud/cli/blob/main/LICENSE
+homepage: https://github.com/hetznercloud/cli
+repository: https://github.com/hetznercloud/cli
 version: "1.64.1"
-check: ${binary} version | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - cloud/hetzner
 - type/cli
 - infrastructure
 - management
 - lang/go
-homepage: https://github.com/hetznercloud/cli
-repository: https://github.com/hetznercloud/cli
-description: Command-line interface for Hetzner Cloud
+check: ${binary} version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: hetznercloud/cli
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/hetznercloud/cli/blob/main/LICENSE

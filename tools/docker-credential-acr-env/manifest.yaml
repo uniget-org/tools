@@ -1,9 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: docker-credential-acr-env
+description: Alternative to the existing file store based ACR helper
+license:
+  name: Apache License 2.0
+  link: https://github.com/chrismellard/docker-credential-acr-env/blob/master/LICENSE
+homepage: https://github.com/chrismellard/docker-credential-acr-env
+repository: https://github.com/chrismellard/docker-credential-acr-env
 version: "0.7.0"
-check: "" # No version parameter
-runtime_dependencies:
-- docker
 tags:
 - standard/docker
 - container/runtime
@@ -12,14 +15,11 @@ tags:
 - lang/go
 - state/stale
 - docker
-homepage: https://github.com/chrismellard/docker-credential-acr-env
-repository: https://github.com/chrismellard/docker-credential-acr-env
-description: Alternative to the existing file store based ACR helper
+check: "" # No version parameter
+runtime_dependencies:
+- docker
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: chrismellard/docker-credential-acr-env
-license:
-  name: Apache License 2.0
-  link: https://github.com/chrismellard/docker-credential-acr-env/blob/master/LICENSE
-platforms:
-- linux/amd64

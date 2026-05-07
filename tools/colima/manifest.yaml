@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: colima
+description: Container runtimes on macOS (and Linux) with minimal setup
+license:
+  name: MIT License
+  link: https://github.com/abiosoft/colima/blob/main/LICENSE
+homepage: https://github.com/abiosoft/colima
+repository: https://github.com/abiosoft/colima
 version: "0.10.1"
-check: ${binary} version 2>/dev/null | grep ^colima | cut -d' ' -f3 | tr -d v
 tags:
 - type/cli
 - category/development
 - lang/go
 - container/runtime
-homepage: https://github.com/abiosoft/colima
-repository: https://github.com/abiosoft/colima
-description: Container runtimes on macOS (and Linux) with minimal setup
+check: ${binary} version 2>/dev/null | grep ^colima | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: abiosoft/colima
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/abiosoft/colima/blob/main/LICENSE
-platforms:
-- linux/amd64

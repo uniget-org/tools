@@ -1,22 +1,26 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: rv
+description: Next-gen very fast Ruby tooling
 license:
   name: Apache License 2.0, MIT License
   link: https://github.com/spinel-coop/rv
+homepage: https://rv.dev/
+repository: https://github.com/spinel-coop/rv
 version: "0.5.3"
-check: ${binary} --version | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/rust
 - type/cli
 - ruby
-homepage: https://rv.dev/
-repository: https://github.com/spinel-coop/rv
-description: Next-gen very fast Ruby tooling
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: spinel-coop/rv
+  extractVersion: ^v(?<version>.+)$
 messages:
   usage: |
     For shell integration, call the following:
@@ -24,7 +28,3 @@ messages:
       rv shell init <SHELL>
 
     Supported shells are bash, zsh, fish, and nushell.
-renovate:
-  datasource: github-releases
-  package: spinel-coop/rv
-  extractVersion: ^v(?<version>.+)$

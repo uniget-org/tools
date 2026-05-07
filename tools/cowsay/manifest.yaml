@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: cowsay
+description: Cowsay is reborn
+license:
+  name: Artistic License 2.0
+  link: https://github.com/Code-Hex/Neo-cowsay/blob/master/LICENSE
+homepage: https://github.com/Code-Hex/Neo-cowsay
+repository: https://github.com/Code-Hex/Neo-cowsay
 version: "2.0.4"
-check: "" # No version parameter
 tags:
 - type/cli
 - fun
 - lang/go
 - terminal
 - state/stale
-homepage: https://github.com/Code-Hex/Neo-cowsay
-repository: https://github.com/Code-Hex/Neo-cowsay
-description: Cowsay is reborn
+check: "" # No version parameter
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: Code-Hex/Neo-cowsay
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Artistic License 2.0
-  link: https://github.com/Code-Hex/Neo-cowsay/blob/master/LICENSE
-platforms:
-- linux/amd64

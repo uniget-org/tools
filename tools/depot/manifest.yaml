@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: depot
+description: Build your Docker images in the cloud
+license:
+  name: MIT License
+  link: https://github.com/depot/cli/blob/main/LICENSE
+homepage: https://depot.dev
+repository: https://github.com/depot/cli
 version: "2.101.59"
-check: ${binary} --version | grep ^depot | cut -d' ' -f3
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/go
 - type/cli
 - container/build
-homepage: https://depot.dev
-repository: https://github.com/depot/cli
-description: Build your Docker images in the cloud
+check: ${binary} --version | grep ^depot | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: depot/cli
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/depot/cli/blob/main/LICENSE

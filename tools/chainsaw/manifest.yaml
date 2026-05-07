@@ -1,13 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: chainsaw
+description: Declarative K8s e2e testing
+license:
+  name: Apache License 2.0
+  link: https://github.com/kyverno/chainsaw/blob/main/LICENSE
+homepage: https://kyverno.github.io/chainsaw/
+repository: https://github.com/kyverno/chainsaw
 version: "0.2.15"
-check: ${binary} version | grep ^Version | cut -d' ' -f2
-build_dependencies:
-- cosign
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/kyverno
 - category/development
@@ -15,13 +15,13 @@ tags:
 - type/cli
 - kubernetes
 - k8s
-homepage: https://kyverno.github.io/chainsaw/
-repository: https://github.com/kyverno/chainsaw
-description: Declarative K8s e2e testing
+check: ${binary} version | grep ^Version | cut -d' ' -f2
+build_dependencies:
+- cosign
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: kyverno/chainsaw
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/kyverno/chainsaw/blob/main/LICENSE

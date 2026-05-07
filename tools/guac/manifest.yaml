@@ -1,27 +1,27 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: guac
+description: Aggregate software security metadata into a high fidelity graph database
+license:
+  name: Apache License 2.0
+  link: https://github.com/guacsec/guac/blob/main/LICENSE
+homepage: https://guac.sh
+repository: https://github.com/guacsec/guac
 version: "1.1.0"
-binary: guacone
-check: "" # No version parameter
-build_dependencies:
-- go
-- make
-- goreleaser
 tags:
 - category/security
 - type/cli
 - lang/go
 - graphdb
 - visualization
-homepage: https://guac.sh
-repository: https://github.com/guacsec/guac
-description: Aggregate software security metadata into a high fidelity graph database
+check: "" # No version parameter
+build_dependencies:
+- go
+- make
+- goreleaser
+platforms:
+- linux/amd64
 renovate:
   datasource: github-tags
   package: guacsec/guac
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/guacsec/guac/blob/main/LICENSE
-platforms:
-- linux/amd64
+binary: guacone

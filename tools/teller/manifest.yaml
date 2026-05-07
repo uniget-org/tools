@@ -1,25 +1,25 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: teller
+description: Cloud native secrets management for developers - never leave your command line for secrets.
+license:
+  name: Apache License 2.0
+homepage: https://github.com/tellerops/teller
+repository: https://github.com/tellerops/teller
 version: "2.0.7"
-check: ${binary} version | head -1 | cut -d' ' -f2
-platforms:
-- linux/amd64
 tags:
 - category/security
 - type/cli
 - lang/go
 - cncf/archived
+check: ${binary} version | head -1 | cut -d' ' -f2
+platforms:
+- linux/amd64
+renovate:
+  datasource: github-releases
+  package: tellerops/teller
+  extractVersion: ^v(?<version>.+)$
 messages:
   update: |
     Please make sure the following libraries are available:
     - libssl.so.1.1
     - libcrypto.so.1.1
-homepage: https://github.com/tellerops/teller
-repository: https://github.com/tellerops/teller
-description: Cloud native secrets management for developers - never leave your command line for secrets.
-renovate:
-  datasource: github-releases
-  package: tellerops/teller
-  extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0

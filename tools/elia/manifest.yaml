@@ -1,10 +1,18 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: elia
+description: Snappy, keyboard-centric terminal user interface for interacting with large language models
 license:
   name: Apache License 2.0
   link: https://github.com/darrenburns/elia/blob/main/LICENSE
+homepage: https://github.com/darrenburns/elia
+repository: https://github.com/darrenburns/elia
 version: "1.10.0"
+tags:
+- category/development
+- lang/python
+- type/cli
+- state/stale
 check: "" # No version parameter
 build_dependencies:
 - python-3.12
@@ -14,14 +22,6 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/development
-- lang/python
-- type/cli
-- state/stale
-homepage: https://github.com/darrenburns/elia
-repository: https://github.com/darrenburns/elia
-description: Snappy, keyboard-centric terminal user interface for interacting with large language models
 renovate:
   datasource: github-releases
   package: darrenburns/elia

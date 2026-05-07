@@ -1,16 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: sbom2doc
+description: Transform SBOM contents into a formatted document including markdown and PDF formats
+license:
+  name: Apache License 2.0
+  link: https://github.com/anthonyharrison/sbom2doc/blob/main/LICENSE
+homepage: https://github.com/anthonyharrison/sbom2doc
+repository: https://github.com/anthonyharrison/sbom2doc
 version: "0.6.2"
-check: ${binary} --version
-build_dependencies:
-- python-3.12
-- shiv
-runtime_dependencies:
-- python-3.12
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/security
 - lang/python
@@ -20,12 +17,15 @@ tags:
 - format/spdx
 - format/cyclonedx
 - format/json
-homepage: https://github.com/anthonyharrison/sbom2doc
-repository: https://github.com/anthonyharrison/sbom2doc
-description: Transform SBOM contents into a formatted document including markdown and PDF formats
+check: ${binary} --version
+build_dependencies:
+- python-3.12
+- shiv
+runtime_dependencies:
+- python-3.12
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: pypi
   package: sbom2doc
-license:
-  name: Apache License 2.0
-  link: https://github.com/anthonyharrison/sbom2doc/blob/main/LICENSE

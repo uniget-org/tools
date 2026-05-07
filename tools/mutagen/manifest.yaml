@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: mutagen
+description: Fast file synchronization and network forwarding for remote development
+license:
+  name: Custom
+  link: https://github.com/mutagen-io/mutagen/blob/master/LICENSE
+homepage: https://mutagen.io
+repository: https://github.com/mutagen-io/mutagen
 version: "0.18.1"
-check: ${binary} version
 tags:
 - component/network
 - component/storage
@@ -10,15 +15,10 @@ tags:
 - type/daemon
 - lang/go
 - state/stale
-homepage: https://mutagen.io
-repository: https://github.com/mutagen-io/mutagen
-description: Fast file synchronization and network forwarding for remote development
+check: ${binary} version
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: mutagen-io/mutagen
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Custom
-  link: https://github.com/mutagen-io/mutagen/blob/master/LICENSE
-platforms:
-- linux/amd64

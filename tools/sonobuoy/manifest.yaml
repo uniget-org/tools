@@ -1,10 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: sonobuoy
+description: Sonobuoy is a diagnostic tool that makes it easier to understand the state of a Kubernetes cluster
+license:
+  name: Apache License 2.0
+  link: https://github.com/vmware-tanzu/sonobuoy/blob/main/LICENSE
+homepage: https://sonobuoy.io
+repository: https://github.com/vmware-tanzu/sonobuoy
 version: "0.57.3"
-check: ${binary} version | grep ^Sonobuoy | cut -d' ' -f3 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/vmware
 - category/operations
@@ -14,13 +16,11 @@ tags:
 - k8s
 - troubleshooting
 - state/stale
-homepage: https://sonobuoy.io
-repository: https://github.com/vmware-tanzu/sonobuoy
-description: Sonobuoy is a diagnostic tool that makes it easier to understand the state of a Kubernetes cluster
+check: ${binary} version | grep ^Sonobuoy | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: vmware-tanzu/sonobuoy
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/vmware-tanzu/sonobuoy/blob/main/LICENSE

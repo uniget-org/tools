@@ -1,14 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: codex
+description: Lightweight coding agent that runs in your terminal
 license:
   name: Apache License 2.0
   link: https://github.com/openai/codex/blob/main/LICENSE
+homepage: https://openai.com/index/introducing-codex/
+repository: https://github.com/openai/codex
 version: "0.129.0"
-check: ${binary} --version | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/openai
 - category/development
@@ -18,9 +17,10 @@ tags:
 - llm
 - coding
 - agent
-homepage: https://openai.com/index/introducing-codex/
-repository: https://github.com/openai/codex
-description: Lightweight coding agent that runs in your terminal
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: "openai/codex"

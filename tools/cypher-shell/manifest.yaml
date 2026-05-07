@@ -1,24 +1,24 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: cypher-shell
+description: Run queries and perform administrative tasks against a Neo4j instance
+license:
+  name: GPLv3
+homepage: http://neo4j.com
+repository: https://github.com/neo4j/neo4j
 version: "5.3.0"
-check: ${binary} --version | cut -d' ' -f2
-runtime_dependencies:
-- openjdk-jre
-conflicts_with:
-- neo4j
 tags:
 - category/development
 - lang/java
 - type/cli
 - graphdb
 - state/stale
-homepage: http://neo4j.com
-repository: https://github.com/neo4j/neo4j
-description: Run queries and perform administrative tasks against a Neo4j instance
+check: ${binary} --version | cut -d' ' -f2
+runtime_dependencies:
+- openjdk-jre
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: neo4j/neo4j
-license:
-  name: GPLv3
-platforms:
-- linux/amd64
+conflicts_with:
+- neo4j

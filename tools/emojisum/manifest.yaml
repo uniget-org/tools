@@ -1,24 +1,24 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: emojisum
+description: Easier way to compare hashes/fingerprints when dealing human weak link
+license:
+  name: MIT License
+  link: https://github.com/emojisum/emojisum/blob/master/LICENSE
+homepage: https://github.com/emojisum/emojisum
+repository: https://github.com/emojisum/emojisum
 version: "2"
+tags:
+- category/security
+- type/cli
+- lang/go
 check: "" # No version parameter
 build_dependencies:
 - go
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/security
-- type/cli
-- lang/go
-homepage: https://github.com/emojisum/emojisum
-repository: https://github.com/emojisum/emojisum
-description: Easier way to compare hashes/fingerprints when dealing human weak link
 renovate:
   datasource: github-tags
   package: emojisum/emojisum
   extractVersion: ^draft\+(?<version>.+)$
   versioning: loose
-license:
-  name: MIT License
-  link: https://github.com/emojisum/emojisum/blob/master/LICENSE

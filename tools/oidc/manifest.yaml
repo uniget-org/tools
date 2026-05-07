@@ -1,14 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: oidc
+description: Command line tool to work with OIDC tokens
 license:
   name: Apache License 2.0
   link: https://github.com/ctron/oidc-cli/blob/main/LICENSE
+homepage: https://github.com/ctron/oidc-cli
+repository: https://github.com/ctron/oidc-cli
 version: "0.7.3"
-check: ${binary} --version | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/rust
@@ -16,9 +15,10 @@ tags:
 - oauth2
 - oidc
 - authentication
-homepage: https://github.com/ctron/oidc-cli
-repository: https://github.com/ctron/oidc-cli
-description: Command line tool to work with OIDC tokens
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: ctron/oidc-cli

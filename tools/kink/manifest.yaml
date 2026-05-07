@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kink
+description: CLI to manage KinD clusters as Kubernetes pods
+license:
+  name: Apache License 2.0
+  link: https://github.com/Trendyol/kink/blob/main/LICENSE
+homepage: https://github.com/Trendyol/kink
+repository: https://github.com/Trendyol/kink
 version: "0.2.1"
-check: ${binary} version | grep GitVersion | tr -s ' ' | cut -d' ' -f2
 tags:
 - type/cli
 - kubernetes
@@ -10,15 +15,10 @@ tags:
 - lang/go
 - state/onemanshow
 - state/stale
-homepage: https://github.com/Trendyol/kink
-repository: https://github.com/Trendyol/kink
-description: CLI to manage KinD clusters as Kubernetes pods
+check: ${binary} version | grep GitVersion | tr -s ' ' | cut -d' ' -f2
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: Trendyol/kink
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/Trendyol/kink/blob/main/LICENSE
-platforms:
-- linux/amd64

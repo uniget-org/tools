@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: govc
+description: vSphere CLI built on top of govmomi
+license:
+  name: Apache License 2.0
+homepage: https://github.com/vmware/govmomi/
+repository: https://github.com/vmware/govmomi/
 version: "0.53.1"
-check: ${binary} version | cut -d' ' -f2
 tags:
 - org/vmware
 - type/cli
 - vm
 - infrastructure
 - lang/go
-homepage: https://github.com/vmware/govmomi/
-repository: https://github.com/vmware/govmomi/
-description: vSphere CLI built on top of govmomi
+check: ${binary} version | cut -d' ' -f2
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: vmware/govmomi
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-platforms:
-- linux/amd64

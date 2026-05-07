@@ -1,14 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: gvisor
+description: Application Kernel for Containers
+license:
+  name: Apache License 2.0
+  link: https://github.com/google/gvisor/blob/master/LICENSE
+homepage: https://gvisor.dev
+repository: https://github.com/google/gvisor
 version: "20251215"
-binary: ${target}/bin/runsc
-check: ${binary} --version | grep ^runsc | cut -d' ' -f3 | cut -d- -f2 | cut -d. -f1
-runtime_dependencies:
-- containerd
-- docker
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/google
 - container/runtime
@@ -16,9 +14,19 @@ tags:
 - lang/go
 - standard/docker
 - docker
-homepage: https://gvisor.dev
-repository: https://github.com/google/gvisor
-description: Application Kernel for Containers
+check: ${binary} --version | grep ^runsc | cut -d' ' -f3 | cut -d- -f2 | cut -d. -f1
+runtime_dependencies:
+- containerd
+- docker
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-tags
+  package: google/gvisor
+  extractVersion: ^release-(?<version>.+)\.0$
+  versioning: loose
+binary: ${target}/bin/runsc
 messages:
   update: |
     Add crun to Docker runtimes by merging the following into
@@ -31,11 +39,3 @@ messages:
             }
         }
     }
-renovate:
-  datasource: github-tags
-  package: google/gvisor
-  extractVersion: ^release-(?<version>.+)\.0$
-  versioning: loose
-license:
-  name: Apache License 2.0
-  link: https://github.com/google/gvisor/blob/master/LICENSE

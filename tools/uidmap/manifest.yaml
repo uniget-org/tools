@@ -1,24 +1,24 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: uidmap
+description: Programs to help use subuids
+license:
+  name: BSD 3-Clause License
+  link: https://github.com/shadow-maint/shadow/blob/master/COPYING
+homepage: https://github.com/shadow-maint/shadow
+repository: https://github.com/shadow-maint/shadow
 version: "4.11.1"
-binary: newuidmap
-check: "" # No version parameter
-build_dependencies:
-- make
 tags:
 - kernel/pid
 - kernel/namespaces
 - type/cli
 - lang/c
-homepage: https://github.com/shadow-maint/shadow
-repository: https://github.com/shadow-maint/shadow
-description: Programs to help use subuids
+check: "" # No version parameter
+build_dependencies:
+- make
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: shadow-maint/shadow
   extractVersion: ^v(?<version>.+)$
-license:
-  name: BSD 3-Clause License
-  link: https://github.com/shadow-maint/shadow/blob/master/COPYING
-platforms:
-- linux/amd64
+binary: newuidmap

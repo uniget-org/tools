@@ -1,10 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: etcd
+description: Distributed reliable key-value store
+license:
+  name: Apache License 2.0
+  link: https://github.com/etcd-io/etcd/blob/main/LICENSE
+homepage: https://etcd.io
+repository: https://github.com/etcd-io/etcd
 version: "3.6.11"
-check: ${binary} --version | grep ^etcd | cut -d' ' -f3
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - type/cli
 - type/daemon
@@ -12,13 +14,11 @@ tags:
 - k8s
 - lang/go
 - cncf/graduated
-homepage: https://etcd.io
-repository: https://github.com/etcd-io/etcd
-description: Distributed reliable key-value store
+check: ${binary} --version | grep ^etcd | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: etcd-io/etcd
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/etcd-io/etcd/blob/main/LICENSE

@@ -1,18 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: auggie
+description: All the power of Augment in your terminal
 license:
   name: Custom
   link: https://www.augmentcode.com/legal/community-terms-of-service
+homepage: https://www.augmentcode.com/product/CLI
+repository: ""
 version: "0.26.0"
-check: ${binary} --version | cut -d' ' -f1
-build_dependencies:
-- node-lts
-runtime_dependencies:
-- node-lts
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/javascript
@@ -22,9 +17,14 @@ tags:
 - mcp
 - coding
 - agent
-homepage: https://www.augmentcode.com/product/CLI
-repository: ""
-description: All the power of Augment in your terminal
+check: ${binary} --version | cut -d' ' -f1
+build_dependencies:
+- node-lts
+runtime_dependencies:
+- node-lts
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: npm
   package: "@augmentcode/auggie"

@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: osv-scanner
+description: Vulnerability scanner which uses the data provided by https://osv.dev
+license:
+  name: Apache License 2.0
+  link: https://github.com/google/osv-scanner/blob/main/LICENSE
+homepage: https://google.github.io/osv-scanner/
+repository: https://github.com/google/osv-scanner
 version: "2.3.6"
-check: ${binary} --version | head -1 | cut -d' ' -f3
 tags:
 - org/google
 - category/security
@@ -9,15 +14,10 @@ tags:
 - type/cli
 - cve
 - scan
-homepage: https://google.github.io/osv-scanner/
-repository: https://github.com/google/osv-scanner
-description: Vulnerability scanner which uses the data provided by https://osv.dev
+check: ${binary} --version | head -1 | cut -d' ' -f3
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: google/osv-scanner
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/google/osv-scanner/blob/main/LICENSE
-platforms:
-- linux/amd64

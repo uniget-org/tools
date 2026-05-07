@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: savvy
+description: Create, share, and run runbooks from your terminal
 license:
   name: MIT License
   link: https://github.com/getsavvyinc/savvy-cli/blob/main/LICENSE
+homepage: https://getsavvy.so/
+repository: https://github.com/getsavvyinc/savvy-cli
 version: "0.23.0"
-check: ${binary} version | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/go
 - type/cli
 - state/stale
-homepage: https://getsavvy.so/
-repository: https://github.com/getsavvyinc/savvy-cli
-description: Create, share, and run runbooks from your terminal
+check: ${binary} version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: getsavvyinc/savvy-cli

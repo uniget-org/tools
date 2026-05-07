@@ -1,11 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: buildkit
+description: Concurrent, cache-efficient, and Dockerfile-agnostic builder toolkit
+license:
+  name: Apache License 2.0
+  link: https://github.com/moby/buildkit/blob/master/LICENSE
+homepage: https://github.com/moby/moby/issues/34227
+repository: https://github.com/moby/buildkit
 version: "0.29.0"
-binary: buildkitd
-check: ${binary} --version | cut -d' ' -f3 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/moby
 - standard/oci
@@ -17,13 +18,12 @@ tags:
 - standard/docker
 - docker
 - format/spdx
-homepage: https://github.com/moby/moby/issues/34227
-repository: https://github.com/moby/buildkit
-description: Concurrent, cache-efficient, and Dockerfile-agnostic builder toolkit
+check: ${binary} --version | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: moby/buildkit
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/moby/buildkit/blob/master/LICENSE
+binary: buildkitd

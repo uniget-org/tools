@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: gkg
+description: Create a structured, queryable graph database from code repositories to power AI features and enhance developer productivity
 license:
   name: GitLab Enterprise Edition License
   link: https://gitlab.com/gitlab-org/rust/knowledge-graph/-/blob/main/LICENSE.md?ref_type=heads
+homepage: https://gitlab-org.gitlab.io/rust/knowledge-graph/
+repository: https://gitlab.com/gitlab-org/rust/knowledge-graph
 version: "0.25.0"
-check: ${binary} --version | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/gitlab
 - category/development
 - lang/rust
 - type/cli
 - type/daemon
-homepage: https://gitlab-org.gitlab.io/rust/knowledge-graph/
-repository: https://gitlab.com/gitlab-org/rust/knowledge-graph
-description: Create a structured, queryable graph database from code repositories to power AI features and enhance developer productivity
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: gitlab-releases
   package: gitlab-org/rust/knowledge-graph

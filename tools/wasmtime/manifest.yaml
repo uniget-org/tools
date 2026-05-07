@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: wasmtime
+description: Fast and secure runtime for WebAssembly
+license:
+  name: Apache License 2.0
+  link: https://github.com/bytecodealliance/wasmtime/blob/main/LICENSE
+homepage: https://wasmtime.dev/
+repository: https://github.com/bytecodealliance/wasmtime
 version: "44.0.1"
-check: ${binary} --version | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/rust
 - type/cli
 - webassembly
 - wasm
-homepage: https://wasmtime.dev/
-repository: https://github.com/bytecodealliance/wasmtime
-description: Fast and secure runtime for WebAssembly
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: bytecodealliance/wasmtime
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/bytecodealliance/wasmtime/blob/main/LICENSE

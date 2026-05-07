@@ -1,19 +1,19 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: firejail
+description: Linux namespaces and seccomp-bpf sandbox
+license:
+  name: GPLv2
+homepage: https://firejail.wordpress.com
+repository: https://github.com/netblue30/firejail
 version: "0.9.80"
-check: ${binary} --version | head -n 1 | cut -d' ' -f3
 tags:
 - category/security
 - type/cli
 - lang/c
 - kernel/namespaces
-homepage: https://firejail.wordpress.com
-repository: https://github.com/netblue30/firejail
-description: Linux namespaces and seccomp-bpf sandbox
+check: ${binary} --version | head -n 1 | cut -d' ' -f3
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: netblue30/firejail
-license:
-  name: GPLv2
-platforms:
-- linux/amd64

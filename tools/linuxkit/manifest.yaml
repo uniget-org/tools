@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: linuxkit
+description: Toolkit for building secure, portable and lean operating systems for containers
+license:
+  name: Apache License 2.0
+  link: https://github.com/linuxkit/linuxkit/blob/master/LICENSE
+homepage: https://github.com/linuxkit/linuxkit
+repository: https://github.com/linuxkit/linuxkit
 version: "1.8.2"
-check: "" # Wrong version
 tags:
 - type/cli
 - org/moby
 - lang/go
 - category/security
-homepage: https://github.com/linuxkit/linuxkit
-repository: https://github.com/linuxkit/linuxkit
-description: Toolkit for building secure, portable and lean operating systems for containers
+check: "" # Wrong version
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: linuxkit/linuxkit
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/linuxkit/linuxkit/blob/master/LICENSE
-platforms:
-- linux/amd64

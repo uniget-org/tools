@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: octosql
+description: Query tool that allows you to join, analyse and transform data from multiple databases and file formats using SQL
+license:
+  name: Mozilla Public License 2.0
+  link: https://github.com/cube2222/octosql/blob/main/LICENSE
+homepage: https://github.com/cube2222/octosql
+repository: https://github.com/cube2222/octosql
 version: "0.13.0"
-check: ${binary} --version | cut -d' ' -f3
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/go
 - type/cli
 - state/stale
-homepage: https://github.com/cube2222/octosql
-repository: https://github.com/cube2222/octosql
-description: Query tool that allows you to join, analyse and transform data from multiple databases and file formats using SQL
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: cube2222/octosql
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Mozilla Public License 2.0
-  link: https://github.com/cube2222/octosql/blob/main/LICENSE

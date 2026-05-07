@@ -1,14 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: stackit
+description: Command-line interface to manage STACKIT resources
 license:
   name: Apache License 2.0
   link: https://github.com/stackitcloud/stackit-cli/blob/main/LICENSE.md
+homepage: https://www.stackit.de/en
+repository: https://github.com/stackitcloud/stackit-cli
 version: "0.61.0"
-check: ${binary} --version | grep ^Version | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/stackit
 - category/operations
@@ -17,9 +16,10 @@ tags:
 - infrastructure
 - management
 - cloud/stackit
-homepage: https://www.stackit.de/en
-repository: https://github.com/stackitcloud/stackit-cli
-description: Command-line interface to manage STACKIT resources 
+check: ${binary} --version | grep ^Version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: stackitcloud/stackit-cli

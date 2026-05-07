@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: opkssh
+description: OpenPubkey SSH
 license:
   name: Apache License 2.0
   link: https://github.com/openpubkey/opkssh/blob/main/LICENSE
+homepage: https://github.com/openpubkey/opkssh
+repository: https://github.com/openpubkey/opkssh
 version: "0.14.0"
-check: ${binary} --version | cut -d' ' -f3
-platforms:
-- linux/amd64
 tags:
 - org/openpubkey
 - category/operations
 - lang/go
 - type/cli
-homepage: https://github.com/openpubkey/opkssh
-repository: https://github.com/openpubkey/opkssh
-description: OpenPubkey SSH
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: openpubkey/opkssh

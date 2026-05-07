@@ -1,6 +1,16 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: mapcidr
+description: Small utility program to perform multiple operations for a given subnet/CIDR ranges.
+license:
+  name: MIT License
+homepage: https://projectdiscovery.io
+repository: https://github.com/projectdiscovery/mapcidr
 version: "1.1.97"
+tags:
+- category/security
+- type/cli
+- lang/go
+- component/network
 check: ${binary} --version 2>&1 | grep "Current Version:" | cut -d' ' -f4 | tr -d v
 build_dependencies:
 - go
@@ -8,17 +18,7 @@ build_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/security
-- type/cli
-- lang/go
-- component/network
-homepage: https://projectdiscovery.io
-repository: https://github.com/projectdiscovery/mapcidr
-description: Small utility program to perform multiple operations for a given subnet/CIDR ranges.
 renovate:
   datasource: github-releases
   package: projectdiscovery/mapcidr
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License

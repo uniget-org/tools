@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kompose
+description: Go from Docker Compose to Kubernetes
+license:
+  name: Apache License 2.0
+  link: https://github.com/kubernetes/kompose/blob/main/LICENSE
+homepage: http://kompose.io
+repository: https://github.com/kubernetes/kompose
 version: "1.38.0"
-check: ${binary} version | cut -d' ' -f1
 tags:
 - org/kubernetes
 - container/compose
@@ -9,15 +14,10 @@ tags:
 - kubernetes
 - lang/go
 - standard/compose
-homepage: http://kompose.io
-repository: https://github.com/kubernetes/kompose
-description: Go from Docker Compose to Kubernetes
+check: ${binary} version | cut -d' ' -f1
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: kubernetes/kompose
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/kubernetes/kompose/blob/main/LICENSE
-platforms:
-- linux/amd64

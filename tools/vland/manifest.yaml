@@ -1,13 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: vland
+description: Virtual userland manager for lxroot
+license:
+  name: GPLv3
+  link: https://github.com/parke/vland/blob/main/LICENSE
+homepage: https://github.com/parke/vland
+repository: https://github.com/parke/vland
 version: "0.22.2"
-check: ${binary} --version | tr -s ' ' | cut -d' ' -f3
-runtime_dependencies:
-- lxroot
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/shell
@@ -15,12 +15,12 @@ tags:
 - management
 - state/stale
 - state/onemanshow
-homepage: https://github.com/parke/vland
-repository: https://github.com/parke/vland
-description: Virtual userland manager for lxroot
+check: ${binary} --version | tr -s ' ' | cut -d' ' -f3
+runtime_dependencies:
+- lxroot
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: parke/vland
-license:
-  name: GPLv3
-  link: https://github.com/parke/vland/blob/main/LICENSE

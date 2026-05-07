@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: chisel
+description: Tool for carving and cutting Debian packages
 license:
   name: AGPLv3
   link: https://github.com/canonical/chisel/blob/main/LICENSE
+homepage: https://github.com/canonical/chisel
+repository: https://github.com/canonical/chisel
 version: "1.4.1"
-check: ${binary} --version | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/canonical
 - category/development
 - lang/go
 - type/cli
 - distroless
-homepage: https://github.com/canonical/chisel
-repository: https://github.com/canonical/chisel
-description: Tool for carving and cutting Debian packages
+check: ${binary} --version | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: canonical/chisel

@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: esbuild
+description: Extremely fast bundler for the web
+license:
+  name: MIT License
+homepage: https://esbuild.github.io/
+repository: https://github.com/evanw/esbuild
 version: "0.28.0"
-check: ${binary} --version
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/javascript
 - type/cli
-homepage: https://esbuild.github.io/
-repository: https://github.com/evanw/esbuild
-description: Extremely fast bundler for the web
+check: ${binary} --version
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: evanw/esbuild
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License

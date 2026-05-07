@@ -1,7 +1,19 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: kitt
+description: Container based portable shell environment
+license:
+  name: GPLv3
+  link: https://github.com/senges/kitt/blob/main/LICENCE.md
+homepage: https://github.com/senges/kitt
+repository: https://github.com/senges/kitt
 version: "0.8.6"
+tags:
+- category/development
+- lang/python
+- type/cli
+- state/stale
+- state/onemanshow
 check: "" # No version/help provided
 build_dependencies:
 - python-3.12
@@ -11,18 +23,6 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/development
-- lang/python
-- type/cli
-- state/stale
-- state/onemanshow
-homepage: https://github.com/senges/kitt
-repository: https://github.com/senges/kitt
-description: Container based portable shell environment
 renovate:
   datasource: pypi
   package: kitt-shell
-license:
-  name: GPLv3
-  link: https://github.com/senges/kitt/blob/main/LICENCE.md

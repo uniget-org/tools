@@ -1,24 +1,24 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: yamlfmt
+description: Extensible command line tool or library to format yaml files
+license:
+  name: Apache License 2.0
+  link: https://github.com/google/yamlfmt/blob/main/LICENSE
+homepage: https://github.com/google/yamlfmt
+repository: https://github.com/google/yamlfmt
 version: "0.21.0"
-check: ${binary} -version
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/google
 - category/development
 - lang/go
 - type/cli
 - format/yaml
-homepage: https://github.com/google/yamlfmt
-repository: https://github.com/google/yamlfmt
-description: Extensible command line tool or library to format yaml files
+check: ${binary} -version
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: google/yamlfmt
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/google/yamlfmt/blob/main/LICENSE

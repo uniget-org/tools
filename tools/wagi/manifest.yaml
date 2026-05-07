@@ -1,10 +1,11 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: wagi
+description: Write HTTP handlers in WebAssembly with a minimal amount of work
+license:
+  name: Apache License 2.0
+homepage: https://github.com/deislabs/wagi
+repository: https://github.com/deislabs/wagi
 version: "0.8.1"
-check: "" # Missing shared libraries
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/rust
@@ -13,17 +14,16 @@ tags:
 - wasm
 - state/stale
 - state/deprecated
+check: "" # Missing shared libraries
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: deislabs/wagi
+  extractVersion: ^v(?<version>.+)$
 messages:
   update: |
     Please provide the following libraries:
     - libssl.so.1.1
     - libcrypto.so.1.1
-homepage: https://github.com/deislabs/wagi
-repository: https://github.com/deislabs/wagi
-description: Write HTTP handlers in WebAssembly with a minimal amount of work
-renovate:
-  datasource: github-releases
-  package: deislabs/wagi
-  extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0

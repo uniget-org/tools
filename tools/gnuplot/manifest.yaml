@@ -1,11 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: gnuplot
+description: Command-driven, interactive function plotting
+license:
+  name: Custom
+  link: https://sourceforge.net/p/gnuplot/gnuplot-main/ci/master/tree/Copyright
+homepage: http://www.gnuplot.info
+repository: http://www.gnuplot.info
 version: "6.0.4"
-check: ${binary} --version | cut -d' ' -f2- | tr '[a-z ]' '.' | tr -s .
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/c
@@ -13,13 +15,11 @@ tags:
 - graph
 - plot
 - visualization
-homepage: http://www.gnuplot.info
-repository: http://www.gnuplot.info
-description: Command-driven, interactive function plotting
+check: ${binary} --version | cut -d' ' -f2- | tr '[a-z ]' '.' | tr -s .
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: git-tags
   package: https://git.code.sf.net/p/gnuplot/gnuplot-main.git
   extractVersion: ^\d+\.\d*[02468]\.\d+$
-license:
-  name: Custom
-  link: https://sourceforge.net/p/gnuplot/gnuplot-main/ci/master/tree/Copyright

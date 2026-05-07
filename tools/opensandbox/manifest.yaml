@@ -1,8 +1,19 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: opensandbox
+description: Command-line interface for creating and managing OpenSandbox sandboxes
+license:
+  name: Apache License 2.0
+  link: https://github.com/alibaba/OpenSandbox/blob/main/LICENSE
+homepage: https://open-sandbox.ai/
+repository: https://github.com/alibaba/OpenSandbox
 version: "0.1.0"
-binary: osb
+tags:
+- category/security
+- lang/python
+- type/cli
+- ai
+- sandbox
 check: ${binary} --version | cut -d' ' -f3
 build_dependencies:
 - python-3.12
@@ -12,18 +23,7 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/security
-- lang/python
-- type/cli
-- ai
-- sandbox
-homepage: https://open-sandbox.ai/
-repository: https://github.com/alibaba/OpenSandbox
-description: Command-line interface for creating and managing OpenSandbox sandboxes
 renovate:
   datasource: pypi
   package: opensandbox-cli
-license:
-  name: Apache License 2.0
-  link: https://github.com/alibaba/OpenSandbox/blob/main/LICENSE
+binary: osb

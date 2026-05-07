@@ -1,7 +1,17 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: decktape
+description: PDF exporter for HTML presentations
+license:
+  name: MIT License
+  link: https://github.com/astefanutti/decktape/blob/master/LICENSE
+homepage: https://github.com/astefanutti/decktape
+repository: https://github.com/astefanutti/decktape
 version: "3.16.1"
+tags:
+- category/development
+- lang/javascript
+- type/cli
 check: ${binary} version
 build_dependencies:
 - node-lts
@@ -10,16 +20,6 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/development
-- lang/javascript
-- type/cli
-homepage: https://github.com/astefanutti/decktape
-repository: https://github.com/astefanutti/decktape
-description: PDF exporter for HTML presentations
 renovate:
   datasource: npm
   package: decktape
-license:
-  name: MIT License
-  link: https://github.com/astefanutti/decktape/blob/master/LICENSE

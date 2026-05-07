@@ -1,25 +1,25 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: vexctl
+description: Create, transform and attest VEX metadata
+license:
+  name: Apache License 2.0
+  link: https://github.com/openvex/vexctl/blob/main/LICENSE
+homepage: https://github.com/openvex/vexctl
+repository: https://github.com/openvex/vexctl
 version: "0.4.1"
-check: ${binary} version 2>&1 | grep ^GitVersion | tr -s ' ' | cut -d' ' -f2 | tr -d v
-build_dependencies:
-- go
-- make
 tags:
 - type/cli
 - category/security
 - sbom
 - lang/go
 - standard/vex
-homepage: https://github.com/openvex/vexctl
-repository: https://github.com/openvex/vexctl
-description: Create, transform and attest VEX metadata
+check: ${binary} version 2>&1 | grep ^GitVersion | tr -s ' ' | cut -d' ' -f2 | tr -d v
+build_dependencies:
+- go
+- make
+platforms:
+- linux/amd64
 renovate:
   datasource: github-tags
   package: openvex/vexctl
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/openvex/vexctl/blob/main/LICENSE
-platforms:
-- linux/amd64

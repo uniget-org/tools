@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: witr
+description: Why is this running
 license:
   name: Apache License 2.0
   link: https://github.com/pranshuparmar/witr/blob/main/LICENSE
+homepage: https://github.com/pranshuparmar/witr
+repository: https://github.com/pranshuparmar/witr
 version: "0.3.1"
-check: ${binary} --version | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/go
 - type/cli
-homepage: https://github.com/pranshuparmar/witr
-repository: https://github.com/pranshuparmar/witr
-description: Why is this running
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: pranshuparmar/witr

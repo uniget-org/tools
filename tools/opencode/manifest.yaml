@@ -1,18 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: opencode
+description: AI coding agent, built for the terminal
 license:
   name: MIT License
   link: https://github.com/sst/opencode/blob/dev/LICENSE
+homepage: https://opencode.ai/
+repository: https://github.com/sst/opencode
 version: "1.14.41"
-check: ${binary} --version
-build_dependencies:
-- node-lts
-runtime_dependencies:
-- node-lts
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/javascript
@@ -23,9 +18,14 @@ tags:
 - coding
 - agent
 - mcp
-homepage: https://opencode.ai/
-repository: https://github.com/sst/opencode
-description: AI coding agent, built for the terminal
+check: ${binary} --version
+build_dependencies:
+- node-lts
+runtime_dependencies:
+- node-lts
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: npm
   package: opencode-ai

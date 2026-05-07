@@ -1,9 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kubectl-resources
+description: Access Kubernetes resource requests, limits, and usage
+license:
+  name: Apache License 2.0
+  link: https://github.com/howardjohn/kubectl-resources/blob/master/LICENSE
+homepage: https://github.com/howardjohn/kubectl-resources
+repository: https://github.com/howardjohn/kubectl-resources
 version: "0.2.0"
-check: "" # No version parameter
-runtime_dependencies:
-- kubectl
 tags:
 - type/cli
 - type/plugin
@@ -15,15 +18,12 @@ tags:
 - k8s
 - category/operations
 - observability/metrics
-homepage: https://github.com/howardjohn/kubectl-resources
-repository: https://github.com/howardjohn/kubectl-resources
-description: Access Kubernetes resource requests, limits, and usage
+check: "" # No version parameter
+runtime_dependencies:
+- kubectl
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: howardjohn/kubectl-resources
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/howardjohn/kubectl-resources/blob/master/LICENSE
-platforms:
-- linux/amd64

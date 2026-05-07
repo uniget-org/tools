@@ -1,24 +1,24 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: pigz
+description: Parallel implementation of gzip for modern multi-processor, multi-core machines
+license:
+  name: Custom
+  link: https://github.com/madler/pigz
+homepage: http://zlib.net/pigz/
+repository: https://github.com/madler/pigz
 version: "2.8"
-check: ${binary} --version | cut -d' ' -f2
-build_dependencies:
-- make
 tags:
 - type/cli
 - compression
 - lang/c
 - category/operations
-homepage: http://zlib.net/pigz/
-repository: https://github.com/madler/pigz
-description: Parallel implementation of gzip for modern multi-processor, multi-core machines
+check: ${binary} --version | cut -d' ' -f2
+build_dependencies:
+- make
+platforms:
+- linux/amd64
 renovate:
   datasource: github-tags
   package: madler/pigz
   extractVersion: ^v(?<version>.+)$
   versioning: loose
-license:
-  name: Custom
-  link: https://github.com/madler/pigz
-platforms:
-- linux/amd64

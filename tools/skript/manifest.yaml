@@ -1,15 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: skript
+description: Plugin which allows server admins to customize their server easily, but without the hassle of programming a plugin
 license:
   name: GPLv3
   link: https://github.com/SkriptLang/Skript/blob/master/LICENSE
+homepage: https://docs.skriptlang.org/
+repository: https://github.com/SkriptLang/Skript
 version: "2.15.2"
-binary: "false"
-check: ""
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/games
 - lang/java
@@ -18,9 +16,11 @@ tags:
 - multiverse
 - papermc
 - paper
-homepage: https://docs.skriptlang.org/
-repository: https://github.com/SkriptLang/Skript
-description: Plugin which allows server admins to customize their server easily, but without the hassle of programming a plugin
+check: ""
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: SkriptLang/Skript
+binary: "false"

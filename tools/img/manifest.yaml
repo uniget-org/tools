@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: img
+description: Standalone, daemon-less, unprivileged Dockerfile and OCI compatible container image builder
+license:
+  name: MIT License
+  link: https://github.com/genuinetools/img/blob/master/LICENSE
+homepage: https://blog.jessfraz.com/post/building-container-images-securely-on-kubernetes/
+repository: https://github.com/genuinetools/img
 version: "0.5.11"
-check: ${binary} --version | cut -d, -f1 | cut -d' ' -f3 | tr -d v
 tags:
 - standard/oci
 - container/build
@@ -9,15 +14,10 @@ tags:
 - lang/go
 - state/stale
 - standard/docker
-homepage: https://blog.jessfraz.com/post/building-container-images-securely-on-kubernetes/
-repository: https://github.com/genuinetools/img
-description: Standalone, daemon-less, unprivileged Dockerfile and OCI compatible container image builder
+check: ${binary} --version | cut -d, -f1 | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: genuinetools/img
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/genuinetools/img/blob/master/LICENSE
-platforms:
-- linux/amd64

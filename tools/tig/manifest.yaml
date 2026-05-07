@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: tig
+description: Text-mode interface for git
+license:
+  name: GPLv2
+homepage: https://jonas.github.io/tig/
+repository: https://github.com/jonas/tig
 version: "2.6.0"
-check: ${binary} --version | grep ^tig | cut -d' ' -f3
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - type/tui
 - category/development
 - lang/c
 - standard/git
 - git
-homepage: https://jonas.github.io/tig/
-repository: https://github.com/jonas/tig
-description: Text-mode interface for git
+check: ${binary} --version | grep ^tig | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: jonas/tig
   extractVersion: ^tig-(?<version>.+)$
-license:
-  name: GPLv2

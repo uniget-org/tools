@@ -1,12 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: miller
+description: Like awk, sed, cut, join, and sort for name-indexed data such as CSV, TSV, and tabular JSON
+license:
+  name: Custom
+  link: https://github.com/johnkerl/miller/blob/main/LICENSE.txt
+homepage: https://miller.readthedocs.io
+repository: https://github.com/johnkerl/miller
 version: "6.18.1"
-binary: mlr
-check: ${binary} --version | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/go
@@ -16,13 +17,12 @@ tags:
 - format/csv
 - format/yaml
 - format/toml
-homepage: https://miller.readthedocs.io
-repository: https://github.com/johnkerl/miller
-description: Like awk, sed, cut, join, and sort for name-indexed data such as CSV, TSV, and tabular JSON
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: johnkerl/miller
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Custom
-  link: https://github.com/johnkerl/miller/blob/main/LICENSE.txt
+binary: mlr

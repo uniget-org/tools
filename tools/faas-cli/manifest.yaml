@@ -1,19 +1,19 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: faas-cli
+description: Official CLI for OpenFaaS
+license:
+  name: Custom
+  link: https://github.com/openfaas/faas-cli/blob/master/LICENSE
+homepage: https://www.openfaas.com/
+repository: https://github.com/openfaas/faas-cli
 version: "0.18.8"
-check: ${binary} version | grep "version:" | cut -d' ' -f3
 tags:
 - category/serverless
 - type/cli
 - lang/go
-homepage: https://www.openfaas.com/
-repository: https://github.com/openfaas/faas-cli
-description: Official CLI for OpenFaaS
+check: ${binary} version | grep "version:" | cut -d' ' -f3
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: openfaas/faas-cli
-license:
-  name: Custom
-  link: https://github.com/openfaas/faas-cli/blob/master/LICENSE
-platforms:
-- linux/amd64

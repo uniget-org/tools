@@ -1,12 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: k8spacket
+description: Traffic visualization for kubernetes
+license:
+  name: Apache License 2.0
+  link: https://github.com/k8spacket/k8spacket/blob/master/LICENSE
+homepage: https://github.com/k8spacket/k8spacket
+repository: https://github.com/k8spacket/k8spacket
 version: "2.2.4"
-check: "" # No version parameter
-build_dependencies:
-- go
-- bpftool
-platforms:
-- linux/amd64
 tags:
 - troubleshooting
 - component/network
@@ -15,13 +15,13 @@ tags:
 - kubernetes
 - k8s
 - ebpf
-homepage: https://github.com/k8spacket/k8spacket
-repository: https://github.com/k8spacket/k8spacket
-description: Traffic visualization for kubernetes
+check: "" # No version parameter
+build_dependencies:
+- go
+- bpftool
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: k8spacket/k8spacket
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/k8spacket/k8spacket/blob/master/LICENSE

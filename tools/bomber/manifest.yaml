@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: bomber
+description: Scans Software Bill of Materials (SBOMs) for security vulnerabilities
+license:
+  name: Mozilla Public License 2.0
+  link: https://github.com/devops-kung-fu/bomber/blob/main/LICENSE
+homepage: https://github.com/devops-kung-fu/bomber
+repository: https://github.com/devops-kung-fu/bomber
 version: "0.5.1"
-check: ${binary} --version | cut -d' ' -f3
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/security
 - type/cli
 - lang/go
 - sbom
 - state/stale
-homepage: https://github.com/devops-kung-fu/bomber
-repository: https://github.com/devops-kung-fu/bomber
-description: Scans Software Bill of Materials (SBOMs) for security vulnerabilities
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: devops-kung-fu/bomber
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Mozilla Public License 2.0
-  link: https://github.com/devops-kung-fu/bomber/blob/main/LICENSE

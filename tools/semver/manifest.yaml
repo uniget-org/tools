@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: semver
+description: Semver bash implementation
+license:
+  name: Apache License 2.0
+  link: https://github.com/fsaintjacques/semver-tool/blob/master/LICENSE
+homepage: https://github.com/fsaintjacques/semver-tool
+repository: https://github.com/fsaintjacques/semver-tool
 version: "3.4.0"
-check: ${binary} --version | cut -d' ' -f2
 tags:
 - category/development
 - type/cli
 - cicd
 - lang/shell
 - state/stale
-homepage: https://github.com/fsaintjacques/semver-tool
-repository: https://github.com/fsaintjacques/semver-tool
-description: Semver bash implementation
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: fsaintjacques/semver-tool
-license:
-  name: Apache License 2.0
-  link: https://github.com/fsaintjacques/semver-tool/blob/master/LICENSE
-platforms:
-- linux/amd64

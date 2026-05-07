@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: artifactory-cleanup
+description: Cleanup artifacts on Jfrog Artifactory with advanced settings
+license:
+  name: MIT License
+  link: https://github.com/crazy-max/artifactory-cleanup/blob/master/LICENSE
+homepage: https://crazymax.dev/artifactory-cleanup/
+repository: https://github.com/crazy-max/artifactory-cleanup
 version: "1.7.0"
-check: ${binary} --version
 tags:
 - type/cli
 - management
@@ -9,15 +14,10 @@ tags:
 - lang/go
 - state/deprecated
 - state/stale
-homepage: https://crazymax.dev/artifactory-cleanup/
-repository: https://github.com/crazy-max/artifactory-cleanup
-description: Cleanup artifacts on Jfrog Artifactory with advanced settings
+check: ${binary} --version
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: crazy-max/artifactory-cleanup
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/crazy-max/artifactory-cleanup/blob/master/LICENSE
-platforms:
-- linux/amd64

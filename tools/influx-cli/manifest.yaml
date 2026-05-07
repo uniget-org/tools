@@ -1,8 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: influx-cli
+description: CLI for managing resources in InfluxDB v2
+license:
+  name: MIT License
+  link: https://github.com/influxdata/influx-cli/blob/main/LICENSE
+homepage: https://github.com/influxdata/influx-cli
+repository: https://github.com/influxdata/influx-cli
 version: "2.8.0"
-binary: influx
-check: ${binary} version | cut -d' ' -f3
 tags:
 - org/influxdata
 - observability/metrics
@@ -11,15 +15,11 @@ tags:
 - lang/go
 - type/cli
 - observability/metrics
-homepage: https://github.com/influxdata/influx-cli
-repository: https://github.com/influxdata/influx-cli
-description: CLI for managing resources in InfluxDB v2
+check: ${binary} version | cut -d' ' -f3
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: influxdata/influx-cli
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/influxdata/influx-cli/blob/main/LICENSE
-platforms:
-- linux/amd64
+binary: influx

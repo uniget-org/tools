@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: rust
+description: Empowering everyone to build reliable and efficient software
+license:
+  name: Custom
+  link: https://github.com/rust-lang/rust
+homepage: https://www.rust-lang.org
+repository: https://github.com/rust-lang/rust
 version: "1.95.0"
-binary: ${target}/cargo/bin/cargo
-check: ${binary} --version | cut -d' ' -f2
-platforms:
-- linux/amd64
-#- linux/arm64
 tags:
 - type/cli
 - category/development
 - lang/rust
-homepage: https://www.rust-lang.org
-repository: https://github.com/rust-lang/rust
-description: Empowering everyone to build reliable and efficient software
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+#- linux/arm64
 renovate:
   datasource: github-releases
   package: rust-lang/rust
-license:
-  name: Custom
-  link: https://github.com/rust-lang/rust
+binary: ${target}/cargo/bin/cargo

@@ -1,25 +1,25 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: wg
+description: Tools for configuring WireGuard
+license:
+  name: GPLv2
+  link: https://git.zx2c4.com/wireguard-tools/tree/COPYING
+homepage: https://git.zx2c4.com/wireguard-tools
+repository: https://git.zx2c4.com/wireguard-tools
 version: "1.0.20260223"
+tags:
+- category/security
+- lang/c
+- type/cli
+- wireguard
 check: ${binary} --version | cut -d' ' -f2 | cut -d- -f1 | tr -d v
 build_dependencies:
 - make
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/security
-- lang/c
-- type/cli
-- wireguard
-homepage: https://git.zx2c4.com/wireguard-tools
-repository: https://git.zx2c4.com/wireguard-tools
-description: Tools for configuring WireGuard
 renovate:
   datasource: git-tags
   package: git://git.zx2c4.com/wireguard-tools.git
   extractVersion: ^v(?<version>.+)$
-license:
-  name: GPLv2
-  link: https://git.zx2c4.com/wireguard-tools/tree/COPYING

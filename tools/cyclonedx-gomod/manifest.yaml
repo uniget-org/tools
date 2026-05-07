@@ -1,10 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: cyclonedx-gomod
+description: Creates CycloneDX Software Bill of Materials (SBOM) from Go modules
+license:
+  name: Apache License 2.0
+  link: https://github.com/CycloneDX/cyclonedx-gomod/blob/main/LICENSE
+homepage: https://cyclonedx.org
+repository: https://github.com/CycloneDX/cyclonedx-gomod
 version: "1.10.0"
-check: ${binary} version | grep ^Version | cut -dv -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/security
 - lang/go
@@ -12,13 +14,11 @@ tags:
 - sbom
 - org/cyclonedx
 - format/cyclonedx
-homepage: https://cyclonedx.org
-repository: https://github.com/CycloneDX/cyclonedx-gomod
-description: Creates CycloneDX Software Bill of Materials (SBOM) from Go modules
+check: ${binary} version | grep ^Version | cut -dv -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: CycloneDX/cyclonedx-gomod
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/CycloneDX/cyclonedx-gomod/blob/main/LICENSE

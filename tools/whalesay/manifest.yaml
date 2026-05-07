@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: whalesay
+description: Docker's official whalesay
+license:
+  name: Artistic License, GPL
+  link: https://github.com/docker/whalesay/blob/master/LICENSE
+homepage: https://github.com/docker/whalesay
+repository: https://github.com/docker/whalesay
 version: "0.0.1"
-binary: "false"
+tags:
+- category/operations
+- lang/go
+- type/cli
 check: "" # No binary
 runtime_dependencies:
 - cowsay
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/operations
-- lang/go
-- type/cli
-homepage: https://github.com/docker/whalesay
-repository: https://github.com/docker/whalesay
-description: Docker's official whalesay
-license:
-  name: Artistic License, GPL
-  link: https://github.com/docker/whalesay/blob/master/LICENSE
+binary: "false"

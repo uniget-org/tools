@@ -1,15 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kind
+description: Kubernetes IN Docker - local clusters for testing Kubernetes
 license:
   name: Apache License 2.0
   link: https://github.com/kubernetes-sigs/kind/blob/main/LICENSE
+homepage: https://kind.sigs.k8s.io/
+repository: https://github.com/kubernetes-sigs/kind
 version: "0.31.0"
-check: ${binary} version | cut -d' ' -f1-2 | cut -d' ' -f2 | tr -d v
-runtime_dependencies:
-- docker
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/cncf
 - standard/docker
@@ -19,9 +16,16 @@ tags:
 - k8s
 - lang/go
 - management
-homepage: https://kind.sigs.k8s.io/
-repository: https://github.com/kubernetes-sigs/kind
-description: Kubernetes IN Docker - local clusters for testing Kubernetes
+check: ${binary} version | cut -d' ' -f1-2 | cut -d' ' -f2 | tr -d v
+runtime_dependencies:
+- docker
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: kubernetes-sigs/kind
+  extractVersion: ^v(?<version>.+)$
 messages:
   usage: |
     - A service unit is provided in /etc/systemd/system/kind.service
@@ -31,7 +35,3 @@ messages:
           systemctl start kind
     - Enable the service using:
           systemctl enable kind
-renovate:
-  datasource: github-releases
-  package: kubernetes-sigs/kind
-  extractVersion: ^v(?<version>.+)$

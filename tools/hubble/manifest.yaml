@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: hubble
+description: Network, Service & Security Observability for Kubernetes using eBPF
+license:
+  name: Apache License 2.0
+  link: https://github.com/cilium/hubble/blob/main/LICENSE
+homepage: https://github.com/cilium/hubble
+repository: https://github.com/cilium/hubble
 version: "1.19.3"
-check: ${binary} version | cut -d' ' -f2 | tr -d v
 tags:
 - type/cli
 - category/security
@@ -9,15 +14,10 @@ tags:
 - ebpf
 - lang/go
 - cilium
-homepage: https://github.com/cilium/hubble
-repository: https://github.com/cilium/hubble
-description: Network, Service & Security Observability for Kubernetes using eBPF
+check: ${binary} version | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: cilium/hubble
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/cilium/hubble/blob/main/LICENSE
-platforms:
-- linux/amd64

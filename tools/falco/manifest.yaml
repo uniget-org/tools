@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: falco
+description: Cloud Native Runtime Security
+license:
+  name: Apache License 2.0
+  link: https://github.com/falcosecurity/falco/blob/master/LICENSE
+homepage: https://falco.org
+repository: https://github.com/falcosecurity/falco
 version: "0.43.1"
-check: ${binary} --version | grep ^Falco | cut -d' ' -f3
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/security
 - lang/c
 - type/cli
 - cncf/graduated
-homepage: https://falco.org
-repository: https://github.com/falcosecurity/falco
-description: Cloud Native Runtime Security
+check: ${binary} --version | grep ^Falco | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: falcosecurity/falco
-license:
-  name: Apache License 2.0
-  link: https://github.com/falcosecurity/falco/blob/master/LICENSE

@@ -1,45 +1,45 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: powershell
+description: PowerShell for every system
+license:
+  name: MIT License
+homepage: https://microsoft.com/PowerShell
+repository: https://github.com/PowerShell/PowerShell
 version: "7.6.1"
-binary: pwsh
+tags:
+- org/microsoft
+- category/operations
+- lang/c
+- type/cli
 check: ${binary} -Version | cut -d' ' -f2
 runtime_dependencies:
 - dotnet-runtime
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- org/microsoft
-- category/operations
-- lang/c
-- type/cli
-homepage: https://microsoft.com/PowerShell
-repository: https://github.com/PowerShell/PowerShell
-description: PowerShell for every system
+renovate:
+  datasource: github-releases
+  package: PowerShell/PowerShell
+  extractVersion: ^v(?<version>.+)$
+binary: pwsh
 messages:
   internals: |
     dotnet programs require libicu for globalization. To avoid this
     dependency, set the following environment variable before running
     dotnet programs (https://aka.ms/dotnet-missing-libicu):
-    
+
         DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
 
     To opt out of telemetry, set the following environment variable
     before running dotnet programs (https://aka.ms/dotnet-cli-telemetry):
-    
+
         DOTNET_CLI_TELEMETRY_OPTOUT=1
-    
+
     To set the location of the dotnet SDK, set the following environment
     variable before running dotnet programs:
-    
+
         DOTNET_ROOT=$target/share/dotnet
 
     With dotnet in a well-known location like /usr or /usr/local and dotnet
     in the PATH, this may not be necessary.
     Read more here: https://github.com/dotnet/designs/blob/main/accepted/2020/install-locations.md
-renovate:
-  datasource: github-releases
-  package: PowerShell/PowerShell
-  extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License

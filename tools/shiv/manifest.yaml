@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: shiv
+description: Command line utility for building fully self contained Python zipapps as outlined in PEP 441
+license:
+  name: BSD 2-Clause License
+  link: https://github.com/linkedin/shiv/blob/main/LICENSE
+homepage: https://github.com/linkedin/shiv
+repository: https://github.com/linkedin/shiv
 version: "1.0.8"
+tags:
+- category/operations
+- lang/python
+- type/cli
+- management
 check: ${binary} --version | cut -d' ' -f3
 runtime_dependencies:
 - python-3.12
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/operations
-- lang/python
-- type/cli
-- management
-homepage: https://github.com/linkedin/shiv
-repository: https://github.com/linkedin/shiv
-description: Command line utility for building fully self contained Python zipapps as outlined in PEP 441
 renovate:
   datasource: github-releases
   package: linkedin/shiv
-license:
-  name: BSD 2-Clause License
-  link: https://github.com/linkedin/shiv/blob/main/LICENSE

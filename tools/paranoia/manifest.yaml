@@ -1,20 +1,20 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: paranoia
+description: Inspect certificate authorities in container images
+license:
+  name: Apache License 2.0
+homepage: https://github.com/jetstack/paranoia
+repository: https://github.com/jetstack/paranoia
 version: "0.5.0"
-check: "" # No version parameter
 tags:
 - category/security
 - type/cli
 - lang/go
 - certificate
-homepage: https://github.com/jetstack/paranoia
-repository: https://github.com/jetstack/paranoia
-description: Inspect certificate authorities in container images
+check: "" # No version parameter
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: jetstack/paranoia
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-platforms:
-- linux/amd64

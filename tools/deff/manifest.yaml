@@ -1,24 +1,24 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: deff
+description: Interactive, side-by-side file review for git diffs with per-file navigation, vertical and horizontal scrolling, syntax highlighting, and added/deleted line tinting
 license:
   name: MIT License
   link: https://github.com/flamestro/deff/blob/main/LICENSE
+homepage: https://github.com/flamestro/deff
+repository: https://github.com/flamestro/deff
 version: "0.3.0"
-check: "" # No version parameter
-build_dependencies:
-- rust
-platforms:
-- linux/amd64
 tags:
 - category/development
 - lang/rust
 - type/tui
 - diff
 - standard/git
-homepage: https://github.com/flamestro/deff
-repository: https://github.com/flamestro/deff
-description: Interactive, side-by-side file review for git diffs with per-file navigation, vertical and horizontal scrolling, syntax highlighting, and added/deleted line tinting
+check: "" # No version parameter
+build_dependencies:
+- rust
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: flamestro/deff

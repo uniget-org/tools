@@ -1,9 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: flux
+description: Lightweight scripting language for querying databases (like InfluxDB)
+license:
+  name: MIT License
+  link: https://github.com/influxdata/flux/blob/master/LICENSE
+homepage: https://influxdata.com
+repository: https://github.com/influxdata/flux
 version: "0.200.0"
-check: "" # No version parameter
-conflicts_with:
-- flux2
 tags:
 - org/influxdata
 - observability/metrics
@@ -11,15 +14,12 @@ tags:
 - category/monitoring
 - lang/go
 - type/cli
-homepage: https://influxdata.com
-repository: https://github.com/influxdata/flux
-description: Lightweight scripting language for querying databases (like InfluxDB)
+check: "" # No version parameter
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: influxdata/flux
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/influxdata/flux/blob/master/LICENSE
-platforms:
-- linux/amd64
+conflicts_with:
+- flux2

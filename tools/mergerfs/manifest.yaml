@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: mergerfs
+description: Featureful union filesystem
+license:
+  name: Custom
+  link: https://github.com/trapexit/mergerfs/blob/latest-release/LICENSE
+homepage: http://spawn.link
+repository: https://github.com/trapexit/mergerfs
 version: "2.41.1"
-check: ${binary} --version | grep ^mergerfs | cut -d' ' -f2 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/c
 - type/daemon
-homepage: http://spawn.link
-repository: https://github.com/trapexit/mergerfs
-description: Featureful union filesystem
+check: ${binary} --version | grep ^mergerfs | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: trapexit/mergerfs
-license:
-  name: Custom
-  link: https://github.com/trapexit/mergerfs/blob/latest-release/LICENSE

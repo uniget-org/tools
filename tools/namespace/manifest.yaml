@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: namespace
+description: Accelerate your workflow
+license:
+  name: Unknown
+homepage: https://namespace.so
+repository: https://namespace.so
 version: "0.0.509"
-binary: nsc
-check: ${binary} version | grep ^version | cut -d' ' -f2 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/go
 - type/cli
-homepage: https://namespace.so
-repository: https://namespace.so
-description: Accelerate your workflow
+check: ${binary} version | grep ^version | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: gitlab-releases
   package: uniget-org/renovate-custom
   extractVersion: ^namespace/(?<version>.+)$
-license:
-  name: Unknown
+binary: nsc

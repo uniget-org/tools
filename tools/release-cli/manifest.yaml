@@ -1,11 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: release-cli
+description: CLI to interact with GitLab's Releases API
+license:
+  name: MIT License
+  link: https://gitlab.com/gitlab-org/release-cli/-/blob/master/LICENSE?ref_type=heads
+homepage: https://gitlab.com/gitlab-org/release-cli
+repository: https://gitlab.com/gitlab-org/release-cli
 version: "0.24.0"
-check: ${binary} --version | cut -d' ' -f3
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/gitlab
 - category/development
@@ -14,15 +16,13 @@ tags:
 - cloud/gitlab
 - standard/gitlab
 - state/deprecated
-homepage: https://gitlab.com/gitlab-org/release-cli
-repository: https://gitlab.com/gitlab-org/release-cli
-description: CLI to interact with GitLab's Releases API
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: gitlab-releases
   package: gitlab-org/release-cli
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://gitlab.com/gitlab-org/release-cli/-/blob/master/LICENSE?ref_type=heads
 lifecycle:
   renamed_to: glab

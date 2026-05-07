@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: ktop
+description: top-like tool for your Kubernetes clusters
+license:
+  name: Apache License 2.0
+  link: https://github.com/vladimirvivien/ktop/blob/main/LICENSE
+homepage: https://github.com/vladimirvivien/ktop
+repository: https://github.com/vladimirvivien/ktop
 version: "0.5.3"
-check: "" # No version parameter
 tags:
 - type/tui
 - kubernetes
@@ -11,15 +16,10 @@ tags:
 - category/monitoring
 - k8s
 - observability/metrics
-homepage: https://github.com/vladimirvivien/ktop
-repository: https://github.com/vladimirvivien/ktop
-description: top-like tool for your Kubernetes clusters
+check: "" # No version parameter
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: vladimirvivien/ktop
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/vladimirvivien/ktop/blob/main/LICENSE
-platforms:
-- linux/amd64

@@ -1,15 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: cri-o
+description: Open Container Initiative-based implementation of Kubernetes Container Runtime Interface
+license:
+  name: Apache License 2.0
+  link: https://github.com/cri-o/cri-o/blob/main/LICENSE
+homepage: https://cri-o.io
+repository: https://github.com/cri-o/cri-o
 version: "1.36.0"
-binary: crio
-check: ${binary} --version | grep ^crio | cut -d' ' -f3
-build_dependencies:
-- cosign
-- go-md2man
-runtime_dependencies:
-- runc
-- cni
-- crictl
 tags:
 - org/redhat
 - standard/oci
@@ -20,15 +17,18 @@ tags:
 - kubernetes
 - k8s
 - cncf/graduated
-homepage: https://cri-o.io
-repository: https://github.com/cri-o/cri-o
-description: Open Container Initiative-based implementation of Kubernetes Container Runtime Interface
+check: ${binary} --version | grep ^crio | cut -d' ' -f3
+build_dependencies:
+- cosign
+- go-md2man
+runtime_dependencies:
+- runc
+- cni
+- crictl
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: cri-o/cri-o
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/cri-o/cri-o/blob/main/LICENSE
-platforms:
-- linux/amd64
+binary: crio

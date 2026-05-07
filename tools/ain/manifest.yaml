@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: ain
+description: HTTP API client for the terminal
 license:
   name: MIT License
   link: https://github.com/jonaslu/ain/blob/main/LICENSE
+homepage: https://github.com/jonaslu/ain
+repository: https://github.com/jonaslu/ain
 version: "1.6.0"
-check: ${binary} -v | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/go
 - type/cli
-homepage: https://github.com/jonaslu/ain
-repository: https://github.com/jonaslu/ain
-description: HTTP API client for the terminal
+check: ${binary} -v | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: jonaslu/ain

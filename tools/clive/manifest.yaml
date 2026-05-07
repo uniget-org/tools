@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: clive
+description: Automates terminal operations
 license:
   name: MIT License
   link: https://github.com/koki-develop/clive/blob/main/LICENSE
+homepage: https://github.com/koki-develop/clive
+repository: https://github.com/koki-develop/clive
 version: "0.12.17"
-check: ${binary} --version | cut -d' ' -f3 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/go
 - type/cli
-homepage: https://github.com/koki-develop/clive
-repository: https://github.com/koki-develop/clive
-description: Automates terminal operations
+check: ${binary} --version | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: koki-develop/clive

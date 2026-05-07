@@ -1,12 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: docker-credential-gcr
+description: Docker credential helper for GCR users
+license:
+  name: Apache License 2.0
+  link: https://github.com/GoogleCloudPlatform/docker-credential-gcr/blob/master/LICENSE
+homepage: https://gcr.io
+repository: https://github.com/GoogleCloudPlatform/docker-credential-gcr
 version: "2.1.32"
-check: ${binary} version | cut -d' ' -f7
-build_dependencies:
-- go
-- goreleaser
-runtime_dependencies:
-- docker
 tags:
 - standard/docker
 - container/runtime
@@ -14,15 +14,15 @@ tags:
 - cloud/google
 - lang/go
 - docker
-homepage: https://gcr.io
-repository: https://github.com/GoogleCloudPlatform/docker-credential-gcr
-description: Docker credential helper for GCR users
+check: ${binary} version | cut -d' ' -f7
+build_dependencies:
+- go
+- goreleaser
+runtime_dependencies:
+- docker
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: GoogleCloudPlatform/docker-credential-gcr
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/GoogleCloudPlatform/docker-credential-gcr/blob/master/LICENSE
-platforms:
-- linux/amd64

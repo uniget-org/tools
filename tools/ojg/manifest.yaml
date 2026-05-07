@@ -1,8 +1,17 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: ojg
+description: Optimized JSON for Go
+license:
+  name: MIT License
+  link: https://github.com/ohler55/ojg/blob/develop/LICENSE
+homepage: https://github.com/ohler55/ojg
+repository: https://github.com/ohler55/ojg
 version: "1.28.1"
-binary: oj
+tags:
+- category/development
+- lang/go
+- type/cli
 check: ${binary} --version | cut -d' ' -f2 | tr -d v
 build_dependencies:
 - make
@@ -10,17 +19,8 @@ build_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/development
-- lang/go
-- type/cli
-homepage: https://github.com/ohler55/ojg
-repository: https://github.com/ohler55/ojg
-description: Optimized JSON for Go
 renovate:
   datasource: github-releases
   package: ohler55/ojg
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/ohler55/ojg/blob/develop/LICENSE
+binary: oj

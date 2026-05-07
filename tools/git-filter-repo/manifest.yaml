@@ -1,13 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: git-filter-repo
+description: Quickly rewrite git repository history
+license:
+  name: Custom
+  link: https://github.com/newren/git-filter-repo
+homepage: https://github.com/newren/git-filter-repo
+repository: https://github.com/newren/git-filter-repo
 version: "2.47.0"
-check: "" # No version parameter
-runtime_dependencies:
-- python-3.12
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/python
@@ -15,13 +15,13 @@ tags:
 - standard/git
 - git
 - state/stale
-homepage: https://github.com/newren/git-filter-repo
-repository: https://github.com/newren/git-filter-repo
-description: Quickly rewrite git repository history
+check: "" # No version parameter
+runtime_dependencies:
+- python-3.12
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: newren/git-filter-repo
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Custom
-  link: https://github.com/newren/git-filter-repo

@@ -1,9 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: pass-update
+description: Pass extension that provides an easy flow for updating passwords
+license:
+  name: GPLv3
+  link: https://github.com/roddhjav/pass-update/blob/master/LICENSE
+homepage: https://www.passwordstore.org
+repository: https://github.com/roddhjav/pass-update
 version: "2.2.1"
-check: "" # TODO
-runtime_dependencies:
-- pass
 tags:
 - category/security
 - lang/shell
@@ -12,16 +15,13 @@ tags:
 - management
 - standard/pass
 - state/stale
-homepage: https://www.passwordstore.org
-repository: https://github.com/roddhjav/pass-update
-description: Pass extension that provides an easy flow for updating passwords
+check: "" # TODO
+runtime_dependencies:
+- pass
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: roddhjav/pass-update
   extractVersion: ^v(?<version>.+)$
   versioning: loose
-license:
-  name: GPLv3
-  link: https://github.com/roddhjav/pass-update/blob/master/LICENSE
-platforms:
-- linux/amd64

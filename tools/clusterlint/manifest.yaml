@@ -1,9 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: clusterlint
+description: Best practices checker for Kubernetes clusters
+license:
+  name: Apache License 2.0
+  link: https://github.com/digitalocean/clusterlint/blob/master/LICENSE
+homepage: https://github.com/digitalocean/clusterlint
+repository: https://github.com/digitalocean/clusterlint
 version: "0.15.0"
-check: ${binary} --version | cut -d' ' -f3 | tr -d v
-platforms:
-- linux/amd64
 tags:
 - org/digitalocean
 - category/operations
@@ -12,13 +15,10 @@ tags:
 - kubernetes
 - k8s
 - lint
-homepage: https://github.com/digitalocean/clusterlint
-repository: https://github.com/digitalocean/clusterlint
-description: Best practices checker for Kubernetes clusters
+check: ${binary} --version | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: digitalocean/clusterlint
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/digitalocean/clusterlint/blob/master/LICENSE

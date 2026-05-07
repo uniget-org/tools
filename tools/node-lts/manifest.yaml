@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: node-lts
+description: Node.js JavaScript runtime
+license:
+  name: MIT License
+  link: https://github.com/nodejs/node/blob/main/LICENSE
+homepage: https://github.com/nodejs/node
+repository: https://github.com/nodejs/node
 version: "24.15.0"
-binary: node
-check: ${binary} --version | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - type/cli
 - category/development
 - lang/javascript
-homepage: https://github.com/nodejs/node
-repository: https://github.com/nodejs/node
-description: Node.js JavaScript runtime
+check: ${binary} --version | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: gitlab-releases
   package: uniget-org/renovate-custom
   extractVersion: ^nodejs-lts/(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/nodejs/node/blob/main/LICENSE
+binary: node

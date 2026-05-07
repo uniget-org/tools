@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: ctop
+description: Top-like interface for container metrics
+license:
+  name: MIT License
+  link: https://github.com/bcicen/ctop/blob/master/LICENSE
+homepage: https://ctop.sh
+repository: https://github.com/bcicen/ctop
 version: "0.7.7"
-check: ${binary} -v | cut -d, -f1 | cut -d' ' -f3
 tags:
 - standard/docker
 - type/tui
@@ -12,15 +17,10 @@ tags:
 - component/monitoring
 - observability/metrics
 - docker
-homepage: https://ctop.sh
-repository: https://github.com/bcicen/ctop
-description: Top-like interface for container metrics
+check: ${binary} -v | cut -d, -f1 | cut -d' ' -f3
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: bcicen/ctop
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/bcicen/ctop/blob/master/LICENSE
-platforms:
-- linux/amd64

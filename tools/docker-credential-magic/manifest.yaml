@@ -1,9 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: docker-credential-magic
+description: Magic shim for Docker credential helpers
+license:
+  name: Apache License 2.0
+  link: https://github.com/docker-credential-magic/docker-credential-magic/blob/main/LICENSE
+homepage: https://github.com/docker-credential-magic/docker-credential-magic
+repository: https://github.com/docker-credential-magic/docker-credential-magic
 version: "0.8.1"
-check: ${binary} version
-runtime_dependencies:
-- docker
 tags:
 - standard/docker
 - container/runtime
@@ -11,15 +14,12 @@ tags:
 - lang/go
 - state/stale
 - docker
-homepage: https://github.com/docker-credential-magic/docker-credential-magic
-repository: https://github.com/docker-credential-magic/docker-credential-magic
-description: Magic shim for Docker credential helpers
+check: ${binary} version
+runtime_dependencies:
+- docker
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: docker-credential-magic/docker-credential-magic
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/docker-credential-magic/docker-credential-magic/blob/main/LICENSE
-platforms:
-- linux/amd64

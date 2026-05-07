@@ -1,26 +1,26 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: lz4
+description: Extremely Fast Compression algorithm
+license:
+  name: Custom
+  link: https://github.com/lz4/lz4/blob/dev/LICENSE
+homepage: http://www.lz4.org
+repository: https://github.com/lz4/lz4
 version: "1.10.0"
-check: ${binary} -V | cut -d' ' -f3 | tr -d v
-build_dependencies:
-- make
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/c
 - type/cli
 - type/library
 - compression
-homepage: http://www.lz4.org
-repository: https://github.com/lz4/lz4
-description: Extremely Fast Compression algorithm
+check: ${binary} -V | cut -d' ' -f3 | tr -d v
+build_dependencies:
+- make
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: lz4/lz4
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Custom
-  link: https://github.com/lz4/lz4/blob/dev/LICENSE

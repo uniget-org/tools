@@ -1,24 +1,24 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: spire
+description: SPIFFE Runtime Environment
+license:
+  name: Apache License 2.0
+  link: https://github.com/spiffe/spire/blob/main/LICENSE
+homepage: https://spiffe.io
+repository: https://github.com/spiffe/spire
 version: "1.14.6"
-binary: spire-server
-check: ${binary} --version 2>&1
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - type/cli
 - category/security
 - lang/go
 - standard/spiffe
 - cncf/graduated
-homepage: https://spiffe.io
-repository: https://github.com/spiffe/spire
-description: SPIFFE Runtime Environment
+check: ${binary} --version 2>&1
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: spiffe/spire
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/spiffe/spire/blob/main/LICENSE
+binary: spire-server

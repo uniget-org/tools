@@ -1,24 +1,24 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: win-ssh-agent
+description: Helper to interface with Windows ssh-agent.exe service from Windows Subsystem for Linux (WSL)
+license:
+  name: GPLv3
+  link: https://github.com/rupor-github/wsl-ssh-agent/blob/master/LICENSE
+homepage: https://github.com/rupor-github/wsl-ssh-agent
+repository: https://github.com/rupor-github/wsl-ssh-agent
 version: "1.6.9"
-binary: npiperelay.exe
-check: "" # TODO
-runtime_dependencies:
-- socat
 tags:
 - type/cli
 - wsl
 - lang/go
 - ssh
-homepage: https://github.com/rupor-github/wsl-ssh-agent
-repository: https://github.com/rupor-github/wsl-ssh-agent
-description: Helper to interface with Windows ssh-agent.exe service from Windows Subsystem for Linux (WSL)
+check: "" # TODO
+runtime_dependencies:
+- socat
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: rupor-github/wsl-ssh-agent
   extractVersion: ^v(?<version>.+)$
-license:
-  name: GPLv3
-  link: https://github.com/rupor-github/wsl-ssh-agent/blob/master/LICENSE
-platforms:
-- linux/amd64
+binary: npiperelay.exe

@@ -1,10 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: dagger
+description: Portable devkit for CI/CD pipelines
+license:
+  name: Apache License 2.0
+  link: https://github.com/dagger/dagger/blob/main/LICENSE
+homepage: https://dagger.io
+repository: https://github.com/dagger/dagger
 version: "0.20.8"
-check: ${binary} version | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - type/cli
 - management
@@ -12,13 +14,11 @@ tags:
 - lang/go
 - lang/cue
 - standard/oci
-homepage: https://dagger.io
-repository: https://github.com/dagger/dagger
-description: Portable devkit for CI/CD pipelines
+check: ${binary} version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: dagger/dagger
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/dagger/dagger/blob/main/LICENSE

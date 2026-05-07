@@ -1,19 +1,19 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: fx
+description: Terminal JSON viewer
+license:
+  name: MIT License
+  link: https://github.com/antonmedv/fx/blob/master/LICENSE
+homepage: https://fx.wtf
+repository: https://github.com/antonmedv/fx
 version: "39.2.0"
-check: ${binary} | grep "fx" | head -n 1 | tr -s ' ' | cut -d' ' -f3
 tags:
 - type/cli
 - format/json
 - lang/go
-homepage: https://fx.wtf
-repository: https://github.com/antonmedv/fx
-description: Terminal JSON viewer
+check: ${binary} | grep "fx" | head -n 1 | tr -s ' ' | cut -d' ' -f3
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: antonmedv/fx
-license:
-  name: MIT License
-  link: https://github.com/antonmedv/fx/blob/master/LICENSE
-platforms:
-- linux/amd64

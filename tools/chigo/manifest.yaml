@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: chigo
+description: Lolcat in Go - Rainbows and Unicorns
+license:
+  name: MIT License
+homepage: https://blog.ultirequiem.com/chigo
+repository: https://github.com/UltiRequiem/chigo
 version: "1.4.1"
-check: ${binary} --help | grep Chigo | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - type/cli
 - fun
 - lang/go
 - terminal
-homepage: https://blog.ultirequiem.com/chigo
-repository: https://github.com/UltiRequiem/chigo
-description: Lolcat in Go - Rainbows and Unicorns
+check: ${binary} --help | grep Chigo | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: UltiRequiem/chigo
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License

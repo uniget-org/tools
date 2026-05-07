@@ -1,25 +1,25 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: jaq
+description: jq clone focussed on correctness, speed, and simplicity
+license:
+  name: MIT License
+homepage: https://github.com/01mf02/jaq
+repository: https://github.com/01mf02/jaq
 version: "3.0.0"
-check: ${binary} --version | cut -d' ' -f2
-build_dependencies:
-- rust
-conflicts_with:
-- gojq
-- jq
 tags:
 - type/cli
 - lang/rust
 - standard/jq
 - format/json
-homepage: https://github.com/01mf02/jaq
-repository: https://github.com/01mf02/jaq
-description: jq clone focussed on correctness, speed, and simplicity
+check: ${binary} --version | cut -d' ' -f2
+build_dependencies:
+- rust
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: 01mf02/jaq
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-platforms:
-- linux/amd64
+conflicts_with:
+- gojq
+- jq

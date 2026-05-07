@@ -1,24 +1,24 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: container2wasm
+description: Container to WASM converter
+license:
+  name: Apache License 2.0
+  link: https://github.com/container2wasm/container2wasm/blob/main/LICENSE
+homepage: https://ktock.github.io/container2wasm-demo/
+repository: https://github.com/container2wasm/container2wasm
 version: "0.8.4"
-binary: c2w
-check: ${binary} --version | cut -d' ' -f3 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/c
 - type/cli
 - cncf/sandbox
-homepage: https://ktock.github.io/container2wasm-demo/
-repository: https://github.com/container2wasm/container2wasm
-description: Container to WASM converter
+check: ${binary} --version | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: container2wasm/container2wasm
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/container2wasm/container2wasm/blob/main/LICENSE
+binary: c2w

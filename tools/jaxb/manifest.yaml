@@ -1,13 +1,11 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: jaxb
+description: Jakarta XML Binding - an efficient and standard way of mapping between XML and Java code
+license:
+  name: BSD 3-Clause License
+homepage: https://eclipse-ee4j.github.io/jaxb-ri/
+repository: https://github.com/eclipse-ee4j/jaxb-ri
 version: "4.0.7"
-binary: "false"
-check: "" # Requires Java to run
-runtime_dependencies:
-- openjdk-jre
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/eclipse
 - category/development
@@ -15,12 +13,14 @@ tags:
 - type/cli
 - standard/xml
 - format/xml
-homepage: https://eclipse-ee4j.github.io/jaxb-ri/
-repository: https://github.com/eclipse-ee4j/jaxb-ri
-description: Jakarta XML Binding - an efficient and standard way of mapping between XML and Java code
+check: "" # Requires Java to run
+runtime_dependencies:
+- openjdk-jre
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: eclipse-ee4j/jaxb-ri
   extractVersion: ^(?<version>.+)-RI$
-license:
-  name: BSD 3-Clause License
+binary: "false"

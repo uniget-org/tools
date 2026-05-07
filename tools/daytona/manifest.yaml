@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: daytona
+description: Open Source Dev Environment Manager
+license:
+  name: Apache License 2.0
+  link: https://github.com/daytonaio/daytona/blob/main/LICENSE
+homepage: https://daytona.io/
+repository: https://github.com/daytonaio/daytona
 version: "0.173.0"
-check: ${binary} --version | cut -d' ' -f4 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/go
 - type/cli
 - type/daemon
-homepage: https://daytona.io/
-repository: https://github.com/daytonaio/daytona
-description: Open Source Dev Environment Manager
+check: ${binary} --version | cut -d' ' -f4 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: daytonaio/daytona
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/daytonaio/daytona/blob/main/LICENSE

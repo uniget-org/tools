@@ -1,24 +1,24 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: plz
+description: Copilot for your terminal - generate shell scripts from a human readable description
 license:
   name: MIT License
   link: https://github.com/m1guelpf/plz-cli/blob/main/LICENSE
+homepage: https://github.com/m1guelpf/plz-cli
+repository: https://github.com/m1guelpf/plz-cli
 version: "0.1.9"
-check: ${binary} --version | cut -d' ' -f2
-build_dependencies:
-- rust
-platforms:
-- linux/amd64
 tags:
 - category/development
 - lang/rust
 - type/cli
 - copilot
 - state/stale
-homepage: https://github.com/m1guelpf/plz-cli
-repository: https://github.com/m1guelpf/plz-cli
-description: Copilot for your terminal - generate shell scripts from a human readable description
+check: ${binary} --version | cut -d' ' -f2
+build_dependencies:
+- rust
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: m1guelpf/plz-cli

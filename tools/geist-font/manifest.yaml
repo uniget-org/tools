@@ -1,25 +1,25 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: geist-font
+description: Typeface specifically designed for developers and designers
+license:
+  name: SIL Open Font License 1.1
+homepage: https://vercel.com/font
+repository: https://github.com/vercel/geist-font
 version: "1.8.0"
-binary: "false"
-check: "" # No binary
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/vercel
 - slides
 - presentation
 - font
-homepage: https://vercel.com/font
-repository: https://github.com/vercel/geist-font
-description: Typeface specifically designed for developers and designers
-messages:
-  update: |
-    Please run: fc-cache -f -v
+check: "" # No binary
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: vercel/geist-font
-license:
-  name: SIL Open Font License 1.1
+binary: "false"
+messages:
+  update: |
+    Please run: fc-cache -f -v

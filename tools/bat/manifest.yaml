@@ -1,20 +1,20 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: bat
+description: cat(1) clone with wings
+license:
+  name: Apache License 2.0
+homepage: https://github.com/sharkdp/bat
+repository: https://github.com/sharkdp/bat
 version: "0.26.1"
-check: ${binary} --version | cut -d' ' -f2
 tags:
 - type/cli
 - terminal
 - lang/rust
 - terminal
-homepage: https://github.com/sharkdp/bat
-repository: https://github.com/sharkdp/bat
-description: cat(1) clone with wings
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: sharkdp/bat
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-platforms:
-- linux/amd64

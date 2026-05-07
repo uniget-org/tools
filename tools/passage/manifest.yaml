@@ -1,16 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: passage
+description: Fork of password-store that uses age as backend
 license:
   name: GPLv2
   link: https://github.com/FiloSottile/passage/blob/main/COPYING
+homepage: https://github.com/FiloSottile/passage
+repository: https://github.com/FiloSottile/passage
 version: "526.4e4c5ae"
-check: ${binary} version 2>/dev/null | tr -s ' ' | grep "^= v" | cut -d' ' -f2 | tr -d v
-build_dependencies:
-- make
-runtime_dependencies:
-- age
-conflicts_with:
-- pass
 tags:
 - category/security
 - lang/shell
@@ -19,13 +15,17 @@ tags:
 - management
 - standard/pass
 - state/stale
-homepage: https://github.com/FiloSottile/passage
-repository: https://github.com/FiloSottile/passage
-description: Fork of password-store that uses age as backend
+check: ${binary} version 2>/dev/null | tr -s ' ' | grep "^= v" | cut -d' ' -f2 | tr -d v
+build_dependencies:
+- make
+runtime_dependencies:
+- age
+platforms:
+- linux/amd64
 renovate:
   datasource: gitlab-releases
   package: uniget-org/renovate-custom
   extractVersion: ^passage/(?<version>.+)$
   versioning: loose
-platforms:
-- linux/amd64
+conflicts_with:
+- pass

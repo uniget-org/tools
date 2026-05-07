@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: havener
+description: Think of it as a swiss army knife for Kubernetes tasks
+license:
+  name: MIT License
+  link: https://github.com/homeport/havener/blob/main/LICENSE
+homepage: https://github.com/homeport/havener
+repository: https://github.com/homeport/havener
 version: "2.2.7"
-check: ${binary} version | cut -d, -f1 | cut -d' ' -f3
 tags:
 - type/tui
 - kubernetes
 - management
 - lang/go
 - monitoring
-homepage: https://github.com/homeport/havener
-repository: https://github.com/homeport/havener
-description: Think of it as a swiss army knife for Kubernetes tasks
+check: ${binary} version | cut -d, -f1 | cut -d' ' -f3
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: homeport/havener
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/homeport/havener/blob/main/LICENSE
-platforms:
-- linux/amd64

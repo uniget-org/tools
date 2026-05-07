@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: furyctl
+description: Multi-purpose command line tool for the Kubernetes Fury Distribution
+license:
+  name: Apache License 2.0
+  link: https://github.com/sighupio/furyctl/blob/main/LICENSE
+homepage: https://sighup.io
+repository: https://github.com/sighupio/furyctl
 version: "0.34.1"
-check: ${binary} version | grep ^version | cut -d' ' -f2
 tags:
 - type/cli
 - kubernetes
 - k8s
 - management
 - lang/go
-homepage: https://sighup.io
-repository: https://github.com/sighupio/furyctl
-description: Multi-purpose command line tool for the Kubernetes Fury Distribution
+check: ${binary} version | grep ^version | cut -d' ' -f2
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: sighupio/furyctl
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/sighupio/furyctl/blob/main/LICENSE
-platforms:
-- linux/amd64

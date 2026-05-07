@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: tml
+description: Tiny markup language for terminal output
+license:
+  name: The Unlicense
+  link: https://github.com/liamg/tml/blob/master/LICENSE
+homepage: https://github.com/liamg/tml
+repository: https://github.com/liamg/tml
 version: "0.7.0"
+tags:
+- category/development
+- lang/go
+- type/cli
 check: "" # No version parameter
 build_dependencies:
 - go
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/development
-- lang/go
-- type/cli
-homepage: https://github.com/liamg/tml
-repository: https://github.com/liamg/tml
-description: Tiny markup language for terminal output
 renovate:
   datasource: github-releases
   package: liamg/tml
   extractVersion: ^v(?<version>.+)$
-license:
-  name: The Unlicense
-  link: https://github.com/liamg/tml/blob/master/LICENSE

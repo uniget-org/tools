@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: spc
+description: Build standalone PHP binary with popular extensions included
+license:
+  name: MIT License
+  link: https://github.com/crazywhalecc/static-php-cli/blob/main/LICENSE
+homepage: https://static-php.dev
+repository: https://github.com/crazywhalecc/static-php-cli
 version: "2.8.5"
-check: ${binary} --version | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/php
 - type/cli
-homepage: https://static-php.dev
-repository: https://github.com/crazywhalecc/static-php-cli
-description: Build standalone PHP binary with popular extensions included
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: crazywhalecc/static-php-cli
-license:
-  name: MIT License
-  link: https://github.com/crazywhalecc/static-php-cli/blob/main/LICENSE

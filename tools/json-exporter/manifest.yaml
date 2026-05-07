@@ -1,16 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: json-exporter
+description: Prometheus exporter which scrapes remote JSON by JSONPath
 license:
   name: Apache License 2.0
   link: https://github.com/prometheus-community/json_exporter/blob/master/LICENSE
+homepage: https://github.com/prometheus-community/json_exporter
+repository: https://github.com/prometheus-community/json_exporter
 version: "0.7.0"
-binary: json_exporter
-check: ${binary} --config.file=/dev/null --version 2>&1 | grep ^json_exporter | cut -d' ' -f3
-runtime_dependencies:
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/go
@@ -19,10 +16,13 @@ tags:
 - standard/jsonpath
 - exporter
 - standard/prometheus
-homepage: https://github.com/prometheus-community/json_exporter
-repository: https://github.com/prometheus-community/json_exporter
-description: Prometheus exporter which scrapes remote JSON by JSONPath
+check: ${binary} --config.file=/dev/null --version 2>&1 | grep ^json_exporter | cut -d' ' -f3
+runtime_dependencies:
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: prometheus-community/json_exporter
   extractVersion: ^v(?<version>.+)$
+binary: json_exporter

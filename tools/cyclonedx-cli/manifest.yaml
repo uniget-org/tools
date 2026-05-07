@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: cyclonedx-cli
+description: CycloneDX CLI tool for SBOM analysis, merging, diffs and format conversions
+license:
+  name: Apache License 2.0
+  link: https://github.com/CycloneDX/cyclonedx-cli/blob/main/LICENSE
+homepage: https://cyclonedx.org/
+repository: https://github.com/CycloneDX/cyclonedx-cli
 version: "0.31.0"
-check: ${binary} --version
 tags:
 - type/cli
 - category/security
@@ -11,15 +16,10 @@ tags:
 - lang/csharp
 - org/cyclonedx
 - format/cyclonedx
-homepage: https://cyclonedx.org/
-repository: https://github.com/CycloneDX/cyclonedx-cli
-description: CycloneDX CLI tool for SBOM analysis, merging, diffs and format conversions
+check: ${binary} --version
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: CycloneDX/cyclonedx-cli
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/CycloneDX/cyclonedx-cli/blob/main/LICENSE
-platforms:
-- linux/amd64

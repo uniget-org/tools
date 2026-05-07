@@ -1,18 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: litellm
+description: Some description
 license:
   name: MIT License
   link: https://github.com/BerriAI/litellm/blob/main/LICENSE
+homepage: https://www.litellm.ai/
+repository: https://github.com/BerriAI/litellm
 version: "1.83.14"
-check: ${binary} --version | grep ^LiteLLM | cut -d' ' -f5
-build_dependencies:
-- python-3.12
-- shiv
-runtime_dependencies:
-- python-3.12
-platforms:
-- linux/amd64
 tags:
 - category/development
 - lang/python
@@ -21,9 +16,14 @@ tags:
 - ai
 - llm
 - mcp
-homepage: https://www.litellm.ai/
-repository: https://github.com/BerriAI/litellm
-description: Some description
+check: ${binary} --version | grep ^LiteLLM | cut -d' ' -f5
+build_dependencies:
+- python-3.12
+- shiv
+runtime_dependencies:
+- python-3.12
+platforms:
+- linux/amd64
 renovate:
   datasource: pypi
   package: litellm

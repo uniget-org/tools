@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: duffle
+description: CNAB installer
+license:
+  name: MIT License
+  link: https://github.com/cnabio/duffle/blob/main/LICENSE
+homepage: https://duffle.sh
+repository: https://github.com/cnabio/duffle
 version: "0.3.5-beta.1"
-check: ${binary} version
 tags:
 - type/cli
 - cnab
@@ -9,14 +14,9 @@ tags:
 - state/stale
 - state/deprecated
 - cnab
-homepage: https://duffle.sh
-repository: https://github.com/cnabio/duffle
-description: CNAB installer
+check: ${binary} version
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: cnabio/duffle
-license:
-  name: MIT License
-  link: https://github.com/cnabio/duffle/blob/main/LICENSE
-platforms:
-- linux/amd64

@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: httpjail
+description: HTTP(s) request filter for processes
 license:
   name: CC0-1.0
   link: https://github.com/coder/httpjail/blob/main/LICENSE
+homepage: https://github.com/coder/httpjail
+repository: https://github.com/coder/httpjail
 version: "0.6.1"
-check: ${binary} --version | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/rust
 - type/cli
-homepage: https://github.com/coder/httpjail
-repository: https://github.com/coder/httpjail
-description: HTTP(s) request filter for processes
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: coder/httpjail

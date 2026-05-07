@@ -1,9 +1,11 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: envsub
+description: alternative envsubst that allows for ${foo:-default} expansion too
+license:
+  name: Apache License 2.0
+homepage: https://github.com/stephenc/envsub
+repository: https://github.com/stephenc/envsub
 version: "0.1.3"
-check: ${binary} --version
-build_dependencies:
-- rust
 tags:
 - type/cli
 - category/development
@@ -11,13 +13,11 @@ tags:
 - lang/rust
 - state/stale
 - state/onemanshow
-homepage: https://github.com/stephenc/envsub
-repository: https://github.com/stephenc/envsub
-description: alternative envsubst that allows for ${foo:-default} expansion too
+check: ${binary} --version
+build_dependencies:
+- rust
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: stephenc/envsub
-license:
-  name: Apache License 2.0
-platforms:
-- linux/amd64

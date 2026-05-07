@@ -1,10 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: stargz-snapshotter
+description: Fast container image distribution plugin with lazy pulling
+license:
+  name: Apache License 2.0
+  link: https://github.com/containerd/stargz-snapshotter/blob/main/LICENSE
+homepage: https://github.com/containerd/containerd/issues/3731
+repository: https://github.com/containerd/stargz-snapshotter
 version: "0.18.2"
-binary: containerd-stargz-grpc
-check: ${binary} -version | cut -d' ' -f2 | tr -d v
-runtime_dependencies:
-- containerd
 tags:
 - org/cncf
 - org/containerd
@@ -14,15 +16,13 @@ tags:
 - type/daemon
 - containerd
 - lang/go
-homepage: https://github.com/containerd/containerd/issues/3731
-repository: https://github.com/containerd/stargz-snapshotter
-description: Fast container image distribution plugin with lazy pulling
+check: ${binary} -version | cut -d' ' -f2 | tr -d v
+runtime_dependencies:
+- containerd
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: containerd/stargz-snapshotter
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/containerd/stargz-snapshotter/blob/main/LICENSE
-platforms:
-- linux/amd64
+binary: containerd-stargz-grpc

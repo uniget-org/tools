@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: envcli
+description: Don't install locally, use containers you define within your project
+license:
+  name: MIT License
+  link: https://github.com/EnvCLI/EnvCLI/blob/main/LICENSE
+homepage: https://github.com/EnvCLI/EnvCLI
+repository: https://github.com/EnvCLI/EnvCLI
 version: "0.7.1"
-check: ${binary} --version | cut -d' ' -f3
 tags:
 - standard/docker
 - category/development
@@ -11,15 +16,10 @@ tags:
 - standard/docker
 - docker
 - state/stale
-homepage: https://github.com/EnvCLI/EnvCLI
-repository: https://github.com/EnvCLI/EnvCLI
-description: Don't install locally, use containers you define within your project
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: EnvCLI/EnvCLI
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/EnvCLI/EnvCLI/blob/main/LICENSE
-platforms:
-- linux/amd64

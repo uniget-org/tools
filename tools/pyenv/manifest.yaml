@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: pyenv
+description: Simple Python version management
 license:
   name: MIT License
   link: https://github.com/pyenv/pyenv/blob/master/LICENSE
+homepage: https://github.com/pyenv/pyenv
+repository: https://github.com/pyenv/pyenv
 version: "2.6.28"
-check: ${binary} --version | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/shell
 - type/cli
-homepage: https://github.com/pyenv/pyenv
-repository: https://github.com/pyenv/pyenv
-description: Simple Python version management
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: pyenv/pyenv

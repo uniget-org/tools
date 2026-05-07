@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: shellcheck
+description: Static analysis tool for shell scripts
+license:
+  name: GPLv3
+  link: https://github.com/koalaman/shellcheck/blob/master/LICENSE
+homepage: https://www.shellcheck.net
+repository: https://github.com/koalaman/shellcheck
 version: "0.11.0"
-check: ${binary} --version | grep ^version | cut -d' ' -f2
-build_dependencies:
-- go-md2man
 tags:
 - type/cli
 - category/development
 - lang/haskell
-homepage: https://www.shellcheck.net
-repository: https://github.com/koalaman/shellcheck
-description: Static analysis tool for shell scripts
+check: ${binary} --version | grep ^version | cut -d' ' -f2
+build_dependencies:
+- go-md2man
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: koalaman/shellcheck
   extractVersion: ^v(?<version>.+)$
-license:
-  name: GPLv3
-  link: https://github.com/koalaman/shellcheck/blob/master/LICENSE
-platforms:
-- linux/amd64

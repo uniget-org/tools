@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: powerline-go
+description: Beautiful and useful low-latency prompt for your shell
+license:
+  name: GPLv3
+homepage: https://github.com/justjanne/powerline-go
+repository: https://github.com/justjanne/powerline-go
 version: "1.26"
-check: ${binary} -version
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - type/cli
 - terminal
 - lang/go
 - category/operations
-homepage: https://github.com/justjanne/powerline-go
-repository: https://github.com/justjanne/powerline-go
-description: Beautiful and useful low-latency prompt for your shell
+check: ${binary} -version
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: justjanne/powerline-go
   extractVersion: ^v(?<version>.+)$
-license:
-  name: GPLv3

@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: pandoc
+description: Universal markup converter
+license:
+  name: GPLv2
+  link: https://github.com/jgm/pandoc/blob/main/COPYING.md
+homepage: https://pandoc.org
+repository: https://github.com/jgm/pandoc
 version: "3.9"
-check: ${binary} --version | grep ^pandoc | cut -d' ' -f2
 tags:
 - type/cli
 - format/markdown
@@ -9,14 +14,9 @@ tags:
 - format/csv
 - format/man
 - lang/haskell
-homepage: https://pandoc.org
-repository: https://github.com/jgm/pandoc
-description: Universal markup converter
+check: ${binary} --version | grep ^pandoc | cut -d' ' -f2
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: jgm/pandoc
-license:
-  name: GPLv2
-  link: https://github.com/jgm/pandoc/blob/main/COPYING.md
-platforms:
-- linux/amd64

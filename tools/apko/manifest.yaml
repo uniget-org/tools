@@ -1,15 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: apko
+description: Build OCI images using APK directly without Dockerfile
+license:
+  name: Apache License 2.0
+  link: https://github.com/chainguard-dev/apko/blob/main/LICENSE
+homepage: https://apko.dev
+repository: https://github.com/chainguard-dev/apko
 version: "1.2.11"
-check: ${binary} version 2>&1 | grep ^GitVersion | tr -s ' ' | cut -d' ' -f2 | tr -d v
-build_dependencies:
-- go
-- make
-runtime_dependencies:
-- apk
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/chainguard
 - type/cli
@@ -19,14 +16,17 @@ tags:
 - alpine
 - container/image
 - standard/oci
-homepage: https://apko.dev
-repository: https://github.com/chainguard-dev/apko
-description: Build OCI images using APK directly without Dockerfile
+check: ${binary} version 2>&1 | grep ^GitVersion | tr -s ' ' | cut -d' ' -f2 | tr -d v
+build_dependencies:
+- go
+- make
+runtime_dependencies:
+- apk
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-tags
   package: chainguard-dev/apko
   extractVersion: ^v(?<version>.+)$
   allowPrereleases: true
-license:
-  name: Apache License 2.0
-  link: https://github.com/chainguard-dev/apko/blob/main/LICENSE

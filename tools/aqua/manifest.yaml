@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: aqua
+description: Declarative CLI Version manager written in Go. Support Lazy Install, Registry, and continuous update with Renovate. CLI version is switched seamlessly
+license:
+  name: MIT License
+  link: https://github.com/aquaproj/aqua/blob/main/LICENSE
+homepage: https://aquaproj.github.io
+repository: https://github.com/aquaproj/aqua
 version: "2.58.0"
-check: ${binary} --version | cut -d' ' -f3
 tags:
 - package
 - manager
 - type/cli
 - lang/go
 - org/aquasecurity
-homepage: https://aquaproj.github.io
-repository: https://github.com/aquaproj/aqua
-description: Declarative CLI Version manager written in Go. Support Lazy Install, Registry, and continuous update with Renovate. CLI version is switched seamlessly
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: aquaproj/aqua
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/aquaproj/aqua/blob/main/LICENSE
-platforms:
-- linux/amd64

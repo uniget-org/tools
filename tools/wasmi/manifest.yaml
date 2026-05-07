@@ -1,25 +1,25 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: wasmi
+description: WebAssembly (Wasm) interpreter
+license:
+  name: Apache License 2.0
+homepage: https://wasmi-labs.github.io/wasmi/
+repository: https://github.com/wasmi-labs/wasmi
 version: "1.0.9"
-binary: wasmi_cli
-check: ${binary} --version | cut -d' ' -f2
-build_dependencies:
-- rust
-platforms:
-- linux/amd64
-#- linux/arm64
 tags:
 - category/development
 - lang/rust
 - type/cli
 - webassembly
 - wasm
-homepage: https://wasmi-labs.github.io/wasmi/
-repository: https://github.com/wasmi-labs/wasmi
-description: WebAssembly (Wasm) interpreter
+check: ${binary} --version | cut -d' ' -f2
+build_dependencies:
+- rust
+platforms:
+- linux/amd64
+#- linux/arm64
 renovate:
   datasource: github-releases
   package: wasmi-labs/wasmi
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
+binary: wasmi_cli

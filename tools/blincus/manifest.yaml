@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: blincus
+description: Rapid Development Environments With Incus
+license:
+  name: Apache License 2.0
+  link: https://github.com/ublue-os/blincus/blob/main/LICENSE
+homepage: https://blincus.dev
+repository: https://github.com/ublue-os/blincus
 version: "0.4.0"
+tags:
+- category/operations
+- lang/shell
+- type/cli
 check: grep version= ${binary} | cut -d= -f2 | tr -d '"'
 runtime_dependencies:
 - incus
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/operations
-- lang/shell
-- type/cli
-homepage: https://blincus.dev
-repository: https://github.com/ublue-os/blincus
-description: Rapid Development Environments With Incus
 renovate:
   datasource: github-tags
   package: ublue-os/blincus
-license:
-  name: Apache License 2.0
-  link: https://github.com/ublue-os/blincus/blob/main/LICENSE

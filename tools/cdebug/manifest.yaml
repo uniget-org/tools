@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: cdebug
+description: cdebug - a swiss army knife of container debugging
+license:
+  name: Apache License 2.0
+  link: https://github.com/iximiuz/cdebug/blob/main/LICENSE
+homepage: https://iximiuz.com/en/posts/docker-debug-slim-containers/
+repository: https://github.com/iximiuz/cdebug
 version: "0.0.19"
-check: ${binary} --version | cut -d' ' -f3
-platforms:
-- linux/amd64
 tags:
 - category/development
 - type/cli
 - lang/go
 - troubleshooting
 - state/stale
-homepage: https://iximiuz.com/en/posts/docker-debug-slim-containers/
-repository: https://github.com/iximiuz/cdebug
-description: cdebug - a swiss army knife of container debugging
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: iximiuz/cdebug
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/iximiuz/cdebug/blob/main/LICENSE

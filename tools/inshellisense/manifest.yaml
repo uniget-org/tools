@@ -1,7 +1,18 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: inshellisense
+description: IDE style command line auto complete
+license:
+  name: MIT License
+  link: https://github.com/microsoft/inshellisense/blob/main/LICENSE
+homepage: https://github.com/microsoft/inshellisense
+repository: https://github.com/microsoft/inshellisense
 version: "0.0.1"
+tags:
+- org/microsoft
+- category/operations
+- lang/javascript
+- type/cli
 check: ${binary} --version
 build_dependencies:
 - node22
@@ -12,17 +23,6 @@ runtime_dependencies:
 - node22-is-node
 platforms:
 - linux/amd64
-tags:
-- org/microsoft
-- category/operations
-- lang/javascript
-- type/cli
-homepage: https://github.com/microsoft/inshellisense
-repository: https://github.com/microsoft/inshellisense
-description: IDE style command line auto complete
 renovate:
   datasource: npm
   package: "@microsoft/inshellisense"
-license:
-  name: MIT License
-  link: https://github.com/microsoft/inshellisense/blob/main/LICENSE

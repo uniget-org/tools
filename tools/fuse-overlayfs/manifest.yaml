@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: fuse-overlayfs
+description: FUSE implementation for overlayfs
+license:
+  name: GPLv2
+homepage: https://github.com/containers/fuse-overlayfs
+repository: https://github.com/containers/fuse-overlayfs
 version: "1.16"
-check: ${binary} --version | grep ^fuse-overlayfs | cut -d' ' -f3
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/redhat
 - type/plugin
 - component/storage
 - containerd
 - lang/c
-homepage: https://github.com/containers/fuse-overlayfs
-repository: https://github.com/containers/fuse-overlayfs
-description: FUSE implementation for overlayfs
+check: ${binary} --version | grep ^fuse-overlayfs | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: containers/fuse-overlayfs
   extractVersion: ^v(?<version>.+)$
   versioning: loose
-license:
-  name: GPLv2

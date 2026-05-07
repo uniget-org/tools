@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: task
+description: Task runner and simpler Make alternative written in Go
+license:
+  name: MIT License
+  link: https://github.com/go-task/task/blob/main/LICENSE
+homepage: https://taskfile.dev
+repository: https://github.com/go-task/task
 version: "3.50.0"
-check: ${binary} --version | cut -d' ' -f3 | tr -d v
 tags:
 - category/development
 - type/cli
 - cicd
 - lang/go
 - make
-homepage: https://taskfile.dev
-repository: https://github.com/go-task/task
-description: Task runner and simpler Make alternative written in Go
+check: ${binary} --version | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: go-task/task
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/go-task/task/blob/main/LICENSE
-platforms:
-- linux/amd64

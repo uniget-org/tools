@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: updatecli
+description: Declarative Dependency Management
+license:
+  name: Apache License 2.0
+  link: https://github.com/updatecli/updatecli/blob/main/LICENSE
+homepage: https://www.updatecli.io
+repository: https://github.com/updatecli/updatecli
 version: "0.116.3"
-check: ${binary} version 2>&1 | grep ^Application | tr -d '\t' | cut -d':' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/go
 - type/cli
-homepage: https://www.updatecli.io
-repository: https://github.com/updatecli/updatecli
-description: Declarative Dependency Management
+check: ${binary} version 2>&1 | grep ^Application | tr -d '\t' | cut -d':' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: updatecli/updatecli
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/updatecli/updatecli/blob/main/LICENSE

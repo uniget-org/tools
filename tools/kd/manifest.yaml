@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kd
+description: Minimalistic kubernetes resources deployment tool with templating
+license:
+  name: MIT License
+  link: https://github.com/UKHomeOffice/kd/blob/master/LICENSE
+homepage: https://github.com/UKHomeOffice/kd
+repository: https://github.com/UKHomeOffice/kd
 version: "1.34.1"
-check: ${binary} --version | cut -d' ' -f3 | cut -d- -f1 | tr -d v
 tags:
 - type/cli
 - category/operations
@@ -9,15 +14,10 @@ tags:
 - kubernetes
 - k8s
 - lang/go
-homepage: https://github.com/UKHomeOffice/kd
-repository: https://github.com/UKHomeOffice/kd
-description: Minimalistic kubernetes resources deployment tool with templating
+check: ${binary} --version | cut -d' ' -f3 | cut -d- -f1 | tr -d v
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: UKHomeOffice/kd
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/UKHomeOffice/kd/blob/master/LICENSE
-platforms:
-- linux/amd64

@@ -1,10 +1,17 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: hatch
+description: Modern, extensible Python project management
 license:
   name: MIT License
   link: https://github.com/pypa/hatch/blob/master/LICENSE.txt
+homepage: https://hatch.pypa.io/latest/
+repository: https://github.com/pypa/hatch
 version: "1.16.5"
+tags:
+- category/development
+- lang/python
+- type/cli
 check: ${binary} --version | cut -d' ' -f3
 build_dependencies:
 - python-3.12
@@ -14,13 +21,6 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/development
-- lang/python
-- type/cli
-homepage: https://hatch.pypa.io/latest/
-repository: https://github.com/pypa/hatch
-description: Modern, extensible Python project management 
 renovate:
   datasource: pypi
   package: hatch

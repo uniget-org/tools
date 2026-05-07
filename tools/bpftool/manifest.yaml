@@ -1,24 +1,24 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: bpftool
+description: bpftool
+license:
+  name: GPLv2 OR BSD 2-Clause
+  link: https://github.com/libbpf/bpftool/blob/main/LICENSE
+homepage: https://github.com/libbpf/bpftool
+repository: https://github.com/libbpf/bpftool
 version: "7.7.0"
+tags:
+- category/development
+- lang/c
+- type/cli
 check: ${binary} --version | grep ^bpftool | cut -d' ' -f2 | tr -d v
 build_dependencies:
 - make
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/development
-- lang/c
-- type/cli
-homepage: https://github.com/libbpf/bpftool
-repository: https://github.com/libbpf/bpftool
-description: bpftool
 renovate:
   datasource: github-releases
   package: libbpf/bpftool
   extractVersion: ^v(?<version>.+)$
-license:
-  name: GPLv2 OR BSD 2-Clause
-  link: https://github.com/libbpf/bpftool/blob/main/LICENSE

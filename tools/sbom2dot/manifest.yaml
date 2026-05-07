@@ -1,16 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: sbom2dot
+description: Create a dependency graph of the components within a SBOM
+license:
+  name: Apache License 2.0
+  link: https://github.com/anthonyharrison/sbom2dot/blob/main/README.md#licence
+homepage: https://github.com/anthonyharrison/sbom2dot
+repository: https://github.com/anthonyharrison/sbom2dot
 version: "0.3.2"
-check: ${binary} --version
-build_dependencies:
-- python-3.12
-- shiv
-runtime_dependencies:
-- python-3.12
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/security
 - lang/python
@@ -21,12 +18,15 @@ tags:
 - format/spdx
 - format/cyclonedx
 - state/onemanshow
-homepage: https://github.com/anthonyharrison/sbom2dot
-repository: https://github.com/anthonyharrison/sbom2dot
-description: Create a dependency graph of the components within a SBOM
+check: ${binary} --version
+build_dependencies:
+- python-3.12
+- shiv
+runtime_dependencies:
+- python-3.12
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: pypi
   package: sbom2dot
-license:
-  name: Apache License 2.0
-  link: https://github.com/anthonyharrison/sbom2dot/blob/main/README.md#licence

@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: doggo
+description: Command line DNS client for humans
 license:
   name: GPLv3
   link: https://github.com/mr-karan/doggo/blob/main/LICENSE
+homepage: https://doggo.mrkaran.dev/
+repository: https://github.com/mr-karan/doggo
 version: "1.1.5"
-check: ${binary} --version | cut -d' ' -f1 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/go
 - type/cli
 - standard/dns
-homepage: https://doggo.mrkaran.dev/
-repository: https://github.com/mr-karan/doggo
-description: Command line DNS client for humans
+check: ${binary} --version | cut -d' ' -f1 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: mr-karan/doggo

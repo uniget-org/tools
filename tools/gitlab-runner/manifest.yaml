@@ -1,13 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: gitlab-runner
+description: open source project to run your CI/CD jobs and send the results back to GitLab
 license:
   name: MIT License
   link: https://gitlab.com/gitlab-org/gitlab-runner/-/blob/main/LICENSE?ref_type=heads
+homepage: https://gitlab.com/gitlab-org/gitlab-runner
+repository: https://gitlab.com/gitlab-org/gitlab-runner
 version: "18.11.2"
-check: ${binary} --version | grep ^Version | tr -s ' ' | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/gitlab
 - category/development
@@ -15,9 +14,10 @@ tags:
 - cicd
 - lang/go
 - gitlab
-homepage: https://gitlab.com/gitlab-org/gitlab-runner
-repository: https://gitlab.com/gitlab-org/gitlab-runner
-description: open source project to run your CI/CD jobs and send the results back to GitLab
+check: ${binary} --version | grep ^Version | tr -s ' ' | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: gitlab-releases
   package: gitlab-org/gitlab-runner

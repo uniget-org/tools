@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: chalk
+description: Follow code from development, through builds and into production
 license:
   name: GPLv3
   link: https://github.com/crashappsec/chalk/blob/main/LICENSE
+homepage: https://chalkproject.io
+repository: https://github.com/crashappsec/chalk
 version: "1.0.2"
-check: ${binary} version | sed -e 's/\x1b\[[0-9;]*m//g' | grep "Chalk version" | cut -d' ' -f5
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/security
 - lang/nim
 - type/cli
 - cicd
-homepage: https://chalkproject.io
-repository: https://github.com/crashappsec/chalk
-description: Follow code from development, through builds and into production
+check: ${binary} version | sed -e 's/\x1b\[[0-9;]*m//g' | grep "Chalk version" | cut -d' ' -f5
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: crashappsec/chalk

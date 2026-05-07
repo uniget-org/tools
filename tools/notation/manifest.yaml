@@ -1,9 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: notation
+description: Add signatures as standard items in the registry ecosystem
+license:
+  name: Apache License 2.0
+  link: https://github.com/notaryproject/notation/blob/main/LICENSE
+homepage: https://notaryproject.dev/
+repository: https://github.com/notaryproject/notation
 version: "1.3.2"
-check: ${binary} --version | cut -d' ' -f3
-runtime_dependencies:
-- docker
 tags:
 - type/cli
 - category/security
@@ -11,15 +14,12 @@ tags:
 - lang/go
 - standard/oci
 - cncf/incubating
-homepage: https://notaryproject.dev/
-repository: https://github.com/notaryproject/notation
-description: Add signatures as standard items in the registry ecosystem
+check: ${binary} --version | cut -d' ' -f3
+runtime_dependencies:
+- docker
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: notaryproject/notation
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/notaryproject/notation/blob/main/LICENSE
-platforms:
-- linux/amd64

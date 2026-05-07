@@ -1,14 +1,11 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: pass-git-helper
+description: Git credential helper interfacing with pass, the standard unix password manager
+license:
+  name: LGPLv3
+homepage: https://github.com/languitar/pass-git-helper
+repository: https://github.com/languitar/pass-git-helper
 version: "4.3.0"
-check: "" # TODO
-build_dependencies:
-- python-3.12
-- pipx
-runtime_dependencies:
-- pass
-- python-3.12
-- git
 tags:
 - category/security
 - lang/python
@@ -18,14 +15,17 @@ tags:
 - standard/pass
 - standard/git
 - git
-homepage: https://github.com/languitar/pass-git-helper
-repository: https://github.com/languitar/pass-git-helper
-description: Git credential helper interfacing with pass, the standard unix password manager
+check: "" # TODO
+build_dependencies:
+- python-3.12
+- pipx
+runtime_dependencies:
+- pass
+- python-3.12
+- git
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: languitar/pass-git-helper
   extractVersion: ^v(?<version>.+)$
-license:
-  name: LGPLv3
-platforms:
-- linux/amd64

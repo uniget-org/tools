@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: hub
+description: Command-line tool that makes git easier to use with GitHub
+license:
+  name: MIT License
+  link: https://github.com/mislav/hub/blob/master/LICENSE
+homepage: https://hub.github.com/
+repository: https://github.com/mislav/hub
 version: "2.14.2"
-check: ${binary} --version | grep ^hub | cut -d' ' -f3
 tags:
 - org/github
 - type/cli
@@ -10,15 +15,10 @@ tags:
 - lang/go
 - state/stale
 - cloud/github
-homepage: https://hub.github.com/
-repository: https://github.com/mislav/hub
-description: Command-line tool that makes git easier to use with GitHub
+check: ${binary} --version | grep ^hub | cut -d' ' -f3
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: mislav/hub
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/mislav/hub/blob/master/LICENSE
-platforms:
-- linux/amd64

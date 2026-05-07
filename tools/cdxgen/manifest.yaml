@@ -1,6 +1,19 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: cdxgen
+description: Creates CycloneDX Software Bill-of-Materials (SBOM) for your projects from source and container images
+license:
+  name: Apache License 2.0
+  link: https://github.com/CycloneDX/cdxgen/blob/master/LICENSE
+homepage: https://github.com/CycloneDX/cdxgen
+repository: https://github.com/CycloneDX/cdxgen
 version: "12.3.3"
+tags:
+- org/owasp
+- category/security
+- lang/javascript
+- type/cli
+- sbom
+- format/cyclonedx
 check: npm list --prefix=${target}/libexec/cdxgen | grep @cyclonedx/cdxgen | cut -d@ -f3
 build_dependencies:
 - node-lts
@@ -9,19 +22,6 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- org/owasp
-- category/security
-- lang/javascript
-- type/cli
-- sbom
-- format/cyclonedx
-homepage: https://github.com/CycloneDX/cdxgen
-repository: https://github.com/CycloneDX/cdxgen
-description: Creates CycloneDX Software Bill-of-Materials (SBOM) for your projects from source and container images
 renovate:
   datasource: npm
   package: "@cyclonedx/cdxgen"
-license:
-  name: Apache License 2.0
-  link: https://github.com/CycloneDX/cdxgen/blob/master/LICENSE

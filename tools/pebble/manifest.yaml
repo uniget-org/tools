@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: pebble
+description: Take control of your internal daemons
+license:
+  name: GPLv3
+homepage: https://github.com/canonical/pebble
+repository: https://github.com/canonical/pebble
 version: "1.30.1"
-check: ${binary} --version | grep ^client | cut -dv -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/canonical
 - category/operations
 - lang/go
 - type/cli
-homepage: https://github.com/canonical/pebble
-repository: https://github.com/canonical/pebble
-description: Take control of your internal daemons
+check: ${binary} --version | grep ^client | cut -dv -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: canonical/pebble
   extractVersion: ^v(?<version>.+)$
-license:
-  name: GPLv3

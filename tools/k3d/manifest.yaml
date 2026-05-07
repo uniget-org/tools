@@ -1,9 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: k3d
+description: Little helper to run CNCF's k3s in Docker
+license:
+  name: MIT License
+  link: https://github.com/k3d-io/k3d/blob/main/LICENSE
+homepage: https://k3d.io/
+repository: https://github.com/k3d-io/k3d
 version: "5.8.3"
-check: ${binary} version | head -n 1 | cut -d' ' -f3 | tr -d v
-runtime_dependencies:
-- docker
 tags:
 - standard/docker
 - type/cli
@@ -11,15 +14,12 @@ tags:
 - management
 - lang/go
 - k8s
-homepage: https://k3d.io/
-repository: https://github.com/k3d-io/k3d
-description: Little helper to run CNCF's k3s in Docker
+check: ${binary} version | head -n 1 | cut -d' ' -f3 | tr -d v
+runtime_dependencies:
+- docker
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: k3d-io/k3d
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/k3d-io/k3d/blob/main/LICENSE
-platforms:
-- linux/amd64

@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kbrew
+description: Homebrew for Kubernetes
+license:
+  name: Apache License 2.0
+  link: https://github.com/kbrew-dev/kbrew/blob/main/LICENSE
+homepage: https://github.com/kbrew-dev/kbrew
+repository: https://github.com/kbrew-dev/kbrew
 version: "0.1.0"
-check: ${binary} version | cut -d, -f1 | cut -d'"' -f4 | tr -d v
 tags:
 - type/cli
 - kubernetes
@@ -10,15 +15,10 @@ tags:
 - management
 - lang/go
 - state/stale
-homepage: https://github.com/kbrew-dev/kbrew
-repository: https://github.com/kbrew-dev/kbrew
-description: Homebrew for Kubernetes
+check: ${binary} version | cut -d, -f1 | cut -d'"' -f4 | tr -d v
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: kbrew-dev/kbrew
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/kbrew-dev/kbrew/blob/main/LICENSE
-platforms:
-- linux/amd64

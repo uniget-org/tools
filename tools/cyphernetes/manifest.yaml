@@ -1,7 +1,17 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: cyphernetes
+description: Kubernetes CLI and library for complex operations using a Cypher-inspired query language
+license:
+  name: MIT License
+  link: https://github.com/AvitalTamir/cyphernetes/blob/main/LICENSE
+homepage: https://github.com/AvitalTamir/cyphernetes
+repository: https://github.com/AvitalTamir/cyphernetes
 version: "0.18.2"
+tags:
+- category/operations
+- lang/go
+- type/cli
 check: "" # No version parameter
 build_dependencies:
 - make
@@ -11,17 +21,7 @@ build_dependencies:
 - pnpm
 platforms:
 - linux/amd64
-tags:
-- category/operations
-- lang/go
-- type/cli
-homepage: https://github.com/AvitalTamir/cyphernetes
-repository: https://github.com/AvitalTamir/cyphernetes
-description: Kubernetes CLI and library for complex operations using a Cypher-inspired query language
 renovate:
   datasource: github-releases
   package: AvitalTamir/cyphernetes
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/AvitalTamir/cyphernetes/blob/main/LICENSE

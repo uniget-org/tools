@@ -1,20 +1,28 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: docker-init
+description: Creates Docker-related starter files for your project
+license:
+  name: Docker Subscription Service Agreement
+  link: https://www.docker.com/legal/docker-subscription-service-agreement/
+homepage: https://docs.docker.com/desktop/
+repository: https://docs.docker.com/desktop/
 version: "1.4.0-4.71.0.225177"
-binary: "false"
-check: ${binary} init --version | grep ^Version | cut -dv -f2
-platforms:
-- linux/amd64
 tags:
 - org/docker
 - category/development
 - lang/go
 - type/cli
 - docker
-homepage: https://docs.docker.com/desktop/
-repository: https://docs.docker.com/desktop/
-description: Creates Docker-related starter files for your project
+check: ${binary} init --version | grep ^Version | cut -dv -f2
+platforms:
+- linux/amd64
+renovate:
+  datasource: gitlab-releases
+  package: uniget-org/renovate-custom
+  extractVersion: ^docker-init/(?<version>.+)$
+  versioning: loose
+binary: "false"
 message:
   update: |
     This package only installs a script called install-docker-init.sh that you
@@ -22,11 +30,3 @@ message:
 
     You must honor the licensing terms of Docker Desktop even when running the
     bundled CLI tools.
-renovate:
-  datasource: gitlab-releases
-  package: uniget-org/renovate-custom
-  extractVersion: ^docker-init/(?<version>.+)$
-  versioning: loose
-license:
-  name: Docker Subscription Service Agreement
-  link: https://www.docker.com/legal/docker-subscription-service-agreement/

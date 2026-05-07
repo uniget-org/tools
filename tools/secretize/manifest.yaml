@@ -1,19 +1,19 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: secretize
+description: Kubernetes secrets generator plugin for kustomize
+license:
+  name: MIT License
+  link: https://github.com/bbl/secretize/blob/main/LICENSE
+homepage: https://github.com/bbl/secretize
+repository: https://github.com/bbl/secretize
 version: "0.0.2"
-check: "" # No version parameter
 tags:
 - type/cli
 - category/security
 - lang/go
-homepage: https://github.com/bbl/secretize
-repository: https://github.com/bbl/secretize
-description: Kubernetes secrets generator plugin for kustomize
+check: "" # No version parameter
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: bbl/secretize
-license:
-  name: MIT License
-  link: https://github.com/bbl/secretize/blob/main/LICENSE
-platforms:
-- linux/amd64

@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: saml2aws
+description: CLI tool which enables you to login and retrieve AWS temporary credentials using a SAML IDP
 license:
   name: MIT License
   link: https://github.com/Versent/saml2aws/blob/master/LICENSE.md
+homepage: https://github.com/Versent/saml2aws
+repository: https://github.com/Versent/saml2aws
 version: "2.36.19"
-check: ${binary} --version
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/security
 - lang/go
 - type/cli
 - cloud/aws
 - state/stale
-homepage: https://github.com/Versent/saml2aws
-repository: https://github.com/Versent/saml2aws
-description: CLI tool which enables you to login and retrieve AWS temporary credentials using a SAML IDP
+check: ${binary} --version
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: Versent/saml2aws

@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: cloudflared
+description: Cloudflare Tunnel client (formerly Argo Tunnel)
+license:
+  name: Apache License 2.0
+  link: https://github.com/cloudflare/cloudflared/blob/master/LICENSE
+homepage: https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/tunnel-guide
+repository: https://github.com/cloudflare/cloudflared
 version: "2026.3.0"
-check: ${binary} --version | cut -d' ' -f3
 tags:
 - type/cli
 - category/development
 - tunneling
 - lang/go
 - org/cloudflare
-homepage: https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/tunnel-guide
-repository: https://github.com/cloudflare/cloudflared
-description: Cloudflare Tunnel client (formerly Argo Tunnel)
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: cloudflare/cloudflared
-license:
-  name: Apache License 2.0
-  link: https://github.com/cloudflare/cloudflared/blob/master/LICENSE
-platforms:
-- linux/amd64

@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: dockle
+description: Container Image Linter for Security, Helping build the Best-Practice Docker Image, Easy to start
+license:
+  name: Apache License 2.0
+  link: https://github.com/goodwithtech/dockle/blob/master/LICENSE
+homepage: https://containers.goodwith.tech/
+repository: https://github.com/goodwithtech/dockle
 version: "0.4.15"
-check: ${binary} --version | cut -d' ' -f3
 tags:
 - type/cli
 - category/development
@@ -9,15 +14,10 @@ tags:
 - standard/docker
 - cicd
 - lint
-homepage: https://containers.goodwith.tech/
-repository: https://github.com/goodwithtech/dockle
-description: Container Image Linter for Security, Helping build the Best-Practice Docker Image, Easy to start
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: goodwithtech/dockle
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/goodwithtech/dockle/blob/master/LICENSE
-platforms:
-- linux/amd64

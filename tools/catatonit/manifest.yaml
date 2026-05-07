@@ -1,19 +1,19 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: catatonit
+description: Container init that is so simple it's effectively brain-dead
+license:
+  name: GPLv2
+homepage: https://github.com/openSUSE/catatonit
+repository: https://github.com/openSUSE/catatonit
 version: "0.2.1"
-check: ${binary} --version | cut -d' ' -f3 | cut -d_ -f1
-platforms:
-- linux/amd64
 tags:
 - type/cli
 - container/init
 - lang/c
-homepage: https://github.com/openSUSE/catatonit
-repository: https://github.com/openSUSE/catatonit
-description: Container init that is so simple it's effectively brain-dead
+check: ${binary} --version | cut -d' ' -f3 | cut -d_ -f1
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: openSUSE/catatonit
   extractVersion: ^v(?<version>.+)$
-license:
-  name: GPLv2

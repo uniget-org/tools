@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kubeaudit
+description: Audit your Kubernetes clusters against common security controls
+license:
+  name: MIT License
+  link: https://github.com/Shopify/kubeaudit/blob/main/LICENSE
+homepage: https://github.com/Shopify/kubeaudit
+repository: https://github.com/Shopify/kubeaudit
 version: "0.22.2"
-check: ${binary} version
 tags:
 - type/cli
 - category/security
@@ -10,15 +15,10 @@ tags:
 - k8s
 - state/deprecated
 - state/stale
-homepage: https://github.com/Shopify/kubeaudit
-repository: https://github.com/Shopify/kubeaudit
-description: Audit your Kubernetes clusters against common security controls
+check: ${binary} version
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: Shopify/kubeaudit
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/Shopify/kubeaudit/blob/main/LICENSE
-platforms:
-- linux/amd64

@@ -1,14 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: crush
+description: Glamourous AI coding agent for your favourite terminal
 license:
   name: FSL-1.1-MIT
   link: https://github.com/charmbracelet/crush/blob/main/LICENSE.md
+homepage: https://github.com/charmbracelet/crush
+repository: https://github.com/charmbracelet/crush
 version: "0.66.0"
-check: ${binary} --version | cut -d' ' -f3 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/charmbracelet
 - category/development
@@ -19,9 +18,10 @@ tags:
 - mcp
 - coding
 - agent
-homepage: https://github.com/charmbracelet/crush
-repository: https://github.com/charmbracelet/crush
-description: Glamourous AI coding agent for your favourite terminal
+check: ${binary} --version | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: charmbracelet/crush

@@ -1,11 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: sbomasm
+description: SBOM Assembler - A tool to compose your various sboms into a single sbom
+license:
+  name: Apache License 2.0
+  link: https://github.com/interlynk-io/sbomasm/blob/main/LICENSE
+homepage: https://github.com/interlynk-io/sbomasm
+repository: https://github.com/interlynk-io/sbomasm
 version: "2.0.3"
-check: ${binary} version | grep ^GitVersion | tr -s ' ' | cut -d' ' -f2 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/interlynk
 - category/security
@@ -14,13 +16,11 @@ tags:
 - sbom
 - format/spdx
 - format/cyclonedx
-homepage: https://github.com/interlynk-io/sbomasm
-repository: https://github.com/interlynk-io/sbomasm
-description: SBOM Assembler - A tool to compose your various sboms into a single sbom
+check: ${binary} version | grep ^GitVersion | tr -s ' ' | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: interlynk-io/sbomasm
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/interlynk-io/sbomasm/blob/main/LICENSE

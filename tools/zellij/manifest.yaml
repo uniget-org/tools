@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: zellij
+description: Terminal workspace with batteries included
 license:
   name: MIT License
   link: https://github.com/zellij-org/zellij/blob/main/LICENSE.md
+homepage: https://zellij.dev/
+repository: https://github.com/zellij-org/zellij
 version: "0.44.2"
-check: ${binary} --version | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/rust
 - type/cli
 - type/tui
-homepage: https://zellij.dev/
-repository: https://github.com/zellij-org/zellij
-description: Terminal workspace with batteries included 
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: zellij-org/zellij

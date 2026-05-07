@@ -1,26 +1,26 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: jnv
+description: Interactive JSON filter using jq
+license:
+  name: MIT License
+  link: https://github.com/ynqa/jnv/blob/main/LICENSE
+homepage: https://github.com/ynqa/jnv
+repository: https://github.com/ynqa/jnv
 version: "0.7.1"
-check: ${binary} --version | cut -d' ' -f2
-build_dependencies:
-- rust
-platforms:
-- linux/amd64
-#- linux/arm64
 tags:
 - category/development
 - lang/rust
 - type/cli
 - standard/jq
 - format/json
-homepage: https://github.com/ynqa/jnv
-repository: https://github.com/ynqa/jnv
-description: Interactive JSON filter using jq
+check: ${binary} --version | cut -d' ' -f2
+build_dependencies:
+- rust
+platforms:
+- linux/amd64
+#- linux/arm64
 renovate:
   datasource: github-releases
   package: ynqa/jnv
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/ynqa/jnv/blob/main/LICENSE

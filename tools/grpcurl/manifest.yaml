@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: grpcurl
+description: Like cURL, but for gRPC
 license:
   name: MIT License
   link: https://github.com/fullstorydev/grpcurl/blob/master/LICENSE
+homepage: https://github.com/fullstorydev/grpcurl
+repository: https://github.com/fullstorydev/grpcurl
 version: "1.9.3"
-check: ${binary} --version 2>&1 | cut -d' ' -f2 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/go
 - type/cli
-homepage: https://github.com/fullstorydev/grpcurl
-repository: https://github.com/fullstorydev/grpcurl
-description: Like cURL, but for gRPC
+check: ${binary} --version 2>&1 | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: fullstorydev/grpcurl

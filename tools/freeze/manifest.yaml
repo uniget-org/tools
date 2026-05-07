@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: freeze
+description: Generate images of code and terminal output
+license:
+  name: MIT License
+  link: https://github.com/charmbracelet/freeze/blob/main/LICENSE
+homepage: https://github.com/charmbracelet/freeze
+repository: https://github.com/charmbracelet/freeze
 version: "0.2.2"
-check: ${binary} --version | cut -d' ' -f3 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/charmbracelet
 - category/operations
 - lang/go
 - type/cli
-homepage: https://github.com/charmbracelet/freeze
-repository: https://github.com/charmbracelet/freeze
-description: Generate images of code and terminal output
+check: ${binary} --version | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: charmbracelet/freeze
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/charmbracelet/freeze/blob/main/LICENSE

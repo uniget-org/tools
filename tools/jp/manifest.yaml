@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: jp
+description: Command line interface to JMESPath
+license:
+  name: Apache License 2.0
+  link: https://github.com/jmespath/jp/blob/master/LICENSE
+homepage: https://github.com/jmespath/jp
+repository: https://github.com/jmespath/jp
 version: "0.2.1"
-check: ${binary} --version | cut -d' ' -f3
 tags:
 - standard/jmespath
 - type/cli
@@ -9,14 +14,9 @@ tags:
 - format/json
 - state/stale
 - standard/jmespath
-homepage: https://github.com/jmespath/jp
-repository: https://github.com/jmespath/jp
-description: Command line interface to JMESPath
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: jmespath/jp
-license:
-  name: Apache License 2.0
-  link: https://github.com/jmespath/jp/blob/master/LICENSE
-platforms:
-- linux/amd64

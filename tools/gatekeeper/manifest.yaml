@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: gatekeeper
+description: Policy Controller for Kubernetes
+license:
+  name: Apache License 2.0
+  link: https://github.com/open-policy-agent/gatekeeper/blob/master/LICENSE
+homepage: https://open-policy-agent.github.io/gatekeeper/
+repository: https://github.com/open-policy-agent/gatekeeper
 version: "3.22.2"
-binary: gator
-check: ${binary} --version | grep "^Gator version" | cut -d' ' -f3 | tr -d v
 tags:
 - type/daemon
 - category/security
 - kubernetes
 - k8s
 - lang/go
-homepage: https://open-policy-agent.github.io/gatekeeper/
-repository: https://github.com/open-policy-agent/gatekeeper
-description: Policy Controller for Kubernetes
+check: ${binary} --version | grep "^Gator version" | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: open-policy-agent/gatekeeper
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/open-policy-agent/gatekeeper/blob/master/LICENSE
-platforms:
-- linux/amd64
+binary: gator

@@ -1,24 +1,24 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: meteor
+description: Easy-to-use, plugin-driven metadata collection framework to extract data from different sources and sink to any data catalog
+license:
+  name: Apache License 2.0
+  link: https://github.com/raystack/meteor/blob/main/LICENSE
+homepage: https://raystack.github.io/meteor/
+repository: https://github.com/raystack/meteor
 version: "0.14.0"
-check: ${binary} version | tr -d v
-conflicts_with:
-- meteor-commit
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/go
 - type/daemon
-homepage: https://raystack.github.io/meteor/
-repository: https://github.com/raystack/meteor
-description: Easy-to-use, plugin-driven metadata collection framework to extract data from different sources and sink to any data catalog
+check: ${binary} version | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: raystack/meteor
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/raystack/meteor/blob/main/LICENSE
+conflicts_with:
+- meteor-commit

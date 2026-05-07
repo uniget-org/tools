@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: direnv
+description: Unclutter your .profile
+license:
+  name: MIT License
+  link: https://github.com/direnv/direnv/blob/master/LICENSE
+homepage: http://direnv.net
+repository: https://github.com/direnv/direnv/
 version: "2.37.1"
-check: ${binary} version
 tags:
 - type/cli
 - terminal
 - lang/go
 - terminal
-homepage: http://direnv.net
-repository: https://github.com/direnv/direnv/
-description: Unclutter your .profile
+check: ${binary} version
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: direnv/direnv
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/direnv/direnv/blob/master/LICENSE
-platforms:
-- linux/amd64

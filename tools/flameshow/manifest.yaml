@@ -1,7 +1,20 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: flameshow
+description: Terminal flamegraph viewer
+license:
+  name: None
+homepage: https://github.com/laixintao/flameshow
+repository: https://github.com/laixintao/flameshow
 version: "1.1.4"
+tags:
+- category/development
+- lang/python
+- type/cli
+- graph
+- plot
+- visualization
+- state/stale
 check: ${binary} --version
 build_dependencies:
 - python-3.12
@@ -11,19 +24,6 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/development
-- lang/python
-- type/cli
-- graph
-- plot
-- visualization
-- state/stale
-homepage: https://github.com/laixintao/flameshow
-repository: https://github.com/laixintao/flameshow
-description: Terminal flamegraph viewer
 renovate:
   datasource: pypi
   package: flameshow
-license:
-  name: None

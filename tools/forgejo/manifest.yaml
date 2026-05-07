@@ -1,10 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: forgejo
+description: Beyond coding. We forge.
+license:
+  name: Custom
+  link: https://codeberg.org/forgejo/forgejo/src/branch/forgejo/LICENSE
+homepage: https://codeberg.org/forgejo/forgejo
+repository: https://codeberg.org/forgejo/forgejo
 version: "14.0.3"
-check: ${binary} --version | cut -d' ' -f3
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/go
@@ -12,14 +14,12 @@ tags:
 - type/cli
 - standard/git
 - git
-homepage: https://codeberg.org/forgejo/forgejo
-repository: https://codeberg.org/forgejo/forgejo
-description: Beyond coding. We forge.
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: git-tags
   package: https://codeberg.org/forgejo/forgejo.git
   extractVersion: ^v(?<version>.+)$
   versioning: regex:^(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-(?<build>\d+)$
-license:
-  name: Custom
-  link: https://codeberg.org/forgejo/forgejo/src/branch/forgejo/LICENSE

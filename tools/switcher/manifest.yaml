@@ -1,9 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: switcher
+description: The kubectx for operators
+license:
+  name: Apache License 2.0
+  link: https://github.com/danielfoehrKn/kubeswitch/blob/master/LICENSE
+homepage: https://danielfoehrkn.medium.com/the-case-of-kubeswitch-aff4b6a04ae7
+repository: https://github.com/danielfoehrKn/kubeswitch
 version: "0.9.3"
-check: ${binary} --version | cut -d' ' -f3 | tr -d v
-platforms:
-- linux/amd64
 tags:
 - type/cli
 - kubernetes
@@ -11,12 +14,9 @@ tags:
 - management
 - lang/go
 - state/stale
-homepage: https://danielfoehrkn.medium.com/the-case-of-kubeswitch-aff4b6a04ae7
-repository: https://github.com/danielfoehrKn/kubeswitch
-description: The kubectx for operators
+check: ${binary} --version | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: danielfoehrKn/kubeswitch
-license:
-  name: Apache License 2.0
-  link: https://github.com/danielfoehrKn/kubeswitch/blob/master/LICENSE

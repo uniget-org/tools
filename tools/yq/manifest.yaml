@@ -1,10 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: yq
+description: Portable command-line YAML, JSON, XML, CSV and properties processor
+license:
+  name: MIT License
+  link: https://github.com/mikefarah/yq/blob/master/LICENSE
+homepage: https://mikefarah.gitbook.io/yq/
+repository: https://github.com/mikefarah/yq
 version: "4.53.2"
-check: ${binary} --version | cut -d' ' -f4 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - type/cli
 - format
@@ -13,13 +15,11 @@ tags:
 - format/yaml
 - format/xml
 - format/csv
-homepage: https://mikefarah.gitbook.io/yq/
-repository: https://github.com/mikefarah/yq
-description: Portable command-line YAML, JSON, XML, CSV and properties processor
+check: ${binary} --version | cut -d' ' -f4 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: mikefarah/yq
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/mikefarah/yq/blob/master/LICENSE

@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: asciigraph
+description: Make lightweight ASCII line graph in command line apps
+license:
+  name: BSD 3-Clause License
+  link: https://github.com/guptarohit/asciigraph/blob/master/LICENSE
+homepage: https://pkg.go.dev/github.com/guptarohit/asciigraph
+repository: https://github.com/guptarohit/asciigraph
 version: "0.9.0"
-check: "" # No version parameter
 tags:
 - type/cli
 - terminal
@@ -10,15 +15,10 @@ tags:
 - plot
 - visualization
 - state/stale
-homepage: https://pkg.go.dev/github.com/guptarohit/asciigraph
-repository: https://github.com/guptarohit/asciigraph
-description: Make lightweight ASCII line graph in command line apps
+check: "" # No version parameter
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: guptarohit/asciigraph
   extractVersion: ^v(?<version>.+)$
-license:
-  name: BSD 3-Clause License
-  link: https://github.com/guptarohit/asciigraph/blob/master/LICENSE
-platforms:
-- linux/amd64

@@ -1,24 +1,24 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: structurizr-cli
+description: CLI for Structurizr
+license:
+  name: Apache License 2.0
+  link: https://github.com/structurizr/cli/blob/master/LICENSE
+homepage: https://docs.structurizr.com/cli
+repository: https://github.com/structurizr/cli
 version: "2025.10.29"
-binary: structurizr
-check: ${binary} help | grep structurizr-cli | cut -d' ' -f2
-runtime_dependencies:
-- openjdk-jre
 tags:
 - category/development
 - lang/java
 - type/cli
 - state/deprecated
-homepage: https://docs.structurizr.com/cli
-repository: https://github.com/structurizr/cli
-description: CLI for Structurizr
+check: ${binary} help | grep structurizr-cli | cut -d' ' -f2
+runtime_dependencies:
+- openjdk-jre
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: structurizr/cli
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/structurizr/cli/blob/master/LICENSE
-platforms:
-- linux/amd64
+binary: structurizr

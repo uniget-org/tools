@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: tunnelto
+description: Expose your local web server to the internet with a public URL
+license:
+  name: MIT License
+  link: https://github.com/agrinman/tunnelto/blob/master/LICENSE
+homepage: https://tunnelto.dev
+repository: https://github.com/agrinman/tunnelto
 version: "0.1.18"
-check: "" # TODO
 tags:
 - type/cli
 - category/development
@@ -9,14 +14,9 @@ tags:
 - lang/rust
 - state/stale
 - component/network
-homepage: https://tunnelto.dev
-repository: https://github.com/agrinman/tunnelto
-description: Expose your local web server to the internet with a public URL
+check: "" # TODO
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: agrinman/tunnelto
-license:
-  name: MIT License
-  link: https://github.com/agrinman/tunnelto/blob/master/LICENSE
-platforms:
-- linux/amd64

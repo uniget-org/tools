@@ -1,15 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: docker
+description: The Docker CLI
+license:
+  name: Apache License 2.0
+  link: https://github.com/moby/moby/blob/master/LICENSE
+homepage: https://mobyproject.org/
+repository: https://www.docker.com/
 version: "29.4.3"
-binary: dockerd
-check: ${binary} --version | cut -d, -f1 | cut -d' ' -f3
-runtime_dependencies:
-- fuse-overlayfs
-- docker-manpages
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/docker
 - standard/docker
@@ -20,9 +18,18 @@ tags:
 - type/cli
 - type/daemon
 - lang/go
-homepage: https://mobyproject.org/
-repository: https://www.docker.com/
-description: The Docker CLI
+check: ${binary} --version | cut -d, -f1 | cut -d' ' -f3
+runtime_dependencies:
+- fuse-overlayfs
+- docker-manpages
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: moby/moby
+  extractVersion: ^docker-v(?<version>.+)$
+binary: dockerd
 messages:
   internals: |
     - Binaries (except docker) are installed into {{ .Target }}/libexec/docker/bin
@@ -36,7 +43,7 @@ messages:
     - For CLI plugins: mkdir -p ~/.docker && ln -sfr ~/.local/libexec/docker/cli-plugins ~/.docker/
   update: |
     - You must install iptables or nftables from your distribution:
-    
+
         Ubuntu: apt-get install nftables
           
     - You need to create a group to delegate the Docker socket to users:
@@ -44,7 +51,7 @@ messages:
           groupadd --system --force docker
 
     - Because of socket activation you need to configure the units:
-  
+
             systemctl daemon-reload
             systemctl disable docker.service
             systemctl enable docker.socket
@@ -72,10 +79,3 @@ messages:
           }
 
     - You need to restart the Docker daemon to apply chages to daemon.json
-renovate:
-  datasource: github-releases
-  package: moby/moby
-  extractVersion: ^docker-v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/moby/moby/blob/master/LICENSE

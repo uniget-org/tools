@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: figlet
+description: Making large letters out of ordinary text
+license:
+  name: BSD 3-Clause License
+  link: https://github.com/cmatsuoka/figlet/blob/master/LICENSE
+homepage: http://www.figlet.org
+repository: http://www.figlet.org/
 version: "2.2.5"
-check: ${binary} -v | grep Version | cut -d' ' -f4 | tr -d ,
-build_dependencies:
-- make
 tags:
 - type/cli
 - fun
 - lang/c
 - terminal
-homepage: http://www.figlet.org
-repository: http://www.figlet.org/
-description: Making large letters out of ordinary text
+check: ${binary} -v | grep Version | cut -d' ' -f4 | tr -d ,
+build_dependencies:
+- make
+platforms:
+- linux/amd64
 renovate:
   datasource: github-tags
   package: cmatsuoka/figlet
-license:
-  name: BSD 3-Clause License
-  link: https://github.com/cmatsuoka/figlet/blob/master/LICENSE
-platforms:
-- linux/amd64

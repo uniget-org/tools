@@ -1,10 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: crictl
+description: CLI and validation tools for Kubelet Container Runtime Interface
+license:
+  name: Apache License 2.0
+  link: https://github.com/kubernetes-sigs/cri-tools/blob/master/LICENSE
+homepage: https://github.com/kubernetes-sigs/cri-tools
+repository: https://github.com/kubernetes-sigs/cri-tools
 version: "1.36.0"
-check: ${binary} --version | cut -d' ' -f3 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/cncf
 - standard/cri
@@ -13,16 +15,14 @@ tags:
 - kubernetes
 - k8s
 - lang/go
-homepage: https://github.com/kubernetes-sigs/cri-tools
-repository: https://github.com/kubernetes-sigs/cri-tools
-description: CLI and validation tools for Kubelet Container Runtime Interface
-messages:
-  update: |
-    See /etc/crictl.yaml for configuring your favorite endpoint.
+check: ${binary} --version | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: kubernetes-sigs/cri-tools
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/kubernetes-sigs/cri-tools/blob/master/LICENSE
+messages:
+  update: |
+    See /etc/crictl.yaml for configuring your favorite endpoint.

@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: ekz
+description: EKS-D Kubernetes distribution for desktop
+license:
+  name: Apache License 2.0
+  link: https://github.com/chanwit/ekz/blob/main/LICENSE
+homepage: https://ekz-io.gitbook.io/ekz
+repository: https://github.com/chanwit/ekz
 version: "0.8.0"
-check: ${binary} --version | cut -d' ' -f3
 tags:
 - cloud/aws
 - type/cli
@@ -9,14 +14,9 @@ tags:
 - k8s
 - lang/go
 - state/stale
-homepage: https://ekz-io.gitbook.io/ekz
-repository: https://github.com/chanwit/ekz
-description: EKS-D Kubernetes distribution for desktop
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: chanwit/ekz
-license:
-  name: Apache License 2.0
-  link: https://github.com/chanwit/ekz/blob/main/LICENSE
-platforms:
-- linux/amd64

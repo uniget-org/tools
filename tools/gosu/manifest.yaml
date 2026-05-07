@@ -1,20 +1,20 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: gosu
+description: Simple Go-based setuid+setgid+setgroups+exec
+license:
+  name: Apache License 2.0
+  link: https://github.com/tianon/gosu/blob/master/LICENSE
+homepage: https://github.com/tianon/gosu
+repository: https://github.com/tianon/gosu
 version: "1.19"
-check: ${binary} --version | cut -d' ' -f1
 tags:
 - container/su
 - type/cli
 - lang/go
-homepage: https://github.com/tianon/gosu
-repository: https://github.com/tianon/gosu
-description: Simple Go-based setuid+setgid+setgroups+exec
+check: ${binary} --version | cut -d' ' -f1
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: tianon/gosu
   versioning: loose
-license:
-  name: Apache License 2.0
-  link: https://github.com/tianon/gosu/blob/master/LICENSE
-platforms:
-- linux/amd64

@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: purl
+description: Streamlining Text Processing
 license:
   name: MIT License
   link: https://github.com/catatsuy/purl/blob/main/LICENSE
+homepage: https://github.com/catatsuy/purl
+repository: https://github.com/catatsuy/purl
 version: "0.2.8"
-check: ${binary} --version 2>&1 | cut -d';' -f1 | cut -d' ' -f3 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/go
 - type/cli
 - filter
-homepage: https://github.com/catatsuy/purl
-repository: https://github.com/catatsuy/purl
-description: Streamlining Text Processing
+check: ${binary} --version 2>&1 | cut -d';' -f1 | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: catatsuy/purl

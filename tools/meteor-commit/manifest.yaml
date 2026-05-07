@@ -1,26 +1,26 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: meteor-commit
+description: Highly configurable CLI tool for writing conventional commits
 license:
   name: MIT License
   link: https://github.com/stefanlogue/meteor/blob/main/LICENSE
+homepage: https://github.com/stefanlogue/meteor
+repository: https://github.com/stefanlogue/meteor
 version: "0.31.0"
-binary: meteor
-check: ${binary} --version | cut -d' ' -f3
-conflicts_with:
-- meteor
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/go
 - type/cli
 - git
-homepage: https://github.com/stefanlogue/meteor
-repository: https://github.com/stefanlogue/meteor
-description: Highly configurable CLI tool for writing conventional commits
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: stefanlogue/meteor
   extractVersion: ^v(?<version>.+)$
+binary: meteor
+conflicts_with:
+- meteor

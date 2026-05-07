@@ -1,20 +1,20 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: conftest
+description: Write tests against structured configuration data
+license:
+  name: Apache License 2.0
+  link: https://github.com/open-policy-agent/conftest/blob/master/LICENSE
+homepage: https://conftest.dev
+repository: https://github.com/open-policy-agent/conftest
 version: "0.68.2"
-check: ${binary} --version | grep ^Conftest | cut -d' ' -f2
 tags:
 - type/cli
 - kubernetes
 - lang/go
-homepage: https://conftest.dev
-repository: https://github.com/open-policy-agent/conftest
-description: Write tests against structured configuration data
+check: ${binary} --version | grep ^Conftest | cut -d' ' -f2
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: open-policy-agent/conftest
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/open-policy-agent/conftest/blob/master/LICENSE
-platforms:
-- linux/amd64

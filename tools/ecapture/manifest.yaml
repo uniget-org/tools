@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: ecapture
+description: Capture SSL/TLS text content without a CA certificate using eBPF
+license:
+  name: Apache License 2.0
+  link: https://github.com/gojue/ecapture/blob/master/LICENSE
+homepage: https://ecapture.cc
+repository: https://github.com/gojue/ecapture
 version: "2.3.0"
-check: "${binary} --version | grep ^ecapture | cut -d: -f3 | tr -d v"
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/security
 - lang/c
 - type/cli
 - certificate
-homepage: https://ecapture.cc
-repository: https://github.com/gojue/ecapture
-description: Capture SSL/TLS text content without a CA certificate using eBPF
+check: "${binary} --version | grep ^ecapture | cut -d: -f3 | tr -d v"
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: gojue/ecapture
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/gojue/ecapture/blob/master/LICENSE

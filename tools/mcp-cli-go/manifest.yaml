@@ -1,10 +1,18 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: mcp-cli-go
+description: Command-line interface for interacting with the Model Context Protocol (MCP)
 license:
   name: MIT License
   link: https://github.com/jbovet/mcp-cli/blob/main/LICENSE.md
+homepage: https://github.com/jbovet/mcp-cli
+repository: https://github.com/jbovet/mcp-cli
 version: "c47f05c07c40e85fa9bfe4767f2bd9fbe244bc9b"
+tags:
+- category/development
+- lang/go
+- type/cli
+- mcp
 check: "" # No releases
 build_dependencies:
 - go
@@ -13,14 +21,6 @@ build_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/development
-- lang/go
-- type/cli
-- mcp
-homepage: https://github.com/jbovet/mcp-cli
-repository: https://github.com/jbovet/mcp-cli
-description: Command-line interface for interacting with the Model Context Protocol (MCP)
 renovate:
   datasource: git-refs
   package: https://github.com/jbovet/mcp-cli

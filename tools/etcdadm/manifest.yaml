@@ -1,9 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: etcdadm
+description: Command-line tool for operating an etcd cluster
+license:
+  name: Apache License 2.0
+  link: https://github.com/kubernetes-retired/etcdadm/blob/master/LICENSE
+homepage: https://github.com/kubernetes-retired/etcdadm
+repository: https://github.com/kubernetes-retired/etcdadm
 version: "0.1.5"
-check: "" # Version too hard to parse
-platforms:
-- linux/amd64
 tags:
 - org/kubernetes
 - org/cncf
@@ -12,13 +15,10 @@ tags:
 - type/cli
 - state/stale
 - state/deprecated
-homepage: https://github.com/kubernetes-retired/etcdadm
-repository: https://github.com/kubernetes-retired/etcdadm
-description: Command-line tool for operating an etcd cluster
+check: "" # Version too hard to parse
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: kubernetes-retired/etcdadm
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/kubernetes-retired/etcdadm/blob/master/LICENSE

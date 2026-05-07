@@ -1,10 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: oci-image-tool
+description: OCI Image Tooling
+license:
+  name: Apache License 2.0
+  link: https://github.com/opencontainers/image-tools/blob/master/LICENSE
+homepage: https://opencontainers.org
+repository: https://github.com/opencontainers/image-tools
 version: "1.0.0-rc3"
-check: ${binary} --version | cut -d' ' -f3
-build_dependencies:
-- go
-- make
 tags:
 - org/oci
 - standard/oci
@@ -13,15 +15,13 @@ tags:
 - lang/go
 - state/stale
 - state/deprecated
-homepage: https://opencontainers.org
-repository: https://github.com/opencontainers/image-tools
-description: OCI Image Tooling
+check: ${binary} --version | cut -d' ' -f3
+build_dependencies:
+- go
+- make
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: opencontainers/image-tools
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/opencontainers/image-tools/blob/master/LICENSE
-platforms:
-- linux/amd64

@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: regal
+description: Linter for Rego, with the goal of making your Rego magnificent
 license:
   name: Apache License 2.0
   link: https://github.com/open-policy-agent/regal/blob/main/LICENSE
+homepage: https://docs.styra.com/regal
+repository: https://github.com/open-policy-agent/regal
 version: "0.40.0"
-check: ${binary} version | grep ^Version | tr -s ' ' | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/go
 - type/cli
 - lint
-homepage: https://docs.styra.com/regal
-repository: https://github.com/open-policy-agent/regal
-description: Linter for Rego, with the goal of making your Rego magnificent
+check: ${binary} version | grep ^Version | tr -s ' ' | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: open-policy-agent/regal

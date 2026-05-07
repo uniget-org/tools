@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: cloud-provider-kind
+description: Cloud provider for KIND clusters
 license:
   name: Apache License 2.0
   link: https://github.com/kubernetes-sigs/cloud-provider-kind/blob/main/LICENSE
+homepage: https://kubernetes-sigs.github.io/cloud-provider-kind/
+repository: https://github.com/kubernetes-sigs/cloud-provider-kind
 version: "0.10.0"
-check: "" # No version parameter
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/kubernetes
 - category/development
 - lang/go
 - type/daemon
-homepage: https://kubernetes-sigs.github.io/cloud-provider-kind/
-repository: https://github.com/kubernetes-sigs/cloud-provider-kind
-description: Cloud provider for KIND clusters
+check: "" # No version parameter
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: kubernetes-sigs/cloud-provider-kind

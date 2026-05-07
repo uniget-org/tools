@@ -1,12 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: opentofu
+description: Declaratively manage your cloud infrastructure
+license:
+  name: Mozilla Public License 2.0
+  link: https://github.com/opentofu/opentofu/blob/main/LICENSE
+homepage: https://opentofu.org
+repository: https://github.com/opentofu/opentofu
 version: "1.11.6"
-binary: tofu
-check: ${binary} version | grep ^OpenTofu | cut -dv -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/linuxfoundation
 - category/operations
@@ -15,13 +16,12 @@ tags:
 - standard/hcl
 - cncf/sandbox
 - iac
-homepage: https://opentofu.org
-repository: https://github.com/opentofu/opentofu
-description: Declaratively manage your cloud infrastructure
+check: ${binary} version | grep ^OpenTofu | cut -dv -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: opentofu/opentofu
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Mozilla Public License 2.0
-  link: https://github.com/opentofu/opentofu/blob/main/LICENSE
+binary: tofu

@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: lxroot
+description: Lightweight, flexible, and safer alternative to chroot and/or Docker
+license:
+  name: GPLv3
+  link: https://github.com/parke/lxroot/blob/master/LICENSE
+homepage: https://github.com/parke/lxroot
+repository: https://github.com/parke/lxroot
 version: "0.22.1"
-check: ${binary} --version 2>&1 | tr -s ' ' | cut -d' ' -f3
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/c
 - type/cli
 - state/stale
-homepage: https://github.com/parke/lxroot
-repository: https://github.com/parke/lxroot
-description: Lightweight, flexible, and safer alternative to chroot and/or Docker
+check: ${binary} --version 2>&1 | tr -s ' ' | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: parke/lxroot
-license:
-  name: GPLv3
-  link: https://github.com/parke/lxroot/blob/master/LICENSE

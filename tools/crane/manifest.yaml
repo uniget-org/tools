@@ -1,10 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: crane
+description: Go library and CLIs for working with container registries
+license:
+  name: Apache License 2.0
+  link: https://github.com/google/go-containerregistry/blob/main/LICENSE
+homepage: https://github.com/google/go-containerregistry
+repository: https://github.com/google/go-containerregistry
 version: "0.21.5"
-check: ${binary} version
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/google
 - standard/oci
@@ -12,13 +14,11 @@ tags:
 - container/image
 - type/cli
 - lang/go
-homepage: https://github.com/google/go-containerregistry
-repository: https://github.com/google/go-containerregistry
-description: Go library and CLIs for working with container registries
+check: ${binary} version
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: google/go-containerregistry
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/google/go-containerregistry/blob/main/LICENSE

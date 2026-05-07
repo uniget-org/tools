@@ -1,11 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: catgpt
+description: Command-line tool that uses the OpenAI model to generate text based on user input
+license:
+  name: Apache License 2.0
+  link: https://github.com/ibuildthecloud/catgpt/blob/main/LICENSE
+homepage: https://github.com/ibuildthecloud/catgpt
+repository: https://github.com/ibuildthecloud/catgpt
 version: "0.0.1"
-check: "" # No version parameter
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/go
@@ -13,13 +15,11 @@ tags:
 - state/onemanshow
 - state/deprecated
 - state/stale
-homepage: https://github.com/ibuildthecloud/catgpt
-repository: https://github.com/ibuildthecloud/catgpt
-description: Command-line tool that uses the OpenAI model to generate text based on user input
+check: "" # No version parameter
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: ibuildthecloud/catgpt
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/ibuildthecloud/catgpt/blob/main/LICENSE

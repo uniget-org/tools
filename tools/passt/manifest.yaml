@@ -1,26 +1,26 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: passt
+description: Plug A Simple Socket Transport
+license:
+  name: BSD 3-Clause License, GPLv2+
+  link: https://passt.top/passt/tree/LICENSES
+homepage: https://passt.top/passt/
+repository: https://passt.top/passt/
 version: "2026_05_07.1afd4ed"
+tags:
+- category/operations
+- lang/c
+- type/cli
+- component/network
 check: ${binary} --version | grep passt | cut -d' ' -f2
 build_dependencies:
 - make
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/operations
-- lang/c
-- type/cli
-- component/network
-homepage: https://passt.top/passt/
-repository: https://passt.top/passt/
-description: Plug A Simple Socket Transport
 renovate:
   datasource: git-tags
   package: https://passt.top/passt/
   extractVersion: ^(?<version>\d+_\d+_\d+\.\w+)$
   versioning: loose
-license:
-  name: BSD 3-Clause License, GPLv2+
-  link: https://passt.top/passt/tree/LICENSES

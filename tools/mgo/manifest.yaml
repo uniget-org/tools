@@ -1,25 +1,25 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: mgo
+description: Build and bundle multiple GOAMD64 variants in a single executable
+license:
+  name: MIT License
+  link: https://github.com/CAFxX/mgo/blob/main/LICENSE
+homepage: https://github.com/CAFxX/mgo
+repository: https://github.com/CAFxX/mgo
 version: "0.2.13"
-check: "" # No version parameter
-build_dependencies:
-- go
-platforms:
-- linux/amd64
 tags:
 - category/development
 - lang/go
 - type/cli
 - state/onemanshow
 - state/stale
-homepage: https://github.com/CAFxX/mgo
-repository: https://github.com/CAFxX/mgo
-description: Build and bundle multiple GOAMD64 variants in a single executable
+check: "" # No version parameter
+build_dependencies:
+- go
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: CAFxX/mgo
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/CAFxX/mgo/blob/main/LICENSE

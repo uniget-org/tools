@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: dotenvx
+description: Better dotenv
 license:
   name: BSD 3-Clause License
   link: https://github.com/dotenvx/dotenvx/blob/main/LICENSE
+homepage: https://dotenvx.com/docs
+repository: https://github.com/dotenvx/dotenvx
 version: "1.65.0"
-check: ${binary} --version
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/javascript
 - type/cli
-homepage: https://dotenvx.com/docs
-repository: https://github.com/dotenvx/dotenvx
-description: Better dotenv
+check: ${binary} --version
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: dotenvx/dotenvx

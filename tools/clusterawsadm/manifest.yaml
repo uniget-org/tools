@@ -1,10 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: clusterawsadm
+description: Kubernetes Cluster API Provider AWS
+license:
+  name: Apache License 2.0
+  link: https://github.com/kubernetes-sigs/cluster-api-provider-aws/blob/main/LICENSE
+homepage: http://cluster-api-aws.sigs.k8s.io/
+repository: https://github.com/kubernetes-sigs/cluster-api-provider-aws
 version: "2.11.1"
-check: ${binary} version --output short | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/cncf
 - org/kubernetes
@@ -12,13 +14,11 @@ tags:
 - type/cli
 - lang/go
 - capi
-homepage: http://cluster-api-aws.sigs.k8s.io/
-repository: https://github.com/kubernetes-sigs/cluster-api-provider-aws
-description: Kubernetes Cluster API Provider AWS
+check: ${binary} version --output short | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: kubernetes-sigs/cluster-api-provider-aws
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/kubernetes-sigs/cluster-api-provider-aws/blob/main/LICENSE

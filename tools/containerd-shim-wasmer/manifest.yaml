@@ -1,16 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: containerd-shim-wasmer
+description: Facilitates running Wasm / WASI workloads managed by containerd
+license:
+  name: Apache License 2.0
+  link: https://github.com/containerd/runwasi/blob/main/LICENSE
+homepage: https://github.com/containerd/runwasi
+repository: https://github.com/containerd/runwasi
 version: "0.6.0"
-binary: containerd-shim-wasmer-v1
-check: "" # No version parameter
-build_dependencies:
-- make
-- rust
-runtime_dependencies:
-- containerd
-platforms:
-- linux/amd64
 tags:
 - org/containerd
 - category/development
@@ -21,13 +18,16 @@ tags:
 - kubernetes
 - k8s
 - containerd
-homepage: https://github.com/containerd/runwasi
-repository: https://github.com/containerd/runwasi
-description: Facilitates running Wasm / WASI workloads managed by containerd
+check: "" # No version parameter
+build_dependencies:
+- make
+- rust
+runtime_dependencies:
+- containerd
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: containerd/runwasi
   extractVersion: ^containerd-shim-wasmer/v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/containerd/runwasi/blob/main/LICENSE
+binary: containerd-shim-wasmer-v1

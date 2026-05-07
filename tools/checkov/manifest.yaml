@@ -1,6 +1,17 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: checkov
+description: Prevent cloud misconfigurations and find vulnerabilities during build-time in infrastructure as code, container images and open source packages
+license:
+  name: Apache License 2.0
+  link: https://github.com/bridgecrewio/checkov/blob/main/LICENSE
+homepage: https://github.com/bridgecrewio/checkov
+repository: https://github.com/bridgecrewio/checkov
 version: "3.2.526"
+tags:
+- category/security
+- lang/python
+- type/cli
+- iac
 check: "" # Expect to reach local server
 build_dependencies:
 - python-3.12
@@ -11,17 +22,6 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 #- linux/arm64
-tags:
-- category/security
-- lang/python
-- type/cli
-- iac
-homepage: https://github.com/bridgecrewio/checkov
-repository: https://github.com/bridgecrewio/checkov
-description: Prevent cloud misconfigurations and find vulnerabilities during build-time in infrastructure as code, container images and open source packages
 renovate:
   datasource: pypi
   package: checkov
-license:
-  name: Apache License 2.0
-  link: https://github.com/bridgecrewio/checkov/blob/main/LICENSE

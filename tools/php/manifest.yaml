@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: php
+description: PHP Interpreter
+license:
+  name: Custom
+  link: https://github.com/php/php-src/blob/master/LICENSE
+homepage: https://www.php.net
+repository: https://github.com/php/php-src
 version: "8.5.6"
+tags:
+- category/development
+- lang/c
+- type/cli
 check: ${binary} --version | grep ^PHP | cut -d' ' -f2
 build_dependencies:
 - spc
 platforms:
 - linux/amd64
-tags:
-- category/development
-- lang/c
-- type/cli
-homepage: https://www.php.net
-repository: https://github.com/php/php-src
-description: PHP Interpreter
 renovate:
   datasource: github-tags
   package: php/php-src
   extractVersion: ^php-(?<version>\d+\.\d+\.\d+)$
-license:
-  name: Custom
-  link: https://github.com/php/php-src/blob/master/LICENSE

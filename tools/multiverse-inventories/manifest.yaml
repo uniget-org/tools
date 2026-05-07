@@ -1,17 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: multiverse-inventories
+description: Let players have separate inventories in Multiverse worlds
 license:
   name: BSD-3-Clause
   link: https://github.com/Multiverse/Multiverse-Inventories/blob/main/LICENSE.md
+homepage: https://github.com/Multiverse/Multiverse-Inventories
+repository: https://github.com/Multiverse/Multiverse-Inventories
 version: "5.3.2"
-binary: "false"
-check: "" # No binary
-runtime_dependencies:
-- multiverse
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/games
 - lang/java
@@ -20,9 +16,13 @@ tags:
 - multiverse
 - papermc
 - paper
-homepage: https://github.com/Multiverse/Multiverse-Inventories
-repository: https://github.com/Multiverse/Multiverse-Inventories
-description: Let players have separate inventories in Multiverse worlds
+check: "" # No binary
+runtime_dependencies:
+- multiverse
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: Multiverse/Multiverse-Inventories
+binary: "false"

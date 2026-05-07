@@ -1,11 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: tejolote
+description: Highly configurable build executor and observer designed to generate signed SLSA provenance attestations about build runs
+license:
+  name: Apache License 2.0
+  link: https://github.com/kubernetes-sigs/tejolote/blob/main/LICENSE
+homepage: https://github.com/kubernetes-sigs/tejolote
+repository: https://github.com/kubernetes-sigs/tejolote
 version: "0.4.8"
-check: ${binary} version | grep ^GitVersion | cut -dv -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/kubernetes
 - category/security
@@ -13,13 +15,11 @@ tags:
 - type/cli
 - cicd
 - slsa
-homepage: https://github.com/kubernetes-sigs/tejolote
-repository: https://github.com/kubernetes-sigs/tejolote
-description: Highly configurable build executor and observer designed to generate signed SLSA provenance attestations about build runs
+check: ${binary} version | grep ^GitVersion | cut -dv -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: kubernetes-sigs/tejolote
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/kubernetes-sigs/tejolote/blob/main/LICENSE

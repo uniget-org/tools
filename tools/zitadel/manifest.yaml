@@ -1,24 +1,24 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: zitadel
+description: Identity infrastructure, simplified for you
+license:
+  name: Apache License 2.0
+  link: https://github.com/zitadel/zitadel/blob/main/LICENSE
+homepage: https://zitadel.com
+repository: https://github.com/zitadel/zitadel
 version: "4.15.0"
+tags:
+- category/security
+- lang/go
+- type/daemon
 check: ${binary} --version | cut -d' ' -f3 | tr -d v
 runtime_dependencies:
 - cockroach
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/security
-- lang/go
-- type/daemon
-homepage: https://zitadel.com
-repository: https://github.com/zitadel/zitadel
-description: Identity infrastructure, simplified for you
 renovate:
   datasource: github-releases
   package: zitadel/zitadel
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/zitadel/zitadel/blob/main/LICENSE

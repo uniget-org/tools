@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: frankenphp
+description: Modern PHP app server
+license:
+  name: MIT License
+  link: https://github.com/php/frankenphp/blob/main/LICENSE
+homepage: https://github.com/php/frankenphp
+repository: https://github.com/php/frankenphp
 version: "1.12.2"
-check: ${binary} version | cut -d' ' -f2 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/go
 - type/daemon
-homepage: https://github.com/php/frankenphp
-repository: https://github.com/php/frankenphp
-description: Modern PHP app server
+check: ${binary} version | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: php/frankenphp
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/php/frankenphp/blob/main/LICENSE

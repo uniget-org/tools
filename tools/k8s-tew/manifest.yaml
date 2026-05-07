@@ -1,9 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: k8s-tew
+description: Kubernetes - The Easier Way
+license:
+  name: GPLv3
+  link: https://github.com/darxkies/k8s-tew/blob/master/LICENSE
+homepage: https://github.com/darxkies/k8s-tew
+repository: https://github.com/darxkies/k8s-tew
 version: "2.4.13"
-check: "" # No version parameter
-platforms:
-- linux/amd64
 tags:
 - category/operations
 - lang/go
@@ -11,12 +14,9 @@ tags:
 - kubernetes
 - k8s
 - state/stale
-homepage: https://github.com/darxkies/k8s-tew
-repository: https://github.com/darxkies/k8s-tew
-description: Kubernetes - The Easier Way
+check: "" # No version parameter
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: darxkies/k8s-tew
-license:
-  name: GPLv3
-  link: https://github.com/darxkies/k8s-tew/blob/master/LICENSE

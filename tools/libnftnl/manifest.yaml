@@ -1,8 +1,19 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: libnftnl
+description: Userspace library providing a low-level netlink programming interface to the in-kernel nf_tables subsystem
+license:
+  name: GPLv2+
+  link: https://git.netfilter.org/libnftnl/tree/COPYING
+homepage: https://www.netfilter.org/projects/libnftnl/index.html
+repository: https://www.netfilter.org/projects/libnftnl/index.html
 version: "1.3.1"
-binary: "false"
+tags:
+- org/netfilter
+- component/network
+- category/operations
+- lang/c
+- type/library
 check: cat ${prefix}/lib/pkgconfig/libnftnl.pc | grep Version | cut -d' ' -f2
 build_dependencies:
 - make
@@ -12,19 +23,8 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- org/netfilter
-- component/network
-- category/operations
-- lang/c
-- type/library
-homepage: https://www.netfilter.org/projects/libnftnl/index.html
-repository: https://www.netfilter.org/projects/libnftnl/index.html
-description: Userspace library providing a low-level netlink programming interface to the in-kernel nf_tables subsystem
 renovate:
   datasource: git-tags
   package: https://git.netfilter.org/libnftnl/
   extractVersion: ^libnftnl-(?<version>.+)$
-license:
-  name: GPLv2+
-  link: https://git.netfilter.org/libnftnl/tree/COPYING
+binary: "false"

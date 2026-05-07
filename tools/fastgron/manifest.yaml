@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: fastgron
+description: High-performance JSON to GRON (greppable, flattened JSON) converter
+license:
+  name: MIT License
+  link: https://github.com/adamritter/fastgron/blob/main/LICENSE
+homepage: https://github.com/adamritter/fastgron
+repository: https://github.com/adamritter/fastgron
 version: "0.7.7"
-check: ${binary} --version 2>&1 | cut -d' ' -f3
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/c
 - type/cli
 - state/stale
-homepage: https://github.com/adamritter/fastgron
-repository: https://github.com/adamritter/fastgron
-description: High-performance JSON to GRON (greppable, flattened JSON) converter
+check: ${binary} --version 2>&1 | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: adamritter/fastgron
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/adamritter/fastgron/blob/main/LICENSE

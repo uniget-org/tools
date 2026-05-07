@@ -1,16 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: containerd
+description: Open and reliable container runtime
+license:
+  name: Apache License 2.0
+  link: https://github.com/containerd/containerd/blob/main/LICENSE
+homepage: https://containerd.io
+repository: https://github.com/containerd/containerd
 version: "2.3.0"
-check: ${binary} --version | cut -d' ' -f3 | tr -d v
-build_dependencies:
-- go-md2man
-runtime_dependencies:
-- runc
-- cni
-- crictl
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/cncf
 - org/containerd
@@ -21,9 +17,20 @@ tags:
 - container/runtime
 - lang/go
 - cncf/graduated
-homepage: https://containerd.io
-repository: https://github.com/containerd/containerd
-description: Open and reliable container runtime
+check: ${binary} --version | cut -d' ' -f3 | tr -d v
+build_dependencies:
+- go-md2man
+runtime_dependencies:
+- runc
+- cni
+- crictl
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: containerd/containerd
+  extractVersion: ^v(?<version>.+)$
 messages:
   internals: |
     - For a minimal configuration, see /etc/containerd/config.toml.template.
@@ -39,10 +46,3 @@ messages:
 
       runtime-endpoint: unix:///run/containerd/containerd.sock
       image-endpoint: unix:///run/containerd/containerd.sock
-renovate:
-  datasource: github-releases
-  package: containerd/containerd
-  extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/containerd/containerd/blob/main/LICENSE

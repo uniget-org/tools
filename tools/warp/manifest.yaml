@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: warp
+description: S3 benchmarking tool
+license:
+  name: AGPLv3
+  link: https://github.com/minio/warp/blob/master/LICENSE
+homepage: https://github.com/minio/warp
+repository: https://github.com/minio/warp
 version: "1.5.0"
-check: ${binary} --version | cut -d' ' -f3 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/go
 - type/cli
 - standard/s3
-homepage: https://github.com/minio/warp
-repository: https://github.com/minio/warp
-description: S3 benchmarking tool
+check: ${binary} --version | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: minio/warp
   extractVersion: ^v(?<version>.+)$
-license:
-  name: AGPLv3
-  link: https://github.com/minio/warp/blob/master/LICENSE

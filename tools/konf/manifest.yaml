@@ -1,11 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: konf
+description: Lightweight kubeconfig manager
+license:
+  name: Apache License 2.0
+  link: https://github.com/SimonTheLeg/konf-go/blob/main/LICENSE
+homepage: https://github.com/SimonTheLeg/konf-go
+repository: https://github.com/SimonTheLeg/konf-go
 version: "0.7.0"
-binary: konf-go
-check: ${binary} version | sed -E 's/^.+GitVersion":"([^"]+)".+$/\1/'
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/go
@@ -13,13 +14,12 @@ tags:
 - kubernetes
 - k8s
 - state/stale
-homepage: https://github.com/SimonTheLeg/konf-go
-repository: https://github.com/SimonTheLeg/konf-go
-description: Lightweight kubeconfig manager
+check: ${binary} version | sed -E 's/^.+GitVersion":"([^"]+)".+$/\1/'
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: SimonTheLeg/konf-go
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/SimonTheLeg/konf-go/blob/main/LICENSE
+binary: konf-go

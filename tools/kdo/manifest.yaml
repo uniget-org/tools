@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kdo
+description: Deployless Development on Kubernetes
+license:
+  name: MIT License
+  link: https://github.com/stepro/kdo/blob/master/LICENSE
+homepage: https://stepro.github.io/kdo/
+repository: https://github.com/stepro/kdo
 version: "0.8.0"
-check: ${binary} --version | cut -d' ' -f3
 tags:
 - type/cli
 - kubernetes
@@ -9,15 +14,10 @@ tags:
 - lang/go
 - cicd
 - state/stale
-homepage: https://stepro.github.io/kdo/
-repository: https://github.com/stepro/kdo
-description: Deployless Development on Kubernetes
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: stepro/kdo
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/stepro/kdo/blob/master/LICENSE
-platforms:
-- linux/amd64

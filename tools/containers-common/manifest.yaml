@@ -1,20 +1,27 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: containers-common
+description: Location for shared common files in github.com/containers repos
+license:
+  name: Apache License 2.0
+  link: https://github.com/containers/common/blob/main/LICENSE
+homepage: https://github.com/containers/common
+repository: https://github.com/containers/common
 version: "0.64.2"
-binary: "false"
+tags:
+- org/redhat
+- type/configuration
+- type/documentation
 check: "" # No binary
 build_dependencies:
 - go-md2man
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- org/redhat
-- type/configuration
-- type/documentation
-homepage: https://github.com/containers/common
-repository: https://github.com/containers/common
-description: Location for shared common files in github.com/containers repos
+renovate:
+  datasource: github-releases
+  package: containers/common
+  extractVersion: ^v(?<version>.+)$
+binary: "false"
 messages:
   update: |
     The following default configuration files must be copied to the final locations:
@@ -22,10 +29,3 @@ messages:
     - {{ .Target }}/etc/containers/registries.conf.d/shortnames.conf -> /etc/containers/registries.conf.d/
     - {{ .Target }}/share/containers/containers.conf -> /usr/share/containers/
     - {{ .Target }}/usr/share/containers/seccomp.json -> /usr/share/containers/
-renovate:
-  datasource: github-releases
-  package: containers/common
-  extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/containers/common/blob/main/LICENSE

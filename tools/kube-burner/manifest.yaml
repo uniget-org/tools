@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: kube-burner
+description: Kubernetes performance and scale test orchestration framework
+license:
+  name: Apache License 2.0
+  link: https://github.com/kube-burner/kube-burner/blob/main/LICENSE
+homepage: https://kube-burner.github.io/kube-burner/
+repository: https://github.com/kube-burner/kube-burner
 version: "2.6.1"
-check: ${binary} version | grep ^Version | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/go
 - type/cli
 - cncf/sandbox
-homepage: https://kube-burner.github.io/kube-burner/
-repository: https://github.com/kube-burner/kube-burner
-description: Kubernetes performance and scale test orchestration framework
+check: ${binary} version | grep ^Version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: kube-burner/kube-burner
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/kube-burner/kube-burner/blob/main/LICENSE

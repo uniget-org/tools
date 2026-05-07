@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: runme
+description: DevOps Notebooks Built with Markdown
 license:
   name: Apache License 2.0
   link: https://github.com/runmedev/runme/blob/main/LICENSE
+homepage: https://runme.dev/
+repository: https://github.com/runmedev/runme
 version: "3.16.11"
-check: ${binary} --version | cut -d' ' -f3
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/go
 - type/cli
 - format/markdown
 - cncf/sandbox
-homepage: https://runme.dev/
-repository: https://github.com/runmedev/runme
-description: DevOps Notebooks Built with Markdown
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: runmedev/runme

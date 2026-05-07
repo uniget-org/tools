@@ -1,10 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: grafana-agent
+description: Telemetry agent for the LGTM stack
 license:
   name: Apache License 2.0
   link: https://github.com/grafana/agent/blob/main/LICENSE
+homepage: https://grafana.com/docs/agent/
+repository: https://github.com/grafana/agent
 version: "0.44.2"
-check: ${binary} --version | head -1 | cut -d' ' -f3 | tr -d v
 tags:
 - org/grafana
 - observability/metrics
@@ -15,17 +17,15 @@ tags:
 - lang/go
 - type/daemon
 - standard/prometheus
-messages:
-  usage: |
-    Grafana Agent has been deprecated in favor of Grafana Alloy.
-homepage: https://grafana.com/docs/agent/
-repository: https://github.com/grafana/agent
-description: Telemetry agent for the LGTM stack
+check: ${binary} --version | head -1 | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: grafana/agent
   extractVersion: ^v(?<version>.+)$
+messages:
+  usage: |
+    Grafana Agent has been deprecated in favor of Grafana Alloy.
 lifecycle:
   removed_with_reason: End-of-life. Consider using OpenTelemetry Collector or Grafana Alloy.
-platforms:
-- linux/amd64

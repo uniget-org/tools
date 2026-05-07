@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: bom
+description: generate SPDX-compliant Bill of Materials manifests
+license:
+  name: Apache License 2.0
+  link: https://github.com/kubernetes-sigs/bom/blob/main/LICENSE
+homepage: https://kubernetes-sigs.github.io/bom/
+repository: https://github.com/kubernetes-sigs/bom
 version: "0.7.1"
-check: ${binary} version 2>&1 | grep ^GitVersion | tr -d ' ' | cut -d':' -f2 | tr -d v
 tags:
 - category/security
 - sbom
@@ -9,15 +14,10 @@ tags:
 - lang/go
 - type/cli
 - format/spdx
-homepage: https://kubernetes-sigs.github.io/bom/
-repository: https://github.com/kubernetes-sigs/bom
-description: generate SPDX-compliant Bill of Materials manifests
+check: ${binary} version 2>&1 | grep ^GitVersion | tr -d ' ' | cut -d':' -f2 | tr -d v
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: kubernetes-sigs/bom
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/kubernetes-sigs/bom/blob/main/LICENSE
-platforms:
-- linux/amd64

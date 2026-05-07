@@ -1,7 +1,18 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: iptables
+description: Userspace command line program used to configure kernel packet filtering ruleset
+license:
+  name: GPLv2
+  link: https://git.netfilter.org/iptables/tree/COPYING
+homepage: https://www.netfilter.org/projects/iptables/index.html
+repository: https://www.netfilter.org/projects/iptables/index.html
 version: "1.8.13"
-binary: ${target}/sbin/iptables
+tags:
+- org/netfilter
+- component/network
+- category/operations
+- type/cli
+- lang/c
 check: ${binary} -V | cut -d' ' -f2 | tr -d v
 build_dependencies:
 - make
@@ -16,19 +27,8 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- org/netfilter
-- component/network
-- category/operations
-- type/cli
-- lang/c
-homepage: https://www.netfilter.org/projects/iptables/index.html
-repository: https://www.netfilter.org/projects/iptables/index.html
-description: Userspace command line program used to configure kernel packet filtering ruleset
 renovate:
   datasource: git-tags
   package: git://git.netfilter.org/iptables.git
   extractVersion: ^v(?<version>.+)$
-license:
-  name: GPLv2
-  link: https://git.netfilter.org/iptables/tree/COPYING
+binary: ${target}/sbin/iptables

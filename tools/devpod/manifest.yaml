@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: devpod
+description: Client-only tool to create developer environments based on a devcontainer.json on any backend
+license:
+  name: Mozilla Public License 2.0
+  link: https://github.com/loft-sh/devpod/blob/main/LICENSE
+homepage: https://devpod.sh
+repository: https://github.com/loft-sh/devpod
 version: "0.6.15"
-check: ${binary} version | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/go
 - type/cli
-homepage: https://devpod.sh
-repository: https://github.com/loft-sh/devpod
-description: Client-only tool to create developer environments based on a devcontainer.json on any backend
+check: ${binary} version | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: loft-sh/devpod
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Mozilla Public License 2.0
-  link: https://github.com/loft-sh/devpod/blob/main/LICENSE

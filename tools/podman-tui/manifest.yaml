@@ -1,11 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: podman-tui
+description: Podman Terminal UI
+license:
+  name: Apache License 2.0
+  link: https://github.com/containers/podman-tui/blob/main/LICENSE
+homepage: https://github.com/containers/podman-tui
+repository: https://github.com/containers/podman-tui
 version: "1.11.1"
-check: ${binary} version | cut -d' ' -f2 | tr -d v
-build_dependencies:
-- go
-runtime_dependencies:
-- podman
 tags:
 - org/redhat
 - standard/oci
@@ -13,15 +14,14 @@ tags:
 - type/tui
 - rootless
 - lang/go
-homepage: https://github.com/containers/podman-tui
-repository: https://github.com/containers/podman-tui
-description: Podman Terminal UI
+check: ${binary} version | cut -d' ' -f2 | tr -d v
+build_dependencies:
+- go
+runtime_dependencies:
+- podman
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: containers/podman-tui
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/containers/podman-tui/blob/main/LICENSE
-platforms:
-- linux/amd64

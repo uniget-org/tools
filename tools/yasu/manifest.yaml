@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: yasu
+description: Yet Another Switch User
+license:
+  name: Apache License 2.0
+  link: https://github.com/crazy-max/yasu/blob/master/LICENSE
+homepage: https://github.com/crazy-max/yasu
+repository: https://github.com/crazy-max/yasu
 version: "1.20.1"
-check: ${binary} --version | cut -d' ' -f1
 tags:
 - container/su
 - type/cli
@@ -9,15 +14,10 @@ tags:
 - category/operations
 - container/su
 - state/deprecated
-homepage: https://github.com/crazy-max/yasu
-repository: https://github.com/crazy-max/yasu
-description: Yet Another Switch User
+check: ${binary} --version | cut -d' ' -f1
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: crazy-max/yasu
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/crazy-max/yasu/blob/master/LICENSE
-platforms:
-- linux/amd64

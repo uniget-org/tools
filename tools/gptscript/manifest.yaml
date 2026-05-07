@@ -1,11 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: gptscript
+description: Natural Language Programming
+license:
+  name: Apache License 2.0
+  link: https://github.com/gptscript-ai/gptscript/blob/main/LICENSE
+homepage: https://gptscript.ai
+repository: https://github.com/gptscript-ai/gptscript
 version: "0.9.9"
-check: ${binary} --version | cut -d' ' -f3 | cut -d- -f1 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/go
@@ -14,13 +16,11 @@ tags:
 - llm
 - code
 - coding
-homepage: https://gptscript.ai
-repository: https://github.com/gptscript-ai/gptscript
-description: Natural Language Programming
+check: ${binary} --version | cut -d' ' -f3 | cut -d- -f1 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: gptscript-ai/gptscript
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/gptscript-ai/gptscript/blob/main/LICENSE

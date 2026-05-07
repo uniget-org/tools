@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kubeletctl
+description: Client for kubelet
+license:
+  name: Apache License 2.0
+  link: https://github.com/cyberark/kubeletctl/blob/master/LICENSE
+homepage: https://github.com/cyberark/kubeletctl
+repository: https://github.com/cyberark/kubeletctl
 version: "1.13"
-check: ${binary} version 2>/dev/null | grep ^Version | cut -d' ' -f2
-platforms:
-- linux/amd64
 tags:
 - type/cli
 - kubernetes
 - management
 - lang/go
 - category/operations
-homepage: https://github.com/cyberark/kubeletctl
-repository: https://github.com/cyberark/kubeletctl
-description: Client for kubelet
+check: ${binary} version 2>/dev/null | grep ^Version | cut -d' ' -f2
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: cyberark/kubeletctl
   extractVersion: ^v(?<version>.+)$
   versioning: loose
-license:
-  name: Apache License 2.0
-  link: https://github.com/cyberark/kubeletctl/blob/master/LICENSE

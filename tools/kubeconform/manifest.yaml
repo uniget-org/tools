@@ -1,24 +1,24 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kubeconform
+description: Kubernetes manifests validator, with support for Custom Resources!
+license:
+  name: Apache License 2.0
+  link: https://github.com/yannh/kubeconform/blob/master/LICENSE
+homepage: https://github.com/yannh/kubeconform
+repository: https://github.com/yannh/kubeconform
 version: "0.7.0"
-check: ${binary} -v | tr -d v
-runtime_dependencies:
-- kubernetes-json-schema
 tags:
 - category/operations
 - type/cli
 - lang/go
 - kubernetes
 - k8s
-homepage: https://github.com/yannh/kubeconform
-repository: https://github.com/yannh/kubeconform
-description: Kubernetes manifests validator, with support for Custom Resources!
+check: ${binary} -v | tr -d v
+runtime_dependencies:
+- kubernetes-json-schema
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: yannh/kubeconform
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/yannh/kubeconform/blob/master/LICENSE
-platforms:
-- linux/amd64

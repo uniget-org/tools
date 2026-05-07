@@ -1,14 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: nodeadm
+description: Simplify the installation, configuration, registration, and uninstall of the EKS hybrid nodes components
 license:
   name: Apache License 2.0
   link: https://github.com/aws/eks-hybrid/blob/main/LICENSE
+homepage: https://aws.amazon.com/eks/hybrid-nodes/
+repository: https://github.com/aws/eks-hybrid
 version: "1.0.18"
-check: ${binary} --version | cut -d' ' -f2 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/aws
 - category/operations
@@ -18,9 +17,10 @@ tags:
 - k8s
 - cloud/aws
 - aws/eks
-homepage: https://aws.amazon.com/eks/hybrid-nodes/
-repository: https://github.com/aws/eks-hybrid
-description: Simplify the installation, configuration, registration, and uninstall of the EKS hybrid nodes components
+check: ${binary} --version | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: aws/eks-hybrid

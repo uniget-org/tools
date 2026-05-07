@@ -1,7 +1,17 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: composer
+description: Dependency Manager for PHP
+license:
+  name: MIT License
+  link: https://github.com/composer/composer/blob/main/LICENSE
+homepage: https://getcomposer.org/
+repository: https://github.com/composer/composer
 version: "2.9.7"
+tags:
+- category/development
+- lang/php
+- type/cli
 check: ${binary} --version 2>/dev/null | grep ^Composer | cut -d' ' -f3
 build_dependencies:
 - php
@@ -9,16 +19,6 @@ runtime_dependencies:
 - php
 platforms:
 - linux/amd64
-tags:
-- category/development
-- lang/php
-- type/cli
-homepage: https://getcomposer.org/
-repository: https://github.com/composer/composer
-description: Dependency Manager for PHP
 renovate:
   datasource: github-releases
   package: composer/composer
-license:
-  name: MIT License
-  link: https://github.com/composer/composer/blob/main/LICENSE

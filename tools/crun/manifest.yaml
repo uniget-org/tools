@@ -1,16 +1,25 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: crun
+description: Fast and lightweight fully featured OCI runtime
+license:
+  name: GPLv2
+homepage: https://github.com/containers/crun
+repository: https://github.com/containers/crun
 version: "1.8.4"
-check: ${binary} --version | grep "crun version" | cut -d' ' -f3
 tags:
 - org/redhat
 - standard/oci
 - container/runtime
 - type/cli
 - lang/c
-homepage: https://github.com/containers/crun
-repository: https://github.com/containers/crun
-description: Fast and lightweight fully featured OCI runtime
+check: ${binary} --version | grep "crun version" | cut -d' ' -f3
+platforms:
+- linux/amd64
+renovate:
+  datasource: github-releases
+  package: containers/crun
+  extractVersion: ^(?<version>\\d+\\.\\d+(\\.\\d+)?)$
+  versioning: loose
 messages:
   update: |
     Add crun to Docker runtimes by merging the following into
@@ -23,12 +32,3 @@ messages:
             }
         }
     }
-renovate:
-  datasource: github-releases
-  package: containers/crun
-  extractVersion: ^(?<version>\\d+\\.\\d+(\\.\\d+)?)$
-  versioning: loose
-license:
-  name: GPLv2
-platforms:
-- linux/amd64

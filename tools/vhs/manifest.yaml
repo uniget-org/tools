@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: vhs
+description: Your CLI home video recorder
+license:
+  name: MIT License
+  link: https://github.com/charmbracelet/vhs/blob/main/LICENSE
+homepage: https://github.com/charmbracelet/vhs
+repository: https://github.com/charmbracelet/vhs
 version: "0.11.0"
-check: ${binary} --version | cut -d' ' -f3 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/charmbracelet
 - category/development
 - type/cli
 - lang/go
-homepage: https://github.com/charmbracelet/vhs
-repository: https://github.com/charmbracelet/vhs
-description: Your CLI home video recorder
+check: ${binary} --version | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: charmbracelet/vhs
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/charmbracelet/vhs/blob/main/LICENSE

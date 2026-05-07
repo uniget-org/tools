@@ -1,10 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: spdx-sbom-generator
+description: Support CI generation of SBOMs via golang tooling
+license:
+  name: Apache License 2.0
+  link: https://github.com/opensbom-generator/spdx-sbom-generator/tree/main/LICENSES
+homepage: https://github.com/opensbom-generator/spdx-sbom-generator
+repository: https://github.com/opensbom-generator/spdx-sbom-generator
 version: "0.0.15"
-check: "" # No version parameter
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/security
 - lang/go
@@ -13,13 +15,11 @@ tags:
 - format/spdx
 - state/deprecated
 - state/stale
-homepage: https://github.com/opensbom-generator/spdx-sbom-generator
-repository: https://github.com/opensbom-generator/spdx-sbom-generator
-description: Support CI generation of SBOMs via golang tooling
+check: "" # No version parameter
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: opensbom-generator/spdx-sbom-generator
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/opensbom-generator/spdx-sbom-generator/tree/main/LICENSES

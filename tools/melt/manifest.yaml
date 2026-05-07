@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: melt
+description: Backup and restore Ed25519 SSH keys with seed words
+license:
+  name: MIT License
+homepage: https://github.com/charmbracelet/melt
+repository: https://github.com/charmbracelet/melt
 version: "0.6.2"
-check: "" # No version parameter
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/charmbracelet
 - category/operations
 - lang/go
 - type/cli
 - backup
-homepage: https://github.com/charmbracelet/melt
-repository: https://github.com/charmbracelet/melt
-description: Backup and restore Ed25519 SSH keys with seed words
+check: "" # No version parameter
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: charmbracelet/melt
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License

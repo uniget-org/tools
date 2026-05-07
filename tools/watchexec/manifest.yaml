@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: watchexec
+description: Executes commands in response to file modifications
+license:
+  name: Apache License 2.0
+  link: https://github.com/watchexec/watchexec/blob/main/LICENSE
+homepage: https://watchexec.github.io/
+repository: https://github.com/watchexec/watchexec
 version: "2.5.1"
-check: ${binary} --version | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/rust
 - type/daemon
-homepage: https://watchexec.github.io/
-repository: https://github.com/watchexec/watchexec
-description: Executes commands in response to file modifications
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: watchexec/watchexec
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/watchexec/watchexec/blob/main/LICENSE

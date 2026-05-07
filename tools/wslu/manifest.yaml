@@ -1,10 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: wslu
+description: Collection of utilities for Windows Subsystem for Linux
+license:
+  name: GPLv3
+  link: https://github.com/wslutilities/wslu/blob/dev/master/LICENSE
+homepage: https://wslutiliti.es/wslu
+repository: https://github.com/wslutilities/wslu
 version: "4.1.3"
-binary: wslview
-check: ${binary} -v 2>/dev/null | cut -d' ' -f2 | cut -d- -f1 | tr -d v
-build_dependencies:
-- make
 tags:
 - type/cli
 - wsl
@@ -12,15 +14,13 @@ tags:
 - category/terminal
 - state/deprecated
 - state/stale
-homepage: https://wslutiliti.es/wslu
-repository: https://github.com/wslutilities/wslu
-description: Collection of utilities for Windows Subsystem for Linux
+check: ${binary} -v 2>/dev/null | cut -d' ' -f2 | cut -d- -f1 | tr -d v
+build_dependencies:
+- make
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: wslutilities/wslu
   extractVersion: ^v(?<version>.+)$
-license:
-  name: GPLv3
-  link: https://github.com/wslutilities/wslu/blob/dev/master/LICENSE
-platforms:
-- linux/amd64
+binary: wslview

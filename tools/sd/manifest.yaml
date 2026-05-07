@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: sd
+description: Intuitive find & replace CLI (sed alternative)
 license:
   name: MIT License
   link: https://github.com/chmln/sd/blob/master/LICENSE
+homepage: https://github.com/chmln/sd
+repository: https://github.com/chmln/sd
 version: "1.1.0"
-check: ${binary} --version | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/rust
 - type/cli
 - filter
-homepage: https://github.com/chmln/sd
-repository: https://github.com/chmln/sd
-description: Intuitive find & replace CLI (sed alternative)
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: chmln/sd

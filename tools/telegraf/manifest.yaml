@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: telegraf
+description: Plugin-driven server agent for collecting & reporting metrics
+license:
+  name: MIT License
+  link: https://github.com/influxdata/telegraf/blob/master/LICENSE
+homepage: https://influxdata.com/telegraf
+repository: https://github.com/influxdata/telegraf
 version: "1.38.3"
-check: ${binary} --version | cut -d' ' -f2
 tags:
 - org/influxdata
 - observability/metrics
@@ -10,15 +15,10 @@ tags:
 - category/monitoring
 - lang/go
 - type/cli
-homepage: https://influxdata.com/telegraf
-repository: https://github.com/influxdata/telegraf
-description: Plugin-driven server agent for collecting & reporting metrics
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: influxdata/telegraf
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/influxdata/telegraf/blob/master/LICENSE
-platforms:
-- linux/amd64

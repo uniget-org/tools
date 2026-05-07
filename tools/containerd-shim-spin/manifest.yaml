@@ -1,28 +1,28 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: containerd-shim-spin
+description: ContainerD shim for running Spin applications
+license:
+  name: Apache License 2.0
+  link: https://github.com/spinframework/containerd-shim-spin/blob/main/LICENSE
+homepage: https://github.com/spinframework/containerd-shim-spin
+repository: https://github.com/spinframework/containerd-shim-spin
 version: "0.24.0"
-binary: containerd-shim-spin-v2
-check: ""
-build_dependencies:
-- make
-- rust
-conflicts_with:
-- containerd-shim-spin-runwasi
-platforms:
-- linux/amd64
-#- linux/arm64
 tags:
 - category/operations
 - lang/rust
 - type/cli
-homepage: https://github.com/spinframework/containerd-shim-spin
-repository: https://github.com/spinframework/containerd-shim-spin
-description: ContainerD shim for running Spin applications
+check: ""
+build_dependencies:
+- make
+- rust
+platforms:
+- linux/amd64
+#- linux/arm64
 renovate:
   datasource: github-releases
   package: spinframework/containerd-shim-spin
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/spinframework/containerd-shim-spin/blob/main/LICENSE
+binary: containerd-shim-spin-v2
+conflicts_with:
+- containerd-shim-spin-runwasi

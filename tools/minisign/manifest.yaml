@@ -1,25 +1,25 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: minisign
+description: Dead simple tool to sign files and verify digital signatures
 license:
   name: ISC License
   link: https://github.com/jedisct1/minisign/blob/master/LICENSE
+homepage: https://jedisct1.github.io/minisign/
+repository: https://github.com/jedisct1/minisign
 version: "0.12"
-check: ${binary} -v | cut -d' ' -f2
-build_dependencies:
-- zig
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/security
 - lang/zig
 - type/cli
 - signature
 - standard/ed25519
-homepage: https://jedisct1.github.io/minisign/
-repository: https://github.com/jedisct1/minisign
-description: Dead simple tool to sign files and verify digital signatures
+check: ${binary} -v | cut -d' ' -f2
+build_dependencies:
+- zig
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: jedisct1/minisign

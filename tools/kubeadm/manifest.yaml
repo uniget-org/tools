@@ -1,14 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kubeadm
+description: Create a minimum viable Kubernetes cluster that conforms to best practices
+license:
+  name: Apache License 2.0
+  link: https://github.com/kubernetes/kubernetes/blob/master/LICENSE
+homepage: https://kubernetes.io
+repository: https://github.com/kubernetes/kubernetes
 version: "1.36.0"
-check: ${binary} version --output short | tr -d v
-build_dependencies:
-- cosign
-runtime_dependencies:
-- kubelet
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/cncf
 - org/kubernetes
@@ -18,13 +16,15 @@ tags:
 - management
 - lang/go
 - cncf/graduated
-homepage: https://kubernetes.io
-repository: https://github.com/kubernetes/kubernetes
-description: Create a minimum viable Kubernetes cluster that conforms to best practices
+check: ${binary} version --output short | tr -d v
+build_dependencies:
+- cosign
+runtime_dependencies:
+- kubelet
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: kubernetes/kubernetes
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/kubernetes/kubernetes/blob/master/LICENSE

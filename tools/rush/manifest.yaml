@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: rush
+description: Cross-platform command-line tool for executing jobs in parallel
+license:
+  name: MIT License
+  link: https://github.com/shenwei356/rush/blob/master/LICENSE
+homepage: https://github.com/shenwei356/rush
+repository: https://github.com/shenwei356/rush
 version: "0.9.0"
-check: ${binary} --version | grep ^rush | cut -d' ' -f2 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/go
 - type/cli
-homepage: https://github.com/shenwei356/rush
-repository: https://github.com/shenwei356/rush
-description: Cross-platform command-line tool for executing jobs in parallel
+check: ${binary} --version | grep ^rush | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: shenwei356/rush
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/shenwei356/rush/blob/master/LICENSE

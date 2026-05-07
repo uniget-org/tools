@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: runn
+description: Tool for running operations following a scenario
 license:
   name: MIT License
   link: https://github.com/k1LoW/runn/blob/main/LICENSE
+homepage: https://runn.run
+repository: https://github.com/k1LoW/runn
 version: "1.9.2"
-check: ${binary} --version | cut -d' ' -f3
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/go
 - type/cli
-homepage: https://runn.run
-repository: https://github.com/k1LoW/runn
-description: Tool for running operations following a scenario
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: k1LoW/runn

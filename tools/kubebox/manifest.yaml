@@ -1,6 +1,19 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kubebox
+description: Terminal and Web console for Kubernetes
+license:
+  name: MIT License
+  link: https://github.com/astefanutti/kubebox/blob/master/LICENSE
+homepage: https://github.com/astefanutti/kubebox
+repository: https://github.com/astefanutti/kubebox
 version: "0.10.0"
+tags:
+- category/operations
+- lang/javascript
+- type/cli
+- kubernetes
+- k8s
+- state/stale
 check: ${binary} --version | cut -d' ' -f2
 build_dependencies:
 - node-lts
@@ -9,19 +22,6 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/operations
-- lang/javascript
-- type/cli
-- kubernetes
-- k8s
-- state/stale
-homepage: https://github.com/astefanutti/kubebox
-repository: https://github.com/astefanutti/kubebox
-description: Terminal and Web console for Kubernetes
 renovate:
   datasource: npm
   package: kubebox
-license:
-  name: MIT License
-  link: https://github.com/astefanutti/kubebox/blob/master/LICENSE

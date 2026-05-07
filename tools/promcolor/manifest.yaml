@@ -1,11 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: promcolor
+description: Colorize piped Prometheus metrics in the terminal
+license:
+  name: MIT License
+  link: https://github.com/fhemberger/promcolor/blob/master/LICENSE
+homepage: https://github.com/fhemberger/promcolor
+repository: https://github.com/fhemberger/promcolor
 version: "1.0.3"
-check: ${binary} --version | grep ^promcolor | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/go
@@ -14,13 +16,11 @@ tags:
 - observability/metrics
 - o11y
 - state/stale
-homepage: https://github.com/fhemberger/promcolor
-repository: https://github.com/fhemberger/promcolor
-description: Colorize piped Prometheus metrics in the terminal
+check: ${binary} --version | grep ^promcolor | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: fhemberger/promcolor
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/fhemberger/promcolor/blob/master/LICENSE

@@ -1,16 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: trivy-systemd
+description: compose file for trivy with systemd
 license:
   name: MIT License
   link: https://gitlab.com/uniget-org/tools/blob/main/LICENSE
+homepage: https://uniget.dev
+repository: https://gitlab.com/uniget-org/tools
 version: "0.54.1"
-check: ${binary} --version | grep ^Version | cut -d' ' -f2
-runtime_dependencies:
-- trivy
-- docker-compose-systemd
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/security
 - type/cli
@@ -23,9 +19,13 @@ tags:
 - standard/vex
 - format/spdx
 - format/cyclonedx
-homepage: https://uniget.dev
-repository: https://gitlab.com/uniget-org/tools
-description: compose file for trivy with systemd
+check: ${binary} --version | grep ^Version | cut -d' ' -f2
+runtime_dependencies:
+- trivy
+- docker-compose-systemd
+platforms:
+- linux/amd64
+- linux/arm64
 messages:
   usage: |
     - A compose.yaml file is provided in /etc/docker-compose/trivy/

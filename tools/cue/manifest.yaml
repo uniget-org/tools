@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: cue
+description: Validate and define text-based and dynamic configuration
+license:
+  name: Apache License 2.0
+  link: https://github.com/cue-lang/cue/blob/master/LICENSE
+homepage: https://cuelang.org
+repository: https://github.com/cue-lang/cue
 version: "0.16.1"
-check: ${binary} version | cut -d' ' -f3 | tr -d v
 tags:
 - type/cli
 - category/development
 - lang/go
 - lang/cue
-homepage: https://cuelang.org
-repository: https://github.com/cue-lang/cue
-description: Validate and define text-based and dynamic configuration
+check: ${binary} version | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: cue-lang/cue
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/cue-lang/cue/blob/master/LICENSE
-platforms:
-- linux/amd64

@@ -1,14 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: kdbx
+description: Secure hole for your passwords (Keepass CLI)
 license:
   name: MIT License
   link: https://github.com/daxartio/kdbx/blob/master/LICENSE
+homepage: https://github.com/daxartio/kdbx
+repository: https://github.com/daxartio/kdbx
 version: "0.13.0"
-check: ${binary} --version | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/console
 - lang/rust
@@ -16,9 +15,10 @@ tags:
 - standard/keypass
 - password
 - manager
-homepage: https://github.com/daxartio/kdbx
-repository: https://github.com/daxartio/kdbx
-description: Secure hole for your passwords (Keepass CLI)
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: daxartio/kdbx

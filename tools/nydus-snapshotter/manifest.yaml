@@ -1,27 +1,27 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: nydus-snapshotter
+description: containerd snapshotter with data deduplication and lazy loading in P2P fashion
+license:
+  name: Apache License 2.0
+  link: https://github.com/containerd/nydus-snapshotter/blob/main/LICENSE
+homepage: https://nydus.dev/
+repository: https://github.com/containerd/nydus-snapshotter
 version: "0.15.15"
-binary: containerd-nydus-grpc
-check: ${binary} --version | grep ^Version | cut -dv -f2
-runtime_dependencies:
-- containerd
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/containerd
 - category/operations
 - lang/go
 - type/plugin
 # https://nydus.dev
-homepage: https://nydus.dev/
-repository: https://github.com/containerd/nydus-snapshotter
-description: containerd snapshotter with data deduplication and lazy loading in P2P fashion
+check: ${binary} --version | grep ^Version | cut -dv -f2
+runtime_dependencies:
+- containerd
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: containerd/nydus-snapshotter
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/containerd/nydus-snapshotter/blob/main/LICENSE
+binary: containerd-nydus-grpc

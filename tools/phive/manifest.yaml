@@ -1,7 +1,17 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: phive
+description: Phar Installation and Verification Environment
+license:
+  name: BSD 3-Clause License
+  link: https://github.com/phar-io/phive/blob/master/LICENSE
+homepage: https://phar.io
+repository: https://github.com/phar-io/phive
 version: "0.16.0"
+tags:
+- category/development
+- lang/php
+- type/cli
 check: ${binary} version | grep ^Phive | cut -d' ' -f2
 build_dependencies:
 - php
@@ -9,16 +19,6 @@ runtime_dependencies:
 - php
 platforms:
 - linux/amd64
-tags:
-- category/development
-- lang/php
-- type/cli
-homepage: https://phar.io
-repository: https://github.com/phar-io/phive
-description: Phar Installation and Verification Environment
 renovate:
   datasource: github-releases
   package: phar-io/phive
-license:
-  name: BSD 3-Clause License
-  link: https://github.com/phar-io/phive/blob/master/LICENSE

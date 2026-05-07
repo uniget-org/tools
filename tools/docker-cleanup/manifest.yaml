@@ -1,25 +1,25 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: docker-cleanup
+description: Run regular cleanup of docker containers, images, and volumes
 license:
   name: MIT License
   link: https://gitlab.com/uniget-org/tools/blob/main/LICENSE
+homepage: https://uniget.dev
+repository: https://gitlab.com/uniget-org/tools
 version: "0.1.0"
-binary: "false"
+tags:
+- org/uniget
+- category/operations
+- standard/docker
+- type/configuration
 check: "" # No binary to check
 runtime_dependencies:
 - docker
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- org/uniget
-- category/operations
-- standard/docker
-- type/configuration
-homepage: https://uniget.dev
-repository: https://gitlab.com/uniget-org/tools
-description: Run regular cleanup of docker containers, images, and volumes
+binary: "false"
 messages:
   usage: |
     - Run the following command to start using the systemd units:

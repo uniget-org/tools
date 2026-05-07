@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: mitmproxy
+description: Interactive TLS-capable intercepting HTTP proxy for penetration testers and software developers
 license:
   name: MIT License
   link: https://github.com/mitmproxy/mitmproxy/blob/main/LICENSE
+homepage: https://mitmproxy.org
+repository: https://github.com/mitmproxy/mitmproxy
 version: "12.2.2"
-check: ${binary} --version | grep ^Mitmproxy | cut -d' ' -f2
 tags:
 - component/network
 - type/cli
 - troubleshooting
 - lang/python
-homepage: https://mitmproxy.org
-repository: https://github.com/mitmproxy/mitmproxy
-description: Interactive TLS-capable intercepting HTTP proxy for penetration testers and software developers
+check: ${binary} --version | grep ^Mitmproxy | cut -d' ' -f2
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: mitmproxy/mitmproxy
   extractVersion: ^v(?<version>.+)$
-platforms:
-- linux/amd64

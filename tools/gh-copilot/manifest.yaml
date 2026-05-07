@@ -1,8 +1,17 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: gh-copilot
+description: Translates natural language into shell commands
+homepage: https://docs.github.com/en/copilot/github-copilot-in-the-cli
+repository: https://github.com/github/gh-copilot
 version: "1.2.0"
-binary: ${target}/share/gh/extensions/gh-copilot/gh-copilot
+tags:
+- org/microsoft
+- org/github
+- category/operations
+- lang/go
+- type/cli
+- state/deprecated
 check: ${binary} --version | cut -d' ' -f2
 build_dependencies:
 - gh
@@ -11,17 +20,8 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- org/microsoft
-- org/github
-- category/operations
-- lang/go
-- type/cli
-- state/deprecated
-homepage: https://docs.github.com/en/copilot/github-copilot-in-the-cli
-repository: https://github.com/github/gh-copilot
-description: Translates natural language into shell commands
 renovate:
   datasource: github-releases
   package: github/gh-copilot
   extractVersion: ^v(?<version>.+)$
+binary: ${target}/share/gh/extensions/gh-copilot/gh-copilot

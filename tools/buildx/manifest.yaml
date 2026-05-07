@@ -1,13 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: buildx
+description: Docker CLI plugin for extended build capabilities with BuildKit
+license:
+  name: Apache License 2.0
+  link: https://github.com/docker/buildx/blob/master/LICENSE
+homepage: https://github.com/docker/buildx
+repository: https://github.com/docker/buildx
 version: "0.33.0"
-binary: ${target}/libexec/docker/cli-plugins/docker-buildx
-check: ${binary} version | cut -d' ' -f2 | tr -d v
-runtime_dependencies:
-- docker
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/docker
 - standard/docker
@@ -19,9 +18,17 @@ tags:
 - container/build
 - docker
 - format/spdx
-homepage: https://github.com/docker/buildx
-repository: https://github.com/docker/buildx
-description: Docker CLI plugin for extended build capabilities with BuildKit
+check: ${binary} version | cut -d' ' -f2 | tr -d v
+runtime_dependencies:
+- docker
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: docker/buildx
+  extractVersion: ^v(?<version>.+)$
+binary: ${target}/libexec/docker/cli-plugins/docker-buildx
 messages:
   internals: |
     It is recommended to make buildx the default builder by adding the following
@@ -36,10 +43,3 @@ messages:
     If you are planning multi-architecture builds, please enable the emulation:
 
         docker container run --privileged --rm tonistiigi/binfmt --install all
-renovate:
-  datasource: github-releases
-  package: docker/buildx
-  extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/docker/buildx/blob/master/LICENSE

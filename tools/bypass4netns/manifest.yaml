@@ -1,6 +1,18 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: bypass4netns
+description: Accelerates slirp4netns using SECCOMP_IOCTL_NOTIF_ADDFD
+license:
+  name: Apache License 2.0
+  link: https://github.com/rootless-containers/bypass4netns/blob/master/LICENSE
+homepage: https://medium.com/nttlabs/accelerating-rootless-container-network-29d0e908dda4
+repository: https://github.com/rootless-containers/bypass4netns
 version: "0.4.2"
+tags:
+- component/network
+- type/cli
+- type/daemon
+- rootless
+- lang/go
 check: XDG_RUNTIME_DIR=foo ${binary} --version | grep ^bypass4netns | cut -d' ' -f3
 build_dependencies:
 - go
@@ -10,19 +22,7 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- component/network
-- type/cli
-- type/daemon
-- rootless
-- lang/go
-homepage: https://medium.com/nttlabs/accelerating-rootless-container-network-29d0e908dda4
-repository: https://github.com/rootless-containers/bypass4netns
-description: Accelerates slirp4netns using SECCOMP_IOCTL_NOTIF_ADDFD
 renovate:
   datasource: github-tags
   package: rootless-containers/bypass4netns
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/rootless-containers/bypass4netns/blob/master/LICENSE

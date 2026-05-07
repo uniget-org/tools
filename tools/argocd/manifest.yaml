@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: argocd
+description: Declarative continuous deployment for Kubernetes
+license:
+  name: Apache License 2.0
+  link: https://github.com/argoproj/argo-cd/blob/master/LICENSE
+homepage: https://argo-cd.readthedocs.io
+repository: https://github.com/argoproj/argo-cd
 version: "3.4.1"
-check: ${binary} version 2>/dev/null | grep ^argocd | cut -d' ' -f2 | cut -d+ -f1 | tr -d v
 tags:
 - type/cli
 - category/operations
@@ -11,15 +16,10 @@ tags:
 - k8s
 - gitops
 - cncf/graduated
-homepage: https://argo-cd.readthedocs.io
-repository: https://github.com/argoproj/argo-cd
-description: Declarative continuous deployment for Kubernetes
+check: ${binary} version 2>/dev/null | grep ^argocd | cut -d' ' -f2 | cut -d+ -f1 | tr -d v
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: argoproj/argo-cd
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/argoproj/argo-cd/blob/master/LICENSE
-platforms:
-- linux/amd64

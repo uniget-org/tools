@@ -1,16 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: codeai
+description: Some description
 license:
   name: Apache License 2.0
   link: https://github.com/meysamhadeli/codai/blob/main/LICENSE
+homepage: https://github.com/meysamhadeli/codai
+repository: https://github.com/meysamhadeli/codai
 version: "1.9.0"
-check: ${binary} --version | cut -d' ' -f2
-build_dependencies:
-- go
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/go
@@ -19,9 +16,12 @@ tags:
 - llm
 - coding
 - agent
-homepage: https://github.com/meysamhadeli/codai
-repository: https://github.com/meysamhadeli/codai
-description: Some description
+check: ${binary} --version | cut -d' ' -f2
+build_dependencies:
+- go
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: meysamhadeli/codai

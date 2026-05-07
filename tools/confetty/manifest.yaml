@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: confetty
+description: Confetti in your TTY
 license:
   name: MIT License
   link: https://github.com/maaslalani/confetty/blob/main/LICENSE
+homepage: https://github.com/maaslalani/confetty
+repository: https://github.com/maaslalani/confetty
 version: "6c6f1b5b605f78c3ed3bab2d2a1357c0dd794221"
+tags:
+- category/games
+- lang/go
+- type/cli
 check: ""
 build_dependencies:
 - go
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/games
-- lang/go
-- type/cli
-homepage: https://github.com/maaslalani/confetty
-repository: https://github.com/maaslalani/confetty
-description: Confetti in your TTY
 renovate:
   datasource: git-refs
   package: https://github.com/maaslalani/confetty

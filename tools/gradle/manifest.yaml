@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: gradle
+description: Adaptable, fast automation for all
+license:
+  name: Apache License 2.0
+  link: https://github.com/gradle/gradle/blob/master/LICENSE
+homepage: https://gradle.org
+repository: https://github.com/gradle/gradle
 version: "9.5.0"
-check: ${binary} -version | grep ^Gradle | cut -d' ' -f2
-runtime_dependencies:
-- openjdk-jre
 tags:
 - type/cli
 - cicd
 - lang/java
-homepage: https://gradle.org
-repository: https://github.com/gradle/gradle
-description: Adaptable, fast automation for all
+check: ${binary} -version | grep ^Gradle | cut -d' ' -f2
+runtime_dependencies:
+- openjdk-jre
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: gradle/gradle
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/gradle/gradle/blob/master/LICENSE
-platforms:
-- linux/amd64

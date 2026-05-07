@@ -1,26 +1,26 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: supdock
+description: Slightly more visual way to interact with the docker daemon
+license:
+  name: MIT License
+  link: https://github.com/segersniels/supdock/blob/master/LICENSE
+homepage: https://www.npmjs.com/package/supdock
+repository: https://github.com/segersniels/supdock
 version: "3.5.2"
-check: ${binary} --version | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/rust
 - type/cli
 - docker
-homepage: https://www.npmjs.com/package/supdock
-repository: https://github.com/segersniels/supdock
-description: Slightly more visual way to interact with the docker daemon
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: segersniels/supdock
 usage: |
   supdock is a wrapper around docker that provides a more visual way to interact with the docker daemon:
 
     alias docker=supdock
-renovate:
-  datasource: github-releases
-  package: segersniels/supdock
-license:
-  name: MIT License
-  link: https://github.com/segersniels/supdock/blob/master/LICENSE

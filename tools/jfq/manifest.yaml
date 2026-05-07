@@ -1,7 +1,19 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: jfq
+description: JSONata on the command line
+license:
+  name: MIT License
+  link: https://github.com/blgm/jfq/blob/main/LICENSE
+homepage: https://github.com/blgm/jfq
+repository: https://github.com/blgm/jfq
 version: "1.2.11"
+tags:
+- category/development
+- lang/javascript
+- type/cli
+- standard/jsonata
+- state/stale
 check: "" # No version parameter
 build_dependencies:
 - node-lts
@@ -10,18 +22,6 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/development
-- lang/javascript
-- type/cli
-- standard/jsonata
-- state/stale
-homepage: https://github.com/blgm/jfq
-repository: https://github.com/blgm/jfq
-description: JSONata on the command line
 renovate:
   datasource: npm
   package: jfq
-license:
-  name: MIT License
-  link: https://github.com/blgm/jfq/blob/main/LICENSE

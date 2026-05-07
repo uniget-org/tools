@@ -1,8 +1,19 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: httpie
+description: Modern, user-friendly command-line HTTP client for the API era
+license:
+  name: BSD 3-Clause License
+  link: https://github.com/httpie/cli/blob/master/LICENSE
+homepage: https://github.com/httpie/cli
+repository: https://github.com/httpie/cli
 version: "3.2.4"
-binary: http
+tags:
+- category/development
+- lang/python
+- type/cli
+- component/network
+- state/stale
 check: ${binary} --version
 build_dependencies:
 - python-3.12
@@ -12,18 +23,7 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/development
-- lang/python
-- type/cli
-- component/network
-- state/stale
-homepage: https://github.com/httpie/cli
-repository: https://github.com/httpie/cli
-description: Modern, user-friendly command-line HTTP client for the API era
 renovate:
   datasource: pypi
   package: httpie
-license:
-  name: BSD 3-Clause License
-  link: https://github.com/httpie/cli/blob/master/LICENSE
+binary: http

@@ -1,10 +1,17 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: fabric
+description: Open-source framework for augmenting humans using AI
 license:
   name: MIT License
   link: https://github.com/danielmiessler/fabric/blob/main/LICENSE
+homepage: https://danielmiessler.com/p/fabric-origin-story
+repository: https://github.com/danielmiessler/fabric
 version: "1.4.452"
+tags:
+- category/development
+- lang/go
+- type/cli
 check: ${binary} --version | tr -d v
 build_dependencies:
 - make
@@ -12,13 +19,6 @@ build_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/development
-- lang/go
-- type/cli
-homepage: https://danielmiessler.com/p/fabric-origin-story
-repository: https://github.com/danielmiessler/fabric
-description: Open-source framework for augmenting humans using AI
 renovate:
   datasource: github-releases
   package: danielmiessler/fabric

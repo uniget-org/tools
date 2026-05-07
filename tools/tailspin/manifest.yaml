@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: tailspin
+description: Log file highlighter
+license:
+  name: MIT License
+homepage: https://github.com/bensadeh/tailspin
+repository: https://github.com/bensadeh/tailspin
 version: "6.0.0"
-binary: tspin
+tags:
+- category/operations
+- lang/rust
+- type/cli
 check: ${binary} --version | cut -d' ' -f2
 build_dependencies:
 - rust
 platforms:
 - linux/amd64
 #- linux/arm64
-tags:
-- category/operations
-- lang/rust
-- type/cli
-homepage: https://github.com/bensadeh/tailspin
-repository: https://github.com/bensadeh/tailspin
-description: Log file highlighter
 renovate:
   datasource: github-releases
   package: bensadeh/tailspin
-license:
-  name: MIT License
+binary: tspin

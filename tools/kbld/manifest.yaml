@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kbld
+description: Seamlessly incorporates image building and image pushing into your development and deployment workflows
+license:
+  name: Apache License 2.0
+  link: https://github.com/carvel-dev/kbld/blob/develop/LICENSE
+homepage: https://carvel.dev/kbld
+repository: https://github.com/carvel-dev/kbld
 version: "0.47.3"
-check: ${binary} version | head -n 1 | cut -d' ' -f3
 tags:
 - org/vmware
 - type/cli
@@ -9,15 +14,10 @@ tags:
 - kubernetes
 - k8s
 - lang/go
-homepage: https://carvel.dev/kbld
-repository: https://github.com/carvel-dev/kbld
-description: Seamlessly incorporates image building and image pushing into your development and deployment workflows
+check: ${binary} version | head -n 1 | cut -d' ' -f3
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: carvel-dev/kbld
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/carvel-dev/kbld/blob/develop/LICENSE
-platforms:
-- linux/amd64

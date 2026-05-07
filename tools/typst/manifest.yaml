@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: typst
+description: New markup-based typesetting system that is powerful and easy to learn
+license:
+  name: Apache License 2.0
+  link: https://github.com/typst/typst/blob/main/LICENSE
+homepage: https://typst.app
+repository: https://github.com/typst/typst
 version: "0.14.2"
-check: ${binary} --version | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/rust
 - type/cli
-homepage: https://typst.app
-repository: https://github.com/typst/typst
-description: New markup-based typesetting system that is powerful and easy to learn
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: typst/typst
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/typst/typst/blob/main/LICENSE

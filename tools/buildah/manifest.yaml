@@ -1,6 +1,19 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: buildah
+description: Tool that facilitates building OCI images
+license:
+  name: Apache License 2.0
+  link: https://github.com/containers/buildah/blob/main/LICENSE
+homepage: https://buildah.io
+repository: https://github.com/containers/buildah
 version: "1.43.1"
+tags:
+- org/redhat
+- standard/oci
+- container/build
+- type/cli
+- lang/go
+- standard/docker
 check: ${binary} --version | cut -d' ' -f3
 build_dependencies:
 - go
@@ -9,22 +22,9 @@ build_dependencies:
 runtime_dependencies:
 - runc
 - cni
-tags:
-- org/redhat
-- standard/oci
-- container/build
-- type/cli
-- lang/go
-- standard/docker
-homepage: https://buildah.io
-repository: https://github.com/containers/buildah
-description: Tool that facilitates building OCI images
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: containers/buildah
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/containers/buildah/blob/main/LICENSE
-platforms:
-- linux/amd64

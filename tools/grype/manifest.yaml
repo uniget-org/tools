@@ -1,10 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: grype
+description: Vulnerability scanner for container images and filesystems
+license:
+  name: Apache License 2.0
+  link: https://github.com/anchore/grype/blob/main/LICENSE
+homepage: https://github.com/anchore/grype
+repository: https://github.com/anchore/grype
 version: "0.112.0"
-check: ${binary} version 2>&1 | grep "^Version:" | tr -s ' ' | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/security
 - type/cli
@@ -17,13 +19,11 @@ tags:
 - standard/vex
 - format/spdx
 - format/cyclonedx
-homepage: https://github.com/anchore/grype
-repository: https://github.com/anchore/grype
-description: Vulnerability scanner for container images and filesystems
+check: ${binary} version 2>&1 | grep "^Version:" | tr -s ' ' | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: anchore/grype
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/anchore/grype/blob/main/LICENSE

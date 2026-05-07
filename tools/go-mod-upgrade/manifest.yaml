@@ -1,20 +1,20 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: go-mod-upgrade
+description: Update outdated Go dependencies interactively
+license:
+  name: MIT License
+homepage: https://github.com/oligot/go-mod-upgrade
+repository: https://github.com/oligot/go-mod-upgrade
 version: "0.12.0"
-check: ${binary} --version | head -1 | cut -d' ' -f3
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/security
 - lang/go
 - type/cli
-homepage: https://github.com/oligot/go-mod-upgrade
-repository: https://github.com/oligot/go-mod-upgrade
-description: Update outdated Go dependencies interactively
+check: ${binary} --version | head -1 | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: oligot/go-mod-upgrade
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License

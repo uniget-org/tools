@@ -1,19 +1,19 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: falcosidekick
+description: Connect Falco to your ecosystem
+license:
+  name: Apache License 2.0
+  link: https://github.com/falcosecurity/falcosidekick/blob/master/LICENSE
+homepage: https://github.com/falcosecurity/falcosidekick
+repository: https://github.com/falcosecurity/falcosidekick
 version: "2.33.0"
-check: ${binary} --version | grep ^GitVersion | tr -s ' ' | cut -d' ' -f2
 tags:
 - category/security
 - type/daemon
 - lang/go
-homepage: https://github.com/falcosecurity/falcosidekick
-repository: https://github.com/falcosecurity/falcosidekick
-description: Connect Falco to your ecosystem
+check: ${binary} --version | grep ^GitVersion | tr -s ' ' | cut -d' ' -f2
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: falcosecurity/falcosidekick
-license:
-  name: Apache License 2.0
-  link: https://github.com/falcosecurity/falcosidekick/blob/master/LICENSE
-platforms:
-- linux/amd64

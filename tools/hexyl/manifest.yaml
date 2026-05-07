@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: hexyl
+description: Command-line hex viewer
+license:
+  name: Apache License 2.0
+homepage: https://github.com/sharkdp/hexyl
+repository: https://github.com/sharkdp/hexyl
 version: "0.17.0"
-check: ${binary} --version | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/rust
 - type/cli
 - terminal
-homepage: https://github.com/sharkdp/hexyl
-repository: https://github.com/sharkdp/hexyl
-description: Command-line hex viewer
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: sharkdp/hexyl
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0

@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: luet
+description: 0-dependency Container-based Package Manager using SAT solver and QLearning
+license:
+  name: GPLv3
+  link: https://github.com/mudler/luet/blob/master/LICENSE
+homepage: https://luet.io
+repository: https://github.com/mudler/luet
 version: "0.36.5"
-check: ${binary} --version | cut -d' ' -f3
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/go
 - type/cli
-homepage: https://luet.io
-repository: https://github.com/mudler/luet
-description: 0-dependency Container-based Package Manager using SAT solver and QLearning
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: mudler/luet
-license:
-  name: GPLv3
-  link: https://github.com/mudler/luet/blob/master/LICENSE

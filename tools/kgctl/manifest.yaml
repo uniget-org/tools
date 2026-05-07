@@ -1,10 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kgctl
+description: Kilo is a multi-cloud network overlay built on WireGuard and designed for Kubernetes
+license:
+  name: Apache License 2.0
+  link: https://github.com/squat/kilo/blob/main/LICENSE
+homepage: https://kilo.squat.ai
+repository: https://github.com/squat/kilo
 version: "0.7.0"
-check: ${binary} --version | cut -d' ' -f3
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/go
@@ -13,12 +15,10 @@ tags:
 - k8s
 - wireguard
 - state/stale
-homepage: https://kilo.squat.ai
-repository: https://github.com/squat/kilo
-description: Kilo is a multi-cloud network overlay built on WireGuard and designed for Kubernetes
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: squat/kilo
-license:
-  name: Apache License 2.0
-  link: https://github.com/squat/kilo/blob/main/LICENSE

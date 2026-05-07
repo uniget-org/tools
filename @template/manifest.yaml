@@ -1,10 +1,18 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: foo
+description: Some description
 license:
   name: Unknown
   link: ""
+homepage: https://www.google.de
+repository: https://www.google.de
 version: "0.1.2"
+tags:
+- org/?
+- category/?
+- lang/?
+- type/?
 check: ""
 build_dependencies:
 - bar
@@ -13,14 +21,6 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 #- linux/arm64
-tags:
-- org/?
-- category/?
-- lang/?
-- type/?
-homepage: https://www.google.de
-repository: https://www.google.de
-description: Some description
 renovate:
   datasource: github-releases
   package: foo/bar

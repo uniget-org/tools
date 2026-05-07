@@ -1,11 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: linux-kernel
+description: Linux kernel source tree
+license:
+  name: GPLv2
+  link: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/COPYING
+homepage: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+repository: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
 version: "7.0"
-binary: "false"
-check: "" # No binary
-platforms:
-- linux/amd64
 tags:
 - org/linus
 - category/development
@@ -14,13 +16,11 @@ tags:
 - linux
 - kernel
 - source
-homepage: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
-repository: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
-description: Linux kernel source tree
+check: "" # No binary
+platforms:
+- linux/amd64
 renovate:
   datasource: git-tags
   package: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
   extractVersion: ^v(?<version>.+)$
-license:
-  name: GPLv2
-  link: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/COPYING
+binary: "false"

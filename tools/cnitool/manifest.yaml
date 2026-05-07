@@ -1,12 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: cnitool
+description: Container Network Interface - networking for Linux containers
+license:
+  name: Apache License 2.0
+  link: https://github.com/containernetworking/cni/blob/main/LICENSE
+homepage: https://cni.dev
+repository: https://github.com/containernetworking/cni
 version: "1.3.0"
-check: "" # No version parameter
-build_dependencies:
-- go
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - standard/cni
 - component/network
@@ -15,13 +15,13 @@ tags:
 - k8s
 - lang/go
 - cncf/incubating
-homepage: https://cni.dev
-repository: https://github.com/containernetworking/cni
-description: Container Network Interface - networking for Linux containers
+check: "" # No version parameter
+build_dependencies:
+- go
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: containernetworking/cni
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/containernetworking/cni/blob/main/LICENSE

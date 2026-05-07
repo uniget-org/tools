@@ -1,28 +1,28 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: papermc
+description: High performance Minecraft server that aims to fix gameplay and mechanics inconsistencies
 license:
   name: GPLv3, MIT License
   link: https://github.com/PaperMC/Paper/blob/main/LICENSE.md
+homepage: https://papermc.io/software/paper
+repository: https://github.com/PaperMC/Paper
 version: "1.21.11-69"
-binary: "false"
-check: "" # No binary
-runtime_dependencies:
-- openjdk-jre
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/papermc
 - category/games
 - lang/java
 - type/daemon
 - minecraft
-homepage: https://papermc.io/software/paper
-repository: https://github.com/PaperMC/Paper
-description: High performance Minecraft server that aims to fix gameplay and mechanics inconsistencies
+check: "" # No binary
+runtime_dependencies:
+- openjdk-jre
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: gitlab-releases
   package: uniget-org/renovate-custom
   extractVersion: ^papermc/(?<version>.+)$
   versioning: loose
+binary: "false"

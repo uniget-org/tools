@@ -1,9 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: act
+description: Run your GitHub Actions locally
+license:
+  name: MIT License
+  link: https://github.com/nektos/act/blob/master/LICENSE
+homepage: https://nektosact.com
+repository: https://github.com/nektos/act
 version: "0.2.88"
-check: ${binary} --version | cut -d' ' -f3
-runtime_dependencies:
-- docker
 tags:
 - standard/docker
 - category/development
@@ -13,15 +16,12 @@ tags:
 - cloud/github
 - standard/github
 - docker
-homepage: https://nektosact.com
-repository: https://github.com/nektos/act
-description: Run your GitHub Actions locally
+check: ${binary} --version | cut -d' ' -f3
+runtime_dependencies:
+- docker
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: nektos/act
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/nektos/act/blob/master/LICENSE
-platforms:
-- linux/amd64

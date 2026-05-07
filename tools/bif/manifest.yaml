@@ -1,24 +1,24 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: bif
+description: Base Image Finder CLI
+license:
+  name: Apache License 2.0
+  link: https://github.com/FairwindsOps/bif/blob/main/LICENSE
+homepage: https://fairwinds.com
+repository: https://github.com/FairwindsOps/bif
 version: "0.0.11"
-check: "${binary} version | cut -d' ' -f1 | cut -d: -f2"
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/go
 - type/cli
 - container/image
 - state/stale
-homepage: https://fairwinds.com
-repository: https://github.com/FairwindsOps/bif
-description: Base Image Finder CLI
+check: "${binary} version | cut -d' ' -f1 | cut -d: -f2"
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: FairwindsOps/bif
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/FairwindsOps/bif/blob/main/LICENSE

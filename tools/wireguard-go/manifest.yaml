@@ -1,7 +1,18 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: wireguard-go
+description: Go Implementation of WireGuard
+license:
+  name: Custom
+  link: https://git.zx2c4.com/wireguard-go/tree/LICENSE
+homepage: https://git.zx2c4.com/wireguard-go
+repository: https://git.zx2c4.com/wireguard-go
 version: "0.0.20250522"
+tags:
+- category/security
+- lang/c
+- type/cli
+- wireguard
 check: ${binary} --version | grep ^wireguard-go | cut -d' ' -f2 | tr -d v
 build_dependencies:
 - go
@@ -9,17 +20,6 @@ build_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/security
-- lang/c
-- type/cli
-- wireguard
-homepage: https://git.zx2c4.com/wireguard-go
-repository: https://git.zx2c4.com/wireguard-go
-description: Go Implementation of WireGuard
 renovate:
   datasource: git-tags
   package: git://git.zx2c4.com/wireguard-go.git
-license:
-  name: Custom
-  link: https://git.zx2c4.com/wireguard-go/tree/LICENSE

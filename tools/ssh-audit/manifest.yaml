@@ -1,10 +1,18 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: ssh-audit
+description: SSH server & client security auditing
 license:
   name: MIT License
   link: https://github.com/jtesta/ssh-audit/blob/master/LICENSE
+homepage: https://github.com/jtesta/ssh-audit
+repository: https://github.com/jtesta/ssh-audit
 version: "3.3.0"
+tags:
+- category/security
+- lang/python
+- type/cli
+- state/stale
 check: ${binary} --help | grep '# ssh-audit' | cut -d, -f1 | cut -d' ' -f3 | tr -d v
 build_dependencies:
 - python-3.12
@@ -14,14 +22,6 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/security
-- lang/python
-- type/cli
-- state/stale
-homepage: https://github.com/jtesta/ssh-audit
-repository: https://github.com/jtesta/ssh-audit
-description: SSH server & client security auditing
 renovate:
   datasource: pypi
   package: ssh-audit

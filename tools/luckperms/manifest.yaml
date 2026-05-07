@@ -1,16 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: luckperms
+description: Permissions plugin for Minecraft servers
 license:
   name: MIT License
   link: https://github.com/LuckPerms/LuckPerms/blob/master/LICENSE.txt
+homepage: https://luckperms.net/
+repository: https://github.com/LuckPerms/LuckPerms
 version: "5.4.155-1572"
-check: ""
-runtime_dependencies:
-- papermc
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/games
 - lang/java
@@ -19,9 +16,12 @@ tags:
 - multiverse
 - papermc
 - paper
-homepage: https://luckperms.net/
-repository: https://github.com/LuckPerms/LuckPerms
-description: Permissions plugin for Minecraft servers
+check: ""
+runtime_dependencies:
+- papermc
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: gitlab-releases
   package: uniget-org/renovate-custom

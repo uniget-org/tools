@@ -1,14 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: imgcrypt
+description: OCI Image Encryption Package
+license:
+  name: Apache License 2.0
+  link: https://github.com/containerd/imgcrypt/blob/main/LICENSE
+homepage: https://github.com/containerd/imgcrypt
+repository: https://github.com/containerd/imgcrypt
 version: "2.0.2"
-binary: ctr-enc
-check: ${binary} --version | cut -d' ' -f3 | tr -d v
-build_dependencies:
-- go
-- make
-runtime_dependencies:
-- containerd
-- docker
 tags:
 - org/cncf
 - org/containerd
@@ -16,15 +14,17 @@ tags:
 - category/security
 - type/plugin
 - lang/go
-homepage: https://github.com/containerd/imgcrypt
-repository: https://github.com/containerd/imgcrypt
-description: OCI Image Encryption Package
+check: ${binary} --version | cut -d' ' -f3 | tr -d v
+build_dependencies:
+- go
+- make
+runtime_dependencies:
+- containerd
+- docker
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: containerd/imgcrypt
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/containerd/imgcrypt/blob/main/LICENSE
-platforms:
-- linux/amd64
+binary: ctr-enc

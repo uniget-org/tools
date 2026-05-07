@@ -1,27 +1,27 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: cascadia-code
+description: Monospaced font that includes programming ligatures
+license:
+  name: SIL Open Font License 1.1
+  link: https://github.com/microsoft/cascadia-code/blob/main/LICENSE
+homepage: https://github.com/microsoft/cascadia-code
+repository: https://github.com/microsoft/cascadia-code
 version: "2407.24"
-binary: "false"
-check: "" # No binary
 tags:
 - org/microsoft
 - slides
 - presentation
 - font
 - state/stale
-homepage: https://github.com/microsoft/cascadia-code
-repository: https://github.com/microsoft/cascadia-code
-description: Monospaced font that includes programming ligatures
-messages:
-  update: |
-    Please run: fc-cache -f -v
+check: "" # No binary
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: microsoft/cascadia-code
   extractVersion: ^v(?<version>.+)$
   versioning: loose
-license:
-  name: SIL Open Font License 1.1
-  link: https://github.com/microsoft/cascadia-code/blob/main/LICENSE
-platforms:
-- linux/amd64
+binary: "false"
+messages:
+  update: |
+    Please run: fc-cache -f -v

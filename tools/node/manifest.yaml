@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: node
+description: Node.js JavaScript runtime
+license:
+  name: Custom
+  link: https://github.com/nodejs/node/blob/main/LICENSE
+homepage: https://nodejs.org
+repository: https://github.com/nodejs/node
 version: "26.1.0"
-check: ${binary} --version | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - type/cli
 - category/development
 - lang/javascript
-homepage: https://nodejs.org
-repository: https://github.com/nodejs/node
-description: Node.js JavaScript runtime
+check: ${binary} --version | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: nodejs/node
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Custom
-  link: https://github.com/nodejs/node/blob/main/LICENSE

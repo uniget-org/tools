@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: golangci-lint
+description: Fast linters Runner for Go
+license:
+  name: GPLv3
+  link: https://github.com/golangci/golangci-lint/blob/master/LICENSE
+homepage: https://golangci-lint.run
+repository: https://github.com/golangci/golangci-lint
 version: "2.12.2"
-check: ${binary} version | cut -d ' ' -f4
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/go
 - type/cli
 - lint
-homepage: https://golangci-lint.run
-repository: https://github.com/golangci/golangci-lint
-description: Fast linters Runner for Go
+check: ${binary} version | cut -d ' ' -f4
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: golangci/golangci-lint
   extractVersion: ^v(?<version>.+)$
-license:
-  name: GPLv3
-  link: https://github.com/golangci/golangci-lint/blob/master/LICENSE

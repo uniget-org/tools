@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: imgpkg
+description: Store application configuration files in Docker/OCI registries
+license:
+  name: Apache License 2.0
+  link: https://github.com/carvel-dev/imgpkg/blob/develop/LICENSE
+homepage: https://carvel.dev/imgpkg
+repository: https://github.com/carvel-dev/imgpkg
 version: "0.47.2"
-check: ${binary} version | head -n 1 | cut -d' ' -f3
 tags:
 - standard/oci
 - container/registry
 - type/cli
 - management
 - lang/go
-homepage: https://carvel.dev/imgpkg
-repository: https://github.com/carvel-dev/imgpkg
-description: Store application configuration files in Docker/OCI registries
+check: ${binary} version | head -n 1 | cut -d' ' -f3
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: carvel-dev/imgpkg
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/carvel-dev/imgpkg/blob/develop/LICENSE
-platforms:
-- linux/amd64

@@ -1,14 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: k3k
+description: Kubernetes in Kubernetes
 license:
   name: Apache License 2.0
   link: https://github.com/rancher/k3k/blob/main/LICENSE
+homepage: https://rancher.github.io/k3k-product-docs
+repository: https://github.com/rancher/k3k
 version: "1.0.2"
-check: ${binary} --version | cut -d' ' -f3 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/rancher
 - category/operations
@@ -17,9 +16,10 @@ tags:
 - k8s
 - kubernetes
 - management
-homepage: https://rancher.github.io/k3k-product-docs
-repository: https://github.com/rancher/k3k
-description: Kubernetes in Kubernetes
+check: ${binary} --version | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: rancher/k3k

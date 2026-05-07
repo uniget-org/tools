@@ -1,10 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: fleet
+description: Manage large fleets of Kubernetes clusters
+license:
+  name: Apache License 2.0
+  link: https://github.com/rancher/fleet/blob/main/LICENSE
+homepage: https://fleet.rancher.io/
+repository: https://github.com/rancher/fleet
 version: "0.15.1"
-check: ${binary} --version | cut -d' ' -f3 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/rancher
 - category/operations
@@ -12,13 +14,11 @@ tags:
 - type/cli
 - kubernetes
 - k8s
-homepage: https://fleet.rancher.io/
-repository: https://github.com/rancher/fleet
-description: Manage large fleets of Kubernetes clusters
+check: ${binary} --version | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: rancher/fleet
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/rancher/fleet/blob/main/LICENSE

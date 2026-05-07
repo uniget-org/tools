@@ -1,9 +1,11 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: datree
+description: Prevent Kubernetes misconfigurations from reaching production
+license:
+  name: Apache License 2.0
+homepage: https://datree.io
+repository: https://github.com/datreeio/datree
 version: "1.9.19"
-check: ${binary} version
-runtime_dependencies:
-- kubernetes-json-schema
 tags:
 - category/security
 - type/cli
@@ -13,13 +15,11 @@ tags:
 - lang/go
 - state/deprecated
 - state/stale
-homepage: https://datree.io
-repository: https://github.com/datreeio/datree
-description: Prevent Kubernetes misconfigurations from reaching production
+check: ${binary} version
+runtime_dependencies:
+- kubernetes-json-schema
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: datreeio/datree
-license:
-  name: Apache License 2.0
-platforms:
-- linux/amd64

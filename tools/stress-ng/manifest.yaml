@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: stress-ng
+description: stress test a computer system in various selectable ways
 license:
   name: GPLv2
   link: https://github.com/ColinIanKing/stress-ng/blob/master/COPYING
+homepage: https://github.com/ColinIanKing/stress-ng
+repository: https://github.com/ColinIanKing/stress-ng
 version: "0.21.01"
+tags:
+- category/operations
+- lang/c
+- type/cli
 check: ${binary} --version | cut -d' ' -f3
 build_dependencies:
 - make
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/operations
-- lang/c
-- type/cli
-homepage: https://github.com/ColinIanKing/stress-ng
-repository: https://github.com/ColinIanKing/stress-ng
-description: stress test a computer system in various selectable ways
 renovate:
   datasource: github-releases
   package: ColinIanKing/stress-ng

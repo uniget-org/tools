@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: lab
+description: Wraps Git or Hub, making it simple to clone, fork, and interact with repositories on GitLab
+license:
+  name: Creative Commons Zero v1.0 Universal
+  link: https://github.com/zaquestion/lab/blob/master/LICENSE
+homepage: https://zaquestion.github.io/lab
+repository: https://github.com/zaquestion/lab
 version: "0.25.1"
-check: ${binary} version | cut -d' ' -f3
 tags:
 - category/development
 - type/cli
 - cicd
 - lang/go
 - cloud/gitlab
-homepage: https://zaquestion.github.io/lab
-repository: https://github.com/zaquestion/lab
-description: Wraps Git or Hub, making it simple to clone, fork, and interact with repositories on GitLab
+check: ${binary} version | cut -d' ' -f3
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: zaquestion/lab
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Creative Commons Zero v1.0 Universal
-  link: https://github.com/zaquestion/lab/blob/master/LICENSE
-platforms:
-- linux/amd64

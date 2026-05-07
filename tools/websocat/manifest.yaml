@@ -1,20 +1,20 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: websocat
+description: Command-line client for WebSockets, like netcat (or curl) for ws:// with advanced socat-like functions
+license:
+  name: MIT License
+  link: https://github.com/vi/websocat/blob/master/LICENSE
+homepage: https://github.com/vi/websocat
+repository: https://github.com/vi/websocat
 version: "1.14.1"
-check: ${binary} --version | cut -d' ' -f2
 tags:
 - type/cli
 - component/network
 - lang/rust
-homepage: https://github.com/vi/websocat
-repository: https://github.com/vi/websocat
-description: Command-line client for WebSockets, like netcat (or curl) for ws:// with advanced socat-like functions
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: vi/websocat
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/vi/websocat/blob/master/LICENSE
-platforms:
-- linux/amd64

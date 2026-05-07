@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: venom
+description: Manage and run your integration tests with efficiency - Venom run executors (script, HTTP Request, web, imap, etc... ) and assertions
+license:
+  name: Apache License 2.0
+  link: https://github.com/ovh/venom/blob/master/LICENSE
+homepage: https://github.com/ovh/venom
+repository: https://github.com/ovh/venom
 version: "1.3.0"
-check: ${binary} version | cut -d' ' -f3 | tr -d v
 tags:
 - category/development
 - type/cli
 - type/daemon
 - lang/go
-homepage: https://github.com/ovh/venom
-repository: https://github.com/ovh/venom
-description: Manage and run your integration tests with efficiency - Venom run executors (script, HTTP Request, web, imap, etc... ) and assertions
+check: ${binary} version | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: ovh/venom
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/ovh/venom/blob/master/LICENSE
-platforms:
-- linux/amd64

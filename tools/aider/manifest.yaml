@@ -1,17 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: aider
+description: AI pair programming in your terminal
 license:
   name: Apache License 2.0
   link: https://github.com/Aider-AI/aider/blob/main/LICENSE.txt
+homepage: https://aider.chat/
+repository: https://github.com/Aider-AI/aider
 version: "0.86.0"
-check: ${binary} --version | grep ^aider | cut -d' ' -f2
-build_dependencies:
-- shiv
-runtime_dependencies:
-- python-3.12
-platforms:
-- linux/amd64
 tags:
 - category/development
 - lang/python
@@ -20,9 +16,13 @@ tags:
 - llm
 - code
 - coding
-homepage: https://aider.chat/
-repository: https://github.com/Aider-AI/aider
-description: AI pair programming in your terminal
+check: ${binary} --version | grep ^aider | cut -d' ' -f2
+build_dependencies:
+- shiv
+runtime_dependencies:
+- python-3.12
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: Aider-AI/aider

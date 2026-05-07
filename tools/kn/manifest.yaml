@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kn
+description: Knative developer experience, docs, reference Knative CLI implementation
+license:
+  name: Apache License 2.0
+  link: https://github.com/knative/client/blob/main/LICENSE
+homepage: https://github.com/knative/client
+repository: https://github.com/knative/client
 version: "1.7.0"
-check: "" # No version parameter
 tags:
 - type/cli
 - category/development
 - lang/go
 - kubernetes
 - k8s
-homepage: https://github.com/knative/client
-repository: https://github.com/knative/client
-description: Knative developer experience, docs, reference Knative CLI implementation
+check: "" # No version parameter
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: knative/client
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/knative/client/blob/main/LICENSE
-platforms:
-- linux/amd64

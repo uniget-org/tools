@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: gitui
+description: Blazing fast terminal-ui for git written in rust
+license:
+  name: MIT License
+homepage: https://github.com/gitui-org/gitui
+repository: https://github.com/gitui-org/gitui
 version: "0.28.1"
-check: ${binary} --version | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/rust
 - type/cli
 - standard/git
 - git
-homepage: https://github.com/gitui-org/gitui
-repository: https://github.com/gitui-org/gitui
-description: Blazing fast terminal-ui for git written in rust
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: gitui-org/gitui
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License

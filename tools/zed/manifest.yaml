@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: zed
+description: Novel data lake based on super-structured data
+license:
+  name: BSD 3-Clause License
+homepage: https://superdb.org/
+repository: https://github.com/brimdata/super
 version: "1.18.0"
-check: ${binary} --version | cut -d' ' -f2 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/rust
 - type/cli
-homepage: https://superdb.org/
-repository: https://github.com/brimdata/super
-description: Novel data lake based on super-structured data
+check: ${binary} --version | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: brimdata/super
   extractVersion: ^v(?<version>.+)$
-license:
-  name: BSD 3-Clause License

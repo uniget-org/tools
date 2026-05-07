@@ -1,6 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: podman
+description: Tool for managing OCI containers and pods
+license:
+  name: Apache License 2.0
+  link: https://github.com/containers/podman/blob/main/LICENSE
+homepage: https://podman.io
+repository: https://github.com/containers/podman
 version: "5.8.2"
+tags:
+- org/redhat
+- standard/oci
+- container/runtime
+- type/cli
+- type/daemon
+- rootless
+- lang/go
+- cncf/sandbox
 check: ${binary} --version | cut -d' ' -f3
 build_dependencies:
 - go
@@ -15,24 +30,9 @@ runtime_dependencies:
 - shortnames
 - containers-common
 - uidmap
-tags:
-- org/redhat
-- standard/oci
-- container/runtime
-- type/cli
-- type/daemon
-- rootless
-- lang/go
-- cncf/sandbox
-homepage: https://podman.io
-repository: https://github.com/containers/podman
-description: Tool for managing OCI containers and pods
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: containers/podman
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/containers/podman/blob/main/LICENSE
-platforms:
-- linux/amd64

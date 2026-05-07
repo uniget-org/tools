@@ -1,20 +1,20 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: ddosify
+description: High-performance load testing tool
+license:
+  name: AGPLv3
+  link: https://github.com/getanteon/anteon/blob/master/LICENSE
+homepage: https://getanteon.com
+repository: https://github.com/getanteon/anteon
 version: "1.0.6"
-check: ${binary} --version | head -1 | tr -s ' ' | cut -d' ' -f2
 tags:
 - category/security
 - type/cli
 - lang/go
-homepage: https://getanteon.com
-repository: https://github.com/getanteon/anteon
-description: High-performance load testing tool
+check: ${binary} --version | head -1 | tr -s ' ' | cut -d' ' -f2
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: getanteon/anteon
   extractVersion: ^v(?<version>.+)$
-license:
-  name: AGPLv3
-  link: https://github.com/getanteon/anteon/blob/master/LICENSE
-platforms:
-- linux/amd64

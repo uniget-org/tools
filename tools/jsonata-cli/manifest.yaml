@@ -1,15 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: jsonata-cli
+description: CLI for JSONata
+license:
+  name: MIT License
+  link: https://github.com/rubystream/jsonata-cli/blob/main/LICENSE
+homepage: https://github.com/rubystream/jsonata-cli
+repository: https://github.com/rubystream/jsonata-cli
 version: "2.0.6"
-check: ${binary} --version
-build_dependencies:
-- node-lts
-runtime_dependencies:
-- node-lts
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/javascript
@@ -18,12 +16,14 @@ tags:
 - standard/jsonata
 - state/onemanshow
 - state/stale
-homepage: https://github.com/rubystream/jsonata-cli
-repository: https://github.com/rubystream/jsonata-cli
-description: CLI for JSONata
+check: ${binary} --version
+build_dependencies:
+- node-lts
+runtime_dependencies:
+- node-lts
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: npm
   package: jsonata-cli
-license:
-  name: MIT License
-  link: https://github.com/rubystream/jsonata-cli/blob/main/LICENSE

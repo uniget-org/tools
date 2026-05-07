@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: xh
+description: Friendly and fast tool for sending HTTP requests
+license:
+  name: MIT License
+  link: https://github.com/ducaale/xh/blob/master/LICENSE
+homepage: https://github.com/ducaale/xh
+repository: https://github.com/ducaale/xh
 version: "0.25.3"
-check: ${binary} --version | grep ^xh | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/rust
 - type/cli
 - component/network
-homepage: https://github.com/ducaale/xh
-repository: https://github.com/ducaale/xh
-description: Friendly and fast tool for sending HTTP requests
+check: ${binary} --version | grep ^xh | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: ducaale/xh
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/ducaale/xh/blob/master/LICENSE

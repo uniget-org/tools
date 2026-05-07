@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: terraform-docs
+description: Generate documentation from Terraform modules in various output formats
+license:
+  name: MIT License
+  link: https://github.com/terraform-docs/terraform-docs/blob/master/LICENSE
+homepage: https://terraform-docs.io
+repository: https://github.com/terraform-docs/terraform-docs
 version: "0.23.0"
-check: ${binary} --version | cut -d' ' -f3 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/go
 - type/cli
-homepage: https://terraform-docs.io
-repository: https://github.com/terraform-docs/terraform-docs
-description: Generate documentation from Terraform modules in various output formats
+check: ${binary} --version | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: terraform-docs/terraform-docs
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/terraform-docs/terraform-docs/blob/master/LICENSE

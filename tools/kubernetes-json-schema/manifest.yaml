@@ -1,25 +1,25 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: kubernetes-json-schema
+description: JSON Schemas for every version of every object in every version of Kubernetes
+license:
+  name: Apache License 2.0
+  link: https://github.com/kubernetes/kubernetes/blob/master/LICENSE
+homepage: https://kubernetes.io
+repository: https://github.com/yannh/kubernetes-json-schema
 version: "1.36.0"
-binary: "false"
-check: "" # No binary
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - kubernetes
 - k8s
 - type/library
 - format/json
 - category/operations
-homepage: https://kubernetes.io
-repository: https://github.com/yannh/kubernetes-json-schema
-description: JSON Schemas for every version of every object in every version of Kubernetes
+check: "" # No binary
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: kubernetes/kubernetes
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/kubernetes/kubernetes/blob/master/LICENSE
+binary: "false"

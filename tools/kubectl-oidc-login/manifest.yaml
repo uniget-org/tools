@@ -1,17 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: kubectl-oidc-login
+description: kubectl plugin for Kubernetes OpenID Connect authentication (kubectl oidc-login)
 license:
   name: Apache License 2.0
   link: https://github.com/int128/kubelogin/blob/master/LICENSE
+homepage: https://github.com/int128/kubelogin
+repository: https://github.com/int128/kubelogin
 version: "1.36.1"
-binary: kubectl-oidc_login
-check: ${binary} --version | cut -d' ' -f3 | tr -d v
-runtime_dependencies:
-- kubectl
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/go
@@ -21,10 +17,14 @@ tags:
 - authentication
 - kubernetes
 - k8s
-homepage: https://github.com/int128/kubelogin
-repository: https://github.com/int128/kubelogin
-description: kubectl plugin for Kubernetes OpenID Connect authentication (kubectl oidc-login) 
+check: ${binary} --version | cut -d' ' -f3 | tr -d v
+runtime_dependencies:
+- kubectl
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: int128/kubelogin
   extractVersion: ^v(?<version>.+)$
+binary: kubectl-oidc_login

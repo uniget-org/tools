@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: sequin
+description: Human-readable ANSI sequences
 license:
   name: MIT License
   link: https://github.com/charmbracelet/sequin/blob/main/LICENSE
+homepage: https://github.com/charmbracelet/sequin
+repository: https://github.com/charmbracelet/sequin
 version: "0.3.1"
-check: ${binary} --version | cut -d' ' -f3 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/charmbracelet
 - category/development
 - lang/go
 - type/cli
 - terminal
-homepage: https://github.com/charmbracelet/sequin
-repository: https://github.com/charmbracelet/sequin
-description: Human-readable ANSI sequences
+check: ${binary} --version | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: charmbracelet/sequin

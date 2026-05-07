@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: wait-for
+description: Super simple tool to help with orchestration of commands on the CLI by waiting on networking resources
+license:
+  name: Apache License 2.0
+  link: https://github.com/dnnrly/wait-for/blob/main/LICENSE
+homepage: https://github.com/dnnrly/wait-for
+repository: https://github.com/dnnrly/wait-for
 version: "0.0.5"
-check: "" # No version parameter
 tags:
 - category/operations
 - lang/go
 - type/cli
 - state/stale
-homepage: https://github.com/dnnrly/wait-for
-repository: https://github.com/dnnrly/wait-for
-description: Super simple tool to help with orchestration of commands on the CLI by waiting on networking resources
+check: "" # No version parameter
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: dnnrly/wait-for
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/dnnrly/wait-for/blob/main/LICENSE
-platforms:
-- linux/amd64

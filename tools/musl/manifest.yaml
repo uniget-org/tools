@@ -1,30 +1,30 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: musl
+description: An implementation of the standard library for Linux-based systems
+license:
+  name: MIT License
+  link: https://git.musl-libc.org/cgit/musl/tree/COPYRIGHT
+homepage: https://git.musl-libc.org/cgit/musl
+repository: https://git.musl-libc.org/cgit/musl
 version: "1.2.5"
-binary: "false"
+tags:
+- category/development
+- lang/c
+- type/library
 check: "" # No binary
 build_dependencies:
 - make
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/development
-- lang/c
-- type/library
-homepage: https://git.musl-libc.org/cgit/musl
-repository: https://git.musl-libc.org/cgit/musl
-description: An implementation of the standard library for Linux-based systems
+renovate:
+  datasource: git-tags
+  package: https://git.musl-libc.org/git/musl
+  versioning: regex:^(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)$
+binary: "false"
 messages:
   update: |
     Please run the following command to update the library cache:
 
     ldconfig
-renovate:
-  datasource: git-tags
-  package: https://git.musl-libc.org/git/musl
-  versioning: regex:^(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)$
-license:
-  name: MIT License
-  link: https://git.musl-libc.org/cgit/musl/tree/COPYRIGHT

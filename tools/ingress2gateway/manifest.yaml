@@ -1,11 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: ingress2gateway
+description: Convert Ingress resources to Gateway API resources
+license:
+  name: Apache License 2.0
+  link: https://github.com/kubernetes-sigs/ingress2gateway/blob/main/LICENSE
+homepage: https://github.com/kubernetes-sigs/ingress2gateway
+repository: https://github.com/kubernetes-sigs/ingress2gateway
 version: "1.0.0"
-check: "" # No version parameter
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/kubernetes
 - category/operations
@@ -13,13 +15,11 @@ tags:
 - type/cli
 - kubernetes
 - k8s
-homepage: https://github.com/kubernetes-sigs/ingress2gateway
-repository: https://github.com/kubernetes-sigs/ingress2gateway
-description: Convert Ingress resources to Gateway API resources
+check: "" # No version parameter
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: kubernetes-sigs/ingress2gateway
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/kubernetes-sigs/ingress2gateway/blob/main/LICENSE

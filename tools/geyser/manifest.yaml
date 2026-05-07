@@ -1,17 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: geyser
+description: Bridge/proxy allowing you to connect to Minecraft Java Edition servers with Minecraft Bedrock Edition
 license:
   name: MIT License
   link: https://github.com/GeyserMC/Geyser/blob/master/LICENSE
+homepage: hhttps://geysermc.org/wiki/geyser/
+repository: https://github.com/GeyserMC/Geyser
 version: "2.10.0.1137"
-binary: "false"
-check: "" # No binary
-runtime_dependencies:
-- papermc
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/games
 - lang/java
@@ -20,11 +16,15 @@ tags:
 - bedrock
 - papermc
 - paper
-homepage: hhttps://geysermc.org/wiki/geyser/
-repository: https://github.com/GeyserMC/Geyser
-description: Bridge/proxy allowing you to connect to Minecraft Java Edition servers with Minecraft Bedrock Edition
+check: "" # No binary
+runtime_dependencies:
+- papermc
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: gitlab-releases
   package: uniget-org/renovate-custom
   extractVersion: ^geyser/(?<version>.+)$
   versioning: loose
+binary: "false"

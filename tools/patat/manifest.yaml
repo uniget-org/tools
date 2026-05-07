@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: patat
+description: Terminal-based presentations using Pandoc
+license:
+  name: GPLv2
+  link: https://github.com/jaspervdj/patat/blob/main/LICENSE
+homepage: https://github.com/jaspervdj/patat
+repository: https://github.com/jaspervdj/patat
 version: "0.15.2.0"
-check: ${binary} --version | head -n 1
 tags:
 - type/cli
 - format/markdown
 - slides
 - presentation
 - lang/haskell
-homepage: https://github.com/jaspervdj/patat
-repository: https://github.com/jaspervdj/patat
-description: Terminal-based presentations using Pandoc
+check: ${binary} --version | head -n 1
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: jaspervdj/patat
   extractVersion: ^v(?<version>.+)$
   versioning: loose
-license:
-  name: GPLv2
-  link: https://github.com/jaspervdj/patat/blob/main/LICENSE
-platforms:
-- linux/amd64

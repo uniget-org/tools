@@ -1,25 +1,25 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: oci-runtime-tool
+description: OCI Runtime Tools
+license:
+  name: Apache License 2.0
+  link: https://github.com/opencontainers/runtime-tools/blob/master/LICENSE
+homepage: https://www.opencontainers.org/
+repository: https://github.com/opencontainers/runtime-tools
 version: "0.9.0"
-check: ${binary} --version | cut -d, -f1 | cut -d' ' -f3
-build_dependencies:
-- go
-- make
 tags:
 - org/oci
 - standard/oci
 - container/runtime
 - type/cli
 - lang/go
-homepage: https://www.opencontainers.org/
-repository: https://github.com/opencontainers/runtime-tools
-description: OCI Runtime Tools
+check: ${binary} --version | cut -d, -f1 | cut -d' ' -f3
+build_dependencies:
+- go
+- make
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: opencontainers/runtime-tools
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/opencontainers/runtime-tools/blob/master/LICENSE
-platforms:
-- linux/amd64

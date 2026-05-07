@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: hyperfine
+description: Command-line benchmarking tool
+license:
+  name: Apache License 2.0
+homepage: https://github.com/sharkdp/hyperfine
+repository: https://github.com/sharkdp/hyperfine
 version: "1.20.0"
-check: ${binary} --version | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/rust
 - type/cli
 - terminal
-homepage: https://github.com/sharkdp/hyperfine
-repository: https://github.com/sharkdp/hyperfine
-description: Command-line benchmarking tool
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: sharkdp/hyperfine
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0

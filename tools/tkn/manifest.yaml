@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: tkn
+description: CLI for interacting with Tekton
+license:
+  name: Apache License 2.0
+  link: https://github.com/tektoncd/cli/blob/main/LICENSE
+homepage: https://github.com/tektoncd/cli
+repository: https://github.com/tektoncd/cli
 version: "0.44.1"
-check: timeout 3 ${binary} version | grep ^Client | cut -d' ' -f3
 tags:
 - type/cli
 - category/development
@@ -10,15 +15,10 @@ tags:
 - lang/go
 - kubernetes
 - k8s
-homepage: https://github.com/tektoncd/cli
-repository: https://github.com/tektoncd/cli
-description: CLI for interacting with Tekton
+check: timeout 3 ${binary} version | grep ^Client | cut -d' ' -f3
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: tektoncd/cli
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/tektoncd/cli/blob/main/LICENSE
-platforms:
-- linux/amd64

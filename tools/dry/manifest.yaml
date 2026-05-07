@@ -1,9 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: dry
+description: Docker manager for the terminal
+license:
+  name: MIT License
+  link: https://github.com/moncho/dry/blob/master/LICENSE
+homepage: http://moncho.github.io/dry/
+repository: https://github.com/moncho/dry
 version: "0.13.0"
-check: ${binary} --version | cut -d, -f1 | cut -d' ' -f3
-runtime_dependencies:
-- docker
 tags:
 - standard/docker
 - container/runtime
@@ -13,15 +16,12 @@ tags:
 - lang/go
 - docker
 - state/stale
-homepage: http://moncho.github.io/dry/
-repository: https://github.com/moncho/dry
-description: Docker manager for the terminal
+check: ${binary} --version | cut -d, -f1 | cut -d' ' -f3
+runtime_dependencies:
+- docker
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: moncho/dry
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/moncho/dry/blob/master/LICENSE
-platforms:
-- linux/amd64

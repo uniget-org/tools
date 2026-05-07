@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: vcluster
+description: Create fully functional virtual Kubernetes clusters
+license:
+  name: Apache License 2.0
+  link: https://github.com/loft-sh/vcluster/blob/main/LICENSE
+homepage: https://www.vcluster.com
+repository: https://github.com/loft-sh/vcluster
 version: "0.34.0"
-check: ${binary} --version | cut -d' ' -f3
-platforms:
-- linux/amd64
 tags:
 - type/cli
 - kubernetes
 - k8s
 - management
 - lang/go
-homepage: https://www.vcluster.com
-repository: https://github.com/loft-sh/vcluster
-description: Create fully functional virtual Kubernetes clusters
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: loft-sh/vcluster
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/loft-sh/vcluster/blob/main/LICENSE

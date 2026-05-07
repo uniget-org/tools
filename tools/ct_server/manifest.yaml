@@ -1,25 +1,25 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: ct_server
+description: Auditing for TLS certificates
+license:
+  name: Apache License 2.0
+  link: https://github.com/google/certificate-transparency-go/blob/master/LICENSE
+homepage: https://certificate.transparency.dev
+repository: https://github.com/google/certificate-transparency-go
 version: "1.3.3"
-check: "" # No version parameter
-build_dependencies:
-- go
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/google
 - category/security
 - lang/go
 - type/daemon
 - certificate
-homepage: https://certificate.transparency.dev
-repository: https://github.com/google/certificate-transparency-go
-description: Auditing for TLS certificates
+check: "" # No version parameter
+build_dependencies:
+- go
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: google/certificate-transparency-go
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/google/certificate-transparency-go/blob/master/LICENSE

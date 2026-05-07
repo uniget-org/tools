@@ -1,24 +1,24 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: ncdu
+description: Disk usage analyzer with an ncurses interface
+license:
+  name: MIT License
+  link: https://g.blicky.net/ncdu.git/tree/LICENSES/MIT.txt
+homepage: https://dev.yorhel.nl/ncdu
+repository: https://dev.yorhel.nl/ncdu
 version: "2.9.2"
+tags:
+- category/operations
+- lang/zig
+- type/cli
 check: ${binary} --version | cut -d' ' -f2
 build_dependencies:
 - zig
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/operations
-- lang/zig
-- type/cli
-homepage: https://dev.yorhel.nl/ncdu
-repository: https://dev.yorhel.nl/ncdu
-description: Disk usage analyzer with an ncurses interface
 renovate:
   datasource: git-tags
   package: git://g.blicky.net/ncdu.git
   extractVersion: ^v(?<version>\d+\.\d+(\.\d+)?)$
   versioning: loose
-license:
-  name: MIT License
-  link: https://g.blicky.net/ncdu.git/tree/LICENSES/MIT.txt

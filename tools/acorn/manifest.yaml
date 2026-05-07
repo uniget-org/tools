@@ -1,11 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: acorn
+description: Simple application deployment framework built on Kubernetes
+license:
+  name: Apache License 2.0
+  link: https://github.com/acorn-io/runtime/blob/main/LICENSE
+homepage: https://docs.acorn.io/
+repository: https://github.com/acorn-io/runtime
 version: "0.10.1"
-check: version | cut -d' ' -f3 | cut -d+ -f1 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/go
@@ -14,13 +16,11 @@ tags:
 - k8s
 - state/deprecated
 - state/stale
-homepage: https://docs.acorn.io/
-repository: https://github.com/acorn-io/runtime
-description: Simple application deployment framework built on Kubernetes
+check: version | cut -d' ' -f3 | cut -d+ -f1 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: acorn-io/runtime
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/acorn-io/runtime/blob/main/LICENSE

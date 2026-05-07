@@ -1,7 +1,20 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: runlike
+description: Given an existing docker container, prints the command line necessary to run a copy of it
+license:
+  name: Custom
+  link: https://github.com/lavie/runlike/blob/master/LICENSE.txt
+homepage: https://github.com/lavie/runlike
+repository: https://github.com/lavie/runlike
 version: "1.5.4"
+tags:
+- category/operations
+- lang/python
+- type/cli
+- standard/docker
+- docker
+- state/stale
 check: "" # No version parameter
 build_dependencies:
 - python-3.12
@@ -11,19 +24,6 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/operations
-- lang/python
-- type/cli
-- standard/docker
-- docker
-- state/stale
-homepage: https://github.com/lavie/runlike
-repository: https://github.com/lavie/runlike
-description: Given an existing docker container, prints the command line necessary to run a copy of it
 renovate:
   datasource: pypi
   package: runlike
-license:
-  name: Custom
-  link: https://github.com/lavie/runlike/blob/master/LICENSE.txt

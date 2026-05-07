@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: porter
+description: Package your application artifact, client tools, configuration and deployment logic
+license:
+  name: Apache License 2.0
+  link: https://github.com/getporter/porter/blob/main/LICENSE
+homepage: https://porter.sh
+repository: https://github.com/getporter/porter
 version: "1.5.0"
-check: ${binary} --version | cut -d' ' -f2 | tr -d v
 tags:
 - type/cli
 - cnab
@@ -9,9 +14,13 @@ tags:
 - cnab
 - category/operations
 - cncf/sandbox
-homepage: https://porter.sh
-repository: https://github.com/getporter/porter
-description: Package your application artifact, client tools, configuration and deployment logic
+check: ${binary} --version | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
+renovate:
+  datasource: github-releases
+  package: getporter/porter
+  extractVersion: ^v(?<version>.+)$
 messages:
   update: |
     - Mixins are installed user-context:
@@ -24,12 +33,3 @@ messages:
     - plugins are installed in user context:
 
       porter plugins install kubernetes
-renovate:
-  datasource: github-releases
-  package: getporter/porter
-  extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/getporter/porter/blob/main/LICENSE
-platforms:
-- linux/amd64

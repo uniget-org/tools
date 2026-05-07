@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: lowcharts
+description: Draw low-resolution graphs in terminal
+license:
+  name: MIT License
+  link: https://github.com/juan-leon/lowcharts/blob/main/LICENSE
+homepage: https://github.com/juan-leon/lowcharts
+repository: https://github.com/juan-leon/lowcharts
 version: "0.5.9"
-check: ${binary} --version | cut -d' ' -f2
-platforms:
-- linux/amd64
 tags:
 - category/development
 - lang/rust
 - type/cli
 - state/stale
-homepage: https://github.com/juan-leon/lowcharts
-repository: https://github.com/juan-leon/lowcharts
-description: Draw low-resolution graphs in terminal
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: juan-leon/lowcharts
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/juan-leon/lowcharts/blob/main/LICENSE

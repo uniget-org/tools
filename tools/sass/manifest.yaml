@@ -1,7 +1,17 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: sass
+description: Sass makes CSS fun
+license:
+  name: MIT License
+  link: https://github.com/sass/sass/blob/main/LICENSE
+homepage: https://sass-lang.com/
+repository: https://github.com/sass/sass
 version: "1.99.0"
+tags:
+- category/development
+- lang/javascript
+- type/cli
 check: ${binary} --version | cut -d' ' -f1
 build_dependencies:
 - node-lts
@@ -10,16 +20,6 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/development
-- lang/javascript
-- type/cli
-homepage: https://sass-lang.com/
-repository: https://github.com/sass/sass
-description: Sass makes CSS fun
 renovate:
   datasource: npm
   package: sass
-license:
-  name: MIT License
-  link: https://github.com/sass/sass/blob/main/LICENSE

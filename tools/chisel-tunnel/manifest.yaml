@@ -1,24 +1,24 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: chisel-tunnel
+description: Fast TCP/UDP tunnel over HTTP
+license:
+  name: MIT License
+  link: https://github.com/jpillora/chisel/blob/master/LICENSE
+homepage: https://github.com/jpillora/chisel
+repository: https://github.com/jpillora/chisel
 version: "1.11.5"
-binary: chisel
-check: ${binary} | grep Version | tr -s ' ' | cut -d' ' -f3
-conflicts_with:
-- chisel
 tags:
 - type/cli
 - category/development
 - tunneling
 - lang/go
-homepage: https://github.com/jpillora/chisel
-repository: https://github.com/jpillora/chisel
-description: Fast TCP/UDP tunnel over HTTP
+check: ${binary} | grep Version | tr -s ' ' | cut -d' ' -f3
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: jpillora/chisel
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/jpillora/chisel/blob/master/LICENSE
-platforms:
-- linux/amd64
+binary: chisel
+conflicts_with:
+- chisel

@@ -1,8 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: promql-cli
+description: Prometheus Query CLI
+license:
+  name: Apache License 2.0
+  link: https://github.com/nalbury/promql-cli/blob/main/LICENSE
+homepage: https://github.com/nalbury/promql-cli
+repository: https://github.com/nalbury/promql-cli
 version: "0.3.0"
-binary: promql
-check: ${binary} --version | cut -d' ' -f3 | tr -d v
 tags:
 - standard/prometheus
 - category/monitoring
@@ -11,15 +15,11 @@ tags:
 - state/stale
 - prometheus
 - state/deprecated
-homepage: https://github.com/nalbury/promql-cli
-repository: https://github.com/nalbury/promql-cli
-description: Prometheus Query CLI
+check: ${binary} --version | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: nalbury/promql-cli
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/nalbury/promql-cli/blob/main/LICENSE
-platforms:
-- linux/amd64
+binary: promql

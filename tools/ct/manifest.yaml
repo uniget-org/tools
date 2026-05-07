@@ -1,7 +1,17 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: ct
+description: Utility for Flatcar Container Linux
+license:
+  name: Apache License 2.0
+  link: https://github.com/flatcar/container-linux-config-transpiler/blob/flatcar-master/LICENSE
+homepage: https://github.com/flatcar-linux/flatcar/issues
+repository: https://github.com/flatcar/container-linux-config-transpiler
 version: "0.9.4"
-binary: flatcar-ct
+tags:
+- type/cli
+- management
+- lang/go
+- state/stale
 check: ${binary} -version | cut -d' ' -f2 | tr -d v
 build_dependencies:
 - go
@@ -9,18 +19,8 @@ build_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- type/cli
-- management
-- lang/go
-- state/stale
-homepage: https://github.com/flatcar-linux/flatcar/issues
-repository: https://github.com/flatcar/container-linux-config-transpiler
-description: Utility for Flatcar Container Linux
 renovate:
   datasource: github-releases
   package: flatcar/container-linux-config-transpiler
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/flatcar/container-linux-config-transpiler/blob/flatcar-master/LICENSE
+binary: flatcar-ct

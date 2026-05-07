@@ -1,24 +1,24 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: mc
+description: Simple | Fast tool to manage MinIO clusters ☁️
+license:
+  name: AGPLv3
+  link: https://github.com/minio/mc/blob/master/LICENSE
+homepage: https://min.io/download
+repository: https://github.com/minio/mc
 version: "2025-08-13T08-35-41Z"
-check: ${binary} --version | head -1 | cut -d' ' -f3 | cut -d. -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/terminal
 - component/storage
 - lang/go
 - type/cli
 - standard/s3
-homepage: https://min.io/download
-repository: https://github.com/minio/mc
-description: Simple | Fast tool to manage MinIO clusters ☁️
+check: ${binary} --version | head -1 | cut -d' ' -f3 | cut -d. -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: minio/mc
   extractVersion: ^RELEASE.(?<version>.+)$
   versioning: loose
-license:
-  name: AGPLv3
-  link: https://github.com/minio/mc/blob/master/LICENSE

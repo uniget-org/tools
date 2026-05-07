@@ -1,8 +1,18 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: mermaid-cli
+description: Command line tool for the Mermaid library
+license:
+  name: MIT License
+  link: https://github.com/mermaid-js/mermaid-cli/blob/master/LICENSE
+homepage: https://github.com/mermaid-js/mermaid-cli
+repository: https://github.com/mermaid-js/mermaid-cli
 version: "11.14.0"
-binary: mmdc
+tags:
+- lang/javascript
+- type/cli
+- category/visualization
+- format/markdown
 check: ${binary} --version
 build_dependencies:
 - node-lts
@@ -11,17 +21,7 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- lang/javascript
-- type/cli
-- category/visualization
-- format/markdown
-homepage: https://github.com/mermaid-js/mermaid-cli
-repository: https://github.com/mermaid-js/mermaid-cli
-description: Command line tool for the Mermaid library
 renovate:
   datasource: npm
   package: "@mermaid-js/mermaid-cli"
-license:
-  name: MIT License
-  link: https://github.com/mermaid-js/mermaid-cli/blob/master/LICENSE
+binary: mmdc

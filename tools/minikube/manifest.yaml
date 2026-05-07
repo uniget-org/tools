@@ -1,10 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: minikube
+description: Run Kubernetes locally
+license:
+  name: Apache License 2.0
+  link: https://github.com/kubernetes/minikube/blob/master/LICENSE
+homepage: https://minikube.sigs.k8s.io/
+repository: https://github.com/kubernetes/minikube
 version: "1.38.1"
-check: ${binary} version | grep "minikube version" | cut -d' ' -f3 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/cncf
 - org/kubernetes
@@ -13,13 +15,11 @@ tags:
 - k8s
 - management
 - lang/go
-homepage: https://minikube.sigs.k8s.io/
-repository: https://github.com/kubernetes/minikube
-description: Run Kubernetes locally
+check: ${binary} version | grep "minikube version" | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: kubernetes/minikube
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/kubernetes/minikube/blob/master/LICENSE

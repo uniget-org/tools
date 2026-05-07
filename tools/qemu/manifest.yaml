@@ -1,25 +1,25 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: qemu
+description: Generic and open source machine & userspace emulator and virtualizer
+license:
+  name: Custom
+  link: https://github.com/qemu/qemu/blob/master/LICENSE
+homepage: http://www.qemu.org
+repository: https://github.com/qemu/qemu
 version: "11.0.0"
-binary: qemu-img
-check: ${binary} --version | grep qemu-img | cut -d' ' -f3
-build_dependencies:
-- make
 tags:
 - type/cli
 - type/daemon
 - vm
 - emulation
 - lang/c
-homepage: http://www.qemu.org
-repository: https://github.com/qemu/qemu
-description: Generic and open source machine & userspace emulator and virtualizer
+check: ${binary} --version | grep qemu-img | cut -d' ' -f3
+build_dependencies:
+- make
+platforms:
+- linux/amd64
 renovate:
   datasource: github-tags
   package: qemu/qemu
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Custom
-  link: https://github.com/qemu/qemu/blob/master/LICENSE
-platforms:
-- linux/amd64
+binary: qemu-img

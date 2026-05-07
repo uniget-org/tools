@@ -1,24 +1,24 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: regclient
+description: Docker and OCI Registry Client in Go and tooling using those libraries
+license:
+  name: Apache License 2.0
+  link: https://github.com/regclient/regclient/blob/main/LICENSE
+homepage: https://github.com/regclient/regclient
+repository: https://github.com/regclient/regclient
 version: "0.11.3"
-binary: regctl
-check: ${binary} version --format '{{ .VCSTag }}' | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - standard/oci
 - container/registry
 - type/cli
 - management
 - lang/go
-homepage: https://github.com/regclient/regclient
-repository: https://github.com/regclient/regclient
-description: Docker and OCI Registry Client in Go and tooling using those libraries
+check: ${binary} version --format '{{ .VCSTag }}' | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: regclient/regclient
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/regclient/regclient/blob/main/LICENSE
+binary: regctl

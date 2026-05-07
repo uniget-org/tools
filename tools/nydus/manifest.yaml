@@ -1,24 +1,24 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: nydus
+description: Dragonfly image service, providing fast, secure and easy access to container images
+license:
+  name: Apache License 2.0
+homepage: https://nydus.dev/
+repository: https://github.com/dragonflyoss/nydus
 version: "2.4.1"
-binary: nydusd
-check: ${binary} --version 2>&1 | head -n 1 | cut -dv -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/rust
 - type/daemon
 - type/cli
 # https://nydus.dev
-homepage: https://nydus.dev/
-repository: https://github.com/dragonflyoss/nydus
-description: Dragonfly image service, providing fast, secure and easy access to container images
+check: ${binary} --version 2>&1 | head -n 1 | cut -dv -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: dragonflyoss/nydus
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
+binary: nydusd

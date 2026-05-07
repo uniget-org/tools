@@ -1,11 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: timoni
+description: Package manager for Kubernetes, powered by CUE and inspired by Helm
+license:
+  name: Apache License 2.0
+  link: https://github.com/stefanprodan/timoni/blob/main/LICENSE
+homepage: https://timoni.sh
+repository: https://github.com/stefanprodan/timoni
 version: "0.26.0"
-check: ${binary} version | grep ^client | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/go
@@ -14,13 +16,11 @@ tags:
 - k8s
 - package
 - manager
-homepage: https://timoni.sh
-repository: https://github.com/stefanprodan/timoni
-description: Package manager for Kubernetes, powered by CUE and inspired by Helm
+check: ${binary} version | grep ^client | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: stefanprodan/timoni
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/stefanprodan/timoni/blob/main/LICENSE

@@ -1,16 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: tern
+description: SCA tool that generates a Software Bill of Materials for container images and Dockerfiles
+license:
+  name: BSD 2-Clause License
+  link: https://github.com/tern-tools/tern/blob/main/LICENSE.txt
+homepage: https://github.com/tern-tools/tern
+repository: https://github.com/tern-tools/tern
 version: "2.12.1"
-check: ${binary} --version | grep ^Tern | cut -d' ' -f3
-build_dependencies:
-- python-3.12
-- shiv
-runtime_dependencies:
-- python-3.12
-- git
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/security
 - lang/python
@@ -23,12 +19,16 @@ tags:
 - state/stale
 - format/spdx
 - format/cyclonedx
-homepage: https://github.com/tern-tools/tern
-repository: https://github.com/tern-tools/tern
-description: SCA tool that generates a Software Bill of Materials for container images and Dockerfiles
+check: ${binary} --version | grep ^Tern | cut -d' ' -f3
+build_dependencies:
+- python-3.12
+- shiv
+runtime_dependencies:
+- python-3.12
+- git
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: pypi
   package: tern
-license:
-  name: BSD 2-Clause License
-  link: https://github.com/tern-tools/tern/blob/main/LICENSE.txt

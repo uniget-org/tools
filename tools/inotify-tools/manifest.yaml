@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: inotify-tools
+description: Library and a set of command-line programs providing a simple interface to inotify
+license:
+  name: GPLv2
+homepage: https://github.com/inotify-tools/inotify-tools
+repository: https://github.com/inotify-tools/inotify-tools
 version: "4.25.9.0"
-binary: inotifywait
-check: ${binary} --help | head -1 | cut -d' ' -f2
-build_dependencies:
-- make
 tags:
 - component/kernel
 - lang/c
 - category/monitoring
-homepage: https://github.com/inotify-tools/inotify-tools
-repository: https://github.com/inotify-tools/inotify-tools
-description: Library and a set of command-line programs providing a simple interface to inotify
+check: ${binary} --help | head -1 | cut -d' ' -f2
+build_dependencies:
+- make
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: inotify-tools/inotify-tools
   versioning: loose
-license:
-  name: GPLv2
-platforms:
-- linux/amd64
+binary: inotifywait

@@ -1,24 +1,24 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: axel
+description: Lightweight CLI download accelerator
+license:
+  name: GPLv2
+homepage: https://github.com/axel-download-accelerator/axel
+repository: https://github.com/axel-download-accelerator/axel
 version: "2.17.14"
+tags:
+- category/operations
+- lang/c
+- type/cli
+- state/stale
 check: ${binary} --version | grep ^Axel | cut -d' ' -f2
 build_dependencies:
 - make
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/operations
-- lang/c
-- type/cli
-- state/stale
-homepage: https://github.com/axel-download-accelerator/axel
-repository: https://github.com/axel-download-accelerator/axel
-description: Lightweight CLI download accelerator
 renovate:
   datasource: github-releases
   package: axel-download-accelerator/axel
   extractVersion: ^v(?<version>.+)$
-license:
-  name: GPLv2

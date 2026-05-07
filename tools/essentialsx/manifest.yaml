@@ -1,17 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: essentialsx
+description: Modern Essentials suite for Spigot and Paper
 license:
   name: GPLv3
   link: https://github.com/EssentialsX/Essentials/blob/2.x/LICENSE
+homepage: https://essentialsx.net/
+repository: https://github.com/EssentialsX/Essentials
 version: "2.21.2"
-binary: "false"
-check: "" # No binary
-runtime_dependencies:
-- papermc
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/games
 - lang/java
@@ -19,9 +15,13 @@ tags:
 - minecraft
 - papermc
 - paper
-homepage: https://essentialsx.net/
-repository: https://github.com/EssentialsX/Essentials
-description: Modern Essentials suite for Spigot and Paper
+check: "" # No binary
+runtime_dependencies:
+- papermc
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: EssentialsX/Essentials
+binary: "false"

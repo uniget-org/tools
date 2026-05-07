@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: jb
+description: Jsonnet package manager
+license:
+  name: Apache License 2.0
+  link: https://github.com/jsonnet-bundler/jsonnet-bundler/blob/master/LICENSE
+homepage: https://github.com/jsonnet-bundler/jsonnet-bundler
+repository: https://github.com/jsonnet-bundler/jsonnet-bundler
 version: "0.6.0"
-check: ${binary} --version 2>&1 | tr -d v
 tags:
 - templating
 - lang/go
@@ -9,15 +14,10 @@ tags:
 - management
 - format/json
 - standard/jsonnet
-homepage: https://github.com/jsonnet-bundler/jsonnet-bundler
-repository: https://github.com/jsonnet-bundler/jsonnet-bundler
-description: Jsonnet package manager
+check: ${binary} --version 2>&1 | tr -d v
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: jsonnet-bundler/jsonnet-bundler
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/jsonnet-bundler/jsonnet-bundler/blob/master/LICENSE
-platforms:
-- linux/amd64

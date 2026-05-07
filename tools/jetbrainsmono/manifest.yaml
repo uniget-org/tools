@@ -1,28 +1,28 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: jetbrainsmono
+description: Free and open-source typeface for developers
+license:
+  name: SIL Open Font License 1.1
+homepage: https://jetbrains.com/mono
+repository: https://github.com/JetBrains/JetBrainsMono
 version: "2.304"
-binary: "false"
-check: "" # No binary
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/jetbrains
 - slides
 - presentation
 - font
 - state/stale
-homepage: https://jetbrains.com/mono
-repository: https://github.com/JetBrains/JetBrainsMono
-description: Free and open-source typeface for developers
-messages:
-  update: |
-    Please run: fc-cache -f -v
+check: "" # No binary
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: JetBrains/JetBrainsMono
   extractVersion: ^v(?<version>.+)$
   versioning: loose
-license:
-  name: SIL Open Font License 1.1
+binary: "false"
+messages:
+  update: |
+    Please run: fc-cache -f -v

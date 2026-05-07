@@ -1,10 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: rke
+description: Rancher Kubernetes Engine (RKE), an extremely simple, lightning fast Kubernetes distribution
+license:
+  name: Apache License 2.0
+  link: https://github.com/rancher/rke/blob/release/v1.6/LICENSE
+homepage: https://github.com/rancher/rke
+repository: https://github.com/rancher/rke
 version: "1.8.13"
-check: ${binary} --version | cut -d' ' -f3 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/rancher
 - category/operations
@@ -13,13 +15,11 @@ tags:
 - kubernetes
 - k8s
 - management
-homepage: https://github.com/rancher/rke
-repository: https://github.com/rancher/rke
-description: Rancher Kubernetes Engine (RKE), an extremely simple, lightning fast Kubernetes distribution
+check: ${binary} --version | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: rancher/rke
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/rancher/rke/blob/release/v1.6/LICENSE

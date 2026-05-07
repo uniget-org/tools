@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: pkgx
+description: run anything
 license:
   name: Apache License 2.0
   link: https://github.com/pkgxdev/pkgx/blob/main/LICENSE.txt
+homepage: https://pkgx.sh/
+repository: https://github.com/pkgxdev/pkgx
 version: "2.10.3"
-check: ${binary} --version | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/javascript
 - type/cli
-homepage: https://pkgx.sh/
-repository: https://github.com/pkgxdev/pkgx
-description: run anything
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: pkgxdev/pkgx

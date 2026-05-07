@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: octopilot
+description: Automate your Gitops workflow by automatically creating/merging GitHub Pull Requests
+license:
+  name: MIT License
+  link: https://github.com/dailymotion-oss/octopilot/blob/master/LICENSE
+homepage: https://dailymotion-oss.github.io/octopilot/
+repository: https://github.com/dailymotion-oss/octopilot
 version: "1.12.37"
-check: ${binary} --version | cut -d, -f1 | cut -d' ' -f2
-platforms:
-- linux/amd64
 tags:
 - category/development
 - lang/go
 - type/cli
-homepage: https://dailymotion-oss.github.io/octopilot/
-repository: https://github.com/dailymotion-oss/octopilot
-description: Automate your Gitops workflow by automatically creating/merging GitHub Pull Requests
+check: ${binary} --version | cut -d, -f1 | cut -d' ' -f2
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: dailymotion-oss/octopilot
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/dailymotion-oss/octopilot/blob/master/LICENSE

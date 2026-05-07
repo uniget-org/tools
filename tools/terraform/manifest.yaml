@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: terraform
+description: Safely and predictably create, change, and improve infrastructure
+license:
+  name: BSL-1.1
+  link: https://github.com/hashicorp/terraform/blob/main/LICENSE
+homepage: https://www.terraform.io/
+repository: https://github.com/hashicorp/terraform
 version: "1.15.2"
-check: ${binary} -version | grep ^Terraform | cut -d' ' -f2 | tr -d v
 tags:
 - type/cli
 - org/hashicorp
@@ -11,15 +16,10 @@ tags:
 - lang/go
 - category/operations
 - iac
-homepage: https://www.terraform.io/
-repository: https://github.com/hashicorp/terraform
-description: Safely and predictably create, change, and improve infrastructure
+check: ${binary} -version | grep ^Terraform | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: hashicorp/terraform
   extractVersion: ^v(?<version>.+)$
-license:
-  name: BSL-1.1
-  link: https://github.com/hashicorp/terraform/blob/main/LICENSE
-platforms:
-- linux/amd64

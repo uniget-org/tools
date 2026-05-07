@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: bin
+description: Effortless binary manager
+license:
+  name: MIT License
+  link: https://github.com/marcosnils/bin/blob/master/LICENSE
+homepage: https://github.com/marcosnils/bin
+repository: https://github.com/marcosnils/bin
 version: "0.25.5"
-check: ${binary} --version | grep ^bin | cut -d' ' -f3
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - type/cli
 - package
 - management
 - lang/go
-homepage: https://github.com/marcosnils/bin
-repository: https://github.com/marcosnils/bin
-description: Effortless binary manager
+check: ${binary} --version | grep ^bin | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: marcosnils/bin
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/marcosnils/bin/blob/master/LICENSE

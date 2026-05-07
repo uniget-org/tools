@@ -1,10 +1,18 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: hopp
+description: CLI to run Hoppscotch Test Scripts in CI environments
 license:
   name: MIT License
   link: https://github.com/hoppscotch/hoppscotch/blob/main/LICENSE
+homepage: https://hoppscotch.io/
+repository: https://github.com/hoppscotch/hoppscotch
 version: "0.30.3"
+tags:
+- org/hoppscotch
+- category/development
+- lang/javascript
+- type/cli
 check: ${binary} --ver
 build_dependencies:
 - node-lts
@@ -14,14 +22,6 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 #- linux/arm64
-tags:
-- org/hoppscotch
-- category/development
-- lang/javascript
-- type/cli
-homepage: https://hoppscotch.io/
-repository: https://github.com/hoppscotch/hoppscotch
-description: CLI to run Hoppscotch Test Scripts in CI environments
 renovate:
   datasource: npm
   package: "@hoppscotch/cli"

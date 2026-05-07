@@ -1,14 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: valyent
+description: Interact with Valyent's API from your terminal
 license:
   name: Apache License 2.0
   link: https://github.com/valyentdev/cli/blob/main/LICENSE
+homepage: https://valyent.dev/
+repository: https://github.com/valyentdev/cli
 version: "0.0.6"
-check: "" # No version parameter
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/valyent
 - category/operations
@@ -17,8 +16,9 @@ tags:
 - state/onemanshow
 - state/stale
 - state/deprecated
-homepage: https://valyent.dev/
-repository: https://github.com/valyentdev/cli
-description: Interact with Valyent's API from your terminal
+check: "" # No version parameter
+platforms:
+- linux/amd64
+- linux/arm64
 lifecycle:
   removed_with_reason: Repository was archived.

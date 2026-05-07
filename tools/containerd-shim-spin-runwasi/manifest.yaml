@@ -1,16 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: containerd-shim-spin-runwasi
+description: containerd shims for running WebAssembly workloads in Kubernetes
+license:
+  name: Apache License 2.0
+  link: https://github.com/deislabs/containerd-wasm-shims/blob/main/LICENSE
+homepage: https://github.com/deislabs/containerd-wasm-shims
+repository: https://github.com/deislabs/containerd-wasm-shims
 version: "0.11.1"
-binary: containerd-shim-spin-v2
-check: "" # No version parameter
-conflicts_with:
-- containerd-shim-spin
-runtime_dependencies:
-- containerd
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/deislabs
 - category/development
@@ -21,13 +18,16 @@ tags:
 - containerd
 - kubernetes
 - k8s
-homepage: https://github.com/deislabs/containerd-wasm-shims
-repository: https://github.com/deislabs/containerd-wasm-shims
-description: containerd shims for running WebAssembly workloads in Kubernetes
+check: "" # No version parameter
+runtime_dependencies:
+- containerd
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: deislabs/containerd-wasm-shims
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/deislabs/containerd-wasm-shims/blob/main/LICENSE
+binary: containerd-shim-spin-v2
+conflicts_with:
+- containerd-shim-spin

@@ -1,7 +1,18 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: tshark
+description: Traffic analyzer or sniffer
+license:
+  name: GPLv2+
+  link: https://gitlab.com/wireshark/wireshark/-/blob/master/COPYING
+homepage: https://gitlab.com/wireshark/wireshark
+repository: https://gitlab.com/wireshark/wireshark
 version: "4.6.5"
+tags:
+- org/wireshark
+- category/operations
+- lang/c
+- type/cli
 check: "" # Missing shared libraries
 build_dependencies:
 - make
@@ -9,14 +20,10 @@ build_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- org/wireshark
-- category/operations
-- lang/c
-- type/cli
-homepage: https://gitlab.com/wireshark/wireshark
-repository: https://gitlab.com/wireshark/wireshark
-description: Traffic analyzer or sniffer
+renovate:
+  datasource: gitlab-tags
+  package: wireshark/wireshark
+  extractVersion: ^v(?<version>.+)$
 messages:
   internals: |
     tshark is dynamically link. You need to install the following dependencies:
@@ -27,10 +34,3 @@ messages:
     - libpcap-dev
     - libsystemd-dev
     - libc-ares-dev
-renovate:
-  datasource: gitlab-tags
-  package: wireshark/wireshark
-  extractVersion: ^v(?<version>.+)$
-license:
-  name: GPLv2+
-  link: https://gitlab.com/wireshark/wireshark/-/blob/master/COPYING

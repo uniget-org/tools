@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kyverno
+description: Kubernetes Native Policy Management
+license:
+  name: Apache License 2.0
+  link: https://github.com/kyverno/kyverno/blob/main/LICENSE
+homepage: https://kyverno.io
+repository: https://github.com/kyverno/kyverno
 version: "1.18.0"
-check: ${binary} version | grep ^Version | cut -d' ' -f2
 tags:
 - type/cli
 - category/security
@@ -11,15 +16,10 @@ tags:
 - policy
 - management
 - cncf/graduated
-homepage: https://kyverno.io
-repository: https://github.com/kyverno/kyverno
-description: Kubernetes Native Policy Management
+check: ${binary} version | grep ^Version | cut -d' ' -f2
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: kyverno/kyverno
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/kyverno/kyverno/blob/main/LICENSE
-platforms:
-- linux/amd64

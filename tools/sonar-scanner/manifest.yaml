@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: sonar-scanner
+description: Scanner CLI for SonarQube and SonarCloud
+license:
+  name: LGPLv3
+homepage: http://redirect.sonarsource.com/doc/install-configure-scanner.html
+repository: https://github.com/SonarSource/sonar-scanner-cli
 version: "8.1.0.6389"
+tags:
+- org/sonarsource
+- type/cli
+- category/development
+- lang/java
 check: ${binary} --version | grep SonarScanner | cut -d' ' -f3
 runtime_dependencies:
 - openjdk-jre
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- org/sonarsource
-- type/cli
-- category/development
-- lang/java
-homepage: http://redirect.sonarsource.com/doc/install-configure-scanner.html
-repository: https://github.com/SonarSource/sonar-scanner-cli
-description: Scanner CLI for SonarQube and SonarCloud
 renovate:
   datasource: github-releases
   package: SonarSource/sonar-scanner-cli
   versioning: loose
-license:
-  name: LGPLv3

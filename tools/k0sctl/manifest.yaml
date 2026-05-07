@@ -1,11 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: k0sctl
+description: Bootstrapping and management tool for k0s clusters
+license:
+  name: Apache License 2.0
+  link: https://github.com/k0sproject/k0sctl/blob/main/LICENSE
+homepage: https://github.com/k0sproject/k0sctl
+repository: https://github.com/k0sproject/k0sctl
 version: "0.30.0"
-check: ${binary} version | grep ^version | cut -d' ' -f2 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/go
@@ -13,13 +15,11 @@ tags:
 - kubernetes
 - k8s
 - management
-homepage: https://github.com/k0sproject/k0sctl
-repository: https://github.com/k0sproject/k0sctl
-description: Bootstrapping and management tool for k0s clusters
+check: ${binary} version | grep ^version | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: k0sproject/k0sctl
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/k0sproject/k0sctl/blob/main/LICENSE

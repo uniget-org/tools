@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: dbui
+description: Universal Database CLI for MySQL, PostgreSQL, and SQLite
+license:
+  name: Apache License 2.0
+  link: https://github.com/KenanBek/dbui/blob/main/LICENSE
+homepage: https://kenanbek.gitbook.io/dbui/
+repository: https://github.com/KenanBek/dbui
 version: "0.7.0"
-check: ${binary} -f foo | head -1 | cut -d' ' -f3 | tr -d v
 tags:
 - component/database
 - type/tui
 - lang/go
 - state/stale
-homepage: https://kenanbek.gitbook.io/dbui/
-repository: https://github.com/KenanBek/dbui
-description: Universal Database CLI for MySQL, PostgreSQL, and SQLite
+check: ${binary} -f foo | head -1 | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: KenanBek/dbui
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/KenanBek/dbui/blob/main/LICENSE
-platforms:
-- linux/amd64

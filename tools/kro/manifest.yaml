@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: kro
+description: Kube Resource Orchestrator
 license:
   name: Apache License 2.0
   link: https://github.com/kubernetes-sigs/kro/blob/main/LICENSE
+homepage: https://kro.run/
+repository: https://github.com/kubernetes-sigs/kro
 version: "0.9.1"
+tags:
+- category/operations
+- lang/go
+- type/daemon
 check: "" # No version parameter
 build_dependencies:
 - go
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/operations
-- lang/go
-- type/daemon
-homepage: https://kro.run/
-repository: https://github.com/kubernetes-sigs/kro
-description: Kube Resource Orchestrator
 renovate:
   datasource: github-releases
   package: kubernetes-sigs/kro

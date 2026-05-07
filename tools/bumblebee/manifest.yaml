@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: bumblebee
+description: Get eBPF programs running from the cloud to the kernel
+license:
+  name: Apache License 2.0
+  link: https://github.com/solo-io/bumblebee/blob/main/LICENSE
+homepage: https://github.com/solo-io/bumblebee
+repository: https://github.com/solo-io/bumblebee
 version: "0.0.15"
-binary: bee
-check: ${binary} version
 tags:
 - type/cli
 - ebpf
 - lang/c
 - state/stale
-homepage: https://github.com/solo-io/bumblebee
-repository: https://github.com/solo-io/bumblebee
-description: Get eBPF programs running from the cloud to the kernel
+check: ${binary} version
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: solo-io/bumblebee
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/solo-io/bumblebee/blob/main/LICENSE
-platforms:
-- linux/amd64
+binary: bee

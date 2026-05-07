@@ -1,10 +1,20 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: openllm
+description: Run any open-source LLMs, such as DeepSeek and Llama, as OpenAI compatible API endpoint in the cloud
 license:
   name: Apache License 2.0
   link: https://github.com/bentoml/OpenLLM/blob/main/LICENSE
+homepage: https://bentoml.com/
+repository: https://github.com/bentoml/OpenLLM
 version: "0.6.30"
+tags:
+- category/operations
+- lang/python
+- type/daemon
+- type/cli
+- ai
+- llm
 check: ${binary} --version | grep ^openllm | cut -d' ' -f2
 build_dependencies:
 - python-3.12
@@ -14,16 +24,6 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 #- linux/arm64
-tags:
-- category/operations
-- lang/python
-- type/daemon
-- type/cli
-- ai
-- llm
-homepage: https://bentoml.com/
-repository: https://github.com/bentoml/OpenLLM
-description: Run any open-source LLMs, such as DeepSeek and Llama, as OpenAI compatible API endpoint in the cloud
 renovate:
   datasource: pypi
   package: openllm

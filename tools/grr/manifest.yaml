@@ -1,14 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: grr
+description: Utility for managing Jsonnet dashboards against the Grafana API
 license:
   name: Apache License 2.0
   link: https://github.com/grafana/grizzly/blob/main/LICENSE
+homepage: https://grafana.github.io/grizzly/
+repository: https://github.com/grafana/grizzly
 version: "0.7.1"
-check: ${binary} --version 2>&1 | cut -d' ' -f5 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/grafana
 - category/operations
@@ -17,9 +16,10 @@ tags:
 - jsonnet
 - standard/jsonnet
 - state/deprecated
-homepage: https://grafana.github.io/grizzly/
-repository: https://github.com/grafana/grizzly
-description: Utility for managing Jsonnet dashboards against the Grafana API
+check: ${binary} --version 2>&1 | cut -d' ' -f5 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: grafana/grizzly

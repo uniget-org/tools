@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: frizbee
+description: Throw a tag at it and it comes back with a checksum
 license:
   name: Apache License 2.0
   link: https://github.com/stacklok/frizbee/blob/main/LICENSE
+homepage: https://github.com/stacklok/frizbee
+repository: https://github.com/stacklok/frizbee
 version: "0.1.10"
-check: ${binary} version 2>&1 | grep ^Version | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/go
 - type/cli
-homepage: https://github.com/stacklok/frizbee
-repository: https://github.com/stacklok/frizbee
-description: Throw a tag at it and it comes back with a checksum
+check: ${binary} version 2>&1 | grep ^Version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: stacklok/frizbee

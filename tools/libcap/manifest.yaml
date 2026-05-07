@@ -1,25 +1,25 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: libcap
+description: Library for getting and setting POSIX.1e (formerly POSIX 6) draft 15 capabilities.
+license:
+  name: BSD 3-Clause License, GPLv2-only
+  link: https://git.kernel.org/pub/scm/libs/libcap/libcap.git/tree/License
+homepage: https://git.kernel.org/pub/scm/libs/libcap/libcap.git/about/
+repository: https://git.kernel.org/pub/scm/libs/libcap/libcap.git/about/
 version: "2.78"
-binary: ${target}/sbin/setcap
-check: "" # No version parameter
-build_dependencies:
-- make
 tags:
 - kernel/capabilities
 - type/cli
 - lang/c
 - category/operations
-homepage: https://git.kernel.org/pub/scm/libs/libcap/libcap.git/about/
-repository: https://git.kernel.org/pub/scm/libs/libcap/libcap.git/about/
-description: Library for getting and setting POSIX.1e (formerly POSIX 6) draft 15 capabilities.
+check: "" # No version parameter
+build_dependencies:
+- make
+platforms:
+- linux/amd64
 renovate:
   datasource: git-tags
   package: git://git.kernel.org/pub/scm/libs/libcap/libcap.git
   extractVersion: ^libcap-(?<version>\d+\.\d+)$
   versioning: loose
-license:
-  name: BSD 3-Clause License, GPLv2-only
-  link: https://git.kernel.org/pub/scm/libs/libcap/libcap.git/tree/License
-platforms:
-- linux/amd64
+binary: ${target}/sbin/setcap

@@ -1,6 +1,16 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: grunt
+description: The JavaScript Task Runner
+license:
+  name: Custom
+  link: https://github.com/gruntjs/grunt/blob/main/LICENSE
+homepage: https://github.com/gruntjs/grunt
+repository: https://github.com/gruntjs/grunt
 version: "1.6.2"
+tags:
+- category/development
+- lang/javascript
+- type/cli
 check: ${binary} --version | cut -d' ' -f2 | tr -d v
 build_dependencies:
 - node-lts
@@ -9,16 +19,6 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/development
-- lang/javascript
-- type/cli
-homepage: https://github.com/gruntjs/grunt
-repository: https://github.com/gruntjs/grunt
-description: The JavaScript Task Runner
 renovate:
   datasource: npm
   package: grunt
-license:
-  name: Custom
-  link: https://github.com/gruntjs/grunt/blob/main/LICENSE

@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: sonarqube-cli
+description: Some description
 license:
   name: Custom
   link: https://github.com/SonarSource/sonarqube-cli/blob/master/LICENSE
+homepage: https://cli.sonarqube.com/
+repository: https://github.com/SonarSource/sonarqube-cli
 version: "0.9.0.977"
-binary: sonar
-check: "" # Does not match releases
-platforms:
-- linux/amd64
 tags:
 - org/?
 - category/?
 - lang/?
 - type/?
-homepage: https://cli.sonarqube.com/
-repository: https://github.com/SonarSource/sonarqube-cli
-description: Some description
+check: "" # Does not match releases
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: SonarSource/sonarqube-cli
+binary: sonar

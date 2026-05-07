@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: sshocker
+description: SSH + reverse sshfs + port forwarder in Docker-like CLI
+license:
+  name: Apache License 2.0
+  link: https://github.com/lima-vm/sshocker/blob/master/LICENSE
+homepage: https://github.com/lima-vm/sshocker
+repository: https://github.com/lima-vm/sshocker
 version: "0.3.9"
-check: ${binary} --version | cut -d' ' -f3 | tr -d v
 tags:
 - category/security
 - component/network
@@ -9,15 +14,10 @@ tags:
 - type/cli
 - lang/go
 - ssh
-homepage: https://github.com/lima-vm/sshocker
-repository: https://github.com/lima-vm/sshocker
-description: SSH + reverse sshfs + port forwarder in Docker-like CLI
+check: ${binary} --version | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: lima-vm/sshocker
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/lima-vm/sshocker/blob/master/LICENSE
-platforms:
-- linux/amd64

@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: reptyr
+description: Reparent a running program to a new terminal
+license:
+  name: MIT License
+homepage: https://github.com/nelhage/reptyr
+repository: https://github.com/nelhage/reptyr
 version: "0.10.0"
-check: ${binary} -v | head -n 1 | cut -d' ' -f5 | cut -d. -f1-3
-build_dependencies:
-- make
 tags:
 - category/operations
 - type/cli
 - management
 - lang/c
-homepage: https://github.com/nelhage/reptyr
-repository: https://github.com/nelhage/reptyr
-description: Reparent a running program to a new terminal
+check: ${binary} -v | head -n 1 | cut -d' ' -f5 | cut -d. -f1-3
+build_dependencies:
+- make
+platforms:
+- linux/amd64
 renovate:
   datasource: github-tags
   package: nelhage/reptyr
   extractVersion: ^reptyr-(?<version>.+)$
-license:
-  name: MIT License
-platforms:
-- linux/amd64

@@ -1,10 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: popeye
+description: Kubernetes cluster resource sanitizer
+license:
+  name: Apache License 2.0
+  link: https://github.com/derailed/popeye/blob/master/LICENSE
+homepage: https://popeyecli.io
+repository: https://github.com/derailed/popeye
 version: "0.22.1"
-check: ${binary} version | sed 's/\x1B\[[0-9;]\{1,\}[A-Za-z]//g' | grep ^Version | tr -s ' ' | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - type/cli
 - kubernetes
@@ -12,13 +14,11 @@ tags:
 - lang/go
 - category/operations
 - state/stale
-homepage: https://popeyecli.io
-repository: https://github.com/derailed/popeye
-description: Kubernetes cluster resource sanitizer
+check: ${binary} version | sed 's/\x1B\[[0-9;]\{1,\}[A-Za-z]//g' | grep ^Version | tr -s ' ' | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: derailed/popeye
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/derailed/popeye/blob/master/LICENSE

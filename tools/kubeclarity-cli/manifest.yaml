@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kubeclarity-cli
+description: Tool for detection and management of Software Bill Of Materials and vulnerabilities of container images and filesystems
+license:
+  name: Apache License 2.0
+  link: https://github.com/openclarity/kubeclarity/blob/main/LICENSE
+homepage: https://github.com/openclarity/kubeclarity
+repository: https://github.com/openclarity/kubeclarity
 version: "2.23.3"
-check: ${binary} --version | cut -d' ' -f3
 tags:
 - type/cli
 - category/security
@@ -12,15 +17,10 @@ tags:
 - sbom
 - state/deprecated
 - state/stale
-homepage: https://github.com/openclarity/kubeclarity
-repository: https://github.com/openclarity/kubeclarity
-description: Tool for detection and management of Software Bill Of Materials and vulnerabilities of container images and filesystems
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: openclarity/kubeclarity
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/openclarity/kubeclarity/blob/main/LICENSE
-platforms:
-- linux/amd64

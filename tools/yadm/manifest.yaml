@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: yadm
+description: Yet Another Dotfiles Manager
 license:
   name: GPLv3
   link: https://github.com/yadm-dev/yadm/blob/develop/LICENSE
+homepage: https://yadm.io
+repository: https://github.com/yadm-dev/yadm
 version: "3.3.0"
-check: ""
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/shell
 - type/cli
-homepage: https://yadm.io
-repository: https://github.com/yadm-dev/yadm
-description: Yet Another Dotfiles Manager
+check: ""
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: yadm-dev/yadm

@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: kube3d
+description: Jurassic Park Unix System style Kubernetes resource viewer
 license:
   name: Unknown
   link: https://github.com/jlandersen/k8s-unix-system
+homepage: https://github.com/jlandersen/k8s-unix-system
+repository: https://github.com/jlandersen/k8s-unix-system
 version: "1.4.0"
-check: ${binary} --version | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/go
 - type/daemon
-homepage: https://github.com/jlandersen/k8s-unix-system
-repository: https://github.com/jlandersen/k8s-unix-system
-description: Jurassic Park Unix System style Kubernetes resource viewer
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: jlandersen/k8s-unix-system

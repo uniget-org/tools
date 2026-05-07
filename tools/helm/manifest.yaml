@@ -1,10 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: helm
+description: The Kubernetes Package Manager
+license:
+  name: Apache License 2.0
+  link: https://github.com/helm/helm/blob/main/LICENSE
+homepage: https://helm.sh
+repository: https://github.com/helm/helm
 version: "4.1.4"
-check: ${binary} version --short 2>/dev/null | cut -d+ -f1 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - type/cli
 - kubernetes
@@ -15,13 +17,11 @@ tags:
 - lang/go
 - helm
 - cncf/graduated
-homepage: https://helm.sh
-repository: https://github.com/helm/helm
-description: The Kubernetes Package Manager
+check: ${binary} version --short 2>/dev/null | cut -d+ -f1 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: helm/helm
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/helm/helm/blob/main/LICENSE

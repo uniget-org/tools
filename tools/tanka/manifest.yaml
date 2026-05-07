@@ -1,11 +1,18 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: tanka
+description: Flexible, reusable and concise configuration for Kubernetes
 license:
   name: Apache License 2.0
   link: https://github.com/grafana/tanka/blob/main/LICENSE
+homepage: https://tanka.dev
+repository: https://github.com/grafana/tanka
 version: "0.37.0"
-binary: tk
+tags:
+- org/grafana
+- category/operations
+- lang/go
+- type/cli
 check: ${binary} --version 2>&1 | cut -d' ' -f5 | tr -d v
 runtime_dependencies:
 - kubectl
@@ -13,15 +20,8 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- org/grafana
-- category/operations
-- lang/go
-- type/cli
-homepage: https://tanka.dev
-repository: https://github.com/grafana/tanka
-description: Flexible, reusable and concise configuration for Kubernetes
 renovate:
   datasource: github-releases
   package: grafana/tanka
   extractVersion: ^v(?<version>.+)$
+binary: tk

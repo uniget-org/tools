@@ -1,25 +1,25 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: cvemap
+description: Detect various technology for a given IP address
+license:
+  name: MIT License
+  link: https://github.com/projectdiscovery/vulnx/blob/main/LICENSE
+homepage: https://github.com/projectdiscovery/vulnx
+repository: https://github.com/projectdiscovery/vulnx
 version: "2.0.1"
-binary: vulnx
-check: ${binary} version 2>&1 | grep version | head -n 1 | cut -d' ' -f5
-conflicts_with:
-- vulnx
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/security
 - lang/go
 - type/cli
-homepage: https://github.com/projectdiscovery/vulnx
-repository: https://github.com/projectdiscovery/vulnx
-description: Detect various technology for a given IP address
+check: ${binary} version 2>&1 | grep version | head -n 1 | cut -d' ' -f5
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: projectdiscovery/vulnx
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/projectdiscovery/vulnx/blob/main/LICENSE
+binary: vulnx
+conflicts_with:
+- vulnx

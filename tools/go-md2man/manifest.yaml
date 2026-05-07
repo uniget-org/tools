@@ -1,6 +1,16 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: go-md2man
+description: Converts markdown into roff (man pages)
+license:
+  name: MIT License
+homepage: https://github.com/cpuguy83/go-md2man
+repository: https://github.com/cpuguy83/go-md2man
 version: "2.0.7"
+tags:
+- type/cli
+- format/markdown
+- format/man
+- lang/go
 check: "" # No version parameter
 build_dependencies:
 - go
@@ -8,17 +18,7 @@ build_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- type/cli
-- format/markdown
-- format/man
-- lang/go
-homepage: https://github.com/cpuguy83/go-md2man
-repository: https://github.com/cpuguy83/go-md2man
-description: Converts markdown into roff (man pages)
 renovate:
   datasource: github-releases
   package: cpuguy83/go-md2man
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License

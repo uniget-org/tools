@@ -1,25 +1,25 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: texlive
+description: Comprehensive TeX system
 license:
   name: Custom
   link: https://www.tug.org/texlive/copying.html
+homepage: https://tug.org/texlive/
+repository: https://github.com/TeX-Live/texlive-source
 version: "2026"
-binary: "false"
-check: ${binary} --version | grep "TeX Live" | cut -d' ' -f5 | tr -d ')'
-platforms:
-- linux/amd64
 tags:
 - category/development
 - lang/perl
 - type/cli
 - latex
 - tex
-homepage: https://tug.org/texlive/
-repository: https://github.com/TeX-Live/texlive-source
-description: Comprehensive TeX system
+check: ${binary} --version | grep "TeX Live" | cut -d' ' -f5 | tr -d ')'
+platforms:
+- linux/amd64
 renovate:
   datasource: gitlab-releases
   package: uniget-org/renovate-custom
   extractVersion: ^texlive/(?<version>.+)$
   versioning: loose
+binary: "false"

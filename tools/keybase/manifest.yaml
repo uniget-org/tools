@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: keybase
+description: Keybase client
+license:
+  name: BSD 3-Clause License
+  link: https://github.com/keybase/client/blob/master/LICENSE
+homepage: https://github.com/keybase/client
+repository: https://github.com/keybase/client
 version: "6.6.2"
-check: ${binary} version | tr -s ' ' | cut -d' ' -f2
-build_dependencies:
-- go
 tags:
 - category/security
 - lang/go
 - type/cli
-homepage: https://github.com/keybase/client
-repository: https://github.com/keybase/client
-description: Keybase client
+check: ${binary} version | tr -s ' ' | cut -d' ' -f2
+build_dependencies:
+- go
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: keybase/client
   extractVersion: ^v(?<version>.+)$
-license:
-  name: BSD 3-Clause License
-  link: https://github.com/keybase/client/blob/master/LICENSE
-platforms:
-- linux/amd64

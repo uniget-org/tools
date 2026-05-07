@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: glab
+description: CLI tool bringing GitLab to your command line
+license:
+  name: MIT License
+  link: https://gitlab.com/gitlab-org/cli/-/blob/main/LICENSE?ref_type=heads
+homepage: https://gitlab.com/gitlab-org/cli
+repository: https://gitlab.com/gitlab-org/cli
 version: "1.94.0"
-check: ${binary} --version | cut -d' ' -f2
 tags:
 - org/gitlab
 - category/development
@@ -10,15 +15,10 @@ tags:
 - lang/go
 - standard/gitlab
 - cloud/gitlab
-homepage: https://gitlab.com/gitlab-org/cli
-repository: https://gitlab.com/gitlab-org/cli
-description: CLI tool bringing GitLab to your command line
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
 renovate:
   datasource: gitlab-releases
   package: gitlab-org/cli
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://gitlab.com/gitlab-org/cli/-/blob/main/LICENSE?ref_type=heads
-platforms:
-- linux/amd64

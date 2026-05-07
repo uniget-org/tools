@@ -1,9 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kubeval
+description: Validate your Kubernetes configuration files
+license:
+  name: Apache License 2.0
+  link: https://github.com/instrumenta/kubeval/blob/master/LICENSE
+homepage: https://kubeval.com
+repository: https://github.com/instrumenta/kubeval
 version: "0.16.1"
-check: ${binary} --version | grep ^Version | cut -d' ' -f2
-runtime_dependencies:
-- kubernetes-json-schema
 tags:
 - type/cli
 - category/operations
@@ -11,15 +14,12 @@ tags:
 - k8s
 - lang/go
 - state/stale
-homepage: https://kubeval.com
-repository: https://github.com/instrumenta/kubeval
-description: Validate your Kubernetes configuration files
+check: ${binary} --version | grep ^Version | cut -d' ' -f2
+runtime_dependencies:
+- kubernetes-json-schema
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: instrumenta/kubeval
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/instrumenta/kubeval/blob/master/LICENSE
-platforms:
-- linux/amd64

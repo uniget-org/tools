@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: diffoci
+description: diff for Docker and OCI container images
+license:
+  name: Apache License 2.0
+  link: https://github.com/reproducible-containers/diffoci/blob/master/LICENSE
+homepage: https://github.com/reproducible-containers/diffoci
+repository: https://github.com/reproducible-containers/diffoci
 version: "0.1.8"
-check: ${binary} --version | cut -d' ' -f3 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/go
 - type/cli
-homepage: https://github.com/reproducible-containers/diffoci
-repository: https://github.com/reproducible-containers/diffoci
-description: diff for Docker and OCI container images
+check: ${binary} --version | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: reproducible-containers/diffoci
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/reproducible-containers/diffoci/blob/master/LICENSE

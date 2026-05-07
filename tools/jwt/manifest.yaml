@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: jwt
+description: Super fast CLI tool to decode and encode JWTs
+license:
+  name: MIT License
+homepage: https://github.com/mike-engel/jwt-cli
+repository: https://github.com/mike-engel/jwt-cli
 version: "6.2.0"
-check: ${binary} --version | cut -d' ' -f2
-build_dependencies:
-- rust
-platforms:
-- linux/amd64
 tags:
 - category/security
 - type/cli
 - lang/rust
 - format/json
 - standard/jwt
-homepage: https://github.com/mike-engel/jwt-cli
-repository: https://github.com/mike-engel/jwt-cli
-description: Super fast CLI tool to decode and encode JWTs
+check: ${binary} --version | cut -d' ' -f2
+build_dependencies:
+- rust
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: mike-engel/jwt-cli
-license:
-  name: MIT License

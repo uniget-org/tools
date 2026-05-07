@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: dep-tree
+description: Visualising a "code base entropy" using a 3d force-directed graph of files and the dependencies between
+license:
+  name: MIT License
+  link: https://github.com/gabotechs/dep-tree/blob/main/LICENSE
+homepage: https://github.com/gabotechs/dep-tree
+repository: https://github.com/gabotechs/dep-tree
 version: "0.23.4"
-check: ${binary} --version | cut -d' ' -f3 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/go
 - type/cli
-homepage: https://github.com/gabotechs/dep-tree
-repository: https://github.com/gabotechs/dep-tree
-description: Visualising a "code base entropy" using a 3d force-directed graph of files and the dependencies between
+check: ${binary} --version | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: gabotechs/dep-tree
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/gabotechs/dep-tree/blob/main/LICENSE

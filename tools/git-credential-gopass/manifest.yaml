@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: git-credential-gopass
+description: Gopass git-credentials helper
+license:
+  name: MIT License
+  link: https://github.com/gopasspw/git-credential-gopass/blob/master/LICENSE
+homepage: https://github.com/gopasspw/git-credential-gopass
+repository: https://github.com/gopasspw/git-credential-gopass
 version: "1.16.1"
-check: "" # No version parameter
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/go
 - type/cli
 - standard/git
 - git
-homepage: https://github.com/gopasspw/git-credential-gopass
-repository: https://github.com/gopasspw/git-credential-gopass
-description: Gopass git-credentials helper
+check: "" # No version parameter
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: gopasspw/git-credential-gopass
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/gopasspw/git-credential-gopass/blob/master/LICENSE

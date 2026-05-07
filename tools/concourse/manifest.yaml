@@ -1,20 +1,20 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: concourse
+description: Container-based continuous thing-doer
+license:
+  name: Apache License 2.0
+homepage: https://concourse-ci.org
+repository: https://github.com/concourse/concourse
 version: "8.1.1"
-check: ${binary} --version
 tags:
 - type/cli
 - type/daemon
 - cicd
 - lang/go
-homepage: https://concourse-ci.org
-repository: https://github.com/concourse/concourse
-description: Container-based continuous thing-doer
+check: ${binary} --version
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: concourse/concourse
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-platforms:
-- linux/amd64

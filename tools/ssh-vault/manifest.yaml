@@ -1,20 +1,20 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: ssh-vault
+description: Encrypt/decrypt using ssh keys
 license:
   name: BSD-3-Clause
   link: https://github.com/ssh-vault/ssh-vault/blob/main/LICENSE
+homepage: https://ssh-vault.com/
+repository: https://github.com/ssh-vault/ssh-vault/
 version: "1.2.7"
-check: ${binary} --version | cut -d' ' -f2
-platforms:
-- linux/amd64
 tags:
 - category/security
 - lang/rust
 - type/cli
-homepage: https://ssh-vault.com/
-repository: https://github.com/ssh-vault/ssh-vault/
-description: Encrypt/decrypt using ssh keys 
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: ssh-vault/ssh-vault

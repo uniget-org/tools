@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: cross
+description: Zero setup cross compilation and cross testing of Rust crates
+license:
+  name: Apache License 2.0
+homepage: https://github.com/cross-rs/cross
+repository: https://github.com/cross-rs/cross
 version: "0.2.5"
+tags:
+- category/development
+- lang/rust
+- type/cli
 check: ${binary}-util --version | cut -d' ' -f2
 runtime_dependencies:
 - rust
 platforms:
 - linux/amd64
-tags:
-- category/development
-- lang/rust
-- type/cli
-homepage: https://github.com/cross-rs/cross
-repository: https://github.com/cross-rs/cross
-description: Zero setup cross compilation and cross testing of Rust crates
 renovate:
   datasource: github-releases
   package: cross-rs/cross
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0

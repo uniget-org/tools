@@ -1,24 +1,24 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: gcloud
+description: Set of tools that you can use to manage resources and applications hosted on Google Cloud
+license:
+  name: Apache License 2.0
+  link: https://github.com/twistedpair/google-cloud-sdk/blob/master/google-cloud-sdk/LICENSE
+homepage: https://cloud.google.com/sdk/docs
+repository: https://cloud.google.com/sdk/docs
 version: "562.0.0"
-check: ${binary} --version | head -n 1 | cut -d' ' -f4
-runtime_dependencies:
-- python-3.12
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/google
 - category/development
 - lang/python
 - type/cli
 - cloud/google
-homepage: https://cloud.google.com/sdk/docs
-repository: https://cloud.google.com/sdk/docs
-description: Set of tools that you can use to manage resources and applications hosted on Google Cloud
+check: ${binary} --version | head -n 1 | cut -d' ' -f4
+runtime_dependencies:
+- python-3.12
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-tags
   package: twistedpair/google-cloud-sdk
-license:
-  name: Apache License 2.0
-  link: https://github.com/twistedpair/google-cloud-sdk/blob/master/google-cloud-sdk/LICENSE

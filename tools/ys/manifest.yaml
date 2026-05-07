@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: ys
+description: Programming in YAML
 license:
   name: MIT License
   link: https://github.com/yaml/yamlscript/blob/main/License
+homepage: https://yamlscript.org/
+repository: https://github.com/yaml/yamlscript
 version: "0.2.8"
-check: ${binary} --version | cut -d' ' -f3
-platforms:
-- linux/amd64
 tags:
 - category/development
 - lang/cojure
 - type/cli
 - format/yaml
-homepage: https://yamlscript.org/
-repository: https://github.com/yaml/yamlscript
-description: Programming in YAML
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: yaml/yamlscript

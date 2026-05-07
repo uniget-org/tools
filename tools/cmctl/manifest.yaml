@@ -1,10 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: cmctl
+description: Automatically provision and manage TLS certificates in Kubernetes
+license:
+  name: Apache License 2.0
+  link: https://github.com/cert-manager/cmctl/blob/main/LICENSE
+homepage: https://cert-manager.io/docs/reference/cmctl/
+repository: https://github.com/cert-manager/cmctl
 version: "2.5.0"
-check: ${binary} version --client --short | cut -dv -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - type/cli
 - kubernetes
@@ -13,13 +15,11 @@ tags:
 - category/security
 - lang/go
 - certificate
-homepage: https://cert-manager.io/docs/reference/cmctl/
-repository: https://github.com/cert-manager/cmctl
-description: Automatically provision and manage TLS certificates in Kubernetes
+check: ${binary} version --client --short | cut -dv -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: cert-manager/cmctl
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/cert-manager/cmctl/blob/main/LICENSE

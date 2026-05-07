@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: walk
+description: Terminal file manager
+license:
+  name: MIT License
+  link: https://github.com/antonmedv/walk/blob/master/LICENSE
+homepage: https://github.com/antonmedv/walk
+repository: https://github.com/antonmedv/walk
 version: "1.13.0"
-check: ${binary} --version | grep walk | tr -s ' ' | cut -d' ' -f3 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/go
 - type/cli
 - type/tui
-homepage: https://github.com/antonmedv/walk
-repository: https://github.com/antonmedv/walk
-description: Terminal file manager
+check: ${binary} --version | grep walk | tr -s ' ' | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: antonmedv/walk
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/antonmedv/walk/blob/master/LICENSE

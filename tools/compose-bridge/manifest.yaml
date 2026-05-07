@@ -1,11 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: compose-bridge
+description: Reuse compose.yaml but translate it into another platform's definition format, with a primary focus on Kubernetes
+license:
+  name: Docker Subscription Service Agreement
+  link: https://www.docker.com/legal/docker-subscription-service-agreement
+homepage: https://github.com/docker/compose-bridge-binaries
+repository: https://github.com/docker/compose-bridge-binaries
 version: "0.0.20"
-check: "" # No version parameter
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/docker
 - category/development
@@ -17,16 +19,14 @@ tags:
 - templating
 - state/onemanshow
 - state/deprecated
-homepage: https://github.com/docker/compose-bridge-binaries
-repository: https://github.com/docker/compose-bridge-binaries
-description: Reuse compose.yaml but translate it into another platform's definition format, with a primary focus on Kubernetes
-messages:
-  internals: |
-    See the official documentation at https://docs.docker.com/compose/bridge/
+check: "" # No version parameter
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: docker/compose-bridge-binaries
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Docker Subscription Service Agreement
-  link: https://www.docker.com/legal/docker-subscription-service-agreement
+messages:
+  internals: |
+    See the official documentation at https://docs.docker.com/compose/bridge/

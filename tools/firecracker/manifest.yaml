@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: firecracker
+description: Secure and fast microVMs for serverless computing
+license:
+  name: Apache License 2.0
+  link: https://github.com/firecracker-microvm/firecracker/blob/main/LICENSE
+homepage: http://firecracker-microvm.io
+repository: https://github.com/firecracker-microvm/firecracker
 version: "1.15.1"
-check: ${binary} --version | grep "^Firecracker" | cut -d' ' -f2 | tr -d v
 tags:
 - type/daemon
 - kvm
 - vm
 - emulation
 - lang/rust
-homepage: http://firecracker-microvm.io
-repository: https://github.com/firecracker-microvm/firecracker
-description: Secure and fast microVMs for serverless computing
+check: ${binary} --version | grep "^Firecracker" | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: firecracker-microvm/firecracker
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/firecracker-microvm/firecracker/blob/main/LICENSE
-platforms:
-- linux/amd64

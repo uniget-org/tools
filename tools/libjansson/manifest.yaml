@@ -1,24 +1,24 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: libjansson
+description: C library for encoding, decoding and manipulating JSON data
 license:
   name: MIT License
   link: https://github.com/akheron/jansson#License-1-ov-file
+homepage: http://www.digip.org/jansson/
+repository: https://github.com/akheron/jansson
 version: "2.15.0"
-binary: "false"
-check: grep ^Version "${prefix}/lib/pkgconfig/jansson.pc" | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/c
 - type/library
-homepage: http://www.digip.org/jansson/
-repository: https://github.com/akheron/jansson
-description: C library for encoding, decoding and manipulating JSON data
+check: grep ^Version "${prefix}/lib/pkgconfig/jansson.pc" | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: akheron/jansson
   extractVersion: ^v(?<version>.+)$
   versioning: loose
+binary: "false"

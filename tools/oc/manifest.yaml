@@ -1,20 +1,20 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: oc
+description: Conformance test suite for OpenShift
+license:
+  name: Apache License 2.0
+  link: https://github.com/openshift/origin/blob/master/LICENSE
+homepage: http://www.openshift.org
+repository: https://github.com/openshift/origin
 version: "3.11.0"
-check: ${binary} version | grep ^oc | cut -d' ' -f2 | cut -d+ -f1 | tr -d v
-platforms:
-- linux/amd64
 tags:
 - category/operations
 - lang/go
 - type/cli
-homepage: http://www.openshift.org
-repository: https://github.com/openshift/origin
-description: Conformance test suite for OpenShift
+check: ${binary} version | grep ^oc | cut -d' ' -f2 | cut -d+ -f1 | tr -d v
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: openshift/origin
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/openshift/origin/blob/master/LICENSE

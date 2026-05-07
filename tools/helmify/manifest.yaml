@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: helmify
+description: Creates Helm chart from Kubernetes yaml
+license:
+  name: MIT License
+  link: https://github.com/arttor/helmify/blob/main/LICENSE
+homepage: https://github.com/arttor/helmify
+repository: https://github.com/arttor/helmify
 version: "0.4.20"
-check: ${binary} --version | grep ^Version | tr -s ' ' | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - type/cli
 - kubernetes
 - k8s
 - lang/go
 - helm
-homepage: https://github.com/arttor/helmify
-repository: https://github.com/arttor/helmify
-description: Creates Helm chart from Kubernetes yaml
+check: ${binary} --version | grep ^Version | tr -s ' ' | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: arttor/helmify
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/arttor/helmify/blob/main/LICENSE

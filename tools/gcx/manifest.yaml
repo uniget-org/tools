@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: gcx
+description: CLI for managing Grafana Cloud resources. Optimized for agentic usage
 license:
   name: Apache License 2.0
   link: https://github.com/grafana/gcx/blob/main/LICENSE
+homepage: https://github.com/grafana/gcx
+repository: https://github.com/grafana/gcx
 version: "0.2.13"
-check: ${binary} --version | cut -d' ' -f3
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/grafana
 - category/operations
 - lang/go
 - type/cli
 - grafanactl
-homepage: https://github.com/grafana/gcx
-repository: https://github.com/grafana/gcx
-description: CLI for managing Grafana Cloud resources. Optimized for agentic usage
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: grafana/gcx

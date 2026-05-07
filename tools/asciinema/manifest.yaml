@@ -1,7 +1,17 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: asciinema
+description: Terminal session recorder
+license:
+  name: GPLv3
+  link: https://github.com/asciinema/asciinema/blob/develop/LICENSE
+homepage: https://github.com/asciinema/asciinema
+repository: https://github.com/asciinema/asciinema
 version: "2.4.0"
+tags:
+- category/development
+- lang/python
+- type/cli
 check: ${binary} --version | cut -d' ' -f2
 build_dependencies:
 - python-3.12
@@ -11,16 +21,6 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/development
-- lang/python
-- type/cli
-homepage: https://github.com/asciinema/asciinema
-repository: https://github.com/asciinema/asciinema
-description: Terminal session recorder
 renovate:
   datasource: pypi
   package: asciinema
-license:
-  name: GPLv3
-  link: https://github.com/asciinema/asciinema/blob/develop/LICENSE

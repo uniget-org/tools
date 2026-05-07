@@ -1,7 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: vexy
+description: Generate VEX CycloneDX documents
+license:
+  name: Apache License 2.0
+  link: https://github.com/madpah/vexy/blob/main/LICENSE
+homepage: https://github.com/madpah/vexy
+repository: https://github.com/madpah/vexy
 version: "0.3.1"
+tags:
+- category/security
+- lang/python
+- type/cli
+- standard/vex
+- standard/cyclonedx
+- state/stale
+- format/cyclonedx
 check: "" # No version parameter
 build_dependencies:
 - python-3.12
@@ -11,20 +25,6 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/security
-- lang/python
-- type/cli
-- standard/vex
-- standard/cyclonedx
-- state/stale
-- format/cyclonedx
-homepage: https://github.com/madpah/vexy
-repository: https://github.com/madpah/vexy
-description: Generate VEX CycloneDX documents
 renovate:
   datasource: pypi
   package: vexy
-license:
-  name: Apache License 2.0
-  link: https://github.com/madpah/vexy/blob/main/LICENSE

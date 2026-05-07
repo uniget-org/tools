@@ -1,12 +1,11 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: traefik
+description: Cloud Native Application Proxy
 license:
   name: MIT License
+homepage: https://traefik.io
+repository: https://github.com/traefik/traefik
 version: "3.7.0"
-check: ${binary} version | grep ^Version | tr -s ' ' | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/go
@@ -15,9 +14,10 @@ tags:
 - kubernetes
 - k8s
 - management
-homepage: https://traefik.io
-repository: https://github.com/traefik/traefik
-description: Cloud Native Application Proxy
+check: ${binary} version | grep ^Version | tr -s ' ' | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: traefik/traefik

@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: sbom-tool
+description: Highly scalable and enterprise ready tool to create SPDX 2.2 compatible SBOMs
+license:
+  name: MIT License
+  link: https://github.com/microsoft/sbom-tool/blob/main/LICENSE
+homepage: https://github.com/microsoft/sbom-tool
+repository: https://github.com/microsoft/sbom-tool
 version: "4.1.5"
-check: "" # No version parameter
 tags:
 - category/security
 - sbom
@@ -9,15 +14,10 @@ tags:
 - lang/csharp
 - type/cli
 - format/spdx
-homepage: https://github.com/microsoft/sbom-tool
-repository: https://github.com/microsoft/sbom-tool
-description: Highly scalable and enterprise ready tool to create SPDX 2.2 compatible SBOMs
+check: "" # No version parameter
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: microsoft/sbom-tool
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/microsoft/sbom-tool/blob/main/LICENSE
-platforms:
-- linux/amd64

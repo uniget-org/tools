@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kubent
+description: Easily check your clusters for use of deprecated APIs
+license:
+  name: MIT License
+  link: https://github.com/doitintl/kube-no-trouble/blob/master/LICENSE
+homepage: https://github.com/doitintl/kube-no-trouble
+repository: https://github.com/doitintl/kube-no-trouble
 version: "0.7.3"
-check: ${binary} --version 2>&1 | cut -d' ' -f4
 tags:
 - type/cli
 - kubernetes
@@ -10,14 +15,9 @@ tags:
 - lang/go
 - k8s
 - state/stale
-homepage: https://github.com/doitintl/kube-no-trouble
-repository: https://github.com/doitintl/kube-no-trouble
-description: Easily check your clusters for use of deprecated APIs
+check: ${binary} --version 2>&1 | cut -d' ' -f4
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: doitintl/kube-no-trouble
-license:
-  name: MIT License
-  link: https://github.com/doitintl/kube-no-trouble/blob/master/LICENSE
-platforms:
-- linux/amd64

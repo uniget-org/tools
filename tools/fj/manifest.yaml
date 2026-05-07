@@ -1,25 +1,25 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: fj
+description: CLI application for interacting with Forgejo
 license:
   name: MIT License, Apache License 2.0
   link: https://codeberg.org/forgejo-contrib/forgejo-cli
+homepage: https://codeberg.org/forgejo-contrib/forgejo-cli
+repository: https://codeberg.org/forgejo-contrib/forgejo-cli
 version: "0.4.1"
-check: ${binary} version | grep ^fj | cut -d' ' -f2 | tr -d v
-build_dependencies:
-- rust
-platforms:
-- linux/amd64
 tags:
 - category/development
 - lang/rust
 - type/cli
 - cloud/codeberg
-homepage: https://codeberg.org/forgejo-contrib/forgejo-cli
-repository: https://codeberg.org/forgejo-contrib/forgejo-cli
-description: CLI application for interacting with Forgejo
+check: ${binary} version | grep ^fj | cut -d' ' -f2 | tr -d v
+build_dependencies:
+- rust
+platforms:
+- linux/amd64
 renovate:
   datasource: git-tags
   package: forgejo-contrib/forgejo-cli
-  api: https://codeberg.org/forgejo-contrib/forgejo-cli.git
   extractVersion: ^v(?<version>.+)$
+  api: https://codeberg.org/forgejo-contrib/forgejo-cli.git

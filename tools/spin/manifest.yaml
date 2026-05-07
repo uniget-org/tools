@@ -1,24 +1,24 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: spin
+description: Open source developer tool for building and running serverless applications powered by WebAssembly
+license:
+  name: Apache License 2.0
+  link: https://github.com/spinframework/spin/blob/main/LICENSE
+homepage: https://developer.fermyon.com/spin
+repository: https://github.com/spinframework/spin
 version: "4.0.0"
-check: ${binary} --version | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/fermyon
 - category/development
 - lang/rust
 - type/cli
 - cncf/sandbox
-homepage: https://developer.fermyon.com/spin
-repository: https://github.com/spinframework/spin
-description: Open source developer tool for building and running serverless applications powered by WebAssembly
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: spinframework/spin
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/spinframework/spin/blob/main/LICENSE

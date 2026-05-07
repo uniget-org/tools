@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: graphviz
+description: Graph Visualization Tool
+license:
+  name: Eclipse Public License 1.0
+  link: https://gitlab.com/graphviz/graphviz/-/blob/main/LICENSE?ref_type=heads
+homepage: https://gitlab.com/graphviz/graphviz
+repository: https://gitlab.com/graphviz/graphviz
 version: "14.1.2"
-binary: dot
-check: ${binary} --version 2>&1 | cut -d' ' -f5
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/c
 - type/cli
-homepage: https://gitlab.com/graphviz/graphviz
-repository: https://gitlab.com/graphviz/graphviz
-description: Graph Visualization Tool
+check: ${binary} --version 2>&1 | cut -d' ' -f5
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: gitlab-tags
   package: graphviz/graphviz
-license:
-  name: Eclipse Public License 1.0
-  link: https://gitlab.com/graphviz/graphviz/-/blob/main/LICENSE?ref_type=heads
+binary: dot

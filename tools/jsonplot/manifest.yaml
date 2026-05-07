@@ -1,15 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: jsonplot
+description: Dead simple terminal plots from JSON data
+license:
+  name: MIT License
+  link: https://github.com/sgreben/jp/blob/master/LICENSE
+homepage: https://github.com/sgreben/jp
+repository: https://github.com/sgreben/jp
 version: "1.1.12"
-binary: jp
-check: "" # No version parameter
-build_dependencies:
-- go
-conflicts_with:
-- jp
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/go
@@ -18,12 +15,15 @@ tags:
 - format/json
 - plot
 - graph
-homepage: https://github.com/sgreben/jp
-repository: https://github.com/sgreben/jp
-description: Dead simple terminal plots from JSON data
+check: "" # No version parameter
+build_dependencies:
+- go
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: sgreben/jp
-license:
-  name: MIT License
-  link: https://github.com/sgreben/jp/blob/master/LICENSE
+binary: jp
+conflicts_with:
+- jp

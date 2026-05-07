@@ -1,12 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: docker-compose-switch
+description: Replacement to the Compose v1 executable
+license:
+  name: Apache License 2.0
+  link: https://github.com/docker/compose-switch/blob/master/LICENSE
+homepage: https://github.com/docker/compose-switch
+repository: https://github.com/docker/compose-switch
 version: "1.0.5"
-check: "" # No dedicated version
-platforms:
-- linux/amd64
-- linux/arm64
-conflicts_with:
-- docker-compose-v1
 tags:
 - org/docker
 - standard/docker
@@ -17,13 +17,13 @@ tags:
 - lang/go
 - state/stale
 - docker
-homepage: https://github.com/docker/compose-switch
-repository: https://github.com/docker/compose-switch
-description: Replacement to the Compose v1 executable
+check: "" # No dedicated version
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: docker/compose-switch
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/docker/compose-switch/blob/master/LICENSE
+conflicts_with:
+- docker-compose-v1

@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: k9s
+description: CLI To Manage Your Clusters In Style
+license:
+  name: Apache License 2.0
+  link: https://github.com/derailed/k9s/blob/master/LICENSE
+homepage: https://k9scli.io
+repository: https://github.com/derailed/k9s
 version: "0.50.18"
-check: ${binary} version --short | grep "^Version" | cut -dv -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - type/tui
 - kubernetes
 - k8s
 - management
 - lang/go
-homepage: https://k9scli.io
-repository: https://github.com/derailed/k9s
-description: CLI To Manage Your Clusters In Style
+check: ${binary} version --short | grep "^Version" | cut -dv -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: derailed/k9s
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/derailed/k9s/blob/master/LICENSE

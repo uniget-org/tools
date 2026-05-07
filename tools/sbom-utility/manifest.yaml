@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: sbom-utility
+description: Provides an API platform for validating, querying, updating and managing standardized SBOMs
+license:
+  name: Apache License 2.0
+  link: https://github.com/CycloneDX/sbom-utility/blob/main/LICENSE
+homepage: https://github.com/CycloneDX/sbom-utility
+repository: https://github.com/CycloneDX/sbom-utility
 version: "0.18.1"
-check: ${binary} version | grep ^sbom-utility | cut -d' ' -f3 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/ibm
 - category/security
 - lang/go
 - type/cli
 - sbom
-homepage: https://github.com/CycloneDX/sbom-utility
-repository: https://github.com/CycloneDX/sbom-utility
-description: Provides an API platform for validating, querying, updating and managing standardized SBOMs
+check: ${binary} version | grep ^sbom-utility | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: CycloneDX/sbom-utility
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/CycloneDX/sbom-utility/blob/main/LICENSE

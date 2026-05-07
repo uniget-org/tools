@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: gocryptfs
+description: Encrypted overlay filesystem written in Go
+license:
+  name: MIT License
+  link: https://github.com/rfjakob/gocryptfs/blob/master/LICENSE
+homepage: https://nuetzlich.net/gocryptfs/
+repository: https://github.com/rfjakob/gocryptfs
 version: "2.6.1"
-check: ${binary} -version | cut -d' ' -f2 | tr -d v
-platforms:
-- linux/amd64
 tags:
 - type/cli
 - category/security
 - lang/go
-homepage: https://nuetzlich.net/gocryptfs/
-repository: https://github.com/rfjakob/gocryptfs
-description: Encrypted overlay filesystem written in Go
+check: ${binary} -version | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: rfjakob/gocryptfs
   extractVersion: ^v(?<version>.+)$
   versioning: loose
-license:
-  name: MIT License
-  link: https://github.com/rfjakob/gocryptfs/blob/master/LICENSE

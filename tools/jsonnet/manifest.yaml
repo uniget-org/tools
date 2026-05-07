@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: jsonnet
+description: Data templating language. Implementation of Jsonnet in pure Go
+license:
+  name: Apache License 2.0
+  link: https://github.com/google/go-jsonnet/blob/master/LICENSE
+homepage: https://github.com/google/go-jsonnet
+repository: https://github.com/google/go-jsonnet
 version: "0.22.0"
-check: ${binary} --version | cut -d' ' -f6 | tr -d v
 tags:
 - org/google
 - templating
 - lang/go
 - format/json
 - standard/jsonnet
-homepage: https://github.com/google/go-jsonnet
-repository: https://github.com/google/go-jsonnet
-description: Data templating language. Implementation of Jsonnet in pure Go
+check: ${binary} --version | cut -d' ' -f6 | tr -d v
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: google/go-jsonnet
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/google/go-jsonnet/blob/master/LICENSE
-platforms:
-- linux/amd64

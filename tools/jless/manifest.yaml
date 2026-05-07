@@ -1,18 +1,25 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: jless
+description: Command-line JSON viewer designed for reading, exploring, and searching
+license:
+  name: MIT License
+  link: https://github.com/PaulJuliusMartinez/jless/blob/main/LICENSE
+homepage: https://jless.io
+repository: https://github.com/PaulJuliusMartinez/jless
 version: "0.9.0"
-check: ${binary} --version | cut -d' ' -f2
-platforms:
-- linux/amd64
 tags:
 - category/development
 - lang/rust
 - type/cli
 - format/json
 - state/stale
-homepage: https://jless.io
-repository: https://github.com/PaulJuliusMartinez/jless
-description: Command-line JSON viewer designed for reading, exploring, and searching
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+renovate:
+  datasource: github-releases
+  package: PaulJuliusMartinez/jless
+  extractVersion: ^v(?<version>.+)$
 messages:
   usage: |
     You must make sure the following libraries are installed:
@@ -27,10 +34,3 @@ messages:
             libxcb-render0 \
             libxcb-shape0 \
             libxcb-xfixes0
-renovate:
-  datasource: github-releases
-  package: PaulJuliusMartinez/jless
-  extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/PaulJuliusMartinez/jless/blob/main/LICENSE

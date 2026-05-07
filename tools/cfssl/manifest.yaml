@@ -1,9 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: cfssl
+description: Cloudflare's PKI and TLS toolkit
+license:
+  name: BSD 2-Clause License
+  link: https://github.com/cloudflare/cfssl/blob/master/LICENSE
+homepage: https://cfssl.org/
+repository: https://github.com/cloudflare/cfssl
 version: "1.6.5"
-check: "" # No version parameter
-platforms:
-- linux/amd64
 tags:
 - type/cli
 - category/security
@@ -11,13 +14,10 @@ tags:
 - lang/go
 - org/cloudflare
 - state/stale
-homepage: https://cfssl.org/
-repository: https://github.com/cloudflare/cfssl
-description: Cloudflare's PKI and TLS toolkit
+check: "" # No version parameter
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: cloudflare/cfssl
   extractVersion: ^v(?<version>.+)$
-license:
-  name: BSD 2-Clause License
-  link: https://github.com/cloudflare/cfssl/blob/master/LICENSE

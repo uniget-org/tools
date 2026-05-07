@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: wksctl
+description: Open Source Weaveworks Kubernetes System
+license:
+  name: Apache License 2.0
+  link: https://github.com/weaveworks/wksctl/blob/master/LICENSE
+homepage: https://github.com/weaveworks/wksctl
+repository: https://github.com/weaveworks/wksctl
 version: "0.10.1"
-check: ${binary} version
 tags:
 - type/cli
 - kubernetes
@@ -10,15 +15,10 @@ tags:
 - lang/go
 - state/stale
 - state/deprecated
-homepage: https://github.com/weaveworks/wksctl
-repository: https://github.com/weaveworks/wksctl
-description: Open Source Weaveworks Kubernetes System
+check: ${binary} version
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: weaveworks/wksctl
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/weaveworks/wksctl/blob/master/LICENSE
-platforms:
-- linux/amd64

@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: git-igitt
+description: Interactive, cross-platform Git terminal application with clear git graphs arranged for your branching model
+license:
+  name: MIT License
+  link: https://github.com/mlange-42/git-igitt/blob/master/LICENSE
+homepage: https://github.com/mlange-42/git-igitt
+repository: https://github.com/mlange-42/git-igitt
 version: "v0.1.21"
-check: ${binary} --version | cut -d' ' -f2
 tags:
 - category/development
 - type/cli
 - lang/rust
 - standard/git
 - git
-homepage: https://github.com/mlange-42/git-igitt
-repository: https://github.com/mlange-42/git-igitt
-description: Interactive, cross-platform Git terminal application with clear git graphs arranged for your branching model
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: mlange-42/git-igitt
-license:
-  name: MIT License
-  link: https://github.com/mlange-42/git-igitt/blob/master/LICENSE
-platforms:
-- linux/amd64

@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: ssh-key-confirmer
+description: Test SSH login key acceptance without having the private key
+license:
+  name: MIT License
+  link: https://github.com/benjojo/ssh-key-confirmer/blob/main/LICENSE
+homepage: https://github.com/benjojo/ssh-key-confirmer
+repository: https://github.com/benjojo/ssh-key-confirmer
 version: "0.1"
-check: "" # No version parameter
 tags:
 - category/security
 - type/cli
@@ -10,16 +15,11 @@ tags:
 - state/onemanshow
 - ssh
 - component/network
-homepage: https://github.com/benjojo/ssh-key-confirmer
-repository: https://github.com/benjojo/ssh-key-confirmer
-description: Test SSH login key acceptance without having the private key
+check: "" # No version parameter
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: benjojo/ssh-key-confirmer
   extractVersion: ^v(?<version>.+)$
   versioning: loose
-license:
-  name: MIT License
-  link: https://github.com/benjojo/ssh-key-confirmer/blob/main/LICENSE
-platforms:
-- linux/amd64

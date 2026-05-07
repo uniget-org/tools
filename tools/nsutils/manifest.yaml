@@ -1,25 +1,25 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: nsutils
+description: Linux namespace utilities
+license:
+  name: GPLv2
+homepage: https://github.com/rd235/nsutils
+repository: https://github.com/rd235/nsutils
 version: "0.2"
-binary: nslist
-check: "" # No version parameter
-build_dependencies:
-- make
-- libcap
 tags:
 - kernel/namespaces
 - type/cli
 - lang/c
 - category/operations
-homepage: https://github.com/rd235/nsutils
-repository: https://github.com/rd235/nsutils
-description: Linux namespace utilities
+check: "" # No version parameter
+build_dependencies:
+- make
+- libcap
+platforms:
+- linux/amd64
 renovate:
   datasource: github-tags
   package: rd235/nsutils
   extractVersion: ^v(?<version>.+)$
   versioning: loose
-license:
-  name: GPLv2
-platforms:
-- linux/amd64
+binary: nslist

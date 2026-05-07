@@ -1,11 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: linux-kernel-wsl-stable
+description: Source for the Linux kernel used in Windows Subsystem for Linux 2 (WSL2)
+license:
+  name: GPLv2
+  link: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/COPYING
+homepage: https://github.com/microsoft/WSL2-Linux-Kernel
+repository: https://github.com/microsoft/WSL2-Linux-Kernel
 version: "5.15.167.4"
-binary: "false"
-check: make kernelversion
-platforms:
-- linux/amd64
 tags:
 - org/microsoft
 - category/development
@@ -15,9 +17,15 @@ tags:
 - kernel
 - source
 - wsl
-homepage: https://github.com/microsoft/WSL2-Linux-Kernel
-repository: https://github.com/microsoft/WSL2-Linux-Kernel
-description: Source for the Linux kernel used in Windows Subsystem for Linux 2 (WSL2)
+check: make kernelversion
+platforms:
+- linux/amd64
+renovate:
+  datasource: github-releases
+  package: microsoft/WSL2-Linux-Kernel
+  extractVersion: ^linux-msft-wsl-(?<version>5\..+)$
+  versioning: loose
+binary: "false"
 messages:
   internals: |
     Install packages required to build the kernel:
@@ -43,11 +51,3 @@ messages:
     kernel=c://users/USERNAME//bzImage
 
     If the new kernel fails to load, remove the kernel from the config file and restart WSL.
-renovate:
-  datasource: github-releases
-  package: microsoft/WSL2-Linux-Kernel
-  extractVersion: ^linux-msft-wsl-(?<version>5\..+)$
-  versioning: loose
-license:
-  name: GPLv2
-  link: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/COPYING

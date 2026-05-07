@@ -1,9 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kubectl-free
+description: Show various requested resources on Kubernetes nodes
+license:
+  name: MIT License
+  link: https://github.com/makocchi-git/kubectl-free/blob/master/LICENSE
+homepage: https://github.com/makocchi-git/kubectl-free
+repository: https://github.com/makocchi-git/kubectl-free
 version: "0.2.0"
-check: ${binary} --version | cut -d' ' -f2 | tr -d ','
-runtime_dependencies:
-- kubectl
 tags:
 - type/cli
 - type/plugin
@@ -14,15 +17,12 @@ tags:
 - state/stale
 - state/onemanshow
 - k8s
-homepage: https://github.com/makocchi-git/kubectl-free
-repository: https://github.com/makocchi-git/kubectl-free
-description: Show various requested resources on Kubernetes nodes
+check: ${binary} --version | cut -d' ' -f2 | tr -d ','
+runtime_dependencies:
+- kubectl
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: makocchi-git/kubectl-free
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/makocchi-git/kubectl-free/blob/master/LICENSE
-platforms:
-- linux/amd64

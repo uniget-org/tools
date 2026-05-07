@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: wasmer
+description: Leading WebAssembly Runtime supporting WASI and Emscripten
+license:
+  name: MIT License
+  link: https://github.com/wasmerio/wasmer/blob/main/LICENSE
+homepage: https://wasmer.io
+repository: https://github.com/wasmerio/wasmer
 version: "7.1.0"
-check: ${binary} --version | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/rust
 - type/cli
 - webassembly
 - wasm
-homepage: https://wasmer.io
-repository: https://github.com/wasmerio/wasmer
-description: Leading WebAssembly Runtime supporting WASI and Emscripten
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: wasmerio/wasmer
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/wasmerio/wasmer/blob/main/LICENSE

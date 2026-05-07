@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: ktunnel
+description: CLI that exposes your local resources to kubernetes
+license:
+  name: GPLv3
+  link: https://github.com/omrikiei/ktunnel/blob/master/LICENSE
+homepage: https://github.com/omrikiei/ktunnel
+repository: https://github.com/omrikiei/ktunnel
 version: "1.6.1"
-check: ${binary} version
 tags:
 - type/cli
 - category/development
@@ -10,15 +15,10 @@ tags:
 - kubernetes
 - k8s
 - state/stale
-homepage: https://github.com/omrikiei/ktunnel
-repository: https://github.com/omrikiei/ktunnel
-description: CLI that exposes your local resources to kubernetes
+check: ${binary} version
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: omrikiei/ktunnel
   extractVersion: ^v(?<version>.+)$
-license:
-  name: GPLv3
-  link: https://github.com/omrikiei/ktunnel/blob/master/LICENSE
-platforms:
-- linux/amd64

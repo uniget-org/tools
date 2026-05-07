@@ -1,7 +1,16 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: wordcloud
+description: Little word cloud generator in Python
+license:
+  name: MIT License
+  link: https://github.com/amueller/word_cloud/blob/main/LICENSE
+homepage: https://amueller.github.io/word_cloud
+repository: https://github.com/amueller/word_cloud
 version: "1.9.6"
-binary: wordcloud_cli
+tags:
+- category/development
+- lang/python
+- type/cli
 check: ${binary} --version | cut -d' ' -f2
 build_dependencies:
 - python-3.12
@@ -11,17 +20,8 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 #- linux/arm64
-tags:
-- category/development
-- lang/python
-- type/cli
-homepage: https://amueller.github.io/word_cloud
-repository: https://github.com/amueller/word_cloud
-description: Little word cloud generator in Python
 renovate:
   datasource: pypi
   package: wordcloud
   versioning: loose
-license:
-  name: MIT License
-  link: https://github.com/amueller/word_cloud/blob/main/LICENSE
+binary: wordcloud_cli

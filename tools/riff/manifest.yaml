@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: riff
+description: Syntax highter for diffs, clarifying which parts of lines have changed
 license:
   name: MIT License
   link: https://github.com/walles/riff/blob/master/LICENSE
+homepage: https://github.com/walles/riff
+repository: https://github.com/walles/riff
 version: "3.6.1"
+tags:
+- category/development
+- lang/rust
+- type/cli
 check: ${binary} --version | cut -d' ' -f2
 build_dependencies:
 - rust
 platforms:
 - linux/amd64
-tags:
-- category/development
-- lang/rust
-- type/cli
-homepage: https://github.com/walles/riff
-repository: https://github.com/walles/riff
-description: Syntax highter for diffs, clarifying which parts of lines have changed
 renovate:
   datasource: github-releases
   package: walles/riff

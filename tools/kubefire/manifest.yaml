@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kubefire
+description: Creates and manages Kubernetes Clusters using Firecracker microVMs
+license:
+  name: Apache License 2.0
+  link: https://github.com/innobead/kubefire/blob/main/LICENSE
+homepage: https://github.com/innobead/kubefire
+repository: https://github.com/innobead/kubefire
 version: "0.3.10"
-check: ${binary} version | grep "^Version:" | cut -d' ' -f2 | tr -d v
 tags:
 - type/cli
 - kubernetes
@@ -12,15 +17,10 @@ tags:
 - lang/go
 - k8s
 - state/stale
-homepage: https://github.com/innobead/kubefire
-repository: https://github.com/innobead/kubefire
-description: Creates and manages Kubernetes Clusters using Firecracker microVMs
+check: ${binary} version | grep "^Version:" | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: innobead/kubefire
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/innobead/kubefire/blob/main/LICENSE
-platforms:
-- linux/amd64

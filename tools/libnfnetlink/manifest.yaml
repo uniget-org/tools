@@ -1,25 +1,25 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: libnfnetlink
+description: Low-level library for netfilter related kernel/userspace communication
 license:
   name: GPLv2
   link: https://git.netfilter.org/libnfnetlink/tree/COPYING
+homepage: https://www.netfilter.org/projects/libnfnetlink/index.html
+repository: https://www.netfilter.org/projects/libnfnetlink/index.html
 version: "1.0.2"
-check: grep ^Version "${prefix}/lib/pkgconfig/libnfnetlink.pc" | cut -d' ' -f2
-build_dependencies:
-- make
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/netfilter
 - component/network
 - category/operations
 - type/cli
 - lang/c
-homepage: https://www.netfilter.org/projects/libnfnetlink/index.html
-repository: https://www.netfilter.org/projects/libnfnetlink/index.html
-description: Low-level library for netfilter related kernel/userspace communication
+check: grep ^Version "${prefix}/lib/pkgconfig/libnfnetlink.pc" | cut -d' ' -f2
+build_dependencies:
+- make
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: git-tags
   package: https://git.netfilter.org/libnfnetlink/

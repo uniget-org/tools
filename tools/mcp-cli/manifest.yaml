@@ -1,10 +1,20 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: mcp-cli
+description: Model Context Protocol Command Line Interface
 license:
   name: Unknown
   link: ""
+homepage: https://github.com/chrishayuk/mcp-cli
+repository: https://github.com/chrishayuk/mcp-cli
 version: "0.19"
+tags:
+- category/development
+- lang/python
+- type/cli
+- ai
+- llm
+- mcp
 check: "" # No version parameter
 build_dependencies:
 - python-3.12
@@ -14,16 +24,6 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/development
-- lang/python
-- type/cli
-- ai
-- llm
-- mcp
-homepage: https://github.com/chrishayuk/mcp-cli
-repository: https://github.com/chrishayuk/mcp-cli
-description: Model Context Protocol Command Line Interface
 renovate:
   datasource: pypi
   package: mcp-cli

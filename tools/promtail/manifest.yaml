@@ -1,10 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: promtail
+description: Agent which ships the contents of local logs to Grafana Loki
 license:
   name: AGPLv3
   link: https://github.com/grafana/loki/blob/main/LICENSE
+homepage: https://grafana.com/loki
+repository: https://github.com/grafana/loki
 version: "3.6.8"
-check: "" # Empty version
 tags:
 - org/grafana
 - observability/logs
@@ -14,13 +16,11 @@ tags:
 - type/daemon
 - type/cli
 - observability/metrics
+check: "" # Empty version
+platforms:
+- linux/amd64
 messages:
   usage: |
     Promtail has been deprecated in favor of Grafana Alloy.
-homepage: https://grafana.com/loki
-repository: https://github.com/grafana/loki
-description: Agent which ships the contents of local logs to Grafana Loki
 lifecycle:
   removed_with_reason: Deprecated. Consider using OpenTelemetry Collector or Grafana Alloy.
-platforms:
-- linux/amd64

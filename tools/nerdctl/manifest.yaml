@@ -1,13 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: nerdctl
+description: Docker-compatible CLI for containerd, with support for Compose, Rootless, eStargz, OCIcrypt, IPFS
+license:
+  name: Apache License 2.0
+  link: https://github.com/containerd/nerdctl/blob/main/LICENSE
+homepage: https://github.com/containerd/nerdctl
+repository: https://github.com/containerd/nerdctl
 version: "2.2.2"
-check: XDG_RUNTIME_DIR=foo ${binary} --version | cut -d' ' -f3
-runtime_dependencies:
-- containerd
-- buildkit
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/cncf
 - org/containerd
@@ -18,13 +17,14 @@ tags:
 - standard/oci
 - standard/docker
 - docker
-homepage: https://github.com/containerd/nerdctl
-repository: https://github.com/containerd/nerdctl
-description: Docker-compatible CLI for containerd, with support for Compose, Rootless, eStargz, OCIcrypt, IPFS
+check: XDG_RUNTIME_DIR=foo ${binary} --version | cut -d' ' -f3
+runtime_dependencies:
+- containerd
+- buildkit
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: containerd/nerdctl
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/containerd/nerdctl/blob/main/LICENSE

@@ -1,6 +1,17 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: pipx
+description: Install and Run Python Applications in Isolated Environments
+license:
+  name: MIT License
+  link: https://github.com/pypa/pipx/blob/main/LICENSE
+homepage: https://github.com/pypa/pipx/
+repository: https://github.com/pypa/pipx/
 version: "1.12.0"
+tags:
+- category/development
+- lang/python
+- type/cli
+- management
 check: ${binary} --version
 build_dependencies:
 - python-3.12
@@ -10,17 +21,6 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/development
-- lang/python
-- type/cli
-- management
-homepage: https://github.com/pypa/pipx/
-repository: https://github.com/pypa/pipx/
-description: Install and Run Python Applications in Isolated Environments
 renovate:
   datasource: pypi
   package: pipx
-license:
-  name: MIT License
-  link: https://github.com/pypa/pipx/blob/main/LICENSE

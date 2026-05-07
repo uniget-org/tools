@@ -1,26 +1,26 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: jq
+description: Command-line JSON processor
+license:
+  name: Custom
+  link: https://github.com/jqlang/jq/blob/master/COPYING
+homepage: https://jqlang.github.io/jq/
+repository: https://github.com/jqlang/jq
 version: "1.8.1"
-check: ${binary} --version | cut -d- -f2
-conflicts_with:
-- gojq
-- jaq
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - type/cli
 - lang/c
 - standard/jq
 - format/json
-homepage: https://jqlang.github.io/jq/
-repository: https://github.com/jqlang/jq
-description: Command-line JSON processor
+check: ${binary} --version | cut -d- -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: jqlang/jq
   extractVersion: ^jq-(?<version>.+)$
   versioning: loose
-license:
-  name: Custom
-  link: https://github.com/jqlang/jq/blob/master/COPYING
+conflicts_with:
+- gojq
+- jaq

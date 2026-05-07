@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: lazytrivy
+description: Vulnerability scanning just got lazier
+license:
+  name: Apache License 2.0
+  link: https://github.com/owenrumney/lazytrivy/blob/master/LICENSE
+homepage: https://github.com/owenrumney/lazytrivy
+repository: https://github.com/owenrumney/lazytrivy
 version: "1.3.3"
-check: "" # No version parameter
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/security
 - lang/go
 - type/tui
-homepage: https://github.com/owenrumney/lazytrivy
-repository: https://github.com/owenrumney/lazytrivy
-description: Vulnerability scanning just got lazier
+check: "" # No version parameter
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: owenrumney/lazytrivy
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/owenrumney/lazytrivy/blob/master/LICENSE

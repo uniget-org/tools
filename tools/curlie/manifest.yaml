@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: curlie
+description: The power of curl, the ease of use of httpie.
+license:
+  name: MIT License
+  link: https://github.com/rs/curlie/blob/master/LICENSE
+homepage: https://curlie.io
+repository: https://github.com/rs/curlie
 version: "1.8.2"
-check: ${binary} version | cut -d' ' -f2
 tags:
 - category/development
 - component/network
 - type/cli
 - lang/go
-homepage: https://curlie.io
-repository: https://github.com/rs/curlie
-description: The power of curl, the ease of use of httpie.
+check: ${binary} version | cut -d' ' -f2
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: rs/curlie
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/rs/curlie/blob/master/LICENSE
-platforms:
-- linux/amd64

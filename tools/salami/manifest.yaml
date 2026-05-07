@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: salami
+description: Infrastructure as Natural Language
+license:
+  name: Apache License 2.0
+  link: https://github.com/petrgazarov/salami/blob/main/LICENSE
+homepage: https://github.com/petrgazarov/salami
+repository: https://github.com/petrgazarov/salami
 version: "0.0.3"
-check: ${binary} version | cut -d' ' -f3
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/go
 - type/cli
 - state/stale
-homepage: https://github.com/petrgazarov/salami
-repository: https://github.com/petrgazarov/salami
-description: Infrastructure as Natural Language
+check: ${binary} version | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: petrgazarov/salami
-license:
-  name: Apache License 2.0
-  link: https://github.com/petrgazarov/salami/blob/main/LICENSE

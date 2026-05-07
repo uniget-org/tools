@@ -1,7 +1,11 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: neofetch
+description: Command-line system information tool written in bash 3.2+
+license:
+  name: MIT License
+homepage: https://github.com/dylanaraps/neofetch
+repository: https://github.com/dylanaraps/neofetch
 version: "7.1.0"
-check: ${binary} --version | cut -d' ' -f2
 tags:
 - type/cli
 - fun
@@ -9,13 +13,9 @@ tags:
 - state/stale
 - category/operations
 - state/deprecated
-homepage: https://github.com/dylanaraps/neofetch
-repository: https://github.com/dylanaraps/neofetch
-description: Command-line system information tool written in bash 3.2+
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: dylanaraps/neofetch
-license:
-  name: MIT License
-platforms:
-- linux/amd64

@@ -1,7 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: gitlab-release
+description: Utility for use in gitlab ci to upload files (from build) to the current projects release (tag)
+license:
+  name: MIT License
+  link: https://gitlab.com/alelec/gitlab-release/-/blob/master/LICENSE?ref_type=heads
+homepage: https://gitlab.com/alelec/gitlab-release
+repository: https://gitlab.com/alelec/gitlab-release
 version: "5.6"
+tags:
+- category/development
+- lang/python
+- type/cli
+- cloud/gitlab
+- cicd
+- gitlab
+- standard/gitlab
 check: "" # No version parameter
 build_dependencies:
 - python-3.12
@@ -11,20 +25,6 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/development
-- lang/python
-- type/cli
-- cloud/gitlab
-- cicd
-- gitlab
-- standard/gitlab
-homepage: https://gitlab.com/alelec/gitlab-release
-repository: https://gitlab.com/alelec/gitlab-release
-description: Utility for use in gitlab ci to upload files (from build) to the current projects release (tag)
 renovate:
   datasource: pypi
   package: gitlab-release
-license:
-  name: MIT License
-  link: https://gitlab.com/alelec/gitlab-release/-/blob/master/LICENSE?ref_type=heads

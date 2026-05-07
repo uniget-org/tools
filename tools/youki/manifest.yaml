@@ -1,6 +1,19 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: youki
+description: Container runtime written in rust
+license:
+  name: Apache License 2.0
+  link: https://github.com/youki-dev/youki/blob/main/LICENSE
+homepage: https://youki-dev.github.io/youki/
+repository: https://github.com/youki-dev/youki
 version: 0.6.0
+tags:
+- org/redhat
+- container/runtime
+- lang/rust
+- standard/docker
+- docker
+- cncf/sandbox
 check: ${binary} --version | grep ^youki | cut -d' ' -f3
 build_dependencies:
 - rust
@@ -9,16 +22,10 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- org/redhat
-- container/runtime
-- lang/rust
-- standard/docker
-- docker
-- cncf/sandbox
-homepage: https://youki-dev.github.io/youki/
-repository: https://github.com/youki-dev/youki
-description: Container runtime written in rust
+renovate:
+  datasource: github-releases
+  package: youki-dev/youki
+  extractVersion: ^v(?<version>.+)$
 messages:
   update: |
     Add crun to Docker runtimes by merging the following into
@@ -31,10 +38,3 @@ messages:
             }
         }
     }
-renovate:
-  datasource: github-releases
-  package: youki-dev/youki
-  extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/youki-dev/youki/blob/main/LICENSE

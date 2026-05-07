@@ -1,11 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: bomshell
+description: SBOM query language and associated utilities
+license:
+  name: Apache License 2.0
+  link: https://github.com/chainguard-dev/bomshell/blob/main/LICENSE
+homepage: https://github.com/chainguard-dev/bomshell
+repository: https://github.com/chainguard-dev/bomshell
 version: "0.1.0"
-check: ${binary} --version | cut -d' ' -f2 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/chainguard
 - category/security
@@ -16,13 +18,11 @@ tags:
 - state/stale
 - format/spdx
 - format/cyclonedx
-homepage: https://github.com/chainguard-dev/bomshell
-repository: https://github.com/chainguard-dev/bomshell
-description: SBOM query language and associated utilities
+check: ${binary} --version | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: chainguard-dev/bomshell
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/chainguard-dev/bomshell/blob/main/LICENSE

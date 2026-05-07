@@ -1,18 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: node-exporter-systemd
+description: compose file for node-exporter with systemd
 license:
   name: MIT License
   link: https://gitlab.com/uniget-org/tools/blob/master/LICENSE
+homepage: https://uniget.dev
+repository: https://gitlab.com/uniget-org/tools
 version: "0.1.0"
-binary: "false"
-check: "" # No binary to check
-runtime_dependencies:
-- node-exporter
-- docker-compose-systemd
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/prometheus
 - category/operations
@@ -20,11 +15,16 @@ tags:
 - type/daemon
 - standard/prometheus
 - exporter
-homepage: https://uniget.dev
-repository: https://gitlab.com/uniget-org/tools
-description: compose file for node-exporter with systemd
+check: "" # No binary to check
+runtime_dependencies:
+- node-exporter
+- docker-compose-systemd
+platforms:
+- linux/amd64
+- linux/arm64
+binary: "false"
 messages:
-  usage: |
+  usage: |-
     - A compose.yaml file is provided in /etc/docker-compose/node-exporter/
     - Start the service using:
           systemctl start docker-compose@node-exporter

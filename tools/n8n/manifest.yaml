@@ -1,6 +1,17 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: n8n
+description: Free and source-available fair-code licensed workflow automation tool. Easily automate tasks across different services
+license:
+  name: Sustainable Use License 1.0
+  link: https://github.com/n8n-io/n8n/blob/master/LICENSE.md
+homepage: https://github.com/n8n-io/n8n
+repository: https://github.com/n8n-io/n8n
 version: "2.19.5"
+tags:
+- category/operations
+- lang/javascript
+- type/cli
+- type/daemon
 check: ${binary} --version
 build_dependencies:
 - node-lts
@@ -9,17 +20,6 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/operations
-- lang/javascript
-- type/cli
-- type/daemon
-homepage: https://github.com/n8n-io/n8n
-repository: https://github.com/n8n-io/n8n
-description: Free and source-available fair-code licensed workflow automation tool. Easily automate tasks across different services
 renovate:
   datasource: npm
   package: n8n
-license:
-  name: Sustainable Use License 1.0
-  link: https://github.com/n8n-io/n8n/blob/master/LICENSE.md

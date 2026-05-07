@@ -1,11 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: dive
+description: Tool for exploring each layer in a docker image
+license:
+  name: MIT License
+  link: https://github.com/wagoodman/dive/blob/main/LICENSE
+homepage: https://github.com/wagoodman/dive
+repository: https://github.com/wagoodman/dive
 version: "0.13.1"
-check: ${binary} --version | cut -d' ' -f2
-runtime_dependencies:
-- docker
-platforms:
-- linux/amd64
 tags:
 - standard/oci
 - standard/docker
@@ -15,13 +16,12 @@ tags:
 - troubleshooting
 - lang/go
 - docker
-homepage: https://github.com/wagoodman/dive
-repository: https://github.com/wagoodman/dive
-description: Tool for exploring each layer in a docker image
+check: ${binary} --version | cut -d' ' -f2
+runtime_dependencies:
+- docker
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: wagoodman/dive
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/wagoodman/dive/blob/main/LICENSE

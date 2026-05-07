@@ -1,7 +1,16 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: visidata
+description: terminal spreadsheet multitool for discovering and arranging data
+license:
+  name: GPLv3
+homepage: http://visidata.org
+repository: https://github.com/saulpw/visidata
 version: "3.3"
+tags:
+- category/development
+- lang/python
+- type/tui
 check: ${binary} --version | cut -d' ' -f2 | tr -d v
 build_dependencies:
 - python-3.12
@@ -10,16 +19,7 @@ runtime_dependencies:
 - python-3.12
 platforms:
 - linux/amd64
-tags:
-- category/development
-- lang/python
-- type/tui
-homepage: http://visidata.org
-repository: https://github.com/saulpw/visidata
-description: terminal spreadsheet multitool for discovering and arranging data
 renovate:
   datasource: github-releases
   package: saulpw/visidata
   extractVersion: ^v(?<version>.+)$
-license:
-  name: GPLv3

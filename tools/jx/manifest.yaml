@@ -1,10 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: jx
+description: Automated CI+CD for Kubernetes with Preview Environments on Pull Requests using Cloud Native pipelines from Tekton
+license:
+  name: Apache License 2.0
+  link: https://github.com/jenkins-x/jx/blob/main/LICENSE
+homepage: https://jenkins-x.io/
+repository: https://github.com/jenkins-x/jx
 version: "3.17.1"
-check: ${binary} version --short
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - type/cli
 - cicd
@@ -13,13 +15,11 @@ tags:
 - cicd
 - kubernetes
 - k8s
-homepage: https://jenkins-x.io/
-repository: https://github.com/jenkins-x/jx
-description: Automated CI+CD for Kubernetes with Preview Environments on Pull Requests using Cloud Native pipelines from Tekton
+check: ${binary} version --short
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: jenkins-x/jx
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/jenkins-x/jx/blob/main/LICENSE

@@ -1,13 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: docker-sbom
+description: Plugin for Docker CLI to support SBOM creation using Syft
+license:
+  name: Apache License 2.0
+  link: https://github.com/docker/sbom-cli-plugin/blob/main/LICENSE
+homepage: https://github.com/docker/sbom-cli-plugin
+repository: https://github.com/docker/sbom-cli-plugin
 version: "0.6.1"
-binary: ${target}/libexec/docker/cli-plugins/docker-sbom
-check: ${binary} sbom --version | cut -d, -f1 | cut -d' ' -f2
-runtime_dependencies:
-- docker
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - standard/docker
 - org/docker
@@ -19,13 +18,14 @@ tags:
 - lang/go
 - state/stale
 - docker
-homepage: https://github.com/docker/sbom-cli-plugin
-repository: https://github.com/docker/sbom-cli-plugin
-description: Plugin for Docker CLI to support SBOM creation using Syft
+check: ${binary} sbom --version | cut -d, -f1 | cut -d' ' -f2
+runtime_dependencies:
+- docker
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: docker/sbom-cli-plugin
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/docker/sbom-cli-plugin/blob/main/LICENSE
+binary: ${target}/libexec/docker/cli-plugins/docker-sbom

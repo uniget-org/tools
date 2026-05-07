@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: lsd
+description: Next gen ls command
+license:
+  name: Apache License 2.0
+  link: https://github.com/lsd-rs/lsd/blob/master/LICENSE
+homepage: https://github.com/lsd-rs/lsd
+repository: https://github.com/lsd-rs/lsd
 version: "1.2.0"
-check: ${binary} --version | cut -d' ' -f2
 tags:
 - type/cli
 - terminal
 - lang/rust
 - category/terminal
-homepage: https://github.com/lsd-rs/lsd
-repository: https://github.com/lsd-rs/lsd
-description: Next gen ls command
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: lsd-rs/lsd
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/lsd-rs/lsd/blob/master/LICENSE
-platforms:
-- linux/amd64

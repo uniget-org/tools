@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: tetrigo
+description: Play Tetris in your terminal
 license:
   name: GPLv3
   link: https://github.com/Broderick-Westrope/tetrigo/blob/main/LICENSE.txt
+homepage: https://github.com/Broderick-Westrope/tetrigo
+repository: https://github.com/Broderick-Westrope/tetrigo
 version: "0.2.0"
-check: "" # No version parameter
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/games
 - lang/go
 - type/tui
 - tetris
-homepage: https://github.com/Broderick-Westrope/tetrigo
-repository: https://github.com/Broderick-Westrope/tetrigo
-description: Play Tetris in your terminal
+check: "" # No version parameter
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: Broderick-Westrope/tetrigo

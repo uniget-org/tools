@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: delta
+description: Syntax-highlighting pager for git, diff, and grep output
+license:
+  name: MIT License
+  link: https://github.com/dandavison/delta/blob/main/LICENSE
+homepage: https://dandavison.github.io/delta/
+repository: https://github.com/dandavison/delta
 version: "0.19.2"
-check: ${binary} --version | cut -d' ' -f2
-build_dependencies:
-- rust
 tags:
 - category/operations
 - lang/rust
 - type/cli
 - terminal
-homepage: https://dandavison.github.io/delta/
-repository: https://github.com/dandavison/delta
-description: Syntax-highlighting pager for git, diff, and grep output
+check: ${binary} --version | cut -d' ' -f2
+build_dependencies:
+- rust
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: dandavison/delta
-license:
-  name: MIT License
-  link: https://github.com/dandavison/delta/blob/main/LICENSE
-platforms:
-- linux/amd64

@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: glow
+description: Render markdown on the CLI
+license:
+  name: MIT License
+  link: https://github.com/charmbracelet/glow/blob/master/LICENSE
+homepage: https://github.com/charmbracelet/glow
+repository: https://github.com/charmbracelet/glow
 version: "2.1.2"
-check: ${binary} --version | cut -d' ' -f3
 tags:
 - org/charmbracelet
 - category/operations
 - type/cli
 - format/markdown
 - lang/go
-homepage: https://github.com/charmbracelet/glow
-repository: https://github.com/charmbracelet/glow
-description: Render markdown on the CLI
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: charmbracelet/glow
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/charmbracelet/glow/blob/master/LICENSE
-platforms:
-- linux/amd64

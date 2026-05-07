@@ -1,9 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: firectl
+description: Command-line tool to run Firecracker microVMs
+license:
+  name: Apache License 2.0
+  link: https://github.com/firecracker-microvm/firectl/blob/main/LICENSE
+homepage: https://github.com/firecracker-microvm/firectl
+repository: https://github.com/firecracker-microvm/firectl
 version: "0.2.0"
-check: ${binary} --version | grep ^Version | cut -d' ' -f2
-runtime_dependencies:
-- firecracker
 tags:
 - type/cli
 - kvm
@@ -12,15 +15,12 @@ tags:
 - emulation
 - lang/go
 - state/stale
-homepage: https://github.com/firecracker-microvm/firectl
-repository: https://github.com/firecracker-microvm/firectl
-description: Command-line tool to run Firecracker microVMs
+check: ${binary} --version | grep ^Version | cut -d' ' -f2
+runtime_dependencies:
+- firecracker
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: firecracker-microvm/firectl
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/firecracker-microvm/firectl/blob/main/LICENSE
-platforms:
-- linux/amd64

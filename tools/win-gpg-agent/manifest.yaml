@@ -1,9 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: win-gpg-agent
+description: Windows helpers for GnuPG tools suite
+license:
+  name: Apache License 2.0
+  link: https://github.com/rupor-github/win-gpg-agent/blob/main/LICENSE
+homepage: https://github.com/rupor-github/win-gpg-agent
+repository: https://github.com/rupor-github/win-gpg-agent
 version: "1.6.3"
-binary: sorelay.exe
-#check: ${binary} --version 2>&1 | tail -n 1 | cut -d' ' -f1
-check: "" # Hangs for a long time
 tags:
 - type/cli
 - wsl
@@ -13,15 +16,12 @@ tags:
 - gpg
 - gnupg
 - pgp
-homepage: https://github.com/rupor-github/win-gpg-agent
-repository: https://github.com/rupor-github/win-gpg-agent
-description: Windows helpers for GnuPG tools suite
+check: "" # Hangs for a long time
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: rupor-github/win-gpg-agent
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/rupor-github/win-gpg-agent/blob/main/LICENSE
-platforms:
-- linux/amd64
+binary: sorelay.exe
+#check: ${binary} --version 2>&1 | tail -n 1 | cut -d' ' -f1

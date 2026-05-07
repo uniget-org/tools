@@ -1,11 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: hetzner-k3s
+description: Create and manage Kubernetes clusters in Hetzner Cloud
+license:
+  name: MIT License
+homepage: https://github.com/vitobotta/hetzner-k3s
+repository: https://github.com/vitobotta/hetzner-k3s
 version: "2.5.0"
-check: ${binary} --version
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/crystal
@@ -14,12 +15,11 @@ tags:
 - k8s
 - k3s
 - cloud/hetzner
-homepage: https://github.com/vitobotta/hetzner-k3s
-repository: https://github.com/vitobotta/hetzner-k3s
-description: Create and manage Kubernetes clusters in Hetzner Cloud
+check: ${binary} --version
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: vitobotta/hetzner-k3s
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License

@@ -1,11 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: sysbox
+description: Next-generation "runc" that empowers rootless containers
+license:
+  name: Apache License 2.0
+  link: https://github.com/nestybox/sysbox/blob/master/LICENSE
+homepage: https://github.com/nestybox/sysbox
+repository: https://github.com/nestybox/sysbox
 version: "0.6.7"
-binary: sysbox-runc
-check: ${binary} --version | grep version | cut -f3
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/docker
 - standard/oci
@@ -15,13 +16,12 @@ tags:
 - category/security
 - standard/docker
 - docker
-homepage: https://github.com/nestybox/sysbox
-repository: https://github.com/nestybox/sysbox
-description: Next-generation "runc" that empowers rootless containers
+check: ${binary} --version | grep version | cut -f3
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: nestybox/sysbox
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/nestybox/sysbox/blob/master/LICENSE
+binary: sysbox-runc

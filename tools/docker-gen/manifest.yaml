@@ -1,10 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: docker-gen
+description: Generate files from docker container meta-data
+license:
+  name: MIT License
+  link: https://github.com/nginx-proxy/docker-gen/blob/main/LICENSE
+homepage: https://github.com/nginx-proxy/docker-gen
+repository: https://github.com/nginx-proxy/docker-gen
 version: "0.16.3"
-check: ${binary} --version
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/go
@@ -12,12 +14,10 @@ tags:
 - standard/oci
 - standard/docker
 - docker
-homepage: https://github.com/nginx-proxy/docker-gen
-repository: https://github.com/nginx-proxy/docker-gen
-description: Generate files from docker container meta-data
+check: ${binary} --version
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: nginx-proxy/docker-gen
-license:
-  name: MIT License
-  link: https://github.com/nginx-proxy/docker-gen/blob/main/LICENSE

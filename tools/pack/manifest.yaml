@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: pack
+description: CLI for building apps using Cloud Native Buildpacks
+license:
+  name: Apache License 2.0
+  link: https://github.com/buildpacks/pack/blob/main/LICENSE
+homepage: https://buildpacks.io
+repository: https://github.com/buildpacks/pack
 version: "0.40.4"
-check: ${binary} --version | cut -d+ -f1
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/go
 - type/cli
 - cncf/incubating
-homepage: https://buildpacks.io
-repository: https://github.com/buildpacks/pack
-description: CLI for building apps using Cloud Native Buildpacks
+check: ${binary} --version | cut -d+ -f1
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: buildpacks/pack
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/buildpacks/pack/blob/main/LICENSE

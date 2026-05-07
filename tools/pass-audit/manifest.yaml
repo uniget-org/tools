@@ -1,14 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: pass-audit
+description: Pass extension for importing data from most existing password managers
+license:
+  name: GPLv3
+  link: https://github.com/roddhjav/pass-audit/blob/master/LICENSE
+homepage: https://github.com/roddhjav/pass-audit
+repository: https://github.com/roddhjav/pass-audit
 version: "1.2"
-check: "" # TODO
-build_dependencies:
-- make
-- python-3.12
-- pipx
-runtime_dependencies:
-- pass
-- python-3.12
 tags:
 - category/security
 - lang/python
@@ -17,14 +15,16 @@ tags:
 - management
 - standard/pass
 - state/stale
-homepage: https://github.com/roddhjav/pass-audit
-repository: https://github.com/roddhjav/pass-audit
-description: Pass extension for importing data from most existing password managers
+check: "" # TODO
+build_dependencies:
+- make
+- python-3.12
+- pipx
+runtime_dependencies:
+- pass
+- python-3.12
+platforms:
+- linux/amd64
 renovate:
   datasource: pypi
   package: pass-audit
-license:
-  name: GPLv3
-  link: https://github.com/roddhjav/pass-audit/blob/master/LICENSE
-platforms:
-- linux/amd64

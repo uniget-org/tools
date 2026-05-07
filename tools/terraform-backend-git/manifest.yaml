@@ -1,13 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: terraform-backend-git
+description: Terraform HTTP Backend implementation that uses Git repository as storage
+license:
+  name: Apache License 2.0
+  link: https://github.com/plumber-cd/terraform-backend-git/blob/master/LICENSE
+homepage: https://github.com/plumber-cd/terraform-backend-git
+repository: https://github.com/plumber-cd/terraform-backend-git
 version: "0.1.11"
-check: ${binary} version | tr -d v
-runtime_dependencies:
-- terraform
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/hashicorp
 - category/operations
@@ -17,13 +17,13 @@ tags:
 - management
 - standard/git
 - git
-homepage: https://github.com/plumber-cd/terraform-backend-git
-repository: https://github.com/plumber-cd/terraform-backend-git
-description: Terraform HTTP Backend implementation that uses Git repository as storage
+check: ${binary} version | tr -d v
+runtime_dependencies:
+- terraform
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: plumber-cd/terraform-backend-git
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/plumber-cd/terraform-backend-git/blob/master/LICENSE

@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: tea
+description: Command line tool to interact with Gitea servers
+license:
+  name: Custom
+  link: https://gitea.com/gitea/tea/src/branch/main/LICENSE
+homepage: https://gitea.com/gitea/tea
+repository: https://gitea.com/gitea/tea
 version: "0.14.0"
-check: ${binary} --version | tr '\t' ' ' | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/gitea
 - category/development
 - lang/go
 - type/cli
-homepage: https://gitea.com/gitea/tea
-repository: https://gitea.com/gitea/tea
-description: Command line tool to interact with Gitea servers
+check: ${binary} --version | tr '\t' ' ' | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: gitea-releases
   package: gitea/tea
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Custom
-  link: https://gitea.com/gitea/tea/src/branch/main/LICENSE

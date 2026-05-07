@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: norouter
+description: IP-over-Stdio
+license:
+  name: Apache License 2.0
+  link: https://github.com/norouter/norouter/blob/master/LICENSE
+homepage: https://norouter.io
+repository: https://github.com/norouter/norouter
 version: "0.6.5"
-check: ${binary} --version | cut -d' ' -f3
 tags:
 - component/network
 - type/cli
 - lang/go
 - state/stale
-homepage: https://norouter.io
-repository: https://github.com/norouter/norouter
-description: IP-over-Stdio
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: norouter/norouter
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/norouter/norouter/blob/master/LICENSE
-platforms:
-- linux/amd64

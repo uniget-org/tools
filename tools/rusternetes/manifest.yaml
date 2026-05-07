@@ -1,11 +1,28 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: rusternetes
+description: kubernetes, reimplemented in Rust
 license:
   name: Apache License 2.0
   link: https://github.com/calfonso/rusternetes/blob/main/LICENSE
+homepage: https://github.com/calfonso/rusternetes
+repository: https://github.com/calfonso/rusternetes
 version: "cabb22fec56e024b37a0133d3869c0309d385f1c"
+tags:
+- category/operations
+- lang/rust
+- type/cli
+- kubernetes
+- k8s
 check: ""
+build_dependencies:
+- rust
+platforms:
+- linux/amd64
+renovate:
+  datasource: git-refs
+  package: https://github.com/calfonso/rusternetes
+  ref: main
 conflicts_with:
 - kubectl
 - kube-apiserver
@@ -13,20 +30,3 @@ conflicts_with:
 - kube-proxy
 - kube-scheduler
 - kubelet
-build_dependencies:
-- rust
-platforms:
-- linux/amd64
-tags:
-- category/operations
-- lang/rust
-- type/cli
-- kubernetes
-- k8s
-homepage: https://github.com/calfonso/rusternetes
-repository: https://github.com/calfonso/rusternetes
-description: kubernetes, reimplemented in Rust
-renovate:
-  datasource: git-refs
-  package: https://github.com/calfonso/rusternetes
-  ref: main

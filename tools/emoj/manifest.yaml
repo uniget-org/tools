@@ -1,7 +1,16 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: emoj
+description: Find relevant emoji from text on the command-line
+license:
+  name: MIT License
+  link: https://github.com/sindresorhus/emoj/blob/main/license
+homepage: https://github.com/sindresorhus/emoj
+repository: https://github.com/sindresorhus/emoj
 version: "4.2.0"
+tags:
+- lang/javascript
+- type/cli
 check: ${binary} --version
 build_dependencies:
 - node-lts
@@ -10,15 +19,6 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- lang/javascript
-- type/cli
-homepage: https://github.com/sindresorhus/emoj
-repository: https://github.com/sindresorhus/emoj
-description: Find relevant emoji from text on the command-line
 renovate:
   datasource: npm
   package: emoj
-license:
-  name: MIT License
-  link: https://github.com/sindresorhus/emoj/blob/main/license

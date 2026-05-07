@@ -1,14 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: pass-import
+description: Pass extension for importing data from most existing password managers
+license:
+  name: GPLv3
+  link: https://github.com/roddhjav/pass-import/blob/master/LICENSE
+homepage: https://github.com/roddhjav/pass-import
+repository: https://github.com/roddhjav/pass-import
 version: "3.5"
-binary: pimport
-check: "" # TODO
-build_dependencies:
-- python-3.12
-- pipx
-runtime_dependencies:
-- pass
-- python-3.12
 tags:
 - category/security
 - lang/python
@@ -16,14 +14,16 @@ tags:
 - password
 - management
 - standard/pass
-homepage: https://github.com/roddhjav/pass-import
-repository: https://github.com/roddhjav/pass-import
-description: Pass extension for importing data from most existing password managers
+check: "" # TODO
+build_dependencies:
+- python-3.12
+- pipx
+runtime_dependencies:
+- pass
+- python-3.12
+platforms:
+- linux/amd64
 renovate:
   datasource: pypi
   package: pass-import
-license:
-  name: GPLv3
-  link: https://github.com/roddhjav/pass-import/blob/master/LICENSE
-platforms:
-- linux/amd64
+binary: pimport

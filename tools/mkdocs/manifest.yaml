@@ -1,7 +1,20 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: mkdocs
+description: Project documentation with Markdown
+license:
+  name: BSD 2-Clause License
+  link: https://github.com/mkdocs/mkdocs/blob/master/LICENSEs
+homepage: https://github.com/mkdocs/mkdocs
+repository: https://github.com/mkdocs/mkdocs
 version: "1.6.1"
+tags:
+- category/development
+- lang/python
+- type/cli
+- website
+- format/markdown
+- state/stale
 check: ${binary} --version | cut -d' ' -f3
 build_dependencies:
 - python-3.12
@@ -11,19 +24,6 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/development
-- lang/python
-- type/cli
-- website
-- format/markdown
-- state/stale
-homepage: https://github.com/mkdocs/mkdocs
-repository: https://github.com/mkdocs/mkdocs
-description: Project documentation with Markdown
 renovate:
   datasource: pypi
   package: mkdocs
-license:
-  name: BSD 2-Clause License
-  link: https://github.com/mkdocs/mkdocs/blob/master/LICENSEs

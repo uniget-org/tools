@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: scenarigo
+description: End-to-end scenario testing tool for HTTP/gRPC server
 license:
   name: Apache License 2.0
   link: https://github.com/zoncoen/scenarigo/blob/main/LICENSE
+homepage: https://github.com/zoncoen/scenarigo
+repository: https://github.com/zoncoen/scenarigo
 version: "0.18.0"
-check: ${binary} version | cut -d' ' -f3 | cut -d- -f1 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/go
 - type/cli
-homepage: https://github.com/zoncoen/scenarigo
-repository: https://github.com/zoncoen/scenarigo
-description: End-to-end scenario testing tool for HTTP/gRPC server
+check: ${binary} version | cut -d' ' -f3 | cut -d- -f1 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: zoncoen/scenarigo

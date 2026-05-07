@@ -1,20 +1,20 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: witness
+description: Pluggable framework for software supply chain risk management
+license:
+  name: Apache License 2.0
+  link: https://github.com/in-toto/witness/blob/main/LICENSE
+homepage: https://witness.dev
+repository: https://github.com/in-toto/witness
 version: "0.11.0"
-check: ${binary} version | cut -d' ' -f2 | cut -d- -f1 | tr -d v
 tags:
 - type/cli
 - category/security
 - lang/go
-homepage: https://witness.dev
-repository: https://github.com/in-toto/witness
-description: Pluggable framework for software supply chain risk management
+check: ${binary} version | cut -d' ' -f2 | cut -d- -f1 | tr -d v
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: in-toto/witness
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/in-toto/witness/blob/main/LICENSE
-platforms:
-- linux/amd64

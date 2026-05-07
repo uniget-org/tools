@@ -1,8 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kubectl-ssh-proxy
+description: Kubectl plugin to launch a ssh socks proxy and use it
+license:
+  name: GPLv3
+  link: https://github.com/little-angry-clouds/kubectl-ssh-proxy/blob/master/LICENSE
+homepage: https://github.com/little-angry-clouds/kubectl-ssh-proxy
+repository: https://github.com/little-angry-clouds/kubectl-ssh-proxy
 version: "0.0.2"
-binary: kubectl-ssh_proxy
-check: "" # No version parameter
 tags:
 - type/cli
 - category/security
@@ -12,14 +16,10 @@ tags:
 - state/onemanshow
 - ssh
 - k8s
-homepage: https://github.com/little-angry-clouds/kubectl-ssh-proxy
-repository: https://github.com/little-angry-clouds/kubectl-ssh-proxy
-description: Kubectl plugin to launch a ssh socks proxy and use it
+check: "" # No version parameter
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: little-angry-clouds/kubectl-ssh-proxy
-license:
-  name: GPLv3
-  link: https://github.com/little-angry-clouds/kubectl-ssh-proxy/blob/master/LICENSE
-platforms:
-- linux/amd64
+binary: kubectl-ssh_proxy

@@ -1,10 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: forgit
+description: Utility tool powered by fzf for using git interactively
+license:
+  name: MIT License
+  link: https://github.com/wfxr/forgit/blob/master/LICENSE
+homepage: https://github.com/wfxr/forgit
+repository: https://github.com/wfxr/forgit
 version: "26.05.0"
-binary: "false"
-check: "" # No binary
-runtime_dependencies:
-- fzf
 tags:
 - type/cli
 - category/development
@@ -12,15 +14,13 @@ tags:
 - terminal
 - standard/git
 - git
-homepage: https://github.com/wfxr/forgit
-repository: https://github.com/wfxr/forgit
-description: Utility tool powered by fzf for using git interactively
+check: "" # No binary
+runtime_dependencies:
+- fzf
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: wfxr/forgit
   versioning: loose
-license:
-  name: MIT License
-  link: https://github.com/wfxr/forgit/blob/master/LICENSE
-platforms:
-- linux/amd64
+binary: "false"

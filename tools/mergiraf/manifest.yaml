@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: mergiraf
+description: Syntax-aware git merge driver for a growing collection of programming languages and file formats
 license:
   name: GPLv3
   link: https://codeberg.org/mergiraf/mergiraf/src/branch/main/LICENSE.txt
+homepage: https://mergiraf.org/
+repository: https://codeberg.org/mergiraf/mergiraf
 version: "0.17.0"
-check: ""
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/rust
 - type/cli
-homepage: https://mergiraf.org/
-repository: https://codeberg.org/mergiraf/mergiraf
-description: Syntax-aware git merge driver for a growing collection of programming languages and file formats
+check: ""
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: git-tags
   package: https://codeberg.org/mergiraf/mergiraf.git

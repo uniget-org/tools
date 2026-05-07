@@ -1,11 +1,19 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: grafana-systemd
+description: compose file for grafana with systemd
 license:
   name: MIT License
   link: https://gitlab.com/uniget-org/tools/blob/main/LICENSE
+homepage: https://uniget.dev
+repository: https://gitlab.com/uniget-org/tools
 version: "0.1.0"
-binary: "false"
+tags:
+- org/grafana
+- category/operations
+- lang/go
+- type/daemon
+- standard/prometheus
 check: "" # No binary to check
 runtime_dependencies:
 - grafana
@@ -13,15 +21,7 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- org/grafana
-- category/operations
-- lang/go
-- type/daemon
-- standard/prometheus
-homepage: https://uniget.dev
-repository: https://gitlab.com/uniget-org/tools
-description: compose file for grafana with systemd
+binary: "false"
 messages:
   usage: |
     - A compose.yaml file is provided in /etc/docker-compose/grafana/

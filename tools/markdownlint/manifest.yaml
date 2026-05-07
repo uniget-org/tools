@@ -1,7 +1,19 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: markdownlint
+description: MarkdownLint Command Line Interface
+license:
+  name: MIT License
+  link: https://github.com/igorshubovych/markdownlint-cli/blob/master/LICENSE
+homepage: https://github.com/igorshubovych/markdownlint-cli
+repository: https://github.com/igorshubovych/markdownlint-cli
 version: "0.48.0"
+tags:
+- category/development
+- lang/javascript
+- type/cli
+- format/markdown
+- lint
 check: ${binary} --version
 build_dependencies:
 - node-lts
@@ -10,18 +22,6 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/development
-- lang/javascript
-- type/cli
-- format/markdown
-- lint
-homepage: https://github.com/igorshubovych/markdownlint-cli
-repository: https://github.com/igorshubovych/markdownlint-cli
-description: MarkdownLint Command Line Interface
 renovate:
   datasource: npm
   package: markdownlint-cli
-license:
-  name: MIT License
-  link: https://github.com/igorshubovych/markdownlint-cli/blob/master/LICENSE

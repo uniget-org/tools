@@ -1,24 +1,24 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: openjdk
+description: OpenJDK
 license:
   name: GPLv2
   link: https://github.com/openjdk/jdk/blob/master/LICENSE
+homepage: https://adoptium.net/de/temurin/
+repository: https://github.com/adoptium
 version: "26.0.1-8"
-binary: javac
-check: ${binary} -version | cut -d' ' -f2
-build_dependencies:
-- jabba
 tags:
 - type/cli
 - category/development
 - lang/java
-homepage: https://adoptium.net/de/temurin/
-repository: https://github.com/adoptium
-description: OpenJDK
+check: ${binary} -version | cut -d' ' -f2
+build_dependencies:
+- jabba
+platforms:
+- linux/amd64
 renovate:
   datasource: gitlab-releases
   package: uniget-org/renovate-custom
   extractVersion: ^openjdk/(?<version>.+)$
   versioning: loose
-platforms:
-- linux/amd64
+binary: javac

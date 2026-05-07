@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: ghostunnel
+description: Simple SSL/TLS proxy with mutual authentication for securing non-TLS services
+license:
+  name: Apache License 2.0
+  link: https://github.com/ghostunnel/ghostunnel/blob/master/LICENSE
+homepage: https://github.com/ghostunnel/ghostunnel
+repository: https://github.com/ghostunnel/ghostunnel
 version: "1.10.0"
-check: "" # No version parameter
-platforms:
-- linux/amd64
 tags:
 - type/cli
 - category/security
 - tunneling
 - lang/go
-homepage: https://github.com/ghostunnel/ghostunnel
-repository: https://github.com/ghostunnel/ghostunnel
-description: Simple SSL/TLS proxy with mutual authentication for securing non-TLS services
+check: "" # No version parameter
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: ghostunnel/ghostunnel
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/ghostunnel/ghostunnel/blob/master/LICENSE

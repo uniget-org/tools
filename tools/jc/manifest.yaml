@@ -1,7 +1,17 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: jc
+description: converts the output of popular command-line tools, file-types, and common strings to JSON, YAML, or dictionaries
+license:
+  name: MIT License
+  link: https://github.com/kellyjonbrazil/jc/blob/master/LICENSE.md
+homepage: https://github.com/kellyjonbrazil/jc
+repository: https://github.com/kellyjonbrazil/jc
 version: "1.25.6"
+tags:
+- category/operations
+- lang/python
+- type/cli
 check: ${binary} --version | grep ^jc | tr -s ' ' | cut -d' ' -f3
 build_dependencies:
 - python-3.12
@@ -10,16 +20,6 @@ runtime_dependencies:
 - python-3.12
 platforms:
 - linux/amd64
-tags:
-- category/operations
-- lang/python
-- type/cli
-homepage: https://github.com/kellyjonbrazil/jc
-repository: https://github.com/kellyjonbrazil/jc
-description: converts the output of popular command-line tools, file-types, and common strings to JSON, YAML, or dictionaries
 renovate:
   datasource: pypi
   package: jc
-license:
-  name: MIT License
-  link: https://github.com/kellyjonbrazil/jc/blob/master/LICENSE.md

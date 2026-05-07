@@ -1,24 +1,24 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: in-toto
+description: Framework to protect software supply chain integrity
+license:
+  name: Apache License 2.0
+  link: https://github.com/in-toto/in-toto-golang/blob/master/LICENSE
+homepage: https://in-toto.io/
+repository: https://github.com/in-toto/in-toto-golang
 version: "0.11.0"
-check: "" # No version parameter
-build_dependencies:
-- go
-- make
 tags:
 - type/cli
 - category/security
 - sbom
 - lang/go
-homepage: https://in-toto.io/
-repository: https://github.com/in-toto/in-toto-golang
-description: Framework to protect software supply chain integrity
+check: "" # No version parameter
+build_dependencies:
+- go
+- make
+platforms:
+- linux/amd64
 renovate:
   datasource: github-tags
   package: in-toto/in-toto-golang
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/in-toto/in-toto-golang/blob/master/LICENSE
-platforms:
-- linux/amd64

@@ -1,20 +1,20 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: htmx
+description: High power tools for HTML
+license:
+  name: Zero-Clause BSD
+  link: https://github.com/bigskysoftware/htmx/blob/master/LICENSE
+homepage: https://github.com/bigskysoftware/htmx
+repository: https://github.com/bigskysoftware/htmx
 version: "2.0.9"
-binary: "false"
-check: "" # No binary
 tags:
 - lang/javascript
 - type/library
-homepage: https://github.com/bigskysoftware/htmx
-repository: https://github.com/bigskysoftware/htmx
-description: High power tools for HTML
+check: "" # No binary
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: bigskysoftware/htmx
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Zero-Clause BSD
-  link: https://github.com/bigskysoftware/htmx/blob/master/LICENSE
-platforms:
-- linux/amd64
+binary: "false"

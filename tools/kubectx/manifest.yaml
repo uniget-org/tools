@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: kubectx
+description: Faster way to switch between clusters and namespaces in kubectl
+license:
+  name: Apache License 2.0
+  link: https://github.com/ahmetb/kubectx/blob/master/LICENSE
+homepage: https://kubectx.dev
+repository: https://github.com/ahmetb/kubectx
 version: "0.11.0"
-check: ${binary} --version
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/go
 - type/cli
 - state/stale
-homepage: https://kubectx.dev
-repository: https://github.com/ahmetb/kubectx
-description: Faster way to switch between clusters and namespaces in kubectl
+check: ${binary} --version
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: ahmetb/kubectx
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/ahmetb/kubectx/blob/master/LICENSE

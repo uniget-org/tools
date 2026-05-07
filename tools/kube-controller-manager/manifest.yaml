@@ -1,12 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kube-controller-manager
+description: Kubernetes controller manager
+license:
+  name: Apache License 2.0
+  link: https://github.com/kubernetes/kubernetes/blob/master/LICENSE
+homepage: https://kubernetes.io
+repository: https://github.com/kubernetes/kubernetes
 version: "1.36.0"
-check: ${binary} --version | cut -d' ' -f2 | tr -d v
-build_dependencies:
-- cosign
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/cncf
 - org/kubernetes
@@ -15,13 +15,13 @@ tags:
 - k8s
 - lang/go
 - cncf/graduated
-homepage: https://kubernetes.io
-repository: https://github.com/kubernetes/kubernetes
-description: Kubernetes controller manager
+check: ${binary} --version | cut -d' ' -f2 | tr -d v
+build_dependencies:
+- cosign
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: kubernetes/kubernetes
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/kubernetes/kubernetes/blob/master/LICENSE

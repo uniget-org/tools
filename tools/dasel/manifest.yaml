@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: dasel
+description: Select, put and delete data from JSON, TOML, YAML, XML and CSV files
+license:
+  name: MIT License
+  link: https://github.com/TomWright/dasel/blob/master/LICENSE
+homepage: https://daseldocs.tomwright.me
+repository: https://github.com/TomWright/dasel
 version: "3.8.1"
-check: ${binary} --version | cut -d' ' -f3 | tr -d v
 tags:
 - type/cli
 - format/json
@@ -10,15 +15,10 @@ tags:
 - format/xml
 - format/csv
 - lang/go
-homepage: https://daseldocs.tomwright.me
-repository: https://github.com/TomWright/dasel
-description: Select, put and delete data from JSON, TOML, YAML, XML and CSV files
+check: ${binary} --version | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: TomWright/dasel
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/TomWright/dasel/blob/master/LICENSE
-platforms:
-- linux/amd64

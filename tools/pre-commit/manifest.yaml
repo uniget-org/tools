@@ -1,7 +1,17 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: pre-commit
+description: Framework for managing and maintaining multi-language pre-commit hooks
+license:
+  name: MIT License
+  link: https://github.com/pre-commit/pre-commit/blob/main/LICENSE
+homepage: https://github.com/pre-commit/pre-commit
+repository: https://github.com/pre-commit/pre-commit
 version: "4.6.0"
+tags:
+- category/development
+- lang/python
+- type/cli
 check: ${binary} --version | cut -d' ' -f2
 build_dependencies:
 - python-3.12
@@ -11,16 +21,6 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/development
-- lang/python
-- type/cli
-homepage: https://github.com/pre-commit/pre-commit
-repository: https://github.com/pre-commit/pre-commit
-description: Framework for managing and maintaining multi-language pre-commit hooks
 renovate:
   datasource: pypi
   package: pre-commit
-license:
-  name: MIT License
-  link: https://github.com/pre-commit/pre-commit/blob/main/LICENSE

@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: shdotenv
+description: Support for POSIX-compliant and multiple .env file syntax
+license:
+  name: MIT License
+  link: https://github.com/ko1nksm/shdotenv/blob/main/LICENSE
+homepage: https://github.com/ko1nksm/shdotenv
+repository: https://github.com/ko1nksm/shdotenv
 version: "0.14.0"
-check: ${binary} --version
 tags:
 - type/cli
 - category/development
 - lang/shell
 - state/stale
-homepage: https://github.com/ko1nksm/shdotenv
-repository: https://github.com/ko1nksm/shdotenv
-description: Support for POSIX-compliant and multiple .env file syntax
+check: ${binary} --version
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: ko1nksm/shdotenv
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/ko1nksm/shdotenv/blob/main/LICENSE
-platforms:
-- linux/amd64

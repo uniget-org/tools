@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: dinit
+description: Specialized init for Docker containers
+license:
+  name: Apache License 2.0
+  link: https://gitlab.com/tozd/dinit/-/blob/main/LICENSE?ref_type=heads
+homepage: https://gitlab.com/tozd/dinit
+repository: https://gitlab.com/tozd/dinit
 version: "0.4.0"
-check: "" # Does not show version without services
-platforms:
-- linux/amd64
 tags:
 - category/operations
 - lang/go
 - type/cli
 - container/init
-homepage: https://gitlab.com/tozd/dinit
-repository: https://gitlab.com/tozd/dinit
-description: Specialized init for Docker containers
+check: "" # Does not show version without services
+platforms:
+- linux/amd64
 renovate:
   datasource: gitlab-releases
   package: tozd/dinit
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://gitlab.com/tozd/dinit/-/blob/main/LICENSE?ref_type=heads

@@ -1,11 +1,17 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: alertmanager-systemd
+description: compose file for alertmanager with systemd
 license:
   name: MIT License
   link: https://gitlab.com/uniget-org/tools/blob/main/LICENSE
+homepage: https://uniget.dev
+repository: https://gitlab.com/uniget-org/tools
 version: "0.1.0"
-binary: "false"
+tags:
+- org/uniget
+- category/operations
+- type/daemon
 check: "" # No binary
 runtime_dependencies:
 - alertmanager
@@ -13,15 +19,9 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- org/uniget
-- category/operations
-- type/daemon
-homepage: https://uniget.dev
-repository: https://gitlab.com/uniget-org/tools
-description: compose file for alertmanager with systemd
+binary: "false"
 messages:
-  usage: |
+  usage: |-
     - A compose.yaml file is provided in /etc/docker-compose/alertmanager/
     - Start the service using:
           systemctl start docker-compose@alertmanager

@@ -1,24 +1,24 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: talosctl
+description: Modern Linux distribution built for Kubernetes
+license:
+  name: Mozilla Public License 2.0
+  link: https://github.com/siderolabs/talos/blob/main/LICENSE
+homepage: https://www.talos.dev
+repository: https://github.com/siderolabs/talos
 version: "1.13.0"
-check: ${binary} version --client --short | grep "^Client " | cut -d' ' -f2 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/go
 - type/cli
 - kubernetes
 - k8s
-homepage: https://www.talos.dev
-repository: https://github.com/siderolabs/talos
-description: Modern Linux distribution built for Kubernetes
+check: ${binary} version --client --short | grep "^Client " | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: siderolabs/talos
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Mozilla Public License 2.0
-  link: https://github.com/siderolabs/talos/blob/main/LICENSE

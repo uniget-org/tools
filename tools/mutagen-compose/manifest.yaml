@@ -1,9 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: mutagen-compose
+description: Compose with Mutagen integration
+license:
+  name: Custom
+  link: https://github.com/mutagen-io/mutagen-compose/blob/main/LICENSE
+homepage: https://github.com/mutagen-io/mutagen-compose
+repository: https://github.com/mutagen-io/mutagen-compose
 version: "0.18.1"
-check: ${binary} version | grep ^Mutagen | cut -d' ' -f3
-runtime_dependencies:
-- mutagen
 tags:
 - component/network
 - component/storage
@@ -12,16 +15,13 @@ tags:
 - type/cli
 - lang/go
 - state/stale
-homepage: https://github.com/mutagen-io/mutagen-compose
-repository: https://github.com/mutagen-io/mutagen-compose
-description: Compose with Mutagen integration
+check: ${binary} version | grep ^Mutagen | cut -d' ' -f3
+runtime_dependencies:
+- mutagen
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: mutagen-io/mutagen-compose
   extractVersion: ^v(?<version>.+)$
   versioning: loose
-license:
-  name: Custom
-  link: https://github.com/mutagen-io/mutagen-compose/blob/main/LICENSE
-platforms:
-- linux/amd64

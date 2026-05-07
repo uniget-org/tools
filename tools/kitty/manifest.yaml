@@ -1,27 +1,27 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: kitty
+description: Cross-platform, fast, feature-rich, GPU based terminal
+license:
+  name: GPLv3
+  link: https://github.com/kovidgoyal/kitty/blob/master/LICENSE
+homepage: https://sw.kovidgoyal.net/kitty/
+repository: https://github.com/kovidgoyal/kitty
 version: "0.46.2"
-check: ${binary} --version | cut -d' ' -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/operations
 - lang/python
 - lang/c
 - lang/go
 - type/cli
-homepage: https://sw.kovidgoyal.net/kitty/
-repository: https://github.com/kovidgoyal/kitty
-description: Cross-platform, fast, feature-rich, GPU based terminal
-messages:
-  internals: |
-    Make sure you have libegl and libwayland-egl installed.
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: kovidgoyal/kitty
   extractVersion: ^v(?<version>.+)$
-license:
-  name: GPLv3
-  link: https://github.com/kovidgoyal/kitty/blob/master/LICENSE
+messages:
+  internals: |
+    Make sure you have libegl and libwayland-egl installed.

@@ -1,20 +1,20 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: ansi
+description: ANSI escape codes in pure bash
+license:
+  name: Custom
+  link: https://github.com/fidian/ansi/blob/master/LICENSE.md
+homepage: https://github.com/fidian/ansi
+repository: https://github.com/fidian/ansi
 version: "3.0.1"
-check: "" # No version parameter
 tags:
 - type/cli
 - terminal
 - lang/shell
 - state/stale
-homepage: https://github.com/fidian/ansi
-repository: https://github.com/fidian/ansi
-description: ANSI escape codes in pure bash
+check: "" # No version parameter
+platforms:
+- linux/amd64
 renovate:
   datasource: github-tags
   package: fidian/ansi
-license:
-  name: Custom
-  link: https://github.com/fidian/ansi/blob/master/LICENSE.md
-platforms:
-- linux/amd64

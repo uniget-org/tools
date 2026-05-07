@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: exa
+description: Modern replacement for 'ls'
+license:
+  name: MIT License
+homepage: https://the.exa.website/
+repository: https://github.com/ogham/exa
 version: "0.10.1"
-check: ${binary} --version | grep ^v | cut -d' ' -f1 | tr -d v
-platforms:
-- linux/amd64
 tags:
 - category/development
 - lang/rust
 - type/cli
 - terminal
 - state/stale
-homepage: https://the.exa.website/
-repository: https://github.com/ogham/exa
-description: Modern replacement for 'ls'
+check: ${binary} --version | grep ^v | cut -d' ' -f1 | tr -d v
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: ogham/exa
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License

@@ -1,10 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: ytt
+description: YAML templating tool that works on YAML structure instead of text
+license:
+  name: Apache License 2.0
+  link: https://github.com/carvel-dev/ytt/blob/develop/LICENSE
+homepage: https://carvel.dev/ytt
+repository: https://github.com/carvel-dev/ytt
 version: "0.54.0"
-check: ${binary} version | cut -d' ' -f3
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/vmware
 - type/cli
@@ -16,13 +18,11 @@ tags:
 - lang/go
 - format/yaml
 - cncf/sandbox
-homepage: https://carvel.dev/ytt
-repository: https://github.com/carvel-dev/ytt
-description: YAML templating tool that works on YAML structure instead of text
+check: ${binary} version | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: carvel-dev/ytt
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/carvel-dev/ytt/blob/develop/LICENSE

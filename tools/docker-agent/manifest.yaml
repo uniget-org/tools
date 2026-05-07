@@ -1,15 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: docker-agent
+description: Agent Builder and Runtime by Docker Engineering
 license:
   name: Apache License 2.0
   link: https://github.com/docker/docker-agent/blob/main/LICENSE
+homepage: https://github.com/docker/docker-agent
+repository: https://github.com/docker/docker-agent
 version: "1.57.0"
-binary: ${target}/libexec/docker/cli-plugins/docker-agent
-check: ${binary} version | grep ^docker-agent | cut -d' ' -f3 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/docker
 - category/development
@@ -17,9 +15,15 @@ tags:
 - type/cli
 - llm
 - ai
-homepage: https://github.com/docker/docker-agent
-repository: https://github.com/docker/docker-agent
-description: Agent Builder and Runtime by Docker Engineering
+check: ${binary} version | grep ^docker-agent | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: docker/docker-agent
+  extractVersion: ^v(?<version>.+)$
+binary: ${target}/libexec/docker/cli-plugins/docker-agent
 messages:
   update: |
     Disble telemetry:
@@ -30,7 +34,3 @@ messages:
 
       export TELEMETRY_ENABLED=false
       docker agent [...]
-renovate:
-  datasource: github-releases
-  package: docker/docker-agent
-  extractVersion: ^v(?<version>.+)$

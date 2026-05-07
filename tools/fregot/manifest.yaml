@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: fregot
+description: Fugue Rego Toolkit
+license:
+  name: Apache License 2.0
+  link: https://github.com/fugue/fregot/blob/main/LICENSE
+homepage: https://github.com/fugue/fregot
+repository: https://github.com/fugue/fregot
 version: "0.14.2"
-check: ${binary} 2>&1 | grep ^fregot | cut -d' ' -f2 | tr -d v
-platforms:
-- linux/amd64
 tags:
 - category/operations
 - lang/haskell
 - type/cli
 - state/stale
 - standard/rego
-homepage: https://github.com/fugue/fregot
-repository: https://github.com/fugue/fregot
-description: Fugue Rego Toolkit
+check: ${binary} 2>&1 | grep ^fregot | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: fugue/fregot
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/fugue/fregot/blob/main/LICENSE

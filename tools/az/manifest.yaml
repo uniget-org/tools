@@ -1,6 +1,18 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: az
+description: Azure CLI
+license:
+  name: MIT License
+  link: https://github.com/Azure/azure-cli/blob/dev/LICENSE
+homepage: https://github.com/Azure/azure-cli
+repository: https://github.com/Azure/azure-cli
 version: "2.86.0"
+tags:
+- org/microsoft
+- category/development
+- lang/python
+- cloud/azure
+- type/cli
 check: ${binary} version | jq --raw-output '."azure-cli"'
 build_dependencies:
 - python-3.12
@@ -9,18 +21,6 @@ runtime_dependencies:
 - python-3.12
 platforms:
 - linux/amd64
-tags:
-- org/microsoft
-- category/development
-- lang/python
-- cloud/azure
-- type/cli
-homepage: https://github.com/Azure/azure-cli
-repository: https://github.com/Azure/azure-cli
-description: Azure CLI
 renovate:
   datasource: pypi
   package: azure-cli
-license:
-  name: MIT License
-  link: https://github.com/Azure/azure-cli/blob/dev/LICENSE

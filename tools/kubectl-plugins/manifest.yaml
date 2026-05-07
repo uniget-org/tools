@@ -1,7 +1,16 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kubectl-plugins
+description: kubectl plugins
+homepage: https://gitlab.com/uniget-org/tools
+repository: https://gitlab.com/uniget-org/tools
 version: "0.5.0"
-binary: "false"
+tags:
+- org/cncf
+- org/kubernetes
+- type/plugin
+- kubernetes
+- management
+- k8s
 check: "" # No version
 build_dependencies:
 - krew
@@ -10,13 +19,7 @@ runtime_dependencies:
 - krew
 platforms:
 - linux/amd64
-tags:
-- org/cncf
-- org/kubernetes
-- type/plugin
-- kubernetes
-- management
-- k8s
+binary: "false"
 messages:
   internals: |
     - Plugins are installed to ${prefix}${target}/libexec/krew
@@ -25,6 +28,3 @@ messages:
   usage: |
     Installed plugins are available as subcommands of kubectl. Use
     krew-uniget to manage globally installed plugins
-homepage: https://gitlab.com/uniget-org/tools
-repository: https://gitlab.com/uniget-org/tools
-description: kubectl plugins

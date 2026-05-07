@@ -1,11 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: sbomgr
+description: SBOM Grep - search through SBOMs
+license:
+  name: Apache License 2.0
+  link: https://github.com/interlynk-io/sbomgr/blob/main/LICENSE
+homepage: https://github.com/interlynk-io/sbomgr
+repository: https://github.com/interlynk-io/sbomgr
 version: "1.0.1"
-check: ${binary} version | grep ^GitVersion | tr -s ' ' | cut -d' ' -f2 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/interlynk
 - category/security
@@ -14,13 +16,11 @@ tags:
 - sbom
 - format/spdx
 - format/cyclonedx
-homepage: https://github.com/interlynk-io/sbomgr
-repository: https://github.com/interlynk-io/sbomgr
-description: SBOM Grep - search through SBOMs
+check: ${binary} version | grep ^GitVersion | tr -s ' ' | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: interlynk-io/sbomgr
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/interlynk-io/sbomgr/blob/main/LICENSE

@@ -1,8 +1,18 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: libnvidia-container
+description: NVIDIA container runtime library
+license:
+  name: Apache License 2.0
+  link: https://github.com/NVIDIA/libnvidia-container/blob/main/LICENSE
+homepage: https://github.com/NVIDIA/libnvidia-container
+repository: https://github.com/NVIDIA/libnvidia-container
 version: "1.19.0"
-binary: nvidia-container-cli
+tags:
+- org/nvidia
+- category/operations
+- lang/c
+- type/library
 check: ${binary} --version | grep ^cli | cut -d' ' -f2
 build_dependencies:
 - go
@@ -10,18 +20,8 @@ build_dependencies:
 platforms:
 - linux/amd64
 #- linux/arm64
-tags:
-- org/nvidia
-- category/operations
-- lang/c
-- type/library
-homepage: https://github.com/NVIDIA/libnvidia-container
-repository: https://github.com/NVIDIA/libnvidia-container
-description: NVIDIA container runtime library
 renovate:
   datasource: github-releases
   package: NVIDIA/libnvidia-container
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/NVIDIA/libnvidia-container/blob/main/LICENSE
+binary: nvidia-container-cli

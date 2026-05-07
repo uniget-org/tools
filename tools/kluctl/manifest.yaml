@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kluctl
+description: Missing glue to put together large Kubernetes deployments, composed of multiple smaller parts in a manageable and unified way
+license:
+  name: Apache License 2.0
+  link: https://github.com/kluctl/kluctl/blob/main/LICENSE
+homepage: https://kluctl.io
+repository: https://github.com/kluctl/kluctl
 version: "2.27.0"
-check: ${binary} version 2>/dev/null
 tags:
 - type/cli
 - category/development
@@ -9,15 +14,10 @@ tags:
 - lang/go
 - kubernetes
 - k8s
-homepage: https://kluctl.io
-repository: https://github.com/kluctl/kluctl
-description: Missing glue to put together large Kubernetes deployments, composed of multiple smaller parts in a manageable and unified way
+check: ${binary} version 2>/dev/null
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: kluctl/kluctl
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/kluctl/kluctl/blob/main/LICENSE
-platforms:
-- linux/amd64

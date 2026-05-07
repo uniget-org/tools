@@ -1,10 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: krew
+description: Find and install kubectl plugins
+license:
+  name: Apache License 2.0
+  link: https://github.com/kubernetes-sigs/krew/blob/master/LICENSE
+homepage: https://krew.sigs.k8s.io
+repository: https://github.com/kubernetes-sigs/krew
 version: "0.5.0"
-check: ${binary} version 2>/dev/null | grep GitTag | tr -s ' ' | cut -d' ' -f2 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/cncf
 - org/kubernetes
@@ -14,13 +16,11 @@ tags:
 - k8s
 - management
 - lang/go
-homepage: https://krew.sigs.k8s.io
-repository: https://github.com/kubernetes-sigs/krew
-description: Find and install kubectl plugins
+check: ${binary} version 2>/dev/null | grep GitTag | tr -s ' ' | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: kubernetes-sigs/krew
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/kubernetes-sigs/krew/blob/master/LICENSE

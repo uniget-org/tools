@@ -1,7 +1,18 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: rekor
+description: Software Supply Chain Transparency Log
+license:
+  name: Apache License 2.0
+  link: https://github.com/sigstore/rekor/blob/main/LICENSE
+homepage: https://sigstore.dev
+repository: https://github.com/sigstore/rekor
 version: "1.5.1"
-binary: rekor-cli
+tags:
+- category/security
+- type/cli
+- type/daemon
+- container/sign
+- lang/go
 check: ${binary} version 2>&1 | grep ^GitVersion | cut -dv -f2
 build_dependencies:
 - cosign
@@ -10,19 +21,8 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/security
-- type/cli
-- type/daemon
-- container/sign
-- lang/go
-homepage: https://sigstore.dev
-repository: https://github.com/sigstore/rekor
-description: Software Supply Chain Transparency Log
 renovate:
   datasource: github-releases
   package: sigstore/rekor
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/sigstore/rekor/blob/main/LICENSE
+binary: rekor-cli

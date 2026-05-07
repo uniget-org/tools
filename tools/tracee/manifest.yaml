@@ -1,7 +1,20 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: tracee
+description: Linux Runtime Security and Forensics using eBPF
+license:
+  name: Apache License 2.0
+  link: https://github.com/aquasecurity/tracee/blob/main/LICENSE
+homepage: https://aquasecurity.github.io/tracee/latest
+repository: https://github.com/aquasecurity/tracee
 version: "0.24.1"
+tags:
+- org/aquasecurity
+- category/security
+- lang/go
+- lang/c
+- type/cli
+- ebpf
 check: ${binary} version | cut -d' ' -f3 | tr -d v
 build_dependencies:
 - make
@@ -11,20 +24,7 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 #- linux/arm64
-tags:
-- org/aquasecurity
-- category/security
-- lang/go
-- lang/c
-- type/cli
-- ebpf
-homepage: https://aquasecurity.github.io/tracee/latest
-repository: https://github.com/aquasecurity/tracee
-description: Linux Runtime Security and Forensics using eBPF
 renovate:
   datasource: github-releases
   package: aquasecurity/tracee
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/aquasecurity/tracee/blob/main/LICENSE

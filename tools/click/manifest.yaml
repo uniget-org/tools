@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: click
+description: Command Line Interactive Controller for Kubernetes
+license:
+  name: Apache License 2.0
+  link: https://github.com/databricks/click/blob/master/LICENSE
+homepage: https://github.com/databricks/click
+repository: https://github.com/databricks/click
 version: "0.6.3"
-check: ${binary} --version | cut -d' ' -f2
-platforms:
-- linux/amd64
 tags:
 - category/operations
 - lang/rust
 - type/cli
 - kubernetes
 - k8s
-homepage: https://github.com/databricks/click
-repository: https://github.com/databricks/click
-description: Command Line Interactive Controller for Kubernetes
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: databricks/click
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/databricks/click/blob/master/LICENSE

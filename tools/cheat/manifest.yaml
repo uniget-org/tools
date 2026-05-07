@@ -1,19 +1,19 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: cheat
+description: Interactive cheatsheets on the command-line
+license:
+  name: MIT License
+homepage: https://github.com/cheat/cheat
+repository: https://github.com/cheat/cheat
 version: "5.1.0"
-check: ${binary} --version
 tags:
 - type/cli
 - terminal
 - lang/go
 - state/stale
-homepage: https://github.com/cheat/cheat
-repository: https://github.com/cheat/cheat
-description: Interactive cheatsheets on the command-line
+check: ${binary} --version
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: cheat/cheat
-license:
-  name: MIT License
-platforms:
-- linux/amd64

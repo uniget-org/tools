@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: apk
+description: Alpine package manager
+license:
+  name: GPLv2
+  link: https://github.com/alpinelinux/apk-tools/blob/master/LICENSE
+homepage: https://gitlab.alpinelinux.org/alpine/apk-tools
+repository: https://gitlab.alpinelinux.org/alpine/apk-tools
 version: "3.0.6"
-check: ${binary} --help | head -1 | cut -d' ' -f2 | tr -d v,
 tags:
 - type/cli
 - package
 - management
 - lang/c
 - alpine
-homepage: https://gitlab.alpinelinux.org/alpine/apk-tools
-repository: https://gitlab.alpinelinux.org/alpine/apk-tools
-description: Alpine package manager
+check: ${binary} --help | head -1 | cut -d' ' -f2 | tr -d v,
+platforms:
+- linux/amd64
 renovate:
   datasource: github-tags
   package: alpinelinux/apk-tools
   extractVersion: ^v(?<version>.+)$
-license:
-  name: GPLv2
-  link: https://github.com/alpinelinux/apk-tools/blob/master/LICENSE
-platforms:
-- linux/amd64

@@ -1,7 +1,19 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: properdocs
+description: Project documentation with Markdown
+license:
+  name: BSD 2-Clause License
+  link: https://github.com/ProperDocs/properdocs/blob/master/LICENSE
+homepage: https://properdocs.org/
+repository: https://github.com/ProperDocs/properdocs
 version: "1.6.7"
+tags:
+- category/development
+- lang/python
+- type/cli
+- website
+- format/markdown
 check: ${binary} --version | cut -d' ' -f3
 build_dependencies:
 - python-3.12
@@ -11,18 +23,6 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/development
-- lang/python
-- type/cli
-- website
-- format/markdown
-homepage: https://properdocs.org/
-repository: https://github.com/ProperDocs/properdocs
-description: Project documentation with Markdown
 renovate:
   datasource: pypi
   package: properdocs
-license:
-  name: BSD 2-Clause License
-  link: https://github.com/ProperDocs/properdocs/blob/master/LICENSE

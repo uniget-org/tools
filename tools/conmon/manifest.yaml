@@ -1,26 +1,26 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: conmon
+description: OCI container runtime monitor
+license:
+  name: Apache License 2.0
+  link: https://github.com/containers/conmon/blob/main/LICENSE
+homepage: https://github.com/containers/conmon
+repository: https://github.com/containers/conmon
 version: "2.2.1"
-check: ${binary} --version | grep "conmon version" | cut -d' ' -f3
-build_dependencies:
-- go-md2man
-runtime_dependencies:
-- shortnames
 tags:
 - org/redhat
 - standard/oci
 - container/runtime
 - type/cli
 - lang/c
-homepage: https://github.com/containers/conmon
-repository: https://github.com/containers/conmon
-description: OCI container runtime monitor
+check: ${binary} --version | grep "conmon version" | cut -d' ' -f3
+build_dependencies:
+- go-md2man
+runtime_dependencies:
+- shortnames
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: containers/conmon
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/containers/conmon/blob/main/LICENSE
-platforms:
-- linux/amd64

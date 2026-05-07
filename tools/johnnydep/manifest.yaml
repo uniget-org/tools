@@ -1,10 +1,17 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: johnnydep
+description: Display dependency tree of Python distribution
 license:
   name: MIT License
   link: https://github.com/wimglenn/johnnydep/blob/main/LICENSE
+homepage: https://github.com/wimglenn/johnnydep
+repository: https://github.com/wimglenn/johnnydep
 version: "1.20.6"
+tags:
+- category/development
+- lang/python
+- type/cli
 check: ""
 build_dependencies:
 - python-3.12
@@ -14,13 +21,6 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/development
-- lang/python
-- type/cli
-homepage: https://github.com/wimglenn/johnnydep
-repository: https://github.com/wimglenn/johnnydep
-description: Display dependency tree of Python distribution
 renovate:
   datasource: pypi
   package: johnnydep

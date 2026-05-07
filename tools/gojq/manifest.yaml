@@ -1,29 +1,29 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: gojq
+description: Pure Go implementation of jq
+license:
+  name: MIT License
+  link: https://github.com/itchyny/gojq/blob/main/LICENSE
+homepage: https://github.com/itchyny/gojq
+repository: https://github.com/itchyny/gojq
 version: "0.12.19"
-check: ${binary} --version | cut -d' ' -f2
-conflicts_with:
-- jaq
-- jq
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - lang/go
 - type/cli
 - standard/jq
 - format/json
-homepage: https://github.com/itchyny/gojq
-repository: https://github.com/itchyny/gojq
-description: Pure Go implementation of jq
-messages:
-  usage: |
-    Symlink to jq included
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: itchyny/gojq
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/itchyny/gojq/blob/main/LICENSE
+conflicts_with:
+- jaq
+- jq
+messages:
+  usage: |
+    Symlink to jq included

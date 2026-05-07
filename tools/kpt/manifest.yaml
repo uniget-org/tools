@@ -1,9 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kpt
+description: Automate Kubernetes Configuration Editing
+license:
+  name: Apache License 2.0
+  link: https://github.com/kptdev/kpt/blob/main/LICENSE
+homepage: https://kpt.dev
+repository: https://github.com/kptdev/kpt
 version: "1.0.0-beta.35"
-check: ${binary} version
-platforms:
-- linux/amd64
 tags:
 - org/google
 - category/development
@@ -12,13 +15,10 @@ tags:
 - kubernetes
 - k8s
 - cncf/sandbox
-homepage: https://kpt.dev
-repository: https://github.com/kptdev/kpt
-description: Automate Kubernetes Configuration Editing
+check: ${binary} version
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: kptdev/kpt
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/kptdev/kpt/blob/main/LICENSE

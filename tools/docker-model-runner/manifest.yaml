@@ -1,11 +1,24 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: docker-model-runner
+description: Docker Model Runner
+#renovate:
+#  datasource: github-releases
+#  package: docker/model-runner
+#  extractVersion: ^v(?<version>.+)$
+#  priority: low
 license:
   name: Apache License 2.0
   link: https://github.com/docker/model-runner/blob/main/LICENSE
+homepage: https://github.com/docker/model-runner
+repository: https://github.com/docker/model-runner
 version: "0.0.0"
-binary: model-runner
+tags:
+- org/docker
+- category/development
+- lang/go
+- type/daemon
+- ai
 check: "" # No version parameter
 build_dependencies:
 - go
@@ -13,17 +26,4 @@ build_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- org/docker
-- category/development
-- lang/go
-- type/daemon
-- ai
-homepage: https://github.com/docker/model-runner
-repository: https://github.com/docker/model-runner
-description: Docker Model Runner
-#renovate:
-#  datasource: github-releases
-#  package: docker/model-runner
-#  extractVersion: ^v(?<version>.+)$
-#  priority: low
+binary: model-runner

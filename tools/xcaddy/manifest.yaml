@@ -1,24 +1,24 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: xcaddy
+description: Build Caddy with plugins
+license:
+  name: Apache License 2.0
+  link: https://github.com/caddyserver/xcaddy/blob/master/LICENSE
+homepage: https://github.com/caddyserver/xcaddy
+repository: https://github.com/caddyserver/xcaddy
 version: "0.4.5"
+tags:
+- category/operations
+- lang/go
+- type/cli
 check: "" # No version parameters
 runtime_dependencies:
 - go
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- category/operations
-- lang/go
-- type/cli
-homepage: https://github.com/caddyserver/xcaddy
-repository: https://github.com/caddyserver/xcaddy
-description: Build Caddy with plugins
 renovate:
   datasource: github-releases
   package: caddyserver/xcaddy
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/caddyserver/xcaddy/blob/master/LICENSE

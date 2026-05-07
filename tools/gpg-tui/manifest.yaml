@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: gpg-tui
+description: Manage your GnuPG keys with ease
 license:
   name: MIT License
   link: https://github.com/orhun/gpg-tui/blob/master/LICENSE
+homepage: https://github.com/orhun/gpg-tui
+repository: https://github.com/orhun/gpg-tui
 version: "0.11.2"
-check: ${binary} --version | cut -d' ' -f2
-build_dependencies:
-- rust
-platforms:
-- linux/amd64
 tags:
 - category/operations
 - lang/rust
 - type/tui
 - standard/pgp
-homepage: https://github.com/orhun/gpg-tui
-repository: https://github.com/orhun/gpg-tui
-description: Manage your GnuPG keys with ease
+check: ${binary} --version | cut -d' ' -f2
+build_dependencies:
+- rust
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: orhun/gpg-tui

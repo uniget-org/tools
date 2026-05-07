@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: slides
+description: Terminal based presentation tool
+license:
+  name: MIT License
+  link: https://github.com/maaslalani/slides/blob/main/LICENSE
+homepage: http://maaslalani.com/slides/
+repository: https://github.com/maaslalani/slides
 version: "0.9.0"
-check: "" # No version parameter
 tags:
 - type/cli
 - format/markdown
@@ -10,15 +15,10 @@ tags:
 - lang/go
 - category/visualization
 - state/stale
-homepage: http://maaslalani.com/slides/
-repository: https://github.com/maaslalani/slides
-description: Terminal based presentation tool
+check: "" # No version parameter
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: maaslalani/slides
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/maaslalani/slides/blob/main/LICENSE
-platforms:
-- linux/amd64

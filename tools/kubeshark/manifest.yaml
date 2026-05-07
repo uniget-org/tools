@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: kubeshark
+description: API traffic viewer for Kubernetes providing deep visibility into all API traffic and payloads going in, out and across containers and pods inside a Kubernetes cluster. Think TCPDump and Wireshark re-invented for Kubernetes
+license:
+  name: Apache License 2.0
+  link: https://github.com/kubeshark/kubeshark/blob/master/LICENSE
+homepage: https://kubeshark.co
+repository: https://github.com/kubeshark/kubeshark
 version: "72.3.83"
-check: ${binary} version 2>&1 | cut -d' ' -f2
 tags:
 - category/security
 - type/cli
 - lang/go
 - kubernetes
 - k8s
-homepage: https://kubeshark.co
-repository: https://github.com/kubeshark/kubeshark
-description: API traffic viewer for Kubernetes providing deep visibility into all API traffic and payloads going in, out and across containers and pods inside a Kubernetes cluster. Think TCPDump and Wireshark re-invented for Kubernetes
+check: ${binary} version 2>&1 | cut -d' ' -f2
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: kubeshark/kubeshark
   extractVersion: ^v(?<version>.+)$
   versioning: loose
-license:
-  name: Apache License 2.0
-  link: https://github.com/kubeshark/kubeshark/blob/master/LICENSE
-platforms:
-- linux/amd64

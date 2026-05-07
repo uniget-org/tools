@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: sbt
+description: The interactive build tool
+license:
+  name: Apache License 2.0
+  link: https://github.com/sbt/sbt/blob/1.10.x/LICENSE
+homepage: https://scala-sbt.org
+repository: https://github.com/sbt/sbt
 version: "1.12.11"
-check: cat ${binary} | grep "declare init_sbt_version" | cut -d= -f2
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/scala
 - type/cli
-homepage: https://scala-sbt.org
-repository: https://github.com/sbt/sbt
-description: The interactive build tool
+check: cat ${binary} | grep "declare init_sbt_version" | cut -d= -f2
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: sbt/sbt
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/sbt/sbt/blob/1.10.x/LICENSE

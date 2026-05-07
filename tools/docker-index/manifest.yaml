@@ -1,13 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: docker-index
+description: Create image SBOMs as well as analyze packages for known vulnerabilities using the Atomist data plane
+license:
+  name: Apache License 2.0
+  link: https://github.com/docker-archive-public/docker.index-cli-plugin/blob/main/LICENSE
+homepage: https://github.com/docker-archive-public/docker.index-cli-plugin
+repository: https://github.com/docker-archive-public/docker.index-cli-plugin
 version: "0.0.35"
-binary: ${target}/libexec/docker/cli-plugins/docker-index
-check: ${binary} version | grep ^version | cut -d' ' -f2 | tr -d v
-runtime_dependencies:
-- docker
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/docker
 - category/security
@@ -18,9 +17,10 @@ tags:
 - state/stale
 - docker
 - state/deprecated
-homepage: https://github.com/docker-archive-public/docker.index-cli-plugin
-repository: https://github.com/docker-archive-public/docker.index-cli-plugin
-description: Create image SBOMs as well as analyze packages for known vulnerabilities using the Atomist data plane
-license:
-  name: Apache License 2.0
-  link: https://github.com/docker-archive-public/docker.index-cli-plugin/blob/main/LICENSE
+check: ${binary} version | grep ^version | cut -d' ' -f2 | tr -d v
+runtime_dependencies:
+- docker
+platforms:
+- linux/amd64
+- linux/arm64
+binary: ${target}/libexec/docker/cli-plugins/docker-index

@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: mp3binder
+description: Concatenating, joining, binding MP3 files without re-encoding
+license:
+  name: MIT License
+  link: https://github.com/crra/mp3binder/blob/main/LICENSE
+homepage: https://github.com/crra/mp3binder
+repository: https://github.com/crra/mp3binder
 version: "5.1.0"
-check: ${binary} --version | cut -d' ' -f3
 tags:
 - category/music
 - type/cli
 - lang/go
 - state/stale
-homepage: https://github.com/crra/mp3binder
-repository: https://github.com/crra/mp3binder
-description: Concatenating, joining, binding MP3 files without re-encoding
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: crra/mp3binder
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
-  link: https://github.com/crra/mp3binder/blob/main/LICENSE
-platforms:
-- linux/amd64

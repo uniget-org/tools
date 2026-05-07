@@ -1,11 +1,13 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: linux-kernel-wsl
+description: Source for the Linux kernel used in Windows Subsystem for Linux 2 (WSL2)
+license:
+  name: GPLv2
+  link: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/COPYING
+homepage: https://github.com/microsoft/WSL2-Linux-Kernel
+repository: https://github.com/microsoft/WSL2-Linux-Kernel
 version: "6.18.20.1"
-binary: "false"
-check: "" # No binary
-platforms:
-- linux/amd64
 tags:
 - org/microsoft
 - category/development
@@ -15,14 +17,12 @@ tags:
 - kernel
 - source
 - wsl
-homepage: https://github.com/microsoft/WSL2-Linux-Kernel
-repository: https://github.com/microsoft/WSL2-Linux-Kernel
-description: Source for the Linux kernel used in Windows Subsystem for Linux 2 (WSL2)
+check: "" # No binary
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: microsoft/WSL2-Linux-Kernel
   extractVersion: ^linux-msft-wsl-(?<version>.+)$
   versioning: loose
-license:
-  name: GPLv2
-  link: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/COPYING
+binary: "false"

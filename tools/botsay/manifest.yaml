@@ -1,23 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: botsay
+description: Output text together with randomly generated ASCII robots in colors inspired
+license:
+  name: BSD 3-Clause License
+  link: https://github.com/xyproto/botsay/blob/main/LICENSE
+homepage: https://github.com/xyproto/botsay
+repository: https://github.com/xyproto/botsay
 version: "1.4.4"
+tags:
+- lang/go
+- type/cli
 check: "" # No version parameter
 build_dependencies:
 - go
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- lang/go
-- type/cli
-homepage: https://github.com/xyproto/botsay
-repository: https://github.com/xyproto/botsay
-description: Output text together with randomly generated ASCII robots in colors inspired
 renovate:
   datasource: github-tags
   package: xyproto/botsay
   extractVersion: ^v(?<version>.+)$
-license:
-  name: BSD 3-Clause License
-  link: https://github.com/xyproto/botsay/blob/main/LICENSE

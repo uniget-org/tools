@@ -1,7 +1,18 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: containers-storage
+description: Container Storage Library
+license:
+  name: Apache License 2.0
+  link: https://github.com/containers/storage/blob/main/LICENSE
+homepage: https://github.com/containers/storage
+repository: https://github.com/containers/storage
 version: "1.59.1"
+tags:
+- org/redhat
+- type/cli
+- type/configuration
+- type/documentation
 check: ${binary} version --unshare=false 2>&1 | grep ^Version | cut -d' ' -f2
 build_dependencies:
 - go
@@ -10,22 +21,11 @@ build_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
-tags:
-- org/redhat
-- type/cli
-- type/configuration
-- type/documentation
-homepage: https://github.com/containers/storage
-repository: https://github.com/containers/storage
-description: Container Storage Library
-messages:
-  update: |
-    The following default configuration file(s) must be copied to the final locations:
-    - {{ .Target }}/share/containers/storage.conf -> /usr/share/containers/
 renovate:
   datasource: github-releases
   package: containers/storage
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/containers/storage/blob/main/LICENSE
+messages:
+  update: |
+    The following default configuration file(s) must be copied to the final locations:
+    - {{ .Target }}/share/containers/storage.conf -> /usr/share/containers/

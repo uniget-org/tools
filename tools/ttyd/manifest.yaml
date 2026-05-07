@@ -1,20 +1,20 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: ttyd
+description: Share your terminal over the web
+license:
+  name: MIT License
+  link: https://github.com/tsl0922/ttyd/blob/main/LICENSE
+homepage: https://tsl0922.github.io/ttyd
+repository: https://github.com/tsl0922/ttyd
 version: "1.7.7"
-check: ${binary} --version | cut -d' ' -f3 | cut -d- -f1
 tags:
 - type/daemon
 - category/development
 - terminal
 - lang/c
-homepage: https://tsl0922.github.io/ttyd
-repository: https://github.com/tsl0922/ttyd
-description: Share your terminal over the web
+check: ${binary} --version | cut -d' ' -f3 | cut -d- -f1
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: tsl0922/ttyd
-license:
-  name: MIT License
-  link: https://github.com/tsl0922/ttyd/blob/main/LICENSE
-platforms:
-- linux/amd64

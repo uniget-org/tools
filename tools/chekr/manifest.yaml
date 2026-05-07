@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: chekr
+description: Inspection utility for the maintenance of Kubernetes clusters
+license:
+  name: MIT License
+  link: https://github.com/ckotzbauer/chekr/blob/main/LICENSE
+homepage: https://github.com/ckotzbauer/chekr
+repository: https://github.com/ckotzbauer/chekr
 version: "0.5.1"
-check: ${binary} version | grep ^Version | cut -d' ' -f2
 tags:
 - type/cli
 - kubernetes
@@ -11,14 +16,9 @@ tags:
 - k8s
 - state/stale
 - state/deprecated
-homepage: https://github.com/ckotzbauer/chekr
-repository: https://github.com/ckotzbauer/chekr
-description: Inspection utility for the maintenance of Kubernetes clusters
+check: ${binary} version | grep ^Version | cut -d' ' -f2
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: ckotzbauer/chekr
-license:
-  name: MIT License
-  link: https://github.com/ckotzbauer/chekr/blob/main/LICENSE
-platforms:
-- linux/amd64

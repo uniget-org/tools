@@ -1,15 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: trivy
+description: Scanner for vulnerabilities in container images, file systems, and Git repositories
 license:
   name: Apache License 2.0
   link: https://github.com/aquasecurity/trivy/blob/main/LICENSE
+homepage: https://aquasecurity.github.io/trivy
+repository: https://github.com/aquasecurity/trivy
 version: "0.70.0"
-check: ${binary} --version | grep ^Version | cut -d' ' -f2
-build_dependencies:
-- cosign
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/security
 - type/cli
@@ -23,9 +20,12 @@ tags:
 - org/aquasecurity
 - format/spdx
 - format/cyclonedx
-homepage: https://aquasecurity.github.io/trivy
-repository: https://github.com/aquasecurity/trivy
-description: Scanner for vulnerabilities in container images, file systems, and Git repositories
+check: ${binary} --version | grep ^Version | cut -d' ' -f2
+build_dependencies:
+- cosign
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: aquasecurity/trivy

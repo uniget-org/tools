@@ -1,11 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: tetragon
+description: eBPF-based Security Observability and Runtime Enforcement
+license:
+  name: Apache License 2.0
+  link: https://github.com/cilium/tetragon/blob/main/LICENSE
+homepage: https://tetragon.io
+repository: https://github.com/cilium/tetragon
 version: "1.7.0"
-binary: tetra
-check: "" # Wants to connect to server
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/cilium
 - category/security
@@ -14,13 +15,12 @@ tags:
 - type/cli
 - ebpf
 - cilium
-homepage: https://tetragon.io
-repository: https://github.com/cilium/tetragon
-description: eBPF-based Security Observability and Runtime Enforcement
+check: "" # Wants to connect to server
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: cilium/tetragon
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/cilium/tetragon/blob/main/LICENSE
+binary: tetra

@@ -1,7 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: yh
+description: YAML syntax highlighter to bring colours to kubectl output
+license:
+  name: Apache License 2.0
+  link: https://github.com/andreazorzetto/yh/blob/master/LICENSE
+homepage: https://github.com/andreazorzetto/yh
+repository: https://github.com/andreazorzetto/yh
 version: "0.4.0"
-check: ${binary} version
 tags:
 - type/cli
 - format
@@ -10,15 +15,10 @@ tags:
 - format/yaml
 - kubernetes
 - k8s
-homepage: https://github.com/andreazorzetto/yh
-repository: https://github.com/andreazorzetto/yh
-description: YAML syntax highlighter to bring colours to kubectl output
+check: ${binary} version
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: andreazorzetto/yh
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/andreazorzetto/yh/blob/master/LICENSE
-platforms:
-- linux/amd64

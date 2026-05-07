@@ -1,14 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: docker-compose
+description: Define and run multi-container applications with Docker (v2)
+license:
+  name: Apache License 2.0
+  link: https://github.com/docker/compose/blob/main/LICENSE
+homepage: https://docs.docker.com/compose/
+repository: https://github.com/docker/compose
 version: "5.1.3"
-binary: ${target}/libexec/docker/cli-plugins/docker-compose
-check: ${binary} version --short
-runtime_dependencies:
-- docker
-- docker-compose-switch
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/docker
 - standard/docker
@@ -19,13 +17,15 @@ tags:
 - type/plugin
 - lang/go
 - docker
-homepage: https://docs.docker.com/compose/
-repository: https://github.com/docker/compose
-description: Define and run multi-container applications with Docker (v2)
+check: ${binary} version --short
+runtime_dependencies:
+- docker
+- docker-compose-switch
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: docker/compose
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/docker/compose/blob/main/LICENSE
+binary: ${target}/libexec/docker/cli-plugins/docker-compose

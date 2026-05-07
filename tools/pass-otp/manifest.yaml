@@ -1,9 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: pass-otp
+description: Pass extension for managing one-time-password (OTP) tokens
+license:
+  name: GPLv3
+  link: https://github.com/tadfisher/pass-otp/blob/develop/LICENSE
+homepage: https://github.com/tadfisher/pass-otp
+repository: https://github.com/tadfisher/pass-otp
 version: "1.2.0"
-check: "" # TODO
-runtime_dependencies:
-- pass
 tags:
 - category/security
 - lang/shell
@@ -12,15 +15,12 @@ tags:
 - password
 - management
 - standard/pass
-homepage: https://github.com/tadfisher/pass-otp
-repository: https://github.com/tadfisher/pass-otp
-description: Pass extension for managing one-time-password (OTP) tokens
+check: "" # TODO
+runtime_dependencies:
+- pass
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: tadfisher/pass-otp
   extractVersion: ^v(?<version>.+)$
-license:
-  name: GPLv3
-  link: https://github.com/tadfisher/pass-otp/blob/develop/LICENSE
-platforms:
-- linux/amd64

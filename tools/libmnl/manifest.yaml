@@ -1,27 +1,27 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: libmnl
+description: Minimalistic user-space library oriented to Netlink developers
+license:
+  name: LGPLv2.1
+  link: https://git.netfilter.org/libmnl/tree/COPYING
+homepage: https://www.netfilter.org/projects/libmnl/index.html
+repository: https://www.netfilter.org/projects/libmnl/index.html
 version: "1.0.5"
-binary: "false"
-check: cat ${prefix}/lib/pkgconfig/libmnl.pc | grep Version | cut -d' ' -f2
-build_dependencies:
-- make
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/netfilter
 - component/network
 - category/operations
 - lang/c
 - type/library
-homepage: https://www.netfilter.org/projects/libmnl/index.html
-repository: https://www.netfilter.org/projects/libmnl/index.html
-description: Minimalistic user-space library oriented to Netlink developers
+check: cat ${prefix}/lib/pkgconfig/libmnl.pc | grep Version | cut -d' ' -f2
+build_dependencies:
+- make
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: git-tags
   package: https://git.netfilter.org/libmnl/
   extractVersion: ^libmnl-(?<version>.+)$
-license:
-  name: LGPLv2.1
-  link: https://git.netfilter.org/libmnl/tree/COPYING
+binary: "false"

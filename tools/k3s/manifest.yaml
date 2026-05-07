@@ -1,13 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: k3s
+description: Lightweight Kubernetes
 license:
   name: Apache License 2.0
   link: https://github.com/k3s-io/k3s/blob/master/LICENSE
+homepage: https://k3s.io
+repository: https://github.com/k3s-io/k3s
 version: "1.35.4.1"
-check: ${binary} --version | head -n 1 | cut -d' ' -f3 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - org/cncf
 - type/cli
@@ -17,9 +16,10 @@ tags:
 - lang/go
 - k3s
 - cncf/sandbox
-homepage: https://k3s.io
-repository: https://github.com/k3s-io/k3s
-description: Lightweight Kubernetes
+check: ${binary} --version | head -n 1 | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: gitlab-releases
   package: uniget-org/renovate-custom

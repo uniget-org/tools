@@ -1,9 +1,12 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: docker-credential-ecr-login
+description: Automatically gets credentials for Amazon ECR on docker push/pull
+license:
+  name: Apache License 2.0
+  link: https://github.com/awslabs/amazon-ecr-credential-helper/blob/main/LICENSE
+homepage: https://github.com/awslabs/amazon-ecr-credential-helper
+repository: https://github.com/awslabs/amazon-ecr-credential-helper
 version: "0.12.0"
-check: ${binary} -v | grep ^Version | tr -s ' ' | cut -d' ' -f2
-runtime_dependencies:
-- docker
 tags:
 - standard/docker
 - container/runtime
@@ -11,15 +14,12 @@ tags:
 - cloud/aws
 - lang/go
 - docker
-homepage: https://github.com/awslabs/amazon-ecr-credential-helper
-repository: https://github.com/awslabs/amazon-ecr-credential-helper
-description: Automatically gets credentials for Amazon ECR on docker push/pull
+check: ${binary} -v | grep ^Version | tr -s ' ' | cut -d' ' -f2
+runtime_dependencies:
+- docker
+platforms:
+- linux/amd64
 renovate:
   datasource: github-releases
   package: awslabs/amazon-ecr-credential-helper
   extractVersion: ^v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/awslabs/amazon-ecr-credential-helper/blob/main/LICENSE
-platforms:
-- linux/amd64

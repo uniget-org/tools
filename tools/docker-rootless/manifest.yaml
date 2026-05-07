@@ -1,8 +1,23 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: docker-rootless
+description: The Docker CLI
+license:
+  name: Apache License 2.0
+  link: https://github.com/moby/moby/blob/master/LICENSE
+homepage: https://mobyproject.org/
+repository: https://www.docker.com/
 version: "29.4.3"
-binary: "false"
+tags:
+- org/docker
+- standard/docker
+- standard/oci
+- container/runtime
+- container/build
+- category/operations
+- type/cli
+- type/daemon
+- lang/go
 check: "" # No binary
 runtime_dependencies:
 - docker
@@ -14,21 +29,13 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 - linux/arm64
+renovate:
+  datasource: github-tags
+  package: moby/moby
+  extractVersion: ^docker-v(?<version>.+)$
+binary: "false"
 conflicts_with:
 - docker-stable
-tags:
-- org/docker
-- standard/docker
-- standard/oci
-- container/runtime
-- container/build
-- category/operations
-- type/cli
-- type/daemon
-- lang/go
-homepage: https://mobyproject.org/
-repository: https://www.docker.com/
-description: The Docker CLI
 messages:
   internals: |
     - SystemD must be present
@@ -36,10 +43,3 @@ messages:
     - More info: https://docs.docker.com/engine/security/rootless/
   update: |
     You need to restart the Docker daemon to apply the update (systemctl --user restart docker)
-renovate:
-  datasource: github-tags
-  package: moby/moby
-  extractVersion: ^docker-v(?<version>.+)$
-license:
-  name: Apache License 2.0
-  link: https://github.com/moby/moby/blob/master/LICENSE

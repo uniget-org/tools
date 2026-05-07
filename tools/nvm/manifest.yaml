@@ -1,22 +1,22 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 name: nvm
+description: Node Version Manager
+license:
+  name: MIT License
+homepage: https://github.com/nvm-sh/nvm
+repository: https://github.com/nvm-sh/nvm
 version: "0.40.4"
-binary: "false"
-check: "" # No version parameter
-platforms:
-- linux/amd64
-- linux/arm64
 tags:
 - category/development
 - lang/shell
 - type/cli
 - management
-homepage: https://github.com/nvm-sh/nvm
-repository: https://github.com/nvm-sh/nvm
-description: Node Version Manager
+check: "" # No version parameter
+platforms:
+- linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: nvm-sh/nvm
   extractVersion: ^v(?<version>.+)$
-license:
-  name: MIT License
+binary: "false"
