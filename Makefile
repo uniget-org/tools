@@ -3,9 +3,9 @@ include make/vars.mk
 include make/dev.mk
 include make/metadata.mk
 include make/tool.mk
+include make/helpers.mk
 include make/sbom.mk
 include make/ghcr.mk
-include make/git.mk
 
 check_defined = \
     $(strip $(foreach 1,$1, \
