@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+name: zerobox
+version: "0.2.6"
+license:
+  name: Apache License 2.0
+  link: https://github.com/afshinm/zerobox/blob/main/LICENSE
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+tags:
+- category/security
+- lang/rust
+- type/cli
+- ai
+- sandbox
+homepage: https://github.com/afshinm/zerobox
+repository: https://github.com/afshinm/zerobox
+description: Sandbox any command with file, network, and credential controls
+renovate:
+  datasource: github-releases
+  package: afshinm/zerobox
+  extractVersion: ^v(?<version>.+)$
+  priority: high
