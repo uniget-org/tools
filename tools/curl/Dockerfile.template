@@ -11,6 +11,14 @@ apk add --update-cache \
     openssl-dev \
     nghttp2-dev \
     nghttp2-static \
+    ngtcp2-dev \
+    ngtcp2-static \
+    nghttp3-dev \
+    nghttp3-static \
+    brotli-dev \
+    brotli-static \
+    zstd-dev \
+    zstd-static \
     libssh2-dev \
     libssh2-static \
     openssl-libs-static \
@@ -38,8 +46,8 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
 
 tar --file="${uniget_cache_download}/${filename}" --list
 tar --file="${uniget_cache_download}/${filename}" --extract --gzip --strip-components=1
-LDFLAGS="-static" \
-PKG_CONFIG="pkg-config --static" \
+#LDFLAGS="-static" \
+#PKG_CONFIG="pkg-config --static" \
     ./configure \
         --prefix="${prefix}" \
         --with-zsh-functions-dir="${prefix}/share/zsh/vendor-completions" \
@@ -51,12 +59,15 @@ PKG_CONFIG="pkg-config --static" \
         --enable-unix-sockets \
         --disable-ldap \
 		--with-libidn2 \
+		--with-brotli \
 		--with-nghttp2 \
+		--with-quic \
+		--with-zstd \
 		--with-openssl \
         --with-ssl \
         --without-libssh2 \
 		--with-pic \
         --without-libpsl
-make -j$(nproc) V=1 LDFLAGS="-static -all-static"
+make -j$(nproc) V=1 #LDFLAGS="-static -all-static"
 make install
 EOF
