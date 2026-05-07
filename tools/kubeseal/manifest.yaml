@@ -15,7 +15,6 @@ renovate:
   datasource: github-releases
   package: bitnami-labs/sealed-secrets
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: Apache License 2.0
   link: https://github.com/bitnami-labs/sealed-secrets/blob/main/LICENSE

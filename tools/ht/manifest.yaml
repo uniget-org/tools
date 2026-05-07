@@ -20,4 +20,3 @@ renovate:
   datasource: github-releases
   package: andyk/ht
   extractVersion: ^v(?<version>.+)$
-  priority: low

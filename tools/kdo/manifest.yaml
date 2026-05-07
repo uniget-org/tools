@@ -16,7 +16,6 @@ renovate:
   datasource: github-releases
   package: stepro/kdo
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: MIT License
   link: https://github.com/stepro/kdo/blob/master/LICENSE

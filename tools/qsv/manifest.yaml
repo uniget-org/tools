@@ -16,6 +16,5 @@ description: CSVs sliced, diced & analyzed
 renovate:
   datasource: github-releases
   package: dathere/qsv
-  priority: low
 license:
   name: The Unlicense

@@ -21,4 +21,3 @@ renovate:
   datasource: github-releases
   package: scala/scala3
   extractVersion: ^v(?<version>.+)$
-  priority: low

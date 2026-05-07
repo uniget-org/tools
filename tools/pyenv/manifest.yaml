@@ -20,4 +20,3 @@ renovate:
   datasource: github-releases
   package: pyenv/pyenv
   extractVersion: ^v(?<version>.+)$
-  priority: low

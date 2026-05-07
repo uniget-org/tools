@@ -25,7 +25,6 @@ description: Generate VEX CycloneDX documents
 renovate:
   datasource: pypi
   package: vexy
-  priority: medium
 license:
   name: Apache License 2.0
   link: https://github.com/madpah/vexy/blob/main/LICENSE

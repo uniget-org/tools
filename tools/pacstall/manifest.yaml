@@ -21,7 +21,6 @@ messages:
 renovate:
   datasource: github-releases
   package: pacstall/pacstall
-  priority: low
 license:
   name: GPLv3
   link: https://github.com/pacstall/pacstall/blob/develop/LICENSE

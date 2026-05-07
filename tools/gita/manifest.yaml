@@ -23,7 +23,6 @@ description: Manage many git repos with sanity
 renovate:
   datasource: pypi
   package: gita
-  priority: low
 license:
   name: MIT License
   link: https://github.com/nosarthur/gita/blob/master/LICENSE

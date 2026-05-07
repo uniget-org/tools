@@ -26,4 +26,3 @@ renovate:
   datasource: github-releases
   package: aws/eks-anywhere
   extractVersion: ^v(?<version>.+)$
-  priority: low

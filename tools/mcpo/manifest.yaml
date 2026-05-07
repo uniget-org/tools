@@ -19,4 +19,3 @@ description: Simple, secure MCP-to-OpenAPI proxy server
 renovate:
   datasource: pypi
   package: mcpo
-  priority: low

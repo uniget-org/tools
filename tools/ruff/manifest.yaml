@@ -21,4 +21,3 @@ description: Extremely fast Python linter and code formatter
 renovate:
   datasource: github-releases
   package: astral-sh/ruff
-  priority: low

@@ -20,4 +20,3 @@ renovate:
   datasource: github-releases
   package: dimonomid/nerdlog
   extractVersion: ^v(?<version>.+)$
-  priority: low

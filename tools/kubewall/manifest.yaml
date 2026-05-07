@@ -26,4 +26,3 @@ renovate:
   datasource: github-releases
   package: kubewall/kubewall
   extractVersion: ^v(?<version>.+)$
-  priority: low

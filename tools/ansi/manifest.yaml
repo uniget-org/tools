@@ -13,7 +13,6 @@ description: ANSI escape codes in pure bash
 renovate:
   datasource: github-tags
   package: fidian/ansi
-  priority: low
 license:
   name: Custom
   link: https://github.com/fidian/ansi/blob/master/LICENSE.md

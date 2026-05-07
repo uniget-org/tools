@@ -18,7 +18,6 @@ renovate:
   datasource: github-releases
   package: adamritter/fastgron
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: MIT License
   link: https://github.com/adamritter/fastgron/blob/main/LICENSE

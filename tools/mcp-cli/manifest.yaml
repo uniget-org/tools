@@ -27,4 +27,3 @@ description: Model Context Protocol Command Line Interface
 renovate:
   datasource: pypi
   package: mcp-cli
-  priority: low

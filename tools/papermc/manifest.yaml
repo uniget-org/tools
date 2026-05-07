@@ -26,4 +26,3 @@ renovate:
   package: uniget-org/renovate-custom
   extractVersion: ^papermc/(?<version>.+)$
   versioning: loose
-  priority: low

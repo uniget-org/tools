@@ -18,7 +18,6 @@ renovate:
   datasource: github-releases
   package: antonmedv/walk
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: MIT License
   link: https://github.com/antonmedv/walk/blob/master/LICENSE

@@ -20,4 +20,3 @@ description: Structural diff that understands syntax (difftastic)
 renovate:
   datasource: github-releases
   package: Wilfred/difftastic
-  priority: low

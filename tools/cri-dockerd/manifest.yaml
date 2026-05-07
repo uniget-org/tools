@@ -28,7 +28,6 @@ renovate:
   datasource: github-releases
   package: Mirantis/cri-dockerd
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: Apache License 2.0
   link: https://github.com/Mirantis/cri-dockerd/blob/master/LICENSE

@@ -22,4 +22,3 @@ renovate:
   datasource: github-releases
   package: mvisonneau/gitlab-ci-pipelines-exporter
   extractVersion: ^v(?<version>.+)$
-  priority: medium

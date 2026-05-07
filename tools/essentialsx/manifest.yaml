@@ -25,4 +25,3 @@ description: Modern Essentials suite for Spigot and Paper
 renovate:
   datasource: github-releases
   package: EssentialsX/Essentials
-  priority: low

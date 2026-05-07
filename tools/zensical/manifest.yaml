@@ -23,7 +23,6 @@ description: Modern static site generator by the Material for MkDocs team
 renovate:
   datasource: pypi
   package: zensical
-  priority: low
 license:
   name: MIT License
   link: https://github.com/zensical/zensical/blob/master/LICENSE.md

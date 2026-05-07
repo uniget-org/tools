@@ -23,4 +23,3 @@ renovate:
   package: ColinIanKing/stress-ng
   extractVersion: ^V(?<version>.+)$
   versioning: loose
-  priority: low

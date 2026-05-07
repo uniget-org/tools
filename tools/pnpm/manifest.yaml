@@ -28,4 +28,3 @@ renovate:
   datasource: github-releases
   package: pnpm/pnpm
   extractVersion: ^v(?<version>.+)$
-  priority: low

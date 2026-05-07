@@ -19,7 +19,6 @@ renovate:
   datasource: github-releases
   package: navilg/k8senv
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: MIT License
   link: https://github.com/navilg/k8senv/blob/main/LICENSE

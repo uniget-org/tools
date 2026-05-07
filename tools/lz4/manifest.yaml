@@ -21,7 +21,6 @@ renovate:
   datasource: github-releases
   package: lz4/lz4
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: Custom
   link: https://github.com/lz4/lz4/blob/dev/LICENSE

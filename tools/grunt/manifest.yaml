@@ -19,7 +19,6 @@ description: The JavaScript Task Runner
 renovate:
   datasource: npm
   package: grunt
-  priority: low
 license:
   name: Custom
   link: https://github.com/gruntjs/grunt/blob/main/LICENSE

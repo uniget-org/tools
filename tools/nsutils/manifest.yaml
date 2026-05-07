@@ -19,7 +19,6 @@ renovate:
   package: rd235/nsutils
   extractVersion: ^v(?<version>.+)$
   versioning: loose
-  priority: low
 license:
   name: GPLv2
 platforms:

@@ -21,4 +21,3 @@ renovate:
   datasource: github-releases
   package: prometheus/alertmanager
   extractVersion: ^v(?<version>.+)$
-  priority: low

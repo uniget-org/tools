@@ -20,4 +20,3 @@ description: Some description
 renovate:
   datasource: github-releases
   package: SonarSource/sonarqube-cli
-  priority: low

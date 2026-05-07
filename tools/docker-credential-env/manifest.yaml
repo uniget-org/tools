@@ -23,4 +23,3 @@ renovate:
   datasource: github-releases
   package: isometry/docker-credential-env
   extractVersion: ^v(?<version>.+)$
-  priority: low

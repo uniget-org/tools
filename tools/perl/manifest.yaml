@@ -25,4 +25,3 @@ renovate:
   datasource: github-tags
   package: Perl/perl5
   extractVersion: ^v(?<version>\d+\.\d*[02468]\.\d+)$
-  priority: low

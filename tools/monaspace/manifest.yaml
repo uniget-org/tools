@@ -23,7 +23,6 @@ renovate:
   package: githubnext/monaspace
   extractVersion: ^v(?<version>.+)$
   versioning: loose
-  priority: low
 license:
   name: SIL Open Font License 1.1
   link: https://github.com/githubnext/monaspace/blob/main/LICENSE

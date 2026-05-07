@@ -42,4 +42,3 @@ renovate:
   datasource: github-releases
   package: dotnet/runtime
   extractVersion: ^v(?<version>.+)$
-  priority: low

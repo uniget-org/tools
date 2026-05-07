@@ -17,6 +17,5 @@ renovate:
   datasource: github-releases
   package: justjanne/powerline-go
   extractVersion: ^v(?<version>.+)$
-  priority: high
 license:
   name: GPLv3

@@ -26,4 +26,3 @@ renovate:
   datasource: github-releases
   package: GitGuardian/ggshield
   extractVersion: ^v(?<version>.+)$
-  priority: low

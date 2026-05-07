@@ -17,7 +17,6 @@ renovate:
   datasource: github-releases
   package: mutagen-io/mutagen
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: Custom
   link: https://github.com/mutagen-io/mutagen/blob/master/LICENSE

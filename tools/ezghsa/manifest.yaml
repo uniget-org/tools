@@ -18,6 +18,5 @@ renovate:
   datasource: github-releases
   package: csdev/ezghsa
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: MIT License

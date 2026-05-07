@@ -22,7 +22,6 @@ description: Schema and validator for YAML
 renovate:
   datasource: pypi
   package: yamale
-  priority: low
 license:
   name: MIT License
   link: https://github.com/23andMe/Yamale/blob/master/LICENSE

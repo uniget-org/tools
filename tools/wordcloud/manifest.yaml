@@ -22,7 +22,6 @@ renovate:
   datasource: pypi
   package: wordcloud
   versioning: loose
-  priority: low
 license:
   name: MIT License
   link: https://github.com/amueller/word_cloud/blob/main/LICENSE

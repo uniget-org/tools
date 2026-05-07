@@ -21,7 +21,6 @@ description: Check links in web documents or full websites
 renovate:
   datasource: pypi
   package: linkchecker
-  priority: low
 license:
   name: GPLv2
   link: https://github.com/linkchecker/linkchecker/blob/master/COPYING

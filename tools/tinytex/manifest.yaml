@@ -23,4 +23,3 @@ renovate:
   datasource: github-releases
   package: rstudio/tinytex-releases
   extractVersion: ^v(?<version>.+)$
-  priority: low

@@ -21,4 +21,3 @@ renovate:
   datasource: github-releases
   package: zellij-org/zellij
   extractVersion: ^v(?<version>.+)$
-  priority: low

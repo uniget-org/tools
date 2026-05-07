@@ -21,7 +21,6 @@ renovate:
   package: k0sproject/k0s
   extractVersion: ^v(?<version>.+)$
   versioning: loose
-  priority: low
 license:
   name: Apache License 2.0
   link: https://github.com/k0sproject/k0s/blob/main/LICENSE

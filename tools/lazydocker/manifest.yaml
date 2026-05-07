@@ -18,7 +18,6 @@ renovate:
   package: jesseduffield/lazydocker
   extractVersion: ^v(?<version>.+)$
   versioning: loose
-  priority: low
 license:
   name: MIT License
   link: https://github.com/jesseduffield/lazydocker/blob/master/LICENSE

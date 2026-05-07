@@ -34,4 +34,3 @@ messages:
 renovate:
   datasource: github-releases
   package: portainer/portainer
-  priority: medium

@@ -20,4 +20,3 @@ renovate:
   datasource: github-releases
   package: getzola/zola
   extractVersion: ^v(?<version>.+)$
-  priority: low

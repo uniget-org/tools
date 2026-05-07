@@ -31,7 +31,6 @@ renovate:
   datasource: gitlab-tags
   package: wireshark/wireshark
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: GPLv2+
   link: https://gitlab.com/wireshark/wireshark/-/blob/master/COPYING

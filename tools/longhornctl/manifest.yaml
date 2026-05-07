@@ -20,4 +20,3 @@ renovate:
   datasource: github-releases
   package: longhorn/cli
   extractVersion: ^v(?<version>.+)$
-  priority: low

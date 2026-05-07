@@ -28,7 +28,6 @@ renovate:
   package: containers/crun
   extractVersion: ^(?<version>\\d+\\.\\d+(\\.\\d+)?)$
   versioning: loose
-  priority: high
 license:
   name: GPLv2
 platforms:

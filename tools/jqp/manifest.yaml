@@ -18,7 +18,6 @@ renovate:
   datasource: github-releases
   package: noahgorstein/jqp
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: MIT License
   link: https://github.com/noahgorstein/jqp/blob/main/LICENSE

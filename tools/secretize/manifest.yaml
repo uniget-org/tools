@@ -12,7 +12,6 @@ description: Kubernetes secrets generator plugin for kustomize
 renovate:
   datasource: github-releases
   package: bbl/secretize
-  priority: low
 license:
   name: MIT License
   link: https://github.com/bbl/secretize/blob/main/LICENSE

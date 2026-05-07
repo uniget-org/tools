@@ -25,6 +25,5 @@ description: Terminal flamegraph viewer
 renovate:
   datasource: pypi
   package: flameshow
-  priority: low
 license:
   name: None

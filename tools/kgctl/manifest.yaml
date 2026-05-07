@@ -19,7 +19,6 @@ description: Kilo is a multi-cloud network overlay built on WireGuard and design
 renovate:
   datasource: github-releases
   package: squat/kilo
-  priority: low
 license:
   name: Apache License 2.0
   link: https://github.com/squat/kilo/blob/main/LICENSE

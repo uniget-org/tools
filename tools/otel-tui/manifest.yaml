@@ -20,4 +20,3 @@ renovate:
   datasource: github-releases
   package: ymtdzzz/otel-tui
   extractVersion: ^v(?<version>.+)$
-  priority: low

@@ -20,7 +20,6 @@ description: Command line XML toolkit
 renovate:
   datasource: git-tags
   package: https://git.code.sf.net/p/xmlstar/code
-  priority: low
 license:
   name: Custom
   link: https://sourceforge.net/p/xmlstar/code/ci/master/tree/Copyright

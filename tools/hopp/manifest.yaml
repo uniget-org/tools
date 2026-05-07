@@ -25,4 +25,3 @@ description: CLI to run Hoppscotch Test Scripts in CI environments
 renovate:
   datasource: npm
   package: "@hoppscotch/cli"
-  priority: low

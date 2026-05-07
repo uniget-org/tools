@@ -17,7 +17,6 @@ renovate:
   package: sahsanu/lectl
   extractVersion: ^v(?<version>.+)$
   versioning: loose
-  priority: low
 license:
   name: GPLv3
   link: https://github.com/sahsanu/lectl/blob/master/LICENSE

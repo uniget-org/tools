@@ -21,4 +21,3 @@ renovate:
   datasource: gitlab-releases
   package: uniget-org/renovate-custom
   extractVersion: ^libgmp/(?<version>.+)$
-  priority: low

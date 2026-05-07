@@ -22,7 +22,6 @@ description: Creates CycloneDX Software Bill-of-Materials (SBOM) for your projec
 renovate:
   datasource: npm
   package: "@cyclonedx/cdxgen"
-  priority: low
 license:
   name: Apache License 2.0
   link: https://github.com/CycloneDX/cdxgen/blob/master/LICENSE

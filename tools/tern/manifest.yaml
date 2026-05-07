@@ -29,7 +29,6 @@ description: SCA tool that generates a Software Bill of Materials for container 
 renovate:
   datasource: pypi
   package: tern
-  priority: low
 license:
   name: BSD 2-Clause License
   link: https://github.com/tern-tools/tern/blob/main/LICENSE.txt

@@ -20,4 +20,3 @@ renovate:
   datasource: github-releases
   package: alecthomas/chroma
   extractVersion: ^v(?<version>.+)$
-  priority: low

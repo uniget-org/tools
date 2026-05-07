@@ -28,4 +28,3 @@ renovate:
   datasource: github-releases
   package: runfinch/finch-daemon
   extractVersion: ^v(?<version>.+)$
-  priority: low

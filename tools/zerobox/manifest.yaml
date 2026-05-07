@@ -21,4 +21,3 @@ renovate:
   datasource: github-releases
   package: afshinm/zerobox
   extractVersion: ^v(?<version>.+)$
-  priority: high

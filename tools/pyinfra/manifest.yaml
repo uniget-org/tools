@@ -24,4 +24,3 @@ description: Turns Python code into shell commands and runs them on your servers
 renovate:
   datasource: pypi
   package: pyinfra
-  priority: low

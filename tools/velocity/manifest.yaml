@@ -30,4 +30,3 @@ renovate:
   package: uniget-org/renovate-custom
   extractVersion: ^velocity/(?<version>.+)$
   versioning: loose
-  priority: low

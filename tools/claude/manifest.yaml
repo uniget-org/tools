@@ -29,4 +29,3 @@ description: Agentic coding tool that lives in your terminal
 renovate:
   datasource: npm
   package: "@anthropic-ai/claude-code"
-  priority: low

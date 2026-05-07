@@ -14,7 +14,6 @@ renovate:
   datasource: github-releases
   package: projectdiscovery/katana
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: MIT License
 platforms:

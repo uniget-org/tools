@@ -23,4 +23,3 @@ renovate:
   datasource: github-releases
   package: openbao/openbao
   extractVersion: ^v(?<version>.+)$
-  priority: low

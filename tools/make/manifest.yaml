@@ -18,7 +18,6 @@ renovate:
   datasource: git-tags
   package: https://git.savannah.gnu.org/git/make.git
   versioning: regex:^(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)(\.(?<build>\d+))?$
-  priority: low
 license:
   name: GPLv3
   link: https://git.savannah.gnu.org/cgit/make.git/tree/COPYING

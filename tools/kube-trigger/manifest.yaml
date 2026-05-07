@@ -20,7 +20,6 @@ renovate:
   datasource: github-releases
   package: kubevela/kube-trigger
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: Apache License 2.0
   link: https://github.com/kubevela/kube-trigger/blob/main/LICENSE

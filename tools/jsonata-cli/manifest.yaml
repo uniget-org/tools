@@ -24,7 +24,6 @@ description: CLI for JSONata
 renovate:
   datasource: npm
   package: jsonata-cli
-  priority: low
 license:
   name: MIT License
   link: https://github.com/rubystream/jsonata-cli/blob/main/LICENSE

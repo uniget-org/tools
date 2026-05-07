@@ -24,7 +24,6 @@ renovate:
   datasource: github-releases
   package: mattmoor/mink
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: Apache License 2.0
   link: https://github.com/mattmoor/mink/blob/master/LICENSE

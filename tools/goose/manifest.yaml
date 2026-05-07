@@ -33,4 +33,3 @@ renovate:
   datasource: github-releases
   package: block/goose
   extractVersion: ^v(?<version>.+)$
-  priority: low

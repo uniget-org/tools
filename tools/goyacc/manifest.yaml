@@ -22,4 +22,3 @@ renovate:
   datasource: github-releases
   package: golang/tools
   extractVersion: ^v(?<version>.+)$
-  priority: low

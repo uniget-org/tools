@@ -16,7 +16,6 @@ renovate:
   datasource: github-releases
   package: tinygo-org/tinygo
   extractVersion: ^v(?<version>.+)$
-  priority: medium
 license:
   name: Custom
   link: https://github.com/tinygo-org/tinygo/blob/release/LICENSE

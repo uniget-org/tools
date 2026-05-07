@@ -17,7 +17,6 @@ renovate:
   datasource: github-releases
   package: depot/cli
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: MIT License
   link: https://github.com/depot/cli/blob/main/LICENSE

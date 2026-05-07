@@ -20,4 +20,3 @@ renovate:
   datasource: github-releases
   package: stefanberger/libtpms
   extractVersion: ^v(?<version>.+)$
-  priority: low

@@ -20,4 +20,3 @@ renovate:
   datasource: github-releases
   package: madhuakula/spotter
   extractVersion: ^v(?<version>.+)$
-  priority: low

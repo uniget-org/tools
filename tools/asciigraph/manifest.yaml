@@ -17,7 +17,6 @@ renovate:
   datasource: github-releases
   package: guptarohit/asciigraph
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: BSD 3-Clause License
   link: https://github.com/guptarohit/asciigraph/blob/master/LICENSE

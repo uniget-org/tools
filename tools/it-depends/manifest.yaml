@@ -21,7 +21,6 @@ description: Automatically build a dependency graph and Software Bill of Materia
 renovate:
   datasource: pypi
   package: it-depends
-  priority: low
 license:
   name: LGPLv3
   link: https://github.com/trailofbits/it-depends/blob/master/LICENSE

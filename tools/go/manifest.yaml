@@ -16,7 +16,6 @@ renovate:
   datasource: github-tags
   package: golang/go
   extractVersion: ^go(?<version>.+)$
-  priority: medium
 license:
   name: BSD 3-Clause License
   link: https://github.com/golang/go/blob/master/LICENSE

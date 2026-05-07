@@ -17,7 +17,6 @@ renovate:
   datasource: github-releases
   package: typst/typst
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: Apache License 2.0
   link: https://github.com/typst/typst/blob/main/LICENSE

@@ -21,4 +21,3 @@ renovate:
   datasource: github-releases
   package: lusingander/stu
   extractVersion: ^v(?<version>.+)$
-  priority: low

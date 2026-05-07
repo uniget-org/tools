@@ -21,7 +21,6 @@ description: Fast, reliable, and secure dependency management
 renovate:
   datasource: npm
   package: yarn
-  priority: low
 license:
   name: BSD 2-Clause License
   link: https://github.com/yarnpkg/yarn/blob/master/LICENSE

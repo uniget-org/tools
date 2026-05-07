@@ -18,7 +18,6 @@ renovate:
   datasource: github-tags
   package: php/php-src
   extractVersion: ^php-(?<version>\d+\.\d+\.\d+)$
-  priority: low
 license:
   name: Custom
   link: https://github.com/php/php-src/blob/master/LICENSE

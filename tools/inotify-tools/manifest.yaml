@@ -16,7 +16,6 @@ renovate:
   datasource: github-releases
   package: inotify-tools/inotify-tools
   versioning: loose
-  priority: low
 license:
   name: GPLv2
 platforms:

@@ -24,4 +24,3 @@ renovate:
   datasource: github-releases
   package: equinix-labs/otel-cli
   extractVersion: ^v(?<version>.+)$
-  priority: low

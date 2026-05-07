@@ -34,4 +34,3 @@ renovate:
   datasource: github-releases
   package: docker/docker-agent
   extractVersion: ^v(?<version>.+)$
-  priority: low

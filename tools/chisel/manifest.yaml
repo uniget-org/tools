@@ -22,4 +22,3 @@ renovate:
   datasource: github-releases
   package: canonical/chisel
   extractVersion: ^v(?<version>.+)$
-  priority: low

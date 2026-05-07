@@ -19,7 +19,6 @@ description: The JavaScript Task Runner
 renovate:
   datasource: npm
   package: newman
-  priority: low
 license:
   name: Apache License 2.0
   link: https://github.com/postmanlabs/newman/blob/develop/LICENSE.md

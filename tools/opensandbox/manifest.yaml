@@ -24,7 +24,6 @@ description: Command-line interface for creating and managing OpenSandbox sandbo
 renovate:
   datasource: pypi
   package: opensandbox-cli
-  priority: high
 license:
   name: Apache License 2.0
   link: https://github.com/alibaba/OpenSandbox/blob/main/LICENSE

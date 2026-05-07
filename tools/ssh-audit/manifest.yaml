@@ -25,4 +25,3 @@ description: SSH server & client security auditing
 renovate:
   datasource: pypi
   package: ssh-audit
-  priority: low

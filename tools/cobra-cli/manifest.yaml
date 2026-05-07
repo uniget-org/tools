@@ -24,4 +24,3 @@ renovate:
   datasource: github-releases
   package: spf13/cobra-cli
   extractVersion: ^v(?<version>.+)$
-  priority: low

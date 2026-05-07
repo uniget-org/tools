@@ -19,7 +19,6 @@ description: Set of tools that you can use to manage resources and applications 
 renovate:
   datasource: github-tags
   package: twistedpair/google-cloud-sdk
-  priority: low
 license:
   name: Apache License 2.0
   link: https://github.com/twistedpair/google-cloud-sdk/blob/master/google-cloud-sdk/LICENSE

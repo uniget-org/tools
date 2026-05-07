@@ -24,4 +24,3 @@ renovate:
   datasource: github-releases
   package: prometheus/node_exporter
   extractVersion: ^v(?<version>.+)$
-  priority: low

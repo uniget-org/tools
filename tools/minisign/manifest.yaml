@@ -23,4 +23,3 @@ description: Dead simple tool to sign files and verify digital signatures
 renovate:
   datasource: github-releases
   package: jedisct1/minisign
-  priority: low

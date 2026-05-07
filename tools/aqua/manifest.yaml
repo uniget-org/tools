@@ -15,7 +15,6 @@ renovate:
   datasource: github-releases
   package: aquaproj/aqua
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: MIT License
   link: https://github.com/aquaproj/aqua/blob/main/LICENSE

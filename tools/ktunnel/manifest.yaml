@@ -17,7 +17,6 @@ renovate:
   datasource: github-releases
   package: omrikiei/ktunnel
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: GPLv3
   link: https://github.com/omrikiei/ktunnel/blob/master/LICENSE

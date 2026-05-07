@@ -25,4 +25,3 @@ renovate:
   datasource: github-releases
   package: grafana/tanka
   extractVersion: ^v(?<version>.+)$
-  priority: low

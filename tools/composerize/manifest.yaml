@@ -24,7 +24,6 @@ description: Turns docker run commands into docker-compose files
 renovate:
   datasource: npm
   package: composerize
-  priority: medium
 license:
   name: MIT License
   link: https://github.com/composerize/composerize/blob/master/LICENSE

@@ -31,4 +31,3 @@ messages:
 renovate:
   datasource: github-releases
   package: garden-io/garden
-  priority: low

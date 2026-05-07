@@ -22,4 +22,3 @@ renovate:
   datasource: gitlab-releases
   package: gitlab-org/rust/knowledge-graph
   extractVersion: ^v(?<version>.+)$
-  priority: low

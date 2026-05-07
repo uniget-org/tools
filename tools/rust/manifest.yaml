@@ -16,7 +16,6 @@ description: Empowering everyone to build reliable and efficient software
 renovate:
   datasource: github-releases
   package: rust-lang/rust
-  priority: low
 license:
   name: Custom
   link: https://github.com/rust-lang/rust

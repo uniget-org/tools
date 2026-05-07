@@ -21,4 +21,3 @@ renovate:
   datasource: github-releases
   package: jj-vcs/jj
   extractVersion: ^v(?<version>.+)$
-  priority: low

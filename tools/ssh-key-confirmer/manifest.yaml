@@ -18,7 +18,6 @@ renovate:
   package: benjojo/ssh-key-confirmer
   extractVersion: ^v(?<version>.+)$
   versioning: loose
-  priority: low
 license:
   name: MIT License
   link: https://github.com/benjojo/ssh-key-confirmer/blob/main/LICENSE

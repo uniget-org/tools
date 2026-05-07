@@ -18,7 +18,6 @@ renovate:
   package: git://git.kernel.org/pub/scm/libs/libcap/libcap.git
   extractVersion: ^libcap-(?<version>\d+\.\d+)$
   versioning: loose
-  priority: low
 license:
   name: BSD 3-Clause License, GPLv2-only
   link: https://git.kernel.org/pub/scm/libs/libcap/libcap.git/tree/License

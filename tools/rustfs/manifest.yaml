@@ -22,4 +22,3 @@ description: Open-source, S3-compatible high-performance object storage system s
 renovate:
   datasource: github-releases
   package: rustfs/rustfs
-  priority: low

@@ -26,4 +26,3 @@ renovate:
   datasource: github-releases
   package: darrenburns/elia
   extractVersion: ^v(?<version>.+)$
-  priority: low

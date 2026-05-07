@@ -26,4 +26,3 @@ renovate:
   datasource: github-releases
   package: prometheus-community/json_exporter
   extractVersion: ^v(?<version>.+)$
-  priority: low

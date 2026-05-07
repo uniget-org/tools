@@ -21,4 +21,3 @@ renovate:
   datasource: github-releases
   package: facebook/dotslash
   extractVersion: ^v(?<version>.+)$
-  priority: low

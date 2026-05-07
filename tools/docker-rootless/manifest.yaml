@@ -40,7 +40,6 @@ renovate:
   datasource: github-tags
   package: moby/moby
   extractVersion: ^docker-v(?<version>.+)$
-  priority: high
 license:
   name: Apache License 2.0
   link: https://github.com/moby/moby/blob/master/LICENSE

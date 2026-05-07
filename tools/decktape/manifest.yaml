@@ -20,7 +20,6 @@ description: PDF exporter for HTML presentations
 renovate:
   datasource: npm
   package: decktape
-  priority: low
 license:
   name: MIT License
   link: https://github.com/astefanutti/decktape/blob/master/LICENSE

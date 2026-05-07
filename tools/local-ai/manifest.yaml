@@ -24,4 +24,3 @@ renovate:
   datasource: github-releases
   package: mudler/LocalAI
   extractVersion: ^v(?<version>.+)$
-  priority: low

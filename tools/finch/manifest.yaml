@@ -40,4 +40,3 @@ renovate:
   datasource: github-releases
   package: runfinch/finch
   extractVersion: ^v(?<version>.+)$
-  priority: low

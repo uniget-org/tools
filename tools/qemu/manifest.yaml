@@ -18,7 +18,6 @@ renovate:
   datasource: github-tags
   package: qemu/qemu
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: Custom
   link: https://github.com/qemu/qemu/blob/master/LICENSE

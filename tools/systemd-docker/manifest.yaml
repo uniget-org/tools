@@ -23,4 +23,3 @@ renovate:
   datasource: github-releases
   package: oxin-ros/systemd-docker
   extractVersion: ^v(?<version>.+)$
-  priority: low

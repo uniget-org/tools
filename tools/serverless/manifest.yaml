@@ -22,7 +22,6 @@ description: Build web, mobile and IoT applications with serverless architecture
 renovate:
   datasource: npm
   package: serverless
-  priority: low
 license:
   name: MIT License
   link: https://github.com/serverless/serverless/blob/main/LICENSE

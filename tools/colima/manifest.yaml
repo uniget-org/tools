@@ -14,7 +14,6 @@ renovate:
   datasource: github-releases
   package: abiosoft/colima
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: MIT License
   link: https://github.com/abiosoft/colima/blob/main/LICENSE

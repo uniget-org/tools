@@ -24,4 +24,3 @@ renovate:
   datasource: github-tags
   package: docker/mcp-gateway
   extractVersion: ^v(?<version>.+)$
-  priority: low

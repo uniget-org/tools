@@ -22,4 +22,3 @@ renovate:
   datasource: github-releases
   package: Versent/saml2aws
   extractVersion: ^v(?<version>.+)$
-  priority: low

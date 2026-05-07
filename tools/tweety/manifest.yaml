@@ -20,4 +20,3 @@ renovate:
   datasource: github-releases
   package: pomdtr/tweety
   extractVersion: ^v(?<version>.+)$
-  priority: low

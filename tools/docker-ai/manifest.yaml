@@ -30,7 +30,6 @@ renovate:
   package: uniget-org/renovate-custom
   extractVersion: ^docker-ai/(?<version>.+)$
   versioning: loose
-  priority: low
 license:
   name: Docker Subscription Service Agreement
   link: https://www.docker.com/legal/docker-subscription-service-agreement/

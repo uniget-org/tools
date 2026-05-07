@@ -28,4 +28,3 @@ renovate:
   datasource: github-releases
   package: int128/kubelogin
   extractVersion: ^v(?<version>.+)$
-  priority: low

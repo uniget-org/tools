@@ -15,7 +15,6 @@ renovate:
   datasource: github-releases
   package: google/go-jsonnet
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: Apache License 2.0
   link: https://github.com/google/go-jsonnet/blob/master/LICENSE

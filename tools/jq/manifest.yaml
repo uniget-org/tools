@@ -21,7 +21,6 @@ renovate:
   package: jqlang/jq
   extractVersion: ^jq-(?<version>.+)$
   versioning: loose
-  priority: low
 license:
   name: Custom
   link: https://github.com/jqlang/jq/blob/master/COPYING

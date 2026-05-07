@@ -25,4 +25,3 @@ renovate:
   datasource: github-releases
   package: scaleway/scaleway-cli
   extractVersion: ^v(?<version>.+)$
-  priority: low

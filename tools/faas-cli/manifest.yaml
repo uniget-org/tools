@@ -12,7 +12,6 @@ description: Official CLI for OpenFaaS
 renovate:
   datasource: github-releases
   package: openfaas/faas-cli
-  priority: medium
 license:
   name: Custom
   link: https://github.com/openfaas/faas-cli/blob/master/LICENSE

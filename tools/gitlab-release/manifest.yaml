@@ -25,7 +25,6 @@ description: Utility for use in gitlab ci to upload files (from build) to the cu
 renovate:
   datasource: pypi
   package: gitlab-release
-  priority: low
 license:
   name: MIT License
   link: https://gitlab.com/alelec/gitlab-release/-/blob/master/LICENSE?ref_type=heads

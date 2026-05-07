@@ -18,7 +18,6 @@ description: Generate files from docker container meta-data
 renovate:
   datasource: github-releases
   package: nginx-proxy/docker-gen
-  priority: low
 license:
   name: MIT License
   link: https://github.com/nginx-proxy/docker-gen/blob/main/LICENSE

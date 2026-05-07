@@ -20,6 +20,5 @@ renovate:
   datasource: github-releases
   package: jenkinsci/remoting
   versioning: loose
-  priority: low
 license:
   name: MIT License

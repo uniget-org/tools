@@ -18,7 +18,6 @@ renovate:
   datasource: github-releases
   package: influxdata/influx-cli
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: MIT License
   link: https://github.com/influxdata/influx-cli/blob/main/LICENSE

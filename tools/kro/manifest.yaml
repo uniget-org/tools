@@ -22,4 +22,3 @@ renovate:
   datasource: github-releases
   package: kubernetes-sigs/kro
   extractVersion: ^v(?<version>.+)$
-  priority: low

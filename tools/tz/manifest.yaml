@@ -21,4 +21,3 @@ renovate:
   datasource: github-releases
   package: oz/tz
   extractVersion: ^v(?<version>.+)$
-  priority: low

@@ -20,7 +20,6 @@ renovate:
   datasource: github-releases
   package: libbpf/libbpf
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: LGPLv2.1 OR BSD 2-Clause
   link: https://github.com/libbpf/libbpf/blob/master/LICENSE

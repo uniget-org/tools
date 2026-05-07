@@ -22,4 +22,3 @@ renovate:
   datasource: github-releases
   package: charmbracelet/sequin
   extractVersion: ^v(?<version>.+)$
-  priority: low

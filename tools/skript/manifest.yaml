@@ -24,4 +24,3 @@ description: Plugin which allows server admins to customize their server easily,
 renovate:
   datasource: github-releases
   package: SkriptLang/Skript
-  priority: low

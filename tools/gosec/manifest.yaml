@@ -16,6 +16,5 @@ renovate:
   datasource: github-releases
   package: securego/gosec
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: Apache License 2.0

@@ -20,7 +20,6 @@ description: converts the output of popular command-line tools, file-types, and 
 renovate:
   datasource: pypi
   package: jc
-  priority: low
 license:
   name: MIT License
   link: https://github.com/kellyjonbrazil/jc/blob/master/LICENSE.md

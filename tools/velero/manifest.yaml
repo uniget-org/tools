@@ -24,4 +24,3 @@ renovate:
   datasource: github-releases
   package: vmware-tanzu/velero
   extractVersion: ^v(?<version>.+)$
-  priority: low

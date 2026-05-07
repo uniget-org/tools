@@ -16,7 +16,6 @@ renovate:
   datasource: github-releases
   package: genuinetools/img
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: MIT License
   link: https://github.com/genuinetools/img/blob/master/LICENSE

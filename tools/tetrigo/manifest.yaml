@@ -21,4 +21,3 @@ renovate:
   datasource: github-releases
   package: Broderick-Westrope/tetrigo
   extractVersion: ^v(?<version>.+)$
-  priority: low

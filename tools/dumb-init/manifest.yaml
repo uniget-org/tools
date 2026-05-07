@@ -14,7 +14,6 @@ renovate:
   datasource: github-releases
   package: Yelp/dumb-init
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: MIT License
   link: https://github.com/Yelp/dumb-init/blob/master/LICENSE

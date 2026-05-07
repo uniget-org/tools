@@ -26,4 +26,3 @@ renovate:
   datasource: github-releases
   package: rclone/rclone
   extractVersion: ^v(?<version>.+)$
-  priority: low

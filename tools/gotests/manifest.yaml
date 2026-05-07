@@ -23,4 +23,3 @@ renovate:
   datasource: github-releases
   package: cweill/gotests
   extractVersion: ^v(?<version>.+)$
-  priority: low

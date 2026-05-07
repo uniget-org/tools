@@ -20,4 +20,3 @@ renovate:
   datasource: github-releases
   package: openpubkey/opkssh
   extractVersion: ^v(?<version>.+)$
-  priority: low

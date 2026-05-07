@@ -25,4 +25,3 @@ description: Get the main content of any page as Markdown
 renovate:
   datasource: npm
   package: defuddle
-  priority: low

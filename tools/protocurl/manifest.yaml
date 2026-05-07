@@ -24,4 +24,3 @@ renovate:
   datasource: github-releases
   package: qaware/protocurl
   extractVersion: ^v(?<version>.+)$
-  priority: low

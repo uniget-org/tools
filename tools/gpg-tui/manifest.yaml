@@ -22,4 +22,3 @@ renovate:
   datasource: github-releases
   package: orhun/gpg-tui
   extractVersion: ^v(?<version>.+)$
-  priority: low

@@ -20,4 +20,3 @@ renovate:
   datasource: github-releases
   package: k8snetworkplumbingwg/whereabouts
   extractVersion: ^v(?<version>.+)$
-  priority: low

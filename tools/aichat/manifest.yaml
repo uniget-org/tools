@@ -25,4 +25,3 @@ renovate:
   datasource: github-releases
   package: sigoden/aichat
   extractVersion: ^v(?<version>.+)$
-  priority: low

@@ -22,4 +22,3 @@ renovate:
   datasource: github-tags
   package: ghostty-org/ghostty
   extractVersion: ^v(?<version>.+)$
-  priority: low

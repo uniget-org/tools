@@ -29,4 +29,3 @@ description: AI enabled pair programmer
 renovate:
   datasource: npm
   package: forgecode
-  priority: low

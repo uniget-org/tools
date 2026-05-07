@@ -31,4 +31,3 @@ renovate:
   datasource: github-releases
   package: tilt-dev/ctlptl
   extractVersion: ^v(?<version>.+)$
-  priority: low

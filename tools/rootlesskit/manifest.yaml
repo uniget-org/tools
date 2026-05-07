@@ -17,7 +17,6 @@ renovate:
   datasource: github-releases
   package: rootless-containers/rootlesskit
   extractVersion: ^v(?<version>.+)$
-  priority: high
 license:
   name: Apache License 2.0
   link: https://github.com/rootless-containers/rootlesskit/blob/master/LICENSE

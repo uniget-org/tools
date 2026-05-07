@@ -22,7 +22,6 @@ renovate:
   datasource: github-releases
   package: libcgroup/libcgroup
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: LGPLv2.1
 platforms:

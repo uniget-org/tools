@@ -16,7 +16,6 @@ renovate:
   datasource: github-releases
   package: upx/upx
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: Custom
   link: https://github.com/upx/upx/blob/devel/LICENSE

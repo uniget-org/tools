@@ -26,4 +26,3 @@ renovate:
   datasource: github-releases
   package: charmbracelet/crush
   extractVersion: ^v(?<version>.+)$
-  priority: low

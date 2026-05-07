@@ -20,4 +20,3 @@ renovate:
   datasource: github-releases
   package: bomctl/bomctl
   extractVersion: ^v(?<version>.+)$
-  priority: low

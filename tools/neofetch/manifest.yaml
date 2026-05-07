@@ -15,7 +15,6 @@ description: Command-line system information tool written in bash 3.2+
 renovate:
   datasource: github-releases
   package: dylanaraps/neofetch
-  priority: low
 license:
   name: MIT License
 platforms:

@@ -29,4 +29,3 @@ renovate:
   package: uniget-org/renovate-custom
   extractVersion: ^davfs2/(?<version>.+)$
   versioning: loose
-  priority: low

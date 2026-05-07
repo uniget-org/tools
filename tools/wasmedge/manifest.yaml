@@ -18,7 +18,6 @@ description: Lightweight, high-performance, and extensible WebAssembly runtime
 renovate:
   datasource: github-releases
   package: WasmEdge/WasmEdge
-  priority: low
 license:
   name: Apache License 2.0
   link: https://github.com/WasmEdge/WasmEdge/blob/master/LICENSE

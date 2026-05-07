@@ -18,7 +18,6 @@ renovate:
   datasource: gitea-releases
   package: gitea/tea
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: Custom
   link: https://gitea.com/gitea/tea/src/branch/main/LICENSE

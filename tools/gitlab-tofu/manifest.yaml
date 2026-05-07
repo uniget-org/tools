@@ -25,4 +25,3 @@ description: Some description
 renovate:
   datasource: gitlab-releases
   package: components/opentofu
-  priority: low

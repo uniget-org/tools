@@ -21,4 +21,3 @@ renovate:
   datasource: github-releases
   package: kubernetes-sigs/cloud-provider-kind
   extractVersion: ^v(?<version>.+)$
-  priority: low

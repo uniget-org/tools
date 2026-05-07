@@ -17,6 +17,5 @@ renovate:
   datasource: github-releases
   package: adobe-fonts/source-sans
   extractVersion: ^(?<version>.+)R$
-  priority: low
 license:
   name: SIL Open Font License 1.1

@@ -13,7 +13,6 @@ renovate:
   datasource: github-releases
   package: junegunn/fzf
   extractVersion: ^v?(?<version>.+)$
-  priority: low
 license:
   name: MIT License
   link: https://github.com/junegunn/fzf/blob/master/LICENSE

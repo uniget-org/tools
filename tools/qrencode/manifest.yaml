@@ -20,6 +20,5 @@ renovate:
   datasource: github-releases
   package: fukuchi/libqrencode
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: LGPLv2.1

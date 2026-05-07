@@ -21,7 +21,6 @@ description: Reference implementation for the specification that can create and 
 renovate:
   datasource: npm
   package: "@devcontainers/cli"
-  priority: medium
 license:
   name: MIT License
   link: https://github.com/devcontainers/cli/blob/main/LICENSE.txt

@@ -20,6 +20,5 @@ renovate:
   datasource: github-releases
   package: proot-me/proot
   extractVersion: ^v(?<version>.+)$
-  priority: high
 license:
   name: GPLv2

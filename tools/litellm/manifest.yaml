@@ -27,4 +27,3 @@ description: Some description
 renovate:
   datasource: pypi
   package: litellm
-  priority: low

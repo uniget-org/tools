@@ -23,7 +23,6 @@ description: IDE style command line auto complete
 renovate:
   datasource: npm
   package: "@microsoft/inshellisense"
-  priority: low
 license:
   name: MIT License
   link: https://github.com/microsoft/inshellisense/blob/main/LICENSE

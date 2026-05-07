@@ -24,4 +24,3 @@ renovate:
   datasource: github-releases
   package: docker/sbx-releases
   extractVersion: ^v(?<version>.+)$
-  priority: low

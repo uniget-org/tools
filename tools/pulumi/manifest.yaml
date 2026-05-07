@@ -18,4 +18,3 @@ renovate:
   datasource: github-releases
   package: pulumi/pulumi
   extractVersion: ^v(?<version>.+)$
-  priority: low

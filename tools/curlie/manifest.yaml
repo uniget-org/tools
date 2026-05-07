@@ -14,7 +14,6 @@ renovate:
   datasource: github-releases
   package: rs/curlie
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: MIT License
   link: https://github.com/rs/curlie/blob/master/LICENSE

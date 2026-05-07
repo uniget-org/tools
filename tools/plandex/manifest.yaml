@@ -24,4 +24,3 @@ renovate:
   datasource: github-releases
   package: plandex-ai/plandex
   extractVersion: ^cli/v(?<version>.+)$
-  priority: low

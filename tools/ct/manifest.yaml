@@ -21,7 +21,6 @@ renovate:
   datasource: github-releases
   package: flatcar/container-linux-config-transpiler
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: Apache License 2.0
   link: https://github.com/flatcar/container-linux-config-transpiler/blob/flatcar-master/LICENSE

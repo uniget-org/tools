@@ -24,4 +24,3 @@ description: Display dependency tree of Python distribution
 renovate:
   datasource: pypi
   package: johnnydep
-  priority: low

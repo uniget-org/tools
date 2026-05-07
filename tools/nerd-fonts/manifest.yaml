@@ -17,7 +17,6 @@ renovate:
   datasource: github-releases
   package: ryanoasis/nerd-fonts
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: Custom
   link: https://github.com/ryanoasis/nerd-fonts/blob/master/LICENSE

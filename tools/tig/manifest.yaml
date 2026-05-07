@@ -18,6 +18,5 @@ renovate:
   datasource: github-releases
   package: jonas/tig
   extractVersion: ^tig-(?<version>.+)$
-  priority: low
 license:
   name: GPLv2

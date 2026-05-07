@@ -23,4 +23,3 @@ renovate:
   package: uniget-org/renovate-custom
   extractVersion: ^texlive/(?<version>.+)$
   versioning: loose
-  priority: low

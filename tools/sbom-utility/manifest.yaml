@@ -18,7 +18,6 @@ renovate:
   datasource: github-releases
   package: CycloneDX/sbom-utility
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: Apache License 2.0
   link: https://github.com/CycloneDX/sbom-utility/blob/main/LICENSE

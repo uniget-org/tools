@@ -20,4 +20,3 @@ renovate:
   datasource: github-releases
   package: lrstanley/vault-unseal
   extractVersion: ^v(?<version>.+)$
-  priority: low

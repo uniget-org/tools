@@ -22,7 +22,6 @@ description: Linter for YAML files
 renovate:
   datasource: pypi
   package: yamllint
-  priority: low
 license:
   name: GPLv3
   link: https://github.com/adrienverge/yamllint/blob/master/LICENSE

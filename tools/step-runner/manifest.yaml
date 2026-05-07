@@ -24,4 +24,3 @@ renovate:
   datasource: gitlab-releases
   package: gitlab-org/step-runner
   extractVersion: ^v(?<version>.+)$
-  priority: low

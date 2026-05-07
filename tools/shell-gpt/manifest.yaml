@@ -24,7 +24,6 @@ description: Command-line productivity tool powered by GPT-3 and GPT-4, will hel
 renovate:
   datasource: pypi
   package: shell-gpt
-  priority: low
 license:
   name: MIT License
   link: https://github.com/TheR1D/shell_gpt/blob/main/LICENSE

@@ -22,7 +22,6 @@ renovate:
   datasource: git-tags
   package: https://git.zx2c4.com/password-store.git
   versioning: loose
-  priority: low
 license:
   name: GPLv2
   link: https://git.zx2c4.com/password-store/tree/COPYING

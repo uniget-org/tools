@@ -24,4 +24,3 @@ renovate:
   datasource: github-releases
   package: upcloudltd/upcloud-cli
   extractVersion: ^v(?<version>.+)$
-  priority: low

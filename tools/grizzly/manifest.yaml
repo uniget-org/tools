@@ -25,4 +25,3 @@ renovate:
   datasource: github-releases
   package: grafana/grizzly
   extractVersion: ^v(?<version>.+)$
-  priority: low

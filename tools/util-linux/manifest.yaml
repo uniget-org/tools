@@ -16,7 +16,6 @@ renovate:
   package: util-linux/util-linux
   extractVersion: ^v(?<version>\d+\.\d+(\.\d+)?)$
   versioning: loose
-  priority: low
 license:
   name: GPLv2
 platforms:

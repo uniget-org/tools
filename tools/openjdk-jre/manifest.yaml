@@ -20,6 +20,5 @@ renovate:
   package: uniget-org/renovate-custom
   extractVersion: ^openjdk/(?<version>.+)$
   versioning: loose
-  priority: low
 platforms:
 - linux/amd64

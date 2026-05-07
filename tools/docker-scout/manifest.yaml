@@ -26,7 +26,6 @@ renovate:
   datasource: github-releases
   package: docker/scout-cli
   extractVersion: ^v(?<version>.+)$
-  priority: high
 license:
   name: Docker Subscription Service Agreement
   link: https://www.docker.com/legal/docker-subscription-service-agreement

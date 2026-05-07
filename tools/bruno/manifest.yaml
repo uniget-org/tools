@@ -27,4 +27,3 @@ description: Open source IDE For exploring and testing APIs
 renovate:
   datasource: npm
   package: "@usebruno/cli"
-  priority: low

@@ -19,4 +19,3 @@ description: Programming in YAML
 renovate:
   datasource: github-releases
   package: yaml/yamlscript
-  priority: low

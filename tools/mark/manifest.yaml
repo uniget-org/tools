@@ -22,4 +22,3 @@ description: Sync your markdown files with Confluence pages
 renovate:
   datasource: github-releases
   package: kovetskiy/mark
-  priority: low

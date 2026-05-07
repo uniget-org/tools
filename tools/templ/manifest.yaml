@@ -21,4 +21,3 @@ renovate:
   datasource: github-releases
   package: a-h/templ
   extractVersion: ^v(?<version>.+)$
-  priority: low

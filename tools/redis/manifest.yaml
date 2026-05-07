@@ -22,4 +22,3 @@ description: In-memory key-value database that persists on disk
 renovate:
   datasource: github-releases
   package: redis/redis
-  priority: low

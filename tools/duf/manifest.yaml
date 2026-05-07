@@ -16,7 +16,6 @@ renovate:
   datasource: github-releases
   package: muesli/duf
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: Custom
   link: https://github.com/muesli/duf/blob/master/LICENSE

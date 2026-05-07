@@ -16,7 +16,6 @@ renovate:
   datasource: github-releases
   package: jesseduffield/lazygit
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: MIT License
   link: https://github.com/jesseduffield/lazygit/blob/master/LICENSE

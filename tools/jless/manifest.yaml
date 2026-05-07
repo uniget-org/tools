@@ -31,7 +31,6 @@ renovate:
   datasource: github-releases
   package: PaulJuliusMartinez/jless
   extractVersion: ^v(?<version>.+)$
-  priority: medium
 license:
   name: MIT License
   link: https://github.com/PaulJuliusMartinez/jless/blob/main/LICENSE

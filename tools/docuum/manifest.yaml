@@ -20,7 +20,6 @@ renovate:
   datasource: github-releases
   package: stepchowfun/docuum
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: Custom
   link: https://github.com/stepchowfun/docuum/blob/main/LICENSE.md

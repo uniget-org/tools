@@ -17,6 +17,5 @@ renovate:
   datasource: github-releases
   package: sharkdp/hexyl
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: Apache License 2.0

@@ -16,7 +16,6 @@ description: Featureful union filesystem
 renovate:
   datasource: github-releases
   package: trapexit/mergerfs
-  priority: low
 license:
   name: Custom
   link: https://github.com/trapexit/mergerfs/blob/latest-release/LICENSE

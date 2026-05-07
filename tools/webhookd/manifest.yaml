@@ -13,7 +13,6 @@ renovate:
   datasource: github-releases
   package: ncarlier/webhookd
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: MIT License
   link: https://github.com/ncarlier/webhookd/blob/master/LICENSE

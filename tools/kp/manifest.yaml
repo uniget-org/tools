@@ -16,7 +16,6 @@ renovate:
   datasource: github-releases
   package: buildpacks-community/kpack-cli
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: Apache License 2.0
   link: https://github.com/buildpacks-community/kpack-cli/blob/main/LICENSE

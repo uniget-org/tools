@@ -25,4 +25,3 @@ renovate:
   datasource: github-releases
   package: github/gh-copilot
   extractVersion: ^v(?<version>.+)$
-  priority: low

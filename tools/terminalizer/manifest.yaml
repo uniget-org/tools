@@ -24,7 +24,6 @@ description: Record your terminal and generate animated gif images or share a we
 renovate:
   datasource: npm
   package: terminalizer
-  priority: low
 license:
   name: MIT License
   link: https://github.com/faressoft/terminalizer/blob/master/LICENSE

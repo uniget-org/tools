@@ -20,4 +20,3 @@ description: Create, share, and run runbooks from your terminal
 renovate:
   datasource: github-releases
   package: getsavvyinc/savvy-cli
-  priority: low

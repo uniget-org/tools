@@ -24,4 +24,3 @@ renovate:
   datasource: github-releases
   package: stefanlogue/meteor
   extractVersion: ^v(?<version>.+)$
-  priority: low

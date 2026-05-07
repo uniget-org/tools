@@ -18,7 +18,6 @@ renovate:
   datasource: github-releases
   package: gopasspw/git-credential-gopass
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: MIT License
   link: https://github.com/gopasspw/git-credential-gopass/blob/master/LICENSE

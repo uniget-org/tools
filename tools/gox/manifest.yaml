@@ -22,4 +22,3 @@ renovate:
   datasource: github-releases
   package: authelia/gox
   extractVersion: ^v(?<version>.+)$
-  priority: low

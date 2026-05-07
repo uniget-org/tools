@@ -19,4 +19,3 @@ renovate:
   datasource: github-releases
   package: rest-sh/restish
   extractVersion: ^v(?<version>.+)$
-  priority: low

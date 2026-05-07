@@ -22,4 +22,3 @@ description: Create console histograms, bar graphs, tables, heatmaps and more in
 renovate:
   datasource: github-releases
   package: zix99/rare
-  priority: low

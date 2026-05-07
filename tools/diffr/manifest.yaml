@@ -21,4 +21,3 @@ renovate:
   datasource: github-releases
   package: mookid/diffr
   extractVersion: ^v(?<version>.+)$
-  priority: low

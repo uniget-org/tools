@@ -23,4 +23,3 @@ renovate:
   datasource: github-releases
   package: NetApp/trident
   extractVersion: ^v(?<version>.+)$
-  priority: low

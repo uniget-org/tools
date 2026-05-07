@@ -19,6 +19,5 @@ renovate:
   datasource: github-releases
   package: charmbracelet/melt
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: MIT License

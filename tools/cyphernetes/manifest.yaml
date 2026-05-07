@@ -22,7 +22,6 @@ renovate:
   datasource: github-releases
   package: AvitalTamir/cyphernetes
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: MIT License
   link: https://github.com/AvitalTamir/cyphernetes/blob/main/LICENSE

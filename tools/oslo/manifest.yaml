@@ -21,4 +21,3 @@ renovate:
   datasource: github-releases
   package: OpenSLO/oslo
   extractVersion: ^v(?<version>.+)$
-  priority: low

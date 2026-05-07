@@ -18,7 +18,6 @@ renovate:
   datasource: github-releases
   package: patrickhoefler/dockerfilegraph
   extractVersion: ^v(?<version>.+)$
-  priority: medium
 license:
   name: MIT License
   link: https://github.com/patrickhoefler/dockerfilegraph/blob/main/LICENSE

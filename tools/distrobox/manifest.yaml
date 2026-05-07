@@ -17,6 +17,5 @@ renovate:
   datasource: github-releases
   package: 89luca89/distrobox
   versioning: loose
-  priority: medium
 license:
   name: GPLv3

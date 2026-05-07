@@ -26,4 +26,3 @@ description: Make nether and end portals work in Multiverse
 renovate:
   datasource: github-releases
   package: Multiverse/Multiverse-NetherPortals
-  priority: low

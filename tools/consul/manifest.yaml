@@ -22,4 +22,3 @@ renovate:
   datasource: github-releases
   package: hashicorp/consul
   extractVersion: ^v?(?<version>.+)$
-  priority: low

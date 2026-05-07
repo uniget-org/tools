@@ -26,4 +26,3 @@ renovate:
   datasource: github-releases
   package: jlewi/foyle
   extractVersion: ^v(?<version>.+)$
-  priority: low

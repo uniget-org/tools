@@ -21,7 +21,6 @@ description: CLI for interacting with cloud storage services
 renovate:
   datasource: pypi
   package: gsutil
-  priority: low
 license:
   name: Apache License 2.0
   link: https://github.com/GoogleCloudPlatform/gsutil/blob/master/LICENSE

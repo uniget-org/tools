@@ -20,7 +20,6 @@ renovate:
   package: roddhjav/pass-update
   extractVersion: ^v(?<version>.+)$
   versioning: loose
-  priority: low
 license:
   name: GPLv3
   link: https://github.com/roddhjav/pass-update/blob/master/LICENSE

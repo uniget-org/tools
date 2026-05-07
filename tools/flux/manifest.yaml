@@ -18,7 +18,6 @@ renovate:
   datasource: github-releases
   package: influxdata/flux
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: MIT License
   link: https://github.com/influxdata/flux/blob/master/LICENSE

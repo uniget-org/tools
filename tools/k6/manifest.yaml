@@ -17,6 +17,5 @@ renovate:
   datasource: github-releases
   package: grafana/k6
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: AGPLv3

@@ -26,7 +26,6 @@ renovate:
   package: uniget-org/renovate-custom
   extractVersion: ^python-3.12/(?<version>.+)$
   versioning: loose
-  priority: low
 license:
   name: Python Software Foundation License Version 2
   link: https://github.com/python/cpython/blob/main/LICENSE

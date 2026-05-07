@@ -26,4 +26,3 @@ renovate:
   datasource: github-releases
   package: meysamhadeli/codai
   extractVersion: ^v(?<version>.+)$
-  priority: low

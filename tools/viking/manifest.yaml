@@ -22,4 +22,3 @@ renovate:
   datasource: github-releases
   package: d3witt/viking
   extractVersion: ^v(?<version>.+)$
-  priority: low

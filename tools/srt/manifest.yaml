@@ -23,4 +23,3 @@ description: Lightweight sandboxing tool for enforcing filesystem and network re
 renovate:
   datasource: npm
   package: "@anthropic-ai/sandbox-runtime"
-  priority: low

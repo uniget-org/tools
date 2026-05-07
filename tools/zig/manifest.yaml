@@ -19,4 +19,3 @@ description: General-purpose programming language and toolchain for maintaining 
 renovate:
   datasource: git-tags
   package: https://codeberg.org/ziglang/zig.git
-  priority: low

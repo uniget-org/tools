@@ -14,7 +14,6 @@ renovate:
   datasource: github-releases
   package: homeport/dyff
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: MIT License
   link: https://github.com/homeport/dyff/blob/main/LICENSE

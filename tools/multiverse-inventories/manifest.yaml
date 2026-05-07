@@ -26,4 +26,3 @@ description: Let players have separate inventories in Multiverse worlds
 renovate:
   datasource: github-releases
   package: Multiverse/Multiverse-Inventories
-  priority: low

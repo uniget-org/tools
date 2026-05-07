@@ -20,4 +20,3 @@ renovate:
   datasource: github-releases
   package: jdx/mise
   extractVersion: ^v(?<version>.+)$
-  priority: low

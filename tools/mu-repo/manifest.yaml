@@ -23,7 +23,6 @@ description: Help in dealing with multiple git repositories
 renovate:
   datasource: pypi
   package: mu-repo
-  priority: low
 license:
   name: GPLv3
   link: https://github.com/fabioz/mu-repo/blob/master/LICENSE

@@ -20,4 +20,3 @@ renovate:
   datasource: github-releases
   package: jlandersen/k8s-unix-system
   extractVersion: ^v(?<version>.+)$
-  priority: low

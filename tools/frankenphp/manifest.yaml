@@ -17,7 +17,6 @@ renovate:
   datasource: github-releases
   package: php/frankenphp
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: MIT License
   link: https://github.com/php/frankenphp/blob/main/LICENSE

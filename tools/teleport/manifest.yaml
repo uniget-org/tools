@@ -16,7 +16,6 @@ renovate:
   datasource: github-releases
   package: gravitational/teleport
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: AGPLv3
   link: https://github.com/gravitational/teleport/blob/master/LICENSE

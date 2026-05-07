@@ -19,6 +19,5 @@ renovate:
   datasource: github-releases
   package: grafana/loki
   extractVersion: ^v(?<version>.+)$
-  priority: low
 platforms:
 - linux/amd64

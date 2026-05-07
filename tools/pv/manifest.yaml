@@ -20,7 +20,6 @@ renovate:
   datasource: git-tags
   package: https://codeberg.org/a-j-wood/pv.git
   extractVersion: ^v(?<version>\d+\.\d+\.\d+-\d+)$
-  priority: low
 license:
   name: GPLv3
   link: https://codeberg.org/a-j-wood/pv/src/branch/main/docs/COPYING

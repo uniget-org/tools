@@ -20,7 +20,6 @@ renovate:
   datasource: github-releases
   package: nodejs/node
   extractVersion: ^v(?<version>22\..+)$
-  priority: low
 license:
   name: MIT License
   link: https://github.com/nodejs/node/blob/main/LICENSE

@@ -18,7 +18,6 @@ renovate:
   datasource: github-releases
   package: go-acme/lego
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: MIT License
   link: https://github.com/go-acme/lego/blob/master/LICENSE

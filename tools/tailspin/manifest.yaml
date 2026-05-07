@@ -19,6 +19,5 @@ description: Log file highlighter
 renovate:
   datasource: github-releases
   package: bensadeh/tailspin
-  priority: low
 license:
   name: MIT License

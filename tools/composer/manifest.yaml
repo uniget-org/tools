@@ -19,7 +19,6 @@ description: Dependency Manager for PHP
 renovate:
   datasource: github-releases
   package: composer/composer
-  priority: low
 license:
   name: MIT License
   link: https://github.com/composer/composer/blob/main/LICENSE

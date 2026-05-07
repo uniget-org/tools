@@ -19,7 +19,6 @@ description: Reference implementation of Sass
 renovate:
   datasource: github-releases
   package: sass/dart-sass
-  priority: low
 license:
   name: MIT License
   link: https://github.com/sass/dart-sass/blob/main/LICENSE

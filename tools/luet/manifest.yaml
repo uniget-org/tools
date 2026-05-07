@@ -16,7 +16,6 @@ description: 0-dependency Container-based Package Manager using SAT solver and Q
 renovate:
   datasource: github-releases
   package: mudler/luet
-  priority: low
 license:
   name: GPLv3
   link: https://github.com/mudler/luet/blob/master/LICENSE

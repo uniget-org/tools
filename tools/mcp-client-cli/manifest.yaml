@@ -28,4 +28,3 @@ description: Run LLM prompt and implement MCP client
 renovate:
   datasource: pypi
   package: mcp-client-cli
-  priority: low

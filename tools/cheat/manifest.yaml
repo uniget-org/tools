@@ -13,7 +13,6 @@ description: Interactive cheatsheets on the command-line
 renovate:
   datasource: github-releases
   package: cheat/cheat
-  priority: low
 license:
   name: MIT License
 platforms:

@@ -26,4 +26,3 @@ renovate:
   datasource: github-releases
   package: kubernetes-sigs/yaml
   extractVersion: ^v(?<version>.+)$
-  priority: low

@@ -19,4 +19,3 @@ description: Enables REST-like access to HTML pages by scraping and parsing them
 renovate:
   datasource: github-releases
   package: itzg/restify 
-  priority: low

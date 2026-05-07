@@ -25,7 +25,6 @@ renovate:
   datasource: github-releases
   package: grafana/agent
   extractVersion: ^v(?<version>.+)$
-  priority: low
 lifecycle:
   removed_with_reason: End-of-life. Consider using OpenTelemetry Collector or Grafana Alloy.
 platforms:

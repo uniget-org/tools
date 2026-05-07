@@ -26,4 +26,3 @@ description: Create signs that can teleport to Multiverse destinations
 renovate:
   datasource: github-releases
   package: Multiverse/Multiverse-SignPortals
-  priority: low

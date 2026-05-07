@@ -18,6 +18,5 @@ renovate:
   datasource: github-releases
   package: gitui-org/gitui
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: MIT License

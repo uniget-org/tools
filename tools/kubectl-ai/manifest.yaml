@@ -26,4 +26,3 @@ renovate:
   datasource: github-releases
   package: GoogleCloudPlatform/kubectl-ai
   extractVersion: ^v(?<version>.+)$
-  priority: low

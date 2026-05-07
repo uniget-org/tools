@@ -17,4 +17,3 @@ renovate:
   datasource: github-releases
   package: kubeshark/tracer
   extractVersion: ^v(?<version>.+?)$
-  priority: low

@@ -26,7 +26,6 @@ description: Transform SBOM contents into a formatted document including markdow
 renovate:
   datasource: pypi
   package: sbom2doc
-  priority: medium
 license:
   name: Apache License 2.0
   link: https://github.com/anthonyharrison/sbom2doc/blob/main/LICENSE

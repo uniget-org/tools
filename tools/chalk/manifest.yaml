@@ -21,4 +21,3 @@ renovate:
   datasource: github-releases
   package: crashappsec/chalk
   extractVersion: ^v(?<version>.+)$
-  priority: low

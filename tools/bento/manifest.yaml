@@ -23,4 +23,3 @@ renovate:
   datasource: github-releases
   package: warpstreamlabs/bento
   extractVersion: ^v(?<version>.+)$
-  priority: low

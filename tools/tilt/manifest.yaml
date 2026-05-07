@@ -23,4 +23,3 @@ renovate:
   datasource: github-releases
   package: tilt-dev/tilt
   extractVersion: ^v(?<version>.+)$
-  priority: low

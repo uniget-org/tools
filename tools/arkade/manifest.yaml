@@ -18,7 +18,6 @@ description: Open Source Marketplace For Kubernetes
 renovate:
   package: alexellis/arkade
   datasource: github-releases
-  priority: low
 license:
   name: MIT License
   link: https://github.com/alexellis/arkade/blob/master/LICENSE

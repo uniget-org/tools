@@ -28,4 +28,3 @@ description: Generate terraform files from existing infrastructure (reverse Terr
 renovate:
   datasource: github-releases
   package: GoogleCloudPlatform/terraformer
-  priority: low

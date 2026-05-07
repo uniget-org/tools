@@ -17,7 +17,6 @@ renovate:
   package: madler/pigz
   extractVersion: ^v(?<version>.+)$
   versioning: loose
-  priority: low
 license:
   name: Custom
   link: https://github.com/madler/pigz

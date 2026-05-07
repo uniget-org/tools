@@ -17,7 +17,6 @@ description: Catalogue all images of a Kubernetes cluster to multiple targets wi
 renovate:
   datasource: github-releases
   package: ckotzbauer/sbom-operator
-  priority: low
 license:
   name: MIT License
   link: https://github.com/ckotzbauer/sbom-operator/blob/main/LICENSE

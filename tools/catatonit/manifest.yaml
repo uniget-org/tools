@@ -15,6 +15,5 @@ renovate:
   datasource: github-releases
   package: openSUSE/catatonit
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: GPLv2

@@ -20,4 +20,3 @@ renovate:
   datasource: github-releases
   package: pranshuparmar/witr
   extractVersion: ^v(?<version>.+)$
-  priority: low

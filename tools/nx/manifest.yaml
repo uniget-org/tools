@@ -18,7 +18,6 @@ description: Smart, Fast and Extensible Build System
 renovate:
   datasource: npm
   package: nx
-  priority: low
 license:
   name: MIT License
   link: https://github.com/nrwl/nx/blob/master/LICENSE

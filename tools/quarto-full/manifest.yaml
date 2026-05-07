@@ -20,7 +20,6 @@ renovate:
   datasource: github-releases
   package: quarto-dev/quarto-cli
   extractVersion: ^v(?<version>.+)$
-  priority: medium
 license:
   name: MIT License
   link: https://github.com/quarto-dev/quarto-cli/blob/main/COPYING.md

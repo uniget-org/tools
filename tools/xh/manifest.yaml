@@ -18,7 +18,6 @@ renovate:
   datasource: github-releases
   package: ducaale/xh
   extractVersion: ^v(?<version>.+)$
-  priority: medium
 license:
   name: MIT License
   link: https://github.com/ducaale/xh/blob/master/LICENSE

@@ -23,4 +23,3 @@ renovate:
   datasource: github-releases
   package: danielmiessler/fabric
   extractVersion: ^v(?<version>.+)$
-  priority: low

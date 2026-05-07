@@ -22,7 +22,6 @@ description: Pluggable natural language linter for text and markdown
 renovate:
   datasource: npm
   package: textlint
-  priority: low
 license:
   name: MIT License
   link: https://github.com/textlint/textlint/blob/master/LICENSE

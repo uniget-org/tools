@@ -25,4 +25,3 @@ renovate:
   datasource: gitlab-releases
   package: uniget-org/renovate-custom
   extractVersion: ^minecraft-server/(?<version>.+)$
-  priority: low

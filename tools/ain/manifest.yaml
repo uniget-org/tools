@@ -20,4 +20,3 @@ renovate:
   datasource: github-releases
   package: jonaslu/ain
   extractVersion: ^v(?<version>.+)$
-  priority: low

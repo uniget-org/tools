@@ -20,4 +20,3 @@ renovate:
   datasource: github-releases
   package: pemistahl/grex
   extractVersion: ^v(?<version>.+)$
-  priority: low

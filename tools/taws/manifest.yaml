@@ -21,4 +21,3 @@ renovate:
   datasource: github-releases
   package: huseyinbabal/taws
   extractVersion: ^v(?<version>.+)$
-  priority: low

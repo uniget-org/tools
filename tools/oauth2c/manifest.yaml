@@ -23,4 +23,3 @@ renovate:
   datasource: github-releases
   package: SecureAuthCorp/oauth2c
   extractVersion: ^v(?<version>.+)$
-  priority: low

@@ -24,7 +24,6 @@ renovate:
   datasource: github-releases
   package: itchyny/gojq
   extractVersion: ^v(?<version>.+)$
-  priority: high
 license:
   name: MIT License
   link: https://github.com/itchyny/gojq/blob/main/LICENSE

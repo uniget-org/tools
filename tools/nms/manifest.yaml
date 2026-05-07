@@ -20,7 +20,6 @@ renovate:
   datasource: github-releases
   package: bartobri/no-more-secrets
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: GPLv3
   link: https://github.com/bartobri/no-more-secrets/blob/master/LICENSE

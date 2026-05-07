@@ -20,4 +20,3 @@ renovate:
   datasource: github-releases
   package: Breee/kubeswitch
   extractVersion: ^v(?<version>.+)$
-  priority: high

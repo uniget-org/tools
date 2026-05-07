@@ -24,4 +24,3 @@ renovate:
   datasource: github-releases
   package: saschagrunert/go-modiff
   extractVersion: ^v(?<version>.+)$
-  priority: low

@@ -28,4 +28,3 @@ renovate:
   datasource: github-releases
   package: spinel-coop/rv
   extractVersion: ^v(?<version>.+)$
-  priority: low

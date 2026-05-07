@@ -29,4 +29,3 @@ description: Orchestration Layer for AI agents
 renovate:
   datasource: npm
   package: dexto
-  priority: low

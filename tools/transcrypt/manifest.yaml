@@ -20,4 +20,3 @@ renovate:
   datasource: github-releases
   package: elasticdog/transcrypt
   extractVersion: ^v(?<version>.+)$
-  priority: low

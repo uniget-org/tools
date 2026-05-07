@@ -20,4 +20,3 @@ renovate:
   datasource: github-releases
   package: harshalranjhani/genie
   extractVersion: ^v(?<version>.+)$
-  priority: low

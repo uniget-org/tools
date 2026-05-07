@@ -26,4 +26,3 @@ renovate:
   datasource: github-releases
   package: docker/model-runner
   extractVersion: ^v(?<version>.+)$
-  priority: low

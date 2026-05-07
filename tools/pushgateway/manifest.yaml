@@ -23,4 +23,3 @@ renovate:
   datasource: github-releases
   package: prometheus/pushgateway
   extractVersion: ^v(?<version>.+)$
-  priority: low

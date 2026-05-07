@@ -23,4 +23,3 @@ renovate:
   datasource: github-releases
   package: m1guelpf/plz-cli
   extractVersion: ^v(?<version>.+)$
-  priority: low

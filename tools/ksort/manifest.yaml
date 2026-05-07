@@ -20,7 +20,6 @@ renovate:
   datasource: github-releases
   package: superbrothers/ksort
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: Custom
   link: https://github.com/superbrothers/ksort/blob/master/LICENSE.txt

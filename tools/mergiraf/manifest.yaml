@@ -20,4 +20,3 @@ renovate:
   datasource: git-tags
   package: https://codeberg.org/mergiraf/mergiraf.git
   extractVersion: ^v(?<version>.+)$
-  priority: low

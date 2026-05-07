@@ -17,7 +17,6 @@ description: Containers that look like Virtual Machines
 renovate:
   datasource: github-releases
   package: weaveworks/footloose
-  priority: low
 license:
   name: Apache License 2.0
   link: https://github.com/weaveworks/footloose/blob/master/LICENSE

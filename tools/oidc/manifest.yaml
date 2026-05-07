@@ -23,4 +23,3 @@ renovate:
   datasource: github-releases
   package: ctron/oidc-cli
   extractVersion: ^v(?<version>.+)$
-  priority: low

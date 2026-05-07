@@ -23,4 +23,3 @@ description: Modern API client that lives in your terminal
 renovate:
   datasource: github-releases
   package: darrenburns/posting
-  priority: low

@@ -22,4 +22,3 @@ renovate:
   datasource: github-releases
   package: Tiiffi/mcrcon
   extractVersion: ^v(?<version>.+)$
-  priority: low

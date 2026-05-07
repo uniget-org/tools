@@ -19,7 +19,6 @@ renovate:
   datasource: github-releases
   package: charmbracelet/soft-serve
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: MIT License
   link: https://github.com/charmbracelet/soft-serve/blob/main/LICENSE

@@ -22,7 +22,6 @@ description: Terminal and Web console for Kubernetes
 renovate:
   datasource: npm
   package: kubebox
-  priority: low
 license:
   name: MIT License
   link: https://github.com/astefanutti/kubebox/blob/master/LICENSE

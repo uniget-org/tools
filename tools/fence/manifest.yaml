@@ -23,4 +23,3 @@ renovate:
   datasource: github-releases
   package: Use-Tusk/fence
   extractVersion: ^v(?<version>.+)$
-  priority: low

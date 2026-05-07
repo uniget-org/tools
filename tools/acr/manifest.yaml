@@ -23,7 +23,6 @@ renovate:
   package: Azure/acr-cli
   extractVersion: ^v(?<version>.+)$
   versioning: loose
-  priority: low
 license:
   name: MIT License
   link: https://github.com/Azure/acr-cli/blob/main/LICENSE

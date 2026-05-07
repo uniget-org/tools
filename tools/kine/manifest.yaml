@@ -23,4 +23,3 @@ renovate:
   datasource: github-releases
   package: k3s-io/kine
   extractVersion: ^v(?<version>.+)$
-  priority: low

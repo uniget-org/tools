@@ -21,4 +21,3 @@ renovate:
   datasource: github-releases
   package: open-policy-agent/regal
   extractVersion: ^v(?<version>.+)$
-  priority: low

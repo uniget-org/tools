@@ -26,4 +26,3 @@ description: Create portals to Multiverse destinations
 renovate:
   datasource: github-releases
   package: Multiverse/Multiverse-Portals
-  priority: low

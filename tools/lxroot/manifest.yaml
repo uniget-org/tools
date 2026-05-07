@@ -17,7 +17,6 @@ description: Lightweight, flexible, and safer alternative to chroot and/or Docke
 renovate:
   datasource: github-releases
   package: parke/lxroot
-  priority: high
 license:
   name: GPLv3
   link: https://github.com/parke/lxroot/blob/master/LICENSE

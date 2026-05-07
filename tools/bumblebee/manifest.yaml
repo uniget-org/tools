@@ -15,7 +15,6 @@ renovate:
   datasource: github-releases
   package: solo-io/bumblebee
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: Apache License 2.0
   link: https://github.com/solo-io/bumblebee/blob/main/LICENSE

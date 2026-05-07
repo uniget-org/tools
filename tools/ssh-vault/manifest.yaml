@@ -18,4 +18,3 @@ description: Encrypt/decrypt using ssh keys
 renovate:
   datasource: github-releases
   package: ssh-vault/ssh-vault
-  priority: low

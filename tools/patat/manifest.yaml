@@ -16,7 +16,6 @@ renovate:
   package: jaspervdj/patat
   extractVersion: ^v(?<version>.+)$
   versioning: loose
-  priority: low
 license:
   name: GPLv2
   link: https://github.com/jaspervdj/patat/blob/main/LICENSE

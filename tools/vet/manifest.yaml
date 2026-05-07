@@ -20,4 +20,3 @@ renovate:
   datasource: github-releases
   package: vet-run/vet
   extractVersion: ^v(?<version>.+)$
-  priority: low

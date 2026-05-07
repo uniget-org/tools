@@ -13,7 +13,6 @@ renovate:
   datasource: github-releases
   package: getanteon/anteon
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: AGPLv3
   link: https://github.com/getanteon/anteon/blob/master/LICENSE

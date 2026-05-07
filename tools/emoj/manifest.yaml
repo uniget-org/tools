@@ -19,7 +19,6 @@ description: Find relevant emoji from text on the command-line
 renovate:
   datasource: npm
   package: emoj
-  priority: low
 license:
   name: MIT License
   link: https://github.com/sindresorhus/emoj/blob/main/license

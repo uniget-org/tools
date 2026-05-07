@@ -27,4 +27,3 @@ description: Run any open-source LLMs, such as DeepSeek and Llama, as OpenAI com
 renovate:
   datasource: pypi
   package: openllm
-  priority: low

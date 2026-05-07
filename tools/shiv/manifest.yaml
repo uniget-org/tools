@@ -18,7 +18,6 @@ description: Command line utility for building fully self contained Python zipap
 renovate:
   datasource: github-releases
   package: linkedin/shiv
-  priority: medium
 license:
   name: BSD 2-Clause License
   link: https://github.com/linkedin/shiv/blob/main/LICENSE

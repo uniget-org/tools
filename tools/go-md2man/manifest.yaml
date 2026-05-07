@@ -20,6 +20,5 @@ renovate:
   datasource: github-releases
   package: cpuguy83/go-md2man
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: MIT License

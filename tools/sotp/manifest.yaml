@@ -17,6 +17,5 @@ description: Get TOTP from the command line using TOTP secrets in Sops encrypted
 renovate:
   datasource: github-releases
   package: getsops/sotp
-  priority: low
 license:
   name: None

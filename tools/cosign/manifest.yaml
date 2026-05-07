@@ -27,7 +27,6 @@ renovate:
   datasource: github-releases
   package: sigstore/cosign
   extractVersion: ^v(?<version>.+)$
-  priority: high
 license:
   name: Apache License 2.0
   link: https://github.com/sigstore/cosign/blob/main/LICENSE

@@ -21,7 +21,6 @@ description: Lightweight static analysis for many languages
 renovate:
   datasource: pypi
   package: semgrep
-  priority: low
 license:
   name: LGPLv2.1
   link: https://github.com/semgrep/semgrep/blob/develop/LICENSE

@@ -18,6 +18,5 @@ renovate:
   datasource: gitlab-releases
   package: uniget-org/renovate-custom
   extractVersion: ^namespace/(?<version>.+)$
-  priority: low
 license:
   name: Unknown

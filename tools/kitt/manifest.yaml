@@ -23,7 +23,6 @@ description: Container based portable shell environment
 renovate:
   datasource: pypi
   package: kitt-shell
-  priority: low
 license:
   name: GPLv3
   link: https://github.com/senges/kitt/blob/main/LICENCE.md

@@ -15,7 +15,6 @@ renovate:
   datasource: github-releases
   package: carvel-dev/imgpkg
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: Apache License 2.0
   link: https://github.com/carvel-dev/imgpkg/blob/develop/LICENSE

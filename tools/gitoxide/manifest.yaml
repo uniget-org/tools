@@ -22,4 +22,3 @@ renovate:
   datasource: github-releases
   package: GitoxideLabs/gitoxide
   extractVersion: ^v(?<version>.+)$
-  priority: low

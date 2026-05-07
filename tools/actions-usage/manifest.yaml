@@ -24,4 +24,3 @@ renovate:
   datasource: github-releases
   package: self-actuated/actions-usage
   extractVersion: ^v(?<version>.+)$
-  priority: low

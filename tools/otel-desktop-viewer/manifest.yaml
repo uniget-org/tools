@@ -23,4 +23,3 @@ renovate:
   datasource: github-releases
   package: CtrlSpice/otel-desktop-viewer
   extractVersion: ^v(?<version>.+)$
-  priority: low

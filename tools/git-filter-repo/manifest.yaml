@@ -22,7 +22,6 @@ renovate:
   datasource: github-releases
   package: newren/git-filter-repo
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: Custom
   link: https://github.com/newren/git-filter-repo

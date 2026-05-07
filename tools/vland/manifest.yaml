@@ -21,7 +21,6 @@ description: Virtual userland manager for lxroot
 renovate:
   datasource: github-releases
   package: parke/vland
-  priority: low
 license:
   name: GPLv3
   link: https://github.com/parke/vland/blob/main/LICENSE

@@ -20,7 +20,6 @@ renovate:
   datasource: github-releases
   package: SimonTheLeg/konf-go
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: Apache License 2.0
   link: https://github.com/SimonTheLeg/konf-go/blob/main/LICENSE

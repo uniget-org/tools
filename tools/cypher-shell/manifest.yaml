@@ -18,7 +18,6 @@ description: Run queries and perform administrative tasks against a Neo4j instan
 renovate:
   datasource: github-releases
   package: neo4j/neo4j
-  priority: low
 license:
   name: GPLv3
 platforms:

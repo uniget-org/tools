@@ -26,4 +26,3 @@ description: Easy to maintain open source documentation websites
 renovate:
   datasource: npm
   package: "@docusaurus/core"
-  priority: low

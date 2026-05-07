@@ -30,4 +30,3 @@ renovate:
   datasource: github-releases
   package: aquasecurity/trivy
   extractVersion: ^v(?<version>.+)$
-  priority: high

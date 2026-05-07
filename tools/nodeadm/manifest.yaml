@@ -25,4 +25,3 @@ renovate:
   datasource: github-releases
   package: aws/eks-hybrid
   extractVersion: ^v(?<version>.+)$
-  priority: low

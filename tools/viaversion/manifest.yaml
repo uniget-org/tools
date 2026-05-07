@@ -25,4 +25,3 @@ description: Allows the connection of newer clients to older server versions for
 renovate:
   datasource: github-releases
   package: ViaVersion/ViaVersion
-  priority: low

@@ -19,7 +19,6 @@ renovate:
   datasource: github-releases
   package: gittuf/gittuf
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: Apache License 2.0
   link: https://github.com/gittuf/gittuf/blob/main/LICENSE

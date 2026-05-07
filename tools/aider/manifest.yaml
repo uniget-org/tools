@@ -27,4 +27,3 @@ renovate:
   datasource: github-releases
   package: Aider-AI/aider
   extractVersion: ^v(?<version>.+)$
-  priority: low

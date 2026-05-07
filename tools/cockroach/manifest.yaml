@@ -17,7 +17,6 @@ renovate:
   datasource: github-tags
   package: cockroachdb/cockroach
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: Custom
   link: https://github.com/cockroachdb/cockroach/blob/master/LICENSE

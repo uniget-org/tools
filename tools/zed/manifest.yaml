@@ -17,6 +17,5 @@ renovate:
   datasource: github-releases
   package: brimdata/super
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: BSD 3-Clause License

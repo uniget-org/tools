@@ -28,4 +28,3 @@ description: All the power of Augment in your terminal
 renovate:
   datasource: npm
   package: "@augmentcode/auggie"
-  priority: low

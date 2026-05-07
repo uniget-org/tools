@@ -28,4 +28,3 @@ renovate:
   datasource: github-releases
   package: ollama/ollama
   extractVersion: ^v(?<version>.+)$
-  priority: low

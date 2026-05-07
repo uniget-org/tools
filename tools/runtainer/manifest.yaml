@@ -21,7 +21,6 @@ renovate:
   datasource: github-releases
   package: plumber-cd/runtainer
   extractVersion: ^v(?<version>.+)$
-  priority: medium
 license:
   name: Apache License 2.0
   link: https://github.com/plumber-cd/runtainer/blob/master/LICENSE

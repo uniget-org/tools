@@ -20,4 +20,3 @@ renovate:
   datasource: github-releases
   package: yassinebenaid/bunster
   extractVersion: ^v(?<version>.+)$
-  priority: low

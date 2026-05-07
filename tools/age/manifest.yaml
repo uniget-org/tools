@@ -18,7 +18,6 @@ renovate:
   datasource: github-releases
   package: FiloSottile/age
   extractVersion: ^v(?<version>.+)$
-  priority: medium
 license:
   name: BSD 3-Clause License
   link: https://github.com/FiloSottile/age/blob/main/LICENSE

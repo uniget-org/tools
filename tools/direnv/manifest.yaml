@@ -14,7 +14,6 @@ renovate:
   datasource: github-releases
   package: direnv/direnv
   extractVersion: ^v(?<version>.+)$
-  priority: medium
 license:
   name: MIT License
   link: https://github.com/direnv/direnv/blob/master/LICENSE

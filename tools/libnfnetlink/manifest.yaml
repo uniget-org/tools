@@ -24,4 +24,3 @@ renovate:
   datasource: git-tags
   package: https://git.netfilter.org/libnfnetlink/
   extractVersion: ^libnfnetlink-(?<version>.+)$
-  priority: low

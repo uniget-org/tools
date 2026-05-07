@@ -19,4 +19,3 @@ description: Connect your local process and your cloud environment, and run loca
 renovate:
   datasource: github-releases
   package: metalbear-co/mirrord
-  priority: low

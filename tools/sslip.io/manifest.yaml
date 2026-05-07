@@ -20,4 +20,3 @@ description: DNS server which maps DNS records with embedded IP addresses to tho
 renovate:
   datasource: github-releases
   package: cunnie/sslip.io
-  priority: low

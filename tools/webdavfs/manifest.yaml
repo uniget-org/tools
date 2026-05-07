@@ -21,6 +21,5 @@ renovate:
   package: miquels/webdavfs
   extractVersion: ^v(?<version>.+)$
   versioning: loose
-  priority: low
 license:
   name: MIT License

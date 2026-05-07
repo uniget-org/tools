@@ -19,4 +19,3 @@ description: Yet Another Dotfiles Manager
 renovate:
   datasource: github-releases
   package: yadm-dev/yadm
-  priority: low

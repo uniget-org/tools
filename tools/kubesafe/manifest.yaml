@@ -20,4 +20,3 @@ renovate:
   datasource: github-releases
   package: Telemaco019/kubesafe
   extractVersion: ^v(?<version>.+)$
-  priority: low

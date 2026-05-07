@@ -13,7 +13,6 @@ renovate:
   datasource: github-releases
   package: vi/websocat
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: MIT License
   link: https://github.com/vi/websocat/blob/master/LICENSE

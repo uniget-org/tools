@@ -20,4 +20,3 @@ description: Syntax highter for diffs, clarifying which parts of lines have chan
 renovate:
   datasource: github-releases
   package: walles/riff
-  priority: low

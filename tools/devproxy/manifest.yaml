@@ -28,4 +28,3 @@ renovate:
   datasource: github-releases
   package: dotnet/dev-proxy
   extractVersion: ^v(?<version>.+)$
-  priority: low

@@ -24,4 +24,3 @@ description: Modern, extensible Python project management
 renovate:
   datasource: pypi
   package: hatch
-  priority: low

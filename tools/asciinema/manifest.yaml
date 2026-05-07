@@ -21,7 +21,6 @@ description: Terminal session recorder
 renovate:
   datasource: pypi
   package: asciinema
-  priority: low
 license:
   name: GPLv3
   link: https://github.com/asciinema/asciinema/blob/develop/LICENSE

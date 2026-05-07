@@ -20,4 +20,3 @@ renovate:
   datasource: github-releases
   package: dotenvx/dotenvx
   extractVersion: ^v(?<version>.+)$
-  priority: low

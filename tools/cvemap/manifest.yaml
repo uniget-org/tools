@@ -20,7 +20,6 @@ renovate:
   datasource: github-releases
   package: projectdiscovery/vulnx
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: MIT License
   link: https://github.com/projectdiscovery/vulnx/blob/main/LICENSE

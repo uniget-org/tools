@@ -21,4 +21,3 @@ renovate:
   datasource: github-releases
   package: jingkaihe/matchlock
   extractVersion: ^v(?<version>.+)$
-  priority: low

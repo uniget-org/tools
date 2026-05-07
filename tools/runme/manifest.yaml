@@ -22,4 +22,3 @@ renovate:
   datasource: github-releases
   package: runmedev/runme
   extractVersion: ^v(?<version>.+)$
-  priority: low

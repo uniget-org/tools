@@ -18,7 +18,6 @@ renovate:
   datasource: git-tags
   package: https://gitlab.freedesktop.org/xdg/xdg-utils.git
   extractVersion: ^v(?<version>\d+\.\d+(\.\d+)?)$
-  priority: low
 license:
   name: MIT License
   link: https://gitlab.freedesktop.org/xdg/xdg-utils/-/blob/master/LICENSE?ref_type=heads

@@ -23,7 +23,6 @@ renovate:
   datasource: github-releases
   package: johnkerl/miller
   extractVersion: ^v(?<version>.+)$
-  priority: medium
 license:
   name: Custom
   link: https://github.com/johnkerl/miller/blob/main/LICENSE.txt

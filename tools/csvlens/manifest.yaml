@@ -19,7 +19,6 @@ renovate:
   datasource: github-releases
   package: YS-L/csvlens
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: MIT License
   link: https://github.com/YS-L/csvlens/blob/main/LICENSE

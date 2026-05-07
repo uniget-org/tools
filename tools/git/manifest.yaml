@@ -28,7 +28,6 @@ renovate:
   datasource: github-tags
   package: git/git
   extractVersion: ^v(?<version>.+)$
-  priority: high
 license:
   name: GPLv2
   link: https://github.com/git/git/blob/master/COPYING

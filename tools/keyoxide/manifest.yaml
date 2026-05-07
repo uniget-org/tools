@@ -19,7 +19,6 @@ description: CLI to locally verify online distributed identities, powered by the
 renovate:
   datasource: npm
   package: keyoxide
-  priority: low
 license:
   name: AGPL
   link: https://codeberg.org/keyoxide/keyoxide-cli/src/branch/main/LICENSE

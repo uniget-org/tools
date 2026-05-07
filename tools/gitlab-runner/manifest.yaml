@@ -22,4 +22,3 @@ renovate:
   datasource: gitlab-releases
   package: gitlab-org/gitlab-runner
   extractVersion: ^v(?<version>.+)$
-  priority: medium

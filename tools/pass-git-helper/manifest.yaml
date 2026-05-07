@@ -25,7 +25,6 @@ renovate:
   datasource: github-releases
   package: languitar/pass-git-helper
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: LGPLv3
 platforms:

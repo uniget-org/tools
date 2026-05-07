@@ -18,7 +18,6 @@ renovate:
   datasource: github-releases
   package: derailed/k9s
   extractVersion: ^v(?<version>.+)$
-  priority: medium
 license:
   name: Apache License 2.0
   link: https://github.com/derailed/k9s/blob/master/LICENSE

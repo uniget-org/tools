@@ -20,7 +20,6 @@ renovate:
   datasource: git-tags
   package: https://gitlab.xiph.org/xiph/speex.git
   extractVersion: ^Speex-(?<version>.+)$
-  priority: low
 license:
   name: Custom
   link: https://gitlab.xiph.org/xiph/speex/-/blob/master/COPYING?ref_type=heads

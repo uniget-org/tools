@@ -29,4 +29,3 @@ description: Some description
 renovate:
   datasource: npm
   package: "@qodo/command"
-  priority: low

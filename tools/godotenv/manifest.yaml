@@ -13,7 +13,6 @@ renovate:
   datasource: github-releases
   package: joho/godotenv
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: MIT License
 platforms:

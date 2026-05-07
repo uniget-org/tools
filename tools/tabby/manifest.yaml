@@ -29,4 +29,3 @@ renovate:
   datasource: github-releases
   package: TabbyML/tabby
   extractVersion: ^v(?<version>.+)$
-  priority: low

@@ -27,7 +27,6 @@ renovate:
   datasource: github-releases
   package: docker/compose-bridge-binaries
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: Docker Subscription Service Agreement
   link: https://www.docker.com/legal/docker-subscription-service-agreement

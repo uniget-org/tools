@@ -27,4 +27,3 @@ renovate:
   datasource: github-releases
   package: open-telemetry/opentelemetry-collector-releases
   extractVersion: ^v(?<version>.+)$
-  priority: low

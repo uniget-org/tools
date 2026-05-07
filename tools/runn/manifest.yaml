@@ -20,4 +20,3 @@ renovate:
   datasource: github-releases
   package: k1LoW/runn
   extractVersion: ^v(?<version>.+)$
-  priority: low

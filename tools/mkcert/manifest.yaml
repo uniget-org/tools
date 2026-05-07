@@ -15,7 +15,6 @@ renovate:
   datasource: github-releases
   package: FiloSottile/mkcert
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: BSD 3-Clause License
   link: https://github.com/FiloSottile/mkcert/blob/master/LICENSE

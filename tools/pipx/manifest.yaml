@@ -21,7 +21,6 @@ description: Install and Run Python Applications in Isolated Environments
 renovate:
   datasource: pypi
   package: pipx
-  priority: medium
 license:
   name: MIT License
   link: https://github.com/pypa/pipx/blob/main/LICENSE

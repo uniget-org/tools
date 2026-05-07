@@ -25,4 +25,3 @@ description: Presentation Slides for Developers
 renovate:
   datasource: npm
   package: "@slidev/cli"
-  priority: low

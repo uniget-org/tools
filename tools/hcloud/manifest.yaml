@@ -18,7 +18,6 @@ renovate:
   datasource: github-releases
   package: hetznercloud/cli
   extractVersion: ^v(?<version>.+)$
-  priority: high
 license:
   name: MIT License
   link: https://github.com/hetznercloud/cli/blob/main/LICENSE

@@ -20,7 +20,6 @@ renovate:
   datasource: gitlab-releases
   package: uniget-org/cli
   extractVersion: ^v(?<version>.+)$
-  priority: high
 license:
   name: MIT License
   link: https://github.com/uniget-org/cli/blob/main/LICENSE

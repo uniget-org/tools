@@ -17,6 +17,5 @@ renovate:
   datasource: github-releases
   package: jorgerojas26/lazysql
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: MIT License

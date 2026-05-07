@@ -26,4 +26,3 @@ renovate:
   datasource: github-releases
   package: Azure/bicep
   extractVersion: ^v(?<version>.+)$
-  priority: low

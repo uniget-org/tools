@@ -21,4 +21,3 @@ renovate:
   datasource: github-releases
   package: kubermatic/kubeone
   extractVersion: ^v(?<version>.+)$
-  priority: low

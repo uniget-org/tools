@@ -18,7 +18,6 @@ description: Kubectl plugin to launch a ssh socks proxy and use it
 renovate:
   datasource: github-releases
   package: little-angry-clouds/kubectl-ssh-proxy
-  priority: low
 license:
   name: GPLv3
   link: https://github.com/little-angry-clouds/kubectl-ssh-proxy/blob/master/LICENSE

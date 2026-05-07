@@ -29,7 +29,6 @@ renovate:
   datasource: git-tags
   package: git://git.netfilter.org/iptables.git
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: GPLv2
   link: https://git.netfilter.org/iptables/tree/COPYING

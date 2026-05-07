@@ -17,7 +17,6 @@ renovate:
   datasource: gitlab-releases
   package: uniget-org/renovate-custom
   extractVersion: ^curl/(?<version>.+)$
-  priority: low
 license:
   name: curl
   link: https://curl.se/docs/copyright.html

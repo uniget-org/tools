@@ -19,6 +19,5 @@ renovate:
   datasource: github-releases
   package: SonarSource/sonar-scanner-cli
   versioning: loose
-  priority: low
 license:
   name: LGPLv3

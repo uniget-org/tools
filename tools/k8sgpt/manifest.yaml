@@ -24,4 +24,3 @@ renovate:
   datasource: github-releases
   package: k8sgpt-ai/k8sgpt
   extractVersion: ^v(?<version>.+)$
-  priority: low

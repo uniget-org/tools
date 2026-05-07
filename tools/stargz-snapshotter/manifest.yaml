@@ -21,7 +21,6 @@ renovate:
   datasource: github-releases
   package: containerd/stargz-snapshotter
   extractVersion: ^v(?<version>.+)$
-  priority: high
 license:
   name: Apache License 2.0
   link: https://github.com/containerd/stargz-snapshotter/blob/main/LICENSE

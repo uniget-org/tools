@@ -23,4 +23,3 @@ renovate:
   package: forgejo-contrib/forgejo-cli
   api: https://codeberg.org/forgejo-contrib/forgejo-cli.git
   extractVersion: ^v(?<version>.+)$
-  priority: low

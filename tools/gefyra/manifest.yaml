@@ -18,4 +18,3 @@ description: Blazingly-fast 🚀, rock-solid, local application development ➡�
 renovate:
   datasource: github-releases
   package: gefyrahq/gefyra
-  priority: low

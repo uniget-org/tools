@@ -16,7 +16,6 @@ renovate:
   datasource: github-releases
   package: nodejs/node
   extractVersion: ^v(?<version>.+)$
-  priority: medium
 license:
   name: Custom
   link: https://github.com/nodejs/node/blob/main/LICENSE

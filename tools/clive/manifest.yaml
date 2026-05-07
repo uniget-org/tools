@@ -20,4 +20,3 @@ renovate:
   datasource: github-releases
   package: koki-develop/clive
   extractVersion: ^v(?<version>.+)$
-  priority: low

@@ -29,4 +29,3 @@ description: AI coding agent, built for the terminal
 renovate:
   datasource: npm
   package: opencode-ai
-  priority: low

@@ -19,6 +19,5 @@ description: command-line interface that lets you control how you launch the edi
 renovate:
   datasource: github-releases
   package: microsoft/vscode
-  priority: low
 license:
   name: MIT License

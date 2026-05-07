@@ -25,4 +25,3 @@ description: Open-source AI agent that brings the power of Gemini directly into 
 renovate:
   datasource: npm
   package: "@google/gemini-cli"
-  priority: low

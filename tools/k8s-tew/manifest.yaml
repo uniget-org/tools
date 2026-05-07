@@ -17,7 +17,6 @@ description: Kubernetes - The Easier Way
 renovate:
   datasource: github-releases
   package: darxkies/k8s-tew
-  priority: low
 license:
   name: GPLv3
   link: https://github.com/darxkies/k8s-tew/blob/master/LICENSE

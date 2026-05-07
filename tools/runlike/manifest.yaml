@@ -24,7 +24,6 @@ description: Given an existing docker container, prints the command line necessa
 renovate:
   datasource: pypi
   package: runlike
-  priority: low
 license:
   name: Custom
   link: https://github.com/lavie/runlike/blob/master/LICENSE.txt

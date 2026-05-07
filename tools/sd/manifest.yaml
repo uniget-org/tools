@@ -21,4 +21,3 @@ renovate:
   datasource: github-releases
   package: chmln/sd
   extractVersion: ^v(?<version>.+)$
-  priority: low

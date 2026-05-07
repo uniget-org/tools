@@ -17,7 +17,6 @@ renovate:
   datasource: github-releases
   package: maaslalani/slides
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: MIT License
   link: https://github.com/maaslalani/slides/blob/main/LICENSE

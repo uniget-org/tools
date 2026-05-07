@@ -20,7 +20,6 @@ renovate:
   datasource: github-releases
   package: nektos/act
   extractVersion: ^v(?<version>.+)$
-  priority: medium
 license:
   name: MIT License
   link: https://github.com/nektos/act/blob/master/LICENSE

@@ -23,7 +23,6 @@ description: Terminal application to view, tail, merge, and search log files (pl
 renovate:
   datasource: pypi
   package: toolong
-  priority: low
 license:
   name: MIT License
   link: https://github.com/Textualize/toolong/blob/main/LICENSE

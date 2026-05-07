@@ -17,7 +17,6 @@ description: Dart SDK, including the VM, dart2js, core libraries, and more
 renovate:
   datasource: github-releases
   package: dart-lang/sdk
-  priority: low
 license:
   name: BSD 3-Clause License
   link: https://github.com/dart-lang/sdk/blob/main/LICENSE

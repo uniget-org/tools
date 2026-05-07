@@ -24,4 +24,3 @@ renovate:
   datasource: github-releases
   package: k8up-io/k8up
   extractVersion: ^v(?<version>.+)$
-  priority: low

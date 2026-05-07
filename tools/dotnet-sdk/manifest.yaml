@@ -42,4 +42,3 @@ renovate:
   datasource: github-releases
   package: dotnet/sdk
   extractVersion: ^v(?<version>.+)$
-  priority: low

@@ -27,4 +27,3 @@ renovate:
   datasource: github-releases
   package: aws/amazon-q-developer-cli
   extractVersion: ^v(?<version>.+)$
-  priority: low

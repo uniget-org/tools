@@ -22,4 +22,3 @@ renovate:
   datasource: github-releases
   package: axllent/mailpit
   extractVersion: ^v(?<version>.+)$
-  priority: low

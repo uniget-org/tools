@@ -22,7 +22,6 @@ renovate:
   datasource: git-tags
   package: https://git.netfilter.org/libmnl/
   extractVersion: ^libmnl-(?<version>.+)$
-  priority: low
 license:
   name: LGPLv2.1
   link: https://git.netfilter.org/libmnl/tree/COPYING

@@ -22,4 +22,3 @@ renovate:
   datasource: github-releases
   package: thanos-io/thanos
   extractVersion: ^v(?<version>.+)$
-  priority: low

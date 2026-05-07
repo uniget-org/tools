@@ -19,7 +19,6 @@ renovate:
   datasource: github-releases
   package: kubernetes-retired/etcdadm
   extractVersion: ^v(?<version>.+)$
-  priority: medium
 license:
   name: Apache License 2.0
   link: https://github.com/kubernetes-retired/etcdadm/blob/master/LICENSE

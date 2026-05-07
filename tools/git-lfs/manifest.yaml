@@ -19,7 +19,6 @@ renovate:
   datasource: github-releases
   package: git-lfs/git-lfs
   extractVersion: ^v(?<version>.+)$
-  priority: medium
 license:
   name: Custom
   link: https://github.com/git-lfs/git-lfs/blob/main/LICENSE.md

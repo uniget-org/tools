@@ -26,4 +26,3 @@ description: On-Call Assistant for Prometheus Alerts - Get a head start on fixin
 renovate:
   datasource: github-releases
   package: HolmesGPT/holmesgpt
-  priority: low

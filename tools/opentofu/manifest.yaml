@@ -22,7 +22,6 @@ renovate:
   datasource: github-releases
   package: opentofu/opentofu
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: Mozilla Public License 2.0
   link: https://github.com/opentofu/opentofu/blob/main/LICENSE

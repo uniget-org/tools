@@ -13,7 +13,6 @@ description: Linux namespaces and seccomp-bpf sandbox
 renovate:
   datasource: github-releases
   package: netblue30/firejail
-  priority: low
 license:
   name: GPLv2
 platforms:

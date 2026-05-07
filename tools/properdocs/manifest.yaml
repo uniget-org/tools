@@ -23,7 +23,6 @@ description: Project documentation with Markdown
 renovate:
   datasource: pypi
   package: properdocs
-  priority: low
 license:
   name: BSD 2-Clause License
   link: https://github.com/ProperDocs/properdocs/blob/master/LICENSE

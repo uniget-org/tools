@@ -22,4 +22,3 @@ renovate:
   package: ddworken/hishtory
   extractVersion: ^v(?<version>.+)$
   versioning: loose
-  priority: low

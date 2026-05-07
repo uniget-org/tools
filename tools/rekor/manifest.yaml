@@ -23,7 +23,6 @@ renovate:
   datasource: github-releases
   package: sigstore/rekor
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: Apache License 2.0
   link: https://github.com/sigstore/rekor/blob/main/LICENSE

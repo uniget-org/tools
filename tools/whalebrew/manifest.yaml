@@ -15,7 +15,6 @@ description: Homebrew, but with Docker images
 renovate:
   datasource: github-releases
   package: whalebrew/whalebrew
-  priority: low
 license:
   name: Apache License 2.0
   link: https://github.com/whalebrew/whalebrew/blob/master/LICENSE

@@ -27,4 +27,3 @@ description: Tired of pushing to test your .gitlab-ci.yml? Run gitlab pipelines 
 renovate:
   datasource: npm
   package: gitlab-ci-local
-  priority: low

@@ -22,4 +22,3 @@ description: Real-time web log analyzer and interactive viewer that runs in a te
 renovate:
   datasource: docker
   package: allinurl/goaccess
-  priority: low

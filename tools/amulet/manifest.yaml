@@ -24,6 +24,5 @@ messages:
 renovate:
   datasource: pypi
   package: amulet-map-editor
-  priority: low
 lifecycle:
   removed_with_reason: Requires a license.

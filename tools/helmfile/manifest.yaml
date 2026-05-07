@@ -17,7 +17,6 @@ renovate:
   datasource: github-releases
   package: roboll/helmfile
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: MIT License
   link: https://github.com/roboll/helmfile/blob/master/LICENSE

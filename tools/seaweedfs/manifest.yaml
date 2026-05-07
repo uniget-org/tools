@@ -23,4 +23,3 @@ renovate:
   datasource: github-releases
   package: seaweedfs/seaweedfs
   versioning: loose
-  priority: low

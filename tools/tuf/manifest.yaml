@@ -16,6 +16,5 @@ renovate:
   datasource: github-releases
   package: theupdateframework/go-tuf
   extractVersion: ^v(?<version>1\..+)$
-  priority: low
 platforms:
 - linux/amd64

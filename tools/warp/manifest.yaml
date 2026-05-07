@@ -17,7 +17,6 @@ renovate:
   datasource: github-releases
   package: minio/warp
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: AGPLv3
   link: https://github.com/minio/warp/blob/master/LICENSE

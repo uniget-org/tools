@@ -27,4 +27,3 @@ renovate:
   datasource: github-releases
   package: grafana/alloy
   extractVersion: ^v(?<version>.+)$
-  priority: low

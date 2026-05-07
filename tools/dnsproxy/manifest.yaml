@@ -21,4 +21,3 @@ renovate:
   datasource: github-releases
   package: AdguardTeam/dnsproxy
   extractVersion: ^v(?<version>.+)$
-  priority: low

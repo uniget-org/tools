@@ -18,7 +18,6 @@ renovate:
   datasource: github-releases
   package: coder/code-server
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: MIT License
   link: https://github.com/coder/code-server/blob/main/LICENSE

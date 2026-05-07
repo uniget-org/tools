@@ -20,4 +20,3 @@ renovate:
   datasource: github-releases
   package: zoncoen/scenarigo
   extractVersion: ^v(?<version>.+)$
-  priority: low

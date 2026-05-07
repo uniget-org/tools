@@ -22,4 +22,3 @@ description: Secure hole for your passwords (Keepass CLI)
 renovate:
   datasource: github-releases
   package: daxartio/kdbx
-  priority: low

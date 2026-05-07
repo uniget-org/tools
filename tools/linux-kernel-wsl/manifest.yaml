@@ -23,7 +23,6 @@ renovate:
   package: microsoft/WSL2-Linux-Kernel
   extractVersion: ^linux-msft-wsl-(?<version>.+)$
   versioning: loose
-  priority: low
 license:
   name: GPLv2
   link: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/COPYING

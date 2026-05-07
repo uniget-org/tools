@@ -20,7 +20,6 @@ description: Sass makes CSS fun
 renovate:
   datasource: npm
   package: sass
-  priority: low
 license:
   name: MIT License
   link: https://github.com/sass/sass/blob/main/LICENSE

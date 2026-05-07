@@ -16,7 +16,6 @@ renovate:
   datasource: github-releases
   package: tarampampam/webhook-tester
   extractVersion: ^v(?<version>.+)$
-  priority: low
 license:
   name: MIT License
   link: https://github.com/tarampampam/webhook-tester/blob/master/LICENSE
