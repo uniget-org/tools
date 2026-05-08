@@ -7,7 +7,7 @@ license:
   link: https://github.com/GitGuardian/ggshield/blob/main/LICENSE
 homepage: https://gitguardian.com/
 repository: https://github.com/GitGuardian/ggshield
-version: "1.50.3"
+version: "1.50.4"
 tags:
 - org/gitguardian
 - category/security
