@@ -1,7 +1,9 @@
 FROM scratch
 ARG file=metadata.json
-COPY ${file} /
-COPY ${file}.sigstore.json /
+COPY \
+      ${file} \
+      ${file}.sigstore.json \
+      /
 
 ARG ref=main
 ARG commit=UNKNOWN
