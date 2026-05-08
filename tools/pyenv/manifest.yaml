@@ -7,7 +7,7 @@ license:
   link: https://github.com/pyenv/pyenv/blob/master/LICENSE
 homepage: https://github.com/pyenv/pyenv
 repository: https://github.com/pyenv/pyenv
-version: "2.6.28"
+version: "2.6.29"
 tags:
 - category/development
 - lang/shell
