@@ -21,7 +21,7 @@ jobs:
         fetch-depth: 0
 
     - name: Install uniget
-      uses: uniget-org/uniget-action@2801de6989bb0c244342f750b29e6451498ba742 # v1.0.4
+      uses: uniget-org/uniget-action@2139e70435b6bd47834b7be785d7cb90bf18be6b # v1.0.5
       with:
         prefix: helper
         tools: jq regclient yq cosign
