@@ -24,7 +24,7 @@ jobs:
       uses: uniget-org/uniget-action@2801de6989bb0c244342f750b29e6451498ba742 # v1.0.4
       with:
         prefix: helper
-        tools: jq regclient yq
+        tools: jq regclient yq cosign
 
     - name: Set up QEMU
       uses: docker/setup-qemu-action@ce360397dd3f832beb865e1373c09c0e9f86d70a # 4.0.0
