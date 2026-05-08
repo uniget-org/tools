@@ -6,7 +6,7 @@ license:
   link: https://github.com/google/osv-scanner/blob/main/LICENSE
 homepage: https://google.github.io/osv-scanner/
 repository: https://github.com/google/osv-scanner
-version: "2.3.6"
+version: "2.3.8"
 tags:
 - org/google
 - category/security
