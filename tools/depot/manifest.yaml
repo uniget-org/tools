@@ -6,7 +6,7 @@ license:
   link: https://github.com/depot/cli/blob/main/LICENSE
 homepage: https://depot.dev
 repository: https://github.com/depot/cli
-version: "2.101.59"
+version: "2.101.60"
 tags:
 - category/development
 - lang/go
