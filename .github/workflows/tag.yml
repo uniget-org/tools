@@ -237,6 +237,7 @@ jobs:
     name: Metadata
     permissions:
       packages: write
+      id-token: write
     runs-on: ubuntu-24.04
     needs:
     - tag
@@ -249,10 +250,10 @@ jobs:
         fetch-depth: 0
 
     - name: Install uniget
-      uses: uniget-org/uniget-action@2801de6989bb0c244342f750b29e6451498ba742 # v1.0.4
+      uses: uniget-org/uniget-action@2139e70435b6bd47834b7be785d7cb90bf18be6b # v1.0.5
       with:
         prefix: helper
-        tools: jq regclient yq
+        tools: jq regclient yq cosign
 
     - name: Set up QEMU
       uses: docker/setup-qemu-action@ce360397dd3f832beb865e1373c09c0e9f86d70a # 4.0.0
@@ -270,6 +271,13 @@ jobs:
     - name: Update metadata
       run: |
         make metadata.json--push
+
+    - name: Store logs
+      uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
+      if: always()
+      with:
+        name: metadata-build.log.zip
+        path: "@metadata/build.log"
 
   metadata-full:
     name: Full Metadata
