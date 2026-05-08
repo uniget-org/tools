@@ -6,7 +6,7 @@ license:
   name: MIT License
 homepage: https://github.com/jorgerojas26/lazysql
 repository: https://github.com/jorgerojas26/lazysql
-version: "0.4.9"
+version: "0.5.0"
 tags:
 - category/development
 - lang/go
