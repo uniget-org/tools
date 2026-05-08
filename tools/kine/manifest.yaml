@@ -7,7 +7,7 @@ license:
   link: https://github.com/k3s-io/kine/blob/master/LICENSE
 homepage: https://github.com/k3s-io/kine
 repository: https://github.com/k3s-io/kine
-version: "0.14.16"
+version: "0.15.0"
 tags:
 - category/operations
 - lang/go
