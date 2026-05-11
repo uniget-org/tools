@@ -7,7 +7,7 @@ license:
   link: https://github.com/rancher/k3k/blob/main/LICENSE
 homepage: https://rancher.github.io/k3k-product-docs
 repository: https://github.com/rancher/k3k
-version: "1.0.2"
+version: "1.0.3"
 tags:
 - org/rancher
 - category/operations
