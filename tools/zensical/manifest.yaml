@@ -7,7 +7,7 @@ license:
   link: https://github.com/zensical/zensical/blob/master/LICENSE.md
 homepage: https://zensical.org/
 repository: https://github.com/zensical/zensical
-version: "0.0.40"
+version: "0.0.41"
 tags:
 - category/development
 - lang/python
