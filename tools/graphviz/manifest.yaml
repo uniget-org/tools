@@ -6,7 +6,7 @@ license:
   link: https://gitlab.com/graphviz/graphviz/-/blob/main/LICENSE?ref_type=heads
 homepage: https://gitlab.com/graphviz/graphviz
 repository: https://gitlab.com/graphviz/graphviz
-version: "14.1.2"
+version: "14.1.5"
 tags:
 - category/development
 - lang/c
