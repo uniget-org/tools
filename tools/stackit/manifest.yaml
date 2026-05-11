@@ -7,7 +7,7 @@ license:
   link: https://github.com/stackitcloud/stackit-cli/blob/main/LICENSE.md
 homepage: https://www.stackit.de/en
 repository: https://github.com/stackitcloud/stackit-cli
-version: "0.61.0"
+version: "0.62.0"
 tags:
 - org/stackit
 - category/operations
