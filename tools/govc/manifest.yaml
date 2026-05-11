@@ -5,7 +5,7 @@ license:
   name: Apache License 2.0
 homepage: https://github.com/vmware/govmomi/
 repository: https://github.com/vmware/govmomi/
-version: "0.53.1"
+version: "0.54.0"
 tags:
 - org/vmware
 - type/cli
