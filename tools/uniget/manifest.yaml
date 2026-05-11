@@ -6,7 +6,7 @@ license:
   link: https://github.com/uniget-org/cli/blob/main/LICENSE
 homepage: https://uniget.dev
 repository: https://gitlab.com/uniget-org/cli
-version: "0.27.2"
+version: "0.27.3"
 tags:
 - org/uniget
 - category/operations
