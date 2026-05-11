@@ -6,7 +6,7 @@ license:
   link: https://github.com/alexellis/arkade/blob/master/LICENSE
 homepage: https://blog.alexellis.io/kubernetes-marketplace-two-year-update/
 repository: https://github.com/alexellis/arkade
-version: "0.11.93"
+version: "0.11.95"
 tags:
 - type/cli
 - kubernetes
