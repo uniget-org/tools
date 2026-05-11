@@ -7,7 +7,7 @@ license:
   link: https://github.com/rclone/rclone/blob/master/COPYING
 homepage: https://rclone.org/
 repository: https://github.com/rclone/rclone
-version: "1.74.0"
+version: "1.74.1"
 tags:
 - category/operations
 - lang/go
