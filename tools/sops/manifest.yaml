@@ -6,7 +6,7 @@ license:
   link: https://github.com/getsops/sops/blob/main/LICENSE
 homepage: https://getsops.io/
 repository: https://github.com/getsops/sops
-version: "3.12.2"
+version: "3.13.0"
 tags:
 - org/mozilla
 - category/security
