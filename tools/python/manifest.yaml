@@ -6,7 +6,7 @@ license:
   link: https://github.com/python/cpython/blob/main/LICENSE
 homepage: https://github.com/indygreg/python-build-standalone
 repository: https://github.com/indygreg/python-build-standalone
-version: "3.14.4.20260414"
+version: "3.14.5.20260510"
 tags:
 - category/development
 - lang/python
