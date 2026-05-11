@@ -7,7 +7,7 @@ license:
   link: https://github.com/firecow/gitlab-ci-local/blob/master/LICENSE
 homepage: https://github.com/firecow/gitlab-ci-local
 repository: https://github.com/firecow/gitlab-ci-local
-version: "4.71.0"
+version: "4.72.0"
 tags:
 - category/development
 - lang/typescript
