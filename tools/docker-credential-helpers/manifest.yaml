@@ -6,7 +6,7 @@ license:
   link: https://github.com/docker/docker-credential-helpers/blob/master/LICENSE
 homepage: https://github.com/docker/docker-credential-helpers
 repository: https://github.com/docker/docker-credential-helpers
-version: "0.9.6"
+version: "0.9.7"
 tags:
 - org/docker
 - standard/docker
