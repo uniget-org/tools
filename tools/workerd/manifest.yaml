@@ -7,7 +7,7 @@ license:
   link: https://github.com/cloudflare/workerd/blob/main/LICENSE
 homepage: https://blog.cloudflare.com/workerd-open-source-workers-runtime/
 repository: https://github.com/cloudflare/workerd
-version: "1.20260508.1"
+version: "1.20260511.1"
 tags:
 - org/cloudflare
 - category/operations
