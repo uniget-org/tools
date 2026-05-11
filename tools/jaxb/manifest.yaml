@@ -5,7 +5,7 @@ license:
   name: BSD 3-Clause License
 homepage: https://eclipse-ee4j.github.io/jaxb-ri/
 repository: https://github.com/eclipse-ee4j/jaxb-ri
-version: "4.0.7"
+version: "4.0.8"
 tags:
 - org/eclipse
 - category/development
