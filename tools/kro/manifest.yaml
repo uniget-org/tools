@@ -7,7 +7,7 @@ license:
   link: https://github.com/kubernetes-sigs/kro/blob/main/LICENSE
 homepage: https://kro.run/
 repository: https://github.com/kubernetes-sigs/kro
-version: "0.9.1"
+version: "0.9.2"
 tags:
 - category/operations
 - lang/go
