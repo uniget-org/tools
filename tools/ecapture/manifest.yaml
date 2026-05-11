@@ -7,7 +7,7 @@ license:
   link: https://github.com/gojue/ecapture/blob/master/LICENSE
 homepage: https://ecapture.cc
 repository: https://github.com/gojue/ecapture
-version: "2.3.0"
+version: "2.4.0"
 tags:
 - category/security
 - lang/c
