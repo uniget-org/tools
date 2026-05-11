@@ -7,7 +7,7 @@ license:
   link: https://github.com/micro/micro/blob/master/LICENSE
 homepage: https://micro.dev
 repository: https://github.com/micro/go-micro
-version: "5.19.1"
+version: "5.20.0"
 tags:
 - category/development
 - lang/go
