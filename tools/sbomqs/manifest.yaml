@@ -7,7 +7,7 @@ license:
   link: https://github.com/interlynk-io/sbomqs/blob/main/LICENSE
 homepage: https://github.com/interlynk-io/sbomqs
 repository: https://github.com/interlynk-io/sbomqs
-version: "2.0.6"
+version: "2.0.7"
 tags:
 - org/interlynk
 - category/security
