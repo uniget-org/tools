@@ -6,7 +6,7 @@ license:
   name: MIT License
 homepage: https://projectdiscovery.io
 repository: https://github.com/projectdiscovery/cdncheck
-version: "1.2.34"
+version: "1.2.35"
 tags:
 - category/operations
 - lang/go
