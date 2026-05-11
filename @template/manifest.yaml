@@ -21,7 +21,48 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 #- linux/arm64
-renovate:
-  datasource: github-releases
-  package: foo/bar
-  extractVersion: ^v(?<version>.+)$
+
+# Renovate for projects on GitHub with releases
+#renovate:
+#  datasource: github-releases
+#  package: foo/bar
+#  extractVersion: ^v?(?<version>.+)$
+
+# Renovate for projects on GitHub without releases
+#renovate:
+#  datasource: github-tags
+#  package: foo/bar
+#  extractVersion: ^v?(?<version>.+)$
+
+# Renovate for projects with npm package
+#renovate:
+#  datasource: npm
+#  package: foo
+
+# Renovate for projects with a python module
+#renovate:
+#  datasource: pypi
+#  package: foo
+
+# Renovate for projects on a custom git host (including Codeberg, gitea, forgejo)
+#renovate:
+#  datasource: git-tags
+#  package: https://codeberg.org/foo/bar.git
+#  extractVersion: ^v?(?<version>.+)$
+
+# Renovate for projects without tags and releases
+#renovate:
+#  datasource: git-refs
+#  package: https://github.com/foo/bar
+#  ref: main
+
+# Renovate for projects on GitLab with releases
+#renovate:
+#  datasource: gitlab-releases
+#  package: uniget-org/renovate-custom
+#  extractVersion: ^curl/(?<version>.+)$
+
+# Renovate for projects on GitLab without releases
+#renovate:
+#  datasource: gitlab-tags
+#  package: graphviz/graphviz
