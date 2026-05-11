@@ -5,7 +5,7 @@ license:
   name: AGPLv3
 homepage: https://github.com/grafana/k6
 repository: https://github.com/grafana/k6
-version: "1.7.1"
+version: "2.0.0"
 tags:
 - org/grafana
 - category/operations
