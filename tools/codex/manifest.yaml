@@ -7,7 +7,7 @@ license:
   link: https://github.com/openai/codex/blob/main/LICENSE
 homepage: https://openai.com/index/introducing-codex/
 repository: https://github.com/openai/codex
-version: "0.129.0"
+version: "0.130.0"
 tags:
 - org/openai
 - category/development
