@@ -7,7 +7,7 @@ license:
   link: https://github.com/grafana/gcx/blob/main/LICENSE
 homepage: https://github.com/grafana/gcx
 repository: https://github.com/grafana/gcx
-version: "0.2.13"
+version: "0.2.14"
 tags:
 - org/grafana
 - category/operations
