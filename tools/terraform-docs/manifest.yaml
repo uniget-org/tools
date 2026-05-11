@@ -7,7 +7,7 @@ license:
   link: https://github.com/terraform-docs/terraform-docs/blob/master/LICENSE
 homepage: https://terraform-docs.io
 repository: https://github.com/terraform-docs/terraform-docs
-version: "0.23.0"
+version: "0.24.0"
 tags:
 - category/development
 - lang/go
