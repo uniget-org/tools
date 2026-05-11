@@ -7,7 +7,7 @@ license:
   link: https://github.com/k0sproject/k0sctl/blob/main/LICENSE
 homepage: https://github.com/k0sproject/k0sctl
 repository: https://github.com/k0sproject/k0sctl
-version: "0.30.0"
+version: "0.30.1"
 tags:
 - category/operations
 - lang/go
