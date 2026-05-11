@@ -7,7 +7,7 @@ license:
   link: https://github.com/cloudflare/pint/blob/main/LICENSE
 homepage: https://github.com/cloudflare/pint
 repository: https://github.com/cloudflare/pint
-version: "0.81.1"
+version: "0.82.2"
 tags:
 - org/cloudflare
 - category/operations
