@@ -19,8 +19,8 @@ docker run \
     registry.gitlab.com/uniget-org/cli:noble \
         bash -o errexit <<EOF
 uniget --version
-uniget --prefix=/tmp/test install --path-to-tar-mappings=${TOOL}=/tmp/${TOOL}.tar ${TOOL}
-uniget --prefix=/tmp/test list --installed
-uniget --prefix=/tmp/test healthcheck "${TOOL}"
-uniget --prefix=/tmp/test version "${TOOL}"
+uniget --trace install --path-to-tar-mappings=${TOOL}=/tmp/${TOOL}.tar ${TOOL}
+uniget --trace list --installed
+uniget --trace healthcheck "${TOOL}"
+uniget --trace version "${TOOL}"
 EOF
