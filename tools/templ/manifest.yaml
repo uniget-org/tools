@@ -7,7 +7,7 @@ license:
   link: https://github.com/a-h/templ/blob/main/LICENSE
 homepage: https://templ.guide/
 repository: https://github.com/a-h/templ
-version: "0.3.1001"
+version: "0.3.1020"
 tags:
 - category/development
 - lang/go
