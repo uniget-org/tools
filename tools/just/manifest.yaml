@@ -6,7 +6,7 @@ license:
   link: https://github.com/casey/just/blob/master/LICENSE
 homepage: https://just.systems
 repository: https://github.com/casey/just
-version: "1.50.0"
+version: "1.51.0"
 tags:
 - category/development
 - lang/rust
