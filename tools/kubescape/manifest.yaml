@@ -6,7 +6,7 @@ license:
   link: https://github.com/kubescape/kubescape/blob/master/LICENSE
 homepage: https://kubescape.io
 repository: https://github.com/kubescape/kubescape
-version: "4.0.6"
+version: "4.0.8"
 tags:
 - type/cli
 - category/security
