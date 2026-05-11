@@ -7,7 +7,7 @@ license:
   link: https://github.com/go-acme/lego/blob/master/LICENSE
 homepage: https://go-acme.github.io/lego/
 repository: https://github.com/go-acme/lego
-version: "4.35.2"
+version: "5.0.0"
 tags:
 - category/operations
 - lang/go
