@@ -6,7 +6,7 @@ license:
   link: https://github.com/portainer/portainer/blob/develop/LICENSE
 homepage: https://www.portainer.io
 repository: https://github.com/portainer/portainer
-version: "2.41.0"
+version: "2.41.1"
 tags:
 - org/portainer
 - standard/docker
