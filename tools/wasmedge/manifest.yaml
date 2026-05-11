@@ -6,7 +6,7 @@ license:
   link: https://github.com/WasmEdge/WasmEdge/blob/master/LICENSE
 homepage: https://WasmEdge.org
 repository: https://github.com/WasmEdge/WasmEdge
-version: "0.16.2"
+version: "0.16.3"
 tags:
 - category/development
 - lang/c
