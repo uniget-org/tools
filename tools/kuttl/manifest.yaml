@@ -6,7 +6,7 @@ license:
   link: https://github.com/kudobuilder/kuttl/blob/main/LICENSE
 homepage: https://kuttl.dev
 repository: https://github.com/kudobuilder/kuttl
-version: "0.25.0"
+version: "0.26.0"
 tags:
 - org/kubernetes
 - org/cncf
