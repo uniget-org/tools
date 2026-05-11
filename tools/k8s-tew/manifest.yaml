@@ -6,7 +6,7 @@ license:
   link: https://github.com/darxkies/k8s-tew/blob/master/LICENSE
 homepage: https://github.com/darxkies/k8s-tew
 repository: https://github.com/darxkies/k8s-tew
-version: "2.4.13"
+version: "2.4.14"
 tags:
 - category/operations
 - lang/go
