@@ -6,7 +6,7 @@ license:
   link: https://github.com/Breee/kubeswitch/blob/master/LICENSE
 homepage: https://github.com/Breee/kubeswitch
 repository: https://github.com/Breee/kubeswitch
-version: "2.1.2"
+version: "2.1.3"
 tags:
 - type/cli
 - kubernetes
