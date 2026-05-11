@@ -7,7 +7,7 @@ license:
   link: https://github.com/Multiverse/Multiverse-Core/blob/main/LICENSE.md
 homepage: https://github.com/Multiverse/Multiverse-Core
 repository: https://github.com/Multiverse/Multiverse-Core
-version: "5.6.1"
+version: "5.6.2"
 tags:
 - category/games
 - lang/java
