@@ -7,7 +7,7 @@ license:
   link: https://github.com/wolfi-dev/wolfictl/blob/main/LICENSE
 homepage: https://github.com/wolfi-dev/wolfictl
 repository: https://github.com/wolfi-dev/wolfictl
-version: "0.39.14"
+version: "0.39.15"
 tags:
 - org/chainguard
 - category/operations
