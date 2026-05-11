@@ -7,7 +7,7 @@ license:
   link: https://gitlab.com/gitlab-org/step-runner/-/blob/main/LICENSE
 homepage: https://docs.gitlab.com/ee/ci/steps/
 repository: https://gitlab.com/gitlab-org/step-runner
-version: "0.36.0"
+version: "0.37.0"
 tags:
 - org/gitlab
 - category/development
