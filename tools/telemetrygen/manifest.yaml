@@ -7,7 +7,7 @@ license:
   link: https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/LICENSE
 homepage: https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/cmd/telemetrygen
 repository: https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/cmd/telemetrygen
-version: "0.151.0"
+version: "0.152.0"
 tags:
 - org/opentelemetry
 - category/operations
