@@ -7,7 +7,7 @@ license:
   link: https://github.com/antinomyhq/forge/blob/main/LICENSE
 homepage: https://forgecode.dev/
 repository: https://github.com/antinomyhq/forge
-version: "2.12.12"
+version: "2.12.14"
 tags:
 - category/development
 - lang/javascript
