@@ -6,7 +6,7 @@ license:
   link: https://github.com/chainguard-dev/apko/blob/main/LICENSE
 homepage: https://apko.dev
 repository: https://github.com/chainguard-dev/apko
-version: "1.2.11"
+version: "1.2.12"
 tags:
 - org/chainguard
 - type/cli
