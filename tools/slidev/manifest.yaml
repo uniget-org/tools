@@ -7,7 +7,7 @@ license:
   link: https://github.com/slidevjs/slidev/blob/main/LICENSE
 homepage: https://sli.dev/
 repository: https://github.com/slidevjs/slidev
-version: "52.15.1"
+version: "52.15.2"
 tags:
 - category/development
 - lang/javascript
