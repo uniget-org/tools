@@ -6,7 +6,7 @@ license:
   link: https://github.com/k8spacket/k8spacket/blob/master/LICENSE
 homepage: https://github.com/k8spacket/k8spacket
 repository: https://github.com/k8spacket/k8spacket
-version: "2.2.4"
+version: "2.2.5"
 tags:
 - troubleshooting
 - component/network
