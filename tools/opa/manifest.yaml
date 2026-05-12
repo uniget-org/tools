@@ -6,7 +6,7 @@ license:
   link: https://github.com/open-policy-agent/opa/blob/main/LICENSE
 homepage: https://www.openpolicyagent.org
 repository: https://github.com/open-policy-agent/opa
-version: "1.16.1"
+version: "1.16.2"
 tags:
 - type/cli
 - category/security
