@@ -6,7 +6,7 @@ license:
   link: https://github.com/regclient/regclient/blob/main/LICENSE
 homepage: https://github.com/regclient/regclient
 repository: https://github.com/regclient/regclient
-version: "0.11.3"
+version: "0.11.4"
 tags:
 - standard/oci
 - container/registry
