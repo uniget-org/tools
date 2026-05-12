@@ -7,7 +7,7 @@ license:
   link: https://github.com/kubernetes/kubernetes/blob/master/LICENSE
 homepage: https://kubernetes.io
 repository: https://github.com/yannh/kubernetes-json-schema
-version: "1.36.0"
+version: "1.36.1"
 tags:
 - kubernetes
 - k8s
