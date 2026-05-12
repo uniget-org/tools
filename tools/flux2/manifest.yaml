@@ -6,7 +6,7 @@ license:
   link: https://github.com/fluxcd/flux2/blob/main/LICENSE
 homepage: https://fluxcd.io
 repository: https://github.com/fluxcd/flux2
-version: "2.8.6"
+version: "2.8.7"
 tags:
 - category/operations
 - type/cli
