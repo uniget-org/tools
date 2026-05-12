@@ -6,7 +6,7 @@ license:
   link: https://github.com/gradle/gradle/blob/master/LICENSE
 homepage: https://gradle.org
 repository: https://github.com/gradle/gradle
-version: "9.5.0"
+version: "9.5.1"
 tags:
 - type/cli
 - cicd
