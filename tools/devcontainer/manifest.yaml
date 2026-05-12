@@ -6,7 +6,7 @@ license:
   link: https://github.com/devcontainers/cli/blob/main/LICENSE.txt
 homepage: https://github.com/devcontainers/cli
 repository: https://github.com/devcontainers/cli
-version: "0.86.1"
+version: "0.87.0"
 tags:
 - category/development
 - lang/javascript
