@@ -19,6 +19,7 @@ docker run \
     registry.gitlab.com/uniget-org/cli:noble \
         bash -o errexit <<EOF
 uniget --version
+echo "UNIGET_IGNORE_METADATA_SIGNATURE: ${UNIGET_IGNORE_METADATA_SIGNATURE}"
 uniget install --path-to-tar-mappings=${TOOL}=/tmp/${TOOL}.tar ${TOOL}
 uniget list --installed
 uniget healthcheck "${TOOL}"
