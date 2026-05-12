@@ -7,7 +7,7 @@ license:
   link: https://github.com/hashicorp/nomad/blob/main/LICENSE
 homepage: https://www.nomadproject.io/
 repository: https://github.com/hashicorp/nomad
-version: "2.0.0"
+version: "2.0.1"
 tags:
 - org/hashicorp
 - category/operations
