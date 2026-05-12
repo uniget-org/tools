@@ -6,7 +6,7 @@ license:
   link: https://github.com/gravitational/teleport/blob/master/LICENSE
 homepage: https://goteleport.com
 repository: https://github.com/gravitational/teleport
-version: "18.7.6"
+version: "18.8.0"
 tags:
 - type/cli
 - type/daemon
