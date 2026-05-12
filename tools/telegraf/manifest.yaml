@@ -6,7 +6,7 @@ license:
   link: https://github.com/influxdata/telegraf/blob/master/LICENSE
 homepage: https://influxdata.com/telegraf
 repository: https://github.com/influxdata/telegraf
-version: "1.38.3"
+version: "1.38.4"
 tags:
 - org/influxdata
 - observability/metrics
