@@ -7,7 +7,7 @@ license:
   link: https://github.com/civo/cli/blob/master/LICENSE
 homepage: https://github.com/civo/cli
 repository: https://github.com/civo/cli
-version: "1.5.1"
+version: "1.5.2"
 tags:
 - org/civo
 - category/operations
