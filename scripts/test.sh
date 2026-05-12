@@ -13,7 +13,7 @@ docker run \
     --interactive \
     --rm \
     --env TOOL \
-    --env UNIGET_IGNORE_METADATA_SIGNATURE="true" \
+    --env UNIGET_IGNORE_METADATA_SIGNATURE=foo \
     --volume "${PWD}/metadata.json:/var/cache/uniget/metadata.json" \
     --volume ${PWD}/tools/${TOOL}/image.tar:/tmp/${TOOL}.tar \
     registry.gitlab.com/uniget-org/cli:noble \
