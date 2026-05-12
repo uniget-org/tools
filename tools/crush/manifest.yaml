@@ -7,7 +7,7 @@ license:
   link: https://github.com/charmbracelet/crush/blob/main/LICENSE.md
 homepage: https://github.com/charmbracelet/crush
 repository: https://github.com/charmbracelet/crush
-version: "0.66.1"
+version: "0.67.0"
 tags:
 - org/charmbracelet
 - category/development
