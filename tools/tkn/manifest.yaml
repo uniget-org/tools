@@ -6,7 +6,7 @@ license:
   link: https://github.com/tektoncd/cli/blob/main/LICENSE
 homepage: https://github.com/tektoncd/cli
 repository: https://github.com/tektoncd/cli
-version: "0.44.1"
+version: "0.45.0"
 tags:
 - type/cli
 - category/development
