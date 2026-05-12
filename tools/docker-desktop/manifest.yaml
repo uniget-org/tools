@@ -7,7 +7,7 @@ license:
   link: https://www.docker.com/legal/docker-subscription-service-agreement/
 homepage: https://docs.docker.com/desktop/
 repository: https://docs.docker.com/desktop/
-version: "4.71.0.225177"
+version: "4.73.0.226246"
 tags:
 - org/docker
 - category/development
