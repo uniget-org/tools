@@ -6,7 +6,7 @@ license:
   link: https://github.com/ckotzbauer/sbom-operator/blob/main/LICENSE
 homepage: https://github.com/ckotzbauer/sbom-operator
 repository: https://github.com/ckotzbauer/sbom-operator
-version: "0.42.2"
+version: "0.42.3"
 tags:
 - type/daemon
 - category/security
