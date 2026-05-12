@@ -7,7 +7,7 @@ license:
   link: https://github.com/openhue/openhue-cli/blob/main/LICENSE
 homepage: https://www.google.de
 repository: https://github.com/openhue/openhue-cli
-version: "0.23"
+version: "0.24"
 tags:
 - category/operations
 - lang/go
