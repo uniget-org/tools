@@ -6,7 +6,7 @@ license:
   link: https://github.com/woodpecker-ci/woodpecker/blob/main/LICENSE
 homepage: https://woodpecker-ci.org
 repository: https://github.com/woodpecker-ci/woodpecker
-version: "3.14.0"
+version: "3.14.1"
 tags:
 - type/cli
 - type/daemon
