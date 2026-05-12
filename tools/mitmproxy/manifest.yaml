@@ -6,7 +6,7 @@ license:
   link: https://github.com/mitmproxy/mitmproxy/blob/main/LICENSE
 homepage: https://mitmproxy.org
 repository: https://github.com/mitmproxy/mitmproxy
-version: "12.2.2"
+version: "12.2.3"
 tags:
 - component/network
 - type/cli
