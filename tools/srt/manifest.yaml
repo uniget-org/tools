@@ -7,7 +7,7 @@ license:
   link: https://github.com/anthropic-experimental/sandbox-runtime/blob/main/LICENSE
 homepage: https://github.com/anthropic-experimental/sandbox-runtime
 repository: https://github.com/anthropic-experimental/sandbox-runtime
-version: "0.0.50"
+version: "0.0.51"
 tags:
 - org/anthropic
 - category/development
