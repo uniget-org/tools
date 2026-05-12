@@ -7,7 +7,7 @@ license:
   link: https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/LICENSE
 homepage: https://github.com/open-telemetry/opentelemetry-collector-releases/tree/main/distributions/otelcol-contrib
 repository: https://github.com/open-telemetry/opentelemetry-collector-contrib
-version: "0.151.0"
+version: "0.152.0"
 tags:
 - org/opentelemetry
 - category/operations
