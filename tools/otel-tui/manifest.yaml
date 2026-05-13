@@ -7,7 +7,7 @@ license:
   link: https://github.com/ymtdzzz/otel-tui/blob/main/LICENSE
 homepage: https://github.com/ymtdzzz/otel-tui
 repository: https://github.com/ymtdzzz/otel-tui
-version: "0.7.2"
+version: "0.7.3"
 tags:
 - category/operations
 - lang/go
