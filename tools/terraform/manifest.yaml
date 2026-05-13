@@ -6,7 +6,7 @@ license:
   link: https://github.com/hashicorp/terraform/blob/main/LICENSE
 homepage: https://www.terraform.io/
 repository: https://github.com/hashicorp/terraform
-version: "1.15.2"
+version: "1.15.3"
 tags:
 - type/cli
 - org/hashicorp
