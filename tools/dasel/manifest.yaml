@@ -6,7 +6,7 @@ license:
   link: https://github.com/TomWright/dasel/blob/master/LICENSE
 homepage: https://daseldocs.tomwright.me
 repository: https://github.com/TomWright/dasel
-version: "3.8.1"
+version: "3.9.0"
 tags:
 - type/cli
 - format/json
