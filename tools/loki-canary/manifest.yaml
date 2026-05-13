@@ -6,7 +6,7 @@ license:
   link: https://github.com/grafana/loki/blob/main/LICENSE
 homepage: https://grafana.com/loki
 repository: https://github.com/grafana/loki
-version: "3.7.1"
+version: "3.7.2"
 tags:
 - org/grafana
 - observability/logs
