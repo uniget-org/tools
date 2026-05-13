@@ -6,7 +6,7 @@ license:
   link: https://github.com/argoproj/argo-cd/blob/master/LICENSE
 homepage: https://argo-cd.readthedocs.io
 repository: https://github.com/argoproj/argo-cd
-version: "3.4.1"
+version: "3.4.2"
 tags:
 - type/cli
 - category/operations
