@@ -7,7 +7,7 @@ license:
   link: https://github.com/dotenvx/dotenvx/blob/main/LICENSE
 homepage: https://dotenvx.com/docs
 repository: https://github.com/dotenvx/dotenvx
-version: "1.65.0"
+version: "1.65.1"
 tags:
 - category/development
 - lang/javascript
