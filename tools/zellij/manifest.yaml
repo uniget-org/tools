@@ -7,7 +7,7 @@ license:
   link: https://github.com/zellij-org/zellij/blob/main/LICENSE.md
 homepage: https://zellij.dev/
 repository: https://github.com/zellij-org/zellij
-version: "0.44.2"
+version: "0.44.3"
 tags:
 - category/development
 - lang/rust
