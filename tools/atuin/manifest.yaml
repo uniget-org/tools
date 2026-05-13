@@ -7,7 +7,7 @@ license:
   link: https://github.com/atuinsh/atuin/blob/main/LICENSE
 homepage: https://atuin.sh
 repository: https://github.com/atuinsh/atuin
-version: "18.16.0"
+version: "18.16.1"
 tags:
 - category/terminal
 - lang/rust
