@@ -6,7 +6,7 @@ license:
   link: https://github.com/n8n-io/n8n/blob/master/LICENSE.md
 homepage: https://github.com/n8n-io/n8n
 repository: https://github.com/n8n-io/n8n
-version: "2.20.7"
+version: "2.21.1"
 tags:
 - category/operations
 - lang/javascript
