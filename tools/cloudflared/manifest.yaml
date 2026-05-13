@@ -6,7 +6,7 @@ license:
   link: https://github.com/cloudflare/cloudflared/blob/master/LICENSE
 homepage: https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/tunnel-guide
 repository: https://github.com/cloudflare/cloudflared
-version: "2026.3.0"
+version: "2026.5.0"
 tags:
 - type/cli
 - category/development
