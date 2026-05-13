@@ -7,7 +7,7 @@ license:
   link: https://github.com/docker/docker-agent/blob/main/LICENSE
 homepage: https://github.com/docker/docker-agent
 repository: https://github.com/docker/docker-agent
-version: "1.58.0"
+version: "1.59.0"
 tags:
 - org/docker
 - category/development
