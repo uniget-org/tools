@@ -6,7 +6,7 @@ license:
   link: https://github.com/kubernetes-sigs/cluster-api/blob/main/LICENSE
 homepage: https://cluster-api.sigs.k8s.io
 repository: https://github.com/kubernetes-sigs/cluster-api
-version: "1.13.1"
+version: "1.13.2"
 tags:
 - org/cncf
 - org/kubernetes
