@@ -7,7 +7,7 @@ license:
   link: https://github.com/alibaba/OpenSandbox/blob/main/LICENSE
 homepage: https://open-sandbox.ai/
 repository: https://github.com/alibaba/OpenSandbox
-version: "0.1.0"
+version: "0.1.1"
 tags:
 - category/security
 - lang/python
