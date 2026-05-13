@@ -6,7 +6,7 @@ license:
   link: https://github.com/docker/buildx/blob/master/LICENSE
 homepage: https://github.com/docker/buildx
 repository: https://github.com/docker/buildx
-version: "0.33.0"
+version: "0.34.0"
 tags:
 - org/docker
 - standard/docker
