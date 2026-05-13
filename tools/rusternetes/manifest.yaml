@@ -7,7 +7,7 @@ license:
   link: https://github.com/calfonso/rusternetes/blob/main/LICENSE
 homepage: https://github.com/calfonso/rusternetes
 repository: https://github.com/calfonso/rusternetes
-version: "31b6eb97ad92071534652056079cefbad30f79a8"
+version: "bb2033dc8146bcacc819adf49726daa35b145698"
 tags:
 - category/operations
 - lang/rust
