@@ -7,7 +7,7 @@ license:
   link: https://github.com/k0sproject/k0s/blob/main/LICENSE
 homepage: https://docs.k0sproject.io
 repository: https://github.com/k0sproject/k0s
-version: "1.35.3+k0s.0"
+version: "1.35.4+k0s.0"
 tags:
 - category/operations
 - lang/go
