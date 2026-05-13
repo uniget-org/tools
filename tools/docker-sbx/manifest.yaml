@@ -7,7 +7,7 @@ license:
   link: https://github.com/docker/sbx-releases/blob/main/LICENSE
 homepage: https://docs.docker.com/ai/sandboxes
 repository: https://github.com/docker/sbx-releases
-version: "0.28.3"
+version: "0.29.0"
 tags:
 - org/docker
 - category/development
