@@ -7,7 +7,7 @@ license:
   link: https://github.com/siderolabs/talos/blob/main/LICENSE
 homepage: https://www.talos.dev
 repository: https://github.com/siderolabs/talos
-version: "1.13.0"
+version: "1.13.2"
 tags:
 - category/operations
 - lang/go
