@@ -7,7 +7,7 @@ license:
   link: https://github.com/composer/composer/blob/main/LICENSE
 homepage: https://getcomposer.org/
 repository: https://github.com/composer/composer
-version: "2.9.7"
+version: "2.9.8"
 tags:
 - category/development
 - lang/php
