@@ -5,7 +5,7 @@ license:
   name: Apache License 2.0
 homepage: https://concourse-ci.org
 repository: https://github.com/concourse/concourse
-version: "8.2.0"
+version: "8.2.1"
 tags:
 - type/cli
 - type/daemon
