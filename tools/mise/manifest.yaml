@@ -7,7 +7,7 @@ license:
   link: https://github.com/jdx/mise/blob/main/LICENSE
 homepage: https://mise.jdx.dev/
 repository: https://github.com/jdx/mise
-version: "2026.5.6"
+version: "2026.5.7"
 tags:
 - category/development
 - lang/rust
