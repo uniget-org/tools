@@ -6,7 +6,7 @@ license:
   name: MIT License
 homepage: https://code.visualstudio.com
 repository: https://github.com/microsoft/vscode
-version: "1.119.0"
+version: "1.119.1"
 tags:
 - org/microsoft
 - category/development
