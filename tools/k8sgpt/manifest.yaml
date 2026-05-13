@@ -7,7 +7,7 @@ license:
   link: https://github.com/k8sgpt-ai/k8sgpt/blob/main/LICENSE
 homepage: http://k8sgpt.ai/
 repository: https://github.com/k8sgpt-ai/k8sgpt
-version: "0.4.32"
+version: "0.4.33"
 tags:
 - category/operations
 - lang/go
