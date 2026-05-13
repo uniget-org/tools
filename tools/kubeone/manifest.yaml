@@ -7,7 +7,7 @@ license:
   link: https://github.com/kubermatic/kubeone/blob/main/LICENSE
 homepage: https://kubeone.io/
 repository: https://github.com/kubermatic/kubeone
-version: "1.13.4"
+version: "1.13.5"
 tags:
 - org/kubermatic
 - category/operations
