@@ -6,7 +6,7 @@ license:
   link: https://gitlab.com/gitlab-org/cli/-/blob/main/LICENSE?ref_type=heads
 homepage: https://gitlab.com/gitlab-org/cli
 repository: https://gitlab.com/gitlab-org/cli
-version: "1.96.0"
+version: "1.97.0"
 tags:
 - org/gitlab
 - category/development
