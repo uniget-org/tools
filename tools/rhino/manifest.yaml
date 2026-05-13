@@ -7,7 +7,7 @@ license:
   link: https://github.com/calfonso/rhino/blob/main/LICENSE
 homepage: https://github.com/calfonso/rhino
 repository: https://github.com/calfonso/rhino
-version: "d5bcfa994dcc565a91c19e51f51a8e41181daa07"
+version: "0a865341a9ad935718576789456d1bad417af0c1"
 tags:
 - category/operations
 - lang/rust
