@@ -7,7 +7,7 @@ license:
   link: https://github.com/getarcaneapp/arcane/blob/main/LICENSE
 homepage: https://getarcane.app/
 repository: https://github.com/getarcaneapp/arcane
-version: "1.19.0"
+version: "1.19.1"
 tags:
 - category/operations
 - lang/go
