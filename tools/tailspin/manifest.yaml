@@ -6,7 +6,7 @@ license:
   name: MIT License
 homepage: https://github.com/bensadeh/tailspin
 repository: https://github.com/bensadeh/tailspin
-version: "6.0.0"
+version: "6.1.0"
 tags:
 - category/operations
 - lang/rust
