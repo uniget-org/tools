@@ -6,7 +6,7 @@ license:
   link: https://github.com/carvel-dev/ytt/blob/develop/LICENSE
 homepage: https://carvel.dev/ytt
 repository: https://github.com/carvel-dev/ytt
-version: "0.54.0"
+version: "0.55.0"
 tags:
 - org/vmware
 - type/cli
