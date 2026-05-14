@@ -6,7 +6,7 @@ license:
   link: https://github.com/nodejs/node/blob/main/LICENSE
 homepage: https://github.com/nodejs/node
 repository: https://github.com/nodejs/node
-version: "22.22.2"
+version: "22.22.3"
 tags:
 - type/cli
 - category/development
