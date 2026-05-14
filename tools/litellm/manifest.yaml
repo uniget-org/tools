@@ -7,7 +7,7 @@ license:
   link: https://github.com/BerriAI/litellm/blob/main/LICENSE
 homepage: https://www.litellm.ai/
 repository: https://github.com/BerriAI/litellm
-version: "1.83.14"
+version: "1.84.0"
 tags:
 - category/development
 - lang/python
