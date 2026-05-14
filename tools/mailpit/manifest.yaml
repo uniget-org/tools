@@ -7,7 +7,7 @@ license:
   link: https://github.com/axllent/mailpit/blob/develop/LICENSE
 homepage: https://mailpit.axllent.org/
 repository: https://github.com/axllent/mailpit
-version: "1.29.7"
+version: "1.30.0"
 tags:
 - category/development
 - lang/go
