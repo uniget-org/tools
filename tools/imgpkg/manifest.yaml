@@ -6,7 +6,7 @@ license:
   link: https://github.com/carvel-dev/imgpkg/blob/develop/LICENSE
 homepage: https://carvel.dev/imgpkg
 repository: https://github.com/carvel-dev/imgpkg
-version: "0.47.2"
+version: "0.48.0"
 tags:
 - standard/oci
 - container/registry
