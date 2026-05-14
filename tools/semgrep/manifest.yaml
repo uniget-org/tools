@@ -7,7 +7,7 @@ license:
   link: https://github.com/semgrep/semgrep/blob/develop/LICENSE
 homepage: https://github.com/semgrep/semgrep
 repository: https://github.com/semgrep/semgrep
-version: "1.162.0"
+version: "1.163.0"
 tags:
 - category/development
 - lang/python
