@@ -6,7 +6,7 @@ license:
   link: https://github.com/rancher/rke2/blob/master/LICENSE
 homepage: https://docs.rke2.io/
 repository: https://github.com/rancher/rke2
-version: "1.35.4.1"
+version: "1.36.0.1"
 tags:
 - org/rancher
 - category/operations
