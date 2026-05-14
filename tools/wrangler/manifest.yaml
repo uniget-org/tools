@@ -7,7 +7,7 @@ license:
   link: https://github.com/cloudflare/workers-sdk
 homepage: https://developers.cloudflare.com/workers/
 repository: https://github.com/cloudflare/workers-sdk
-version: "4.90.1"
+version: "4.91.0"
 tags:
 - org/cloudflare
 - category/development
