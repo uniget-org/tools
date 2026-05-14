@@ -6,7 +6,7 @@ license:
   link: https://github.com/google/cadvisor/blob/master/LICENSE
 homepage: https://github.com/google/cadvisor
 repository: https://github.com/google/cadvisor
-version: "0.56.2"
+version: "0.57.0"
 tags:
 - org/google
 - category/monitoring
