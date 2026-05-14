@@ -6,7 +6,7 @@ license:
   name: Apache License 2.0
 homepage: https://nydus.dev/
 repository: https://github.com/dragonflyoss/nydus
-version: "2.4.1"
+version: "2.4.3"
 tags:
 - category/operations
 - lang/rust
