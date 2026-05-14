@@ -7,7 +7,7 @@ license:
   link: https://github.com/astral-sh/ruff/blob/main/LICENSE
 homepage: https://docs.astral.sh/ruff
 repository: https://github.com/astral-sh/ruff
-version: "0.15.12"
+version: "0.15.13"
 tags:
 - category/development
 - lang/rust
