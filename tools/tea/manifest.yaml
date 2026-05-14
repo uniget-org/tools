@@ -7,7 +7,7 @@ license:
   link: https://gitea.com/gitea/tea/src/branch/main/LICENSE
 homepage: https://gitea.com/gitea/tea
 repository: https://gitea.com/gitea/tea
-version: "0.14.0"
+version: "0.14.1"
 tags:
 - org/gitea
 - category/development
