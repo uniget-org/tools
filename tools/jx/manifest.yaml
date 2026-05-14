@@ -6,7 +6,7 @@ license:
   link: https://github.com/jenkins-x/jx/blob/main/LICENSE
 homepage: https://jenkins-x.io/
 repository: https://github.com/jenkins-x/jx
-version: "3.17.1"
+version: "3.17.5"
 tags:
 - type/cli
 - cicd
