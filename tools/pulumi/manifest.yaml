@@ -4,7 +4,7 @@ name: pulumi
 description: Infrastructure as Code in any programming language
 homepage: https://www.pulumi.com/
 repository: https://github.com/pulumi/pulumi
-version: "3.237.0"
+version: "3.238.0"
 tags:
 - category/development
 - lang/go
