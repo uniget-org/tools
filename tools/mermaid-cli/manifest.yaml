@@ -7,7 +7,7 @@ license:
   link: https://github.com/mermaid-js/mermaid-cli/blob/master/LICENSE
 homepage: https://github.com/mermaid-js/mermaid-cli
 repository: https://github.com/mermaid-js/mermaid-cli
-version: "11.14.0"
+version: "11.15.0"
 tags:
 - lang/javascript
 - type/cli
