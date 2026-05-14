@@ -7,7 +7,7 @@ license:
   link: https://github.com/textlint/textlint/blob/master/LICENSE
 homepage: https://textlint.github.io/
 repository: https://github.com/textlint/textlint
-version: "15.6.1"
+version: "15.7.0"
 tags:
 - category/development
 - lang/javascript
