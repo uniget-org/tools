@@ -7,7 +7,7 @@ license:
   link: https://github.com/opentofu/opentofu/blob/main/LICENSE
 homepage: https://opentofu.org
 repository: https://github.com/opentofu/opentofu
-version: "1.11.7"
+version: "1.11.8"
 tags:
 - org/linuxfoundation
 - category/operations
