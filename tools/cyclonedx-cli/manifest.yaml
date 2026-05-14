@@ -6,7 +6,7 @@ license:
   link: https://github.com/CycloneDX/cyclonedx-cli/blob/main/LICENSE
 homepage: https://cyclonedx.org/
 repository: https://github.com/CycloneDX/cyclonedx-cli
-version: "0.31.0"
+version: "0.32.0"
 tags:
 - type/cli
 - category/security
