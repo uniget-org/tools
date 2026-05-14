@@ -7,7 +7,7 @@ license:
   link: https://github.com/grafana/tanka/blob/main/LICENSE
 homepage: https://tanka.dev
 repository: https://github.com/grafana/tanka
-version: "0.37.1"
+version: "0.37.2"
 tags:
 - org/grafana
 - category/operations
