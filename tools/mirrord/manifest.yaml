@@ -7,7 +7,7 @@ license:
   link: https://github.com/metalbear-co/mirrord/blob/main/LICENSE
 homepage: https://mirrord.dev/
 repository: https://github.com/metalbear-co/mirrord
-version: "3.209.2"
+version: "3.210.0"
 tags:
 - category/development
 - lang/rust
