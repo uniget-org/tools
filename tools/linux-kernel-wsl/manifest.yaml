@@ -7,7 +7,7 @@ license:
   link: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/COPYING
 homepage: https://github.com/microsoft/WSL2-Linux-Kernel
 repository: https://github.com/microsoft/WSL2-Linux-Kernel
-version: "6.18.26.1"
+version: "6.18.26.2"
 tags:
 - org/microsoft
 - category/development
