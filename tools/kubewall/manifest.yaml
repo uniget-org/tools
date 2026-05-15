@@ -7,7 +7,7 @@ license:
   link: https://github.com/kubewall/kubewall/blob/main/LICENSE
 homepage: https://github.com/kubewall/kubewall
 repository: https://github.com/kubewall/kubewall
-version: "0.0.18"
+version: "0.0.19"
 tags:
 - category/operations
 - lang/go
