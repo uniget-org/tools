@@ -7,7 +7,7 @@ license:
   link: https://github.com/moby/moby/blob/master/LICENSE
 homepage: https://mobyproject.org/
 repository: https://www.docker.com/
-version: "29.4.3"
+version: "29.5.0"
 tags:
 - org/docker
 - standard/docker
