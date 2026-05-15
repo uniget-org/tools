@@ -7,7 +7,7 @@ license:
   link: https://github.com/updatecli/updatecli/blob/main/LICENSE
 homepage: https://www.updatecli.io
 repository: https://github.com/updatecli/updatecli
-version: "0.116.3"
+version: "0.117.0"
 tags:
 - category/development
 - lang/go
