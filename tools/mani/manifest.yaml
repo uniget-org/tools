@@ -7,7 +7,7 @@ license:
   link: https://github.com/alajmo/mani/blob/main/LICENSE
 homepage: https://manicli.com
 repository: https://github.com/alajmo/mani
-version: "0.32.0"
+version: "0.32.1"
 tags:
 - category/development
 - lang/go
