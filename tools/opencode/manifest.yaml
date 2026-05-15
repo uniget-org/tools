@@ -7,7 +7,7 @@ license:
   link: https://github.com/sst/opencode/blob/dev/LICENSE
 homepage: https://opencode.ai/
 repository: https://github.com/sst/opencode
-version: "1.14.50"
+version: "1.14.51"
 tags:
 - category/development
 - lang/javascript
