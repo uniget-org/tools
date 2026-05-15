@@ -7,7 +7,7 @@ license:
   link: https://github.com/buildpacks/pack/blob/main/LICENSE
 homepage: https://buildpacks.io
 repository: https://github.com/buildpacks/pack
-version: "0.40.4"
+version: "0.40.5"
 tags:
 - category/development
 - lang/go
