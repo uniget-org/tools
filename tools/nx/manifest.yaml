@@ -6,7 +6,7 @@ license:
   link: https://github.com/nrwl/nx/blob/master/LICENSE
 homepage: https://github.com/nrwl/nx
 repository: https://github.com/nrwl/nx
-version: "22.7.1"
+version: "22.7.2"
 tags:
 - category/development
 - lang/javascript
