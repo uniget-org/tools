@@ -6,7 +6,7 @@ license:
   link: https://github.com/CycloneDX/cdxgen/blob/master/LICENSE
 homepage: https://github.com/CycloneDX/cdxgen
 repository: https://github.com/CycloneDX/cdxgen
-version: "12.3.3"
+version: "12.4.0"
 tags:
 - org/owasp
 - category/security
