@@ -7,7 +7,7 @@ license:
   link: https://github.com/Use-Tusk/fence/blob/main/LICENSE
 homepage: https://github.com/Use-Tusk/fence
 repository: https://github.com/Use-Tusk/fence
-version: "0.1.57"
+version: "0.1.58"
 tags:
 - category/development
 - lang/go
