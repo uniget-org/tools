@@ -7,7 +7,7 @@ license:
   link: https://github.com/linkerd/linkerd2/blob/main/LICENSE
 homepage: https://linkerd.io
 repository: https://github.com/linkerd/linkerd2
-version: "26.5.1"
+version: "26.5.2"
 tags:
 - category/operations
 - lang/go
