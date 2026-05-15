@@ -7,7 +7,7 @@ license:
   link: https://github.com/anthropics/claude-code/blob/main/LICENSE.md
 homepage: https://www.anthropic.com/claude-code
 repository: https://github.com/anthropics/claude-code
-version: "2.1.141"
+version: "2.1.142"
 tags:
 - org/anthropic
 - category/development
