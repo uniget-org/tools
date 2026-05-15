@@ -6,7 +6,7 @@ license:
   link: https://github.com/marcosnils/bin/blob/master/LICENSE
 homepage: https://github.com/marcosnils/bin
 repository: https://github.com/marcosnils/bin
-version: "0.25.5"
+version: "0.26.0"
 tags:
 - type/cli
 - package
