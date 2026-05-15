@@ -6,7 +6,7 @@ license:
   link: https://github.com/carvel-dev/kapp/blob/develop/LICENSE
 homepage: https://carvel.dev/kapp
 repository: https://github.com/carvel-dev/kapp
-version: "0.65.2"
+version: "0.65.3"
 tags:
 - org/vmware
 - type/cli
