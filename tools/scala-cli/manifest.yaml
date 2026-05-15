@@ -7,7 +7,7 @@ license:
   link: https://github.com/VirtusLab/scala-cli/blob/main/LICENSE
 homepage: https://scala-cli.virtuslab.org/
 repository: https://github.com/Virtuslab/scala-cli
-version: "1.13.0"
+version: "1.14.0"
 tags:
 - category/development
 - lang/scala
