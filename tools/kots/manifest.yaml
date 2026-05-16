@@ -6,7 +6,7 @@ license:
   link: https://github.com/replicatedhq/kots/blob/main/LICENSE
 homepage: https://kots.io
 repository: https://github.com/replicatedhq/kots
-version: "1.130.2"
+version: "1.130.4"
 tags:
 - type/cli
 - kubernetes
