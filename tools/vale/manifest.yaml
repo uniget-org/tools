@@ -7,7 +7,7 @@ license:
   link: https://github.com/errata-ai/vale/blob/v3/LICENSE
 homepage: https://vale.sh
 repository: https://github.com/errata-ai/vale
-version: "3.14.1"
+version: "3.14.2"
 tags:
 - category/development
 - lang/go
