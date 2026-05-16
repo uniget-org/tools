@@ -6,7 +6,7 @@ license:
   link: https://github.com/aws/aws-cli/blob/develop/LICENSE.txt
 homepage: https://github.com/aws/aws-cli
 repository: https://github.com/aws/aws-cli
-version: "1.45.8"
+version: "1.45.9"
 tags:
 - org/amazon
 - category/development
