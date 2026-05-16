@@ -6,7 +6,7 @@ license:
   link: https://github.com/aquaproj/aqua/blob/main/LICENSE
 homepage: https://aquaproj.github.io
 repository: https://github.com/aquaproj/aqua
-version: "2.58.1"
+version: "2.59.0"
 tags:
 - package
 - manager
