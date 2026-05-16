@@ -7,7 +7,7 @@ license:
   link: https://github.com/php/frankenphp/blob/main/LICENSE
 homepage: https://github.com/php/frankenphp
 repository: https://github.com/php/frankenphp
-version: "1.12.2"
+version: "1.12.3"
 tags:
 - category/development
 - lang/go
