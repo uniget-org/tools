@@ -6,7 +6,7 @@ license:
   link: https://github.com/apache/maven/blob/master/LICENSE
 homepage: https://maven.apache.org/ref/current
 repository: https://github.com/apache/maven
-version: "3.9.15"
+version: "3.9.16"
 tags:
 - type/cli
 - cicd
