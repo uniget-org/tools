@@ -6,7 +6,7 @@ license:
   link: https://github.com/go-task/task/blob/main/LICENSE
 homepage: https://taskfile.dev
 repository: https://github.com/go-task/task
-version: "3.50.0"
+version: "3.51.1"
 tags:
 - category/development
 - type/cli
