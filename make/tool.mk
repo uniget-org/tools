@@ -49,7 +49,10 @@ $(addsuffix /manifest-minimal.json,$(ALL_TOOLS)):$(TOOLS_DIR)/%/manifest-minimal
 		--compact-output \
 		--arg reg1 "$(REGISTRY)" --arg repo1 "$(REPOSITORY_PREFIX)$*" \
 		--arg reg2 "$(REGISTRY2)" --arg repo2 "$(REPOSITORY_PREFIX2)$*" \
-		'.tools[0].sources = [ { "registry": $$reg1, "repository": $$repo1 }, { "registry": $$reg2, "repository": $$repo2 } ]' \
+		'.tools[0].sources = [ { "registry": $$reg1, "repository": $$repo1 } ]' \
+	| jq \
+		--compact-output \
+		'del(.tools[0].renovate)' \
 	>$(TOOLS_DIR)/$*/manifest-minimal.json
 
 $(addsuffix /manifest-full.json,$(ALL_TOOLS)):$(TOOLS_DIR)/%/manifest-full.json: \
