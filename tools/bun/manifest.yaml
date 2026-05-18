@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: bun
+description: Incredibly fast JavaScript runtime, bundler, test runner, and package manager - all in one
+license:
+  name: MIT License
+  link: https://github.com/oven-sh/bun/blob/main/LICENSE.md
+homepage: https://bun.com
+repository: https://github.com/oven-sh/bun
+version: "1.3.14"
+tags:
+- category/javascript
+- lang/javascript
+- type/cli
+- runtime
+check: ${binary} --version
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: oven-sh/bun
+  extractVersion: ^bun-v?(?<version>.+)$
