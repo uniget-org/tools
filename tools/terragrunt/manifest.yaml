@@ -5,7 +5,7 @@ license:
   name: MIT License
 homepage: https://terragrunt.gruntwork.io/
 repository: https://github.com/gruntwork-io/terragrunt
-version: "1.0.4"
+version: "1.0.5"
 tags:
 - category/development
 - lang/go
