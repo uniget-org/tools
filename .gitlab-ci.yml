@@ -9,6 +9,12 @@ variables:
     - "true"
   BUILD_TOOL_NAME:
     description: Name of tool to build
+  SKIP_BUILD:
+    description: Skip build stage
+    value: "true"
+    options:
+    - "true"
+    - "false"
 
 .docker:
   variables:
@@ -93,6 +99,8 @@ build_trigger:
   rules:
   - if: $METADATA_ONLY == "true"
     when: never
+  - if: $SKIP_BUILD == "true"
+    when: never
   - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
     needs:
     - collect
@@ -112,6 +120,9 @@ metadata:
     - dev_download
     - build_trigger
   - if: $METADATA_ONLY == "true"
+    needs:
+    - dev_download
+  - if: $SKIP_BUILD == "true"
     needs:
     - dev_download
   extends:
