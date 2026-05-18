@@ -6,7 +6,7 @@ license:
   link: https://github.com/afshinm/zerobox/blob/main/LICENSE
 homepage: https://github.com/afshinm/zerobox
 repository: https://github.com/afshinm/zerobox
-version: "0.2.6"
+version: "0.3.3"
 tags:
 - category/security
 - lang/rust
