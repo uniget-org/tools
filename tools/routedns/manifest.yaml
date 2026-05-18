@@ -7,7 +7,7 @@ license:
   link: https://github.com/folbricht/routedns/blob/master/LICENSE
 homepage: https://github.com/folbricht/routedns
 repository: https://github.com/folbricht/routedns
-version: "0.1.180"
+version: "0.1.186"
 tags:
 - category/operations
 - lang/go
