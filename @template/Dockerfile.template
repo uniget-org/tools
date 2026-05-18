@@ -8,6 +8,7 @@
 #FROM ghcr.io/uniget-org/tools/pipx:latest AS pipx
 #FROM ghcr.io/uniget-org/tools/node-lts:latest AS node
 #FROM ghcr.io/uniget-org/tools/npm:latest AS npm
+#FROM ghcr.io/uniget-org/tools/bun:latest AS bun
 
 FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:99a2bccd1ad68bfc5b1d1eb356cf54b7dd94e45c5216b89c87b9e21c70e12b9f AS prepare
 #FROM registry.gitlab.com/uniget-org/images/build-essential:24.04 AS prepare
@@ -173,6 +174,16 @@ ARG version
 #    --omit=dev \
 #    "foo@${version}"
 #ln --symbolic --relative --force "${prefix}/libexec/foo/node_modules/.bin/foo" "${prefix}/bin/"
+#EOF
+
+# bun
+#COPY --link --from=bun / /usr/local/
+#WORKDIR /tmp/foo
+#ARG name
+#ARG version
+#RUN <<EOF
+#bun install "foo@${version}"
+#bun build node_modules/foo/foo.js --compile --minify --outfile="${prefix}/bin/foo"
 #EOF
 
 # c

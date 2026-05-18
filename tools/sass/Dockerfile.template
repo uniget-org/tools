@@ -1,21 +1,17 @@
 #syntax=docker/dockerfile:1.24.0@sha256:87999aa3d42bdc6bea60565083ee17e86d1f3339802f543c0d03998580f9cb89
 
-FROM ghcr.io/uniget-org/tools/node-lts:latest AS node
+FROM ghcr.io/uniget-org/tools/bun:latest AS bun
 
 FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:99a2bccd1ad68bfc5b1d1eb356cf54b7dd94e45c5216b89c87b9e21c70e12b9f AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --link --from=node / /usr/local/
-WORKDIR /uniget_bootstrap/libexec/sass
+COPY --link --from=bun / /usr/local/
+WORKDIR /tmp/sass
 ARG name
 ARG version
 RUN <<EOF
-npm install \
-    --omit=dev \
-    "sass@${version}"
-ln --symbolic --relative --force \
-    "${prefix}/libexec/sass/node_modules/.bin/sass" \
-    "${prefix}/bin/"
+bun install "sass@${version}"
+bun build node_modules/sass/sass.js --compile --minify --outfile="${prefix}/bin/sass"
 EOF

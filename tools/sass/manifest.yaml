@@ -14,9 +14,7 @@ tags:
 - type/cli
 check: ${binary} --version | cut -d' ' -f1
 build_dependencies:
-- node-lts
-runtime_dependencies:
-- node-lts
+- bun
 platforms:
 - linux/amd64
 - linux/arm64
