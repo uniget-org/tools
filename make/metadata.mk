@@ -4,15 +4,14 @@ metadata.json: \
 	@jq --slurp --compact-output --arg revision "$(GIT_COMMIT_SHA)" '{"revision": $$revision, "tools": map(.tools[])}' $(addsuffix /manifest-minimal.json,$(ALL_TOOLS)) \
 	>$@
 
-metadata.json.sigstore.json:%.sigstore.json: \
-		metadata.json \
-		; $(info $(M) Signing $@...)
+%.sigstore.json: ; $(info $(M) Signing $@...)
 	@set -o errexit; \
 	if \
 		test -z "${ACTIONS_ID_TOKEN_REQUEST_URL}" || \
 		test -z "${ACTIONS_ID_TOKEN_REQUEST_TOKEN}" || \
 		test -z "${GITHUB_REF_NAME}"; then \
 			echo "ERROR: Missing required environment variables for keyless signing."; \
+			exit 1;  \
 	fi; \
 	cosign sign-blob $* --bundle=$@
 
@@ -84,6 +83,7 @@ metadata.json--build: \
 
 .PHONY:
 metadata-full.json--build: \
+		metadata-full.json.sigstore.json \
 		@metadata/Dockerfile builders \
 		; $(info $(M) Packaging full metadata image for $(GIT_COMMIT_SHA)...)
 	@set -o errexit; \
