@@ -5,7 +5,7 @@ license:
   name: GPLv2
 homepage: http://en.wikipedia.org/wiki/Util-linux
 repository: https://github.com/util-linux/util-linux
-version: "2.42"
+version: "2.42.1"
 tags:
 - kernel/namespaces
 - type/cli
