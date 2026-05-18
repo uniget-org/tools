@@ -36,7 +36,7 @@ jobs:
             | helper/usr/local/bin/jq --raw-output '.layers[0].digest' \
             | xargs -I{} \
                 helper/usr/local/bin/regctl blob get ghcr.io/uniget-org/tools/metadata:main {} \
-            | tar --extract --gzip --to-stdout \
+            | tar --extract --gzip --to-stdout metadata.json \
             | helper/usr/local/bin/jq --raw-output --arg prefix "${prefix}" '.tools[] | select(.name | startswith($prefix)) | "\(.name):\(.version)"'
         )"
 
