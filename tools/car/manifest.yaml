@@ -7,7 +7,7 @@ license:
   link: https://github.com/tetratelabs/car/blob/master/LICENSE
 homepage: https://github.com/tetratelabs/car
 repository: https://github.com/tetratelabs/car
-version: "1.0.1"
+version: "1.1.0"
 tags:
 - category/development
 - lang/go
