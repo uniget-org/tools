@@ -77,7 +77,7 @@ jobs:
       uses: uniget-org/uniget-action@2139e70435b6bd47834b7be785d7cb90bf18be6b # v1.0.5
       with:
         prefix: helper
-        tools: jq regclient yq cosign
+        tools: jq regclient yq cosign jc
 
     - name: Set up QEMU
       uses: docker/setup-qemu-action@ce360397dd3f832beb865e1373c09c0e9f86d70a # 4.0.0
@@ -91,6 +91,10 @@ jobs:
         registry: ghcr.io
         username: uniget-bot
         password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Export git history
+      run: |
+        make history.json
 
     - name: Update metadata
       run: |

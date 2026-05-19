@@ -1,6 +1,7 @@
 /.env
 /.env.mk
 /helper
+/history.json
 /metadata*.json
 /cosign.key
 /@metadata/build.log

@@ -1,3 +1,9 @@
+history.json: ; $(info $(M) Creating $@...)
+	@git log --format=fuller --stat 'tools/**' | jc --git-log -p \
+	| jq 'map(if (.stats.files? | type == "array") then .stats.files |= (map(split("/")[1]) | map(select(. != "")) | unique) else . end)' \
+	| jq '[ .[] | {commit, date, message, "tools": .stats.files} ]' \
+	>history.json
+
 metadata.json: \
 		$(addsuffix /manifest-minimal.json,$(TOOLS)) \
 		; $(info $(M) Creating $@...)
