@@ -6,7 +6,7 @@ license:
   link: https://github.com/spiffe/spire/blob/main/LICENSE
 homepage: https://spiffe.io
 repository: https://github.com/spiffe/spire
-version: "1.14.6"
+version: "1.15.0"
 tags:
 - type/cli
 - category/security
