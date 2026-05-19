@@ -6,7 +6,7 @@ license:
   link: https://github.com/docker/sbom-cli-plugin/blob/main/LICENSE
 homepage: https://github.com/docker/sbom-cli-plugin
 repository: https://github.com/docker/sbom-cli-plugin
-version: "0.6.1"
+version: "0.7.0"
 tags:
 - standard/docker
 - org/docker
