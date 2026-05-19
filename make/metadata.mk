@@ -1,7 +1,7 @@
 metadata.json: \
-		$(addsuffix /manifest-minimal.json,$(ALL_TOOLS)) \
+		$(addsuffix /manifest-minimal.json,$(TOOLS)) \
 		; $(info $(M) Creating $@...)
-	@jq --slurp --compact-output --arg revision "$(GIT_COMMIT_SHA)" '{"revision": $$revision, "tools": map(.tools[])}' $(addsuffix /manifest-minimal.json,$(ALL_TOOLS)) \
+	@jq --slurp --compact-output --arg revision "$(GIT_COMMIT_SHA)" '{"revision": $$revision, "tools": map(.tools[])}' $(addsuffix /manifest-minimal.json,$(TOOLS)) \
 	>$@
 
 %.sigstore.json: ; $(info $(M) Signing $@...)
@@ -16,9 +16,9 @@ metadata.json: \
 	cosign sign-blob $* --bundle=$@
 
 metadata-full.json: \
-		$(addsuffix /manifest-full.json,$(ALL_TOOLS)) \
+		$(addsuffix /manifest-full.json,$(TOOLS)) \
 		; $(info $(M) Creating $@...)
-	@jq --slurp --compact-output '{"tools": map(.tools[])}' $(addsuffix /$@,$(ALL_TOOLS)) \
+	@jq --slurp --compact-output '{"tools": map(.tools[])}' $(addsuffix /manifest-full.json,$(TOOLS)) \
 	>$@
 
 .PHONY:

@@ -9,8 +9,9 @@ DOCKER_NETWORK     ?= default
 TOOLS_DIR           = tools
 ALL_TOOLS           = $(shell find tools -type f -wholename \*/manifest.yaml | cut -d/ -f1-2 | sort)
 ALL_TOOLS_RAW       = $(subst tools/,,$(ALL_TOOLS))
-TOOLS              ?= $(shell find tools -type f -wholename \*/manifest.yaml | cut -d/ -f1-2 | sort)
-TOOLS_RAW          ?= $(subst tools/,,$(TOOLS))
+TOOLS_RAW          ?= $(ALL_TOOLS_RAW)
+TOOLS              ?= $(addprefix $(TOOLS_DIR)/,$(TOOLS_RAW))
+#TOOLS_RAW          ?= $(subst tools/,,$(TOOLS))
 PREFIX             ?= /uniget_bootstrap
 TARGET             ?= /usr/local
 

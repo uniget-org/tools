@@ -66,7 +66,7 @@ $(addsuffix /report.csv,$(ALL_TOOLS)):$(TOOLS_DIR)/%/report.csv: \
 
 .PHONY:
 table: \
-		$(addsuffix /report.csv,$(ALL_TOOLS))
+		$(addsuffix /report.csv,$(TOOLS))
 	@column --separator ';' --table --table-columns Tool,ID,purl,Score */*/report.csv
 
 .PHONY:

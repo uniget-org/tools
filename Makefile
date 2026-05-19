@@ -15,7 +15,7 @@ __check_defined = \
       $(error Undefined $1$(if $2, ($2))))
 
 .PHONY:
-all: $(ALL_TOOLS_RAW)
+all: $(TOOLS_RAW)
 
 .PHONY:
 info: ; $(info $(M) Runtime info...)
@@ -41,7 +41,7 @@ clean: ## Remove all temporary files
 	@set -o errexit; \
 	rm -f metadata.json; \
 	rm -rf helper; \
-	for TOOL in $(ALL_TOOLS_RAW); do \
+	for TOOL in $(TOOLS_RAW); do \
 		rm -f \
 			$(TOOLS_DIR)/$${TOOL}/manifest.json \
 			$(TOOLS_DIR)/$${TOOL}/Dockerfile \
@@ -51,7 +51,7 @@ clean: ## Remove all temporary files
 
 .PHONY:
 list: ## List available tools
-	@echo "$(ALL_TOOLS_RAW)"
+	@echo "$(TOOLS_RAW)"
 
 .PHONY:
 $(addsuffix --show,$(ALL_TOOLS_RAW)):%--show: $(TOOLS_DIR)/$* ## Display directory contents

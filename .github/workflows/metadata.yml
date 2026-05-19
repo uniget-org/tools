@@ -94,8 +94,9 @@ jobs:
 
     - name: Update metadata
       run: |
+        make -j$(nproc) \
+            metadata-full.json
         make \
-            metadata-full.json \
             metadata-full.json--push
 
     - name: Store logs
