@@ -55,9 +55,16 @@ $(addsuffix /manifest-minimal.json,$(ALL_TOOLS)):$(TOOLS_DIR)/%/manifest-minimal
 		'del(.tools[0].renovate)' \
 	>$(TOOLS_DIR)/$*/manifest-minimal.json
 
+$(addsuffix /history.json,$(ALL_TOOLS)):$(TOOLS_DIR)/%/history.json: \
+		history.json \
+		; $(info $(M) Creating git history for $*...)
+	@set -o errexit; \
+	jq --compact-output --arg tool $* '[ .[] | select(.tools?) | select(IN(.tools[]; $$tool)) | {commit, date, message} ]' history.json \
+	>$(TOOLS_DIR)/$*/history.json
+
 $(addsuffix /manifest-full.json,$(ALL_TOOLS)):$(TOOLS_DIR)/%/manifest-full.json: \
 		$(TOOLS_DIR)/%/manifest.json \
-		history.json \
+		$(TOOLS_DIR)/%/history.json \
 		; $(info $(M) Creating full manifest for $*...)
 	@set -o errexit; \
 	if test "$$(regctl manifest get ghcr.io/uniget-org/tools/$*:main --format=raw-body | jq --exit-status '.mediaType == "application/vnd.oci.image.manifest.v1+json"')" == "true"; then \
@@ -66,11 +73,11 @@ $(addsuffix /manifest-full.json,$(ALL_TOOLS)):$(TOOLS_DIR)/%/manifest-full.json:
 		export PLATFORM="$$( regctl manifest get ghcr.io/uniget-org/tools/$*:main --format=raw-body | jq --raw-output '.manifests[] | select(.platform.os == "linux") | "\(.platform.os)/\(.platform.architecture)"' | sort | head -n 1 )"; \
 		export SIZE="$$( regctl manifest get ghcr.io/uniget-org/tools/$*:main --platform=$${PLATFORM} --format=raw-body | jq --raw-output '.layers[0].size' )"; \
 	fi; \
-	export GIT_HISTORY="$$( jq --compact-output --arg tool $* '[ .[] | select(.tools?) | select(IN(.tools[]; $$tool)) | {commit, date, message} ]' history.json )"; \
-	cat $(TOOLS_DIR)/$*/manifest.json \
-	| yq eval \
-		--output-format=json --indent=0 \
-		'.tools[0].size = env(SIZE) | .tools[0].history = env(GIT_HISTORY) | .tools[0].date = .tools[0].history[-1].date' \
+	jq --compact-output '.tools[0].history = input' \
+		"$(TOOLS_DIR)/$*/manifest.json" \
+		"$(TOOLS_DIR)/$*/history.json" \
+	| jq --compact-output --arg size "$$SIZE" '.tools[0].size = ($$size | tonumber)' \
+	| jq --compact-output '.tools[0].date = .tools[0].history[-1].date' \
 	>$(TOOLS_DIR)/$*/manifest-full.json
 
 $(addsuffix /Dockerfile,$(ALL_TOOLS)):$(TOOLS_DIR)/%/Dockerfile: \

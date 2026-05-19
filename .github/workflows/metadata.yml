@@ -5,6 +5,7 @@ on:
     inputs:
       full:
         description: 'Whether to build the full metadata image (including all tools) instead of the minimal one.'
+        type: choice
         default: "false"
         options:
         - "false"
