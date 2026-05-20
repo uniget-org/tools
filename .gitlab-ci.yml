@@ -66,7 +66,7 @@ uniget_download:
     ./uniget --version
   artifacts:
     paths:
-    - dev
+    - uniget
 
 collect:
   rules:
