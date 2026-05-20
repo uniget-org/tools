@@ -13,11 +13,18 @@ metadata.json: \
 %.sigstore.json: ; $(info $(M) Signing $@...)
 	@set -o errexit; \
 	if \
+		test -n "${CI_PIPELINE_SOURCE}" && (\
+		test -z "${SIGSTORE_ID_TOKEN}" ); then \
+			echo "ERROR: Missing required environment variables for keyless signing on GitLab: SIGSTORE_ID_TOKEN."; \
+			exit 1;  \
+	fi; \
+	if \
+		test -n "${GITHUB_ACTIONS}" && (\
 		test -z "${ACTIONS_ID_TOKEN_REQUEST_URL}" || \
 		test -z "${ACTIONS_ID_TOKEN_REQUEST_TOKEN}" || \
-		test -z "${GITHUB_REF_NAME}"; then \
-			echo "ERROR: Missing required environment variables for keyless signing."; \
-			exit 1;  \
+		test -z "${GITHUB_REF_NAME}" ); then \
+			echo "ERROR: Missing required environment variables for keyless signing: ACTIONS_ID_TOKEN_REQUEST_URL, ACTIONS_ID_TOKEN_REQUEST_TOKEN, GITHUB_REF_NAME."; \			exit 1;  \
+			exit 1; \
 	fi; \
 	cosign sign-blob $* --bundle=$@
 

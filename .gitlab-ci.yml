@@ -127,6 +127,11 @@ metadata:
     - dev_download
   extends:
   - .docker
+  id_tokens:
+    SIGSTORE_ID_TOKEN:
+      aud: sigstore
   script:
   - docker buildx create --name=uniget --bootstrap --use
+  - ./dev metadata create
+  - ./dev metadata sign
   - ./dev metadata build
