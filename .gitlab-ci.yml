@@ -149,7 +149,7 @@ metadata:
       aud: sigstore
   before_script:
   - ./uniget install cosign
-  - cosign --version
+  - cosign version
   script:
   - docker buildx create --name=uniget --bootstrap --use
   - ./dev metadata create
