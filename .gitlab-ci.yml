@@ -148,7 +148,7 @@ metadata:
     SIGSTORE_ID_TOKEN:
       aud: sigstore
   before_script:
-  - uniget install cosign
+  - ./uniget install cosign
   - cosign --version
   script:
   - docker buildx create --name=uniget --bootstrap --use
