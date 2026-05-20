@@ -54,6 +54,20 @@ dev_download:
     paths:
     - dev
 
+uniget_download:
+  rules:
+  - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  - if: $CI_PIPELINE_SOURCE == "web" && $BUILD_TOOL_NAME == ""
+  - if: $METADATA_ONLY == "true"
+  image: registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:99a2bccd1ad68bfc5b1d1eb356cf54b7dd94e45c5216b89c87b9e21c70e12b9f
+  script: |
+    curl --silent --show-error --location --fail https://gitlab.com/uniget-org/uniget/-/releases/permalink/latest/downloads/uniget_Linux_$(uname -m).tar.gz \
+    | tar --extract --gzip uniget
+    ./uniget --version
+  artifacts:
+    paths:
+    - dev
+
 collect:
   rules:
   - if: $METADATA_ONLY == "true"
@@ -118,18 +132,24 @@ metadata:
   - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
     needs:
     - dev_download
+    - uniget_download
     - build_trigger
   - if: $METADATA_ONLY == "true"
     needs:
     - dev_download
+    - uniget_download
   - if: $SKIP_BUILD == "true"
     needs:
     - dev_download
+    - uniget_download
   extends:
   - .docker
   id_tokens:
     SIGSTORE_ID_TOKEN:
       aud: sigstore
+  before_script:
+  - uniget install cosign
+  - cosign --version
   script:
   - docker buildx create --name=uniget --bootstrap --use
   - ./dev metadata create
