@@ -6,7 +6,7 @@ license:
   link: https://github.com/bitnami-labs/sealed-secrets/blob/main/LICENSE
 homepage: https://sealed-secrets.netlify.app/
 repository: https://github.com/bitnami-labs/sealed-secrets
-version: "0.36.6"
+version: "0.37.0"
 tags:
 - type/cli
 - category/security
