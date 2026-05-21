@@ -6,7 +6,7 @@ license:
   link: https://github.com/cloudflare/cloudflare-go/blob/master/LICENSE
 homepage: https://developers.cloudflare.com/api
 repository: https://github.com/cloudflare/cloudflare-go/tree/master/cmd/flarectl
-version: "0.116.0"
+version: "0.117.0"
 tags:
 - type/cli
 - management
