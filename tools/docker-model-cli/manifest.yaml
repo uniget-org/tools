@@ -7,7 +7,7 @@ license:
   link: https://github.com/docker/model-runner/blob/main/LICENSE
 homepage: https://github.com/docker/model-runner
 repository: https://github.com/docker/model-runner
-version: "1.1.38"
+version: "1.2.1"
 tags:
 - org/docker
 - category/development
