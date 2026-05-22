@@ -7,7 +7,7 @@ license:
   link: https://github.com/wimglenn/johnnydep/blob/main/LICENSE
 homepage: https://github.com/wimglenn/johnnydep
 repository: https://github.com/wimglenn/johnnydep
-version: "2.0.1"
+version: "2.1.0"
 tags:
 - category/development
 - lang/python
