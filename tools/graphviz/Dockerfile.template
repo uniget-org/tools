@@ -29,6 +29,8 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
 tar --file="${uniget_cache_download}/${filename}" --list
 tar --file="${uniget_cache_download}/${filename}" --extract --gzip --strip-components=1
 
+chmod +x lib/common/make_colortbl.py
+
 ./autogen.sh
 ./configure \
     --prefix="${prefix}" \
