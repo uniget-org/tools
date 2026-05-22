@@ -7,7 +7,7 @@ license:
   link: https://github.com/NVIDIA/nvidia-container-toolkit/blob/main/LICENSE
 homepage: https://github.com/NVIDIA/nvidia-container-toolkit
 repository: https://github.com/NVIDIA/nvidia-container-toolkit
-version: "1.19.0"
+version: "1.19.1"
 tags:
 - org/nvidia
 - category/operations
