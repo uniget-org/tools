@@ -7,7 +7,7 @@ license:
   link: https://github.com/daytonaio/daytona/blob/main/LICENSE
 homepage: https://daytona.io/
 repository: https://github.com/daytonaio/daytona
-version: "0.181.0"
+version: "0.182.0"
 tags:
 - category/development
 - lang/go
