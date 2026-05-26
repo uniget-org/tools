@@ -6,7 +6,7 @@ license:
   link: https://github.com/dagger/dagger/blob/main/LICENSE
 homepage: https://dagger.io
 repository: https://github.com/dagger/dagger
-version: "0.20.8"
+version: "0.21.0"
 tags:
 - type/cli
 - management
