@@ -6,7 +6,7 @@ license:
   link: https://github.com/falcosecurity/falco/blob/master/LICENSE
 homepage: https://falco.org
 repository: https://github.com/falcosecurity/falco
-version: "0.43.1"
+version: "0.44.0"
 tags:
 - category/security
 - lang/c
