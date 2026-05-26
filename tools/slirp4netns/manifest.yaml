@@ -5,7 +5,7 @@ license:
   name: GPLv2
 homepage: https://github.com/rootless-containers/slirp4netns
 repository: https://github.com/rootless-containers/slirp4netns
-version: "1.3.3"
+version: "1.3.4"
 tags:
 - type/cli
 - component/network
