@@ -6,7 +6,7 @@ license:
   link: https://github.com/rootless-containers/rootlesskit/blob/master/LICENSE
 homepage: https://github.com/rootless-containers/rootlesskit
 repository: https://github.com/rootless-containers/rootlesskit
-version: "3.0.0"
+version: "3.0.1"
 tags:
 - category/operations
 - type/cli
