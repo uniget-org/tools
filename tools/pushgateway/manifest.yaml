@@ -7,7 +7,7 @@ license:
   link: https://github.com/prometheus/pushgateway/blob/master/LICENSE
 homepage: https://github.com/prometheus/pushgateway
 repository: https://github.com/prometheus/pushgateway
-version: "1.11.2"
+version: "1.11.3"
 tags:
 - org/prometheus
 - category/operations
