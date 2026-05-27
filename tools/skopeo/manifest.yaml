@@ -6,7 +6,7 @@ license:
   link: https://github.com/containers/skopeo/blob/main/LICENSE
 homepage: https://github.com/containers/skopeo
 repository: https://github.com/containers/skopeo
-version: "1.22.2"
+version: "1.23.0"
 tags:
 - org/redhat
 - standard/oci
