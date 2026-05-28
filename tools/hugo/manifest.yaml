@@ -6,7 +6,7 @@ license:
   link: https://github.com/gohugoio/hugo/blob/master/LICENSE
 homepage: https://gohugo.io
 repository: https://github.com/gohugoio/hugo
-version: "0.162.0"
+version: "0.162.1"
 tags:
 - category/development
 - lang/go
