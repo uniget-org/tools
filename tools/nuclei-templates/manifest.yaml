@@ -6,7 +6,7 @@ license:
   name: MIT License
 homepage: https://github.com/projectdiscovery/nuclei
 repository: https://github.com/projectdiscovery/nuclei-templates
-version: "10.4.3"
+version: "10.4.4"
 tags:
 - category/security
 binary: "false"
