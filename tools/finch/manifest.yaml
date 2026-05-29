@@ -7,7 +7,7 @@ license:
   link: https://github.com/runfinch/finch/blob/main/LICENSE
 homepage: https://runfinch.com
 repository: https://github.com/runfinch/finch
-version: "1.17.0"
+version: "1.17.1"
 tags:
 - category/development
 - lang/go
