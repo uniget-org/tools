@@ -7,7 +7,7 @@ license:
   link: https://github.com/alecthomas/chroma/blob/master/COPYING
 homepage: https://github.com/alecthomas/chroma
 repository: https://github.com/alecthomas/chroma
-version: "2.26.0"
+version: "2.26.1"
 tags:
 - category/development
 - lang/go
