@@ -7,7 +7,7 @@ license:
   link: https://github.com/flamestro/deff/blob/main/LICENSE
 homepage: https://github.com/flamestro/deff
 repository: https://github.com/flamestro/deff
-version: "0.3.0"
+version: "0.4.1"
 tags:
 - category/development
 - lang/rust
