@@ -7,7 +7,7 @@ license:
   link: https://github.com/awslabs/soci-snapshotter/blob/main/LICENSE
 homepage: https://github.com/awslabs/soci-snapshotter
 repository: https://github.com/awslabs/soci-snapshotter
-version: "0.13.0"
+version: "0.14.0"
 tags:
 - org/amazon
 - category/operations
