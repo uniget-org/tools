@@ -6,7 +6,7 @@ license:
   link: https://github.com/CycloneDX/sbom-utility/blob/main/LICENSE
 homepage: https://github.com/CycloneDX/sbom-utility
 repository: https://github.com/CycloneDX/sbom-utility
-version: "0.19.0"
+version: "0.19.1"
 tags:
 - org/ibm
 - category/security
