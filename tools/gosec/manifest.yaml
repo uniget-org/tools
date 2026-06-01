@@ -5,7 +5,7 @@ license:
   name: Apache License 2.0
 homepage: https://securego.io
 repository: https://github.com/securego/gosec
-version: "2.27.0"
+version: "2.27.1"
 tags:
 - category/security
 - lang/go
