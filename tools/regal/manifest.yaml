@@ -7,7 +7,7 @@ license:
   link: https://github.com/open-policy-agent/regal/blob/main/LICENSE
 homepage: https://docs.styra.com/regal
 repository: https://github.com/open-policy-agent/regal
-version: "0.40.0"
+version: "0.41.1"
 tags:
 - category/development
 - lang/go
