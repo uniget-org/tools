@@ -6,7 +6,7 @@ license:
   link: https://github.com/kubernetes-sigs/kind/blob/main/LICENSE
 homepage: https://kind.sigs.k8s.io/
 repository: https://github.com/kubernetes-sigs/kind
-version: "0.31.0"
+version: "0.32.0"
 tags:
 - org/cncf
 - standard/docker
