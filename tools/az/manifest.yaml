@@ -6,7 +6,7 @@ license:
   link: https://github.com/Azure/azure-cli/blob/dev/LICENSE
 homepage: https://github.com/Azure/azure-cli
 repository: https://github.com/Azure/azure-cli
-version: "2.86.0"
+version: "2.87.0"
 tags:
 - org/microsoft
 - category/development
