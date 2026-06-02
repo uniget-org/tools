@@ -6,7 +6,7 @@ license:
   link: https://github.com/k3d-io/k3d/blob/main/LICENSE
 homepage: https://k3d.io/
 repository: https://github.com/k3d-io/k3d
-version: "5.8.3"
+version: "5.9.0"
 tags:
 - standard/docker
 - type/cli
