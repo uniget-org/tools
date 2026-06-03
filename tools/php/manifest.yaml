@@ -7,7 +7,7 @@ license:
   link: https://github.com/php/php-src/blob/master/LICENSE
 homepage: https://www.php.net
 repository: https://github.com/php/php-src
-version: "8.5.6"
+version: "8.5.7"
 tags:
 - category/development
 - lang/c
