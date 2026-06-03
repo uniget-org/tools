@@ -7,7 +7,7 @@ license:
   link: https://github.com/k8snetworkplumbingwg/whereabouts/blob/master/LICENSE
 homepage: https://github.com/k8snetworkplumbingwg/whereabouts
 repository: https://github.com/k8snetworkplumbingwg/whereabouts
-version: "0.9.3"
+version: "0.9.4"
 tags:
 - category/operations
 - lang/go
