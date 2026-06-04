@@ -6,7 +6,7 @@ license:
   link: https://github.com/abiosoft/colima/blob/main/LICENSE
 homepage: https://github.com/abiosoft/colima
 repository: https://github.com/abiosoft/colima
-version: "0.10.2"
+version: "0.10.3"
 tags:
 - type/cli
 - category/development
