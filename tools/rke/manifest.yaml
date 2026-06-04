@@ -6,7 +6,7 @@ license:
   link: https://github.com/rancher/rke/blob/release/v1.6/LICENSE
 homepage: https://github.com/rancher/rke
 repository: https://github.com/rancher/rke
-version: "1.8.13"
+version: "1.8.14"
 tags:
 - org/rancher
 - category/operations
