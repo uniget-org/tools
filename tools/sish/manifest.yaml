@@ -6,7 +6,7 @@ license:
   link: https://github.com/antoniomika/sish/blob/main/LICENSE
 homepage: https://ssi.sh
 repository: https://github.com/antoniomika/sish
-version: "2.22.1"
+version: "2.23.0"
 tags:
 - type/cli
 - category/development
