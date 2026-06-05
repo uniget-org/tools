@@ -6,7 +6,7 @@ license:
   link: https://github.com/yannh/kubeconform/blob/master/LICENSE
 homepage: https://github.com/yannh/kubeconform
 repository: https://github.com/yannh/kubeconform
-version: "0.7.0"
+version: "0.8.0"
 tags:
 - category/operations
 - type/cli
