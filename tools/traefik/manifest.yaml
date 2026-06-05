@@ -5,7 +5,7 @@ license:
   name: MIT License
 homepage: https://traefik.io
 repository: https://github.com/traefik/traefik
-version: "3.7.3"
+version: "3.7.4"
 tags:
 - category/operations
 - lang/go
