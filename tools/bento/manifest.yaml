@@ -7,7 +7,7 @@ license:
   link: https://github.com/warpstreamlabs/bento/blob/main/LICENSE
 homepage: https://warpstreamlabs.github.io/bento/
 repository: https://github.com/warpstreamlabs/bento
-version: "1.18.0"
+version: "1.18.1"
 tags:
 - category/development
 - lang/go
