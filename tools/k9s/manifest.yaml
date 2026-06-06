@@ -6,7 +6,7 @@ license:
   link: https://github.com/derailed/k9s/blob/master/LICENSE
 homepage: https://k9scli.io
 repository: https://github.com/derailed/k9s
-version: "0.50.18"
+version: "0.51.0"
 tags:
 - type/tui
 - kubernetes
