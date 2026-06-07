@@ -6,7 +6,7 @@ license:
   link: https://github.com/mikefarah/yq/blob/master/LICENSE
 homepage: https://mikefarah.gitbook.io/yq/
 repository: https://github.com/mikefarah/yq
-version: "4.53.2"
+version: "4.53.3"
 tags:
 - type/cli
 - format
