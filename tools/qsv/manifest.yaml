@@ -6,7 +6,7 @@ license:
   name: The Unlicense
 homepage: https://github.com/dathere/qsv
 repository: https://github.com/dathere/qsv
-version: "20.1.0"
+version: "21.0.0"
 tags:
 - category/development
 - lang/rust
