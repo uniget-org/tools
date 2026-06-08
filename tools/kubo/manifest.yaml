@@ -6,7 +6,7 @@ license:
   link: https://github.com/ipfs/kubo/blob/master/LICENSE
 homepage: https://docs.ipfs.tech/how-to/command-line-quick-start/
 repository: https://github.com/ipfs/kubo
-version: "0.41.0"
+version: "0.42.0"
 tags:
 - component/storage
 - component/network
