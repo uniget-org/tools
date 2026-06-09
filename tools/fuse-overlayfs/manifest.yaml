@@ -5,7 +5,7 @@ license:
   name: GPLv2
 homepage: https://github.com/containers/fuse-overlayfs
 repository: https://github.com/containers/fuse-overlayfs
-version: "1.16"
+version: "1.17"
 tags:
 - org/redhat
 - type/plugin
