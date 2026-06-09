@@ -1,0 +1,17 @@
+#syntax=docker/dockerfile:1.24.0@sha256:87999aa3d42bdc6bea60565083ee17e86d1f3339802f543c0d03998580f9cb89
+
+FROM ghcr.io/uniget-org/tools/python-3.12:latest AS python
+FROM ghcr.io/uniget-org/tools/shiv:latest AS shiv
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:99a2bccd1ad68bfc5b1d1eb356cf54b7dd94e45c5216b89c87b9e21c70e12b9f AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+COPY --link --from=python / /usr/local/
+COPY --link --from=shiv / /usr/local/
+RUN --mount=type=cache,target=/root/.cache/pip <<EOF
+shiv --output-file "${prefix}/bin/specify" --console-script specify "git+https://github.com/github/spec-kit.git@v${version}"
+EOF
