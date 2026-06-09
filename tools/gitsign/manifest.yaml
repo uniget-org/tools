@@ -6,7 +6,7 @@ license:
   link: https://github.com/sigstore/gitsign/blob/main/LICENSE
 homepage: https://github.com/sigstore/gitsign
 repository: https://github.com/sigstore/gitsign
-version: "0.16.0"
+version: "0.16.1"
 tags:
 - category/development
 - category/security
