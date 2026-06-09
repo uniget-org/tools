@@ -51,7 +51,7 @@ metadata-full.json--download:%--download: \
 	$(REGCTL) manifest get ghcr.io/uniget-org/tools/metadata:full --platform=local --format=raw-body \
 	| jq --raw-output '.layers[0].digest' \
 	| xargs $(REGCTL) blob get ghcr.io/uniget-org/tools/metadata \
-	| tar --extract --gzip --to-stdout metadata.json \
+	| tar --extract --gzip --to-stdout metadata-full.json \
 	>$*
 
 $(addsuffix --metadata-full,$(ALL_TOOLS_RAW)):%--metadata-full: \
