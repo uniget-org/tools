@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: pi
+description: AI agent toolkit - unified LLM API, agent loop, TUI, coding agent CLI
+license:
+  name: MIT License
+  link: https://github.com/earendil-works/pi/blob/main/LICENSE
+homepage: https://pi.dev/
+repository: https://github.com/earendil-works/pi
+version: "0.79.1"
+tags:
+- category/development
+- lang/javascript
+- type/cli
+- type/tui
+- ai
+- llm
+- coding
+- agent
+check: ${binary} --version
+build_dependencies:
+- node-lts
+- npm
+runtime_dependencies:
+- node-lts
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: npm
+  package: "@earendil-works/pi-coding-agent"
