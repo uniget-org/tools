@@ -6,7 +6,7 @@ license:
   link: https://github.com/carvel-dev/vendir/blob/develop/LICENSE
 homepage: https://carvel.dev/vendir
 repository: https://github.com/carvel-dev/vendir
-version: "0.45.4"
+version: "0.46.0"
 tags:
 - org/vmware
 - category/development
