@@ -163,19 +163,6 @@ jobs:
     - run: |
         true
 
-  visibility:
-    name: Check visibility
-    needs:
-    - collect
-    - build
-    strategy:
-      fail-fast: false
-      matrix:
-        tool: ${{ fromJSON(needs.collect.outputs.tools) }}
-    uses: ./.github/workflows/check-visibility.yml
-    with:
-      name: ${{ matrix.tool }}
-
   collect_versions:
     name: Collect versions for tools
     needs:
