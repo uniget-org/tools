@@ -10,6 +10,11 @@ on:
         options:
         - "false"
         - "true"
+  workflow_run:
+    workflows:
+    - Tag latest
+    types:
+    - completed
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -62,7 +67,7 @@ jobs:
 
   metadata-full:
     name: Create full metadata
-    if: ${{ github.event.inputs.full == 'true' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event.inputs.full == 'true' }}
     permissions:
       packages: write
       id-token: write
@@ -110,3 +115,13 @@ jobs:
       with:
         name: metadata-build.log.zip
         path: "@metadata/build.log"
+
+  pages:
+    name: Trigger creation of tools page
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event.inputs.full == 'true' }}
+    needs:
+    - metadata-full
+    uses: ./.github/workflows/trigger-pages.yml
+    secrets:
+      BOT_GITHUB_TOKEN: ${{ secrets.BOT_GITHUB_TOKEN }}
+      GITLAB_TRIGGER_TOOLS: ${{ secrets.GITLAB_TRIGGER_TOOLS }}
