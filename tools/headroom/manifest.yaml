@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: headroom
+description: Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 60-95% fewer tokens, same answers. Library, proxy, MCP server.
+license:
+  name: Apache License 2.0
+  link: https://github.com/chopratejas/headroom/blob/main/LICENSE
+homepage: https://headroom-docs.vercel.app/docs
+repository: https://github.com/chopratejas/headroom
+version: "0.24.0"
+tags:
+- category/development
+- lang/python
+- type/cli
+- ai
+- llm
+- coding
+- mcp
+check: ${binary} --version | cut -d' ' -f3
+build_dependencies:
+- python-3.12
+- shiv
+runtime_dependencies:
+- python-3.12
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: pypi
+  package: headroom-ai[all]

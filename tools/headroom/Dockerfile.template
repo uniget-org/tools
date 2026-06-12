@@ -1,0 +1,28 @@
+#syntax=docker/dockerfile:1.24.0@sha256:87999aa3d42bdc6bea60565083ee17e86d1f3339802f543c0d03998580f9cb89
+
+FROM ghcr.io/uniget-org/tools/python-3.12:latest AS python
+FROM ghcr.io/uniget-org/tools/pipx:latest AS pipx
+
+FROM registry.gitlab.com/uniget-org/images/build-essential:26.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+RUN --mount=type=cache,target=/var/cache/apt <<EOF
+apt-get update
+apt-get -y install --no-install-recommends \
+    clang \
+    libomp-dev
+EOF
+ARG name
+ARG version
+COPY --link --from=python / /usr/local/
+COPY --link --from=pipx / /usr/local/
+RUN --mount=type=cache,target=/root/.cache/pip <<EOF
+export PIPX_HOME="${prefix}/libexec/pipx"
+export PIPX_BIN_DIR="${prefix}/bin"
+pipx install "headroom-ai[all]==${version}"
+pipx-fix-venv-pyvenv-cfg headroom-ai
+ln --symbolic --relative --force "${prefix}/libexec/pipx/venvs/headroom-ai/bin/headroom" "${prefix}/bin/headroom"
+sed -i "s|#\!${prefix}/|#\!/|" "${prefix}/libexec/pipx/venvs/headroom-ai/bin/headroom"
+EOF
