@@ -5,7 +5,7 @@ license:
   name: Apache License 2.0
 homepage: https://wasmi-labs.github.io/wasmi/
 repository: https://github.com/wasmi-labs/wasmi
-version: "1.0.9"
+version: "1.1.0"
 tags:
 - category/development
 - lang/rust
