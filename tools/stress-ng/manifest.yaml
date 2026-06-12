@@ -7,7 +7,7 @@ license:
   link: https://github.com/ColinIanKing/stress-ng/blob/master/COPYING
 homepage: https://github.com/ColinIanKing/stress-ng
 repository: https://github.com/ColinIanKing/stress-ng
-version: "0.21.02"
+version: "0.21.03"
 tags:
 - category/operations
 - lang/c
