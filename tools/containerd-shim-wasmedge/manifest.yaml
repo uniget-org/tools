@@ -7,7 +7,7 @@ license:
   link: https://github.com/containerd/runwasi/blob/main/LICENSE
 homepage: https://github.com/containerd/runwasi
 repository: https://github.com/containerd/runwasi
-version: "0.6.0"
+version: "0.6.1"
 tags:
 - org/containerd
 - category/development
