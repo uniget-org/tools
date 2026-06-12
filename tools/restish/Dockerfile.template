@@ -3,7 +3,7 @@
 FROM ghcr.io/uniget-org/tools/go:latest AS go
 FROM ghcr.io/uniget-org/tools/goreleaser:latest AS goreleaser
 
-FROM registry.gitlab.com/uniget-org/images/build-base:3.23 AS prepare
+FROM registry.gitlab.com/uniget-org/images/build-essential:26.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -18,7 +18,6 @@ ARG version
 RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
 check-clone "https://github.com/rest-sh/restish" "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/rest-sh/restish .
-sed -i "s/var version string = \"dev\"/var version string = \"${version}\"/" main.go
-export CGO_ENABLED=1
-go build -ldflags "-w -s -linkmode external -extldflags -static" -o "${prefix}/bin/restish"
+goreleaser build --id=restish --single-target
+cp dist/restish_linux_amd64_v1/restish "${prefix}/bin/"
 EOF
