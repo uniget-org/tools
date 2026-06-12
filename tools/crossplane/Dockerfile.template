@@ -8,7 +8,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://releases.crossplane.io/stable/v${version}/bin/linux_${alt_arch}/crank"
+url="https://releases.crossplane.io/stable/v${version}/bin/linux_${alt_arch}/crossplane"
 filename="$( basename "${url}" )"
 
 check-download "${url}"
@@ -17,5 +17,5 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
 
 install --mode=0755 \
     "${uniget_cache_download}/${filename}" \
-    "${prefix}/bin/kubectl-crossplane"
+    "${prefix}/bin/crossplane"
 EOF

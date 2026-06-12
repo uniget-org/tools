@@ -27,4 +27,4 @@ renovate:
   datasource: github-releases
   package: crossplane/crossplane
   extractVersion: ^v(?<version>.+)$
-binary: kubectl-crossplane
+binary: crossplane
