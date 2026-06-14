@@ -7,7 +7,7 @@ license:
   link: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/COPYING
 homepage: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
 repository: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
-version: "7.0"
+version: "7.1"
 tags:
 - org/linus
 - category/development
