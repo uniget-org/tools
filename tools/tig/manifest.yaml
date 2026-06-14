@@ -5,7 +5,7 @@ license:
   name: GPLv2
 homepage: https://jonas.github.io/tig/
 repository: https://github.com/jonas/tig
-version: "2.6.0"
+version: "2.6.1"
 tags:
 - type/tui
 - category/development
