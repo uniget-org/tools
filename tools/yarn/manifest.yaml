@@ -13,6 +13,7 @@ tags:
 - type/cli
 - dependency
 - management
+- state/stale
 check: ${binary} --version
 build_dependencies:
 - node-lts

@@ -10,7 +10,6 @@ tags:
 - category/development
 - lang/java
 - type/daemon
-- state/stale
 check: ${binary} --version
 runtime_dependencies:
 - openjdk-jre

@@ -18,6 +18,7 @@ tags:
 - mesh
 - kubernetes
 - k8s
+- cncf/graduated
 check: ${binary} version --client | cut -d- -f2
 platforms:
 - linux/amd64

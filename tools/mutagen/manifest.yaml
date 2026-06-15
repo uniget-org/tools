@@ -14,7 +14,6 @@ tags:
 - type/cli
 - type/daemon
 - lang/go
-- state/stale
 check: ${binary} version
 platforms:
 - linux/amd64

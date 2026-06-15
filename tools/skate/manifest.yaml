@@ -13,7 +13,6 @@ tags:
 - category/operations
 - lang/go
 - type/cli
-- state/stale
 check: ${binary} --version | cut -d' ' -f3 | tr -d v
 platforms:
 - linux/amd64

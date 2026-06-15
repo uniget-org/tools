@@ -13,6 +13,7 @@ tags:
 - lang/go
 - type/cli
 - type/tui
+- state/stale
 check: ${binary} --version | grep walk | tr -s ' ' | cut -d' ' -f3 | tr -d v
 platforms:
 - linux/amd64

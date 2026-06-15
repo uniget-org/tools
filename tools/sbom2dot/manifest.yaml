@@ -18,6 +18,7 @@ tags:
 - format/spdx
 - format/cyclonedx
 - state/onemanshow
+- state/stale
 check: ${binary} --version
 build_dependencies:
 - python-3.12

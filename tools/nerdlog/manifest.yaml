@@ -12,6 +12,7 @@ tags:
 - category/operations
 - lang/go
 - type/tui
+- state/stale
 check: ${binary} --version | grep ^Nerdlog | cut -d' ' -f2
 platforms:
 - linux/amd64
