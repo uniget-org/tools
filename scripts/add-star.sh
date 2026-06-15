@@ -26,8 +26,10 @@ function star() {
         --header "Authorization: Bearer ${GITHUB_TOKEN}"
 }
 
+echo "### Create metadata"
 make metadata.json
 
+echo "### Slurp tool definitions"
 declare -A tool_json
 mapfile tool_json_array < <(jq --raw-output --compact-output '.tools[] | "\(.name)=\(.)"' metadata.json)
 i=0
@@ -41,8 +43,11 @@ while test "$i" -lt "${#tool_json_array[@]}"; do
     i=$((i + 1))
 done
 
+echo "### Check for missing stars"
 for name in ${!tool_json[@]}; do
+    echo "${name}: ${tool_json[${name}]}"
     if jq --exit-status 'select(.renovate != null and (.renovate.datasource | startswith("github-")))' <<<"${tool_json[${name}]}" >/dev/null 2>&1; then
+        echo "### Checking ${name}"
         PACKAGE="$(jq --raw-output '.renovate.package' <<<"${tool_json[${name}]}")"
         if ! check_star "${PACKAGE}"; then
             echo "### Adding star to ${PACKAGE}"

@@ -4,14 +4,17 @@ set -o errexit
 TMPDIR="$(mktemp -d)"
 trap "rm -rf ${TMPDIR}" EXIT
 
+echo "### Create metadata"
 make metadata.json
 
+echo "### Retrieve tool names"
 all_tools="$(
     jq --raw-output '.tools[] | .name' metadata.json \
     | sort \
     | xargs
 )"
 
+echo "### Slurp tool definitions"
 declare -A tool_json
 mapfile tool_json_array < <(jq --raw-output --compact-output '.tools[] | "\(.name)=\(.)"' metadata.json)
 i=0
@@ -25,13 +28,15 @@ while test "$i" -lt "${#tool_json_array[@]}"; do
     i=$((i + 1))
 done
 
+echo "### Retrieve CNCF maturity info"
 curl -sSLf https://github.com/cncf/landscape/raw/refs/heads/master/landscape.yml \
 | yq --output-format=json eval . \
-| jq --raw-output '.landscape[].subcategories[].items[] | select(.project != null)' \
+| jq --raw-output '.landscape[].subcategories[] | select(.items != null) | .items[] | select(.project != null)' \
 >"${TMPDIR}/repo_maturity.json"
 jq --raw-output '"\(.repo_url)=\(.project)"' "${TMPDIR}/repo_maturity.json" \
 >"${TMPDIR}/repo_maturity.txt"
 
+echo "### Populate CNCF maturity info"
 declare -A repo_maturity
 mapfile repo_maturity_array <"${TMPDIR}/repo_maturity.txt"
 i=0
@@ -45,6 +50,7 @@ while test "$i" -lt "${#repo_maturity_array[@]}"; do
     i=$((i + 1))
 done
 
+echo "### Update maturity tags in tool metadata"
 for NAME in ${all_tools}; do
     echo "${NAME}"
     if ! test -f "tools/${NAME}/manifest.yaml"; then

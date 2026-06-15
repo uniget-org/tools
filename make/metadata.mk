@@ -10,6 +10,12 @@ metadata.json: \
 	@jq --slurp --compact-output --arg revision "$(GIT_COMMIT_SHA)" '{"revision": $$revision, "tools": map(.tools[])}' $(addsuffix /manifest-minimal.json,$(TOOLS)) \
 	>$@
 
+metadata-renovate.json: \
+		$(addsuffix /manifest.json,$(TOOLS)) \
+		; $(info $(M) Creating $@...)
+	@jq --slurp --compact-output --arg revision "$(GIT_COMMIT_SHA)" '{"revision": $$revision, "tools": map(.tools[])}' $(addsuffix /manifest.json,$(TOOLS)) \
+	>$@
+
 %.sigstore.json: ; $(info $(M) Signing $@...)
 	@set -o errexit; \
 	if \

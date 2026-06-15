@@ -10,15 +10,20 @@ if test -z "${GITHUB_TOKEN}"; then
     exit 1
 fi
 
+echo "### Create metadata"
+make metadata-renovate.json
+
+echo "### Retrieve tool names"
 all_tools="$(
-    jq --raw-output '.tools[] | .name' metadata.json \
+    jq --raw-output '.tools[] | .name' metadata-renovate.json \
     | sort \
     | grep "^[l-z]" \
     | xargs
 )"
 
+echo "### Slurp tool definitions"
 declare -A tool_json
-mapfile tool_json_array < <(jq --raw-output --compact-output '.tools[] | "\(.name)=\(.)"' metadata.json)
+mapfile tool_json_array < <(jq --raw-output --compact-output '.tools[] | "\(.name)=\(.)"' metadata-renovate.json)
 i=0
 while test "$i" -lt "${#tool_json_array[@]}"; do
     name_json=${tool_json_array[$i]}
@@ -30,6 +35,7 @@ while test "$i" -lt "${#tool_json_array[@]}"; do
     i=$((i + 1))
 done
 
+echo "### Update activity tags in tool metadata"
 for NAME in ${all_tools}; do
     echo "${NAME}"
 
