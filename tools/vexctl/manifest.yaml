@@ -6,7 +6,7 @@ license:
   link: https://github.com/openvex/vexctl/blob/main/LICENSE
 homepage: https://github.com/openvex/vexctl
 repository: https://github.com/openvex/vexctl
-version: "0.4.1"
+version: "0.4.4"
 tags:
 - type/cli
 - category/security
