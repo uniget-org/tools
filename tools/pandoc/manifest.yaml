@@ -17,6 +17,7 @@ tags:
 check: ${binary} --version | grep ^pandoc | cut -d' ' -f2
 platforms:
 - linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: jgm/pandoc
