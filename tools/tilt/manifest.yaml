@@ -7,7 +7,7 @@ license:
   link: https://github.com/tilt-dev/tilt/blob/master/LICENSE
 homepage: https://tilt.dev/
 repository: https://github.com/tilt-dev/tilt
-version: "0.37.3"
+version: "0.37.4"
 tags:
 - org/tilt
 - category/development
