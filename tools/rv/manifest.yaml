@@ -7,7 +7,7 @@ license:
   link: https://github.com/spinel-coop/rv
 homepage: https://rv.dev/
 repository: https://github.com/spinel-coop/rv
-version: "0.5.3"
+version: "0.6.0"
 tags:
 - category/development
 - lang/rust
