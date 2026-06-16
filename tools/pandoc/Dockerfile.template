@@ -8,7 +8,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://github.com/jgm/pandoc/releases/download/${version}/pandoc-${version}-linux-amd64.tar.gz"
+url="https://github.com/jgm/pandoc/releases/download/${version}/pandoc-${version}-linux-${alt_arch}.tar.gz"
 filename="$( basename "${url}" )"
 
 check-github-release-asset "jgm/pandoc" "${version}" "${filename}"
