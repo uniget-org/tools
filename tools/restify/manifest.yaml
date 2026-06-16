@@ -7,7 +7,7 @@ license:
   link: https://github.com/itzg/restify/blob/master/LICENSE.txt
 homepage: https://github.com/itzg/restify
 repository: https://github.com/itzg/restify
-version: "1.7.15"
+version: "1.7.16"
 tags:
 - category/development
 - lang/go
