@@ -7,7 +7,7 @@ license:
   link: https://github.com/sonatype-nexus-community/nancy/blob/main/LICENSE
 homepage: https://github.com/sonatype-nexus-community/nancy
 repository: https://github.com/sonatype-nexus-community/nancy
-version: "2.0.0"
+version: "2.1.0"
 tags:
 - org/sonatype
 - category/development
