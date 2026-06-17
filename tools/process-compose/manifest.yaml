@@ -7,7 +7,7 @@ license:
   link: https://github.com/F1bonacc1/process-compose/blob/main/LICENSE
 homepage: https://f1bonacc1.github.io/process-compose/
 repository: https://github.com/F1bonacc1/process-compose
-version: "1.110.0"
+version: "1.116.0"
 tags:
 - category/operations
 - lang/go
