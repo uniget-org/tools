@@ -5,7 +5,7 @@ license:
   name: Apache License 2.0
 homepage: https://influxdata.com
 repository: https://github.com/influxdata/influxdb
-version: "3.9.0"
+version: "3.10.0"
 tags:
 - org/influxdata
 - observability/metrics
