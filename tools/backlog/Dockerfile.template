@@ -1,0 +1,33 @@
+#syntax=docker/dockerfile:1.25.0@sha256:87999aa3d42bdc6bea60565083ee17e86d1f3339802f543c0d03998580f9cb89
+
+FROM ghcr.io/uniget-org/tools/node-lts:latest AS node
+FROM ghcr.io/uniget-org/tools/npm:latest AS npm
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:99a2bccd1ad68bfc5b1d1eb356cf54b7dd94e45c5216b89c87b9e21c70e12b9f AS ubuntu2604
+
+FROM ubuntu2604 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+COPY --link --from=node / /usr/local/
+COPY --link --from=npm / /usr/local/
+WORKDIR /uniget_bootstrap/libexec/backlog
+ARG name
+ARG version
+RUN <<EOF
+npm install \
+    --omit=dev \
+    "backlog.md@${version}"
+ln --symbolic --relative --force "${prefix}/libexec/backlog/node_modules/.bin/backlog" "${prefix}/bin/"
+EOF
+RUN <<EOF
+"${prefix}/bin/backlog" completion install --shell=bash
+"${prefix}/bin/backlog" completion install --shell=fish
+"${prefix}/bin/backlog" completion install --shell=zsh
+cp "${HOME}/.local/share/bash-completion/completions/backlog" "${prefix}/share/bash-completion/completions/backlog"
+cp "${HOME}/.config/fish/completions/backlog.fish"            "${prefix}/share/fish/vendor_completions.d/backlog.fish"
+cp "${HOME}/.zsh/completions/_backlog"                        "${prefix}/share/zsh/vendor-completions/_backlog"
+EOF

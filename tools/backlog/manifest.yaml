@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: backlog
+description: Managing project collaboration between humans and AI Agents in a git ecosystem
+license:
+  name: MIT License
+  link: https://github.com/MrLesk/Backlog.md/blob/main/LICENSE
+homepage: https://backlog.md/
+repository: https://github.com/MrLesk/Backlog.md
+version: "1.47.1"
+tags:
+- category/development
+- lang/javascript
+- type/cli
+- format/markdown
+- standard/git
+- kanban
+- ai
+- coding
+check: ${binary} --version
+build_dependencies:
+- node-lts
+- npm
+runtime_dependencies:
+- node-lts
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: npm
+  package: backlog.md
