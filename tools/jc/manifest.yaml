@@ -7,7 +7,7 @@ license:
   link: https://github.com/kellyjonbrazil/jc/blob/master/LICENSE.md
 homepage: https://github.com/kellyjonbrazil/jc
 repository: https://github.com/kellyjonbrazil/jc
-version: "1.25.6"
+version: "1.25.7"
 tags:
 - category/operations
 - lang/python
