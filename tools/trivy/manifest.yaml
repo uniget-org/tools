@@ -6,7 +6,7 @@ license:
   link: https://github.com/aquasecurity/trivy/blob/main/LICENSE
 homepage: https://aquasecurity.github.io/trivy
 repository: https://github.com/aquasecurity/trivy
-version: "0.71.1"
+version: "0.71.2"
 tags:
 - category/security
 - type/cli
