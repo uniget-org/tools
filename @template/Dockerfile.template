@@ -10,7 +10,7 @@
 #FROM ghcr.io/uniget-org/tools/npm:latest AS npm
 #FROM ghcr.io/uniget-org/tools/bun:latest AS bun
 
-FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:99a2bccd1ad68bfc5b1d1eb356cf54b7dd94e45c5216b89c87b9e21c70e12b9f AS ubuntu2604
+FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:8fc1cc1ba5dd196bd42790880931d3d76985c2a94ec55e8095615331dfd3b580 AS ubuntu2604
 FROM registry.gitlab.com/uniget-org/images/build-essential:26.04 AS build-essential2604
 FROM registry.gitlab.com/uniget-org/images/alpine:3.23 AS alpine323
 FROM registry.gitlab.com/uniget-org/images/build-base:3.23 AS build-base323
