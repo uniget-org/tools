@@ -7,7 +7,7 @@ license:
   link: https://github.com/ducaale/xh/blob/master/LICENSE
 homepage: https://github.com/ducaale/xh
 repository: https://github.com/ducaale/xh
-version: "0.25.3"
+version: "0.26.1"
 tags:
 - category/development
 - lang/rust
