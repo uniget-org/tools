@@ -7,7 +7,7 @@ license:
   link: https://github.com/GeyserMC/Floodgate/blob/master/LICENSE
 homepage: https://geysermc.org/wiki/floodgate
 repository: https://github.com/GeyserMC/Floodgate
-version: "2.2.5.132"
+version: "2.2.5.134"
 tags:
 - category/games
 - lang/java
