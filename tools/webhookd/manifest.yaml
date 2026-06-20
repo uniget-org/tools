@@ -6,7 +6,7 @@ license:
   link: https://github.com/ncarlier/webhookd/blob/master/LICENSE
 homepage: https://github.com/ncarlier/webhookd
 repository: https://github.com/ncarlier/webhookd
-version: "1.21.0"
+version: "1.22.0"
 tags:
 - category/development
 - type/daemon
