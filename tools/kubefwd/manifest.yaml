@@ -7,7 +7,7 @@ license:
   link: https://github.com/txn2/kubefwd/blob/master/LICENSE
 homepage: https://www.google.de
 repository: https://github.com/txn2/kubefwd
-version: "v1.25.15"
+version: "v1.25.16"
 tags:
 - lang/go
 - type/cli
