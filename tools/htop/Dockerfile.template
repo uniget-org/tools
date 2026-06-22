@@ -8,7 +8,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 WORKDIR /tmp/htop
 ARG name
 ARG version
-RUN --mount=type=cache,target=/var/cache/apt <<EOF
+RUN <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
     autoconf \
