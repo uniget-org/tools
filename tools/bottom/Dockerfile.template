@@ -1,0 +1,42 @@
+#syntax=docker/dockerfile:1.25.0@sha256:0adf442eae370b6087e08edc7c50b552d80ddf261576f4ebd6421006b2461f12
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:8fc1cc1ba5dd196bd42790880931d3d76985c2a94ec55e8095615331dfd3b580 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+WORKDIR /tmp/bottom
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+case "${alt_arch}" in
+    amd64)
+        export arch_suffix="x86_64-unknown-linux-musl"
+        ;;
+    arm64)
+        export arch_suffix="aarch64-unknown-linux-musl"
+        ;;
+    *)
+        echo "ERROR: Unsupported architecture (${alt_arch})."
+        exit 1
+        ;;
+esac
+echo "    Using ${arch_suffix}"
+
+url="https://github.com/ClementTsang/bottom/releases/download/${version}/bottom_${arch_suffix}.tar.gz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "ClementTsang/bottom" "${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --no-same-owner
+install --mode=0755 \
+    "btm" \
+    "${prefix}/bin/"
+ln --symbolic --relative --force "${prefix}/bin/btm" "${prefix}/bin/bottom"
+
+cp "completion/btm.bash" "${prefix}/share/bash-completion/completions/btm"
+cp "completion/btm.fish" "${prefix}/share/fish/vendor_completions.d/btm.fish"
+cp "completion/_btm"     "${prefix}/share/zsh/vendor-completions/_btm"
+EOF

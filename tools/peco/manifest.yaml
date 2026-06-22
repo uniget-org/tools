@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: peco
+description: Simplistic interactive filtering tool
+license:
+  name: MIT License
+  link: https://github.com/peco/peco/blob/master/LICENSE
+homepage: https://github.com/peco/peco
+repository: https://github.com/peco/peco
+version: "0.6.0"
+tags:
+- category/operations
+- lang/go
+- type/cli
+- terminal
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: peco/peco
+  extractVersion: ^v(?<version>.+)$

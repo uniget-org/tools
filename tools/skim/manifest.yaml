@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: skim
+description: Fuzzy finder in Rust
+license:
+  name: MIT License
+  link: https://github.com/skim-rs/skim/blob/main/LICENSE
+homepage: https://github.com/skim-rs/skim
+repository: https://github.com/skim-rs/skim
+version: "4.8.0"
+tags:
+- category/operations
+- lang/rust
+- type/cli
+- terminal
+check: sk --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: skim-rs/skim
+  extractVersion: ^v(?<version>.+)$
