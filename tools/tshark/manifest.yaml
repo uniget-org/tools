@@ -7,7 +7,7 @@ license:
   link: https://gitlab.com/wireshark/wireshark/-/blob/master/COPYING
 homepage: https://gitlab.com/wireshark/wireshark
 repository: https://gitlab.com/wireshark/wireshark
-version: "4.6.6"
+version: "4.7.1"
 tags:
 - org/wireshark
 - category/operations
