@@ -8,7 +8,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 WORKDIR /tmp/github.com/raboof/nethogs
 ARG name
 ARG version
-RUN --mount=type=cache,target=/var/cache/apt <<EOF
+RUN <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
     libpcap-dev \
