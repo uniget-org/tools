@@ -6,7 +6,7 @@ license:
   link: https://github.com/guptarohit/asciigraph/blob/master/LICENSE
 homepage: https://pkg.go.dev/github.com/guptarohit/asciigraph
 repository: https://github.com/guptarohit/asciigraph
-version: "0.9.0"
+version: "0.10.0"
 tags:
 - type/cli
 - terminal
