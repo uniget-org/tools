@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: bottom
+description: Cross-platform graphical process and system monitor
+license:
+  name: MIT License
+  link: https://github.com/ClementTsang/bottom/blob/main/LICENSE
+homepage: https://github.com/ClementTsang/bottom
+repository: https://github.com/ClementTsang/bottom
+version: "0.14.1"
+tags:
+- category/operations
+- lang/rust
+- type/cli
+- terminal
+check: btm --version | grep -oE '[0-9]+(\.[0-9]+)+' | head -n1
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: ClementTsang/bottom
+  extractVersion: ^v?(?<version>.+)$

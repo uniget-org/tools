@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: tokei
+description: Count your code quickly
+license:
+  name: Apache License 2.0 / MIT License
+  link: https://github.com/XAMPPRocky/tokei
+homepage: https://github.com/XAMPPRocky/tokei
+repository: https://github.com/XAMPPRocky/tokei
+version: "14.0.0"
+tags:
+- category/development
+- lang/rust
+- type/cli
+- terminal
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: XAMPPRocky/tokei
+  extractVersion: ^v(?<version>.+)$

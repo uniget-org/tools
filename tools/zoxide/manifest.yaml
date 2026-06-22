@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: zoxide
+description: A smarter cd command for your terminal
+license:
+  name: MIT License
+  link: https://github.com/ajeetdsouza/zoxide/blob/main/LICENSE
+homepage: https://github.com/ajeetdsouza/zoxide
+repository: https://github.com/ajeetdsouza/zoxide
+version: "0.9.9"
+tags:
+- category/operations
+- lang/rust
+- type/cli
+- terminal
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: ajeetdsouza/zoxide
+  extractVersion: ^v(?<version>.+)$

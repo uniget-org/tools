@@ -1,0 +1,39 @@
+#syntax=docker/dockerfile:1.25.0@sha256:0adf442eae370b6087e08edc7c50b552d80ddf261576f4ebd6421006b2461f12
+
+FROM registry.gitlab.com/uniget-org/images/build-essential:26.04@sha256:32604fa3469f3a542fa40f9a78e330702400db71c3f020a8d5daf352e1fd8833 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+WORKDIR /tmp/htop
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/apt <<EOF
+apt-get update
+apt-get -y install --no-install-recommends \
+    autoconf \
+    automake \
+    libcap-dev \
+    libtool \
+    pkg-config \
+    libsensors-dev \
+    libncursesw5-dev
+EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/htop-dev/htop/releases/download/${version}/htop-${version}.tar.xz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "htop-dev/htop" "${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --extract --xz --strip-components=1 --no-same-owner
+./configure \
+    --prefix="${prefix}" \
+    --enable-static \
+    --enable-capabilities \
+    --enable-sensors \
+    --with-proc=/proc
+make -j$(nproc)
+make install
+EOF

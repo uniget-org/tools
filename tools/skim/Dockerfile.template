@@ -1,0 +1,45 @@
+#syntax=docker/dockerfile:1.25.0@sha256:0adf442eae370b6087e08edc7c50b552d80ddf261576f4ebd6421006b2461f12
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:8fc1cc1ba5dd196bd42790880931d3d76985c2a94ec55e8095615331dfd3b580 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+case "${alt_arch}" in
+    amd64)
+        export arch_suffix="x86_64-unknown-linux-gnu"
+        ;;
+    arm64)
+        export arch_suffix="aarch64-unknown-linux-gnu"
+        ;;
+    *)
+        echo "ERROR: Unsupported architecture (${alt_arch})."
+        exit 1
+        ;;
+esac
+echo "    Using ${arch_suffix}"
+
+url="https://github.com/skim-rs/skim/releases/download/v${version}/skim-${arch_suffix}.tar.xz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "skim-rs/skim" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tempdir="$( mktemp -d )"
+tar --file="${uniget_cache_download}/${filename}" --extract --xz --directory="${tempdir}" --no-same-owner
+install --mode=0755 \
+    "${tempdir}/skim-${arch_suffix}/sk" \
+    "${prefix}/bin/sk"
+ln --symbolic --relative --force "${prefix}/bin/sk" "${prefix}/bin/skim"
+
+mv "${tempdir}/skim-${arch_suffix}/man/man1/sk.1"      "${prefix}/share/man/man1/sk.1"
+mv "${tempdir}/skim-${arch_suffix}/man/man1/sk-tmux.1" "${prefix}/share/man/man1/sk-tmux.1"
+
+mv "${tempdir}/skim-${arch_suffix}/shell/completion.bash" "${prefix}/share/bash-completion/completions/sk.bash"
+mv "${tempdir}/skim-${arch_suffix}/shell/completion.fish" "${prefix}/share/fish/vendor_completions.d/sk.fish"
+mv "${tempdir}/skim-${arch_suffix}/shell/completion.zsh" "${prefix}/share/zsh/vendor-completions/_sk"
+EOF

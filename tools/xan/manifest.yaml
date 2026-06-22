@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: xan
+description: CSV magician
+license:
+  name: The Unlicense
+  link: https://github.com/medialab/xan/blob/master/UNLICENSE
+homepage: https://github.com/medialab/xan
+repository: https://github.com/medialab/xan
+version: "0.59.0"
+tags:
+- category/operations
+- lang/rust
+- type/cli
+- terminal
+check: ${binary} --version
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: medialab/xan
+  extractVersion: ^v?(?<version>.+)$

@@ -1,0 +1,21 @@
+#syntax=docker/dockerfile:1.25.0@sha256:0adf442eae370b6087e08edc7c50b552d80ddf261576f4ebd6421006b2461f12
+
+FROM registry.gitlab.com/uniget-org/images/build-essential:26.04@sha256:32604fa3469f3a542fa40f9a78e330702400db71c3f020a8d5daf352e1fd8833 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+WORKDIR /tmp/github.com/raboof/nethogs
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/apt <<EOF
+apt-get update
+apt-get -y install --no-install-recommends \
+    libpcap-dev \
+    libncurses-dev
+EOF
+RUN <<EOF
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/raboof/nethogs .
+make
+cp src/nethogs "${prefix}/bin/"
+EOF

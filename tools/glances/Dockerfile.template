@@ -1,0 +1,23 @@
+#syntax=docker/dockerfile:1.25.0@sha256:0adf442eae370b6087e08edc7c50b552d80ddf261576f4ebd6421006b2461f12
+
+FROM ghcr.io/uniget-org/tools/python-3.12:latest AS python
+FROM ghcr.io/uniget-org/tools/pipx:latest AS pipx
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:8fc1cc1ba5dd196bd42790880931d3d76985c2a94ec55e8095615331dfd3b580 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+COPY --link --from=python / /usr/local/
+COPY --link --from=pipx / /usr/local/
+ARG name
+ARG version
+RUN --mount=type=cache,target=/root/.cache/pip <<EOF
+export PIPX_HOME="${prefix}/libexec/pipx"
+export PIPX_BIN_DIR="${prefix}/bin"
+pipx install "glances==${version}"
+pipx-fix-venv-pyvenv-cfg glances
+ln --symbolic --relative --force "${prefix}/libexec/pipx/venvs/glances/bin/glances" "${prefix}/bin/glances"
+mv "${prefix}/libexec/pipx/venvs/glances/bin/glances" "${prefix}/libexec/pipx/venvs/glances/bin/glances.go-template"
+sed -i "s|#\!${prefix}|#\!{{ .Target }}|" "${prefix}/libexec/pipx/venvs/glances/bin/glances.go-template"
+EOF

@@ -1,0 +1,25 @@
+#syntax=docker/dockerfile:1.25.0@sha256:0adf442eae370b6087e08edc7c50b552d80ddf261576f4ebd6421006b2461f12
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:8fc1cc1ba5dd196bd42790880931d3d76985c2a94ec55e8095615331dfd3b580 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/peco/peco/releases/download/v${version}/peco_${version}_linux_${alt_arch}.tar.gz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "peco/peco" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tempdir="$( mktemp -d )"
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${tempdir}" --no-same-owner
+install --mode=0755 \
+    "$( find "${tempdir}" -type f -name peco | head -n1 )" \
+    "${prefix}/bin/peco"
+curl --silent --show-error --location --fail --output "${prefix}/share/man/man1/peco.1" \
+    "https://github.com/peco/peco/raw/refs/tags/v${version}/contrib/man/peco.1"
+EOF

@@ -1,0 +1,37 @@
+#syntax=docker/dockerfile:1.25.0@sha256:0adf442eae370b6087e08edc7c50b552d80ddf261576f4ebd6421006b2461f12
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:8fc1cc1ba5dd196bd42790880931d3d76985c2a94ec55e8095615331dfd3b580 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+case "${alt_arch}" in
+    amd64)
+        export arch_suffix="x86_64-unknown-linux-gnu"
+        ;;
+    arm64)
+        export arch_suffix="aarch64-unknown-linux-gnu"
+        ;;
+    *)
+        echo "ERROR: Unsupported architecture (${alt_arch})."
+        exit 1
+        ;;
+esac
+echo "    Using ${arch_suffix}"
+
+url="https://github.com/medialab/xan/releases/download/${version}/xan-${arch_suffix}.tar.gz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "medialab/xan" "${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tempdir="$( mktemp -d )"
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${tempdir}" --no-same-owner
+install --mode=0755 \
+    "$( find "${tempdir}" -type f -name xan | head -n1 )" \
+    "${prefix}/bin/xan"
+EOF

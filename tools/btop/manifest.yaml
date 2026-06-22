@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: btop
+description: Resource monitor that shows usage and stats for processor, memory, disks, network and processes
+license:
+  name: Apache License 2.0
+  link: https://github.com/aristocratos/btop/blob/main/LICENSE
+homepage: https://github.com/aristocratos/btop
+repository: https://github.com/aristocratos/btop
+version: "1.4.7"
+tags:
+- category/operations
+- lang/cpp
+- type/cli
+- terminal
+check: ${binary} --version | grep ^btop | cut -d' ' -f3 | cut -d+ -f1
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: aristocratos/btop
+  extractVersion: ^v(?<version>.+)$

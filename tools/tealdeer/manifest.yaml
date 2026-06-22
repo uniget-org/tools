@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: tealdeer
+description: Very fast implementation of tldr in Rust
+license:
+  name: Apache License 2.0
+  link: https://github.com/tealdeer-rs/tealdeer/blob/main/LICENSE-APACHE.txt
+homepage: https://github.com/tealdeer-rs/tealdeer
+repository: https://github.com/tealdeer-rs/tealdeer
+version: "1.8.1"
+tags:
+- category/development
+- lang/rust
+- type/cli
+- terminal
+check: tldr --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: tealdeer-rs/tealdeer
+  extractVersion: ^v(?<version>.+)$
