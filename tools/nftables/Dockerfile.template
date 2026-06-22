@@ -7,7 +7,7 @@ FROM ghcr.io/uniget-org/tools/iptables:latest AS iptables
 FROM ghcr.io/uniget-org/tools/libjansson:latest AS libjansson
 FROM ghcr.io/uniget-org/tools/libgmp:latest AS libgmp
 
-FROM registry.gitlab.com/uniget-org/images/build-essential:26.04@sha256:32604fa3469f3a542fa40f9a78e330702400db71c3f020a8d5daf352e1fd8833 AS prepare
+FROM registry.gitlab.com/uniget-org/images/build-essential:26.04@sha256:bf6f96f242e6a61f634a1c1a988bfcda070b843bbd613fbdec92238a5b5f93ce AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
