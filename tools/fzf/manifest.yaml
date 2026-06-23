@@ -11,6 +11,8 @@ tags:
 - type/cli
 - terminal
 - lang/go
+- fuzzy
+- search
 check: ${binary} --version | cut -d' ' -f1
 platforms:
 - linux/amd64

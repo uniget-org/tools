@@ -13,7 +13,7 @@ tags:
 - category/development
 - lang/go
 - type/cli
-- Kubernetes
+- kubernetes
 - k8s
 check: ${binary} version | cut -d, -f1 | tr -d v
 platforms:
