@@ -12,7 +12,7 @@ tags:
 - category/operations
 - lang/cpp
 - type/cli
-- network
+- component/network
 - terminal
 check: ${binary} -V | cut -d' ' -f3
 platforms:

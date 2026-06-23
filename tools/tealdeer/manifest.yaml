@@ -13,6 +13,8 @@ tags:
 - lang/rust
 - type/cli
 - terminal
+- help
+- documentation
 check: tldr --version | cut -d' ' -f2
 platforms:
 - linux/amd64

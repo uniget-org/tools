@@ -11,8 +11,10 @@ version: "4.5.5"
 tags:
 - category/operations
 - lang/python
-- type/cli
+- type/tui
 - terminal
+- component/cpu
+- component/memory
 check: ${binary} --version | grep -oE '[0-9]+(\.[0-9]+)+' | head -n1
 platforms:
 - linux/amd64

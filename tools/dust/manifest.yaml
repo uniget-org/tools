@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: dust
-description: A more intuitive version of du in rust
+description: More intuitive version of du in rust
 license:
   name: Apache License 2.0
   link: https://github.com/bootandy/dust/blob/main/LICENSE
@@ -11,7 +11,7 @@ version: "1.2.4"
 tags:
 - category/operations
 - lang/rust
-- type/cli
+- type/tui
 - terminal
 check: ${binary} --version | cut -d' ' -f2
 platforms:

@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: zoxide
-description: A smarter cd command for your terminal
+description: Smarter cd command for your terminal
 license:
   name: MIT License
   link: https://github.com/ajeetdsouza/zoxide/blob/main/LICENSE
@@ -13,6 +13,7 @@ tags:
 - lang/rust
 - type/cli
 - terminal
+- directory
 check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
