@@ -13,6 +13,8 @@ tags:
 - lang/rust
 - type/cli
 - terminal
+- fuzzy
+- search
 check: sk --version | cut -d' ' -f2
 platforms:
 - linux/amd64

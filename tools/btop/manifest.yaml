@@ -11,8 +11,11 @@ version: "1.4.7"
 tags:
 - category/operations
 - lang/cpp
-- type/cli
+- type/tui
 - terminal
+- component/cpu
+- component/memory
+- load
 check: ${binary} --version | grep ^btop | cut -d' ' -f3 | cut -d+ -f1
 platforms:
 - linux/amd64

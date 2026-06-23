@@ -12,7 +12,11 @@ tags:
 - category/operations
 - lang/rust
 - type/cli
+- type/tui
 - terminal
+- format/csv
+- graph
+- analysis
 check: ${binary} --version
 platforms:
 - linux/amd64

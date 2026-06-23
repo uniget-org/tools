@@ -13,6 +13,9 @@ tags:
 - lang/c
 - type/cli
 - terminal
+- component/memory
+- component/cpu
+- load
 check: ${binary} --version | cut -d' ' -f2 | cut -d- -f1
 platforms:
 - linux/amd64
