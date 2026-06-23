@@ -7,7 +7,7 @@ license:
   link: https://github.com/crashappsec/chalk/blob/main/LICENSE
 homepage: https://chalkproject.io
 repository: https://github.com/crashappsec/chalk
-version: "1.1.0"
+version: "1.1.1"
 tags:
 - category/security
 - lang/nim
