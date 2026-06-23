@@ -7,7 +7,7 @@ license:
   link: https://github.com/CtrlSpice/otel-desktop-viewer
 homepage: https://github.com/CtrlSpice/otel-desktop-viewer
 repository: https://github.com/CtrlSpice/otel-desktop-viewer
-version: "0.3.0"
+version: "0.3.1"
 tags:
 - category/development
 - lang/go
