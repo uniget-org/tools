@@ -6,7 +6,7 @@ license:
   link: https://github.com/docker/compose/blob/main/LICENSE
 homepage: https://docs.docker.com/compose/
 repository: https://github.com/docker/compose
-version: "5.1.4"
+version: "5.2.0"
 tags:
 - org/docker
 - standard/docker
