@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: sonarqube-cli
-description: Some description
+description: CLI for SonarQube with AI agent integration. Scan for secrets and get fast feedback on code quality and security from your terminal
 license:
   name: Custom
   link: https://github.com/SonarSource/sonarqube-cli/blob/master/LICENSE
@@ -9,10 +9,12 @@ homepage: https://cli.sonarqube.com/
 repository: https://github.com/SonarSource/sonarqube-cli
 version: "0.9.0.977"
 tags:
-- org/?
-- category/?
-- lang/?
-- type/?
+- org/sonarsource
+- category/development
+- lang/javascript
+- type/cli
+- code
+- analysis
 check: "" # Does not match releases
 platforms:
 - linux/amd64
