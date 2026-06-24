@@ -6,7 +6,7 @@ license:
   link: https://github.com/jetify-com/devbox/blob/main/LICENSE
 homepage: https://www.jetify.com/devbox/
 repository: https://github.com/jetify-com/devbox
-version: "0.17.4"
+version: "0.17.5"
 tags:
 - category/development
 - lang/go
