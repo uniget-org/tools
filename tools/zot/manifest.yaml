@@ -6,7 +6,7 @@ license:
   link: https://github.com/project-zot/zot/blob/main/LICENSE
 homepage: https://zotregistry.dev
 repository: https://github.com/project-zot/zot
-version: "2.1.17"
+version: "2.1.18"
 tags:
 - standard/oci
 - container/registry
