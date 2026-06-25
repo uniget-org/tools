@@ -6,7 +6,7 @@ license:
   link: https://github.com/dalance/procs/blob/master/LICENSE
 homepage: https://github.com/dalance/procs
 repository: https://github.com/dalance/procs
-version: "0.14.11"
+version: "0.14.12"
 tags:
 - category/operations
 - type/cli
