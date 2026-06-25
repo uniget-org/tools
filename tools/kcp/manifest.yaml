@@ -6,7 +6,7 @@ license:
   link: https://github.com/kcp-dev/kcp/blob/main/LICENSE
 homepage: https://kcp.io
 repository: https://github.com/kcp-dev/kcp
-version: "0.32.1"
+version: "0.32.2"
 tags:
 - type/cli
 - type/daemon
