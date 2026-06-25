@@ -6,7 +6,7 @@ license:
   link: https://curl.se/docs/copyright.html
 homepage: https://curl.se/
 repository: https://github.com/curl/curl
-version: "8.20.0"
+version: "8.21.0"
 tags:
 - org/curl
 - type/cli
