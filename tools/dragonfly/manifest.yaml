@@ -7,7 +7,7 @@ license:
   link: https://github.com/dragonflyoss/dragonfly/blob/main/LICENSE
 homepage: https://d7y.io
 repository: https://github.com/dragonflyoss/dragonfly
-version: "2.4.4"
+version: "2.5.0"
 tags:
 - category/operations
 - lang/go
