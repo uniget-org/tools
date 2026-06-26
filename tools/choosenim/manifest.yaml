@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+name: choosenim
+description: Nim toolchain installer - manages multiple Nim installations
+license:
+  name: MIT
+  link: https://github.com/nim-lang/choosenim/blob/master/LICENSE
+homepage: https://nim-lang.org
+repository: https://github.com/nim-lang/choosenim
+version: "0.8.16"
+tags:
+- type/cli
+- category/development
+- lang/nim
+- compiler
+- toolchain
+check: ${binary} --version | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: nim-lang/choosenim
+  extractVersion: ^v?(?<version>.+)$
