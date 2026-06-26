@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: cline
+description: Autonomous coding agent as an SDK, IDE extension, or CLI assistant
+license:
+  name: Apache License 2.0
+  link: https://github.com/cline/cline/blob/main/LICENSE
+homepage: https://cline.bot
+repository: https://github.com/cline/cline
+version: "3.0.30"
+tags:
+- category/development
+- lang/typescript
+- type/cli
+- ai
+- llm
+- code
+- coding
+check: ${binary} --version
+build_dependencies:
+- npm
+runtime_dependencies:
+- node-lts
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: cline/cline
+  extractVersion: ^cli-v(?<version>.+)$
