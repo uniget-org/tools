@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: drop
+description: Kubernetes operator that pre-pulls container images onto nodes with pacing and automatic discovery
+license:
+  name: Apache License 2.0
+  link: https://github.com/corewire/drop/blob/main/LICENSE
+homepage: https://corewire.github.io/drop/
+repository: https://github.com/corewire/drop
+version: "1.5.0"
+tags:
+- category/operations
+- kubernetes
+- k8s
+- lang/go
+- type/daemon
+- standard/docker
+- container/image
+check: "" # No version parameter
+build_dependencies:
+- go
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: corewire/drop
+  extractVersion: ^v(?<version>.+)$
