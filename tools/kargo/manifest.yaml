@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: kargo
+description: GitOps-based application lifecycle orchestration platform for Kubernetes
+license:
+  name: Apache License 2.0
+  link: https://github.com/akuity/kargo/blob/main/LICENSE
+homepage: https://docs.kargo.io/
+repository: https://github.com/akuity/kargo
+version: "1.10.8"
+tags:
+- category/operations
+- kubernetes
+- k8s
+- lang/go
+- gitops
+- type/cli
+- lifecycle
+check: ${binary} version --client | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: akuity/kargo
+  extractVersion: ^v(?<version>.+)$
