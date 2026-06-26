@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: portager
+description: Kubernetes operator for declarative registry-to-registry image sync
+license:
+  name: Apache License 2.0
+  link: https://github.com/jarodr47/Portager/blob/main/LICENSE
+homepage: https://github.com/jarodr47/Portager
+repository: https://github.com/jarodr47/Portager
+version: "0.4.0"
+tags:
+- category/operations
+- kubernetes
+- k8s
+- lang/go
+- type/daemon
+- standard/docker
+- container/image
+- container/registry
+check: "" # No version parameter
+build_dependencies:
+- go
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: jarodr47/Portager
+  extractVersion: ^v(?<version>.+)$
