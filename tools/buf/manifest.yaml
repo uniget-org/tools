@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+name: buf
+description: Modern toolchain for Protobuf - compiler, linter, breaker, generator
+license:
+  name: Apache License 2.0
+  link: https://github.com/bufbuild/buf/blob/main/LICENSE
+homepage: https://buf.build
+repository: https://github.com/bufbuild/buf
+version: "1.71.0"
+tags:
+- type/cli
+- category/development
+- lang/go
+- standard/protobuf
+- api
+- standard/grpc
+check: ${binary} --version
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: bufbuild/buf
+  extractVersion: ^v?(?<version>.+)$
