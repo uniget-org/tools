@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: kanban
+description: A kanban foundation for coding agents
+license:
+  name: Apache-2.0
+  link: https://github.com/cline/kanban/blob/main/LICENSE
+homepage: https://github.com/cline/kanban
+repository: https://github.com/cline/kanban
+version: "0.1.68"
+tags:
+- category/development
+- lang/typescript
+- type/cli
+- kanban
+- ai
+- coding
+check: "${binary} --version"
+build_dependencies:
+- node-lts
+- npm
+runtime_dependencies:
+- node-lts
+renovate:
+  datasource: npm
+  package: kanban
+platforms:
+- linux/amd64
+- linux/arm64
