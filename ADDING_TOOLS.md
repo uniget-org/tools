@@ -87,7 +87,7 @@ Use when releases are `.zip` files.
 
 ### D. Architecture mapping
 
-Use a `case` block to map `${arch}` or `${alt_arch}` to upstream naming.
+Use a `case` block to map `${arch}` or `${alt_arch}` to upstream naming. `${arch}` contains `amd64` or `arm64`, while `${alt_arch}` contains `x86_64` or `aarch64`.
 
 ### E. Build from source (Go)
 
