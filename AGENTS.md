@@ -7,5 +7,7 @@ This repository contains the definitions for tools distributed by the `uniget` C
 Given that tool `foo` was changed, the tool is tested using the following command:
 
 ```bash
-make foo--build-amd64
+make foo
 ```
+
+The log is created in `tools/foo/build.log`.
