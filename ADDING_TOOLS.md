@@ -5,7 +5,44 @@ This guide explains how to add a new tool to this repository, where each tool is
 - `manifest.yaml` for metadata
 - `Dockerfile.template` for build instructions
 
-## 1. Create the tool directory
+## 1. Development Workflow
+
+To maintain a clean history, always follow this workflow:
+
+### Create a feature branch
+
+Never commit directly to `main`. Create a new branch for your tool:
+
+```bash
+git checkout -b <toolname>
+```
+
+### Use semantic commit messages
+
+We use [Conventional Commits](https://www.conventionalcommits.org/). Your commit messages should follow this format:
+
+`<type>(<scope>): <description>`
+
+**Common types:**
+- `feat`: A new tool or feature.
+- `fix`: A bug fix.
+- `chore`: Maintenance tasks (e.g., updating documentation or tags).
+- `docs`: Documentation only changes.
+
+**Example:**
+`feat(hunk): add hunk terminal diff viewer`
+
+### Create a Pull Request
+
+Once you have committed your changes, push the branch and create a Pull Request (PR) on GitHub:
+
+```bash
+git push origin <toolname>
+```
+
+Then, visit the link provided in the terminal output to open your PR.
+
+## 2. Create the tool directory
 
 ```bash
 mkdir tools/<toolname>
@@ -13,7 +50,7 @@ mkdir tools/<toolname>
 
 Use the canonical command/binary name for the directory. If needed, use a qualified name (for example `node-lts` or `gojq-is-jq`).
 
-## 2. Add `manifest.yaml`
+## 3. Add `manifest.yaml`
 
 Start from `@template/manifest.yaml`.
 
@@ -54,6 +91,16 @@ platforms:
 - `platforms`: Supported platforms, commonly `linux/amd64` and `linux/arm64`.
 - `conflicts_with`: Tools that provide the same command.
 
+### Choosing tags
+
+To ensure consistency, always use tags that already exist in the repository. You can generate an up-to-date list of all used tags by running:
+
+```bash
+make metadata.json
+```
+
+Then, search through the resulting `metadata.json` for the tags you want to use.
+
 ### Renovate options
 
 Use the matching datasource for the upstream source:
@@ -67,11 +114,11 @@ Use the matching datasource for the upstream source:
 - GitLab releases: `gitlab-releases`
 - GitLab tags: `gitlab-tags`
 
-## 3. Add `Dockerfile.template`
+## 4. Add `Dockerfile.template`
 
 Start from `@template/Dockerfile.template` and choose the right packaging pattern.
 
-## 4. Packaging patterns
+## 5. Packaging patterns
 
 ### A. Prebuilt executable download
 
@@ -113,12 +160,12 @@ Install package in `/uniget_bootstrap/libexec/<tool>` and symlink `.bin` executa
 
 For wrapper tools, create a symlink and set `binary: "false"` if no own binary exists.
 
-## 5. Optional additions
+## 6. Optional additions
 
 - Generate shell completions (bash/fish/zsh) into `${prefix}/share/...`
 - Install man pages into `${prefix}/share/man/man1`
 
-## 6. Validation helpers in build scripts
+## 7. Validation helpers in build scripts
 
 Common helpers available in templates:
 
@@ -126,7 +173,7 @@ Common helpers available in templates:
 - `check-github-release-asset "owner/repo" "tag" "filename"`
 - `check-clone <url> <ref>`
 
-## 7. Test your tool locally
+## 8. Test your tool locally
 
 For a changed tool `foo`, run:
 
@@ -140,7 +187,7 @@ If supported, also test arm64:
 make foo--build-arm64
 ```
 
-## 8. Choosing the right option quickly
+## 9. Choosing the right option quickly
 
 - Single binary artifact: executable install
 - Compressed release archive: tar/zip extraction
@@ -149,7 +196,7 @@ make foo--build-arm64
 - JavaScript CLI package: npm installation
 - Compatibility alias: shim/symlink
 
-## 9. Practical checklist
+## 10. Practical checklist
 
 - Create `tools/<toolname>/`
 - Add `manifest.yaml`
