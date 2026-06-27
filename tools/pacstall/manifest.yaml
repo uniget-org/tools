@@ -7,7 +7,7 @@ license:
   link: https://github.com/pacstall/pacstall/blob/develop/LICENSE
 homepage: https://pacstall.dev
 repository: https://github.com/pacstall/pacstall
-version: "6.4.0"
+version: "6.4.1"
 tags:
 - category/operations
 - lang/shell
