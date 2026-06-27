@@ -178,14 +178,10 @@ Common helpers available in templates:
 For a changed tool `foo`, run:
 
 ```bash
-make foo--build-amd64
+make foo
 ```
 
-If supported, also test arm64:
-
-```bash
-make foo--build-arm64
-```
+The log is located in `tools/foo/build.log`.
 
 ## 9. Choosing the right option quickly
 
