@@ -6,7 +6,7 @@ license:
   link: https://github.com/containers/podman-tui/blob/main/LICENSE
 homepage: https://github.com/containers/podman-tui
 repository: https://github.com/containers/podman-tui
-version: "1.11.2"
+version: "1.11.3"
 tags:
 - org/redhat
 - standard/oci
