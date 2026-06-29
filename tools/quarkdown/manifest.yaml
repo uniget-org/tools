@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+name: quarkdown
+description: Modern Markdown-based typesetting system that compiles to HTML, PDF, and more
+license:
+  name: GNU GPLv3
+  link: https://github.com/iamgio/quarkdown/blob/main/LICENSE
+homepage: https://quarkdown.com
+repository: https://github.com/iamgio/quarkdown
+version: "2.3.1"
+tags:
+- type/cli
+- category/documentation
+- lang/kotlin
+- markdown
+- typesetting
+check: ${binary} --version 2>/dev/null | grep -oP '\d+\.\d+\.\d+'
+platforms:
+- linux/amd64
+renovate:
+  datasource: github-releases
+  package: iamgio/quarkdown
+  extractVersion: ^v?(?<version>.+)$

@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+name: zmx
+description: Session attach/detach for the terminal - a lightweight tmux alternative
+license:
+  name: MIT
+  link: https://github.com/neurosnap/zmx/blob/main/LICENSE
+homepage: https://zmx.sh
+repository: https://github.com/neurosnap/zmx
+version: "0.6.0"
+tags:
+- type/cli
+- category/shell
+- lang/zig
+- terminal
+- multiplexer
+check: ${binary} version | grep ^zmx | grep -oP '\d+\.\d+\.\d+'
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: neurosnap/zmx
+  extractVersion: ^v?(?<version>.+)$

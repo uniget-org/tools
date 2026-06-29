@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: titus
+description: High-performance secrets scanner with CLI, Go library, Burp Suite extension, and Chrome extension
+license:
+  name: Apache License 2.0
+  link: https://github.com/praetorian-inc/titus/blob/main/LICENSE
+homepage: https://www.praetorian.com/blog/titus-open-source-secret-scanner/
+repository: https://github.com/praetorian-inc/titus
+version: "1.2.6"
+tags:
+- category/security
+- type/cli
+- lang/go
+- secrets-scanner
+- security
+check: ${binary} version
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: praetorian-inc/titus
+  extractVersion: ^v(?<version>.+)$

@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: hatchet
+description: An orchestration engine for background tasks, AI agents, and durable workflows
+license:
+  name: MIT License
+  link: https://github.com/hatchet-dev/hatchet/blob/main/LICENSE
+homepage: https://hatchet.run
+repository: https://github.com/hatchet-dev/hatchet
+version: "0.89.0"
+tags:
+- category/devops
+- type/cli
+- lang/go
+- workflow
+- orchestration
+check: ${binary} version
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: hatchet-dev/hatchet
+  extractVersion: ^v(?<version>.+)$
