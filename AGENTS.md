@@ -11,3 +11,5 @@ make foo
 ```
 
 The log is created in `tools/foo/build.log`.
+
+Detailed instructions for adding new tools can be found in [ADDING_TOOLS.md](./ADDING_TOOLS.md).
