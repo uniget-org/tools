@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: komodo
+description: A tool to build and deploy software on many servers
+license:
+  name: GNU General Public License v3.0
+  link: https://github.com/moghtech/komodo/blob/main/LICENSE
+homepage: https://komo.do
+repository: https://github.com/moghtech/komodo
+version: "2.2.0"
+tags:
+- category/devops
+- type/cli
+- lang/rust
+- deployment
+- build-tool
+check: ${binary} --version
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: moghtech/komodo
+  extractVersion: ^v(?<version>.+)$

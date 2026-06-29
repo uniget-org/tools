@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: git-pages
+description: Scalable static site server for Git forges
+license:
+  name: MIT License
+  link: https://codeberg.org/git-pages/git-pages/src/branch/main/LICENSE
+homepage: https://git-pages.org
+repository: https://codeberg.org/git-pages/git-pages
+version: "0.9.1"
+tags:
+- category/web
+- type/server
+- lang/go
+- static-site
+- git-forge
+check: ${binary} --version
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: git-tags
+  package: https://codeberg.org/git-pages/git-pages.git
+  extractVersion: ^v(?<version>.+)$

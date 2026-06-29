@@ -1,0 +1,35 @@
+#syntax=docker/dockerfile:1.25.0@sha256:0adf442eae370b6087e08edc7c50b552d80ddf261576f4ebd6421006b2461f12
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:e949a11db56b186fbed29acb3e6b04119b90e981d1eb1fff68013ba83a0ab38f AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+echo "### Setting architecture string for \${TARGETPLATFORM}"
+case "\${arch}" in
+    x86_64)
+        export arch_suffix="amd64"
+        ;;
+    aarch64)
+        export arch_suffix="arm64"
+        ;;
+    *)
+        echo "ERROR: Unsupported architecture \${arch}."
+        exit 1
+        ;;
+esac
+echo "    Using \${arch_suffix}"
+
+url="https://codeberg.org/git-pages/git-pages/releases/download/v\${version}/git-pages.linux-\${arch_suffix}"
+filename="\$( basename "\${url}" )"
+
+curl --silent --show-error --location --fail --output "\${uniget_cache_download}/\${filename}" \
+    "\${url}"
+
+install --mode=0755 \
+    "\${uniget_cache_download}/\${filename}" \
+    "\${prefix}/bin/git-pages"
+EOF

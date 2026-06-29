@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: yasa
+description: YASA is an open-source static program analysis project with UAST intermediate representation
+license:
+  name: Apache License 2.0
+  link: https://github.com/antgroup/YASA-Engine/blob/main/LICENSE
+homepage: https://cybersec.antgroup.com/station
+repository: https://github.com/antgroup/YASA-Engine
+version: "0.3.1"
+tags:
+- category/security
+- type/cli
+- lang/typescript
+- sast
+- static-analysis
+check: ${binary} --version
+platforms:
+- linux/amd64
+renovate:
+  datasource: github-releases
+  package: antgroup/YASA-Engine
+  extractVersion: ^v(?<version>.+)$

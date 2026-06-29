@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+name: dfc
+description: Dockerfile Converter - CLI to convert Dockerfiles to use Chainguard Images and APKs
+license:
+  name: Apache License 2.0
+  link: https://github.com/chainguard-dev/dfc/blob/main/LICENSE
+homepage: https://edu.chainguard.dev/chainguard/migration/dockerfile-conversion/
+repository: https://github.com/chainguard-dev/dfc
+version: "0.10.0"
+tags:
+- type/cli
+- category/development
+- lang/go
+- docker
+- containers
+- migration
+check: ${binary} version 2>/dev/null | grep -oP '\d+\.\d+\.\d+'
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: chainguard-dev/dfc
+  extractVersion: ^v?(?<version>.+)$

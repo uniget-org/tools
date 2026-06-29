@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+name: ttyny
+description: AI-powered game engine to play text adventures in your terminal
+license:
+  name: MIT
+  link: https://github.com/shikaan/ttyny/blob/main/LICENSE
+homepage: https://github.com/shikaan/ttyny
+repository: https://github.com/shikaan/ttyny
+version: "0.0.1"
+tags:
+- type/cli
+- category/games
+- lang/c
+- ai
+- terminal
+- text-adventure
+check: ${binary} -v 2>/dev/null | grep -oP '\d+\.\d+\.\d+'
+platforms:
+- linux/amd64
+renovate:
+  datasource: github-releases
+  package: shikaan/ttyny
+  extractVersion: ^v?(?<version>.+)$

@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+name: sslyze
+description: Fast and powerful SSL/TLS scanning tool and Python library
+license:
+  name: AGPL-3.0
+  link: https://github.com/nabla-c0d3/sslyze/blob/master/LICENSE.txt
+homepage: https://github.com/nabla-c0d3/sslyze
+repository: https://github.com/nabla-c0d3/sslyze
+version: "6.3.1"
+tags:
+- type/cli
+- category/security
+- lang/python
+- ssl
+- tls
+- security
+check: ${binary} --version 2>/dev/null | grep -oP '\d+\.\d+\.\d+'
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: nabla-c0d3/sslyze
+  extractVersion: ^v?(?<version>.+)$

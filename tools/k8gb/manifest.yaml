@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: k8gb
+description: A cloud native Kubernetes Global Balancer
+license:
+  name: Apache License 2.0
+  link: https://github.com/k8gb-io/k8gb/blob/master/LICENSE
+homepage: https://www.k8gb.io/latest/
+repository: https://github.com/k8gb-io/k8gb
+version: "0.19.0"
+tags:
+- category/kubernetes
+- type/cli
+- lang/go
+- kubernetes
+- dns-lb
+- gslb
+check: ${binary} version
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: k8gb-io/k8gb
+  extractVersion: ^v(?<version>.+)$
