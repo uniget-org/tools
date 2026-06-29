@@ -8,6 +8,11 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
 COPY --from=make / /usr/local
+RUN <<EOF
+apt-get update
+apt-get install -y \
+    libcrypt-dev
+EOF
 ARG name
 ARG version
 WORKDIR /tmp/capsudo
