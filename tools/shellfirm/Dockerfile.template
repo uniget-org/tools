@@ -1,0 +1,24 @@
+#syntax=docker/dockerfile:1.25.0@sha256:0adf442eae370b6087e08edc7c50b552d80ddf261576f4ebd6421006b2461f12
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:e949a11db56b186fbed29acb3e6b04119b90e981d1eb1fff68013ba83a0ab38f AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/kaplanelad/shellfirm/releases/download/v${version}/shellfirm-v${version}-x86_64-linux.tar.xz"
+filename="$( basename "${url}" )"
+
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --xz --directory="${prefix}/bin" --no-same-owner --strip-components=1
+EOF
+RUN <<EOF
+"${prefix}/bin/shellfirm" completions bash >"${prefix}/share/bash-completion/completions/shellfirm"
+"${prefix}/bin/shellfirm" completions fish >"${prefix}/share/fish/vendor_completions.d/shellfirm.fish"
+"${prefix}/bin/shellfirm" completions zsh >"${prefix}/share/zsh/vendor-completions/_shellfirm"
+EOF

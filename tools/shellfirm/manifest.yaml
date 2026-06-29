@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+name: shellfirm
+description: Intercept dangerous shell commands before the damage is done
+license:
+  name: Apache License 2.0
+  link: https://github.com/kaplanelad/shellfirm/blob/main/LICENSE
+homepage: https://shellfirm.vercel.app
+repository: https://github.com/kaplanelad/shellfirm
+version: "0.3.10"
+tags:
+- type/cli
+- category/security
+- lang/rust
+- shell
+- safety
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+renovate:
+  datasource: github-releases
+  package: kaplanelad/shellfirm
+  extractVersion: ^v?(?<version>.+)$

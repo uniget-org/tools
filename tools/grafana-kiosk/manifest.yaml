@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+name: grafana-kiosk
+description: Kiosk mode for Grafana dashboards - auto-refreshing fullscreen display
+license:
+  name: Apache License 2.0
+  link: https://github.com/grafana/grafana-kiosk/blob/main/LICENSE
+homepage: https://github.com/grafana/grafana-kiosk
+repository: https://github.com/grafana/grafana-kiosk
+version: "1.0.12"
+tags:
+- type/cli
+- category/monitoring
+- lang/go
+- grafana
+- dashboard
+- kiosk
+check: "" # No version parameter
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: grafana/grafana-kiosk
+  extractVersion: ^v?(?<version>.+)$

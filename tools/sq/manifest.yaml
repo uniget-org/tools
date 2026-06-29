@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+name: sq
+description: Command line tool that provides jq-style access to SQL databases and document formats
+license:
+  name: MIT
+  link: https://github.com/neilotoole/sq/blob/master/LICENSE
+homepage: https://sq.io
+repository: https://github.com/neilotoole/sq
+version: "0.54.1"
+tags:
+- type/cli
+- category/database
+- lang/go
+- sql
+- data
+- query
+check: ${binary} --version | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: neilotoole/sq
+  extractVersion: ^v?(?<version>.+)$

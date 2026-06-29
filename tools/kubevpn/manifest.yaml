@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+name: kubevpn
+description: Cloud-Native Dev Environment that seamlessly connects to your Kubernetes cluster network
+license:
+  name: MIT
+  link: https://github.com/kubenetworks/kubevpn/blob/main/LICENSE
+homepage: https://kubevpn.dev
+repository: https://github.com/kubenetworks/kubevpn
+version: "2.10.2"
+tags:
+- type/cli
+- category/network
+- lang/go
+- kubernetes
+- k8s
+- vpn
+- development
+check: ${binary} version | grep Version | tr -d ' ' | cut -d':' -f2 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: kubenetworks/kubevpn
+  extractVersion: ^v?(?<version>.+)$

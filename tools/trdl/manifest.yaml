@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+name: trdl
+description: TUF-based release and update management client for software projects
+license:
+  name: Apache License 2.0
+  link: https://github.com/werf/trdl/blob/main/LICENSE
+homepage: https://trdl.dev
+repository: https://github.com/werf/trdl
+version: "0.12.3"
+tags:
+- type/cli
+- category/operations
+- lang/go
+- release-management
+- tuf
+check: ${binary} --version 2>/dev/null | grep -oP '\d+\.\d+\.\d+'
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: werf/trdl
+  extractVersion: ^v?(?<version>.+)$
