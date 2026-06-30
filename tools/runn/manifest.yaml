@@ -7,7 +7,7 @@ license:
   link: https://github.com/k1LoW/runn/blob/main/LICENSE
 homepage: https://runn.run
 repository: https://github.com/k1LoW/runn
-version: "1.9.3"
+version: "1.9.4"
 tags:
 - category/development
 - lang/go
