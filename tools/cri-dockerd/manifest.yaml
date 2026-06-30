@@ -6,7 +6,7 @@ license:
   link: https://github.com/Mirantis/cri-dockerd/blob/master/LICENSE
 homepage: https://github.com/Mirantis/cri-dockerd
 repository: https://github.com/Mirantis/cri-dockerd
-version: "0.4.3"
+version: "0.4.4"
 tags:
 - org/mirantis
 - standard/docker
