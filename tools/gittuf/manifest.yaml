@@ -7,7 +7,7 @@ license:
   link: https://github.com/gittuf/gittuf/blob/main/LICENSE
 homepage: https://gittuf.dev
 repository: https://github.com/gittuf/gittuf
-version: "0.14.1"
+version: "0.15.0"
 tags:
 - category/security
 - lang/go
