@@ -7,7 +7,7 @@ license:
   link: https://github.com/rest-sh/restish/blob/main/LICENSE.md
 homepage: https://rest.sh/
 repository: https://github.com/rest-sh/restish
-version: "2.2.0"
+version: "2.3.0"
 tags:
 - category/development
 - lang/go
