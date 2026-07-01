@@ -19,6 +19,7 @@ ARG name
 ARG version
 RUN <<EOF
 export PATH="/opt/node22/bin:${PATH}"
+[ -e /bin/sh ] || ln --symbolic --force /usr/bin/bash /bin/sh
 npm install \
     --omit=dev \
     "@hoppscotch/cli@${version}"
