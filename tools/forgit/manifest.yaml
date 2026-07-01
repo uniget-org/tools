@@ -6,7 +6,7 @@ license:
   link: https://github.com/wfxr/forgit/blob/master/LICENSE
 homepage: https://github.com/wfxr/forgit
 repository: https://github.com/wfxr/forgit
-version: "26.05.0"
+version: "26.07.0"
 tags:
 - type/cli
 - category/development
