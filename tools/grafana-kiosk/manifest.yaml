@@ -14,7 +14,7 @@ tags:
 - grafana
 - dashboard
 - kiosk
-check: ${binary} --version 2>/dev/null | grep -oP '\d+\.\d+\.\d+'
+check: "" # No version parameter
 platforms:
 - linux/amd64
 - linux/arm64
