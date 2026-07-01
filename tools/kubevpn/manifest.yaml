@@ -15,7 +15,7 @@ tags:
 - k8s
 - vpn
 - development
-check: ${binary} version 2>/dev/null | grep -oP '\d+\.\d+\.\d+'
+check: ${binary} version | grep Version | tr -d ' ' | cut -d':' -f2 | tr -d v
 platforms:
 - linux/amd64
 - linux/arm64
