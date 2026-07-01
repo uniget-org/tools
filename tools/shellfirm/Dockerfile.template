@@ -8,27 +8,17 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-echo "### Setting architecture string for ${TARGETPLATFORM}"
-case "${arch}" in
-    x86_64)
-        export arch_suffix="x86_64-unknown-linux-gnu"
-        ;;
-    aarch64)
-        export arch_suffix="aarch64-unknown-linux-gnu"
-        ;;
-    *)
-        echo "ERROR: Unsupported architecture ${arch}."
-        exit 1
-        ;;
-esac
-echo "    Using ${arch_suffix}"
-
-url="https://github.com/kaplanelad/shellfirm/releases/download/v${version}/shellfirm-${arch_suffix}.tar.gz"
+url="https://github.com/kaplanelad/shellfirm/releases/download/v${version}/shellfirm-v${version}-x86_64-linux.tar.xz"
 filename="$( basename "${url}" )"
 
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
     "${url}"
 
 tar --file="${uniget_cache_download}/${filename}" --list
-tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin" --no-same-owner --strip-components=1
+tar --file="${uniget_cache_download}/${filename}" --extract --xz --directory="${prefix}/bin" --no-same-owner --strip-components=1
+EOF
+RUN <<EOF
+"${prefix}/bin/shellfirm" completions bash >"${prefix}/share/bash-completion/completions/shellfirm"
+"${prefix}/bin/shellfirm" completions fish >"${prefix}/share/fish/vendor_completions.d/shellfirm.fish"
+"${prefix}/bin/shellfirm" completions zsh >"${prefix}/share/zsh/vendor-completions/_shellfirm"
 EOF
