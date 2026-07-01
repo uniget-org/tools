@@ -30,5 +30,5 @@ git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}"
 make
 cp model-runner "${prefix}/bin/"
 cp dmr "${prefix}/bin/"
-cp cmd/cli/model-cli "${prefix}/libexec/docker/cli-plugins/"
+cp cmd/cli/model-cli "${prefix}/libexec/docker/cli-plugins/docker-model"
 EOF
