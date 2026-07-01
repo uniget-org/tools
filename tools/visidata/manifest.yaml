@@ -6,7 +6,7 @@ license:
   name: GPLv3
 homepage: http://visidata.org
 repository: https://github.com/saulpw/visidata
-version: "3.3"
+version: "3.4"
 tags:
 - category/development
 - lang/python
