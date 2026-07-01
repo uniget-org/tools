@@ -6,7 +6,7 @@ license:
   link: https://github.com/schollz/croc/blob/main/LICENSE
 homepage: https://schollz.com/software/croc6
 repository: https://github.com/schollz/croc
-version: "10.4.4"
+version: "10.4.6"
 tags:
 - category/security
 - lang/go
