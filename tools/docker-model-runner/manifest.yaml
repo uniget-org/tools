@@ -12,18 +12,21 @@ license:
   link: https://github.com/docker/model-runner/blob/main/LICENSE
 homepage: https://github.com/docker/model-runner
 repository: https://github.com/docker/model-runner
-version: "0.0.0"
+version: "1.2.5"
 tags:
 - org/docker
 - category/development
 - lang/go
 - type/daemon
 - ai
-check: "" # No version parameter
+check: ${binary} version 2>&1 | grep ^Client -A 1 | tail -n 1 | tr -d ' ' | cut -d':' -f2 | tr -d v
 build_dependencies:
 - go
 - make
 platforms:
 - linux/amd64
-- linux/arm64
 binary: model-runner
+renovate:
+  datasource: github-releases
+  package: docker/model-runner
+  extractVersion: ^v(?<version>.+)$
