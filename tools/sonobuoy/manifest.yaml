@@ -6,7 +6,7 @@ license:
   link: https://github.com/vmware-tanzu/sonobuoy/blob/main/LICENSE
 homepage: https://sonobuoy.io
 repository: https://github.com/vmware-tanzu/sonobuoy
-version: "0.57.3"
+version: "0.57.5"
 tags:
 - org/vmware
 - category/operations
