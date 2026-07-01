@@ -7,7 +7,7 @@ license:
   link: https://github.com/osquery/osquery/blob/master/LICENSE
 homepage: https://osquery.io
 repository: https://github.com/osquery/osquery
-version: "5.23.0"
+version: "5.23.1"
 tags:
 - category/operations
 - lang/c
