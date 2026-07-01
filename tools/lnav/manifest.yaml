@@ -14,7 +14,7 @@ tags:
 - logs
 - terminal
 - viewer
-check: ${binary} --version 2>/dev/null | grep -oP '\d+\.\d+\.\d+'
+check: ${binary} -V | cut -d' ' -f2
 platforms:
 - linux/amd64
 - linux/arm64
