@@ -6,7 +6,7 @@ license:
   name: MIT License
 homepage: https://deno.com
 repository: https://github.com/denoland/deno
-version: "2.9.0"
+version: "2.9.1"
 tags:
 - category/development
 - lang/rust
