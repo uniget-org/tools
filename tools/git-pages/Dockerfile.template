@@ -8,8 +8,8 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-echo "### Setting architecture string for \${TARGETPLATFORM}"
-case "\${arch}" in
+echo "### Setting architecture string for ${TARGETPLATFORM}"
+case "${arch}" in
     x86_64)
         export arch_suffix="amd64"
         ;;
@@ -17,19 +17,19 @@ case "\${arch}" in
         export arch_suffix="arm64"
         ;;
     *)
-        echo "ERROR: Unsupported architecture \${arch}."
+        echo "ERROR: Unsupported architecture ${arch}."
         exit 1
         ;;
 esac
-echo "    Using \${arch_suffix}"
+echo "    Using ${arch_suffix}"
 
-url="https://codeberg.org/git-pages/git-pages/releases/download/v\${version}/git-pages.linux-\${arch_suffix}"
-filename="\$( basename "\${url}" )"
+url="https://codeberg.org/git-pages/git-pages/releases/download/v${version}/git-pages.linux-${arch_suffix}"
+filename="$( basename "${url}" )"
 
-curl --silent --show-error --location --fail --output "\${uniget_cache_download}/\${filename}" \
-    "\${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
 
 install --mode=0755 \
-    "\${uniget_cache_download}/\${filename}" \
-    "\${prefix}/bin/git-pages"
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/git-pages"
 EOF
