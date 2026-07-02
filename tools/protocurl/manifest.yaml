@@ -7,7 +7,7 @@ license:
   link: https://github.com/qaware/protocurl/blob/main/LICENSE.md
 homepage: https://github.com/qaware/protocurl
 repository: https://github.com/qaware/protocurl
-version: "1.20.3"
+version: "1.20.4"
 tags:
 - category/development
 - lang/go
