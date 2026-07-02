@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: thorium
+description: A scalable file analysis and data generation platform
+license:
+  name: BSD 3-Clause License
+  link: https://github.com/cisagov/thorium/blob/main/LICENSE
+homepage: https://cisagov.github.io/thorium/
+repository: https://github.com/cisagov/thorium
+version: "1.6.1"
+tags:
+- category/security
+- type/cli
+- lang/rust
+- malware-analysis
+- file-analysis
+check: ${binary} --version
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: cisagov/thorium
+  extractVersion: ^(?<version>.+)$

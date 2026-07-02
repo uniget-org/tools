@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+name: zarf
+description: Declarative Continuous Delivery for Air-Gapped Kubernetes
+license:
+  name: Apache License 2.0
+  link: https://github.com/zarf-dev/zarf/blob/main/LICENSE
+homepage: https://zarf.dev
+repository: https://github.com/zarf-dev/zarf
+version: "0.80.0"
+tags:
+- type/cli
+- category/operations
+- lang/go
+- kubernetes
+- k8s
+- airgap
+- cncf/sandbox
+check: ${binary} version 2>/dev/null | grep -oP '\d+\.\d+\.\d+'
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: zarf-dev/zarf
+  extractVersion: ^v?(?<version>.+)$

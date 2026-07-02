@@ -1,0 +1,20 @@
+#syntax=docker/dockerfile:1.25.0@sha256:0adf442eae370b6087e08edc7c50b552d80ddf261576f4ebd6421006b2461f12
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:e949a11db56b186fbed29acb3e6b04119b90e981d1eb1fff68013ba83a0ab38f AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+COPY --link --from=rust / /usr/local/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+WORKDIR /tmp/thorium
+RUN <<SCRIPT
+check-clone "https://github.com/cisagov/thorium" "${version}"
+git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" https://github.com/cisagov/thorium .
+export CARGO_HOME=/usr/local/cargo
+export RUSTUP_HOME=/usr/local/rustup
+export RUSTFLAGS="-C target-feature=+crt-static"
+cargo build --release --target "${arch}-unknown-linux-gnu"
+cp "target/${arch}-unknown-linux-gnu/release/thorium" "${prefix}/bin/"
+SCRIPT

@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: md2pdf
+description: A CLI utility that generates PDFs from Markdown with syntax highlighting, themes, and TOC autogeneration
+license:
+  name: MIT License
+  link: https://github.com/solworktech/md2pdf/blob/master/LICENSE
+homepage: ""
+repository: https://github.com/solworktech/md2pdf
+version: "2.2.18"
+tags:
+- category/utility
+- type/cli
+- lang/go
+- markdown
+- pdf
+check: ${binary} --version
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: solworktech/md2pdf
+  extractVersion: ^v(?<version>.+)$

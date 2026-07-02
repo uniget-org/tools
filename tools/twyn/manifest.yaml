@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: twyn
+description: Security tool against dependency typosquatting attacks
+license:
+  name: MIT License
+  link: https://github.com/elementsinteractive/twyn/blob/main/LICENSE
+homepage: https://www.elements.nl/en
+repository: https://github.com/elementsinteractive/twyn
+version: "6.1.4"
+tags:
+- category/security
+- type/cli
+- lang/python
+- security
+- typosquatting
+check: ${binary} --version
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: elementsinteractive/twyn
+  extractVersion: ^v(?<version>.+)$
