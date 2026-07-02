@@ -7,7 +7,7 @@ license:
   link: https://github.com/eksctl-io/eksctl/blob/main/LICENSE
 homepage: https://eksctl.io
 repository: https://github.com/eksctl-io/eksctl
-version: "0.228.0"
+version: "0.229.0"
 tags:
 - category/operations
 - lang/go
