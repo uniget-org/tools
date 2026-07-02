@@ -6,7 +6,7 @@ license:
   link: https://github.com/sigstore/rekor/blob/main/LICENSE
 homepage: https://sigstore.dev
 repository: https://github.com/sigstore/rekor
-version: "1.5.2"
+version: "1.5.3"
 tags:
 - category/security
 - type/cli
