@@ -7,7 +7,7 @@ license:
   link: https://github.com/akheron/jansson#License-1-ov-file
 homepage: http://www.digip.org/jansson/
 repository: https://github.com/akheron/jansson
-version: "2.15.0"
+version: "2.15.1"
 tags:
 - category/development
 - lang/c
