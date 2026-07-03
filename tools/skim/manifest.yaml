@@ -7,7 +7,7 @@ license:
   link: https://github.com/skim-rs/skim/blob/main/LICENSE
 homepage: https://github.com/skim-rs/skim
 repository: https://github.com/skim-rs/skim
-version: "4.10.0"
+version: "5.0.0"
 tags:
 - category/operations
 - lang/rust
