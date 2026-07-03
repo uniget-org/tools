@@ -7,7 +7,7 @@ license:
   link: https://github.com/project-copacetic/copacetic/blob/main/LICENSE
 homepage: https://project-copacetic.github.io/copacetic/
 repository: https://github.com/project-copacetic/copacetic
-version: "0.14.1"
+version: "0.14.2"
 tags:
 - category/security
 - lang/go
