@@ -7,7 +7,7 @@ license:
   link: https://github.com/k8gb-io/k8gb/blob/master/LICENSE
 homepage: https://www.k8gb.io/latest/
 repository: https://github.com/k8gb-io/k8gb
-version: "0.19.0"
+version: "0.20.0"
 tags:
 - category/kubernetes
 - type/cli
