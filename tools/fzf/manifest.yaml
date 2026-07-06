@@ -6,7 +6,7 @@ license:
   link: https://github.com/junegunn/fzf/blob/master/LICENSE
 homepage: https://junegunn.github.io/fzf/
 repository: https://github.com/junegunn/fzf
-version: "0.73.1"
+version: "0.74.0"
 tags:
 - type/cli
 - terminal
