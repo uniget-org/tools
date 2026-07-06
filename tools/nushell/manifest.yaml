@@ -7,7 +7,7 @@ license:
   link: https://github.com/nushell/nushell/blob/main/LICENSE
 homepage: https://www.nushell.sh/
 repository: https://github.com/nushell/nushell
-version: "0.113.1"
+version: "0.114.0"
 tags:
 - category/development
 - lang/rust
