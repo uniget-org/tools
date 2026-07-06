@@ -7,7 +7,7 @@ license:
   link: https://github.com/ajeetdsouza/zoxide/blob/main/LICENSE
 homepage: https://github.com/ajeetdsouza/zoxide
 repository: https://github.com/ajeetdsouza/zoxide
-version: "0.9.9"
+version: "0.10.0"
 tags:
 - category/operations
 - lang/rust
