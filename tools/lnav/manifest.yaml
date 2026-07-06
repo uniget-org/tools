@@ -6,7 +6,7 @@ license:
   link: https://github.com/tstack/lnav/blob/master/LICENSE
 homepage: https://lnav.org
 repository: https://github.com/tstack/lnav
-version: "0.13.0"
+version: "0.14.0"
 tags:
 - type/cli
 - category/operations
