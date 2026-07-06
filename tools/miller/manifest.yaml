@@ -7,7 +7,7 @@ license:
   link: https://github.com/johnkerl/miller/blob/main/LICENSE.txt
 homepage: https://miller.readthedocs.io
 repository: https://github.com/johnkerl/miller
-version: "6.19.0"
+version: "6.20.2"
 tags:
 - category/operations
 - lang/go
