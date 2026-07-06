@@ -7,7 +7,7 @@ license:
   link: https://github.com/AdguardTeam/dnsproxy/blob/master/LICENSE
 homepage: https://github.com/AdguardTeam/dnsproxy
 repository: https://github.com/AdguardTeam/dnsproxy
-version: "0.82.1"
+version: "0.83.0"
 tags:
 - category/operations
 - lang/go
