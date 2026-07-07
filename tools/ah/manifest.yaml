@@ -6,7 +6,7 @@ license:
   link: https://github.com/artifacthub/hub/blob/master/LICENSE
 homepage: https://artifacthub.io
 repository: https://github.com/artifacthub/hub
-version: "1.22.0"
+version: "1.23.0"
 tags:
 - category/operations
 - lang/go
