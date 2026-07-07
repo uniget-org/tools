@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: enumctl
+description: Command-line interface for managing enum cloud infrastructure.
+license:
+  name: Custom
+  link: https://github.com/enumco/enumctl/blob/main/LICENSE
+homepage: https://enum.co
+repository: https://github.com/enumco/enumctl
+version: "2026.06.4"
+tags:
+- org/enum
+- category/operations
+- lang/go
+- type/cli
+- cloud/enum
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
+#renovate:
+#  datasource: github-releases
+#  package: foo/bar
+#  extractVersion: ^v?(?<version>.+)$
