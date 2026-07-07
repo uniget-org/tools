@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: ionosctl
+description: Ability to manage IONOS Cloud infrastructure directly from command line
+license:
+  name: Apache License 2.0
+  link: https://github.com/ionos-cloud/ionosctl/blob/master/LICENSE
+homepage: https://www.ionos.com/enterprise-cloud
+repository: https://github.com/ionos-cloud/ionosctl
+version: "6.10.1"
+tags:
+- category/operations
+- lang/go
+- type/cli
+- cloud/ionos
+check: ${binary} --version | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: ionos-cloud/ionosctl
+  extractVersion: ^v?(?<version>.+)$
