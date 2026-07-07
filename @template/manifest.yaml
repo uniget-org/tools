@@ -13,7 +13,7 @@ tags:
 - category/?
 - lang/?
 - type/?
-check: ""
+check: ${binary} | grep -oP '\d+\.\d+\.\d+'
 build_dependencies:
 - bar
 runtime_dependencies:
