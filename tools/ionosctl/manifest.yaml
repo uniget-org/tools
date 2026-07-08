@@ -7,7 +7,7 @@ license:
   link: https://github.com/ionos-cloud/ionosctl/blob/master/LICENSE
 homepage: https://www.ionos.com/enterprise-cloud
 repository: https://github.com/ionos-cloud/ionosctl
-version: "6.10.1"
+version: "6.10.2"
 tags:
 - category/operations
 - lang/go
