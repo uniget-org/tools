@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: restic
+description: Fast, secure, efficient backup program
+license:
+  name: BSD 2-Clause License
+  link: https://github.com/restic/restic/blob/master/LICENSE
+homepage: https://restic.net
+repository: https://github.com/restic/restic
+version: "0.19.1"
+tags:
+- category/operations
+- lang/go
+- type/cli
+- kubernetes
+- k8s
+- backup
+check: ${binary} version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: restic/restic
+  extractVersion: ^v(?<version>.+)$
