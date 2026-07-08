@@ -6,7 +6,7 @@ license:
   link: https://github.com/golang/go/blob/master/LICENSE
 homepage: https://go.dev
 repository: https://github.com/golang/go
-version: "1.26.4"
+version: "1.26.5"
 tags:
 - type/cli
 - category/development
