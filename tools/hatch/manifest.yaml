@@ -7,7 +7,7 @@ license:
   link: https://github.com/pypa/hatch/blob/master/LICENSE.txt
 homepage: https://hatch.pypa.io/latest/
 repository: https://github.com/pypa/hatch
-version: "1.17.0"
+version: "1.17.1"
 tags:
 - category/development
 - lang/python
