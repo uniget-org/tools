@@ -6,7 +6,7 @@ license:
   link: https://github.com/open-policy-agent/gatekeeper/blob/master/LICENSE
 homepage: https://open-policy-agent.github.io/gatekeeper/
 repository: https://github.com/open-policy-agent/gatekeeper
-version: "3.22.2"
+version: "3.23.0"
 tags:
 - type/daemon
 - category/security
