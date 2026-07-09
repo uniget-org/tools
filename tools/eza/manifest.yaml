@@ -7,7 +7,7 @@ license:
   link: https://github.com/eza-community/eza/blob/main/LICENSE
 homepage: https://github.com/eza-community/eza
 repository: https://github.com/eza-community/eza
-version: "0.23.4"
+version: "0.23.5"
 tags:
 - category/operations
 - lang/rust
