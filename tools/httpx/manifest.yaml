@@ -5,7 +5,7 @@ license:
   name: MIT License
 homepage: https://docs.projectdiscovery.io/tools/httpx
 repository: https://github.com/projectdiscovery/httpx
-version: "1.9.0"
+version: "1.10.0"
 tags:
 - category/security
 - type/cli
