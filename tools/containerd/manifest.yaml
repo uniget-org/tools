@@ -6,7 +6,7 @@ license:
   link: https://github.com/containerd/containerd/blob/main/LICENSE
 homepage: https://containerd.io
 repository: https://github.com/containerd/containerd
-version: "2.3.2"
+version: "2.3.3"
 tags:
 - org/cncf
 - org/containerd
