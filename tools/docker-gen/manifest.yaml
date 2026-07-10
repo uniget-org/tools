@@ -6,7 +6,7 @@ license:
   link: https://github.com/nginx-proxy/docker-gen/blob/main/LICENSE
 homepage: https://github.com/nginx-proxy/docker-gen
 repository: https://github.com/nginx-proxy/docker-gen
-version: "0.16.6"
+version: "0.17.1"
 tags:
 - category/operations
 - lang/go
