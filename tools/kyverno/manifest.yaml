@@ -6,7 +6,7 @@ license:
   link: https://github.com/kyverno/kyverno/blob/main/LICENSE
 homepage: https://kyverno.io
 repository: https://github.com/kyverno/kyverno
-version: "1.18.1"
+version: "1.18.2"
 tags:
 - type/cli
 - category/security
