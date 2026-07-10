@@ -7,7 +7,7 @@ license:
   link: https://github.com/containerd/overlaybd/blob/main/LICENSE
 homepage: https://github.com/containerd/overlaybd
 repository: https://github.com/containerd/overlaybd
-version: "1.0.17"
+version: "1.0.18"
 tags:
 - org/containerd
 - category/operations
