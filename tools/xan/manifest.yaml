@@ -7,7 +7,7 @@ license:
   link: https://github.com/medialab/xan/blob/master/UNLICENSE
 homepage: https://github.com/medialab/xan
 repository: https://github.com/medialab/xan
-version: "0.59.0"
+version: "0.60.0"
 tags:
 - category/operations
 - lang/rust
