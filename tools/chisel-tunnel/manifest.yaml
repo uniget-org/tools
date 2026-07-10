@@ -6,7 +6,7 @@ license:
   link: https://github.com/jpillora/chisel/blob/master/LICENSE
 homepage: https://github.com/jpillora/chisel
 repository: https://github.com/jpillora/chisel
-version: "1.11.7"
+version: "1.11.8"
 tags:
 - type/cli
 - category/development
