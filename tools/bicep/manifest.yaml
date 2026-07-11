@@ -7,7 +7,7 @@ license:
   link: https://github.com/Azure/bicep/blob/main/LICENSE
 homepage: https://github.com/Azure/bicep
 repository: https://github.com/Azure/bicep
-version: "0.44.1"
+version: "0.45.6"
 tags:
 - org/microsoft
 - category/development
