@@ -7,7 +7,7 @@ license:
   link: https://github.com/cline/kanban/blob/main/LICENSE
 homepage: https://github.com/cline/kanban
 repository: https://github.com/cline/kanban
-version: "0.1.69"
+version: "0.1.70"
 tags:
 - category/development
 - lang/typescript
