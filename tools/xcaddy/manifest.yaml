@@ -7,7 +7,7 @@ license:
   link: https://github.com/caddyserver/xcaddy/blob/master/LICENSE
 homepage: https://github.com/caddyserver/xcaddy
 repository: https://github.com/caddyserver/xcaddy
-version: "0.4.5"
+version: "0.4.6"
 tags:
 - category/operations
 - lang/go
