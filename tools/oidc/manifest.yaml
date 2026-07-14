@@ -7,7 +7,7 @@ license:
   link: https://github.com/ctron/oidc-cli/blob/main/LICENSE
 homepage: https://github.com/ctron/oidc-cli
 repository: https://github.com/ctron/oidc-cli
-version: "0.7.3"
+version: "0.8.0"
 tags:
 - category/development
 - lang/rust
