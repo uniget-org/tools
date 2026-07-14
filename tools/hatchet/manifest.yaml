@@ -7,7 +7,7 @@ license:
   link: https://github.com/hatchet-dev/hatchet/blob/main/LICENSE
 homepage: https://hatchet.run
 repository: https://github.com/hatchet-dev/hatchet
-version: "0.90.13"
+version: "0.94.10"
 tags:
 - category/devops
 - type/cli
