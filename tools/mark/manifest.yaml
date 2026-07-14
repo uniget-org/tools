@@ -7,7 +7,7 @@ license:
   link: https://github.com/kovetskiy/mark/blob/master/LICENSE
 homepage: https://github.com/kovetskiy/mark
 repository: https://github.com/kovetskiy/mark
-version: "v16.5.0"
+version: "v16.5.1"
 tags:
 - category/development
 - lang/go
