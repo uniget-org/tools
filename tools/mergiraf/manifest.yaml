@@ -7,7 +7,7 @@ license:
   link: https://codeberg.org/mergiraf/mergiraf/src/branch/main/LICENSE.txt
 homepage: https://mergiraf.org/
 repository: https://codeberg.org/mergiraf/mergiraf
-version: "0.17.0"
+version: "0.18.0"
 tags:
 - category/development
 - lang/rust
