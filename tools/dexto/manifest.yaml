@@ -7,7 +7,7 @@ license:
   link: https://github.com/truffle-ai/dexto/blob/main/LICENSE
 homepage: https://dexto.ai
 repository: https://github.com/truffle-ai/dexto
-version: "1.9.8"
+version: "1.10.0"
 tags:
 - category/development
 - lang/javascript
