@@ -7,7 +7,7 @@ license:
   link: https://github.com/openpubkey/opkssh/blob/main/LICENSE
 homepage: https://github.com/openpubkey/opkssh
 repository: https://github.com/openpubkey/opkssh
-version: "0.15.0"
+version: "0.16.0"
 tags:
 - org/openpubkey
 - category/operations
