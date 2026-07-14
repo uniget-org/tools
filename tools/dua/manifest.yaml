@@ -6,7 +6,7 @@ license:
   link: https://github.com/Byron/dua-cli/blob/main/LICENSE
 homepage: https://lib.rs/crates/dua-cli
 repository: https://github.com/Byron/dua-cli
-version: "2.37.1"
+version: "2.38.0"
 tags:
 - category/operations
 - type/cli
