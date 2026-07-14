@@ -7,7 +7,7 @@ license:
   link: https://github.com/open-component-model/ocm/blob/main/LICENSE
 homepage: https://ocm.software
 repository: https://github.com/open-component-model/ocm
-version: "0.45.0"
+version: "0.46.0"
 tags:
 - category/security
 - lang/go
