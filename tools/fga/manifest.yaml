@@ -6,7 +6,7 @@ license:
   link: https://github.com/openfga/cli/blob/main/LICENSE
 homepage: https://openfga.dev
 repository: https://github.com/openfga/cli
-version: "0.7.17"
+version: "0.7.19"
 tags:
 - type/cli
 - category/security
