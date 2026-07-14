@@ -7,7 +7,7 @@ license:
   link: https://github.com/prometheus/node_exporter/blob/master/LICENSE
 homepage: https://prometheus.io/
 repository: https://github.com/prometheus/node_exporter
-version: "1.12.0"
+version: "1.12.1"
 tags:
 - org/prometheus
 - category/operations
