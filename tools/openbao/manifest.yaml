@@ -7,7 +7,7 @@ license:
   link: https://github.com/openbao/openbao/blob/main/LICENSE
 homepage: https://openbao.org/
 repository: https://github.com/openbao/openbao
-version: "2.5.5"
+version: "2.6.0"
 tags:
 - category/security
 - lang/go
