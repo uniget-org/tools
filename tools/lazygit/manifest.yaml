@@ -6,7 +6,7 @@ license:
   link: https://github.com/jesseduffield/lazygit/blob/master/LICENSE
 homepage: https://github.com/jesseduffield/lazygit
 repository: https://github.com/jesseduffield/lazygit
-version: "0.63.0"
+version: "0.63.1"
 tags:
 - type/tui
 - category/development
