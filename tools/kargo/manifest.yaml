@@ -7,7 +7,7 @@ license:
   link: https://github.com/akuity/kargo/blob/main/LICENSE
 homepage: https://docs.kargo.io/
 repository: https://github.com/akuity/kargo
-version: "1.10.8"
+version: "1.10.9"
 tags:
 - category/operations
 - kubernetes
