@@ -7,7 +7,7 @@ license:
   link: https://github.com/igorshubovych/markdownlint-cli/blob/master/LICENSE
 homepage: https://github.com/igorshubovych/markdownlint-cli
 repository: https://github.com/igorshubovych/markdownlint-cli
-version: "0.49.0"
+version: "0.49.1"
 tags:
 - category/development
 - lang/javascript
