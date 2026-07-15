@@ -7,7 +7,7 @@ license:
   link: https://github.com/google/zetasql/blob/master/LICENSE
 homepage: https://github.com/google/zetasql
 repository: https://github.com/google/zetasql
-version: "2026.01.1"
+version: "2026.7.2"
 tags:
 - org/google
 - category/operations
