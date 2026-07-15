@@ -6,7 +6,7 @@ license:
   link: https://github.com/cilium/cilium-cli/blob/main/LICENSE
 homepage: https://cilium.io
 repository: https://github.com/cilium/cilium-cli
-version: "0.19.5"
+version: "0.19.6"
 tags:
 - type/cli
 - component/network
