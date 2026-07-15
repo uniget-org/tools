@@ -12,9 +12,11 @@ MINECRAFT_VERSION="$(echo "${version}" | cut -d- -f1)"
 PAPER_BUILD="$(echo "${version}" | cut -d- -f2)"
 echo "Downloading papar ${MINECRAFT_VERSION} build ${PAPER_BUILD}"
 
-FILE="paper-${version}.jar"
-url="https://api.papermc.io/v2/projects/paper/versions/${MINECRAFT_VERSION}/builds/${PAPER_BUILD}/downloads/${FILE}"
-filename="${FILE}"
+url="$(
+    curl --silent --show-error --location --fail https://fill.papermc.io/v3/projects/paper/versions/${MINECRAFT_VERSION}/builds/${PAPER_BUILD} \
+    | jq -r '.downloads."server:default".url'
+)"
+filename="$(basename "${url}")"
 
 check-download "${url}"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
