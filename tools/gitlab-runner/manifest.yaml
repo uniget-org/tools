@@ -6,7 +6,7 @@ license:
   link: https://gitlab.com/gitlab-org/gitlab-runner/-/blob/main/LICENSE?ref_type=heads
 homepage: https://gitlab.com/gitlab-org/gitlab-runner
 repository: https://gitlab.com/gitlab-org/gitlab-runner
-version: "19.1.1"
+version: "19.2.0"
 tags:
 - org/gitlab
 - category/development
