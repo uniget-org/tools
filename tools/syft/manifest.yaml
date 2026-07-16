@@ -6,7 +6,7 @@ license:
   link: https://github.com/anchore/syft/blob/main/LICENSE
 homepage: https://github.com/anchore/syft
 repository: https://github.com/anchore/syft
-version: "1.46.0"
+version: "1.48.0"
 tags:
 - category/security
 - sbom
