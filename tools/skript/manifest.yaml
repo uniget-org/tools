@@ -7,7 +7,7 @@ license:
   link: https://github.com/SkriptLang/Skript/blob/master/LICENSE
 homepage: https://docs.skriptlang.org/
 repository: https://github.com/SkriptLang/Skript
-version: "2.15.4"
+version: "2.16.0"
 tags:
 - category/games
 - lang/java
