@@ -5,7 +5,7 @@ license:
   name: MIT License
 homepage: https://github.com/nvm-sh/nvm
 repository: https://github.com/nvm-sh/nvm
-version: "0.40.5"
+version: "0.40.6"
 tags:
 - category/development
 - lang/shell
