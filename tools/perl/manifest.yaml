@@ -7,7 +7,7 @@ license:
   link: https://github.com/Perl/perl5/blob/blead/Copying
 homepage: https://dev.perl.org/perl5/
 repository: https://github.com/Perl/perl5
-version: "5.42.2"
+version: "5.44.0"
 tags:
 - org/perl
 - category/development
