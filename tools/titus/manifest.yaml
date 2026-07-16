@@ -7,7 +7,7 @@ license:
   link: https://github.com/praetorian-inc/titus/blob/main/LICENSE
 homepage: https://www.praetorian.com/blog/titus-open-source-secret-scanner/
 repository: https://github.com/praetorian-inc/titus
-version: "1.2.6"
+version: "1.2.7"
 tags:
 - category/security
 - type/cli
