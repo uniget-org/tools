@@ -6,7 +6,7 @@ license:
   link: https://github.com/anchore/grype/blob/main/LICENSE
 homepage: https://github.com/anchore/grype
 repository: https://github.com/anchore/grype
-version: "0.115.0"
+version: "0.116.0"
 tags:
 - category/security
 - type/cli
