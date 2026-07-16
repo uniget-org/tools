@@ -2,7 +2,7 @@
 
 FROM ghcr.io/uniget-org/tools/jq:latest AS jq
 
-FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:cc8b2a023c3777e8b654c98d4bebc58827f8fcb73c4ce309d9ffa01b432954a9 AS prepare
+FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:059b11407572b2fd733e7bcd1c528852394d7fe1abef7119a1a97356983cab76 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
