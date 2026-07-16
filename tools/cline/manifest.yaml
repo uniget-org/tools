@@ -7,7 +7,7 @@ license:
   link: https://github.com/cline/cline/blob/main/LICENSE
 homepage: https://cline.bot
 repository: https://github.com/cline/cline
-version: "3.0.40"
+version: "3.0.42"
 tags:
 - category/development
 - lang/typescript
