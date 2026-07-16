@@ -7,7 +7,7 @@ license:
   link: https://github.com/danielmiessler/fabric/blob/main/LICENSE
 homepage: https://danielmiessler.com/p/fabric-origin-story
 repository: https://github.com/danielmiessler/fabric
-version: "1.4.458"
+version: "1.4.459"
 tags:
 - category/development
 - lang/go
