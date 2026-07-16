@@ -6,7 +6,7 @@ license:
   link: https://github.com/cue-lang/cue/blob/master/LICENSE
 homepage: https://cuelang.org
 repository: https://github.com/cue-lang/cue
-version: "0.17.0"
+version: "0.17.1"
 tags:
 - type/cli
 - category/development
