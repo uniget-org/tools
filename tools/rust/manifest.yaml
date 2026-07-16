@@ -6,7 +6,7 @@ license:
   link: https://github.com/rust-lang/rust
 homepage: https://www.rust-lang.org
 repository: https://github.com/rust-lang/rust
-version: "1.97.0"
+version: "1.97.1"
 tags:
 - type/cli
 - category/development
