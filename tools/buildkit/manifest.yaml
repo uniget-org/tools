@@ -6,7 +6,7 @@ license:
   link: https://github.com/moby/buildkit/blob/master/LICENSE
 homepage: https://github.com/moby/moby/issues/34227
 repository: https://github.com/moby/buildkit
-version: "0.31.1"
+version: "0.31.2"
 tags:
 - org/moby
 - standard/oci
