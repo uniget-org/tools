@@ -7,7 +7,7 @@ license:
   link: https://passt.top/passt/tree/LICENSES
 homepage: https://passt.top/passt/
 repository: https://passt.top/passt/
-version: "2026_06_11.a9c61ff"
+version: "2026_07_16.090d739"
 tags:
 - category/operations
 - lang/c
