@@ -7,7 +7,7 @@ license:
   link: https://github.com/kubernetes-sigs/tejolote/blob/main/LICENSE
 homepage: https://github.com/kubernetes-sigs/tejolote
 repository: https://github.com/kubernetes-sigs/tejolote
-version: "0.4.8"
+version: "0.5.0"
 tags:
 - org/kubernetes
 - category/security
