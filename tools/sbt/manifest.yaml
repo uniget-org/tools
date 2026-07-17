@@ -6,7 +6,7 @@ license:
   link: https://github.com/sbt/sbt/blob/1.10.x/LICENSE
 homepage: https://scala-sbt.org
 repository: https://github.com/sbt/sbt
-version: "2.0.2"
+version: "2.0.3"
 tags:
 - category/development
 - lang/scala
