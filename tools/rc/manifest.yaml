@@ -7,7 +7,7 @@ license:
   link: https://github.com/rustfs/cli
 homepage: https://github.com/rustfs/cli
 repository: https://github.com/rustfs/cli
-version: "0.1.27"
+version: "0.1.28"
 tags:
 - category/operations
 - lang/rust
