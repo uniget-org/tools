@@ -6,7 +6,7 @@ license:
   link: https://github.com/zarf-dev/zarf/blob/main/LICENSE
 homepage: https://zarf.dev
 repository: https://github.com/zarf-dev/zarf
-version: "0.81.0"
+version: "0.81.1"
 tags:
 - type/cli
 - category/operations
