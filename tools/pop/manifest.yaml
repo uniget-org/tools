@@ -7,7 +7,7 @@ license:
   link: https://github.com/charmbracelet/pop/blob/main/LICENSE
 homepage: https://github.com/charmbracelet/pop
 repository: https://github.com/charmbracelet/pop
-version: "0.3.0"
+version: "0.4.0"
 tags:
 - org/charmbracelet
 - category/operations
