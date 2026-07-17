@@ -7,7 +7,7 @@ license:
   link: https://github.com/typst/typst/blob/main/LICENSE
 homepage: https://typst.app
 repository: https://github.com/typst/typst
-version: "0.15.0"
+version: "0.15.1"
 tags:
 - category/development
 - lang/rust
