@@ -6,7 +6,7 @@ license:
   link: https://github.com/chainguard-dev/melange/blob/main/LICENSE
 homepage: https://github.com/chainguard-dev/melange
 repository: https://github.com/chainguard-dev/melange
-version: "0.56.2"
+version: "0.56.3"
 tags:
 - org/chainguard
 - type/cli
