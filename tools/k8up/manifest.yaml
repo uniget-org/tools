@@ -7,7 +7,7 @@ license:
   link: https://github.com/k8up-io/k8up/blob/master/LICENSE
 homepage: https://k8up.io/
 repository: https://github.com/k8up-io/k8up
-version: "2.15.0"
+version: "2.16.0"
 tags:
 - category/operations
 - lang/go
