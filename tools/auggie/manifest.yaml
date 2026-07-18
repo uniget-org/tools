@@ -7,7 +7,7 @@ license:
   link: https://www.augmentcode.com/legal/community-terms-of-service
 homepage: https://www.augmentcode.com/product/CLI
 repository: ""
-version: "0.32.0"
+version: "0.33.0"
 tags:
 - category/development
 - lang/javascript
