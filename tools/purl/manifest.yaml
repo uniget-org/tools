@@ -7,7 +7,7 @@ license:
   link: https://github.com/catatsuy/purl/blob/main/LICENSE
 homepage: https://github.com/catatsuy/purl
 repository: https://github.com/catatsuy/purl
-version: "0.2.10"
+version: "0.2.11"
 tags:
 - category/operations
 - lang/go
