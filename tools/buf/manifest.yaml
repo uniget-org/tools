@@ -6,7 +6,7 @@ license:
   link: https://github.com/bufbuild/buf/blob/main/LICENSE
 homepage: https://buf.build
 repository: https://github.com/bufbuild/buf
-version: "1.71.0"
+version: "1.72.0"
 tags:
 - type/cli
 - category/development
