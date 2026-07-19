@@ -6,7 +6,7 @@ license:
   link: https://github.com/kubenetworks/kubevpn/blob/main/LICENSE
 homepage: https://kubevpn.dev
 repository: https://github.com/kubenetworks/kubevpn
-version: "2.11.3"
+version: "2.11.4"
 tags:
 - type/cli
 - category/network
