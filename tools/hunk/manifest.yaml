@@ -7,7 +7,7 @@ license:
   link: https://github.com/modem-dev/hunk/blob/main/LICENSE
 homepage: https://hunk.dev
 repository: https://github.com/modem-dev/hunk
-version: "0.17.1"
+version: "0.17.2"
 tags:
 - category/development
 - type/cli
