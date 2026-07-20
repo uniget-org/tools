@@ -13,7 +13,7 @@
 FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:059b11407572b2fd733e7bcd1c528852394d7fe1abef7119a1a97356983cab76 AS ubuntu2604
 FROM registry.gitlab.com/uniget-org/images/build-essential:26.04 AS build-essential2604
 FROM registry.gitlab.com/uniget-org/images/alpine:3.24@sha256:814dc41ebd1e3ff99852fc087c970666aa9b3e0de99af97438bddfd1760cb6dc AS alpine323
-FROM registry.gitlab.com/uniget-org/images/build-base:3.23 AS build-base323
+FROM registry.gitlab.com/uniget-org/images/build-base:3.24@sha256:bfcf3e99a47ac1b07f9dd40db914d12a3a15f5b886a9e7f35a60be58c9d294bc AS build-base323
 
 FROM ubuntu2604 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
