@@ -6,7 +6,7 @@ license:
   link: https://github.com/actions/runner/blob/main/LICENSE
 homepage: https://github.com/features/actions
 repository: https://github.com/actions/runner
-version: "2.335.1"
+version: "2.336.0"
 tags:
 - org/github
 - category/development
