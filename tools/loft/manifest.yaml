@@ -6,7 +6,7 @@ license:
   link: https://github.com/loft-sh/loft/blob/master/LICENSE
 homepage: https://loft.sh/docs/introduction
 repository: https://github.com/loft-sh/loft
-version: "4.10.5"
+version: "4.11.0"
 tags:
 - type/cli
 - kubernetes
