@@ -6,7 +6,7 @@ license:
   link: https://github.com/containerd/nerdctl/blob/main/LICENSE
 homepage: https://github.com/containerd/nerdctl
 repository: https://github.com/containerd/nerdctl
-version: "2.3.4"
+version: "2.3.5"
 tags:
 - org/cncf
 - org/containerd
