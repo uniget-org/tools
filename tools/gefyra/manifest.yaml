@@ -7,7 +7,7 @@ license:
   link: https://github.com/gefyrahq/gefyra/blob/main/LICENSE
 homepage: https://gefyra.dev
 repository: https://github.com/gefyrahq/gefyra
-version: "2.5.3"
+version: "2.5.4"
 tags:
 - category/development
 - lang/python
