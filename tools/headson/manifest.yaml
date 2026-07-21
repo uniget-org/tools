@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: headson
+description: Structure-aware head and tail for JSON and YAML
+license:
+  name: MIT License
+  link: https://github.com/kantord/headson/blob/main/LICENSE
+homepage: https://github.com/kantord/headson
+repository: https://github.com/kantord/headson
+version: "0.17.0"
+tags:
+- type/cli
+- lang/rust
+- format/json
+- format/yaml
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+binary: hson
+renovate:
+  datasource: github-releases
+  package: kantord/headson
+  extractVersion: ^headson-v(?<version>.+)$
