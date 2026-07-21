@@ -11,7 +11,8 @@ tags:
 - type/cli
 - category/database
 - lang/go
-- sql
+- standard/sql
+- standard/jq
 - data
 - query
 check: ${binary} --version | cut -d' ' -f2 | tr -d v

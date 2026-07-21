@@ -12,6 +12,7 @@ tags:
 - category/operations
 - lang/go
 - type/daemon
+- standard/sql
 check: ${binary} --version | cut -d' ' -f3
 build_dependencies:
 - make
