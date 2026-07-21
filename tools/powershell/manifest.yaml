@@ -5,7 +5,7 @@ license:
   name: MIT License
 homepage: https://microsoft.com/PowerShell
 repository: https://github.com/PowerShell/PowerShell
-version: "7.6.3"
+version: "7.6.4"
 tags:
 - org/microsoft
 - category/operations
