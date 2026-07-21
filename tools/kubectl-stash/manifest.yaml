@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: kubectl-stash
+description: Backup your Kubernetes Stateful Applications using Stash
+license:
+  name: AppsCode Community License 1.0.0
+  link: https://github.com/stashed/cli/blob/master/LICENSE.md
+homepage: https://stash.run/
+repository: https://github.com/stashed/cli
+version: "0.42.0"
+tags:
+- category/operations
+- lang/go
+- type/cli
+- kubernetes
+- k8s
+- backup
+check: ${binary} version --short | tr -d v
+runtime_dependencies:
+- kubectl
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: stashed/cli
+  extractVersion: ^v(?<version>.+)$
