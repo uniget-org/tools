@@ -7,7 +7,7 @@ license:
   link: https://github.com/mindersec/minder/blob/main/LICENSE
 homepage: https://minder-docs.stacklok.dev/
 repository: https://github.com/mindersec/minder
-version: "0.1.2"
+version: "0.2.1"
 tags:
 - category/security
 - lang/go
