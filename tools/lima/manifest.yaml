@@ -6,7 +6,7 @@ license:
   link: https://github.com/lima-vm/lima/blob/master/LICENSE
 homepage: https://lima-vm.io/
 repository: https://github.com/lima-vm/lima
-version: "2.1.4"
+version: "2.2.0"
 tags:
 - type/cli
 - category/development
