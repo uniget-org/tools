@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: kopia
+description: Fast and secure open-source backup tool
+license:
+  name: Apache License 2.0
+  link: https://github.com/kopia/kopia/blob/master/LICENSE
+homepage: https://kopia.io/
+repository: https://github.com/kopia/kopia
+version: "0.23.1"
+tags:
+- category/operations
+- lang/go
+- type/cli
+- backup
+- storage
+check: ${binary} --version | cut -d' ' -f1
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: kopia/kopia
+  extractVersion: ^v(?<version>.+)$

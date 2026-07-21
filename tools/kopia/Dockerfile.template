@@ -1,0 +1,38 @@
+#syntax=docker/dockerfile:1.25.0@sha256:0adf442eae370b6087e08edc7c50b552d80ddf261576f4ebd6421006b2461f12
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:059b11407572b2fd733e7bcd1c528852394d7fe1abef7119a1a97356983cab76 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+case "${arch}" in
+    x86_64)
+        export arch_suffix="x64"
+        ;;
+    aarch64)
+        export arch_suffix="arm64"
+        ;;
+    *)
+        echo "ERROR: Unsupported architecture (${arch})."
+        exit 1
+        ;;
+esac
+echo "    Using ${arch_suffix}"
+
+url="https://github.com/kopia/kopia/releases/download/v${version}/kopia-${version}-linux-${arch_suffix}.tar.gz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "kopia/kopia" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+mkdir --parents /tmp/kopia
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory=/tmp/kopia --no-same-owner
+
+install --mode=0755 \
+    "/tmp/kopia/kopia-${version}-linux-${arch_suffix}/kopia" \
+    "${prefix}/bin/kopia"
+EOF
