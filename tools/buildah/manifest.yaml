@@ -6,7 +6,7 @@ license:
   link: https://github.com/containers/buildah/blob/main/LICENSE
 homepage: https://buildah.io
 repository: https://github.com/containers/buildah
-version: "1.44.0"
+version: "1.44.1"
 tags:
 - org/redhat
 - standard/oci
