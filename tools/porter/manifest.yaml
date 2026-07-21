@@ -6,7 +6,7 @@ license:
   link: https://github.com/getporter/porter/blob/main/LICENSE
 homepage: https://porter.sh
 repository: https://github.com/getporter/porter
-version: "1.6.0"
+version: "1.6.1"
 tags:
 - type/cli
 - cnab
