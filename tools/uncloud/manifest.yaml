@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: uncloud
+description: Deploy and scale containerized apps across servers without Swarm or Kubernetes overhead
+license:
+  name: Apache License 2.0
+  link: https://github.com/psviderski/uncloud/blob/main/LICENSE
+homepage: https://uncloud.run
+repository: https://github.com/psviderski/uncloud
+version: "0.20.0"
+tags:
+- category/operations
+- lang/go
+- type/cli
+- kubernetes
+- docker
+binary: uc
+check: ${binary} version | grep '^Version:' | tr -s ' ' | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: psviderski/uncloud
+  extractVersion: ^v(?<version>.+)$
