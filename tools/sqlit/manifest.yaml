@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: sqlit
+description: Terminal UI for SQL databases
+license:
+  name: MIT License
+  link: https://github.com/Maxteabag/sqlit/blob/main/LICENSE
+homepage: https://github.com/Maxteabag/sqlit
+repository: https://github.com/Maxteabag/sqlit
+version: "1.5.2"
+tags:
+- category/development
+- lang/python
+- type/cli
+- standard/sql
+check: ${binary} --version | cut -d' ' -f2
+build_dependencies:
+- python-3.12
+- shiv
+runtime_dependencies:
+- python-3.12
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: pypi
+  package: sqlit-tui
