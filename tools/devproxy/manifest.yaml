@@ -7,7 +7,7 @@ license:
   link: https://github.com/dotnet/dev-proxy/blob/main/LICENSE
 homepage: https://aka.ms/devproxy
 repository: https://github.com/dotnet/dev-proxy
-version: "3.1.0"
+version: "3.2.0"
 tags:
 - org/microsoft
 - category/development
