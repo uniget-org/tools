@@ -6,7 +6,7 @@ license:
   link: https://github.com/FairwindsOps/polaris/blob/master/LICENSE
 homepage: https://www.fairwinds.com/polaris
 repository: https://github.com/FairwindsOps/polaris
-version: "10.2.0"
+version: "10.2.1"
 tags:
 - type/cli
 - kubernetes
