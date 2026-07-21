@@ -6,7 +6,7 @@ license:
   link: https://github.com/pypa/pipx/blob/main/LICENSE
 homepage: https://github.com/pypa/pipx/
 repository: https://github.com/pypa/pipx/
-version: "1.16.0"
+version: "1.16.1"
 tags:
 - category/development
 - lang/python
