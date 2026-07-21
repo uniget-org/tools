@@ -11,6 +11,7 @@ tags:
 - category/development
 - lang/go
 - type/cli
+- standard/sql
 check: "" # No version parameter
 platforms:
 - linux/amd64

@@ -12,6 +12,7 @@ tags:
 - category/operations
 - lang/go
 - type/daemon
+- standard/sql
 check: ${binary} version --build-tag | tr -d v
 platforms:
 - linux/amd64
