@@ -7,7 +7,7 @@ license:
   link: https://github.com/github/spec-kit/blob/main/LICENSE
 homepage: https://github.github.com/spec-kit/
 repository: https://github.com/github/spec-kit
-version: "0.13.0"
+version: "0.13.1"
 tags:
 - org/github
 - category/development
