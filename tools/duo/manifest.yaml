@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: duo
+description: Brings the GitLab Duo Agent Platform directly to your terminal
+license:
+  name: MIT License
+  link: https://gitlab.com/gitlab-org/editor-extensions/gitlab-lsp/-/blob/main/LICENSE?ref_type=heads
+homepage: https://docs.gitlab.com/user/gitlab_duo_cli/
+repository: https://gitlab.com/gitlab-org/editor-extensions/gitlab-lsp
+version: "9.6.0"
+tags:
+- org/gitlab
+- category/development
+- lang/javascript
+- type/cli
+- ai
+- llm
+- coding
+- agent
+check: ${binary} --version
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: gitlab-releases
+  package: gitlab-org/editor-extensions/gitlab-lsp
+  extractVersion: ^v?(?<version>.+)$
