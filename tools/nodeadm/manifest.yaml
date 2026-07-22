@@ -7,7 +7,7 @@ license:
   link: https://github.com/aws/eks-hybrid/blob/main/LICENSE
 homepage: https://aws.amazon.com/eks/hybrid-nodes/
 repository: https://github.com/aws/eks-hybrid
-version: "1.0.18"
+version: "1.0.19"
 tags:
 - org/aws
 - category/operations
