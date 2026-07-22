@@ -6,7 +6,7 @@ license:
   link: https://github.com/bytecodealliance/wasmtime/blob/main/LICENSE
 homepage: https://wasmtime.dev/
 repository: https://github.com/bytecodealliance/wasmtime
-version: "47.0.1"
+version: "47.0.2"
 tags:
 - category/development
 - lang/rust
