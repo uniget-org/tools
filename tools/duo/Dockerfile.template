@@ -1,0 +1,61 @@
+#syntax=docker/dockerfile:1.25.0@sha256:0adf442eae370b6087e08edc7c50b552d80ddf261576f4ebd6421006b2461f12
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:059b11407572b2fd733e7bcd1c528852394d7fe1abef7119a1a97356983cab76 AS ubuntu2604
+
+FROM ubuntu2604 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+
+# curl -sSf "https://gitlab.com/api/v4/projects/46519181/packages?package_name=duo-cli&package_type=generic&package_version=9.6.0" | jq -r '.[].id'
+# curl -sSf "https://gitlab.com/api/v4/projects/46519181/packages/64379708/package_files" | jq -r '.[] | select(.file_name == "duo-linux-x64") | .id'
+# https://gitlab.com/gitlab-org/editor-extensions/gitlab-lsp/-/package_files/323496751/download
+
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+echo "### Setting architecture string for ${TARGETPLATFORM}"
+case "${arch}" in
+    x86_64)
+        export arch_suffix="x64"
+        ;;
+    aarch64)
+        export arch_suffix="${alt_arch}"
+        ;;
+    *)
+        echo "ERROR: Unsupported architecture ${arch}."
+        exit 1
+        ;;
+esac
+echo "    Using ${arch_suffix}"
+
+GITLAB_BASE_URL="https://gitlab.com/api/v4"
+# https://gitlab.com/gitlab-org/editor-extensions/gitlab-lsp
+project_id="46519181"
+package_name="duo-cli"
+package_id_for_version="$(
+    curl -sSf "${GITLAB_BASE_URL}/projects/${project_id}/packages?package_name=${package_name}&package_type=generic&package_version=${version}" \
+    | jq -r '.[].id'
+)"
+download_id="$(
+    curl -sSf "${GITLAB_BASE_URL}/projects/${project_id}/packages/${package_id_for_version}/package_files" \
+    | jq -r ".[] | select(.file_name == \"duo-linux-${arch_suffix}\") | .id"
+)"
+
+url="https://gitlab.com/gitlab-org/editor-extensions/gitlab-lsp/-/package_files/323496751/download"
+filename="duo"
+
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/duo"
+EOF
+#RUN <<EOF
+#"${prefix}/bin/duo" completion bash >"${prefix}/share/bash-completion/completions/duo"
+#"${prefix}/bin/duo" completion fish >"${prefix}/share/fish/vendor_completions.d/duo.fish"
+#"${prefix}/bin/duo" completion zsh >"${prefix}/share/zsh/vendor-completions/_duo"
+#EOF
