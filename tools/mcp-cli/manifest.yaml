@@ -7,7 +7,7 @@ license:
   link: ""
 homepage: https://github.com/chrishayuk/mcp-cli
 repository: https://github.com/chrishayuk/mcp-cli
-version: "0.19"
+version: "0.20.1"
 tags:
 - category/development
 - lang/python
