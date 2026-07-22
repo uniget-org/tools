@@ -6,7 +6,7 @@ license:
   link: https://github.com/containers/podman/blob/main/LICENSE
 homepage: https://podman.io
 repository: https://github.com/containers/podman
-version: "6.0.1"
+version: "6.0.2"
 tags:
 - org/redhat
 - standard/oci
