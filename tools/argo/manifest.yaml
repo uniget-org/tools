@@ -6,7 +6,7 @@ license:
   link: https://github.com/argoproj/argo-workflows/blob/main/LICENSE
 homepage: https://argo-workflows.readthedocs.io/
 repository: https://github.com/argoproj/argo-workflows
-version: "4.0.7"
+version: "4.0.8"
 tags:
 - type/cli
 - kubernetes
