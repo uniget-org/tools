@@ -9,11 +9,6 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-
-# curl -sSf "https://gitlab.com/api/v4/projects/46519181/packages?package_name=duo-cli&package_type=generic&package_version=9.6.0" | jq -r '.[].id'
-# curl -sSf "https://gitlab.com/api/v4/projects/46519181/packages/64379708/package_files" | jq -r '.[] | select(.file_name == "duo-linux-x64") | .id'
-# https://gitlab.com/gitlab-org/editor-extensions/gitlab-lsp/-/package_files/323496751/download
-
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 echo "### Setting architecture string for ${TARGETPLATFORM}"
 case "${arch}" in
@@ -30,20 +25,21 @@ case "${arch}" in
 esac
 echo "    Using ${arch_suffix}"
 
-GITLAB_BASE_URL="https://gitlab.com/api/v4"
-# https://gitlab.com/gitlab-org/editor-extensions/gitlab-lsp
+gitlab_host="gitlab.com"
+gitlab_api_base_url="https://${gitlab_host}/api/v4"
+project_path="gitlab-org/editor-extensions/gitlab-lsp"
 project_id="46519181"
 package_name="duo-cli"
 package_id_for_version="$(
-    curl -sSf "${GITLAB_BASE_URL}/projects/${project_id}/packages?package_name=${package_name}&package_type=generic&package_version=${version}" \
+    curl --silent --show-error --fail "${gitlab_api_base_url}/projects/${project_id}/packages?package_name=${package_name}&package_type=generic&package_version=${version}" \
     | jq -r '.[].id'
 )"
 download_id="$(
-    curl -sSf "${GITLAB_BASE_URL}/projects/${project_id}/packages/${package_id_for_version}/package_files" \
+    curl --silent --show-error --fail "${gitlab_api_base_url}/projects/${project_id}/packages/${package_id_for_version}/package_files" \
     | jq -r ".[] | select(.file_name == \"duo-linux-${arch_suffix}\") | .id"
 )"
 
-url="https://gitlab.com/gitlab-org/editor-extensions/gitlab-lsp/-/package_files/323496751/download"
+url="https://${gitlab_host}/${project_path}/-/package_files/${download_id}/download"
 filename="duo"
 
 check-download "${url}"
@@ -54,8 +50,3 @@ install --mode=0755 \
     "${uniget_cache_download}/${filename}" \
     "${prefix}/bin/duo"
 EOF
-#RUN <<EOF
-#"${prefix}/bin/duo" completion bash >"${prefix}/share/bash-completion/completions/duo"
-#"${prefix}/bin/duo" completion fish >"${prefix}/share/fish/vendor_completions.d/duo.fish"
-#"${prefix}/bin/duo" completion zsh >"${prefix}/share/zsh/vendor-completions/_duo"
-#EOF
