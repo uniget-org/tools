@@ -7,7 +7,7 @@ license:
   link: https://github.com/PaperMC/Paper/blob/main/LICENSE.md
 homepage: https://papermc.io/software/paper
 repository: https://github.com/PaperMC/Paper
-version: "26.2-62"
+version: "26.2-63"
 tags:
 - org/papermc
 - category/games
