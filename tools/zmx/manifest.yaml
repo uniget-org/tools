@@ -6,7 +6,7 @@ license:
   link: https://github.com/neurosnap/zmx/blob/main/LICENSE
 homepage: https://zmx.sh
 repository: https://github.com/neurosnap/zmx
-version: "0.6.0"
+version: "0.7.0"
 tags:
 - type/cli
 - category/shell
