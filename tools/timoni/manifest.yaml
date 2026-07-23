@@ -7,7 +7,7 @@ license:
   link: https://github.com/stefanprodan/timoni/blob/main/LICENSE
 homepage: https://timoni.sh
 repository: https://github.com/stefanprodan/timoni
-version: "0.27.0"
+version: "0.27.1"
 tags:
 - category/operations
 - lang/go
