@@ -7,7 +7,7 @@ license:
   link: https://github.com/pkgxdev/pkgx/blob/main/LICENSE.txt
 homepage: https://pkgx.sh/
 repository: https://github.com/pkgxdev/pkgx
-version: "2.10.3"
+version: "2.11.0"
 tags:
 - category/operations
 - lang/javascript
