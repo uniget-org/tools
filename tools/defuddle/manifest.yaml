@@ -7,7 +7,7 @@ license:
   link: https://github.com/kepano/defuddle/blob/main/LICENSE
 homepage: https://defuddle.md/
 repository: https://github.com/kepano/defuddle
-version: "0.19.1"
+version: "0.19.2"
 tags:
 - category/development
 - lang/javascript
