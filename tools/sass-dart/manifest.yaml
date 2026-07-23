@@ -7,7 +7,7 @@ license:
   link: https://github.com/sass/dart-sass/blob/main/LICENSE
 homepage: https://sass-lang.com/dart-sass
 repository: https://github.com/sass/dart-sass
-version: "1.101.0"
+version: "1.101.6"
 tags:
 - category/development
 - lang/dart
