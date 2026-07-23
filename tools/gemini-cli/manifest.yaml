@@ -7,7 +7,7 @@ license:
   link: https://github.com/google-gemini/gemini-cli/blob/main/LICENSE
 homepage: https://github.com/google-gemini/gemini-cli
 repository: https://github.com/google-gemini/gemini-cli
-version: "0.51.0"
+version: "0.52.0"
 tags:
 - org/google
 - category/development
