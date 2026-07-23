@@ -6,7 +6,7 @@ license:
   link: https://github.com/wasmerio/wasmer/blob/main/LICENSE
 homepage: https://wasmer.io
 repository: https://github.com/wasmerio/wasmer
-version: "7.2.0"
+version: "7.2.1"
 tags:
 - category/development
 - lang/rust
