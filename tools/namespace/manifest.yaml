@@ -6,7 +6,7 @@ license:
   name: Unknown
 homepage: https://namespace.so
 repository: https://namespace.so
-version: "0.0.548"
+version: "0.0.549"
 tags:
 - category/development
 - lang/go
