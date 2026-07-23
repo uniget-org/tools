@@ -7,7 +7,7 @@ license:
   link: https://github.com/GitoxideLabs/gitoxide
 homepage: https://github.com/GitoxideLabs/gitoxide
 repository: https://github.com/GitoxideLabs/gitoxide
-version: "0.55.0"
+version: "0.56.0"
 tags:
 - category/development
 - lang/rust
