@@ -6,7 +6,7 @@ license:
   link: https://github.com/crossplane/crossplane/blob/master/LICENSE
 homepage: https://crossplane.io
 repository: https://github.com/crossplane/crossplane
-version: "2.3.3"
+version: "2.3.4"
 tags:
 - type/cli
 - type/plugin
