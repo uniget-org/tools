@@ -18,7 +18,9 @@ tags:
 - gitops
 - terminal
 - tui
-check: ${binary} version | grep -oP 'v?\d+\.\d+\.\d+' | tr -d v
+check: ${binary} -version
+runtime_dependencies:
+- argocd
 platforms:
 - linux/amd64
 - linux/arm64
