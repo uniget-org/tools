@@ -17,7 +17,7 @@ tags:
 - tui
 - terminal
 - testing
-check: ${binary} --version | grep -oP '\d+\.\d+\.\d+'
+check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
 - linux/arm64
