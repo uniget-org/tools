@@ -7,7 +7,7 @@ license:
   link: https://github.com/kovidgoyal/kitty/blob/master/LICENSE
 homepage: https://sw.kovidgoyal.net/kitty/
 repository: https://github.com/kovidgoyal/kitty
-version: "0.48.0"
+version: "0.48.1"
 tags:
 - category/operations
 - lang/python
