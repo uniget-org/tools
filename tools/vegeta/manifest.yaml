@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: vegeta
+description: HTTP load testing tool and library. A versatile tool for drilling HTTP services with constant request rates
+license:
+  name: MIT License
+  link: https://github.com/tsenart/vegeta/blob/master/LICENSE
+homepage: https://github.com/tsenart/vegeta
+repository: https://github.com/tsenart/vegeta
+version: "12.13.0"
+tags:
+- category/development
+- lang/go
+- type/cli
+- http
+- load-testing
+- benchmarking
+- testing
+check: ${binary} --version | grep ^Version | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: tsenart/vegeta
+  extractVersion: ^v(?<version>.+)$
