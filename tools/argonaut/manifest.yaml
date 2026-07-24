@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: argonaut
+description: Keyboard-first terminal UI for Argo CD. Browse apps, scope by clusters/namespaces/projects, stream live resource status, trigger syncs, and roll back safely
+license:
+  name: GPL-3.0 License
+  link: https://github.com/darksworm/argonaut/blob/main/LICENSE
+homepage: https://github.com/darksworm/argonaut
+repository: https://github.com/darksworm/argonaut
+version: "2.17.1"
+tags:
+- category/development
+- lang/go
+- type/cli
+- kubernetes
+- k8s
+- argocd
+- gitops
+- terminal
+- tui
+check: ${binary} version | grep -oP 'v?\d+\.\d+\.\d+' | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: darksworm/argonaut
+  extractVersion: ^v(?<version>.+)$
