@@ -6,7 +6,7 @@ license:
   link: https://github.com/hetznercloud/cli/blob/main/LICENSE
 homepage: https://github.com/hetznercloud/cli
 repository: https://github.com/hetznercloud/cli
-version: "1.66.0"
+version: "1.67.0"
 tags:
 - cloud/hetzner
 - type/cli
