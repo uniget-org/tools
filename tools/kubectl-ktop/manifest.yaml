@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: kubectl-ktop
+description: A top-like tool for your Kubernetes cluster metrics. Displays real-time metrics for nodes, pods, and containers
+license:
+  name: Apache License 2.0
+  link: https://github.com/vladimirvivien/ktop/blob/main/LICENSE
+homepage: https://ktop.app
+repository: https://github.com/vladimirvivien/ktop
+version: "0.5.3"
+tags:
+- category/development
+- lang/go
+- type/cli
+- kubernetes
+- k8s
+- kubectl-plugin
+- monitoring
+- metrics
+check: ${binary} version | grep -oP '\d+\.\d+\.\d+'
+platforms:
+- linux/amd64
+- linux/arm64
+binary: kubectl-ktop
+renovate:
+  datasource: github-releases
+  package: vladimirvivien/ktop
+  extractVersion: ^v(?<version>.+)$
