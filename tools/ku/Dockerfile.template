@@ -1,0 +1,34 @@
+#syntax=docker/dockerfile:1.25.0@sha256:0adf442eae370b6087e08edc7c50b552d80ddf261576f4ebd6421006b2461f12
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:059b11407572b2fd733e7bcd1c528852394d7fe1abef7119a1a97356983cab76 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+echo "### Setting architecture string for ${TARGETPLATFORM}"
+case "${alt_arch}" in
+    amd64)
+        export arch_suffix="amd64"
+        ;;
+    arm64)
+        export arch_suffix="arm64"
+        ;;
+    *)
+        echo "ERROR: Unsupported architecture ${alt_arch}."
+        exit 1
+        ;;
+esac
+echo "    Using ${arch_suffix}"
+
+url="https://github.com/bjarneo/ku/releases/download/v${version}/ku-linux-${arch_suffix}"
+filename="$(basename "${url}")"
+
+check-github-release-asset "bjarneo/ku" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 "${uniget_cache_download}/${filename}" "${prefix}/bin/ku"
+EOF

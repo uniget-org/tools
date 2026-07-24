@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: ku
+description: A fast, keyboard-driven Kubernetes TUI. Browse any resource, edit objects, follow logs, and shell into pods
+license:
+  name: MIT License
+  link: https://github.com/bjarneo/ku/blob/main/LICENSE
+homepage: https://github.com/bjarneo/ku
+repository: https://github.com/bjarneo/ku
+version: "0.9.0"
+tags:
+- category/development
+- lang/go
+- type/cli
+- kubernetes
+- k8s
+- tui
+- terminal
+- kubectl
+check: ${binary} version 2>&1 | grep -oP '\d+\.\d+\.\d+'
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: bjarneo/ku
+  extractVersion: ^v(?<version>.+)$
