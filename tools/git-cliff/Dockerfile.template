@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 echo "### Setting architecture string for ${TARGETPLATFORM}"
-case "${alt_arch}" in
+case "${arch}" in
     x86_64)
         export arch_suffix="x86_64-unknown-linux-gnu"
         ;;
@@ -32,13 +32,15 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
 
 tar --file="${uniget_cache_download}/${filename}" --list
 tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
-    "git-cliff-${version}-${arch_suffix}/git-cliff" \
-    "git-cliff-${version}-${arch_suffix}/completions"
+    "git-cliff-${version}/git-cliff" \
+    "git-cliff-${version}/completions" \
+    "git-cliff-${version}/man/git-cliff.1"
 
-if [ -d "${prefix}/bin/completions" ]; then
-    cp "${prefix}/bin/completions/git-cliff.bash" "${prefix}/share/bash-completion/completions/git-cliff"
-    cp "${prefix}/bin/completions/git-cliff.fish" "${prefix}/share/fish/vendor_completions.d/git-cliff.fish"
-    cp "${prefix}/bin/completions/_git-cliff" "${prefix}/share/zsh/vendor-completions/_git-cliff"
-    rm -rf "${prefix}/bin/completions/"
-fi
+cp "${prefix}/bin/completions/git-cliff.bash" "${prefix}/share/bash-completion/completions/git-cliff"
+cp "${prefix}/bin/completions/git-cliff.fish" "${prefix}/share/fish/vendor_completions.d/git-cliff.fish"
+cp "${prefix}/bin/completions/_git-cliff" "${prefix}/share/zsh/vendor-completions/_git-cliff"
+rm -rf "${prefix}/bin/completions"
+
+cp "${prefix}/bin/man/git-cliff.1" "${prefix}/share/man/man1/"
+rm -rf "${prefix}/bin/man"
 EOF
