@@ -7,7 +7,7 @@ license:
   link: https://github.com/hashicorp/packer/blob/main/LICENSE
 homepage: http://www.packer.io
 repository: https://github.com/hashicorp/packer
-version: "1.15.4"
+version: "1.16.0"
 tags:
 - org/hashicorp
 - category/development
