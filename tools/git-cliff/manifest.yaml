@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: git-cliff
+description: A highly customizable Changelog Generator that follows Conventional Commit specifications
+license:
+  name: Apache License 2.0
+  link: https://github.com/orhun/git-cliff/blob/main/LICENSE-APACHE
+homepage: https://git-cliff.org
+repository: https://github.com/orhun/git-cliff
+version: "2.13.1"
+tags:
+- category/development
+- lang/rust
+- type/cli
+- git
+- changelog
+- conventional-commits
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: orhun/git-cliff
+  extractVersion: ^v(?<version>.+)$
