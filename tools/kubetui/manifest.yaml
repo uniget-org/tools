@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: kubetui
+description: An intuitive Terminal User Interface (TUI) tool for real-time monitoring and exploration of Kubernetes resources
+license:
+  name: MIT License
+  link: https://github.com/sarub0b0/kubetui/blob/main/LICENSE
+homepage: https://github.com/sarub0b0/kubetui
+repository: https://github.com/sarub0b0/kubetui
+version: "1.14.0"
+tags:
+- category/development
+- lang/rust
+- type/cli
+- kubernetes
+- k8s
+- terminal
+- tui
+- monitoring
+check: ${binary} --version | grep -oP '\d+\.\d+\.\d+'
+platforms:
+- linux/amd64
+renovate:
+  datasource: github-releases
+  package: sarub0b0/kubetui
+  extractVersion: ^v(?<version>.+)$
