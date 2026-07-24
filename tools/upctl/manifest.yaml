@@ -7,7 +7,7 @@ license:
   link: https://github.com/UpCloudLtd/upcloud-cli/blob/main/LICENSE
 homepage: https://upcloudltd.github.io/upcloud-cli/
 repository: https://github.com/UpCloudLtd/upcloud-cli
-version: "3.34.0"
+version: "3.35.0"
 tags:
 - org/upcloud
 - category/operations
