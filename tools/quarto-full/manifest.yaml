@@ -7,7 +7,7 @@ license:
   link: https://github.com/quarto-dev/quarto-cli/blob/main/COPYING.md
 homepage: https://quarto.org
 repository: https://github.com/quarto-dev/quarto-cli
-version: "1.9.38"
+version: "1.10.18"
 tags:
 - category/development
 - lang/javascript
