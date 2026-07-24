@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: up
+description: enables interaction with Upbound control planes
+license:
+  name: Unknown
+  link: https://www.upbound.io/terms-conditions
+homepage: https://docs.upbound.io/manuals/cli/overview/
+repository: https://github.com/upbound
+version: "0.51.1"
+tags:
+- org/upbound
+- category/operations
+- lang/go
+- type/cli
+- crossplane
+check: ${binary} --client --format=json | jq -r '.client.version' | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+#renovate:
+#  datasource: gitlab-releases
+#  package: uniget-org/renovate-custom
+#  extractVersion: ^up/(?<version>.+)$
