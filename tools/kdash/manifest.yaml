@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: kdash
+description: A simple and fast dashboard for Kubernetes. A terminal dashboard built with Rust for monitoring Kubernetes clusters
+license:
+  name: MIT License
+  link: https://github.com/kdash-rs/kdash/blob/main/LICENSE
+homepage: https://kdash-rs.github.io
+repository: https://github.com/kdash-rs/kdash
+version: "2.1.1"
+tags:
+- category/development
+- lang/rust
+- type/cli
+- kubernetes
+- k8s
+- dashboard
+- monitoring
+- tui
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: kdash-rs/kdash
+  extractVersion: ^v(?<version>.+)$
