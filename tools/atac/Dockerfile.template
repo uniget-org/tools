@@ -9,15 +9,15 @@ ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 echo "### Setting architecture string for ${TARGETPLATFORM}"
-case "${alt_arch}" in
-    amd64)
+case "${arch}" in
+    x86_64)
         export arch_suffix="x86_64-unknown-linux-gnu"
         ;;
-    arm64)
+    aarch64)
         export arch_suffix="aarch64-unknown-linux-gnu"
         ;;
     *)
-        echo "ERROR: Unsupported architecture ${alt_arch}."
+        echo "ERROR: Unsupported architecture ${arch}."
         exit 1
         ;;
 esac
@@ -31,8 +31,13 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
     "${url}"
 
 tar --file="${uniget_cache_download}/${filename}" --list
-tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
-    "atac"
-
-chmod +x "${prefix}/bin/atac"
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin/" --no-same-owner
+EOF
+RUN <<EOF
+"${prefix}/bin/atac" completions bash
+mv /atac.bash "${prefix}/share/bash-completion/completions/atac"
+"${prefix}/bin/atac" completions fish
+mv /atac.fish "${prefix}/share/fish/vendor_completions.d/atac.fish"
+"${prefix}/bin/atac" completions zsh
+mv /_atac "${prefix}/share/zsh/vendor-completions/_atac"
 EOF
