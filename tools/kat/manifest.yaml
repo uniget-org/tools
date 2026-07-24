@@ -18,7 +18,7 @@ tags:
 - helm
 - kustomize
 - rendering
-check: ${binary} version | grep -oP '\d+\.\d+\.\d+'
+check: ${binary} --version | cut -d' ' -f3
 platforms:
 - linux/amd64
 - linux/arm64

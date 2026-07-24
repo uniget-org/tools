@@ -9,15 +9,15 @@ ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 echo "### Setting architecture string for ${TARGETPLATFORM}"
-case "${alt_arch}" in
-    amd64)
-        export arch_suffix="x86_64"
+case "${arch}" in
+    x86_64)
+        export arch_suffix="${arch}"
         ;;
-    arm64)
-        export arch_suffix="arm64"
+    aarch64)
+        export arch_suffix="${alt_arch}"
         ;;
     *)
-        echo "ERROR: Unsupported architecture ${alt_arch}."
+        echo "ERROR: Unsupported architecture ${arch}."
         exit 1
         ;;
 esac
@@ -32,24 +32,15 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
 
 # Extract to temp directory first
 mkdir -p /tmp/kat_extract
-tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="/tmp/kat_extract" --no-same-owner 2>&1 | grep -v "Cannot open" || true
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
+    kat \
+    man/kat.1
 
-# Install binary
-mv "/tmp/kat_extract/kat" "${prefix}/bin/kat"
-chmod +x "${prefix}/bin/kat"
-
-# Install shell completions
-if [ -d "/tmp/kat_extract/completion" ]; then
-    mv "/tmp/kat_extract/completion/bash/kat.bash" "${prefix}/share/bash-completion/completions/kat" 2>/dev/null || true
-    mv "/tmp/kat_extract/completion/fish/kat.fish" "${prefix}/share/fish/vendor_completions.d/kat.fish" 2>/dev/null || true
-    mv "/tmp/kat_extract/completion/zsh/_kat" "${prefix}/share/zsh/vendor-completions/_kat" 2>/dev/null || true
-fi
-
-# Install man page
-if [ -f "/tmp/kat_extract/man/kat.1" ]; then
-    mv "/tmp/kat_extract/man/kat.1" "${prefix}/share/man/man1/kat.1" 2>/dev/null || true
-fi
-
-# Cleanup
-rm -rf /tmp/kat_extract
+mv "${prefix}/bin/man/kat.1" "${prefix}/share/man/man1/kat.1"
+rmdir "${prefix}/bin/man"
+EOF
+RUN <<EOF
+"${prefix}/bin/kat" completion bash >"${prefix}/share/bash-completion/completions/kat"
+"${prefix}/bin/kat" completion fish >"${prefix}/share/fish/vendor_completions.d/kat.fish"
+"${prefix}/bin/kat" completion zsh >"${prefix}/share/zsh/vendor-completions/_kat"
 EOF
