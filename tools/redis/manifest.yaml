@@ -7,7 +7,7 @@ license:
   link: https://github.com/redis/redis/blob/unstable/LICENSE.txt
 homepage: http://redis.io/
 repository: https://github.com/redis/redis
-version: "8.8.0"
+version: "8.8.1"
 tags:
 - org/redis
 - category/development
