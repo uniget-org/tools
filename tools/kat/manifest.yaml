@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: kat
+description: TUI and rule-based rendering engine for Kubernetes manifests. Automatically invokes manifest generators like helm or kustomize
+license:
+  name: Apache License 2.0
+  link: https://github.com/MacroPower/kat/blob/main/LICENSE
+homepage: https://github.com/MacroPower/kat
+repository: https://github.com/MacroPower/kat
+version: "0.28.1"
+tags:
+- category/development
+- lang/go
+- type/cli
+- kubernetes
+- k8s
+- tui
+- helm
+- kustomize
+- rendering
+check: ${binary} version | grep -oP '\d+\.\d+\.\d+'
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: MacroPower/kat
+  extractVersion: ^v(?<version>.+)$
