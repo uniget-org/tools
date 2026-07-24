@@ -7,7 +7,7 @@ license:
   link: https://github.com/earendil-works/pi/blob/main/LICENSE
 homepage: https://pi.dev/
 repository: https://github.com/earendil-works/pi
-version: "0.81.1"
+version: "0.82.0"
 tags:
 - category/development
 - lang/javascript
