@@ -17,7 +17,7 @@ tags:
 - tui
 - terminal
 - kubectl
-check: ${binary} version 2>&1 | grep -oP '\d+\.\d+\.\d+'
+check: ${binary} -version | cut -d' ' -f2 | tr -d v
 platforms:
 - linux/amd64
 - linux/arm64
