@@ -6,7 +6,7 @@ license:
   link: https://github.com/youki-dev/youki/blob/main/LICENSE
 homepage: https://youki-dev.github.io/youki/
 repository: https://github.com/youki-dev/youki
-version: 0.6.0
+version: 0.7.0
 tags:
 - org/redhat
 - container/runtime
