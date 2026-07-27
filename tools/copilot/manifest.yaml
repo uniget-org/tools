@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: copilot
+description: Brings the power of GitHub Copilot coding agent directly to your terminal
+license:
+  name: Custom
+  link: https://github.com/github/copilot-cli/blob/main/LICENSE.md
+homepage: https://github.com/github/copilot-cli
+repository: https://github.com/github/copilot-cli
+version: "1.0.75"
+tags:
+- org/github
+- category/development
+#- lang/?
+- type/cli
+- ai
+- llm
+- coding
+- agent
+check: ${binary} | grep -oP '\d+\.\d+\.\d+'
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: github/copilot-cli
+  extractVersion: ^v?(?<version>.+)$
