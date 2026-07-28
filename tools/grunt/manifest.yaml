@@ -6,7 +6,7 @@ license:
   link: https://github.com/gruntjs/grunt/blob/main/LICENSE
 homepage: https://github.com/gruntjs/grunt
 repository: https://github.com/gruntjs/grunt
-version: "1.6.2"
+version: "1.6.3"
 tags:
 - category/development
 - lang/javascript
