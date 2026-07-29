@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: kubernetes-mcp-server
+description: Model Context Protocol (MCP) server for Kubernetes and OpenShift
+license:
+  name: Apache License 2.0
+  link: https://github.com/containers/kubernetes-mcp-server/blob/main/LICENSE
+homepage: https://github.com/containers/kubernetes-mcp-server
+repository: https://github.com/containers/kubernetes-mcp-server
+version: "0.0.65"
+tags:
+- category/operations
+- lang/go
+- type/cli
+- ai
+- llm
+- mcp
+- kubernetes
+- k8s
+check: ${binary} --version | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: containers/kubernetes-mcp-server
+  extractVersion: ^v?(?<version>.+)$
