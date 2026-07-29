@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: codegraph
+description: Pre-indexed code knowledge graph, auto syncs on code changes
+license:
+  name: MIT License
+  link: https://github.com/colbymchenry/codegraph/blob/main/LICENSE
+homepage: https://colbymchenry.github.io/codegraph/
+repository: https://github.com/colbymchenry/codegraph
+version: "1.5.0"
+tags:
+- category/development
+- lang/javascript
+- type/cli
+- ai
+- llm
+- knowledge
+- graph
+check: ${binary} --version
+runtime_dependencies:
+- node-lts
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: colbymchenry/codegraph
+  extractVersion: ^v?(?<version>.+)$
