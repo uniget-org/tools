@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: tree-sitter
+description: An incremental parsing system for programming tools
+license:
+  name: MIT License
+  link: https://github.com/tree-sitter/tree-sitter/blob/master/LICENSE
+homepage: https://tree-sitter.github.io/tree-sitter/
+repository: https://github.com/tree-sitter/tree-sitter
+version: "0.26.11"
+tags:
+- category/development
+- lang/rust
+- type/cli
+- parser
+- syntax
+- tree
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: tree-sitter/tree-sitter
+  extractVersion: ^v(?<version>.+)$
