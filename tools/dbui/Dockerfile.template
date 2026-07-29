@@ -8,7 +8,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://github.com/KenanBek/dbui/releases/download/v${version}/dbui_Linux_${arch}.tar.gz"
+url="https://github.com/KenanBek/dbui/releases/download/v${version}/dbui_${version}_linux_${alt_arch}.tar.gz"
 filename="$( basename "${url}" )"
 
 check-github-release-asset "KenanBek/dbui" "v${version}" "${filename}"
