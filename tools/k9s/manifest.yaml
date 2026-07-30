@@ -17,6 +17,9 @@ check: ${binary} version --short | grep "^Version" | cut -dv -f2
 platforms:
 - linux/amd64
 - linux/arm64
+messages:
+  internals: |
+    Skins are installed to TARGET/share/k9s/skins.
 renovate:
   datasource: github-releases
   package: derailed/k9s
