@@ -7,7 +7,7 @@ license:
   link: https://github.com/github/copilot-cli/blob/main/LICENSE.md
 homepage: https://github.com/github/copilot-cli
 repository: https://github.com/github/copilot-cli
-version: "1.0.75"
+version: "1.0.76"
 tags:
 - org/github
 - category/development
