@@ -18,6 +18,14 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
 tar --file="${uniget_cache_download}/${filename}" --list
 tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin" --no-same-owner \
     k9s
+EOF
+RUN <<EOF
+mkdir -p "${prefix}/share/k9s/skins"
+curl --silent --show-error --location --fail "https://github.com/derailed/k9s/archive/refs/tags/v${version}.tar.gz" \
+| tar --extract --gzip --directory="${prefix}/share/k9s/skins" --strip-components=2 --no-same-owner \
+    "k9s-${version}/skins/"
+EOF
+RUN <<EOF
 "${prefix}/bin/k9s" completion bash >"${prefix}/share/bash-completion/completions/k9s"
 "${prefix}/bin/k9s" completion fish >"${prefix}/share/fish/vendor_completions.d/k9s.fish"
 "${prefix}/bin/k9s" completion zsh >"${prefix}/share/zsh/vendor-completions/_k9s"
