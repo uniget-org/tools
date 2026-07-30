@@ -7,7 +7,7 @@ license:
   link: https://github.com/future-architect/vuls/blob/master/LICENSE
 homepage: https://vuls.io
 repository: https://github.com/future-architect/vuls
-version: "0.39.3"
+version: "0.40.1"
 tags:
 - category/security
 - lang/go
