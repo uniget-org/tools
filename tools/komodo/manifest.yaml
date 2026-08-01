@@ -7,7 +7,7 @@ license:
   link: https://github.com/moghtech/komodo/blob/main/LICENSE
 homepage: https://komo.do
 repository: https://github.com/moghtech/komodo
-version: "2.3.0"
+version: "2.3.1"
 tags:
 - category/devops
 - type/cli
