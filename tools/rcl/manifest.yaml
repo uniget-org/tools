@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: rcl
+description: Domain-specific language for generating configs and querying JSON, with a CLI tool.
+license:
+  name: Apache-2.0
+  link: https://github.com/ruuda/rcl/blob/master/LICENSE
+homepage: https://github.com/ruuda/rcl
+repository: https://github.com/ruuda/rcl
+version: "0.14.0"
+tags:
+- type/cli
+- category/development
+- lang/rust
+- terminal
+- format/json
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: ruuda/rcl
+  extractVersion: ^v(?<version>.+)$
