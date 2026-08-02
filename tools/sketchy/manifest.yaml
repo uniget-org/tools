@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: sketchy
+description: For folks who git clone first and ask questions later
+license:
+  name: MIT
+  link: https://github.com/Adversis/sketchy/blob/main/LICENSE
+homepage: https://github.com/Adversis/sketchy
+repository: https://github.com/Adversis/sketchy
+version: "1.0.0"
+tags:
+- type/cli
+- category/security
+- lang/rust
+- terminal
+- git
+check: "" # No version parameter
+platforms:
+- linux/amd64
+renovate:
+  datasource: github-releases
+  package: Adversis/sketchy
+  extractVersion: ^v(?<version>.+)$
