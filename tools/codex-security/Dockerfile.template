@@ -1,0 +1,19 @@
+#syntax=docker/dockerfile:1.26.0@sha256:ecfaec9ed6d810b56388c508f4121597bfbba70d41a6dfeee4d8cad5f295fc32
+
+FROM ghcr.io/uniget-org/tools/node-lts:latest AS node
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:059b11407572b2fd733e7bcd1c528852394d7fe1abef7119a1a97356983cab76 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+COPY --link --from=node / /usr/local/
+WORKDIR /uniget_bootstrap/libexec/codex-security
+ARG name
+ARG version
+RUN <<EOF
+npm install \
+    --omit=dev \
+    "@openai/codex-security@${version}"
+ln --symbolic --relative --force "${prefix}/libexec/codex-security/node_modules/.bin/codex-security" "${prefix}/bin/"
+EOF
