@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: lefthook
+description: Git hooks manager written in Rust, allowing easy definition and execution of Git hooks.
+license:
+  name: MIT
+  link: https://github.com/evilmartians/lefthook/blob/main/LICENSE
+homepage: https://github.com/evilmartians/lefthook
+repository: https://github.com/evilmartians/lefthook
+version: "2.1.10"
+tags:
+- type/cli
+- category/development
+- lang/rust
+- terminal
+- git
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: evilmartians/lefthook
+  extractVersion: ^v(?<version>.+)$
