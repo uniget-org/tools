@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: zeedumper
+description: Dumps Kubernetes z‑pages (flagz, statusz, configz) via API server proxy.
+license:
+  name: Apache License 2.0
+  link: https://github.com/raesene/zeedumper/blob/main/LICENSE
+homepage: https://github.com/raesene/zeedumper
+repository: https://github.com/raesene/zeedumper
+version: "0.3.6"
+tags:
+- category/security
+- lang/go
+- type/cli
+- kubernetes
+- k8s
+check: ${binary} --version | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-tags
+  package: raesene/zeedumper
