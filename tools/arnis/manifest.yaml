@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: arnis
+description: 3D Minecraft world generator with terrain, climate and structures.
+license:
+  name: Apache-2.0
+  link: https://github.com/louis-e/arnis/blob/main/LICENSE
+homepage: https://github.com/louis-e/arnis
+repository: https://github.com/louis-e/arnis
+version: "3.0.0"
+tags:
+- type/cli
+- category/development
+- lang/rust
+- terminal
+check: "" # Missing client libraries
+platforms:
+- linux/amd64
+messages:
+  internals: |
+    This only works with the following client libraries:
+    - libwayland-client.so.0
+    - libgdk-3.so.0
+    - libgdk_pixbuf-2.0.so.0
+    - libcairo.so.2
+    - libgobject-2.0.so.0
+    - libglib-2.0.so.0
+    - libdbus-1.so.3
+    - libwebkit2gtk-4.1.so.0
+    - libgtk-3.so.0
+    - libsoup-3.0.so.0
+    - libgio-2.0.so.0
+    - libjavascriptcoregtk-4.1.so.0
+renovate:
+  datasource: github-releases
+  package: louis-e/arnis
+  extractVersion: ^v(?<version>.+)$
