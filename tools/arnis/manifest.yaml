@@ -10,9 +10,10 @@ repository: https://github.com/louis-e/arnis
 version: "3.0.0"
 tags:
 - type/cli
-- category/development
+- category/games
 - lang/rust
 - terminal
+- minecraft
 check: "" # Missing client libraries
 platforms:
 - linux/amd64
