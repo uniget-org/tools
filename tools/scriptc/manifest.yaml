@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: scriptc
+description: Compile TypeScript/JavaScript to small, fast native executables – no Node, no V8.
+license:
+  name: Apache License 2.0
+  link: https://github.com/vercel-labs/scriptc/blob/main/LICENSE
+homepage: https://scriptc.dev
+repository: https://github.com/vercel-labs/scriptc
+version: "0.0.21"
+tags:
+- category/development
+- lang/javascript
+- type/cli
+check: ${binary} --version
+build_dependencies:
+- node-lts
+runtime_dependencies:
+- node-lts
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: npm
+  package: scriptc
+binary: scriptc
