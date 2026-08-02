@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: trufflehog
+description: Searches through git repositories for secrets, using entropy and regex checks.
+license:
+  name: Apache License 2.0
+  link: https://github.com/trufflesecurity/trufflehog/blob/master/LICENSE
+homepage: https://github.com/trufflesecurity/trufflehog
+repository: https://github.com/trufflesecurity/trufflehog
+version: "2.2.1"
+tags:
+- category/security
+- lang/python
+- type/cli
+- git
+check: "" # No version parameter
+build_dependencies:
+- python-3.12
+- shiv
+runtime_dependencies:
+- python-3.12
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: pypi
+  package: truffleHog
