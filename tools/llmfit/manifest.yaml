@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: llmfit
+description: Terminal tool to right-size LLM models to your hardware, with interactive TUI and CLI.
+license:
+  name: MIT
+  link: https://github.com/AlexsJones/llmfit/blob/main/LICENSE
+homepage: https://github.com/AlexsJones/llmfit
+repository: https://github.com/AlexsJones/llmfit
+version: "1.1.6"
+tags:
+- type/cli
+- category/operations
+- lang/rust
+- ai
+- llm
+- terminal
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: AlexsJones/llmfit
+  extractVersion: ^v(?<version>.+)$

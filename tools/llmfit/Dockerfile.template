@@ -1,0 +1,42 @@
+#syntax=docker/dockerfile:1.26.0@sha256:ecfaec9ed6d810b56388c508f4121597bfbba70d41a6dfeee4d8cad5f295fc32
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:059b11407572b2fd733e7bcd1c528852394d7fe1abef7119a1a97356983cab76 AS ubuntu2604
+FROM registry.gitlab.com/uniget-org/images/build-essential:26.04 AS build-essential2604
+FROM registry.gitlab.com/uniget-org/images/alpine:3.24@sha256:814dc41ebd1e3ff99852fc087c970666aa9b3e0de99af97438bddfd1760cb6dc AS alpine323
+FROM registry.gitlab.com/uniget-org/images/build-base:3.23 AS build-base323
+
+FROM ubuntu2604 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+
+# tarball
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+echo "### Setting architecture string for ${TARGETPLATFORM}"
+case "${arch}" in
+    x86_64)
+        export arch_suffix="x86_64-unknown-linux-musl"
+        ;;
+    aarch64)
+        export arch_suffix="aarch64-unknown-linux-musl"
+        ;;
+    *)
+        echo "ERROR: Unsupported architecture ${arch}."
+        exit 1
+        ;;
+esac
+echo "    Using ${arch_suffix}"
+
+url="https://github.com/AlexsJones/llmfit/releases/download/v${version}/llmfit-v${version}-${arch_suffix}.tar.gz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "AlexsJones/llmfit" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin" --strip-components=1 --no-same-owner \
+    "llmfit-v${version}-${arch_suffix}/llmfit"
+EOF
