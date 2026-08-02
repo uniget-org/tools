@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: rad
+description: Fast, feature‑rich scripting language with a static type checker, language server, formatter and interactive REPL.
+license:
+  name: Apache-2.0
+  link: https://github.com/amterp/rad/blob/main/LICENSE
+homepage: https://github.com/amterp/rad
+repository: https://github.com/amterp/rad
+version: "0.11.0"
+tags:
+- type/cli
+- category/development
+- lang/rust
+- terminal
+- script
+check: ${binary} --version | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: amterp/rad
+  extractVersion: ^v(?<version>.+)$
