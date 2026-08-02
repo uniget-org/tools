@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: pvcli
+description: A curl-like HTTP/2 and HTTP/3 client for OHTTP, supporting GET and POST requests with TLS.
+license:
+  name: Apache License 2.0
+  link: https://github.com/cloudflareresearch/pvcli/blob/main/LICENSE
+homepage: https://github.com/cloudflareresearch/pvcli
+repository: https://github.com/cloudflareresearch/pvcli
+version: "0.1.0"
+tags:
+- type/cli
+- category/network
+- lang/rust
+check: ${binary} --version | cut -d' ' -f2
+build_dependencies:
+- rust
+platforms:
+- linux/amd64
+renovate:
+  datasource: git-tags
+  package: cloudflareresearch/pvcli

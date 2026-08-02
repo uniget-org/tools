@@ -1,0 +1,21 @@
+#syntax=docker/dockerfile:1.26.0@sha256:ecfaec9ed6d810b56388c508f4121597bfbba70d41a6dfeee4d8cad5f295fc32
+
+FROM ghcr.io/uniget-org/tools/rust:latest AS rust
+
+FROM registry.gitlab.com/uniget-org/images/build-essential:24.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+COPY --link --from=rust / /usr/local/
+WORKDIR /tmp/github.com/cloudflareresearch/pvcli
+ARG name
+ARG version
+RUN <<EOF
+git clone -q --config advice.detachedHead=false --depth 1 https://github.com/cloudflareresearch/pvcli .
+export CARGO_HOME=/usr/local/cargo
+export RUSTUP_HOME=/usr/local/rustup
+export RUSTFLAGS='-C target-feature=+crt-static'
+cargo build --release --target "${arch}-unknown-linux-gnu"
+cp "target/${arch}-unknown-linux-gnu/release/pvcli" "${prefix}/bin/"
+EOF
