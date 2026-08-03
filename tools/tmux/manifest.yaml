@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: tmux
+description: Terminal multiplexer
+license:
+  name: ISC License
+  link: https://github.com/tmux/tmux/blob/master/COPYING
+homepage: https://github.com/tmux/tmux
+repository: https://github.com/tmux/tmux
+version: "3.7b"
+tags:
+- category/terminal
+- lang/c
+- type/cli
+- terminal
+- multiplexer
+check: ${binary} -V | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: tmux/tmux
