@@ -15,13 +15,19 @@ tags:
 check: ""
 build_dependencies:
 - zig
+runtime_dependencies:
+- gtk4-layer-shell
 platforms:
 - linux/amd64
 - linux/arm64
 messages:
   update: |
-    update-desktop-database -v ~/.local/share/applications
-    systemctl --user daemon-reload
+    Ghostty depends on gtk4-layer-shell which is missing in Ubuntu 24.04.
+    In this case, install gtk4-layer-shell globally
+
+    Activate the desktop integrations by running the following commands:
+    $ update-desktop-database -v ~/.local/share/applications
+    $ systemctl --user daemon-reload
 renovate:
   datasource: github-tags
   package: ghostty-org/ghostty
