@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: agent-manager
+description: Terminal UI to manage AI coding-agent sessions (Claude Code, OpenCode, Codex, Grok, Gemini CLI) in tmux
+license:
+  name: MIT License
+  link: https://github.com/YoanWai/agent-manager/blob/main/LICENSE
+homepage: https://agent-manager.dev
+repository: https://github.com/YoanWai/agent-manager
+version: "0.18.0"
+tags:
+- category/development
+- lang/go
+- type/cli
+- type/tui
+- terminal
+- ai
+- llm
+- coding
+- agent
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: YoanWai/agent-manager
+  extractVersion: ^v(?<version>.+)$
