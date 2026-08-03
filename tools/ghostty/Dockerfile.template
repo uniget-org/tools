@@ -20,6 +20,8 @@ apt-get -y install --no-install-recommends \
     libonig-dev \
     libbz2-dev \
     libgtk-layer-shell-dev \
+    libgtk4-layer-shell0 \
+    libgtk4-layer-shell-dev \
     libgtk-4-dev \
     libadwaita-1-dev \
     minisign \
@@ -48,13 +50,12 @@ zig version
 EOF
 WORKDIR /tmp/ghostty
 RUN <<EOF
-mkdir -p /tmp/offline-cache/p
 zig build \
     --summary all \
     --prefix "${prefix}" \
-    --system /tmp/offline-cache/p \
     -Doptimize=ReleaseFast \
     -Dcpu=baseline \
+    -Dpie=true \
     -Demit-docs \
     -Dversion-string=${version}
 EOF
