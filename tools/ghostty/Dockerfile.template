@@ -48,6 +48,7 @@ zig version
 EOF
 WORKDIR /tmp/ghostty
 RUN <<EOF
+mkdir -p /tmp/offline-cache/p
 zig build \
     --summary all \
     --prefix "${prefix}" \
