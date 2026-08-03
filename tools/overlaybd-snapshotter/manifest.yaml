@@ -7,7 +7,7 @@ license:
   link: https://github.com/containerd/accelerated-container-image/blob/main/LICENSE
 homepage: https://github.com/containerd/accelerated-container-image
 repository: https://github.com/containerd/accelerated-container-image
-version: "1.4.3"
+version: "1.4.4"
 tags:
 - org/containerd
 - category/operations
