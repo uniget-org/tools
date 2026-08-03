@@ -57,6 +57,7 @@ zig build \
     -Dcpu=baseline \
     -Dpie=true \
     -Demit-docs \
-    -Dversion-string=${version}
+    -Dversion-string=${version} \
+    -fno-sys=gtk4-layer-shell
 EOF
 COPY com.mitchellh.ghostty.desktop.go-template /uniget_bootstrap/share/applications/

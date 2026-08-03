@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: cc-sdd
+description: Long-running spec-driven implementation for AI coding agents
+license:
+  name: MIT License
+  link: https://github.com/gotalab/cc-sdd/blob/main/LICENSE
+homepage: https://github.com/gotalab/cc-sdd
+repository: https://github.com/gotalab/cc-sdd
+version: "3.0.2"
+tags:
+- category/development
+- lang/javascript
+- type/cli
+- package
+- ai
+check: ${binary} --version
+runtime_dependencies:
+- node-lts
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: gotalab/cc-sdd
+  extractVersion: ^v(?<version>.+)$

@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: specdd
+description: SpecDD CLI is a tool for working with SpecDD framework-enabled projects
+license:
+  name: Apache-2.0
+  link: https://www.apache.org/licenses/LICENSE-2.0
+homepage: https://github.com/specdd/cli
+repository: https://github.com/specdd/cli
+version: "1.1.1"
+tags:
+  - org/specdd
+  - category/cli
+  - lang/javascript
+  - type/tool
+check: ${binary} --version
+build_dependencies:
+  - node
+  - yarn
+runtime_dependencies:
+  - node
+platforms:
+  - linux/amd64

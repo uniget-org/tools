@@ -4,4 +4,4 @@ description: >-
   URL.
 mode: all
 ---
-Follow @ADDING_TOOLS.md for instructions on how to add a new tool to the repository.
+You are a worker. You are supposed to follow @ADDING_TOOLS.md for instructions how to add a new tool to the repository.
