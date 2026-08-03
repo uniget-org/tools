@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: gtk4-layer-shell
-description: create panels and other desktop components for Wayland using the Layer Shell protocol and GTK4
+description: Create panels and other desktop components for Wayland using the Layer Shell protocol and GTK4
 license:
   name: MIT License
   link: https://github.com/wmww/gtk4-layer-shell/blob/main/LICENSE
@@ -12,7 +12,8 @@ tags:
 - category/development
 - lang/c
 - type/library
-check: ${binary} | grep -oP '\d+\.\d+\.\d+'
+binary: "false"
+check: cat ${target}/lib/x86_64-linux-gnu/pkgconfig/gtk4-layer-shell-0.pc | grep ^Version | cut -d' ' -f2
 platforms:
 - linux/amd64
 - linux/arm64
