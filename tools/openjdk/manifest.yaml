@@ -6,7 +6,7 @@ license:
   link: https://github.com/openjdk/jdk/blob/master/LICENSE
 homepage: https://adoptium.net/de/temurin/
 repository: https://github.com/adoptium
-version: "26.0.2-ga"
+version: "26.0.2-10"
 tags:
 - type/cli
 - category/development
