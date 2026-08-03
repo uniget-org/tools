@@ -6,7 +6,7 @@ license:
   link: https://github.com/open-policy-agent/conftest/blob/master/LICENSE
 homepage: https://conftest.dev
 repository: https://github.com/open-policy-agent/conftest
-version: "0.68.2"
+version: "0.69.0"
 tags:
 - type/cli
 - kubernetes
