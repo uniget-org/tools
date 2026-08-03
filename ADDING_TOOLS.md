@@ -30,7 +30,7 @@ We use [Conventional Commits](https://www.conventionalcommits.org/). Your commit
 - `docs`: Documentation only changes.
 
 **Example:**
-`feat(hunk): add hunk terminal diff viewer`
+`feat(<toolname>): Added`
 
 ### Create a Pull Request
 
