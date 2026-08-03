@@ -7,7 +7,7 @@ license:
   link: https://github.com/MrLesk/Backlog.md/blob/main/LICENSE
 homepage: https://backlog.md/
 repository: https://github.com/MrLesk/Backlog.md
-version: "1.49.1"
+version: "1.49.2"
 tags:
 - category/development
 - lang/javascript
