@@ -1,0 +1,39 @@
+#syntax=docker/dockerfile:1.26.0@sha256:ecfaec9ed6d810b56388c508f4121597bfbba70d41a6dfeee4d8cad5f295fc32
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS ubuntu2404
+
+FROM ubuntu2404 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN <<EOF
+apt-get update
+apt-get install -y --no-install-recommends \
+    ca-certificates \
+    git \
+    meson \
+    ninja-build \
+    libwayland-dev \
+    wayland-protocols \
+    libgtk-4-dev \
+    gobject-introspection \
+    libgirepository1.0-dev \
+    gtk-doc-tools \
+    python3 \
+    python3-gi \
+    valac
+EOF
+WORKDIR /tmp/gtk4-layer-shell
+RUN <<EOF
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/wmww/gtk4-layer-shell .
+meson setup build \
+    --prefix="${prefix}" \
+    -Dtests=true \
+    -Dintrospection=true \
+    -Dvapi=true
+ninja -C build
+ninja -C build install
+EOF
