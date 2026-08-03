@@ -51,11 +51,10 @@ RUN <<EOF
 zig build \
     --summary all \
     --prefix "${prefix}" \
+    --system /tmp/offline-cache/p \
     -Doptimize=ReleaseFast \
     -Dcpu=baseline \
-    -Dpie=true \
     -Demit-docs \
-    -Dversion-string=${version} \
-    -fno-sys=gtk4-layer-shell
+    -Dversion-string=${version}
 EOF
 COPY com.mitchellh.ghostty.desktop.go-template /uniget_bootstrap/share/applications/

@@ -18,6 +18,9 @@ build_dependencies:
 platforms:
 - linux/amd64
 #- linux/arm64
+messages:
+  update: |
+    update-desktop-database -v ~/.local/share/applications
 renovate:
   datasource: github-tags
   package: ghostty-org/ghostty
