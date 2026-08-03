@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: github-mcp-server
+description: GitHub's official MCP Server
+license:
+  name: MIT License
+  link: https://github.com/github/github-mcp-server/blob/main/LICENSE
+homepage: https://github.com/github/github-mcp-server
+repository: https://github.com/github/github-mcp-server
+version: "1.8.0"
+tags:
+- org/github
+- category/development
+- lang/go
+- type/cli
+- ai
+- llm
+- mcp
+check: ${binary} --version | grep ^Version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: github/github-mcp-server
+  extractVersion: ^v?(?<version>.+)$
