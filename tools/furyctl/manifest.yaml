@@ -6,7 +6,7 @@ license:
   link: https://github.com/sighupio/furyctl/blob/main/LICENSE
 homepage: https://sighup.io
 repository: https://github.com/sighupio/furyctl
-version: "0.35.0"
+version: "0.35.1"
 tags:
 - type/cli
 - kubernetes
