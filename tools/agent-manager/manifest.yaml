@@ -19,6 +19,8 @@ tags:
 - coding
 - agent
 check: ${binary} --version | cut -d' ' -f2
+runtime_dependencies:
+- tmux
 platforms:
 - linux/amd64
 - linux/arm64
