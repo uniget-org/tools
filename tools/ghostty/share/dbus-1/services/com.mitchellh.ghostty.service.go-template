@@ -1,0 +1,4 @@
+[D-BUS Service]
+Name=com.mitchellh.ghostty
+SystemdService=app-com.mitchellh.ghostty.service
+Exec={{ .Target }}/bin/ghostty --gtk-single-instance=true --initial-window=false
