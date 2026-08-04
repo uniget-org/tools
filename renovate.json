@@ -73,7 +73,7 @@
       "matchFileNames": [
         "tools/ghostty-noble/*"
       ],
-      "matchDataSources": [
+      "matchDatasources": [
         "docker"
       ],
       "matchPackageNames": [
