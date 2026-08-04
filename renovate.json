@@ -68,6 +68,22 @@
       "matchPackageNames": [
         "ghcr.io/uniget-org/tools/{/,}**"
       ]
+    },
+    {
+      "matchFileNames": [
+        "tools/ghostty-noble/*"
+      ],
+      "matchDataSources": [
+        "docker"
+      ],
+      "matchPackageNames": [
+        "registry.gitlab.com/uniget-org/images/build-essential"
+      ],
+      "matchUpdateTypes": [
+        "major",
+        "minor"
+      ],
+      "enabled": false
     }
   ],
   "customManagers": [
