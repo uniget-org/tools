@@ -6,7 +6,7 @@ license:
   link: https://github.com/GoogleCloudPlatform/docker-credential-gcr/blob/master/LICENSE
 homepage: https://gcr.io
 repository: https://github.com/GoogleCloudPlatform/docker-credential-gcr
-version: "2.1.32"
+version: "2.1.33"
 tags:
 - standard/docker
 - container/runtime
