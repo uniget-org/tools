@@ -6,7 +6,7 @@ license:
   link: https://github.com/aquasecurity/kube-bench/blob/main/LICENSE
 homepage: https://github.com/aquasecurity/kube-bench
 repository: https://github.com/aquasecurity/kube-bench
-version: "0.15.6"
+version: "0.16.0"
 tags:
 - type/cli
 - category/security
