@@ -5,7 +5,7 @@ license:
   name: MIT License
 homepage: https://github.com/projectdiscovery/katana
 repository: https://github.com/projectdiscovery/katana
-version: "1.6.1"
+version: "1.7.0"
 tags:
 - category/security
 - type/cli
