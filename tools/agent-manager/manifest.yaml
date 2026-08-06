@@ -3,7 +3,7 @@ $schema: https://tools.uniget.dev/schema.yaml
 name: agent-manager
 description: Terminal UI to manage AI coding-agent sessions (Claude Code, OpenCode, Codex, Grok, Gemini CLI) in tmux
 license:
-  name: MIT License
+  name: Apache License 2.0
   link: https://github.com/YoanWai/agent-manager/blob/main/LICENSE
 homepage: https://agent-manager.dev
 repository: https://github.com/YoanWai/agent-manager
