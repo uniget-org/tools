@@ -6,7 +6,7 @@ license:
   link: https://github.com/kubernetes-sigs/zeitgeist/blob/master/LICENSE
 homepage: https://godoc.org/sigs.k8s.io/zeitgeist
 repository: https://github.com/kubernetes-sigs/zeitgeist
-version: "0.7.0"
+version: "0.8.0"
 tags:
 - category/development
 - type/cli
