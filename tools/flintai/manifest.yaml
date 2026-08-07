@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: flintai
+description: CLI to analyze AI agent code and runtime behavior via code scanning (whitebox) and runtime evaluation (blackbox), mapped to OWASP Top 10 for Agentic Applications
+license:
+  name: Apache License 2.0 with Commons Clause
+  link: https://github.com/sandbox-quantum/flintai-cli/blob/main/LICENSE
+homepage: https://flintai.dev
+repository: https://github.com/sandbox-quantum/flintai-cli
+version: "1.1.1"
+tags:
+- category/security
+- lang/python
+- type/cli
+- ai
+- llm
+- agent
+check: ${binary} --version | cut -d' ' -f2
+build_dependencies:
+- python-3.12
+- shiv
+runtime_dependencies:
+- python-3.12
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: pypi
+  package: flintai-cli
