@@ -7,7 +7,7 @@ license:
   link: https://github.com/Wilfred/difftastic/blob/master/LICENSE
 homepage: https://github.com/Wilfred/difftastic
 repository: https://github.com/Wilfred/difftastic
-version: "0.69.0"
+version: "0.70.0"
 tags:
 - category/development
 - lang/rust
