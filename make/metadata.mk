@@ -32,7 +32,8 @@ metadata-renovate.json: \
 			echo "ERROR: Missing required environment variables for keyless signing: ACTIONS_ID_TOKEN_REQUEST_URL, ACTIONS_ID_TOKEN_REQUEST_TOKEN, GITHUB_REF_NAME."; \			exit 1;  \
 			exit 1; \
 	fi; \
-	cosign sign-blob $* --bundle=$@
+	cosign sign-blob $* --bundle=$@; \
+	chmod 0644 $@
 
 metadata-full.json: \
 		$(addsuffix /manifest-full.json,$(TOOLS)) \
