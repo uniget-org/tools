@@ -7,7 +7,7 @@ license:
   link: https://github.com/Kilo-Org/kilocode/blob/main/LICENSE
 homepage: https://kilo.ai/
 repository: https://github.com/Kilo-Org/kilocode
-version: "7.4.20"
+version: "7.4.21"
 tags:
 - category/development
 - lang/javascript
