@@ -26,7 +26,7 @@ renovate:
   extractVersion: ^v(?<version>.+)$
 messages:
   internals: |
-    Enable the SystemD socket unit: systemctl --user enable --now gitsign.socket
+    Enable the SystemD socket unit: systemctl --user enable --now gitsign-credential-cache.socket
   usage: |
     If you are using WSL install the following tools using uniget:
     - wslu
