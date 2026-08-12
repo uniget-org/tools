@@ -6,7 +6,7 @@ license:
   link: https://github.com/charmbracelet/glow/blob/master/LICENSE
 homepage: https://github.com/charmbracelet/glow
 repository: https://github.com/charmbracelet/glow
-version: "2.1.2"
+version: "3.0.0"
 tags:
 - org/charmbracelet
 - category/operations
