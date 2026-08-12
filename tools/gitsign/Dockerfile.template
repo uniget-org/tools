@@ -76,6 +76,7 @@ RUN <<EOF
 "${prefix}/bin/gitsign" completion zsh >"${prefix}/share/zsh/vendor-completions/_gitsign"
 EOF
 RUN <<EOF
+mkdir -p "${prefix}/etc/systemd/user"
 curl --silent --show-error --location --fail --output "${prefix}/etc/systemd/user/gitsign-credential-cache.socket" \
     "https://github.com/sigstore/gitsign/raw/refs/tags/v${version}/contrib/systemd/gitsign-credential-cache.socket"
 curl --silent --show-error --location --fail --output "${prefix}/etc/systemd/user/gitsign-credential-cache.service" \
