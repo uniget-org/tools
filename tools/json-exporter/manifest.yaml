@@ -7,7 +7,7 @@ license:
   link: https://github.com/prometheus-community/json_exporter/blob/master/LICENSE
 homepage: https://github.com/prometheus-community/json_exporter
 repository: https://github.com/prometheus-community/json_exporter
-version: "0.7.0"
+version: "0.8.0"
 tags:
 - category/operations
 - lang/go
