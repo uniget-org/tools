@@ -7,7 +7,7 @@ license:
   link: https://github.com/stacklok/frizbee/blob/main/LICENSE
 homepage: https://github.com/stacklok/frizbee
 repository: https://github.com/stacklok/frizbee
-version: "0.1.10"
+version: "0.1.11"
 tags:
 - category/development
 - lang/go
