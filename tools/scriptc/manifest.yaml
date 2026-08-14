@@ -7,7 +7,7 @@ license:
   link: https://github.com/vercel-labs/scriptc/blob/main/LICENSE
 homepage: https://scriptc.dev
 repository: https://github.com/vercel-labs/scriptc
-version: "0.0.28"
+version: "0.0.29"
 tags:
 - category/development
 - lang/javascript
