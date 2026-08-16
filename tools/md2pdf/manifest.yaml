@@ -7,7 +7,7 @@ license:
   link: https://github.com/solworktech/md2pdf/blob/master/LICENSE
 homepage: ""
 repository: https://github.com/solworktech/md2pdf
-version: "2.2.19"
+version: "2.2.20"
 tags:
 - category/utility
 - type/cli
