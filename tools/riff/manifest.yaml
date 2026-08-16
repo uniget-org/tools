@@ -7,7 +7,7 @@ license:
   link: https://github.com/walles/riff/blob/master/LICENSE
 homepage: https://github.com/walles/riff
 repository: https://github.com/walles/riff
-version: "3.6.1"
+version: "3.6.2"
 tags:
 - category/development
 - lang/rust
