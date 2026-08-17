@@ -7,7 +7,7 @@ license:
   link: https://github.com/AlexsJones/llmfit/blob/main/LICENSE
 homepage: https://github.com/AlexsJones/llmfit
 repository: https://github.com/AlexsJones/llmfit
-version: "1.1.9"
+version: "1.1.10"
 tags:
 - type/cli
 - category/operations
