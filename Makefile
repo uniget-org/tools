@@ -6,6 +6,7 @@ include make/tool.mk
 include make/helpers.mk
 include make/sbom.mk
 include make/ghcr.mk
+include make/stats.mk
 
 check_defined = \
     $(strip $(foreach 1,$1, \
