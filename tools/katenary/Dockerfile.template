@@ -1,0 +1,25 @@
+#syntax=docker/dockerfile:1.26.0@sha256:ecfaec9ed6d810b56388c508f4121597bfbba70d41a6dfeee4d8cad5f295fc32
+
+FROM registry.gitlab.com/uniget-org/images/alpine:3.24@sha256:814dc41ebd1e3ff99852fc087c970666aa9b3e0de99af97438bddfd1760cb6dc AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://repo.katenary.io/api/packages/Katenary/generic/katenary/${version}/katenary-linux-${arch}"
+filename="$( basename "${url}" )"
+
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/katenary"
+
+"${prefix}/bin/katenary" completion bash >"${prefix}/share/bash-completion/completions/katenary"
+"${prefix}/bin/katenary" completion fish >"${prefix}/share/fish/vendor_completions.d/katenary.fish"
+"${prefix}/bin/katenary" completion zsh >"${prefix}/share/zsh/vendor-completions/_katenary"
+EOF
