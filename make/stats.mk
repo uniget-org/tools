@@ -24,8 +24,25 @@ stats/merged.json: stats/tools_added.json stats/version_updates.json
 	| jq 'map(. + {avg_version_updates: (if (.tool_count // 0) == 0 then null else (.version_updates // 0) / .tool_count end)})' \
 	>$@
 
+stats/updates_per_tool.json:
+	@\
+	mkdir -p stats; \
+	cat history.json \
+	| jq 'map(select(.message | startswith("chore(deps): "))) | map(select(.tools | length == 1))' \
+	| jq 'group_by(.tools[0]) | map({ tool: .[0].tools[0], updates: length, dates: (. | map(.date | strptime("%a %b %d %H:%M:%S %Y %z") | mktime)) })' \
+	>$@
+
+stats/updates_per_tool_histogram.json: stats/updates_per_tool.json
+	@\
+	cat stats/updates_per_tool.json \
+	| jq 'map({ tool, updates }) | sort_by(.updates)' \
+	>$@
+
 stats/%.csv: stats/%.json
 	@jq -r '.[] | to_entries | map(.value) | @csv' stats/$*.json >stats/$*.csv
 
 $(PLOTS:%.gnuplot=stats/%.svg):stats/%.svg: stats/merged.csv scripts/%.gnuplot
 	@gnuplot -e "csv_file_path='stats/merged.csv'" -e "graphic_file_name='$@'" scripts/$*.gnuplot
+
+stats/updates_per_tool_histogram.svg:stats/%.svg: stats/updates_per_tool_histogram.csv scripts/%.gnuplot
+	@gnuplot -e "csv_file_path='stats/$*.csv'" -e "graphic_file_name='$@'" scripts/$*.gnuplot
