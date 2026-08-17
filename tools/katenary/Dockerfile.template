@@ -8,7 +8,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://repo.katenary.io/api/packages/Katenary/generic/katenary/${version}/katenary-linux-${arch}"
+url="https://repo.katenary.io/api/packages/Katenary/generic/katenary/${version}/katenary-linux-${alt_arch}"
 filename="$( basename "${url}" )"
 
 check-download "${url}"
