@@ -2,23 +2,20 @@
 
 FROM ghcr.io/uniget-org/tools/rust:latest AS rust
 
-FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:b0b654de801604e256237f2c27a907a4b61b59ebd83423ad0e0e465c0a3ba9cd AS build
+FROM registry.gitlab.com/uniget-org/images/build-essential:26.04@sha256:1ed0eccad96ae7a150a8ecb82a0034969949572532adaf9bd41505d23037df72 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=rust / /usr/local/
-RUN apt-get update && apt-get install -y --no-install-recommends build-essential && rm -rf /var/lib/apt/lists/*
-ARG version
-WORKDIR /tmp/build
-RUN <<EOF
-git clone --depth 1 --branch main https://github.com/penberg/chimera.git .
-cargo build --release --package chimera-cli
-mkdir -p /tmp/out/bin
-install --mode=0755 target/release/chimera /tmp/out/bin/
-EOF
-
-FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:b0b654de801604e256237f2c27a907a4b61b59ebd83423ad0e0e465c0a3ba9cd AS prepare
 ARG name
 ARG version
-COPY --from=build /tmp/out/ /uniget_bootstrap/
+WORKDIR /tmp/chimera
+RUN <<EOF
+git clone https://github.com/penberg/chimera.git .
+git checkout "${version}"
+export CARGO_HOME=/usr/local/cargo
+export RUSTUP_HOME=/usr/local/rustup
+cargo build --release --package chimera-cli
+install --mode=0755 target/release/chimera "${prefix}/bin/"
+EOF
