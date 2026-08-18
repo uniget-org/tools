@@ -1,0 +1,36 @@
+#syntax=docker/dockerfile:1.26.0@sha256:ecfaec9ed6d810b56388c508f4121597bfbba70d41a6dfeee4d8cad5f295fc32
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:b0b654de801604e256237f2c27a907a4b61b59ebd83423ad0e0e465c0a3ba9cd AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/mistralai/mistral-vibe/releases/download/v${version}/vibe-linux-${arch}-${version}.zip"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "mistralai/mistral-vibe" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+mkdir -p "${prefix}/libexec/mistral-vibe"
+unzip -l "${uniget_cache_download}/${filename}"
+unzip -q "${uniget_cache_download}/${filename}" -d "${prefix}/libexec/vibe"
+ln --symbolic --relative --force "${prefix}/libexec/vibe/vibe" "${prefix}/bin/"
+EOF
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/mistralai/mistral-vibe/releases/download/v${version}/vibe-acp-linux-${arch}-${version}.tar.gz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "mistralai/mistral-vibe" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+mkdir -p "${prefix}/libexec/mistral-vibe"
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/libexec/vibe" --no-same-owner \
+    ./vibe-acp
+ln --symbolic --relative --force "${prefix}/libexec/vibe/vibe-acp" "${prefix}/bin/"
+EOF
