@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+name: rtk
+description: AI coding assistant that integrates with existing coding agents like Claude Code, Copilot, and Codex
+license:
+  name: Apache License 2.0
+  link: https://github.com/rtk-ai/rtk/blob/main/LICENSE
+homepage: https://rtk.ai
+repository: https://github.com/rtk-ai/rtk
+version: "0.45.0"
+tags:
+- type/cli
+- category/development
+- lang/rust
+- org/rtk-ai
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: rtk-ai/rtk
+  extractVersion: ^v(?<version>.+)$
