@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: microsandbox
+description: Easy fast local-first microVM runtime for untrusted workloads
+license:
+  name: Apache-2.0
+  link: https://github.com/superradcompany/microsandbox/blob/main/LICENSE
+homepage: https://microsandbox.dev
+repository: https://github.com/superradcompany/microsandbox
+version: "0.6.10"
+tags:
+- type/cli
+- category/security
+- category/development
+- lang/rust
+binary: msb
+check: ${binary} --version
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: superradcompany/microsandbox
+  extractVersion: ^v(?<version>.+)$
