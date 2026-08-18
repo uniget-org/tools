@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: betterleaks
+description: Configurable, fast, and thorough secrets scanner
+license:
+  name: MIT License
+  link: https://github.com/betterleaks/betterleaks/blob/main/LICENSE
+homepage: https://betterleaks.com
+repository: https://github.com/betterleaks/betterleaks
+version: "1.7.4"
+tags:
+- type/cli
+- category/security
+- lang/go
+- standard/git
+check: ${binary} version
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: betterleaks/betterleaks
+  extractVersion: ^v(?<version>.+)$
