@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: prempti
+description: Falco-powered policy and visibility layer for AI coding agents
+license:
+  name: Apache License 2.0
+  link: https://github.com/falcosecurity/prempti/blob/main/LICENSE
+homepage: https://github.com/falcosecurity/prempti
+repository: https://github.com/falcosecurity/prempti
+version: "0.2.1"
+tags:
+- org/cncf
+- category/security
+- lang/rust
+- type/cli
+check: ${binary} --version | cut -d' ' -f2
+binary: premptictl
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: falcosecurity/prempti
+  extractVersion: ^v(?<version>.+)$
