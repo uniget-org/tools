@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: coreutils
+description: Cross-platform Rust rewrite of the GNU coreutils
+license:
+  name: MIT
+  link: https://github.com/uutils/coreutils/blob/main/LICENSE
+homepage: https://uutils.org
+repository: https://github.com/uutils/coreutils
+version: "0.10.0"
+tags:
+- type/cli
+- category/utility
+- lang/rust
+conflicts_with: gnu-coreutils
+check: ${binary} --version | head -1
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: uutils/coreutils
