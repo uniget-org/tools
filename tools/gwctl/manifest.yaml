@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+name: gwctl
+description: CLI tool for managing and understanding Gateway API resources in Kubernetes
+license:
+  name: Apache License 2.0
+  link: https://github.com/kubernetes-sigs/gwctl/blob/main/LICENSE
+homepage: https://github.com/kubernetes-sigs/gwctl
+repository: https://github.com/kubernetes-sigs/gwctl
+version: "0.2.0"
+tags:
+- type/cli
+- category/kubernetes
+- category/network
+- lang/go
+- org/cncf
+- k8s
+check: ${binary} version | grep ^Version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: kubernetes-sigs/gwctl
+  extractVersion: ^v(?<version>.+)$
