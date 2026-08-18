@@ -9,11 +9,12 @@ repository: https://github.com/kubernetes-sigs/gwctl
 version: "0.2.0"
 tags:
 - type/cli
-- category/kubernetes
-- category/network
+- category/operations
 - lang/go
 - org/cncf
+- kubernetes
 - k8s
+- component/network
 check: ${binary} version | grep ^Version | cut -d' ' -f2
 platforms:
 - linux/amd64
