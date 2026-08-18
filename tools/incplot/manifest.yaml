@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: incplot
+description: CLI tool for drawing plots in the terminal and in HTML focused on ergonomics and simplicity
+license:
+  name: MIT License
+  link: https://github.com/InCom-0/incplot/blob/main/LICENSE.txt
+homepage: https://github.com/InCom-0/incplot
+repository: https://github.com/InCom-0/incplot
+version: "1.0.3"
+tags:
+- category/visualization
+- lang/cpp
+- type/cli
+check: ${binary} --version | grep -oP '\d+\.\d+\.\d+'
+build_dependencies:
+- make
+platforms:
+- linux/amd64
+renovate:
+  datasource: github-releases
+  package: InCom-0/incplot
+  extractVersion: ^v(?<version>.+)$
