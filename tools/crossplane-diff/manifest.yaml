@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: crossplane-diff
+description: Command line diff tool for Crossplane resources
+license:
+  name: Apache License 2.0
+  link: https://github.com/crossplane-contrib/crossplane-diff/blob/main/LICENSE
+homepage: https://github.com/crossplane-contrib/crossplane-diff
+repository: https://github.com/crossplane-contrib/crossplane-diff
+version: "0.10.0"
+tags:
+- org/cncf
+- category/kubernetes
+- lang/go
+- type/cli
+check: ${binary} version --client | grep "^Client Version" | cut -d' ' -f3 | sed 's/^v//'
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: crossplane-contrib/crossplane-diff
+  extractVersion: ^v(?<version>.+)$
