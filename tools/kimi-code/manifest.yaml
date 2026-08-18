@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+name: kimi-code
+description: AI coding agent by Moonshot AI with TUI, skills, and multi-provider support
+license:
+  name: MIT License
+  link: https://github.com/MoonshotAI/kimi-code/blob/main/LICENSE
+homepage: https://kimi.moonshot.cn
+repository: https://github.com/MoonshotAI/kimi-code
+version: "0.37.0"
+tags:
+- type/cli
+- type/tui
+- category/development
+- lang/javascript
+- org/moonshot
+check: ${binary} --version
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: MoonshotAI/kimi-code
+  extractVersion: ^@moonshot-ai/kimi-code@(?<version>.+)$
