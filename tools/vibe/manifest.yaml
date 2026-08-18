@@ -1,5 +1,5 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
-name: mistral-vibe
+name: vibe
 description: AI coding agent by Mistral with terminal TUI and Agent Client Protocol support
 license:
   name: Apache License 2.0
@@ -13,7 +13,10 @@ tags:
 - category/development
 - lang/python
 - org/mistral
-binary: vibe-acp
+- ai
+- llm
+- coding
+- agent
 check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
