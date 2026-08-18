@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: opengrep
+description: Open source static code analysis engine to find security issues in code
+license:
+  name: LGPL-2.1
+  link: https://github.com/opengrep/opengrep/blob/main/LICENSE
+homepage: https://opengrep.dev
+repository: https://github.com/opengrep/opengrep
+version: "1.27.1"
+tags:
+- category/security
+- category/development
+- lang/python
+- type/cli
+check: ${binary} --version
+conflicts_with:
+- semgrep
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: opengrep/opengrep
+  extractVersion: ^v(?<version>.+)$
