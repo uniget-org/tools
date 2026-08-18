@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: ballast
+description: Automated Kubernetes workload resource tracking and adjustment
+license:
+  name: MIT License
+  link: https://github.com/Tight-Line/ballast/blob/main/LICENSE
+homepage: https://github.com/Tight-Line/ballast
+repository: https://github.com/Tight-Line/ballast
+version: "0.6.0"
+tags:
+- org/tight-line
+- category/kubernetes
+- lang/go
+- type/daemon
+check: ""
+binary: ballastd
+build_dependencies:
+- go
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: Tight-Line/ballast
+  extractVersion: ^v(?<version>.+)$
