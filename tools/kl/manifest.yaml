@@ -3,20 +3,28 @@ $schema: https://tools.uniget.dev/schema.yaml
 name: kl
 description: Interactive Kubernetes log viewer for your terminal
 license:
-  name: MIT License
+  name: MIT
   link: https://github.com/robinovitch61/kl/blob/main/LICENSE
 homepage: https://github.com/robinovitch61/kl
 repository: https://github.com/robinovitch61/kl
 version: "0.9.1"
 tags:
-- category/operations
-- lang/go
 - type/cli
-check: ${binary} --version | cut -d' ' -f2 | tr -d v
-platforms:
-- linux/amd64
-- linux/arm64
+- type/tui
+- category/development
+- lang/go
 renovate:
   datasource: github-releases
   package: robinovitch61/kl
   extractVersion: ^v(?<version>.+)$
+check: ${binary} --version
+platforms:
+- linux/amd64
+- linux/arm64
+download: |
+  ${repo}/releases/download/v${version}/kl_${version}_Linux_${alt_arch}.tar.gz
+  x86_64: x86_64
+  aarch64: arm64
+install: |
+  tar --extract --gzip --file="${download}" --no-same-owner
+  mv kl "${prefix}/bin/"
