@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: portless
+description: Replace port numbers with stable, named local URLs for development
+license:
+  name: Apache-2.0
+  link: https://github.com/vercel-labs/portless/blob/main/LICENSE
+homepage: https://portless.sh
+repository: https://github.com/vercel-labs/portless
+version: "0.15.5"
+tags:
+- type/cli
+- category/development
+- lang/javascript
+- org/vercel
+check: ${binary} --version
+platforms:
+- linux/amd64
+renovate:
+  datasource: npm
+  package: portless
