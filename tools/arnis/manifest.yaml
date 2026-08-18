@@ -7,7 +7,7 @@ license:
   link: https://github.com/louis-e/arnis/blob/main/LICENSE
 homepage: https://github.com/louis-e/arnis
 repository: https://github.com/louis-e/arnis
-version: "3.0.0"
+version: "3.1.0"
 tags:
 - type/cli
 - category/games
