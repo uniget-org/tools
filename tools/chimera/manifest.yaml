@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: chimera
+description: Sandbox untrusted code with safe access to the host using userspace dynamic binary translation
+license:
+  name: MIT
+  link: https://github.com/penberg/chimera/blob/main/LICENSE.md
+homepage: https://github.com/penberg/chimera
+repository: https://github.com/penberg/chimera
+version: "0.0.1"
+tags:
+- type/cli
+- category/security
+- category/development
+- lang/rust
+check: ${binary} --help
+build_dependencies:
+- rust
+platforms:
+- linux/amd64
+renovate:
+  datasource: github-refs
+  package: penberg/chimera
