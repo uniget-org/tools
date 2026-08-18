@@ -14,7 +14,7 @@ To maintain a clean history, always follow this workflow:
 Never commit directly to `main`. Create a new branch for your tool:
 
 ```bash
-git checkout -b <toolname>
+git checkout -b <toolname> main
 ```
 
 ### Use semantic commit messages
@@ -34,10 +34,12 @@ We use [Conventional Commits](https://www.conventionalcommits.org/). Your commit
 
 ### Create a Pull Request
 
-Once you have committed your changes, push the branch and create a Pull Request (PR) on GitHub:
+Committed your changes and push the branch and create a Pull Request (PR) on GitHub:
 
 ```bash
+git add tools/<toolname>
 git push origin <toolname>
+gh pr create
 ```
 
 Then, visit the link provided in the terminal output to open your PR.
