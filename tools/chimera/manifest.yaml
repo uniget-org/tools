@@ -7,13 +7,13 @@ license:
   link: https://github.com/penberg/chimera/blob/main/LICENSE.md
 homepage: https://github.com/penberg/chimera
 repository: https://github.com/penberg/chimera
-version: "0.0.1"
+version: "954732a8ca40d629a0f6337524c8c3b932b4c611"
 tags:
 - type/cli
 - category/security
 - category/development
 - lang/rust
-check: ${binary} --help
+check: "" # No releases
 build_dependencies:
 - rust
 platforms:
@@ -21,3 +21,4 @@ platforms:
 renovate:
   datasource: github-refs
   package: penberg/chimera
+  ref: main
