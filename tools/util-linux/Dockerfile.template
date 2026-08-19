@@ -1,41 +1,30 @@
 #syntax=docker/dockerfile:1.26.0@sha256:ecfaec9ed6d810b56388c508f4121597bfbba70d41a6dfeee4d8cad5f295fc32
 
-FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:b0b654de801604e256237f2c27a907a4b61b59ebd83423ad0e0e465c0a3ba9cd AS prepare
+FROM ghcr.io/uniget-org/tools/rust:latest AS rust
+
+FROM registry.gitlab.com/uniget-org/images/build-essential:26.04@sha256:1ed0eccad96ae7a150a8ecb82a0034969949572532adaf9bd41505d23037df72 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-RUN --mount=type=cache,target=/var/cache/apt <<EOF
-apt-get update
-apt-get -y install --no-install-recommends \
-    git \
-    ca-certificates \
-    autoconf \
-    automake \
-    autopoint \
-    gettext \
-    bison \
-    flex \
-    libtool \
-    pkg-config \
-    make \
-    asciidoctor
-EOF
-WORKDIR /tmp/util-linux
 ARG name
 ARG version
+COPY --link --from=rust / /usr/local/
+WORKDIR /tmp/github.com/uutils/util-linux
+RUN --mount=type=cache,target=/usr/local/cargo/registry <<EOF
+check-clone "https://github.com/uutils/util-linux" "${version}"
+git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" https://github.com/uutils/util-linux .
+export CARGO_HOME=/usr/local/cargo
+export RUSTUP_HOME=/usr/local/rustup
+cargo build --release --target "${arch}-unknown-linux-gnu"
+cp "target/${arch}-unknown-linux-gnu/release/util-linux" "${prefix}/bin/"
+EOF
 RUN <<EOF
-check-clone https://github.com/util-linux/util-linux "v${version}"
-git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/util-linux/util-linux .
-./autogen.sh
-./configure --disable-shared --disable-liblastlog2
-make -j$(nproc) LDFLAGS=--static
-cp lsns nsenter unshare "${prefix}/bin"
-cp \
-    sys-utils/nsenter.1 sys-utils/unshare.1 \
-    "${prefix}/share/man/man1/"
-cp sys-utils/lsns.8 "${prefix}/share/man/man8/"
-cp \
-    bash-completion/lsns bash-completion/nsenter bash-completion/unshare \
-    "${prefix}/share/bash-completion/completions"
+"${prefix}/bin/util-linux" --help 2>/dev/null \
+    | grep -oP '(?<=    ).+' \
+    | tr ',' '\n' \
+    | sed 's/^ //;s/ //' \
+    | while read -r util; do
+        ln --symbolic --relative --force "${prefix}/bin/util-linux" "${prefix}/bin/${util}"
+    done
 EOF
