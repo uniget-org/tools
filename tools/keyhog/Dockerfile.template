@@ -9,6 +9,8 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=rust / /usr/local/
 WORKDIR /tmp/github.com/santhreal/keyhog
+ARG name
+ARG version
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/santhreal/keyhog .
 export CARGO_HOME=/usr/local/cargo
