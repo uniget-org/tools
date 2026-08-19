@@ -9,14 +9,17 @@ homepage: https://github.com/InCom-0/incplot
 repository: https://github.com/InCom-0/incplot
 version: "1.0.3"
 tags:
-- category/visualization
-- lang/cpp
+- category/development
+- lang/c
 - type/cli
-check: ${binary} --version | grep -oP '\d+\.\d+\.\d+'
+- plot
+- graph
+check: ${binary} --version | tr -d v
 build_dependencies:
 - make
 platforms:
 - linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: InCom-0/incplot
