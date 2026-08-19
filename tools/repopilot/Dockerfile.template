@@ -10,22 +10,7 @@ ARG name
 ARG version
 
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-echo "### Setting architecture string for ${TARGETPLATFORM}"
-case "${arch}" in
-    x86_64)
-        export rust_target="x86_64-unknown-linux-gnu"
-        ;;
-    aarch64)
-        export rust_target="aarch64-unknown-linux-gnu"
-        ;;
-    *)
-        echo "ERROR: Unsupported architecture ${arch}." >&2
-        exit 1
-        ;;
-esac
-echo "    Using ${rust_target}"
-
-url="https://github.com/MykytaStel/repopilot/releases/download/v${version}/repopilot-v${version}-${rust_target}.tar.gz"
+url="https://github.com/MykytaStel/repopilot/releases/download/v${version}/repopilot-v${version}-${arch}-unknown-linux-gnu.tar.gz"
 filename="$( basename "${url}" )"
 
 check-download "${url}"
