@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: kapro
+description: Kubernetes GitOps and fleet management CLI
+license:
+  name: Apache License 2.0
+  link: https://github.com/Kapro-dev/kapro/blob/main/LICENSE
+homepage: https://github.com/Kapro-dev/kapro
+repository: https://github.com/Kapro-dev/kapro
+version: "0.6.0"
+tags:
+- category/kubernetes
+- lang/go
+- type/cli
+check: ${binary} version 2>&1 | grep -oP '\d+\.\d+\.\d+' | head -1
+build_dependencies:
+- go
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: Kapro-dev/kapro
+  extractVersion: ^v(?<version>.+)$
