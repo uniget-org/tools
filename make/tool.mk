@@ -25,15 +25,6 @@ $(addsuffix --clean,$(ALL_TOOLS_RAW)):%--clean:
 		$(TOOLS_DIR)/$*/sarif.json \
 		$(TOOLS_DIR)/$*/report.csv
 
-.PHONY:
-info-test:
-	@echo $(REGISTRY)
-	@echo $(COSIGN_REFERRERS_MODE)
-
-.PHONY:
-$(addsuffix --logs,$(ALL_TOOLS_RAW)):%--logs:
-	@less $(TOOLS_DIR)/$*/build.log
-
 $(addsuffix /manifest.json,$(ALL_TOOLS)):$(TOOLS_DIR)/%/manifest.json: \
 		$(TOOLS_DIR)/%/manifest.yaml \
 		; $(info $(M) Creating manifest for $*...)

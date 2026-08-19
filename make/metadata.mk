@@ -77,10 +77,6 @@ $(addsuffix --metadata-full,$(ALL_TOOLS_RAW)):%--metadata-full: \
 	rm -f metadata-full.json.tmp
 
 .PHONY:
-metadata.json--show:%--show:
-	@less $*
-
-.PHONY:
 metadata.json--build: \
 		metadata.json \
 		metadata.json.sigstore.json \
@@ -135,19 +131,3 @@ metadata-full.json--push: \
 metadata-full.json--push: \
 		metadata-full.json--build \
 		; $(info $(M) Pushing metadata image...)
-
-.PHONY:
-metadata.json--sign: \
-		$(HELPER)/var/lib/uniget/manifests/cosign.json \
-		cosign.key \
-		; $(info $(M) Signing metadata image...)
-	@set -o errexit; \
-	source .env; \
-	cosign sign --key cosign.key $(REGISTRY)/$(REPOSITORY_PREFIX)metadata:$(DOCKER_TAG)
-
-.PHONY:
-metadata.json--keyless-sign: \
-		$(HELPER)/var/lib/uniget/manifests/cosign.json \
-		; $(info $(M) Keyless signing metadata image...)
-	@set -o errexit; \
-	COSIGN_EXPERIMENTAL=1 cosign sign $(REGISTRY)/$(REPOSITORY_PREFIX)metadata:$(DOCKER_TAG)
