@@ -19,6 +19,6 @@ build_dependencies:
 platforms:
 - linux/amd64
 renovate:
-  datasource: github-refs
+  datasource: git-refs
   package: penberg/chimera
   ref: main

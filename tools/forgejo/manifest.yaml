@@ -22,4 +22,3 @@ renovate:
   datasource: git-tags
   package: https://codeberg.org/forgejo/forgejo.git
   extractVersion: ^v(?<version>.+)$
-  versioning: regex:^(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-(?<build>\d+)$
