@@ -10,13 +10,12 @@ repository: https://github.com/kubetail-org/kubetail
 version: "0.18.0"
 tags:
 - type/cli
-- category/kubernetes
 - category/observability
 - kubernetes
 - k8s
 - logs
 - lang/go
-check: ${binary} version | grep "^kubetail" | head -1 | cut -d' ' -f3 | sed 's/^v//'
+check: ${binary} version | cut -d' ' -f3
 platforms:
 - linux/amd64
 - linux/arm64
