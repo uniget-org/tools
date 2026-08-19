@@ -15,7 +15,3 @@ RUN <<EOF
 bun install "@kpolley/redai@${version}"
 ln --symbolic --relative --force "${prefix}/libexec/redai/node_modules/.bin/redai" "${prefix}/bin/"
 EOF
-
-
-FROM scratch
-COPY --from=prepare /uniget_bootstrap /
