@@ -12,6 +12,8 @@ tags:
 - category/security
 - lang/typescript
 - type/cli
+- password
+- management
 check: ${binary} --version
 platforms:
 - linux/amd64
