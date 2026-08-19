@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: tori
+description: Docker server monitoring without the stack. Metrics, logs, and alerts from your terminal
+license:
+  name: MIT License
+  link: https://github.com/thobiasn/tori-cli/blob/main/LICENSE
+homepage: https://toricli.sh
+repository: https://github.com/thobiasn/tori-cli
+version: "0.3.4"
+tags:
+- category/monitoring
+- type/cli
+- type/tui
+- lang/go
+check: ${binary} version 2>&1 | grep -oP '\d+\.\d+\.\d+' | head -1
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: thobiasn/tori-cli
+  extractVersion: ^v(?<version>.+)$
