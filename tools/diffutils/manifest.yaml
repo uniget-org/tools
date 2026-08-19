@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: diffutils
+description: Rust implementation of diff and cmp
+license:
+  name: MIT
+  link: https://github.com/uutils/diffutils/blob/main/LICENSE-MIT
+homepage: https://uutils.org
+repository: https://github.com/uutils/diffutils
+version: "0.5.0"
+tags:
+- type/cli
+- category/helper
+- lang/rust
+check: ${binary} | head -1 | cut -d' ' -f2
+build_dependencies:
+- rust
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-tags
+  package: uutils/diffutils
+  extractVersion: ^v(?<version>.+)$
