@@ -35,7 +35,3 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
 unzip -q -o -d "${prefix}/bin" "${uniget_cache_download}/${filename}"
 chmod +x "${prefix}/bin/bw"
 EOF
-
-
-FROM scratch
-COPY --from=prepare /uniget_bootstrap /
