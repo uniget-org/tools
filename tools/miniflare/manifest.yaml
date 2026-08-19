@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: miniflare
+description: Fun, full-featured, fully-local simulator for Cloudflare Workers
+license:
+  name: MIT License
+  link: https://github.com/cloudflare/workers-sdk
+homepage: https://github.com/cloudflare/workers-sdk/tree/main/packages/miniflare#readme
+repository: https://github.com/cloudflare/workers-sdk
+version: "4.20260730.0"
+tags:
+- org/cloudflare
+- category/development
+- lang/javascript
+- type/cli
+- cloud/cloudflare
+check: ${binary} --version 2>&1 | head -1
+build_dependencies:
+- node-lts
+runtime_dependencies:
+- node-lts
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: cloudflare/workers-sdk
+  extractVersion: ^miniflare@(?<version>.+)$
