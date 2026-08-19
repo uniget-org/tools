@@ -13,9 +13,7 @@ tags:
 - category/development
 - lang/rust
 - standard/git
-- org/gitbutlerapp
-conflicts_with: git
-check: ${binary} --version
+check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
 - linux/arm64

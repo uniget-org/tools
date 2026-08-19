@@ -9,22 +9,7 @@ ARG name
 ARG version
 
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-echo "### Setting architecture string for ${TARGETPLATFORM}"
-case "${arch}" in
-    x86_64)
-        export target="x86_64-unknown-linux-musl"
-        ;;
-    aarch64)
-        export target="aarch64-unknown-linux-musl"
-        ;;
-    *)
-        echo "ERROR: Unsupported architecture ${arch}."
-        exit 1
-        ;;
-esac
-echo "    Using ${target}"
-
-url="https://github.com/gitbutlerapp/grit/releases/download/v${version}/grit-${target}.tar.gz"
+url="https://github.com/gitbutlerapp/grit/releases/download/v${version}/grit-${arch}-unknown-linux-musl.tar.gz"
 filename="$( basename "${url}" )"
 
 check-download "${url}"
