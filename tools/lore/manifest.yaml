@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: lore
+description: Next-generation open source version control system by Epic Games
+license:
+  name: MIT License
+  link: https://github.com/EpicGames/lore/blob/main/LICENSE
+homepage: https://epicgames.github.io/lore/
+repository: https://github.com/EpicGames/lore
+version: "0.8.6"
+tags:
+- category/development
+- type/cli
+- lang/rust
+check: ${binary} version 2>&1 | grep -oP '\d+\.\d+\.\d+' | head -1
+platforms:
+- linux/amd64
+renovate:
+  datasource: github-releases
+  package: EpicGames/lore
+  extractVersion: ^v(?<version>.+)$
