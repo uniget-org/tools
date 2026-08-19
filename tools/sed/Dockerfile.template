@@ -1,0 +1,24 @@
+#syntax=docker/dockerfile:1.26.0@sha256:ecfaec9ed6d810b56388c508f4121597bfbba70d41a6dfeee4d8cad5f295fc32
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:b0b654de801604e256237f2c27a907a4b61b59ebd83423ad0e0e465c0a3ba9cd AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/uutils/sed/releases/download/${version}/sed-${arch}-unknown-linux-gnu.tar.xz"
+filename="$( basename "${url}" )"
+
+check-download "${url}"
+check-github-release-asset "uutils/sed" "${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --xz --strip-components=1 --no-same-owner \
+    --directory="${prefix}/bin" \
+    "sed-${arch}-unknown-linux-gnu/sed"
+EOF
