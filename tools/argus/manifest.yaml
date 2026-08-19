@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: argus
+description: RAG-based vulnerability scanner for multiple ecosystems
+license:
+  name: Apache License 2.0
+  link: https://github.com/abhishekamralkar/argus/blob/main/LICENSE
+homepage: https://github.com/abhishekamralkar/argus
+repository: https://github.com/abhishekamralkar/argus
+version: "1.0.24"
+tags:
+- category/security
+- type/cli
+- lang/go
+check: ${binary} version | grep -oP '\d+\.\d+\.\d+'
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: abhishekamralkar/argus
+  extractVersion: ^v(?<version>.+)$
