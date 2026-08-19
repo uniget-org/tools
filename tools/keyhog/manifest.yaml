@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: keyhog
+description: GPU-accelerated secret scanner for code, Git history, containers, cloud, and CI
+license:
+  name: MIT OR Apache-2.0
+  link: https://github.com/santhreal/keyhog/blob/main/LICENSE
+homepage: https://santh.dev/keyhog
+repository: https://github.com/santhreal/keyhog
+version: "0.5.78"
+tags:
+- category/security
+- type/cli
+- lang/rust
+check: ${binary} --version | grep -oP '\d+\.\d+\.\d+' | head -1
+build_dependencies:
+- rust
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: santhreal/keyhog
+  extractVersion: ^v(?<version>.+)$

@@ -1,0 +1,25 @@
+#syntax=docker/dockerfile:1.26.0@sha256:ecfaec9ed6d810b56388c508f4121597bfbba70d41a6dfeee4d8cad5f295fc32
+
+FROM ghcr.io/uniget-org/tools/rust:latest AS rust
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:b0b654de801604e256237f2c27a907a4b61b59ebd83423ad0e0e465c0a3ba9cd AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+COPY --link --from=rust / /usr/local/
+WORKDIR /tmp/github.com/santhreal/keyhog
+RUN <<EOF
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/santhreal/keyhog .
+export CARGO_HOME=/usr/local/cargo
+export RUSTUP_HOME=/usr/local/rustup
+export RUSTFLAGS='-C target-feature=+crt-static'
+cargo build --release --target "${arch}-unknown-linux-gnu" --package keyhog
+cp "target/${arch}-unknown-linux-gnu/release/keyhog" "${prefix}/bin/"
+EOF
+
+RUN <<EOF
+"${prefix}/bin/keyhog" completion bash >"${prefix}/share/bash-completion/completions/keyhog" 2>/dev/null || true
+"${prefix}/bin/keyhog" completion fish >"${prefix}/share/fish/vendor_completions.d/keyhog.fish" 2>/dev/null || true
+"${prefix}/bin/keyhog" completion zsh  >"${prefix}/share/zsh/vendor-completions/_keyhog" 2>/dev/null || true
+EOF
