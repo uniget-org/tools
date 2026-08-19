@@ -7,7 +7,7 @@ license:
   link: https://github.com/stefanberger/swtpm/blob/master/LICENSE
 homepage: https://github.com/stefanberger/swtpm
 repository: https://github.com/stefanberger/swtpm
-version: "0.10.1"
+version: "0.10.2"
 tags:
 - category/operations
 - lang/c
