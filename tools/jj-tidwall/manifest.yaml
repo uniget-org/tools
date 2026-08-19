@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: jj-tidwall
+description: JSON Stream Editor - command-line tool for editing JSON
+license:
+  name: MIT License
+  link: https://github.com/tidwall/jj/blob/master/LICENSE
+homepage: https://github.com/tidwall/jj
+repository: https://github.com/tidwall/jj
+version: "1.9.2"
+tags:
+- type/cli
+- format/json
+- standard/jq
+- lang/go
+binary: jj
+check: ${binary} --version | cut -d' ' -f3 | sed 's/^v//'
+platforms:
+- linux/amd64
+renovate:
+  datasource: github-releases
+  package: tidwall/jj
+  extractVersion: ^v(?<version>.+)$
