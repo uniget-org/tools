@@ -12,7 +12,9 @@ tags:
 - category/security
 - type/cli
 - lang/rust
-check: ${binary} --version | grep -oP '\d+\.\d+\.\d+' | head -1
+- secrets
+- standard/git
+check: ${binary} --version | grep ^KeyHog | cut -d' ' -f2 | tr -d v
 build_dependencies:
 - rust
 platforms:
