@@ -9,10 +9,11 @@ homepage: https://github.com/norwoodj/helm-docs
 repository: https://github.com/norwoodj/helm-docs
 version: "1.14.2"
 tags:
-- category/development
+- category/operations
 - lang/go
 - type/cli
 - helm
+- documentation
 check: ${binary} --version | cut -d' ' -f3
 platforms:
 - linux/amd64
