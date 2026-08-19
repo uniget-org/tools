@@ -13,8 +13,14 @@ tags:
 - category/security
 - lang/rust
 - type/cli
+- ai
+- llm
+- agent
+- coding
 check: ${binary} --version | cut -d' ' -f2
 binary: premptictl
+runtime_dependencies:
+- falco
 platforms:
 - linux/amd64
 - linux/arm64

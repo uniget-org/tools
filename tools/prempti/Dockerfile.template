@@ -26,12 +26,26 @@ echo "    Using ${arch_suffix}"
 url="https://github.com/falcosecurity/prempti/releases/download/v${version}/prempti-${version}-linux-${arch_suffix}.tar.gz"
 filename="$( basename "${url}" )"
 
-check-download "${url}"
 check-github-release-asset "falcosecurity/prempti" "v${version}" "${filename}"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
     "${url}"
 
 tar --file="${uniget_cache_download}/${filename}" --list
-tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}" --no-same-owner \
-    --strip-components=1
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}" --strip-components=1 --no-same-owner
+
+mkdir -p "${prefix}/share/prempti/config/"
+find "${prefix}/config" -type f -exec mv {} "${prefix}/share/prempti/config/" \;
+mv "${prefix}/rules/" "${prefix}/share/prempti/rules/"
+
+mv "${prefix}/share/libcoding_agent.so" "${prefix}/lib/"
+
+mv "${prefix}/systemd/prempti.service" "${prefix}/etc/systemd/user/prempti.service.go-template"
+sed -i "s/@PREFIX@/{{ .Target }}/g" "${prefix}/etc/systemd/user/prempti.service.go-template"
+
+rm \
+    "${prefix}/install.sh" \
+    "${prefix}/bin/falco"
+rmdir \
+    "${prefix}/systemd" \
+    "${prefix}/config"
 EOF
