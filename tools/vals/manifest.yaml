@@ -11,11 +11,9 @@ version: "0.46.0"
 tags:
 - type/cli
 - category/development
-- category/security
 - lang/go
-- standard/helm
 binary: vals
-check: ${binary} version | cut -d' ' -f3 | sed 's/^v//'
+check: ${binary} version | grep ^Version | cut -d' ' -f2
 platforms:
 - linux/amd64
 - linux/arm64
