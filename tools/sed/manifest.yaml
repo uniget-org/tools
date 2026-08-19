@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: sed
+description: Rewrite of sed in Rust
+license:
+  name: MIT
+  link: https://github.com/uutils/sed/blob/main/LICENSE
+homepage: https://uutils.org
+repository: https://github.com/uutils/sed
+version: "0.1.1"
+tags:
+- type/cli
+- category/helper
+- lang/rust
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: uutils/sed
