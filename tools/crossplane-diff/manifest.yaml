@@ -10,10 +10,12 @@ repository: https://github.com/crossplane-contrib/crossplane-diff
 version: "0.10.0"
 tags:
 - org/cncf
-- category/kubernetes
+- category/operations
 - lang/go
 - type/cli
-check: ${binary} version --client | grep "^Client Version" | cut -d' ' -f3 | sed 's/^v//'
+- kubernetes
+- k8s
+check: ${binary} version --client | cut -d' ' -f3 | tr -d v
 platforms:
 - linux/amd64
 - linux/arm64
