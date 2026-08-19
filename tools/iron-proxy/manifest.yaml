@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: iron-proxy
+description: RPC proxy for Ethereum and other blockchain networks
+license:
+  name: Apache License 2.0
+  link: https://github.com/paradigmxyz/iron-proxy/blob/main/LICENSE
+homepage: https://github.com/paradigmxyz/iron-proxy
+repository: https://github.com/paradigmxyz/iron-proxy
+version: "0.49.0"
+tags:
+- category/network
+- type/cli
+- lang/go
+check: ${binary} version 2>&1 | grep -oP '\d+\.\d+\.\d+' | head -1
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: paradigmxyz/iron-proxy
+  extractVersion: ^v(?<version>.+)$
