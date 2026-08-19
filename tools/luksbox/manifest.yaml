@@ -15,8 +15,6 @@ tags:
 - lang/rust
 - stability/prerelease
 check: ${binary} --version | grep -oP '\d+\.\d+\.\d+'
-runtime_dependencies:
-- fuse3
 platforms:
 - linux/amd64
 - linux/arm64
