@@ -16,9 +16,9 @@ for binary in lore loreserver; do
     curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
         "${url}"
 
-    tar --extract --gzip --directory="${prefix}/bin" \
+    tar --extract --gzip --directory="${prefix}/bin" --strip-components=1 \
         --file="${uniget_cache_download}/${filename}" \
-        "${binary}"
+        "./${binary}"
     chmod +x "${prefix}/bin/${binary}"
 done
 EOF
