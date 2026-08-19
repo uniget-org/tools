@@ -11,10 +11,10 @@ version: "0.6.10"
 tags:
 - type/cli
 - category/security
-- category/development
 - lang/rust
+- sandbox
 binary: msb
-check: ${binary} --version
+check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
 - linux/arm64

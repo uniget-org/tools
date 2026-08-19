@@ -9,33 +9,23 @@ ARG name
 ARG version
 
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-echo "### Setting architecture string for ${TARGETPLATFORM}"
-case "${arch}" in
-    x86_64)
-        export target="x86_64"
-        ;;
-    aarch64)
-        export target="aarch64"
-        ;;
-    *)
-        echo "ERROR: Unsupported architecture ${arch}."
-        exit 1
-        ;;
-esac
-echo "    Using ${target}"
-
-url="https://github.com/superradcompany/microsandbox/releases/download/v${version}/microsandbox-linux-${target}.tar.gz"
+url="https://github.com/superradcompany/microsandbox/releases/download/v${version}/microsandbox-linux-${arch}.tar.gz"
 filename="$( basename "${url}" )"
 
-check-download "${url}"
 check-github-release-asset "superradcompany/microsandbox" "v${version}" "${filename}"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
     "${url}"
 
 tar --file="${uniget_cache_download}/${filename}" --list
-mkdir /tmp/microsandbox
+mkdir -p /tmp/microsandbox
 tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="/tmp/microsandbox/" --no-same-owner
 install --mode=0755 /tmp/microsandbox/msb "${prefix}/bin/msb"
 install --mode=0644 /tmp/microsandbox/libkrunfw.so.* "${prefix}/lib/"
+ln --relative --symbolic --force "${prefix}/bin/msb" "${prefix}/bin/microsandbox"
 rm -rf /tmp/microsandbox
+EOF
+RUN <<EOF
+"${prefix}/bin/msb" completion bash >"${prefix}/share/bash-completion/completions/msb"
+"${prefix}/bin/msb" completion fish >"${prefix}/share/fish/vendor_completions.d/msb.fish"
+"${prefix}/bin/msb" completion zsh >"${prefix}/share/zsh/vendor-completions/_msb"
 EOF
