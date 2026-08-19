@@ -7,6 +7,13 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/apt <<EOF
+apt-get update
+apt-get -y install --no-install-recommends \
+    libssl-dev
+EOF
 COPY --link --from=rust / /usr/local/
 WORKDIR /tmp/github.com/santhreal/keyhog
 ARG name
