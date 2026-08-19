@@ -16,7 +16,7 @@ ARG version
 RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
 check-clone "https://github.com/mvm-sh/mvm" "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/mvm-sh/mvm .
-make
+go build -o mvm .
 cp mvm "${prefix}/bin/"
 EOF
 
