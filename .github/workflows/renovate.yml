@@ -22,10 +22,12 @@ jobs:
     - name: Self-hosted Renovate
       env:
         LOG_LEVEL: debug
+        LOG_FORMAT: json
         RENOVATE_TOKEN: ${{ secrets.BOT_RENOVATE }}
       run: |
         docker run --interactive --rm \
             --env LOG_LEVEL \
+            --env LOG_FORMAT \
             --env RENOVATE_TOKEN \
             renovate/renovate:latest \
                 --dry-run=${{ inputs.dry-run }} \
