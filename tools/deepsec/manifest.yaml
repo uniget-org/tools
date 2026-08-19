@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: deepsec
+description: AI-powered vulnerability scanner for any codebase
+license:
+  name: Apache License 2.0
+  link: https://github.com/vercel-labs/deepsec/blob/main/LICENSE
+homepage: https://github.com/vercel-labs/deepsec
+repository: https://github.com/vercel-labs/deepsec
+version: "2.3.6"
+tags:
+- category/security
+- lang/javascript
+- type/cli
+check: ${binary} --version
+build_dependencies:
+- node-lts
+runtime_dependencies:
+- node-lts
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: npm
+  package: deepsec
+binary: deepsec
