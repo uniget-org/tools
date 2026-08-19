@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: bw
+description: Bitwarden command-line client
+license:
+  name: GPL-3.0
+  link: https://github.com/bitwarden/clients/blob/main/apps/cli/LICENSE.txt
+homepage: https://bitwarden.com
+repository: https://github.com/bitwarden/clients
+version: "2026.7.0"
+tags:
+- category/security
+- lang/typescript
+- type/cli
+check: ${binary} --version
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: bitwarden/clients
+  extractVersion: ^cli-v(?<version>.+)$
