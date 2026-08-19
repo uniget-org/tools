@@ -7,7 +7,7 @@ license:
   link: https://gitlab.com/gitlab-org/editor-extensions/gitlab-lsp/-/blob/main/LICENSE?ref_type=heads
 homepage: https://docs.gitlab.com/user/gitlab_duo_cli/
 repository: https://gitlab.com/gitlab-org/editor-extensions/gitlab-lsp
-version: "9.10.0"
+version: "9.11.0"
 tags:
 - org/gitlab
 - category/development
