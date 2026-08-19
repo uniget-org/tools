@@ -1,0 +1,21 @@
+#syntax=docker/dockerfile:1.26.0@sha256:ecfaec9ed6d810b56388c508f4121597bfbba70d41a6dfeee4d8cad5f295fc32
+
+FROM ghcr.io/uniget-org/tools/node-lts:latest AS node
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:b0b654de801604e256237f2c27a907a4b61b59ebd83423ad0e0e465c0a3ba9cd AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+COPY --link --from=node / /usr/local/
+WORKDIR /uniget_bootstrap/libexec/cf
+ARG name
+ARG version
+RUN <<EOF
+npm install \
+    --omit=dev \
+    "cf@${version}"
+ln --symbolic --relative --force "${prefix}/libexec/cf/node_modules/.bin/cf" "${prefix}/bin/"
+EOF

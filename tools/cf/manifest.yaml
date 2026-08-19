@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: cf
+description: Unified command-line interface for Cloudflare
+license:
+  name: MIT License
+  link: https://www.npmjs.com/package/cf
+homepage: https://developers.cloudflare.com/
+repository: https://github.com/cloudflare/workers-sdk
+version: "0.6.0"
+tags:
+- org/cloudflare
+- category/development
+- lang/javascript
+- type/cli
+- cloud/cloudflare
+check: ${binary} --version 2>&1 | grep -oP '\d+\.\d+\.\d+'
+build_dependencies:
+- node-lts
+runtime_dependencies:
+- node-lts
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: npm
+  package: cf
