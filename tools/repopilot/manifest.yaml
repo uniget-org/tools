@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: repopilot
+description: Deterministic code-review and security gate for repositories
+license:
+  name: Apache License 2.0
+  link: https://github.com/MykytaStel/repopilot/blob/main/LICENSE
+homepage: https://github.com/MykytaStel/repopilot
+repository: https://github.com/MykytaStel/repopilot
+version: "0.21.0"
+tags:
+- type/cli
+- category/development
+- category/security
+- lang/rust
+binary: repopilot
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: MykytaStel/repopilot
+  extractVersion: ^v(?<version>.+)$
