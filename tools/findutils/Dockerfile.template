@@ -12,14 +12,12 @@ RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 url="https://github.com/uutils/findutils/releases/download/${version}/findutils-${arch}-unknown-linux-musl.tar.xz"
 filename="$( basename "${url}" )"
 
-check-download "${url}"
 check-github-release-asset "uutils/findutils" "${version}" "${filename}"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
     "${url}"
 
 tar --file="${uniget_cache_download}/${filename}" --list
-tar --file="${uniget_cache_download}/${filename}" --extract --xz --strip-components=1 --no-same-owner \
-    --directory="${prefix}/bin" \
+tar --file="${uniget_cache_download}/${filename}" --extract --xz --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
     "findutils-${arch}-unknown-linux-musl/find" \
     "findutils-${arch}-unknown-linux-musl/xargs" \
     "findutils-${arch}-unknown-linux-musl/locate" \
