@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: vals
+description: Helm-like value injection for CI/CD and configuration management
+license:
+  name: MIT License
+  link: https://github.com/helmfile/vals/blob/main/LICENSE
+homepage: https://github.com/helmfile/vals
+repository: https://github.com/helmfile/vals
+version: "0.46.0"
+tags:
+- type/cli
+- category/development
+- category/security
+- lang/go
+- standard/helm
+binary: vals
+check: ${binary} version | cut -d' ' -f3 | sed 's/^v//'
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: helmfile/vals
+  extractVersion: ^v(?<version>.+)$
