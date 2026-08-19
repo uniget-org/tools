@@ -1,18 +1,19 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: redai
-description: Terminal workbench for AI-driven vulnerability discovery and validation
+description: AI-driven vulnerability discovery and live validation
 license:
   name: MIT License
   link: https://github.com/kpolley/redai/blob/main/LICENSE
 homepage: https://github.com/kpolley/redai
 repository: https://github.com/kpolley/redai
-version: "0.1.2"
+version: "0.1.3"
 tags:
 - category/security
 - lang/typescript
 - type/tui
-check: ${binary} --version
+- ai
+check: ${binary} --version 2>/dev/null | grep -oP '\d+\.\d+\.\d+'
 build_dependencies:
 - bun
 runtime_dependencies:
