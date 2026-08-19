@@ -2,7 +2,7 @@
 
 FROM ghcr.io/uniget-org/tools/rust:latest AS rust
 
-FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:b0b654de801604e256237f2c27a907a4b61b59ebd83423ad0e0e465c0a3ba9cd AS prepare
+FROM registry.gitlab.com/uniget-org/images/build-essential:26.04@sha256:1ed0eccad96ae7a150a8ecb82a0034969949572532adaf9bd41505d23037df72 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -13,7 +13,6 @@ RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/santhreal/keyhog .
 export CARGO_HOME=/usr/local/cargo
 export RUSTUP_HOME=/usr/local/rustup
-export RUSTFLAGS='-C target-feature=+crt-static'
 cargo build --release --target "${arch}-unknown-linux-gnu" --package keyhog
 cp "target/${arch}-unknown-linux-gnu/release/keyhog" "${prefix}/bin/"
 EOF
