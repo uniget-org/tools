@@ -10,10 +10,9 @@ repository: https://github.com/uutils/coreutils
 version: "0.10.0"
 tags:
 - type/cli
-- category/utility
+- category/helper
 - lang/rust
-conflicts_with: gnu-coreutils
-check: ${binary} --version | head -1
+check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
 - linux/arm64
