@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: mvm
+description: Fast interpreter and virtual machine for Go and beyond
+license:
+  name: BSD-3-Clause
+  link: https://github.com/mvm-sh/mvm/blob/main/LICENSE
+homepage: https://mvm.sh
+repository: https://github.com/mvm-sh/mvm
+version: "0.5.0"
+tags:
+- category/development
+- type/cli
+- lang/go
+check: ${binary} version 2>&1 | grep -oP '\d+\.\d+\.\d+' | head -1
+build_dependencies:
+- go
+- make
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: mvm-sh/mvm
+  extractVersion: ^v(?<version>.+)$
