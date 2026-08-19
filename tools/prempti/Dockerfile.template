@@ -39,6 +39,7 @@ mv "${prefix}/rules/" "${prefix}/share/prempti/rules/"
 
 mv "${prefix}/share/libcoding_agent.so" "${prefix}/lib/"
 
+mkdir -p "${prefix}/etc/systemd/user/"
 mv "${prefix}/systemd/prempti.service" "${prefix}/etc/systemd/user/prempti.service.go-template"
 sed -i "s/@PREFIX@/{{ .Target }}/g" "${prefix}/etc/systemd/user/prempti.service.go-template"
 
