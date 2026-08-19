@@ -3,16 +3,20 @@ $schema: https://tools.uniget.dev/schema.yaml
 name: kubetail
 description: Real-time logging dashboard for Kubernetes
 license:
-  name: Apache-2.0
+  name: Apache License 2.0
   link: https://github.com/kubetail-org/kubetail/blob/main/LICENSE
 homepage: https://www.kubetail.com
 repository: https://github.com/kubetail-org/kubetail
 version: "0.18.0"
 tags:
-- category/kubernetes
-- lang/go
 - type/cli
-check: ${binary} --version
+- category/kubernetes
+- category/observability
+- kubernetes
+- k8s
+- logs
+- lang/go
+check: ${binary} version | grep "^kubetail" | head -1 | cut -d' ' -f3 | sed 's/^v//'
 platforms:
 - linux/amd64
 - linux/arm64
