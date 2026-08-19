@@ -1,6 +1,6 @@
 #syntax=docker/dockerfile:1.26.0@sha256:ecfaec9ed6d810b56388c508f4121597bfbba70d41a6dfeee4d8cad5f295fc32
 
-FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:b0b654de801604e256237f2c27a907a4b61b59ebd83423ad0e0e465c0a3ba9cd AS prepare
+FROM registry.gitlab.com/uniget-org/images/build-essential:26.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -10,17 +10,26 @@ ARG version
 RUN --mount=type=cache,target=/var/cache/apt <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
-    g++ cmake ninja-build \
-    libharfbuzz-dev libfontconfig-dev nlohmann-json3-dev \
-    libwoff-dev libxxhash-dev libargparse-dev \
-    libarchive-dev libidn2-dev libcurl4-openssl-dev \
-    zlib1g-dev libsqlite3-dev
+    cmake \
+    ninja-build \
+    libharfbuzz-dev \
+    libfontconfig-dev \
+    nlohmann-json3-dev \
+    libwoff-dev \
+    libxxhash-dev \
+    libargparse-dev \
+    libarchive-dev \
+    libidn2-dev \
+    libcurl4-openssl-dev \
+    zlib1g-dev \
+    libsqlite3-dev
 EOF
 WORKDIR /tmp/incplot
 RUN <<EOF
 check-clone "https://github.com/InCom-0/incplot" "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/InCom-0/incplot .
-cmake --preset gcc_Release \
+cmake \
+    --preset gcc_Release \
     -DCMAKE_INSTALL_PREFIX="${prefix}" \
     -Dincplot_CPR_USE_SYSTEM_CURL=ON
 cmake --build build
