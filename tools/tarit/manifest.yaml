@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: tarit
+description: KVM microVM platform for AI agents and isolated execution
+license:
+  name: GNU Affero General Public License v3.0 or later
+  link: https://github.com/instavm/tarit/blob/main/LICENSE
+homepage: https://github.com/instavm/tarit
+repository: https://github.com/instavm/tarit
+version: "0.1.2"
+tags:
+- category/devops
+- type/cli
+- lang/rust
+check: ${binary} --version 2>&1 | grep -oP '\d+\.\d+\.\d+' | head -1
+platforms:
+- linux/amd64
+renovate:
+  datasource: github-releases
+  package: instavm/tarit
+  extractVersion: ^v(?<version>.+)$
