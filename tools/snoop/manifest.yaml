@@ -11,10 +11,9 @@ version: "0.1.0"
 tags:
 - type/cli
 - type/tui
-- category/development
 - category/security
 - lang/rust
-check: ${binary} --version
+check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
 - linux/arm64
