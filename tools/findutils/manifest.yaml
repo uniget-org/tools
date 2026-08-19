@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: findutils
+description: Rust implementation of find, xargs, locate, and updatedb
+license:
+  name: MIT
+  link: https://github.com/uutils/findutils/blob/main/LICENSE
+homepage: https://uutils.org
+repository: https://github.com/uutils/findutils
+version: "0.10.0"
+tags:
+- type/cli
+- category/helper
+- lang/rust
+binary: find
+check: ${binary} --version | grep -oP '\d+\.\d+\.\d+'
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: uutils/findutils
