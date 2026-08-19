@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: gbooba
+description: Web-based BubbleTea TUIs using libghostty
+license:
+  name: MIT License
+  link: https://github.com/NimbleMarkets/go-booba/blob/main/LICENSE.txt
+homepage: https://github.com/NimbleMarkets/go-booba
+repository: https://github.com/NimbleMarkets/go-booba
+version: "0.6.0"
+tags:
+- category/operations
+- lang/go
+- type/cli
+- tui
+- webassembly
+check: "" # No version parameter
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: NimbleMarkets/go-booba
+  extractVersion: ^v(?<version>.+)$
