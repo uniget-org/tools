@@ -12,7 +12,7 @@ tags:
 - category/operations
 - lang/go
 - type/cli
-- tui
+- type/tui
 - webassembly
 check: "" # No version parameter
 platforms:
