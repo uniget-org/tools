@@ -18,6 +18,11 @@ check: ${binary} --version | grep -oP '\d+\.\d+\.\d+'
 platforms:
 - linux/amd64
 - linux/arm64
+messages:
+  usage: |
+    Binaries for Ubuntu 24.04 (noble) and 26.04 (resolute) are installed to TARGET/libexec/luksbox/.
+
+    Install libfido2.
 renovate:
   datasource: github-releases
   package: PentHertz/LUKSbox
