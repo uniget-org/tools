@@ -23,4 +23,3 @@ platforms:
 renovate:
   datasource: npm
   package: deepsec
-binary: deepsec
