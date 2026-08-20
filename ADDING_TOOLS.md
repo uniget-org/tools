@@ -39,7 +39,7 @@ Committed your changes and push the branch and create a Pull Request (PR) on Git
 ```bash
 git add tools/<toolname>
 git push origin <toolname>
-gh pr create --title "feat(<toolname>): Added" --base main --head <toolname>
+gh pr create --title "feat(<toolname>): Added" --base main --head <toolname> --label ai-generated
 ```
 
 Then, visit the link provided in the terminal output to open your PR.
