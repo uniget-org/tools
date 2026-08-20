@@ -16,10 +16,8 @@ ARG version
 RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
 check-clone "https://github.com/Kapro-dev/kapro" "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/Kapro-dev/kapro .
-go build -trimpath -ldflags="-s -w" -o kapro ./cmd/kapro
-cp kapro "${prefix}/bin/"
+go build -trimpath -ldflags="-s -w" -o "${prefix}/bin/kapro" ./cmd/kapro
 EOF
-
 RUN <<EOF
 "${prefix}/bin/kapro" completion bash >"${prefix}/share/bash-completion/completions/kapro" 2>/dev/null || true
 "${prefix}/bin/kapro" completion fish >"${prefix}/share/fish/vendor_completions.d/kapro.fish" 2>/dev/null || true
