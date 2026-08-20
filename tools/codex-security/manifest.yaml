@@ -7,7 +7,7 @@ license:
   link: https://github.com/openai/codex-security/blob/main/LICENSE
 homepage: https://github.com/openai/codex-security
 repository: https://github.com/openai/codex-security
-version: "0.1.14"
+version: "0.1.15"
 tags:
 - category/security
 - lang/javascript
