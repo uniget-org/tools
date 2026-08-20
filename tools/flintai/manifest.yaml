@@ -23,7 +23,6 @@ runtime_dependencies:
 - python-3.12
 platforms:
 - linux/amd64
-- linux/arm64
 renovate:
   datasource: pypi
   package: flintai-cli
