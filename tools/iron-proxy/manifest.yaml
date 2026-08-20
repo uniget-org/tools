@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: iron-proxy
-description: RPC proxy for Ethereum and other blockchain networks
+description: Egress firewall for untrusted workloads
 license:
   name: Apache License 2.0
   link: https://github.com/paradigmxyz/iron-proxy/blob/main/LICENSE
@@ -12,7 +12,7 @@ tags:
 - category/network
 - type/cli
 - lang/go
-check: ${binary} version 2>&1 | grep -oP '\d+\.\d+\.\d+' | head -1
+check: ${binary} --version
 platforms:
 - linux/amd64
 - linux/arm64
