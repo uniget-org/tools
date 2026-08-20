@@ -8,23 +8,8 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-echo "### Setting architecture string for ${TARGETPLATFORM}"
-case "${arch}" in
-    x86_64)
-        export arch_suffix="${arch}"
-        ;;
-    aarch64)
-        export arch_suffix="${alt_arch}"
-        ;;
-    *)
-        echo "ERROR: Unsupported architecture ${arch}."
-        exit 1
-        ;;
-esac
-echo "    Using ${arch_suffix}"
-
 for DISTRIB_CODENAME in noble resolute; do
-    url="https://github.com/PentHertz/LUKSbox/releases/download/v${version}/luksbox-v${version}-${arch_suffix}-linux-${DISTRIB_CODENAME}.tar.gz"
+    url="https://github.com/PentHertz/LUKSbox/releases/download/v${version}/luksbox-v${version}-${arch}-linux-${DISTRIB_CODENAME}.tar.gz"
     filename="$( basename "${url}" )"
 
     check-github-release-asset "PentHertz/LUKSbox" "v${version}" "${filename}"
