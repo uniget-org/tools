@@ -7,7 +7,7 @@ license:
   link: https://github.com/golangci/golangci-lint/blob/master/LICENSE
 homepage: https://golangci-lint.run
 repository: https://github.com/golangci/golangci-lint
-version: "2.12.2"
+version: "2.13.0"
 tags:
 - category/development
 - lang/go
