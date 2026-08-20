@@ -23,20 +23,30 @@ case "${arch}" in
 esac
 echo "    Using ${arch_suffix}"
 
-url="https://github.com/PentHertz/LUKSbox/releases/download/v${version}/luksbox-v${version}-${arch_suffix}-linux-noble.tar.gz"
-filename="$( basename "${url}" )"
+for DISTRIB_CODENAME in noble resolute; do
+    url="https://github.com/PentHertz/LUKSbox/releases/download/v${version}/luksbox-v${version}-${arch_suffix}-linux-${DISTRIB_CODENAME}.tar.gz"
+    filename="$( basename "${url}" )"
 
-check-github-release-asset "PentHertz/LUKSbox" "v${version}" "${filename}"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
-    "${url}"
+    check-github-release-asset "PentHertz/LUKSbox" "v${version}" "${filename}"
+    curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+        "${url}"
 
-tar --file="${uniget_cache_download}/${filename}" --list
-tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}" --no-same-owner \
-    ./luksbox \
-    ./luksbox-gui \
-    ./share
-mv \
-    "${prefix}/luksbox" \
-    "${prefix}/luksbox-gui" \
-    "${prefix}/bin/"
+    tar --file="${uniget_cache_download}/${filename}" --list
+    tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}" --no-same-owner \
+        ./luksbox \
+        ./luksbox-gui \
+        ./share
+
+    mkdir -p "${prefix}/libexec/luksbox/${DISTRIB_CODENAME}"
+    mv \
+        "${prefix}/luksbox" \
+        "${prefix}/luksbox-gui" \
+        "${prefix}/libexec/luksbox/${DISTRIB_CODENAME}/"
+done
+
+ln --symbolic --relative --force "${prefix}/libexec/luksbox/resolute/luksbox" "${prefix}/bin/luksbox"
+ln --symbolic --relative --force "${prefix}/libexec/luksbox/resolute/luksbox-gui" "${prefix}/bin/luksbox-gui"
+
+mv "${prefix}/share/applications/com.penthertz.luksbox.desktop" "${prefix}/share/applications/com.penthertz.luksbox.desktop.go-template"
+sed -i 's|Exec=luksbox-gui|Exec={{ .Target }}/luksbox-gui|' "${prefix}/share/applications/com.penthertz.luksbox.desktop.go-template"
 EOF
