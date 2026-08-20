@@ -9,10 +9,13 @@ homepage: https://github.com/Kapro-dev/kapro
 repository: https://github.com/Kapro-dev/kapro
 version: "0.6.0"
 tags:
-- category/kubernetes
+- category/operations
 - lang/go
 - type/cli
-check: ${binary} version 2>&1 | grep -oP '\d+\.\d+\.\d+' | head -1
+- kubernetes
+- k8s
+- gitops
+check: "" # No version parameter
 build_dependencies:
 - go
 platforms:
