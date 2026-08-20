@@ -30,8 +30,12 @@ check-github-release-asset "Ataraxy-Labs/sem" "v${version}" "${filename}"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
     "${url}"
 
-tar --extract --gzip --directory="${prefix}/bin" \
-    --file="${uniget_cache_download}/${filename}" \
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin" \
     sem
-chmod +x "${prefix}/bin/sem"
+EOF
+RUN <<EOF
+"${prefix}/bin/sem" completions bash >"${prefix}/share/bash-completion/completions/sem"
+"${prefix}/bin/sem" completions fish >"${prefix}/share/fish/vendor_completions.d/sem.fish"
+"${prefix}/bin/sem" completions zsh >"${prefix}/share/zsh/vendor-completions/_sem"
 EOF
