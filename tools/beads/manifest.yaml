@@ -8,13 +8,14 @@ license:
 homepage: https://beads.gascity.com
 repository: https://github.com/gastownhall/beads
 version: "1.2.2"
-binary: bd
 tags:
 - category/development
 - type/cli
 - lang/go
 - ai
-- component/memory
+- llm
+- agent
+binary: bd
 check: ${binary} version | cut -d' ' -f3
 platforms:
 - linux/amd64
