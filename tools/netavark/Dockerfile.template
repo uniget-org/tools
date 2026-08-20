@@ -1,0 +1,28 @@
+#syntax=docker/dockerfile:1.26.0@sha256:ecfaec9ed6d810b56388c508f4121597bfbba70d41a6dfeee4d8cad5f295fc32
+
+FROM ghcr.io/uniget-org/tools/rust:latest AS rust
+
+FROM registry.gitlab.com/uniget-org/images/build-essential:26.04@sha256:1ed0eccad96ae7a150a8ecb82a0034969949572532adaf9bd41505d23037df72 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/apt <<EOF
+apt-get update
+apt-get -y install --no-install-recommends \
+    protobuf-compiler \
+    libprotobuf-dev
+EOF
+COPY --link --from=rust / /usr/local/
+WORKDIR /tmp/github.com/containers/netavark
+RUN <<EOF
+check-clone "https://github.com/containers/netavark" "v${version}"
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/containers/netavark .
+export CARGO_HOME=/usr/local/cargo
+export RUSTUP_HOME=/usr/local/rustup
+cargo build --release
+cp "target/release/netavark" "${prefix}/bin/"
+cp "target/release/netavark-dhcp-proxy-client" "${prefix}/bin/"
+EOF

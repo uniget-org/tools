@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: netavark
+description: Container network stack
+license:
+  name: Apache License 2.0
+  link: https://github.com/containers/netavark/blob/main/LICENSE
+homepage: https://github.com/containers/netavark
+repository: https://github.com/containers/netavark
+version: "2.1.0"
+tags:
+- org/redhat
+- category/network
+- lang/rust
+- type/cli
+- component/network
+- container/runtime
+- rootless
+check: ${binary} --version | cut -d' ' -f2
+build_dependencies:
+- rust
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: containers/netavark
+  extractVersion: ^v(?<version>.+)$
