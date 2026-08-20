@@ -29,9 +29,11 @@ runtime_dependencies:
 - fuse-overlayfs
 - shortnames
 - containers-common
-- uidmap
 platforms:
 - linux/amd64
+messages:
+  usage: |
+    Either install the uidmap package using your package manager or use uniget to install it manually.
 renovate:
   datasource: github-releases
   package: containers/podman

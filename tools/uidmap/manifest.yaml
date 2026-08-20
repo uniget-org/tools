@@ -12,13 +12,16 @@ tags:
 - kernel/namespaces
 - type/cli
 - lang/c
+binary: newuidmap
 check: "" # No version parameter
 build_dependencies:
 - make
 platforms:
 - linux/amd64
+messages:
+  usage: |
+    Make sure that newuidmap and newgidmap have the setuid bit set.
 renovate:
   datasource: github-releases
   package: shadow-maint/shadow
   extractVersion: ^v(?<version>.+)$
-binary: newuidmap
