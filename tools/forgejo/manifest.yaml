@@ -6,7 +6,7 @@ license:
   link: https://codeberg.org/forgejo/forgejo/src/branch/forgejo/LICENSE
 homepage: https://codeberg.org/forgejo/forgejo
 repository: https://codeberg.org/forgejo/forgejo
-version: "16.0.2"
+version: "16.0.3"
 tags:
 - category/development
 - lang/go
