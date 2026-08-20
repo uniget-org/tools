@@ -12,7 +12,7 @@ tags:
 - category/security
 - type/cli
 - lang/go
-check: ${binary} version | grep -oP '\d+\.\d+\.\d+'
+check: ${binary} version | cut -d' ' -f2
 platforms:
 - linux/amd64
 - linux/arm64

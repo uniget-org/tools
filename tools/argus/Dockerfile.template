@@ -8,22 +8,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-echo "### Setting architecture string for ${TARGETPLATFORM}"
-case "${arch}" in
-    x86_64)
-        export arch_suffix=amd64
-        ;;
-    aarch64)
-        export arch_suffix=arm64
-        ;;
-    *)
-        echo "ERROR: Unsupported architecture ${arch}."
-        exit 1
-        ;;
-esac
-echo "    Using ${arch_suffix}"
-
-url="https://github.com/abhishekamralkar/argus/releases/download/v${version}/argus_${version}_linux_${arch_suffix}.tar.gz"
+url="https://github.com/abhishekamralkar/argus/releases/download/v${version}/argus_${version}_linux_${alt_arch}.tar.gz"
 filename="$(basename "${url}")"
 
 check-github-release-asset "abhishekamralkar/argus" "v${version}" "${filename}"
@@ -31,9 +16,9 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
     "${url}"
 
 tar --file="${uniget_cache_download}/${filename}" --list
-tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin" --no-same-owner
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin" --no-same-owner \
+    argus
 EOF
-
 RUN <<EOF
 "${prefix}/bin/argus" completion bash >"${prefix}/share/bash-completion/completions/argus"
 "${prefix}/bin/argus" completion fish >"${prefix}/share/fish/vendor_completions.d/argus.fish"
