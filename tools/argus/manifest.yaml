@@ -7,7 +7,7 @@ license:
   link: https://github.com/abhishekamralkar/argus/blob/main/LICENSE
 homepage: https://github.com/abhishekamralkar/argus
 repository: https://github.com/abhishekamralkar/argus
-version: "1.0.24"
+version: "1.0.25"
 tags:
 - category/security
 - type/cli
