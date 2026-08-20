@@ -9,9 +9,12 @@ homepage: https://epicgames.github.io/lore/
 repository: https://github.com/EpicGames/lore
 version: "0.8.6"
 tags:
+- org/epicgames
 - category/development
 - type/cli
 - lang/rust
+- version
+- control
 check: ${binary} version 2>&1 | grep -oP '\d+\.\d+\.\d+' | head -1
 platforms:
 - linux/amd64

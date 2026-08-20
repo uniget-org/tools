@@ -9,7 +9,7 @@ ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 for binary in lore loreserver; do
-    url="https://github.com/EpicGames/lore/releases/download/v${version}/${binary}-v${version}-x86_64-unknown-linux-gnu.tar.gz"
+    url="https://github.com/EpicGames/lore/releases/download/v${version}/${binary}-v${version}-${arch}-unknown-linux-gnu.tar.gz"
     filename="$(basename "${url}")"
 
     check-github-release-asset "EpicGames/lore" "v${version}" "${filename}"
@@ -21,4 +21,9 @@ for binary in lore loreserver; do
         "./${binary}"
     chmod +x "${prefix}/bin/${binary}"
 done
+EOF
+RUN <<EOF
+"${prefix}/bin/lore" completions bash >"${prefix}/share/bash-completion/completions/lore"
+"${prefix}/bin/lore" completions fish >"${prefix}/share/fish/vendor_completions.d/lore.fish"
+"${prefix}/bin/lore" completions zsh >"${prefix}/share/zsh/vendor-completions/_lore"
 EOF
