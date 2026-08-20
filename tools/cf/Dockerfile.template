@@ -19,3 +19,8 @@ npm install \
     "cf@${version}"
 ln --symbolic --relative --force "${prefix}/libexec/cf/node_modules/.bin/cf" "${prefix}/bin/"
 EOF
+RUN <<EOF
+"${prefix}/bin/cf" complete bash >"${prefix}/share/bash-completion/completions/cf"
+"${prefix}/bin/cf" complete fish >"${prefix}/share/fish/vendor_completions.d/cf.fish"
+"${prefix}/bin/cf" complete zsh >"${prefix}/share/zsh/vendor-completions/_cf"
+EOF

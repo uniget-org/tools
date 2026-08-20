@@ -14,7 +14,7 @@ tags:
 - lang/javascript
 - type/cli
 - cloud/cloudflare
-check: ${binary} --version 2>&1 | grep -oP '\d+\.\d+\.\d+'
+check: ${binary} --version | grep cf | cut -d' ' -f5 | tr -d v
 build_dependencies:
 - node-lts
 runtime_dependencies:
