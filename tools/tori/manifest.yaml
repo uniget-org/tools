@@ -9,11 +9,15 @@ homepage: https://toricli.sh
 repository: https://github.com/thobiasn/tori-cli
 version: "0.3.4"
 tags:
-- category/monitoring
+- category/observability
 - type/cli
 - type/tui
 - lang/go
-check: ${binary} version 2>&1 | grep -oP '\d+\.\d+\.\d+' | head -1
+- standard/docker
+- observability/metrics
+- observability/logs
+- o11y
+check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
 - linux/arm64
