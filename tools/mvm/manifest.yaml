@@ -12,7 +12,7 @@ tags:
 - category/development
 - type/cli
 - lang/go
-check: ${binary} version 2>&1 | grep -oP '\d+\.\d+\.\d+' | head -1
+check: "" # Version overwritten with commit
 build_dependencies:
 - go
 - make

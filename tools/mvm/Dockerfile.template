@@ -16,12 +16,5 @@ ARG version
 RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
 check-clone "https://github.com/mvm-sh/mvm" "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/mvm-sh/mvm .
-go build -o mvm .
-cp mvm "${prefix}/bin/"
-EOF
-
-RUN <<EOF
-"${prefix}/bin/mvm" completion bash >"${prefix}/share/bash-completion/completions/mvm" 2>/dev/null || true
-"${prefix}/bin/mvm" completion fish >"${prefix}/share/fish/vendor_completions.d/mvm.fish" 2>/dev/null || true
-"${prefix}/bin/mvm" completion zsh  >"${prefix}/share/zsh/vendor-completions/_mvm" 2>/dev/null || true
+go build -o "${prefix}/bin/mvm" .
 EOF
