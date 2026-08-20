@@ -45,7 +45,7 @@ dev_download:
   - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   - if: $CI_PIPELINE_SOURCE == "web" && $BUILD_TOOL_NAME == ""
   - if: $METADATA_ONLY == "true"
-  image: registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:b0b654de801604e256237f2c27a907a4b61b59ebd83423ad0e0e465c0a3ba9cd
+  image: registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:0e9f873df6c03f698322571475f367a694d7eff9077e5019ae764e5106a6da16
   script: |
     curl --silent --show-error --location --fail https://gitlab.com/uniget-org/dev/-/releases/permalink/latest/downloads/dev_Linux_$(uname -m).tar.gz \
     | tar --extract --gzip dev
@@ -59,7 +59,7 @@ uniget_download:
   - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   - if: $CI_PIPELINE_SOURCE == "web" && $BUILD_TOOL_NAME == ""
   - if: $METADATA_ONLY == "true"
-  image: registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:b0b654de801604e256237f2c27a907a4b61b59ebd83423ad0e0e465c0a3ba9cd
+  image: registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:0e9f873df6c03f698322571475f367a694d7eff9077e5019ae764e5106a6da16
   script: |
     curl --silent --show-error --location --fail https://gitlab.com/uniget-org/cli/-/releases/permalink/latest/downloads/uniget_Linux_$(uname -m).tar.gz \
     | tar --extract --gzip uniget
