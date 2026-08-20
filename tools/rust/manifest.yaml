@@ -11,11 +11,11 @@ tags:
 - type/cli
 - category/development
 - lang/rust
+binary: ${target}/cargo/bin/cargo
 check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
-#- linux/arm64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: rust-lang/rust
-binary: ${target}/cargo/bin/cargo
