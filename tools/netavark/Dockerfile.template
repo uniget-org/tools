@@ -22,7 +22,8 @@ check-clone "https://github.com/containers/netavark" "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/containers/netavark .
 export CARGO_HOME=/usr/local/cargo
 export RUSTUP_HOME=/usr/local/rustup
-cargo build --release
-cp "target/release/netavark" "${prefix}/bin/"
-cp "target/release/netavark-dhcp-proxy-client" "${prefix}/bin/"
+rustup target add x86_64-unknown-linux-musl
+cargo build --target x86_64-unknown-linux-musl --release
+cp "target/x86_64-unknown-linux-musl/release/netavark" "${prefix}/bin/"
+cp "target/x86_64-unknown-linux-musl/release/netavark-dhcp-proxy-client" "${prefix}/bin/"
 EOF
