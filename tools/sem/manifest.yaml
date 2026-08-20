@@ -12,7 +12,7 @@ tags:
 - category/development
 - type/cli
 - lang/rust
-check: ${binary} version 2>&1 | grep -oP '\d+\.\d+\.\d+' | head -1
+check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
 - linux/arm64
