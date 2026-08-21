@@ -1,6 +1,6 @@
 #syntax=docker/dockerfile:1.26.0@sha256:ecfaec9ed6d810b56388c508f4121597bfbba70d41a6dfeee4d8cad5f295fc32
 
-FROM registry.gitlab.com/uniget-org/images/build-base:3.23@sha256:f7249e6aa6e7ef57669af5bce04f734a4ad7395f3dc6df76dadf338dfeab8eb5 AS prepare
+FROM registry.gitlab.com/uniget-org/images/build-base:3.23@sha256:e66b0c6fe2a1aabcc6a1898fa94b2a1fa4eb3c83874b491e4b5496d1318ebcc5 AS prepare
 #FROM registry.gitlab.com/uniget-org/images/build-essential:24.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
