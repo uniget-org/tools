@@ -16,6 +16,9 @@ apt-get update
 # libprotobuf-dev: provides well-known proto types (e.g. google/protobuf/any.proto)
 apt-get -y install --no-install-recommends \
     libssl-dev \
+    libzstd-dev \
+    zlib1g-dev \
+    libjitterentropy3-dev \
     protobuf-compiler \
     libprotobuf-dev
 EOF
