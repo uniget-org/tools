@@ -8,14 +8,20 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=rust / /usr/local/
+RUN <<EOF
+apt-get update
+apt-get install -y --no-install-recommends \
+    cmake \
+    clang
+EOF
 WORKDIR /tmp/github.com/cloudflareresearch/pvcli
 ARG name
 ARG version
 RUN <<EOF
-git clone -q --config advice.detachedHead=false --depth 1 https://github.com/cloudflareresearch/pvcli .
+git clone https://github.com/cloudflareresearch/pvcli .
+git checkout "${version}"
 export CARGO_HOME=/usr/local/cargo
 export RUSTUP_HOME=/usr/local/rustup
-export RUSTFLAGS='-C target-feature=+crt-static'
 cargo build --release --target "${arch}-unknown-linux-gnu"
 cp "target/${arch}-unknown-linux-gnu/release/pvcli" "${prefix}/bin/"
 EOF

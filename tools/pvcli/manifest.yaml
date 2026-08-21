@@ -7,7 +7,7 @@ license:
   link: https://github.com/cloudflareresearch/pvcli/blob/main/LICENSE
 homepage: https://github.com/cloudflareresearch/pvcli
 repository: https://github.com/cloudflareresearch/pvcli
-version: "0.1.0"
+version: "fd64f2f26c85130eef1cf8d69becd9b34c5409ac"
 tags:
 - type/cli
 - category/network
@@ -18,5 +18,6 @@ build_dependencies:
 platforms:
 - linux/amd64
 renovate:
-  datasource: git-tags
-  package: cloudflareresearch/pvcli
+  datasource: git-refs
+  package: https://github.com/cloudflareresearch/pvcli
+  ref: main
