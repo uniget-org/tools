@@ -29,6 +29,8 @@ WORKDIR /tmp/overlaybd
 ARG name
 ARG version
 RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
+export CFLAGS="-std=gnu17"
+export CXXFLAGS="-std=gnu++17"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/containerd/overlaybd .
 git submodule update --init
 mkdir build
