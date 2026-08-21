@@ -29,6 +29,7 @@ runtime_dependencies:
 - fuse-overlayfs
 - shortnames
 - containers-common
+- netavark
 platforms:
 - linux/amd64
 messages:
