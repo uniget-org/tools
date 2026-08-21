@@ -33,7 +33,7 @@ git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}"
 git submodule update --init
 mkdir build
 cd build
-cmake ..
+cmake .. -DCMAKE_POLICY_VERSION_MINIMUM=3.5
 make -j$(nproc)
 make install DESTDIR=${prefix}
 EOF
