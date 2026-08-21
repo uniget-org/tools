@@ -3,7 +3,7 @@
 FROM ghcr.io/uniget-org/tools/go:latest AS go
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 
-FROM registry.gitlab.com/uniget-org/images/build-essential:24.04 AS prepare
+FROM registry.gitlab.com/uniget-org/images/build-essential:26.04@sha256:5ee01cd64296e795943405f10d803592dbd27cad7d35cd6ee1271bf177a71146 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -37,6 +37,7 @@ ARG name
 ARG version
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/NVIDIA/libnvidia-container .
+sed -i 's/VERSION  := 1.3.2/VERSION  := 1.3.7/' mk/libtirpc.mk
 export WITH_LIBELF=yes
 export WITH_TIRPC=yes
 make deps

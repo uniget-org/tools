@@ -20,3 +20,5 @@ renovate:
   datasource: github-releases
   package: stefanberger/libtpms
   extractVersion: ^v(?<version>.+)$
+lifecycle:
+  removed_with_reason: This was only an experiment.
