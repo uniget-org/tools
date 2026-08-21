@@ -9,17 +9,6 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN --mount=type=cache,target=/var/cache/apt <<EOF
-apt-get update
-apt-get -y install --no-install-recommends \
-    libssl-dev
-EOF
-COPY --link --from=make / /usr/local/
-WORKDIR /tmp/libtpms
 RUN <<EOF
-git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/stefanberger/libtpms .
-./autogen.sh --prefix="${prefix}" --with-tpm2 --with-openssl
-make -j$(nproc)
-make check
-make install
+touch "${prefix}/removed"
 EOF
