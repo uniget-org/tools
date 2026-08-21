@@ -19,7 +19,8 @@ apk add --update-cache \
     asciidoc \
     xmlto \
     pcre2-dev \
-    pcre2-static
+    pcre2-static \
+    linux-headers
 EOF
 WORKDIR /tmp/git
 ARG name
