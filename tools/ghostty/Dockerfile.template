@@ -2,7 +2,7 @@
 
 FROM ghcr.io/uniget-org/tools/zig:latest AS zig
 
-FROM registry.gitlab.com/uniget-org/images/build-essential:26.04@sha256:1ed0eccad96ae7a150a8ecb82a0034969949572532adaf9bd41505d23037df72 AS prepare
+FROM registry.gitlab.com/uniget-org/images/build-essential:26.04@sha256:5ee01cd64296e795943405f10d803592dbd27cad7d35cd6ee1271bf177a71146 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
