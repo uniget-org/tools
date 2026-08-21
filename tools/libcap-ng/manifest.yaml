@@ -5,7 +5,7 @@ license:
   name: GPLv2
 homepage: https://github.com/stevegrubb/libcap-ng
 repository: https://github.com/stevegrubb/libcap-ng
-version: "0.9.3"
+version: "0.9.5"
 tags:
 - kernel/capabilities
 - type/cli
