@@ -7,7 +7,7 @@ license:
   link: https://github.com/foks-proj/go-foks/blob/main/LICENSE
 homepage: https://foks.pub
 repository: https://github.com/foks-proj/go-foks
-version: "0.1.8"
+version: "0.1.9"
 tags:
 - category/development
 - lang/go
