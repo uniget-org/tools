@@ -7,7 +7,7 @@ license:
   link: https://github.com/segersniels/supdock/blob/master/LICENSE
 homepage: https://www.npmjs.com/package/supdock
 repository: https://github.com/segersniels/supdock
-version: "3.5.2"
+version: "4.1.0"
 tags:
 - category/operations
 - lang/rust
