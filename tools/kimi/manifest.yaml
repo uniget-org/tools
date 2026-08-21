@@ -6,7 +6,7 @@ license:
   link: https://github.com/MoonshotAI/kimi-code/blob/main/LICENSE
 homepage: https://kimi.moonshot.cn
 repository: https://github.com/MoonshotAI/kimi-code
-version: "0.37.2"
+version: "0.38.0"
 tags:
 - type/cli
 - type/tui
