@@ -3,7 +3,7 @@
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 FROM ghcr.io/uniget-org/tools/zig:latest AS zig
 
-FROM registry.gitlab.com/uniget-org/images/build-base:3.23 AS prepare
+FROM registry.gitlab.com/uniget-org/images/build-base:3.24@sha256:6c6c414a06d0c48a6a05e1b3fe6940529179f7ed617dccbbcf4f2424383b1014 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
