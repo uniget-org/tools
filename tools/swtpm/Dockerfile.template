@@ -12,32 +12,6 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN --mount=type=cache,target=/var/cache/apt <<EOF
-apt-get update
-apt-get -y install --no-install-recommends \
-    libfuse-dev \
-    libglib2.0-dev \
-    libjson-glib-dev \
-    net-tools \
-    selinux-policy-dev \
-    socat \
-    trousers \
-    libgnutls30 \
-    libtasn1-6-dev \
-    libssl-dev \
-    expect \
-    libseccomp-dev
-EOF
-COPY --link --from=libgmp / /usr/
-COPY --link --from=libtpms / /usr/
-COPY --link --from=python / /usr/local/
-WORKDIR /tmp/swtmp
 RUN <<EOF
-git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/stefanberger/swtpm .
-EOF
-RUN <<EOF
-./autogen.sh --prefix="${prefix}" --without-selinux
-make -j$(nproc)
-make install
-rm -rf "${prefix}/libexec/installed-tests/"
+touch "${prefix}/removed"
 EOF
