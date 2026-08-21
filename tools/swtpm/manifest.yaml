@@ -24,3 +24,5 @@ renovate:
   datasource: github-releases
   package: stefanberger/swtpm
   extractVersion: ^v(?<version>.+)$
+lifecycle:
+  removed_with_reason: This was only an experiment.
