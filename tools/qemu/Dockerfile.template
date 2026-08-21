@@ -16,6 +16,8 @@ apt-get -y install --no-install-recommends \
     libfdt-dev \
     libpixman-1-dev \
     zlib1g-dev \
+    python3-venv \
+    python3-dev \
     python3-pip \
     python-is-python3
 EOF
@@ -30,7 +32,7 @@ git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}"
 EOF
 WORKDIR /tmp/qemu/build
 RUN <<EOF
-../configure --prefix="${prefix}" --static --enable-tools --disable-user --disable-gio --target-list="${TARGETS}"
+../configure --prefix="${prefix}" --enable-tools --disable-user --disable-gio --target-list="${TARGETS}"
 make -j$(nproc)
 EOF
 RUN make install
