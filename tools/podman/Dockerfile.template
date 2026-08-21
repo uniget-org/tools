@@ -5,7 +5,7 @@ FROM ghcr.io/uniget-org/tools/make:latest AS make
 FROM ghcr.io/uniget-org/tools/go-md2man:latest AS go-md2man
 FROM ghcr.io/uniget-org/tools/cni:latest AS cni
 
-FROM registry.gitlab.com/uniget-org/images/build-base:3.23@sha256:f7249e6aa6e7ef57669af5bce04f734a4ad7395f3dc6df76dadf338dfeab8eb5 AS prepare
+FROM registry.gitlab.com/uniget-org/images/build-base:3.24@sha256:6c6c414a06d0c48a6a05e1b3fe6940529179f7ed617dccbbcf4f2424383b1014 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/

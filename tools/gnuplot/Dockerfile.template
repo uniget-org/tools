@@ -1,6 +1,6 @@
 #syntax=docker/dockerfile:1.26.0@sha256:ecfaec9ed6d810b56388c508f4121597bfbba70d41a6dfeee4d8cad5f295fc32
 
-FROM registry.gitlab.com/uniget-org/images/build-base:3.23@sha256:f7249e6aa6e7ef57669af5bce04f734a4ad7395f3dc6df76dadf338dfeab8eb5 AS prepare
+FROM registry.gitlab.com/uniget-org/images/build-base:3.24@sha256:6c6c414a06d0c48a6a05e1b3fe6940529179f7ed617dccbbcf4f2424383b1014 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -8,16 +8,16 @@ SHELL [ "bash", "-clo", "errexit" ]
 WORKDIR /tmp/gnuplot
 ARG name
 ARG version
-RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+RUN <<EOF
 url="https://downloads.sourceforge.net/project/gnuplot/gnuplot/${version}/gnuplot-${version}.tar.gz"
 filename="$( basename "${url}" )"
 
 check-download "${url}"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+curl --silent --show-error --location --fail --output "/tmp/${filename}" \
     "${url}"
 
-tar --file="${uniget_cache_download}/${filename}" --list
-tar --file="${uniget_cache_download}/${filename}" --extract --gzip --strip-components=1
+tar --file="/tmp/${filename}" --list
+tar --file="/tmp/${filename}" --extract --gzip --strip-components=1
 
 ./configure --prefix="${prefix}" \
     --disable-dependency-tracking \
