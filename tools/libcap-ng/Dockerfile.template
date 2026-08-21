@@ -2,15 +2,11 @@
 
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 
-FROM registry.gitlab.com/uniget-org/images/build-base:3.23@sha256:f7249e6aa6e7ef57669af5bce04f734a4ad7395f3dc6df76dadf338dfeab8eb5 AS prepare
+FROM registry.gitlab.com/uniget-org/images/build-essential:26.04@sha256:5ee01cd64296e795943405f10d803592dbd27cad7d35cd6ee1271bf177a71146 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-RUN --mount=type=cache,target=/var/cache/apk <<EOF
-apk add --update-cache \
-    linux-headers
-EOF
 COPY --link --from=make / /usr/local/
 WORKDIR /tmp/libcap-ng
 ARG name
