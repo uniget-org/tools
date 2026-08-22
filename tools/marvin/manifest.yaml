@@ -7,7 +7,7 @@ license:
   link: https://github.com/undistro/marvin/blob/main/LICENSE
 homepage: https://undistro.io/marvin/
 repository: https://github.com/undistro/marvin
-version: "0.2.12"
+version: "0.2.13"
 tags:
 - category/security
 - lang/go
