@@ -31,6 +31,8 @@ ARG version
 RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
 if test "${version}" == "1.0.18"; then
     export CFLAGS="-std=c99"
+    sed -i '1i#include <string.h>' _deps/erofs-utils-src/lib/config.c
+    sed -i '12i#include <cstdint>' _deps/yaml-cpp-src/src/emitterutils.cpp
 fi
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/containerd/overlaybd .
 git submodule update --init
