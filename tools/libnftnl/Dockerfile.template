@@ -3,7 +3,7 @@
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 FROM ghcr.io/uniget-org/tools/libmnl:latest AS libmnl
 
-FROM registry.gitlab.com/uniget-org/images/build-essential:26.04@sha256:5ee01cd64296e795943405f10d803592dbd27cad7d35cd6ee1271bf177a71146 AS prepare
+FROM registry.gitlab.com/uniget-org/images/build-essential:26.04@sha256:0761326451efd5adfeaa56278c455d16cf8d5e4303b3fd3d99031af25b3da6c8 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -14,8 +14,8 @@ WORKDIR /tmp/libnftnl
 ARG name
 ARG version
 RUN <<EOF
-check-clone "https://git.netfilter.org/libnftnl" "libnftnl-${version}"
-git clone --config advice.detachedHead=false --depth 1 --branch "libnftnl-${version}" git://git.netfilter.org/libnftnl .
+check-clone "https://git.netfilter.org/libnftnl.git" "libnftnl-${version}"
+git clone --config advice.detachedHead=false --depth 1 --branch "libnftnl-${version}" https://git.netfilter.org/libnftnl.git .
 EOF
 RUN <<EOF
 export PKG_CONFIG_PATH="/lib/pkgconfig:${PKG_CONFIG_PATH}"
