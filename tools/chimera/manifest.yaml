@@ -20,5 +20,5 @@ platforms:
 - linux/amd64
 renovate:
   datasource: git-refs
-  package: penberg/chimera
+  package: https://github.com/penberg/chimera
   ref: main
