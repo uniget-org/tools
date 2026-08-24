@@ -70,6 +70,8 @@ jobs:
     
     - name: Check log
       run: |
-        if grep secondary job.log; then
-            exit 1
-        fi
+        cat job.log \
+        | cut -d' ' -f2- \
+        | grep ^{ \
+        >renovate.jsonl
+        npx renovate-log-parser detect-errors renovate.jsonl
