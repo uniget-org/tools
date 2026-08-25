@@ -6,7 +6,7 @@ license:
   link: https://github.com/cilium/tetragon/blob/main/LICENSE
 homepage: https://tetragon.io
 repository: https://github.com/cilium/tetragon
-version: "1.7.0"
+version: "1.7.1"
 tags:
 - org/cilium
 - category/security
