@@ -7,7 +7,7 @@ license:
   link: https://github.com/Telemaco019/kubesafe/blob/main/LICENSE
 homepage: https://github.com/Telemaco019/kubesafe
 repository: https://github.com/Telemaco019/kubesafe
-version: "0.5.0"
+version: "0.5.1"
 tags:
 - category/security
 - lang/go
