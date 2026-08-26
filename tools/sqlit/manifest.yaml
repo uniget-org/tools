@@ -7,7 +7,7 @@ license:
   link: https://github.com/Maxteabag/sqlit/blob/main/LICENSE
 homepage: https://github.com/Maxteabag/sqlit
 repository: https://github.com/Maxteabag/sqlit
-version: "1.6.1"
+version: "1.6.2"
 tags:
 - category/development
 - lang/python
