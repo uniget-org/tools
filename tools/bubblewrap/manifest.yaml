@@ -6,7 +6,7 @@ license:
   link: https://github.com/containers/bubblewrap/blob/main/COPYING
 homepage: https://github.com/containers/bubblewrap
 repository: https://github.com/containers/bubblewrap
-version: "0.11.2"
+version: "0.12.0"
 tags:
 - org/redhat
 - kernel/namespaces
