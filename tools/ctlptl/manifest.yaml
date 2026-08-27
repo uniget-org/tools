@@ -7,7 +7,7 @@ license:
   link: https://github.com/tilt-dev/ctlptl/blob/main/LICENSE
 homepage: https://docs.tilt.dev/choosing_clusters.html
 repository: https://github.com/tilt-dev/ctlptl
-version: "0.9.4"
+version: "0.9.5"
 tags:
 - org/tilt
 - category/development
