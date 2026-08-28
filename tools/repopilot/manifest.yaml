@@ -7,7 +7,7 @@ license:
   link: https://github.com/MykytaStel/repopilot/blob/main/LICENSE
 homepage: https://github.com/MykytaStel/repopilot
 repository: https://github.com/MykytaStel/repopilot
-version: "0.21.0"
+version: "0.22.0"
 tags:
 - type/cli
 - category/development
