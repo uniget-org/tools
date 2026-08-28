@@ -7,7 +7,7 @@ license:
   link: https://github.com/opengrep/opengrep/blob/main/LICENSE
 homepage: https://opengrep.dev
 repository: https://github.com/opengrep/opengrep
-version: "1.28.0"
+version: "1.29.0"
 tags:
 - category/development
 - lang/ocaml
