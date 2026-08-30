@@ -7,7 +7,7 @@ license:
   link: https://github.com/santhreal/keyhog/blob/main/LICENSE
 homepage: https://santh.dev/keyhog
 repository: https://github.com/santhreal/keyhog
-version: "0.5.78"
+version: "0.5.86"
 tags:
 - category/security
 - type/cli
