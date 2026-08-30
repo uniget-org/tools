@@ -6,7 +6,7 @@ license:
   link: https://github.com/mlange-42/git-graph/blob/master/LICENSE
 homepage: https://github.com/mlange-42/git-graph
 repository: https://github.com/mlange-42/git-graph
-version: "v0.7.0"
+version: "v0.8.0"
 tags:
 - category/development
 - type/cli
