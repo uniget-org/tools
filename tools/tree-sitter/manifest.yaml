@@ -7,7 +7,7 @@ license:
   link: https://github.com/tree-sitter/tree-sitter/blob/master/LICENSE
 homepage: https://tree-sitter.github.io/tree-sitter/
 repository: https://github.com/tree-sitter/tree-sitter
-version: "0.26.13"
+version: "0.27.0"
 tags:
 - category/development
 - lang/rust
