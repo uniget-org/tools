@@ -2,24 +2,13 @@
 
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 
-FROM registry.gitlab.com/uniget-org/images/build-essential:24.04 AS prepare
+FROM registry.gitlab.com/uniget-org/images/build-essential:26.04@sha256:0761326451efd5adfeaa56278c455d16cf8d5e4303b3fd3d99031af25b3da6c8 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN --mount=type=cache,target=/var/cache/apt <<EOF
-apt-get update
-apt-get -y install --no-install-recommends \
-    libssl-dev
-EOF
-COPY --link --from=make / /usr/local/
-WORKDIR /tmp/libtpms
 RUN <<EOF
-git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/stefanberger/libtpms .
-./autogen.sh --prefix="${prefix}" --with-tpm2 --with-openssl
-make -j$(nproc)
-make check
-make install
+touch "${prefix}/removed"
 EOF

@@ -2,7 +2,7 @@
 
 FROM ghcr.io/uniget-org/tools/rust:latest AS rust
 
-FROM registry.gitlab.com/uniget-org/images/build-essential:24.04 AS prepare
+FROM registry.gitlab.com/uniget-org/images/build-essential:26.04@sha256:0761326451efd5adfeaa56278c455d16cf8d5e4303b3fd3d99031af25b3da6c8 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -10,6 +10,10 @@ SHELL [ "bash", "-clo", "errexit" ]
 RUN --mount=type=cache,target=/var/cache/apt <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
+    libzstd-dev \
+    zlib1g-dev \
+    libjitterentropy3-dev \
+    libtirpc-dev \
     libssl-dev
 EOF
 COPY --link --from=rust / /usr/local/
@@ -20,7 +24,6 @@ RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "glim-v${version}" https://github.com/junkdog/glim .
 export CARGO_HOME=/usr/local/cargo
 export RUSTUP_HOME=/usr/local/rustup
-export RUSTFLAGS='-C target-feature=+crt-static'
 cargo build --release --target "${arch}-unknown-linux-gnu"
 cp "target/${arch}-unknown-linux-gnu/release/glim" "${prefix}/bin/"
 EOF

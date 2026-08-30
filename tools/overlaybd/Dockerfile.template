@@ -3,7 +3,7 @@
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 
 # Cannot use musl because execinfo.h is required but not available
-FROM registry.gitlab.com/uniget-org/images/build-essential:24.04 AS prepare
+FROM registry.gitlab.com/uniget-org/images/build-essential:26.04@sha256:0761326451efd5adfeaa56278c455d16cf8d5e4303b3fd3d99031af25b3da6c8 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -29,13 +29,16 @@ WORKDIR /tmp/overlaybd
 ARG name
 ARG version
 RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
-export CFLAGS="-std=gnu17"
-export CXXFLAGS="-std=gnu++17"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/containerd/overlaybd .
 git submodule update --init
 mkdir build
 cd build
-cmake ..
+cmake .. -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+if test "${version}" == "1.0.18"; then
+    export CFLAGS="-std=c99"
+    sed -i '1i#include <string.h>' _deps/erofs-utils-src/lib/config.c
+    sed -i '12i#include <cstdint>' _deps/yaml-cpp-src/src/emitterutils.cpp
+fi
 make -j$(nproc)
 make install DESTDIR=${prefix}
 EOF

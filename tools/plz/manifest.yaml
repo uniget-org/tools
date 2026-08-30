@@ -15,11 +15,11 @@ tags:
 - copilot
 - state/stale
 check: ${binary} --version | cut -d' ' -f2
-build_dependencies:
-- rust
 platforms:
 - linux/amd64
 renovate:
   datasource: github-releases
   package: m1guelpf/plz-cli
   extractVersion: ^v(?<version>.+)$
+lifecycle:
+  removed_with_reason: This project is unmaintained.
