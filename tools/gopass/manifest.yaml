@@ -6,7 +6,7 @@ license:
   link: https://github.com/gopasspw/gopass/blob/master/LICENSE
 homepage: https://www.gopass.pw/
 repository: https://github.com/gopasspw/gopass
-version: "1.16.1"
+version: "1.17.0"
 tags:
 - category/operations
 - lang/go
