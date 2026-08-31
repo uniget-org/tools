@@ -7,7 +7,7 @@ license:
   link: https://github.com/orf/gping/blob/main/LICENSE
 homepage: https://github.com/orf/gping
 repository: https://github.com/orf/gping
-version: "1.20.4"
+version: "1.21.0"
 tags:
 - category/operations
 - lang/rust
