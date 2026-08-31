@@ -7,7 +7,7 @@ license:
   link: https://github.com/Ataraxy-Labs/sem/blob/main/LICENSE-MIT
 homepage: https://github.com/Ataraxy-Labs/sem
 repository: https://github.com/Ataraxy-Labs/sem
-version: "0.23.1"
+version: "0.24.0"
 tags:
 - category/development
 - type/cli
