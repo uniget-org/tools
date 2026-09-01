@@ -7,7 +7,7 @@ license:
   link: https://github.com/orhun/git-cliff/blob/main/LICENSE-APACHE
 homepage: https://git-cliff.org
 repository: https://github.com/orhun/git-cliff
-version: "2.13.1"
+version: "2.14.1"
 tags:
 - category/development
 - lang/rust
