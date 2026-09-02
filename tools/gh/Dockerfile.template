@@ -1,4 +1,4 @@
-#syntax=docker/dockerfile:1.26.0@sha256:ecfaec9ed6d810b56388c508f4121597bfbba70d41a6dfeee4d8cad5f295fc32
+#syntax=docker/dockerfile:1.27.0@sha256:ecfaec9ed6d810b56388c508f4121597bfbba70d41a6dfeee4d8cad5f295fc32
 
 FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04@sha256:0e9f873df6c03f698322571475f367a694d7eff9077e5019ae764e5106a6da16 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
