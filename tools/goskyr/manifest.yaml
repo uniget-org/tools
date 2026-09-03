@@ -7,7 +7,7 @@ license:
   link: https://github.com/jakopako/goskyr/blob/main/LICENSE
 homepage: https://github.com/jakopako/goskyr
 repository: https://github.com/jakopako/goskyr
-version: "0.9.5"
+version: "0.9.7"
 tags:
 - category/development
 - lang/go
