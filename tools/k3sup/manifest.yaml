@@ -6,7 +6,7 @@ license:
   link: https://github.com/alexellis/k3sup/blob/master/LICENSE
 homepage: https://github.com/sponsors/alexellis
 repository: https://github.com/alexellis/k3sup
-version: "0.13.12"
+version: "0.13.13"
 tags:
 - type/cli
 - kubernetes
