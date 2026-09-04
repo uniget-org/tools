@@ -7,7 +7,7 @@ license:
   link: https://github.com/vercel-labs/deepsec/blob/main/LICENSE
 homepage: https://github.com/vercel-labs/deepsec
 repository: https://github.com/vercel-labs/deepsec
-version: "2.3.8"
+version: "2.3.9"
 tags:
 - category/security
 - lang/javascript
