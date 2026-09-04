@@ -6,7 +6,7 @@ license:
   link: https://github.com/rtk-ai/rtk/blob/main/LICENSE
 homepage: https://rtk.ai
 repository: https://github.com/rtk-ai/rtk
-version: "0.47.0"
+version: "0.48.0"
 tags:
 - type/cli
 - category/development
