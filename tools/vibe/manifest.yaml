@@ -6,7 +6,7 @@ license:
   link: https://github.com/mistralai/mistral-vibe/blob/main/LICENSE
 homepage: https://mistral.ai
 repository: https://github.com/mistralai/mistral-vibe
-version: "2.24.5"
+version: "2.25.0"
 tags:
 - type/cli
 - type/tui
