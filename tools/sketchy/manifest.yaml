@@ -7,7 +7,7 @@ license:
   link: https://github.com/Adversis/sketchy/blob/main/LICENSE
 homepage: https://github.com/Adversis/sketchy
 repository: https://github.com/Adversis/sketchy
-version: "1.0.0"
+version: "2.0.0"
 tags:
 - type/cli
 - category/security
