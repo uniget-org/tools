@@ -17,6 +17,7 @@ tags:
 check: ""
 platforms:
 - linux/amd64
+- linux/arm64
 renovate:
   datasource: git-refs
   package: https://github.com/calfonso/rusternetes

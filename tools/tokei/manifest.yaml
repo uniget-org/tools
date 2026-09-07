@@ -18,6 +18,7 @@ tags:
 check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: XAMPPRocky/tokei
