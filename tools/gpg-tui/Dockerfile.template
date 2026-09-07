@@ -7,9 +7,12 @@ apk add \
     build-base \
     git \
     bash \
+    pkgconfig \
     libgpg-error-dev \
     libgpg-error-static \
-    gpgme-dev
+    gpgme-dev \
+    libassuan-dev \
+    libassuan-static
 EOF
 WORKDIR /tmp/github.com/orhun/gpg-tui
 ARG version
