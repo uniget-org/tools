@@ -61,15 +61,6 @@
     },
   "packageRules": [
     {
-      "matchDatasources": [
-        "docker"
-      ],
-      "enabled": false,
-      "matchPackageNames": [
-        "ghcr.io/uniget-org/tools/{/,}**"
-      ]
-    },
-    {
       "matchFileNames": [
         "tools/ghostty-noble/*"
       ],
@@ -82,6 +73,32 @@
       "matchUpdateTypes": [
         "major",
         "minor"
+      ],
+      "enabled": false
+    },
+    {
+      "matchDatasources": [
+        "docker"
+      ],
+      "enabled": false,
+      "matchPackageNames": [
+        "ghcr.io/uniget-org/tools/{/,}**",
+        "registry.gitlab.com/uniget-org/tools/{/,}**"
+      ]
+    },
+    {
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchPackageNames": [
+        "registry.gitlab.com/uniget-org/images/ubuntu",
+        "registry.gitlab.com/uniget-org/images/build-essential",
+        "registry.gitlab.com/uniget-org/images/alpine",
+        "registry.gitlab.com/uniget-org/images/build-base"
+      ],
+      "matchUpdateTypes": [
+        "digest",
+        "pin"
       ],
       "enabled": false
     }
