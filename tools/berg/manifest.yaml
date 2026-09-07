@@ -15,8 +15,6 @@ tags:
 - cloud/codeberg
 - state/archived
 check: ${binary} --version | cut -d' ' -f2
-build_dependencies:
-- rust
 platforms:
 - linux/amd64
 lifecycle:

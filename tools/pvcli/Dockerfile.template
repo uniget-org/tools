@@ -1,16 +1,16 @@
 #syntax=docker/dockerfile:1.27.0@sha256:bde3983e9c939224420ddaf6b784cc30e09b035a4dea01f581230c50809f372e
 
-FROM ghcr.io/uniget-org/tools/rust:latest AS rust
-
-FROM registry.gitlab.com/uniget-org/images/build-essential:26.04@sha256:0761326451efd5adfeaa56278c455d16cf8d5e4303b3fd3d99031af25b3da6c8 AS prepare
+FROM registry.gitlab.com/uniget-org/images/build-base:3.24 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --link --from=rust / /usr/local/
 RUN <<EOF
-apt-get update
-apt-get install -y --no-install-recommends \
+apk update
+apk add \
+    rust \
+    cargo \
+    musl-dev \
     cmake \
     clang
 EOF
@@ -20,8 +20,6 @@ ARG version
 RUN <<EOF
 git clone https://github.com/cloudflareresearch/pvcli .
 git checkout "${version}"
-export CARGO_HOME=/usr/local/cargo
-export RUSTUP_HOME=/usr/local/rustup
 cargo build --release --target "${arch}-unknown-linux-musl"
 cp "target/${arch}-unknown-linux-musl/release/pvcli" "${prefix}/bin/"
 EOF

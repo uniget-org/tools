@@ -13,8 +13,6 @@ tags:
 - webassembly
 - wasm
 check: ${binary} --version | cut -d' ' -f2
-build_dependencies:
-- rust
 platforms:
 - linux/amd64
 #- linux/arm64

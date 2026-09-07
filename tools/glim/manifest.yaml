@@ -14,8 +14,6 @@ tags:
 - type/tui
 - gitlab
 check: ${binary} --version | cut -d' ' -f2
-build_dependencies:
-- rust
 platforms:
 - linux/amd64
 renovate:

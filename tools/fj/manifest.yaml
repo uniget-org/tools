@@ -14,8 +14,6 @@ tags:
 - type/cli
 - cloud/codeberg
 check: ${binary} version | grep ^fj | cut -d' ' -f2 | tr -d v
-build_dependencies:
-- rust
 platforms:
 - linux/amd64
 renovate:

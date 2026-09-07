@@ -1,8 +1,6 @@
 #syntax=docker/dockerfile:1.27.0@sha256:bde3983e9c939224420ddaf6b784cc30e09b035a4dea01f581230c50809f372e
 
-FROM ghcr.io/uniget-org/tools/rust:latest AS rust
-
-FROM registry.gitlab.com/uniget-org/images/build-essential:26.04 AS prepare
+FROM registry.gitlab.com/uniget-org/images/build-base:3.24 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -10,18 +8,18 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/apt <<EOF
-apt-get update
-apt-get -y install --no-install-recommends \
-    libelf-dev \
-    clang
+apk update
+apk add \
+    rust \
+    cargo \
+    musl-dev \
+    libelf \
+    clang \
+    linux-headers
 EOF
-COPY --link --from=rust / /usr/local/
 WORKDIR /tmp/github.com/facebookincubator/below
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/facebookincubator/below .
-export CARGO_HOME=/usr/local/cargo
-export RUSTUP_HOME=/usr/local/rustup
-rustup component add rustfmt
 cargo build --release --target "${arch}-unknown-linux-musl"
 cp "target/${arch}-unknown-linux-musl/release/below" "${prefix}/bin/"
 EOF
