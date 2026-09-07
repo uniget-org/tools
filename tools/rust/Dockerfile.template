@@ -49,3 +49,6 @@ find "${prefix}/cargo/bin" -type f,l -executable \
     ln --symbolic --relative --force "${prefix}/cargo/bin/$(basename "${FILE}")" "${prefix}/bin/"
 done
 EOF
+RUN <<EOF
+"${prefix}/cargo/bin/rustup" target add x86_64-unknown-linux-musl
+EOF
