@@ -7,7 +7,7 @@ license:
   link: https://github.com/XAMPPRocky/tokei
 homepage: https://github.com/XAMPPRocky/tokei
 repository: https://github.com/XAMPPRocky/tokei
-version: "14.0.0"
+version: "15.0.0"
 tags:
 - category/development
 - lang/rust
