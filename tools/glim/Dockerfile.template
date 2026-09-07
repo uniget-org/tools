@@ -1,16 +1,12 @@
 #syntax=docker/dockerfile:1.27.0@sha256:bde3983e9c939224420ddaf6b784cc30e09b035a4dea01f581230c50809f372e
 
-FROM registry.gitlab.com/uniget-org/images/build-base:3.24 AS prepare
-COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
-    /etc/profile.d/ \
-    /etc/profile.d/
-SHELL [ "bash", "-clo", "errexit" ]
+FROM rust:alpine AS build
 RUN <<EOF
 apk update
 apk add \
-    rust \
-    cargo \
-    musl-dev \
+    build-base \
+    git \
+    bash \
     zstd-dev \
     zlib-dev \
     jitterentropy-library-dev \
@@ -19,10 +15,16 @@ apk add \
     openssl-libs-static
 EOF
 WORKDIR /tmp/github.com/junkdog/glim
-ARG name
 ARG version
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "glim-v${version}" https://github.com/junkdog/glim .
-cargo build --release --target "${arch}-unknown-linux-musl"
-cp "target/${arch}-unknown-linux-musl/release/glim" "${prefix}/bin/"
+cargo build --release --target "$(uname -m)-unknown-linux-musl"
+cp "target/$(uname -m)-unknown-linux-musl/release/glim" "/usr/local/bin/"
 EOF
+
+FROM registry.gitlab.com/uniget-org/images/alpine:3.24 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+COPY --from=build "/usr/local/bin/glim" "/uniget_bootstrap/bin/"

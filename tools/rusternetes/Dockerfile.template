@@ -1,21 +1,12 @@
 #syntax=docker/dockerfile:1.27.0@sha256:bde3983e9c939224420ddaf6b784cc30e09b035a4dea01f581230c50809f372e
 
-FROM registry.gitlab.com/uniget-org/images/build-base:3.24 AS prepare
-COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
-    /etc/profile.d/ \
-    /etc/profile.d/
-SHELL [ "bash", "-clo", "errexit" ]
-ARG name
-ARG version
+FROM rust:alpine AS build
 RUN <<EOF
 apk update
-# libssl-dev: required for TLS support in Rust crates
-# protobuf-compiler: provides protoc for compiling .proto files
-# libprotobuf-dev: provides well-known proto types (e.g. google/protobuf/any.proto)
 apk add \
-    rust \
-    cargo \
-    musl-dev \
+    build-base \
+    git \
+    bash \
     openssl-dev \
     openssl-libs-static \
     libzstd-dev \
@@ -25,20 +16,34 @@ apk add \
     libprotobuf-dev
 EOF
 WORKDIR /tmp/github.com/calfonso/rusternetes
+ARG version
 RUN <<EOF
 git clone https://github.com/calfonso/rusternetes .
 git checkout "${version}"
-cargo build --release --target "${arch}-unknown-linux-musl"
-cp "target/${arch}-unknown-linux-musl/release/api-server" "${prefix}/bin/"
-cp "target/${arch}-unknown-linux-musl/release/controller-manager" "${prefix}/bin/"
-cp "target/${arch}-unknown-linux-musl/release/kube-proxy" "${prefix}/bin/"
-cp "target/${arch}-unknown-linux-musl/release/kubectl" "${prefix}/bin/"
-cp "target/${arch}-unknown-linux-musl/release/kubelet" "${prefix}/bin/"
-cp "target/${arch}-unknown-linux-musl/release/rusternetes" "${prefix}/bin/"
-cp "target/${arch}-unknown-linux-musl/release/scheduler" "${prefix}/bin/"
+cargo build --release --target "$(uname -m)-unknown-linux-musl"
+cp "target/$(uname -m)-unknown-linux-musl/release/api-server" "/usr/local/bin/"
+cp "target/$(uname -m)-unknown-linux-musl/release/controller-manager" "/usr/local/bin/"
+cp "target/$(uname -m)-unknown-linux-musl/release/kube-proxy" "/usr/local/bin/"
+cp "target/$(uname -m)-unknown-linux-musl/release/kubectl" "/usr/local/bin/"
+cp "target/$(uname -m)-unknown-linux-musl/release/kubelet" "/usr/local/bin/"
+cp "target/$(uname -m)-unknown-linux-musl/release/rusternetes" "/usr/local/bin/"
+cp "target/$(uname -m)-unknown-linux-musl/release/scheduler" "/usr/local/bin/"
 EOF
+
+FROM registry.gitlab.com/uniget-org/images/build-base:3.24 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
 RUN <<EOF
 "${prefix}/bin/kubectl" completion bash >"${prefix}/share/bash-completion/completions/kubectl"
 "${prefix}/bin/kubectl" completion fish >"${prefix}/share/fish/vendor_completions.d/kubectl.fish"
 "${prefix}/bin/kubectl" completion zsh >"${prefix}/share/zsh/vendor-completions/_kubectl"
 EOF
+COPY --from=build "/usr/local/bin/api-server" "/uniget_bootstrap/bin/"
+COPY --from=build "/usr/local/bin/controller-manager" "/uniget_bootstrap/bin/"
+COPY --from=build "/usr/local/bin/kube-proxy" "/uniget_bootstrap/bin/"
+COPY --from=build "/usr/local/bin/kubectl" "/uniget_bootstrap/bin/"
+COPY --from=build "/usr/local/bin/kubelet" "/uniget_bootstrap/bin/"
+COPY --from=build "/usr/local/bin/rusternetes" "/uniget_bootstrap/bin/"
+COPY --from=build "/usr/local/bin/scheduler" "/uniget_bootstrap/bin/"

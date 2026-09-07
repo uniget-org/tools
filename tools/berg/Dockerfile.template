@@ -1,27 +1,29 @@
 #syntax=docker/dockerfile:1.27.0@sha256:bde3983e9c939224420ddaf6b784cc30e09b035a4dea01f581230c50809f372e
 
-FROM registry.gitlab.com/uniget-org/images/build-base:3.24 AS prepare
+FROM rust:alpine AS build
+RUN <<EOF
+apk update
+apk add \
+    build-base \
+    git \
+    bash \
+    openssl-dev \
+    openssl-libs-static
+EOF
+ARG version
+WORKDIR /tmp/codeberg.org/Aviac/codeberg-cli
+RUN <<EOF
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://codeberg.org/Aviac/codeberg-cli .
+cargo build --release --target "$(uname -m)-unknown-linux-musl"
+cp "target/$(uname -m)-unknown-linux-musl/release/berg" "/usr/local/bin/"
+EOF
+
+FROM registry.gitlab.com/uniget-org/images/alpine:3.24 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-ARG name
-ARG version
-RUN --mount=type=cache,target=/var/cache/apt <<EOF
-apk update
-apk add \
-    rust \
-    cargo \
-    musl-dev \
-    openssl-dev \
-    openssl-libs-static
-EOF
-WORKDIR /tmp/codeberg.org/Aviac/codeberg-cli
-RUN <<EOF
-git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://codeberg.org/Aviac/codeberg-cli .
-cargo build --release --target "${arch}-unknown-linux-musl"
-cp "target/${arch}-unknown-linux-musl/release/berg" "${prefix}/bin/"
-EOF
+COPY --from=build "/usr/local/bin/berg" "/uniget_bootstrap/bin/"
 RUN <<EOF
 "${prefix}/bin/berg" completion bash >"${prefix}/share/bash-completion/completions/berg"
 "${prefix}/bin/berg" completion fish >"${prefix}/share/fish/vendor_completions.d/berg.fish"

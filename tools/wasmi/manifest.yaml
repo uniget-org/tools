@@ -12,6 +12,7 @@ tags:
 - type/cli
 - webassembly
 - wasm
+binary: wasmi_cli
 check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
@@ -20,4 +21,3 @@ renovate:
   datasource: github-releases
   package: wasmi-labs/wasmi
   extractVersion: ^v(?<version>.+)$
-binary: wasmi_cli
