@@ -16,8 +16,8 @@ check-clone "https://github.com/uutils/diffutils" "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/uutils/diffutils .
 export CARGO_HOME=/usr/local/cargo
 export RUSTUP_HOME=/usr/local/rustup
-cargo build --release --target "${arch}-unknown-linux-gnu"
-cp "target/${arch}-unknown-linux-gnu/release/diffutils" "${prefix}/bin/"
+cargo build --release --target "${arch}-unknown-linux-musl"
+cp "target/${arch}-unknown-linux-musl/release/diffutils" "${prefix}/bin/"
 EOF
 RUN <<EOF
 ln --symbolic --relative --force "${prefix}/bin/diffutils" "${prefix}/bin/diff"

@@ -15,6 +15,6 @@ RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/XAMPPRocky/tokei .
 export CARGO_HOME=/usr/local/cargo
 export RUSTUP_HOME=/usr/local/rustup
-cargo build --release --target "${arch}-unknown-linux-gnu"
-cp "target/${arch}-unknown-linux-gnu/release/tokei" "${prefix}/bin/"
+cargo build --release --target "${arch}-unknown-linux-musl"
+cp "target/${arch}-unknown-linux-musl/release/tokei" "${prefix}/bin/"
 EOF

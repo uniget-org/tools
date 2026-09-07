@@ -16,8 +16,8 @@ check-clone "https://github.com/uutils/util-linux" "${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" https://github.com/uutils/util-linux .
 export CARGO_HOME=/usr/local/cargo
 export RUSTUP_HOME=/usr/local/rustup
-cargo build --release --target "${arch}-unknown-linux-gnu"
-cp "target/${arch}-unknown-linux-gnu/release/util-linux" "${prefix}/bin/"
+cargo build --release --target "${arch}-unknown-linux-musl"
+cp "target/${arch}-unknown-linux-musl/release/util-linux" "${prefix}/bin/"
 EOF
 RUN <<EOF
 "${prefix}/bin/util-linux" --help 2>/dev/null \
