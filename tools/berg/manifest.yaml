@@ -17,5 +17,6 @@ tags:
 check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
+- linux/arm64
 lifecycle:
   removed_with_reason: Archived. Please use fj.

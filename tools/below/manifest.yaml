@@ -16,6 +16,7 @@ tags:
 check: "" # No version paramter
 platforms:
 - linux/amd64
+- linux/arm64
 renovate:
   datasource: github-releases
   package: facebookincubator/below
