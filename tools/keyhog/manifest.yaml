@@ -15,8 +15,6 @@ tags:
 - secrets
 - standard/git
 check: ${binary} --version | grep ^KeyHog | cut -d' ' -f2 | tr -d v
-build_dependencies:
-- rust
 platforms:
 - linux/amd64
 renovate:

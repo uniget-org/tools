@@ -12,8 +12,6 @@ tags:
 - lang/rust
 - type/cli
 check: ${binary} --version | cut -d' ' -f2
-build_dependencies:
-- rust
 platforms:
 - linux/amd64
 #- linux/arm64

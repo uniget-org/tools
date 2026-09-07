@@ -1,23 +1,24 @@
 #syntax=docker/dockerfile:1.27.0@sha256:bde3983e9c939224420ddaf6b784cc30e09b035a4dea01f581230c50809f372e
 
-FROM ghcr.io/uniget-org/tools/rust:latest AS rust
-
-FROM registry.gitlab.com/uniget-org/images/build-essential:26.04 AS prepare
+FROM registry.gitlab.com/uniget-org/images/build-base:3.24 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --link --from=rust / /usr/local/
 WORKDIR /tmp/github.com/01mf02/jaq
+RUN <<EOF
+apk update
+apk add \
+    rust \
+    cargo \
+    musl-dev
+EOF
 ARG name
 ARG version
 RUN --mount=type=cache,target=/target \
     --mount=type=cache,target=/usr/local/cargo/registry <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/01mf02/jaq .
-export CARGO_HOME=/usr/local/cargo
-export CARGO_TARGET_DIR=/target
-export RUSTUP_HOME=/usr/local/rustup
 cargo build --release --target "${arch}-unknown-linux-musl"
-cp "/target/${arch}-unknown-linux-musl/release/jaq" "${prefix}/bin/"
+cp "target/${arch}-unknown-linux-musl/release/jaq" "${prefix}/bin/"
 ln --symbolic --relative --force "${prefix}/bin/jaq" "${prefix}/bin/jq"
 EOF

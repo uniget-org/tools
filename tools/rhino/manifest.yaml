@@ -16,8 +16,6 @@ tags:
 - k8s
 - etcd
 check: ""
-build_dependencies:
-- rust
 platforms:
 - linux/amd64
 renovate:

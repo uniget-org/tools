@@ -13,8 +13,6 @@ tags:
 - category/network
 - lang/rust
 check: ${binary} --version | cut -d' ' -f2
-build_dependencies:
-- rust
 platforms:
 - linux/amd64
 renovate:

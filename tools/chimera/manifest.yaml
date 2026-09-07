@@ -14,8 +14,6 @@ tags:
 - category/development
 - lang/rust
 check: "" # No releases
-build_dependencies:
-- rust
 platforms:
 - linux/amd64
 renovate:
