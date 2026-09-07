@@ -1,24 +1,26 @@
 #syntax=docker/dockerfile:1.27.0@sha256:bde3983e9c939224420ddaf6b784cc30e09b035a4dea01f581230c50809f372e
 
-FROM rust:alpine AS build
+FROM rust:latest AS build
 RUN <<EOF
-apk update
-apk add \
-    build-base \
+apt-get update
+apt-get install -y --no-install-recommends \
+    build-essential \
     git \
-    bash
+    bash \
+    pkg-config
 EOF
 ARG version
 WORKDIR /tmp/chimera
 RUN <<EOF
 git clone https://github.com/penberg/chimera.git .
 git checkout "${version}"
-cargo build --release --package chimera-cli --target "$(uname -m)-unknown-linux-musl"
+cargo build --release --package chimera-cli --target "$(uname -m)-unknown-linux-gnu"
+cp "target/$(uname -m)-unknown-linux-gnu/release/chimera" "/usr/local/bin/"
 EOF
 
-FROM registry.gitlab.com/uniget-org/images/alpine:3.24 AS prepare
+FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --from=build "/tmp/chimera/target/${arch}-unknown-linux-musl/release/chimera" "${prefix}/bin/chimera"
+COPY --from=build "/usr/local/bin/chimera" "${prefix}/bin/chimera"

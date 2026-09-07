@@ -8,9 +8,11 @@ apk add \
     git \
     bash \
     libgpg-error-dev \
-    libgpgme-dev
+    libgpg-error-static
+    gpgme-dev
 EOF
 WORKDIR /tmp/github.com/orhun/gpg-tui
+ARG version
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/orhun/gpg-tui .
 cargo build --release --bin gpg-tui --target "$(uname -m)-unknown-linux-musl"

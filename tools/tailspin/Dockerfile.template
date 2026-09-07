@@ -22,6 +22,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
 COPY --from=build "/usr/local/bin/tspin" "/uniget_bootstrap/bin/"
+ARG version
 RUN <<EOF
 curl --silent --show-error --location --fail --output "${prefix}/share/bash-completion/completions/tspin" \
     --url "https://github.com/bensadeh/tailspin/raw/${version}/completions/tspin.bash"

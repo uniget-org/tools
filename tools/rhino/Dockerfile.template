@@ -8,7 +8,7 @@ apk add \
     git \
     bash \
     protobuf-dev \
-    protobuf-compiler
+    protobuf
 EOF
 WORKDIR /tmp/github.com/calfonso/rhino
 ARG version
