@@ -22,6 +22,6 @@ git clone https://github.com/cloudflareresearch/pvcli .
 git checkout "${version}"
 export CARGO_HOME=/usr/local/cargo
 export RUSTUP_HOME=/usr/local/rustup
-cargo build --release --target "${arch}-unknown-linux-gnu"
-cp "target/${arch}-unknown-linux-gnu/release/pvcli" "${prefix}/bin/"
+cargo build --release --target "${arch}-unknown-linux-musl"
+cp "target/${arch}-unknown-linux-musl/release/pvcli" "${prefix}/bin/"
 EOF

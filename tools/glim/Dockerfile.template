@@ -24,6 +24,6 @@ RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "glim-v${version}" https://github.com/junkdog/glim .
 export CARGO_HOME=/usr/local/cargo
 export RUSTUP_HOME=/usr/local/rustup
-cargo build --release --target "${arch}-unknown-linux-gnu"
-cp "target/${arch}-unknown-linux-gnu/release/glim" "${prefix}/bin/"
+cargo build --release --target "${arch}-unknown-linux-musl"
+cp "target/${arch}-unknown-linux-musl/release/glim" "${prefix}/bin/"
 EOF

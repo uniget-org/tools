@@ -16,6 +16,6 @@ git clone https://github.com/penberg/chimera.git .
 git checkout "${version}"
 export CARGO_HOME=/usr/local/cargo
 export RUSTUP_HOME=/usr/local/rustup
-cargo build --release --package chimera-cli
-install --mode=0755 target/release/chimera "${prefix}/bin/"
+cargo build --release --package chimera-cli --target "${arch}-unknown-linux-musl"
+install --mode=0755 target/"${arch}-unknown-linux-musl"/release/chimera "${prefix}/bin/"
 EOF

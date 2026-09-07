@@ -18,7 +18,6 @@ sed -i -E "s/^version = \"[0-9]+\.[0-9]+\.[0-9]+(-[a-z]+\.[0-9]+)?\"/version = \
 export CARGO_HOME=/usr/local/cargo
 export CARGO_TARGET_DIR=/target
 export RUSTUP_HOME=/usr/local/rustup
-export RUSTFLAGS='-C target-feature=+crt-static'
-cargo build --release --target "${arch}-unknown-linux-gnu"
-cp "/target/${arch}-unknown-linux-gnu/release/wasmi_cli" "${prefix}/bin/"
+cargo build --release --target "${arch}-unknown-linux-musl"
+cp "/target/${arch}-unknown-linux-musl/release/wasmi_cli" "${prefix}/bin/"
 EOF

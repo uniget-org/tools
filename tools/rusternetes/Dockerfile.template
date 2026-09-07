@@ -29,14 +29,14 @@ git clone https://github.com/calfonso/rusternetes .
 git checkout "${version}"
 export CARGO_HOME=/usr/local/cargo
 export RUSTUP_HOME=/usr/local/rustup
-cargo build --release --target "${arch}-unknown-linux-gnu"
-cp "target/${arch}-unknown-linux-gnu/release/api-server" "${prefix}/bin/"
-cp "target/${arch}-unknown-linux-gnu/release/controller-manager" "${prefix}/bin/"
-cp "target/${arch}-unknown-linux-gnu/release/kube-proxy" "${prefix}/bin/"
-cp "target/${arch}-unknown-linux-gnu/release/kubectl" "${prefix}/bin/"
-cp "target/${arch}-unknown-linux-gnu/release/kubelet" "${prefix}/bin/"
-cp "target/${arch}-unknown-linux-gnu/release/rusternetes" "${prefix}/bin/"
-cp "target/${arch}-unknown-linux-gnu/release/scheduler" "${prefix}/bin/"
+cargo build --release --target "${arch}-unknown-linux-musl"
+cp "target/${arch}-unknown-linux-musl/release/api-server" "${prefix}/bin/"
+cp "target/${arch}-unknown-linux-musl/release/controller-manager" "${prefix}/bin/"
+cp "target/${arch}-unknown-linux-musl/release/kube-proxy" "${prefix}/bin/"
+cp "target/${arch}-unknown-linux-musl/release/kubectl" "${prefix}/bin/"
+cp "target/${arch}-unknown-linux-musl/release/kubelet" "${prefix}/bin/"
+cp "target/${arch}-unknown-linux-musl/release/rusternetes" "${prefix}/bin/"
+cp "target/${arch}-unknown-linux-musl/release/scheduler" "${prefix}/bin/"
 EOF
 RUN <<EOF
 "${prefix}/bin/kubectl" completion bash >"${prefix}/share/bash-completion/completions/kubectl"
