@@ -9,7 +9,8 @@ apk add \
     bash \
     jitterentropy-library-dev \
     zstd-dev \
-    openssl-dev
+    openssl-dev \
+    openssl-libs-static
 EOF
 WORKDIR /tmp/codeberg.org/forgejo-contrib/forgejo-cli
 ARG version

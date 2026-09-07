@@ -8,7 +8,7 @@ apk add \
     git \
     bash \
     libgpg-error-dev \
-    libgpg-error-static
+    libgpg-error-static \
     gpgme-dev
 EOF
 WORKDIR /tmp/github.com/orhun/gpg-tui

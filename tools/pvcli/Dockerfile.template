@@ -1,15 +1,15 @@
 #syntax=docker/dockerfile:1.27.0@sha256:bde3983e9c939224420ddaf6b784cc30e09b035a4dea01f581230c50809f372e
 
-FROM rust:alpine AS build
+FROM rust:latest AS build
 RUN <<EOF
-apk update
-apk add \
-    build-base \
+apt-get update
+apt-get install -y --no-install-recommends \
+    build-essential \
     git \
     bash \
     cmake \
     clang \
-    llvm-dev \
+    libllvm-dev \
     clang-dev
 EOF
 WORKDIR /tmp/github.com/cloudflareresearch/pvcli
@@ -17,8 +17,8 @@ ARG version
 RUN <<EOF
 git clone https://github.com/cloudflareresearch/pvcli .
 git checkout "${version}"
-cargo build --release --target "$(uname -m)-unknown-linux-musl"
-cp "target/$(uname -m)-unknown-linux-musl/release/pvcli" "/usr/local/bin/"
+cargo build --release --target "$(uname -m)-unknown-linux-gnu"
+cp "target/$(uname -m)-unknown-linux-gnu/release/pvcli" "/usr/local/bin/"
 EOF
 
 FROM registry.gitlab.com/uniget-org/images/build-base:3.24 AS prepare
