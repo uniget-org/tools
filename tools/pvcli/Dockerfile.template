@@ -9,8 +9,8 @@ apt-get install -y --no-install-recommends \
     bash \
     cmake \
     clang \
-    libllvm-dev \
-    clang-dev
+    llvm-dev \
+    libclang-dev
 EOF
 WORKDIR /tmp/github.com/cloudflareresearch/pvcli
 ARG version
