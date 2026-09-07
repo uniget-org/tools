@@ -23,4 +23,4 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --from=build "/usr/local/bin/chimera" "${prefix}/bin/chimera"
+COPY --from=build "/usr/local/bin/chimera" "/uniget_bootstrap/bin/chimera"
