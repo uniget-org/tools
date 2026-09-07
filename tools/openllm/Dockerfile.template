@@ -3,7 +3,6 @@
 FROM ghcr.io/uniget-org/tools/python-3.12:latest AS python
 FROM ghcr.io/uniget-org/tools/shiv:latest AS shiv
 
-#FROM registry.gitlab.com/uniget-org/images/ubuntu:24.04 AS prepare
 FROM registry.gitlab.com/uniget-org/images/build-essential:26.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
