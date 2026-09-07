@@ -6,7 +6,8 @@ apk update
 apk add \
     build-base \
     git \
-    bash
+    bash \
+    pkg-config
 EOF
 ARG version
 WORKDIR /tmp/github.com/facebookincubator/below

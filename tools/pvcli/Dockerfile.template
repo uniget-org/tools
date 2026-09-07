@@ -8,7 +8,9 @@ apk add \
     git \
     bash \
     cmake \
-    clang
+    clang \
+    llvm-dev \
+    clang-dev
 EOF
 WORKDIR /tmp/github.com/cloudflareresearch/pvcli
 ARG version

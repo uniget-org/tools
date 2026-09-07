@@ -7,9 +7,9 @@ apk add \
     build-base \
     git \
     bash \
-    libjitterentropy3-dev \
-    libzstd-dev \
-    libssl-dev
+    jitterentropy-library-dev \
+    zstd-dev \
+    openssl-dev
 EOF
 WORKDIR /tmp/codeberg.org/forgejo-contrib/forgejo-cli
 ARG version

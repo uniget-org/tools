@@ -9,11 +9,11 @@ apk add \
     bash \
     openssl-dev \
     openssl-libs-static \
-    libzstd-dev \
-    zlib1g-dev \
-    libjitterentropy3-dev \
-    protobuf-compiler \
-    libprotobuf-dev
+    zstd-dev \
+    zlib-dev \
+    jitterentropy-library-dev \
+    protobuf \
+    protobuf-dev
 EOF
 WORKDIR /tmp/github.com/calfonso/rusternetes
 ARG version
@@ -35,11 +35,6 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-RUN <<EOF
-"${prefix}/bin/kubectl" completion bash >"${prefix}/share/bash-completion/completions/kubectl"
-"${prefix}/bin/kubectl" completion fish >"${prefix}/share/fish/vendor_completions.d/kubectl.fish"
-"${prefix}/bin/kubectl" completion zsh >"${prefix}/share/zsh/vendor-completions/_kubectl"
-EOF
 COPY --from=build "/usr/local/bin/api-server" "/uniget_bootstrap/bin/"
 COPY --from=build "/usr/local/bin/controller-manager" "/uniget_bootstrap/bin/"
 COPY --from=build "/usr/local/bin/kube-proxy" "/uniget_bootstrap/bin/"
@@ -47,3 +42,8 @@ COPY --from=build "/usr/local/bin/kubectl" "/uniget_bootstrap/bin/"
 COPY --from=build "/usr/local/bin/kubelet" "/uniget_bootstrap/bin/"
 COPY --from=build "/usr/local/bin/rusternetes" "/uniget_bootstrap/bin/"
 COPY --from=build "/usr/local/bin/scheduler" "/uniget_bootstrap/bin/"
+RUN <<EOF
+"${prefix}/bin/kubectl" completion bash >"${prefix}/share/bash-completion/completions/kubectl"
+"${prefix}/bin/kubectl" completion fish >"${prefix}/share/fish/vendor_completions.d/kubectl.fish"
+"${prefix}/bin/kubectl" completion zsh >"${prefix}/share/zsh/vendor-completions/_kubectl"
+EOF
