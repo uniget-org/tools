@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: agentsync
+description: Fast CLI tool to sync AI agent configurations and MCP servers across Claude, Copilot, Cursor, and more using symbolic links
+license:
+  name: MIT
+  link: https://github.com/dallay/agentsync/blob/main/LICENSE
+homepage: https://github.com/dallay/agentsync
+repository: https://github.com/dallay/agentsync
+version: "1.49.1"
+tags:
+- type/cli
+- lang/rust
+- category/development
+- ai
+- agent
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: dallay/agentsync
+  extractVersion: ^v(?<version>.+)$
