@@ -35,7 +35,8 @@ mkdir build
 cd build
 cmake .. -DCMAKE_POLICY_VERSION_MINIMUM=3.5
 if test "${version}" == "1.0.18"; then
-    export CFLAGS="-std=c99"
+    export CFLAGS="-std=gnu17"
+    export CXXFLAGS="-std=gnu++17"
     sed -i '1i#include <string.h>' _deps/erofs-utils-src/lib/config.c
     sed -i '12i#include <cstdint>' _deps/yaml-cpp-src/src/emitterutils.cpp
 fi
