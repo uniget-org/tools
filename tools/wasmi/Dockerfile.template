@@ -1,5 +1,23 @@
 #syntax=docker/dockerfile:1.27.0@sha256:bde3983e9c939224420ddaf6b784cc30e09b035a4dea01f581230c50809f372e
 
+FROM rust:alpine AS build
+RUN <<EOF
+apk update
+apk add \
+    build-base \
+    git \
+    bash
+EOF
+WORKDIR /tmp/github.com/wasmi-labs/wasmi
+ARG name
+ARG version
+RUN <<EOF
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/wasmi-labs/wasmi .
+sed -i -E "s/^version = \"[0-9]+\.[0-9]+\.[0-9]+(-[a-z]+\.[0-9]+)?\"/version = \"${version}\"/" crates/cli/Cargo.toml
+cargo build --release --target "$(uname -m)-unknown-linux-musl"
+cp "target/$(uname -m)-unknown-linux-musl/release/wasmi_cli" "/usr/local/bin/"
+EOF
+
 FROM registry.gitlab.com/uniget-org/images/build-base:3.24 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
@@ -12,13 +30,4 @@ apk add \
     cargo \
     musl-dev
 EOF
-WORKDIR /tmp/github.com/wasmi-labs/wasmi
-ARG name
-ARG version
-RUN --mount=type=cache,target=/target \
-    --mount=type=cache,target=/usr/local/cargo/registry <<EOF
-git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/wasmi-labs/wasmi .
-sed -i -E "s/^version = \"[0-9]+\.[0-9]+\.[0-9]+(-[a-z]+\.[0-9]+)?\"/version = \"${version}\"/" crates/cli/Cargo.toml
-cargo build --release --target "${arch}-unknown-linux-musl"
-cp "target/${arch}-unknown-linux-musl/release/wasmi_cli" "${prefix}/bin/"
-EOF
+COPY --from=build "/usr/local/bin/wasmi_cli" "/uniget_bootstrap/bin/"

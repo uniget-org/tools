@@ -1,25 +1,27 @@
 #syntax=docker/dockerfile:1.27.0@sha256:bde3983e9c939224420ddaf6b784cc30e09b035a4dea01f581230c50809f372e
 
+FROM rust:alpine AS build
+RUN <<EOF
+apk update
+apk add \
+    build-base \
+    git \
+    bash \
+    protobuf-dev \
+    protobuf-compiler
+EOF
+WORKDIR /tmp/github.com/calfonso/rhino
+ARG version
+RUN <<EOF
+git clone https://github.com/calfonso/rhino .
+git checkout "${version}"
+cargo build --release --target "$(uname -m)-unknown-linux-musl" --bin rhino-server
+cp "target/$(uname -m)-unknown-linux-musl/release/rhino-server" "/usr/local/bin/"
+EOF
+
 FROM registry.gitlab.com/uniget-org/images/build-base:3.24 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-ARG name
-ARG version
-RUN <<EOF
-apk update
-apk add \
-    rust \
-    cargo \
-    musl-dev \
-    protobuf-dev \
-    protobuf-compiler
-EOF
-WORKDIR /tmp/github.com/calfonso/rhino
-RUN <<EOF
-git clone https://github.com/calfonso/rhino .
-git checkout "${version}"
-cargo build --release --target "${arch}-unknown-linux-musl" --bin rhino-server
-cp "target/${arch}-unknown-linux-musl/release/rhino-server" "${prefix}/bin/"
-EOF
+COPY --from=build "/usr/local/bin/rhino-server" "/uniget_bootstrap/bin/"

@@ -1,27 +1,29 @@
 #syntax=docker/dockerfile:1.27.0@sha256:bde3983e9c939224420ddaf6b784cc30e09b035a4dea01f581230c50809f372e
 
+FROM rust:alpine AS build
+RUN <<EOF
+apk update
+apk add \
+    build-base \
+    git \
+    bash \
+    openssl-dev \
+    openssl-libs-static
+EOF
+WORKDIR /tmp/github.com/santhreal/keyhog
+ARG version
+RUN <<EOF
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/santhreal/keyhog .
+cargo build --release --target "$(uname -m)-unknown-linux-musl" --package keyhog
+cp "target/$(uname -m)-unknown-linux-musl/release/keyhog" "/usr/local/bin/"
+EOF
+
 FROM registry.gitlab.com/uniget-org/images/build-base:3.24 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-RUN <<EOF
-apk update
-apk add \
-    rust \
-    cargo \
-    musl-dev \
-    openssl-dev \
-    openssl-libs-static
-EOF
-WORKDIR /tmp/github.com/santhreal/keyhog
-ARG name
-ARG version
-RUN <<EOF
-git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/santhreal/keyhog .
-cargo build --release --target "${arch}-unknown-linux-musl" --package keyhog
-cp "target/${arch}-unknown-linux-musl/release/keyhog" "${prefix}/bin/"
-EOF
+COPY --from=build "/usr/local/bin/keyhog" "/uniget_bootstrap/bin/"
 RUN <<EOF
 "${prefix}/bin/keyhog" completion bash >"${prefix}/share/bash-completion/completions/keyhog" 2>/dev/null || true
 "${prefix}/bin/keyhog" completion fish >"${prefix}/share/fish/vendor_completions.d/keyhog.fish" 2>/dev/null || true

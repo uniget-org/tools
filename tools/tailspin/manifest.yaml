@@ -11,6 +11,7 @@ tags:
 - category/operations
 - lang/rust
 - type/cli
+binary: tspin
 check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
@@ -18,4 +19,3 @@ platforms:
 renovate:
   datasource: github-releases
   package: bensadeh/tailspin
-binary: tspin
