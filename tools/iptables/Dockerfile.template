@@ -18,8 +18,8 @@ WORKDIR /tmp/iptables
 ARG name
 ARG version
 RUN <<EOF
-check-clone "https://git.netfilter.org/iptables/" "v${version}"
-git clone --config advice.detachedHead=false --depth 1 --branch "v${version}" git://git.netfilter.org/iptables .
+check-clone "https://git.netfilter.org/iptables.git" "v${version}"
+git clone --config advice.detachedHead=false --depth 1 --branch "v${version}" https://git.netfilter.org/iptables.git .
 ./autogen.sh
 ./configure \
     --prefix="${prefix}" \
