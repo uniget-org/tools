@@ -17,7 +17,7 @@ tags:
 check: ""
 platforms:
 - linux/amd64
-- linux/arm64
+#- linux/arm64  # takes _very_ long to build
 renovate:
   datasource: git-refs
   package: https://github.com/calfonso/rusternetes
