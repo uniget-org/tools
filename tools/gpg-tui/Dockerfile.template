@@ -1,25 +1,23 @@
 #syntax=docker/dockerfile:1.27.0@sha256:bde3983e9c939224420ddaf6b784cc30e09b035a4dea01f581230c50809f372e
 
-FROM rust:alpine AS build
+FROM rust:latest AS build
 RUN <<EOF
-apk update
-apk add \
-    build-base \
+apt-get update
+apt-get install -y --no-install-recommends \
+    build-essential \
     git \
     bash \
-    pkgconfig \
+    pkg-config \
     libgpg-error-dev \
-    libgpg-error-static \
-    gpgme-dev \
-    libassuan-dev \
-    libassuan-static
+    libgpgme-dev \
+    libassuan-dev
 EOF
 WORKDIR /tmp/github.com/orhun/gpg-tui
 ARG version
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/orhun/gpg-tui .
-cargo build --release --bin gpg-tui --target "$(uname -m)-unknown-linux-musl"
-cp "target/$(uname -m)-unknown-linux-musl/release/gpg-tui" "/usr/local/bin/"
+cargo build --release --bin gpg-tui --target "$(uname -m)-unknown-linux-gnu"
+cp "target/$(uname -m)-unknown-linux-gnu/release/gpg-tui" "/usr/local/bin/"
 EOF
 
 FROM registry.gitlab.com/uniget-org/images/alpine:3.24 AS prepare
