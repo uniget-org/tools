@@ -30,11 +30,15 @@ WORKDIR /tmp/nftables
 ARG name
 ARG version
 RUN <<EOF
-check-clone "https://git.netfilter.org/nftables.git" "v${version}"
-git clone --config advice.detachedHead=false --depth 1 --branch "v${version}" https://git.netfilter.org/nftables.git .
-EOF
-RUN <<EOF
-./autogen.sh
+url="https://www.netfilter.org/pub/nftables/nftables-${version}.tar.xz"
+
+check-download "${url}"
+curl --silent --show-error --location --fail --output "/tmp/nftables-${version}.tar.xz" \
+    "${url}"
+
+tar --file="/tmp/nftables-${version}.tar.xz" --list
+tar --file="/tmp/nftables-${version}.tar.xz" --extract --xz --strip-components=1 --no-same-owner
+
 ./configure \
     --prefix="${prefix}" \
     --enable-shared \

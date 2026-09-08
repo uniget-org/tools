@@ -12,11 +12,15 @@ WORKDIR /tmp/libmnl
 ARG name
 ARG version
 RUN <<EOF
-check-clone "https://git.netfilter.org/libmnl.git" "libmnl-${version}"
-git clone --config advice.detachedHead=false --depth 1 --branch "libmnl-${version}" https://git.netfilter.org/libmnl.git .
-EOF
-RUN <<EOF
-./autogen.sh
+url="https://www.netfilter.org/pub/libmnl/libmnl-${version}.tar.bz2"
+
+check-download "${url}"
+curl --silent --show-error --location --fail --output "/tmp/libmnl-${version}.tar.bz2" \
+    "${url}"
+
+tar --file="/tmp/libmnl-${version}.tar.bz2" --list
+tar --file="/tmp/libmnl-${version}.tar.bz2" --extract --bzip2 --strip-components=1 --no-same-owner
+
 ./configure \
     --prefix="${prefix}" \
     --enable-static=yes \
