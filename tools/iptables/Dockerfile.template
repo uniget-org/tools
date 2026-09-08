@@ -18,9 +18,15 @@ WORKDIR /tmp/iptables
 ARG name
 ARG version
 RUN <<EOF
-check-clone "https://git.netfilter.org/iptables.git" "v${version}"
-git clone --config advice.detachedHead=false --depth 1 --branch "v${version}" https://git.netfilter.org/iptables.git .
-./autogen.sh
+url="https://www.netfilter.org/pub/iptables/iptables-${version}.tar.xz"
+
+check-download "${url}"
+curl --silent --show-error --location --fail --output "/tmp/iptables-${version}.tar.xz" \
+    "${url}"
+
+tar --file="/tmp/iptables-${version}.tar.xz" --list
+tar --file="/tmp/iptables-${version}.tar.xz" --extract --xz --strip-components=1 --no-same-owner
+
 ./configure \
     --prefix="${prefix}" \
     --enable-shared \

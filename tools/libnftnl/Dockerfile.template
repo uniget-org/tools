@@ -14,12 +14,16 @@ WORKDIR /tmp/libnftnl
 ARG name
 ARG version
 RUN <<EOF
-check-clone "https://git.netfilter.org/libnftnl.git" "libnftnl-${version}"
-git clone --config advice.detachedHead=false --depth 1 --branch "libnftnl-${version}" https://git.netfilter.org/libnftnl.git .
-EOF
-RUN <<EOF
+url="https://www.netfilter.org/pub/libnftnl/libnftnl-${version}.tar.xz"
+
+check-download "${url}"
+curl --silent --show-error --location --fail --output "/tmp/libnftnl-${version}.tar.xz" \
+    "${url}"
+
+tar --file="/tmp/libnftnl-${version}.tar.xz" --list
+tar --file="/tmp/libnftnl-${version}.tar.xz" --extract --xz --strip-components=1 --no-same-owner
+
 export PKG_CONFIG_PATH="/lib/pkgconfig:${PKG_CONFIG_PATH}"
-./autogen.sh
 ./configure \
     --prefix="${prefix}" \
     --enable-static=yes \
