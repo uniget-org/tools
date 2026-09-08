@@ -9,12 +9,15 @@ apt-get install -y --no-install-recommends \
     bash \
     pkg-config \
     libelf-dev \
-    zlib1g-dev
+    zlib1g-dev \
+    clang \
+    llvm
 EOF
 ARG version
 WORKDIR /tmp/github.com/facebookincubator/below
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/facebookincubator/below .
+rustup component add rustfmt
 cargo build --release --target "$(uname -m)-unknown-linux-gnu"
 cp "target/$(uname -m)-unknown-linux-gnu/release/below" "/usr/local/bin/"
 EOF
