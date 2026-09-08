@@ -75,7 +75,8 @@ $(addsuffix /Dockerfile,$(ALL_TOOLS)):$(TOOLS_DIR)/%/Dockerfile: \
 		$(TOOLS_DIR)/%/Dockerfile.template \
 		; $(info $(M) Creating $@...)
 	@set -o errexit; \
-	cat $@.template >$@; \
+	cat @template/Dockerfile.template | grep "^#syntax=docker/dockerfile" >$@; \
+	cat $@.template | grep -v "^#syntax=docker/dockerfile" >>$@; \
 	echo >>$@; \
 	echo >>$@; \
 	echo -e "FROM scratch\nCOPY --from=prepare /uniget_bootstrap /\n" >>$@; \

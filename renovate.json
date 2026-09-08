@@ -101,6 +101,18 @@
         "pin"
       ],
       "enabled": false
+    },
+    {
+      "matchFileNames": [
+        "tools/**"
+      ],
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchPackageNames": [
+        "docker/dockerfile"
+      ],
+      "enabled": false
     }
   ],
   "customManagers": [
