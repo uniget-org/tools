@@ -21,38 +21,6 @@ check-download "${url}"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
     "${url}"
 
-if test "${version}" == "1.35.0" && test "${alt_arch}" == "amd64"; then
-    echo "### Applying fix for ${version} on ${alt_arch}"
-
-    REKOR_UUID_KUBECTL=108e9186e8c5677a0d75f1d86fbb64dd10a3e796fe62fa95e6b4707ceec7e91cfe741ba456a23bc0
-    REKOR_UUID_KUBECTL_BODY="$( rekor-cli get --uuid=${REKOR_UUID_KUBECTL} --format=json )"
-
-    BINARY_SHA="$( sha256sum "${uniget_cache_download}/${filename}" | cut -d' ' -f1 )"
-    REKOR_SHA="$( jq -r '.Body.HashedRekordObj.data.hash.value' <<<"${REKOR_UUID_KUBECTL_BODY}" )"
-    if test "${BINARY_SHA}" != "${REKOR_SHA}"; then
-        echo "ERROR: Binary SHA (${BINARY_SHA}) and rekor SHA (${REKOR_SHA}) do not match."
-        exit 1
-    fi
-    echo "### Binary SHA matches rekor body"
-
-    curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.sig" \
-        "${url}.sig"
-    BINARY_SIG="$( cat "${uniget_cache_download}/${filename}.sig" )"
-    REKOR_SIG="$( jq -r '.Body.HashedRekordObj.signature.content' <<<"${REKOR_UUID_KUBECTL_BODY}" )"
-    if test "${BINARY_SIG}" != "${REKOR_SIG}"; then
-        echo "ERROR: Binary signature does not match rekor signature."
-        exit 1
-    fi
-    echo "### Binary signature matches rekor signature."
-
-    echo "### Using certificate from rekor body"
-    jq -r '.Body.HashedRekordObj.signature.publicKey.content' <<<"${REKOR_UUID_KUBECTL_BODY}" \
-    >"${uniget_cache_download}/${filename}.cert"
-
-    echo "### Patching url to use correct certificate"
-    url="${uniget_cache_download}/${filename}"
-fi
-
 echo "Verifying keyless signature for kubectl"
 cosign verify-blob "${uniget_cache_download}/${filename}" \
     --signature "${url}.sig" \
