@@ -7,20 +7,33 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-VELOCITY_VERSION="$(echo "${version}" | cut -d- -f1)"
-VELOCITY_BUILD="$(echo "${version}" | cut -d- -f2)"
+RUN <<EOF
+VELOCITY_VERSION_COMPONENTS=1
+VELOCITY_BUILD_INDEX=2
+if grep -q "SNAPSHOT" <<< "${version}"; then
+    VELOCITY_VERSION_COMPONENTS=1-2
+    VELOCITY_BUILD_INDEX=3
+fi
 
-FILE="velocity-3.4.0-SNAPSHOT-459.jar"
-url="https://api.papermc.io/v2/projects/velocity/versions/3.4.0-SNAPSHOT/builds/459/downloads/${FILE}"
-filename="${FILE}"
+VELOCITY_VERSION="$(echo "${version}" | cut -d- -f${VELOCITY_VERSION_COMPONENTS})"
+VELOCITY_BUILD="$(echo "${version}" | cut -d- -f"${VELOCITY_BUILD_INDEX}")"
+echo "VELOCITY_VERSION=${VELOCITY_VERSION}"
+echo "VELOCITY_BUILD=${VELOCITY_BUILD}"
+
+url="$(
+    curl --silent --show-error --location --fail --url "https://fill.papermc.io/v3/projects/velocity/versions/${VELOCITY_VERSION}/builds/${VELOCITY_BUILD}" \
+    | jq --raw-output '.downloads."server:default".url'
+)"
+echo "url=${url}"
+filename="$( basename "${url}" )"
+echo "filename=${filename}"
 
 check-download "${url}"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+curl --silent --show-error --location --fail --output "/tmp/${filename}" \
     "${url}"
 
 mkdir -p "${prefix}/opt/velocity"
 install --mode=0644 \
-    "${uniget_cache_download}/${filename}" \
+    "/tmp/${filename}" \
     "${prefix}/opt/velocity/velocity.jar"
 EOF
