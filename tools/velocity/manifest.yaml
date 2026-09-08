@@ -13,7 +13,7 @@ license:
 # | jq --raw-output '.builds | map(select(.channel == "default")) | .[-1].downloads.application.name'
 homepage: https://papermc.io/software/velocity
 repository: https://github.com/PaperMC/Velocity
-version: "3.4.0-SNAPSHOT.459"
+version: "4.1.2-SNAPSHOT-27"
 tags:
 - org/papermc
 - category/games
