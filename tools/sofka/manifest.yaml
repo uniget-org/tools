@@ -7,7 +7,7 @@ license:
   link: https://github.com/nklmilojevic/sofka/blob/main/LICENSE-MIT
 homepage: https://sofka.rs
 repository: https://github.com/nklmilojevic/sofka
-version: "0.25.1"
+version: "0.25.3"
 tags:
 - type/tui
 - kubernetes
