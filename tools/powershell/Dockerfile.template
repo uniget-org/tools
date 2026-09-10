@@ -33,10 +33,8 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
 tar --file="${uniget_cache_download}/${filename}" --list
 mkdir -p "${prefix}/opt/microsoft/powershell/7"
 tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/opt/microsoft/powershell/7" --no-same-owner
-EOF
-RUN <<EOF
+
 chmod +x "${prefix}/opt/microsoft/powershell/7/pwsh"
-ln --symbolic --relative --force "${prefix}/opt/microsoft/powershell/7/pwsh" "${prefix}/bin/pwsh"
 EOF
 COPY --chmod=0755 <<"EOF" /uniget_bootstrap/bin/pwsh.go-template
 #!/bin/bash
