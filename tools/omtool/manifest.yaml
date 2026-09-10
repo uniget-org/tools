@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: omtool
+description: OpenMetrics CLI for converting to and from protobuf as well as remote writing to Prometheus and Mimir
+license:
+  name: MIT License
+  link: https://github.com/nicholasdille/omtool/blob/main/LICENSE
+homepage: https://github.com/nicholasdille/omtool
+repository: https://github.com/nicholasdille/omtool
+version: "0.3.3"
+tags:
+- category/operations
+- lang/go
+- type/cli
+- o11y
+- observability/metrics
+- format/openmetrics
+- standard/protobuf
+- standard/prometheus
+check: ${binary} --version | cut -d' ' -f3 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: nicholasdille/omtool
+  extractVersion: ^v(?<version>.+)$
