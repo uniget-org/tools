@@ -60,3 +60,8 @@ sed -i "/^\[Unit\]/a PartOf=docker.service" "${prefix}/etc/systemd/system/${name
 EOF
 
 COPY daemon.json /uniget_bootstrap/etc/docker/
+
+COPY hook-pre-install.sh /uniget_bootstrap/etc/uniget/hooks/pre-install.d/docker.sh
+COPY hook-post-install.sh /uniget_bootstrap/etc/uniget/hooks/post-install.d/docker.sh
+COPY hook-pre-uninstall.sh /uniget_bootstrap/etc/uniget/hooks/pre-uninstall.d/docker.sh
+COPY hook-post-uninstall.sh /uniget_bootstrap/etc/uniget/hooks/post-uninstall.d/docker.sh
