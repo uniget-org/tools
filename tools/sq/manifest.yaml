@@ -6,7 +6,7 @@ license:
   link: https://github.com/neilotoole/sq/blob/master/LICENSE
 homepage: https://sq.io
 repository: https://github.com/neilotoole/sq
-version: "0.54.1"
+version: "0.55.0"
 tags:
 - type/cli
 - category/database
