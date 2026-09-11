@@ -1,0 +1,27 @@
+#syntax=docker/dockerfile:1.27.0@sha256:bde3983e9c939224420ddaf6b784cc30e09b035a4dea01f581230c50809f372e
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/nicholasdille/omtool/releases/download/v${version}/omtool_linux_${alt_arch}.tar.gz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "nicholasdille/omtool" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin/" --no-same-owner \
+    omtool
+EOF
+
+RUN <<EOF
+"${prefix}/bin/omtool" completion bash >"${prefix}/share/bash-completion/completions/omtool"
+"${prefix}/bin/omtool" completion fish >"${prefix}/share/fish/vendor_completions.d/omtool.fish"
+"${prefix}/bin/omtool" completion zsh >"${prefix}/share/zsh/vendor-completions/_omtool"
+EOF
