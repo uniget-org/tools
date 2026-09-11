@@ -7,7 +7,7 @@ license:
   link: https://github.com/interlynk-io/sbomgr/blob/main/LICENSE
 homepage: https://github.com/interlynk-io/sbomgr
 repository: https://github.com/interlynk-io/sbomgr
-version: "1.0.1"
+version: "1.0.2"
 tags:
 - org/interlynk
 - category/security
