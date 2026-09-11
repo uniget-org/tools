@@ -6,7 +6,7 @@ license:
   link: https://github.com/grafana/grafana-kiosk/blob/main/LICENSE
 homepage: https://github.com/grafana/grafana-kiosk
 repository: https://github.com/grafana/grafana-kiosk
-version: "1.0.12"
+version: "1.0.13"
 tags:
 - type/cli
 - category/monitoring
