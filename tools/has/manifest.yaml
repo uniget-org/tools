@@ -6,7 +6,7 @@ license:
   link: https://github.com/kdabir/has/blob/master/LICENSE
 homepage: https://github.com/kdabir/has
 repository: https://github.com/kdabir/has
-version: "1.5.2"
+version: "1.6.0"
 tags:
 - category/development
 - lang/shell
