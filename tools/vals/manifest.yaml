@@ -7,7 +7,7 @@ license:
   link: https://github.com/helmfile/vals/blob/main/LICENSE
 homepage: https://github.com/helmfile/vals
 repository: https://github.com/helmfile/vals
-version: "0.46.0"
+version: "0.46.1"
 tags:
 - type/cli
 - category/development
