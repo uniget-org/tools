@@ -116,7 +116,9 @@ jobs:
       matrix:
         tool: ${{ fromJSON(needs.collect.outputs.tools) }}
     permissions:
+      contents: read
       packages: write
+      id-token: write
     runs-on: ubuntu-24.04
     steps:
 
@@ -127,7 +129,7 @@ jobs:
       uses: uniget-org/uniget-action@2139e70435b6bd47834b7be785d7cb90bf18be6b # v1.0.5
       with:
         prefix: helper
-        tools: jq regclient
+        tools: jq regclient cosign
 
     - name: Set up QEMU
       uses: docker/setup-qemu-action@ce360397dd3f832beb865e1373c09c0e9f86d70a # 4.0.0
@@ -146,6 +148,7 @@ jobs:
       run: |
         echo "### Building ${{ matrix.tool }}"
         make ${{ matrix.tool }}--push
+        make ${{ matrix.tool }}--sign
 
     - name: Store logs
       uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
