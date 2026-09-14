@@ -1,0 +1,50 @@
+name: Sign
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  sign:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+    steps:
+
+    - name: Checkout code
+      uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+    - name: Install uniget
+      uses: uniget-org/uniget-action@2139e70435b6bd47834b7be785d7cb90bf18be6b # v1.0.5
+      with:
+        prefix: helper
+        tools: jq regclient cosign
+
+    - name: Login to GitHub Container Registry
+      uses: docker/login-action@b45d80f862d83dbcd57f89517bcf500b2ab88fb2 # v4.0.0
+      with:
+        registry: ghcr.io
+        username: uniget-bot
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Sign
+      run: |
+        set -o errexit
+
+        for TOOL in $(find tools -type f -wholename \*/manifest.yaml | cut -d/ -f2 | sort | head -n 10); do
+            echo "### ${TOOL}"
+
+            DIGEST="$(
+                regctl manifest get --format=raw-body \
+                    ghcr.io/uniget-org/tools/${TOOL}:latest \
+                | sha256sum \
+                | cut -d' ' -f1
+            )"
+            echo "  Digest: ${DIGEST}"
+
+            echo '{"containerimage.digest": "'${DIGEST}'"}' >tools/${TOOL}/build-metadata.json
+
+            make ${TOOL}--sign
+        done
