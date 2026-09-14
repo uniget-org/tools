@@ -7,16 +7,16 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+RUN <<EOF
 url="https://github.com/mikefarah/yq/releases/download/v${version}/yq_linux_${alt_arch}"
 filename="$( basename "${url}" )"
 
 check-github-release-asset "mikefarah/yq" "v${version}" "${filename}"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+curl --silent --show-error --location --fail --output "/tmp/${filename}" \
     "${url}"
 
 install --mode=0755 \
-    "${uniget_cache_download}/${filename}" \
+    "/tmp/${filename}" \
     "${prefix}/bin/yq"
 
 "${prefix}/bin/yq" shell-completion bash >"${prefix}/share/bash-completion/completions/yq"
