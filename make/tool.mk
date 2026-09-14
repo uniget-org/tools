@@ -301,21 +301,14 @@ $(TOOLS_DIR)/%/index.json: \
 .PHONY:
 $(addsuffix --sign,$(ALL_TOOLS_RAW)):%--sign: \
 		$(TOOLS_DIR)/%/manifest.json \
-		$(TOOLS_DIR)/%/index.json \
 		; $(info $(M) Signing image for $*...)
 	$(eval OS := linux)
 	$(eval ARCH := arm64)
 	$(eval TOOL_VERSION := $(shell jq --raw-output '.tools[].version' $(TOOLS_DIR)/$*/manifest.json))
 	$(eval VERSION_TAG := $(shell echo "$(TOOL_VERSION)" | tr '+' '-'))
-	$(eval DIGEST := $(shell cat $(TOOLS_DIR)/$*/index.json))
+	$(eval DIGEST := $(shell jq --raw-output '."containerimage.digest"' $(TOOLS_DIR)/$*/build-metadata.json))
 	@COSIGN_EXPERIMENTAL=1 \
-		cosign sign $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(VERSION_TAG) \
-			--registry-referrers-mode=$(COSIGN_REFERRERS_MODE) \
-			--output-certificate=$(TOOLS_DIR)/$*/cosign.pub \
-			--output-signature=$(TOOLS_DIR)/$*/cosign.sig \
-			--tlog-upload=$(COSIGN_TLOG_UPLOAD) \
-			--recursive=true \
-			--yes=true
+		cosign sign $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(VERSION_TAG)@$(DIGEST) --yes=true
 	@regctl artifact tree $(REGISTRY)/$(REPOSITORY_PREFIX)$*:$(VERSION_TAG)
 
 $(addsuffix --deep,$(ALL_TOOLS_RAW)):%--deep: \
