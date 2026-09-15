@@ -33,7 +33,7 @@ jobs:
       run: |
         set -o errexit
 
-        for TOOL in $(find tools -type f -wholename \*/manifest.yaml | cut -d/ -f2 | sort | grep '^[s-z]' | grep -v '^s[a-o]'); do
+        for TOOL in $(find tools -type f -wholename \*/manifest.yaml | cut -d/ -f2 | sort | grep '^[s-z]' | grep -v '^s[a-o]' | tail -n 209); do
             echo "### ${TOOL}"
 
             DIGEST="$(
