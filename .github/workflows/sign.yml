@@ -2,6 +2,14 @@ name: Sign
 
 on:
   workflow_dispatch:
+    inputs:
+      tools:
+        description: 'Tools to sign'
+        type: string
+        default: ''
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
 
@@ -33,7 +41,14 @@ jobs:
       run: |
         set -o errexit
 
-        for TOOL in $(find tools -type f -wholename \*/manifest.yaml | cut -d/ -f2 | sort | grep '^[s-z]' | grep -v '^s[a-o]' | tail -n 209); do
+        SIGN_TOOLS="${{ inputs.tools }}"
+        if test -z "${SIGN_TOOLS}"; then
+            echo "### Fetching tools to sign"
+            
+            SIGN_TOOLS="$( find tools -type f -wholename \*/manifest.yaml | cut -d/ -f2 | sort )"
+        fi
+
+        for TOOL in ${SIGN_TOOLS}; do
             echo "### ${TOOL}"
 
             DIGEST="$(
