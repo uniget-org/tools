@@ -12,6 +12,7 @@ tags:
 - category/development
 - lang/rust
 - type/cli
+- format/gif
 check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64

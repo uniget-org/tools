@@ -11,7 +11,7 @@ RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 echo "### Setting architecture string for ${TARGETPLATFORM}"
 case "${arch}" in
     x86_64)
-        export arch_suffix="${arch}-unknown-linux-gnu"
+        export arch_suffix="${arch}-unknown-linux-musl"
         ;;
     aarch64)
         export arch_suffix="${arch}-unknown-linux-gnu"
@@ -26,7 +26,6 @@ echo "    Using ${arch_suffix}"
 url="https://github.com/asciinema/agg/releases/download/v${version}/agg-${arch_suffix}"
 filename="agg-${arch_suffix}"
 
-check-download "${url}"
 check-github-release-asset "asciinema/agg" "v${version}" "${filename}"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
     "${url}"
