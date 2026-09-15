@@ -22,7 +22,7 @@ install --mode=0755 \
     "${prefix}/bin/mimirtool"
 EOF
 COPY --link --from=go / /usr/local/
-WORKDIR /go/src/github.com/foo/bar
+WORKDIR /go/src/github.com/grafana/mimir
 RUN <<EOF
 check-clone "https://github.com/grafana/mimir" "mimir-${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "mimir-${version}" https://github.com/grafana/mimir .
