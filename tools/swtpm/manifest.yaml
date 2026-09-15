@@ -13,13 +13,8 @@ tags:
 - lang/c
 - type/cli
 check: ${binary} --version | cut -d' ' -f4 | cut -d, -f1
-build_dependencies:
-- libtpms
-runtime_dependencies:
-- libtpms
 platforms:
 - linux/amd64
-#- linux/arm64
 renovate:
   datasource: github-releases
   package: stefanberger/swtpm
