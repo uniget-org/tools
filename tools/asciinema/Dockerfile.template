@@ -1,17 +1,36 @@
 #syntax=docker/dockerfile
 
-FROM ghcr.io/uniget-org/tools/python-3.12:latest AS python
-FROM ghcr.io/uniget-org/tools/shiv:latest AS shiv
-
 FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --link --from=python / /usr/local/
-COPY --link --from=shiv / /usr/local/
 ARG name
 ARG version
-RUN --mount=type=cache,target=/root/.cache/pip <<EOF
-shiv --output-file "${prefix}/bin/asciinema" --console-script asciinema "asciinema==${version}"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+echo "### Setting architecture string for ${TARGETPLATFORM}"
+case "${arch}" in
+    x86_64)
+        export arch_suffix="musl"
+        ;;
+    aarch64)
+        export arch_suffix="gnu"
+        ;;
+    *)
+        echo "ERROR: Unsupported architecture ${arch}."
+        exit 1
+        ;;
+esac
+echo "    Using ${arch_suffix}"
+
+url="https://github.com/asciinema/asciinema/releases/download/v${version}/asciinema-${arch}-unknown-linux-${arch_suffix}"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "asciinema/asciinema" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/asciinema"
 EOF

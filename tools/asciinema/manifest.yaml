@@ -5,22 +5,18 @@ description: Terminal session recorder
 license:
   name: GPLv3
   link: https://github.com/asciinema/asciinema/blob/develop/LICENSE
-homepage: https://github.com/asciinema/asciinema
+homepage: https://asciinema.org/
 repository: https://github.com/asciinema/asciinema
-version: "2.4.0"
+version: "3.2.1"
 tags:
 - category/development
-- lang/python
+- lang/rust
 - type/cli
 check: ${binary} --version | cut -d' ' -f2
-build_dependencies:
-- python-3.12
-- shiv
-runtime_dependencies:
-- python-3.12
 platforms:
 - linux/amd64
 - linux/arm64
 renovate:
-  datasource: pypi
-  package: asciinema
+  datasource: github-releases
+  package: asciinema/asciinema
+  extractVersion: ^v(?<version>.+)$
