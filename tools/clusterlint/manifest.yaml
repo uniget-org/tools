@@ -6,7 +6,7 @@ license:
   link: https://github.com/digitalocean/clusterlint/blob/master/LICENSE
 homepage: https://github.com/digitalocean/clusterlint
 repository: https://github.com/digitalocean/clusterlint
-version: "0.15.0"
+version: "0.16.0"
 tags:
 - org/digitalocean
 - category/operations
