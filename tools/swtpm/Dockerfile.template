@@ -1,11 +1,6 @@
 #syntax=docker/dockerfile
 
-FROM ghcr.io/uniget-org/tools/libgmp:latest AS libgmp
-FROM ghcr.io/uniget-org/tools/libtpms:latest AS libtpms
-FROM ghcr.io/uniget-org/tools/make:latest AS make
-FROM ghcr.io/uniget-org/tools/python-3.12:latest AS python
-
-FROM registry.gitlab.com/uniget-org/images/build-essential:26.04 AS prepare
+FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/

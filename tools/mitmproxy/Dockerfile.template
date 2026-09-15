@@ -1,4 +1,4 @@
-    #syntax=docker/dockerfile:1.8.1
+    #syntax=docker/dockerfile
 
 FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \

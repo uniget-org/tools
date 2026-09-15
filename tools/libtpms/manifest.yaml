@@ -15,7 +15,6 @@ tags:
 check: cat ${prefix}/lib/pkgconfig/libtpms.pc | grep ^Version | cut -d' ' -f2
 platforms:
 - linux/amd64
-#- linux/arm64
 renovate:
   datasource: github-releases
   package: stefanberger/libtpms
