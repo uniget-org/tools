@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: agg
+description: asciinema gif generator
+license:
+  name: GPLv3
+  link: https://github.com/asciinema/agg/blob/main/LICENSE
+homepage: https://github.com/asciinema/agg
+repository: https://github.com/asciinema/agg
+version: "1.9.0"
+tags:
+- category/development
+- lang/rust
+- type/cli
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: asciinema/agg
+  extractVersion: ^v(?<version>.+)$
