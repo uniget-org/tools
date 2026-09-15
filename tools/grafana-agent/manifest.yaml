@@ -6,7 +6,7 @@ license:
   link: https://github.com/grafana/agent/blob/main/LICENSE
 homepage: https://grafana.com/docs/agent/
 repository: https://github.com/grafana/agent
-version: "0.44.2"
+version: "0.44.3"
 tags:
 - org/grafana
 - observability/metrics
