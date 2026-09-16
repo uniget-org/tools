@@ -7,7 +7,7 @@ license:
   link: https://github.com/nicholasdille/omtool/blob/main/LICENSE
 homepage: https://github.com/nicholasdille/omtool
 repository: https://github.com/nicholasdille/omtool
-version: "0.3.3"
+version: "0.4.1"
 tags:
 - category/operations
 - lang/go
