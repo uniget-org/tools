@@ -7,7 +7,7 @@ license:
   link: https://github.com/yaml/yamlscript/blob/main/License
 homepage: https://yamlscript.org/
 repository: https://github.com/yaml/yamlscript
-version: "0.3.0"
+version: "0.3.1"
 tags:
 - category/development
 - lang/cojure
