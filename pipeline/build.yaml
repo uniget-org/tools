@@ -31,7 +31,7 @@ spec:
   variables:
     DOCKER_CERT_DIR: ""
   services:
-  - name: docker:29.8.0-dind@sha256:5efed980cba3fc126cf54e21a5a6ff8849d05b6e0623d6e7612f48e9cd6cd17e
+  - name: docker:29.8.1-dind@sha256:76cd6bbc3ab600fced21a7e1bea77ac00cb7c545eb95d5767e4ec4ffbcb242dc
 
 build_single:
   parallel:
@@ -42,7 +42,7 @@ build_single:
   - .docker_login
   - .dind
   - .docker_logout
-  image: docker:29.8.0@sha256:5efed980cba3fc126cf54e21a5a6ff8849d05b6e0623d6e7612f48e9cd6cd17e
+  image: docker:29.8.1@sha256:76cd6bbc3ab600fced21a7e1bea77ac00cb7c545eb95d5767e4ec4ffbcb242dc
   script:
   - |
     apk update
@@ -79,7 +79,7 @@ create_index_regctl:
       matrix:
       - os: $[[ inputs.os ]]
         arch: $[[ inputs.arch ]]
-  image: docker:29.8.0@sha256:5efed980cba3fc126cf54e21a5a6ff8849d05b6e0623d6e7612f48e9cd6cd17e
+  image: docker:29.8.1@sha256:76cd6bbc3ab600fced21a7e1bea77ac00cb7c545eb95d5767e4ec4ffbcb242dc
   script:
   - |
     apk add --update-cache \
@@ -115,7 +115,7 @@ create_index_regctl:
   - .docker_logout
   needs:
   - create_index_regctl
-  image: docker:29.8.0@sha256:5efed980cba3fc126cf54e21a5a6ff8849d05b6e0623d6e7612f48e9cd6cd17e
+  image: docker:29.8.1@sha256:76cd6bbc3ab600fced21a7e1bea77ac00cb7c545eb95d5767e4ec4ffbcb242dc
   id_tokens:
     SIGSTORE_ID_TOKEN:
       aud: sigstore
