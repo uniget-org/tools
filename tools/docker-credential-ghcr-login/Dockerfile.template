@@ -1,22 +1,21 @@
 #syntax=docker/dockerfile
 
-FROM ghcr.io/uniget-org/tools/go:latest AS go
-
 FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-COPY --link --from=go / /usr/local/
-WORKDIR /go/src/github.com/bradschwartz/docker-credential-ghcr-login
 ARG name
 ARG version
-RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
-check-clone "https://github.com/bradschwartz/docker-credential-ghcr-login" "v${version}"
-git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/bradschwartz/docker-credential-ghcr-login .
-export CGO_ENABLED=0
-go build \
-    -ldflags "-s -w -X main.version=${version}" \
-    -o "${prefix}/bin/docker-credential-ghcr-login" \
-    .
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/bradschwartz/docker-credential-ghcr-login/releases/download/v${version}/docker-credential-ghcr-login_${version}_linux_${alt_arch}.tar.gz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "bradschwartz/docker-credential-ghcr-login" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin" --no-same-owner \
+    docker-credential-ghcr-login
 EOF
