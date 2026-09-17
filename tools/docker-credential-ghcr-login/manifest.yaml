@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: docker-credential-ghcr-login
+description: Docker credential helper for GitHub Container Registry using gh CLI
+license:
+  name: Unknown
+  link: ""
+homepage: https://github.com/bradschwartz/docker-credential-ghcr-login
+repository: https://github.com/bradschwartz/docker-credential-ghcr-login
+version: "0.2.0"
+tags:
+- lang/go
+- type/cli
+- category/security
+- standard/docker
+- container/registry
+- cloud/github
+- authentication
+- docker
+check: ${binary} -v
+build_dependencies:
+- go
+runtime_dependencies:
+- gh
+- docker
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: bradschwartz/docker-credential-ghcr-login
+  extractVersion: ^v(?<version>.+)$
