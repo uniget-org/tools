@@ -7,7 +7,7 @@ license:
   link: https://github.com/dimonomid/nerdlog/blob/master/LICENSE
 homepage: https://dmitryfrank.com/projects/nerdlog/article
 repository: https://github.com/dimonomid/nerdlog
-version: "1.10.0"
+version: "1.11.0"
 tags:
 - category/operations
 - lang/go
