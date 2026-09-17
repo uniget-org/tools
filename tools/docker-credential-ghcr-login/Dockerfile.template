@@ -1,0 +1,22 @@
+#syntax=docker/dockerfile
+
+FROM ghcr.io/uniget-org/tools/go:latest AS go
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+COPY --link --from=go / /usr/local/
+WORKDIR /go/src/github.com/bradschwartz/docker-credential-ghcr-login
+ARG name
+ARG version
+RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
+check-clone "https://github.com/bradschwartz/docker-credential-ghcr-login" "v${version}"
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/bradschwartz/docker-credential-ghcr-login .
+export CGO_ENABLED=0
+go build \
+    -ldflags "-s -w -X main.version=${version}" \
+    -o "${prefix}/bin/docker-credential-ghcr-login" \
+    .
+EOF
