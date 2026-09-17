@@ -18,8 +18,6 @@ tags:
 - authentication
 - docker
 check: ${binary} -v
-build_dependencies:
-- go
 runtime_dependencies:
 - gh
 - docker
