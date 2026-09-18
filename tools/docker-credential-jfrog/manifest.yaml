@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: docker-credential-jfrog
+description: Credential shims using the JFrog CLI to access Artifactory for bazel and docker
+license:
+  name: MIT License
+  link: https://github.com/psigen/jfrog-credential-helpers/blob/main/LICENSE
+homepage: https://github.com/psigen/jfrog-credential-helpers
+repository: https://github.com/psigen/jfrog-credential-helpers
+version: "0.1.1"
+tags:
+- org/jfrog
+- category/security
+- lang/go
+- type/cli
+- standard/docker
+- container/runtime
+- docker
+check: ${binary} version | cut -d' ' -f3
+build_dependencies:
+- go
+- goreleaser
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: psigen/jfrog-credential-helpers
+  extractVersion: ^v(?<version>.+)$
