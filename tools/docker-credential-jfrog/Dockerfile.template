@@ -1,0 +1,28 @@
+#syntax=docker/dockerfile
+
+FROM ghcr.io/uniget-org/tools/go:latest AS go
+FROM ghcr.io/uniget-org/tools/goreleaser:latest AS goreleaser
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+COPY --link --from=go / /usr/local/
+COPY --link --from=goreleaser / /usr/local/
+WORKDIR /go/src/github.com/psigen/jfrog-credential-helpers
+ARG name
+ARG version
+RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
+check-clone "https://github.com/psigen/jfrog-credential-helpers" "v${version}"
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/psigen/jfrog-credential-helpers .
+go get -u ./...
+go mod tidy
+go build \
+    -ldflags "\
+        -X github.com/docker/docker-credential-helpers/credentials.Name=docker-credential-jfrog \
+        -X github.com/docker/docker-credential-helpers/credentials.Package=github.com/psigen/jfrog-credential-helpers \
+        -X github.com/docker/docker-credential-helpers/credentials.Version=${version}" \
+    -o "${prefix}/bin/docker-credential-jfrog" \
+    ./cmd/docker/
+EOF
