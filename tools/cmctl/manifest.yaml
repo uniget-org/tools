@@ -6,7 +6,7 @@ license:
   link: https://github.com/cert-manager/cmctl/blob/main/LICENSE
 homepage: https://cert-manager.io/docs/reference/cmctl/
 repository: https://github.com/cert-manager/cmctl
-version: "2.5.0"
+version: "2.6.1"
 tags:
 - type/cli
 - kubernetes
