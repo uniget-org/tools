@@ -1,5 +1,22 @@
 #syntax=docker/dockerfile
 
+FROM rust:alpine AS build
+RUN <<EOF
+apk update
+apk add \
+    build-base \
+    git \
+    bash
+EOF
+WORKDIR /tmp/github.com/uutils/coreutils
+ARG name
+ARG version
+RUN --mount=type=cache,target=/target \
+    --mount=type=cache,target=/usr/local/cargo/registry <<EOF
+git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" https://github.com/uutils/coreutils .
+cargo install --bin uudoc --features uudoc --path .
+EOF
+
 FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
@@ -7,7 +24,6 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 url="https://github.com/uutils/coreutils/releases/download/${version}/coreutils-${version}-${arch}-unknown-linux-musl.tar.gz"
 filename="$( basename "${url}" )"
@@ -21,13 +37,13 @@ tar --file="${uniget_cache_download}/${filename}" --list
 tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
     "coreutils-${version}-${arch}-unknown-linux-musl/coreutils"
 EOF
-RUN <<EOF
-curl --silent --show-error --location --fail "https://github.com/uutils/coreutils/releases/download/${version}/docs.tar.zst" \
-| tar --extract --zstd --directory="${prefix}"
-find "${prefix}/share/zsh/site-functions/" -type f -exec mv {} "${prefix}/share/zsh/vendor-completions/" \;
-rmdir "${prefix}/share/zsh/site-functions/"
-rm -rf "${prefix}/share/elvish/"
-EOF
+COPY --from=build "/usr/local/cargo/bin/uudoc" "/usr/local/bin/"
 RUN <<EOF
 "${prefix}/bin/coreutils" --list | xargs -I{} ln --symbolic --relative --force "${prefix}/bin/coreutils" "${prefix}/bin/{}"
+
+utilities="$(uudoc --help | sed '/Available utilities/,$!d' | grep -v 'Available utilities' | tr -d ' ' | tr -d '\n' | tr , '\n')"
+echo "${utilities}" | xargs -I{} bash -c 'uudoc manpage {} >"${prefix}/share/man/man1/{}.1"'
+echo "${utilities}" | xargs -I{} bash -c 'uudoc completion {} bash >"${prefix}/share/bash-completion/completions/{}"'
+echo "${utilities}" | xargs -I{} bash -c 'uudoc completion {} fish >"${prefix}/share/fish/vendor_completions.d/{}.fish"'
+echo "${utilities}" | xargs -I{} bash -c 'uudoc completion {} zsh >"${prefix}/share/zsh/vendor-completions/_{}"'
 EOF
