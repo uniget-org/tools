@@ -13,10 +13,7 @@ tags:
 - category/development
 - lang/go
 - type/cli
-check: "" # No version parameter
-build_dependencies:
-- go
-- make
+check: ${binary} --version | cut -d' ' -f3
 platforms:
 - linux/amd64
 - linux/arm64
