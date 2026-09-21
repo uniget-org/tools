@@ -7,7 +7,7 @@ license:
   link: https://github.com/mudler/luet/blob/master/LICENSE
 homepage: https://luet.io
 repository: https://github.com/mudler/luet
-version: "0.36.5"
+version: "0.37.0"
 tags:
 - category/operations
 - lang/go
