@@ -6,7 +6,7 @@ license:
   link: https://github.com/google/trillian/blob/master/LICENSE
 homepage: https://github.com/google/trillian
 repository: https://github.com/google/trillian
-version: "1.7.3"
+version: "1.8.0"
 tags:
 - org/google
 - category/security
