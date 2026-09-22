@@ -6,7 +6,7 @@ license:
   link: https://github.com/kubernetes-sigs/bom/blob/main/LICENSE
 homepage: https://kubernetes-sigs.github.io/bom/
 repository: https://github.com/kubernetes-sigs/bom
-version: "0.7.1"
+version: "0.8.0"
 tags:
 - category/security
 - sbom
