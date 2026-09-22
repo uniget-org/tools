@@ -25,7 +25,7 @@ case "${arch}" in
 esac
 echo "    Using ${arch_suffix}"
 
-url="https://github.com/Wilfred/difftastic/releases/download/${version}/difft-${arch_suffix}.tar.gz"
+url="https://github.com/Wilfred/difftastic/releases/download/${version}/difft-${version}-${arch_suffix}.tar.gz"
 filename="$( basename "${url}" )"
 
 check-download "${url}"
