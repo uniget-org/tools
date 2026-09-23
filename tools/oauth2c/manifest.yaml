@@ -7,7 +7,7 @@ license:
   link: https://github.com/SecureAuthCorp/oauth2c/blob/master/LICENSE
 homepage: https://cloudentity.github.io/oauth2c/
 repository: https://github.com/SecureAuthCorp/oauth2c
-version: "1.21.0"
+version: "1.21.1"
 tags:
 - category/development
 - lang/go
