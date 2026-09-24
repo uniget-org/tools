@@ -7,7 +7,7 @@ license:
   link: https://github.com/coder/httpjail/blob/main/LICENSE
 homepage: https://github.com/coder/httpjail
 repository: https://github.com/coder/httpjail
-version: "0.6.1"
+version: "0.6.2"
 tags:
 - category/operations
 - lang/rust
