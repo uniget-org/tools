@@ -19,6 +19,7 @@ tags:
 - category/games
 - lang/java
 - type/daemon
+binary: "false"
 check: ""
 runtime_dependencies:
 - openjdk-jre
