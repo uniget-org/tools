@@ -6,6 +6,15 @@ if test -z "${TOOL}"; then
     exit 1
 fi
 
+if jq --raw-output --exit-status '.tools[0] | select(.lifecycle != null) | select(.lifecycle.renamed_to != null)' "tools/${TOOL}/manifest.json" >/dev/null; then
+    echo "Tool has been renamed"
+    exit 0
+fi
+if jq --raw-output --exit-status '.tools[0] | select(.lifecycle != null) | select(.lifecycle.removed_with_reason != null)' "tools/${TOOL}/manifest.json" >/dev/null; then
+    echo "Tool has been removed"
+    exit 0
+fi
+
 make metadata.json
 make "${TOOL}--tar"
 
@@ -19,7 +28,6 @@ docker run \
     registry.gitlab.com/uniget-org/cli:noble \
         bash -o errexit <<EOF
 uniget --version
-echo "UNIGET_IGNORE_METADATA_SIGNATURE: ${UNIGET_IGNORE_METADATA_SIGNATURE}"
 uniget install --path-to-tar-mappings=${TOOL}=/tmp/${TOOL}.tar ${TOOL}
 uniget list --installed
 uniget healthcheck "${TOOL}"
