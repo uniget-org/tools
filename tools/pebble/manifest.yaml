@@ -6,7 +6,7 @@ license:
   name: GPLv3
 homepage: https://github.com/canonical/pebble
 repository: https://github.com/canonical/pebble
-version: "1.32.2"
+version: "1.33.0"
 tags:
 - org/canonical
 - category/operations
