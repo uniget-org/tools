@@ -7,7 +7,7 @@ license:
   link: https://github.com/charmbracelet/skate/blob/main/LICENSE
 homepage: https://github.com/charmbracelet/skate
 repository: https://github.com/charmbracelet/skate
-version: "1.0.1"
+version: "1.1.0"
 tags:
 - org/charmbracelet
 - category/operations
