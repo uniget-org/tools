@@ -6,7 +6,7 @@ license:
   link: https://github.com/kptdev/kpt/blob/main/LICENSE
 homepage: https://kpt.dev
 repository: https://github.com/kptdev/kpt
-version: "1.0.0-beta.35"
+version: "1.0.1"
 tags:
 - org/google
 - category/development
