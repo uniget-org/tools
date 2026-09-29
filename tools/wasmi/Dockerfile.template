@@ -18,6 +18,6 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
     "${url}"
 
 tar --file="${uniget_cache_download}/${filename}" --list
-tar --file="${uniget_cache_download}/${filename}" --extract --xz --directory="${prefix}/bin" --no-same-owner \
+tar --file="${uniget_cache_download}/${filename}" --extract --xz --directory="${prefix}/bin" --strip-components=1 --no-same-owner \
     "wasmi-v${version}-${arch}-musl-full/wasmi"
 EOF
