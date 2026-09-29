@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
-name: gbooba
+name: booba
 description: Web-based BubbleTea TUIs using libghostty
 license:
   name: MIT License
