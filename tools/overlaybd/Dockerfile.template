@@ -3,7 +3,7 @@
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 
 # Cannot use musl because execinfo.h is required but not available
-FROM registry.gitlab.com/uniget-org/images/build-essential:24.04 AS prepare
+FROM registry.gitlab.com/uniget-org/images/build-essential:26.04@sha256:fcb3c9cc250102f27a974d92b62825e6a79abbb8ad1373e1fc0588ae3c655308 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
