@@ -10,10 +10,10 @@
 #FROM ghcr.io/uniget-org/tools/npm:latest AS npm
 #FROM ghcr.io/uniget-org/tools/bun:latest AS bun
 
-FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04
+FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04 AS ubuntu2604
 FROM registry.gitlab.com/uniget-org/images/build-essential:26.04 AS build-essential2604
-FROM registry.gitlab.com/uniget-org/images/alpine:3.24
-FROM registry.gitlab.com/uniget-org/images/build-base:3.24
+FROM registry.gitlab.com/uniget-org/images/alpine:3.24 AS alpine324
+FROM registry.gitlab.com/uniget-org/images/build-base:3.24 AS build-base324
 
 FROM ubuntu2604 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
