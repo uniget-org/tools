@@ -10,7 +10,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=make / /usr/local/
 COPY --link --from=pandoc / /usr/local/
-WORKDIR /tmp/walk
+WORKDIR /tmp/try
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
@@ -25,8 +25,7 @@ tar --file="${uniget_cache_download}/${filename}" --list
 tar --file="${uniget_cache_download}/${filename}" --extract --gzip --strip-components=1 --no-same-owner
 
 cp try "${prefix}/bin/"
-cp completions/try.bash "${prefix}/share/bash-completion/completions/walk"
+cp completions/try.bash "${prefix}/share/bash-completion/completions/try"
 
-make -C man -j$(nproc) try.1
-cp man/try.1 "${prefix}/share/man/man1/"
+pandoc --standalone --from markdown-smart --to man docs/try.1.md -o "${prefix}/share/man/man1/try.1"
 EOF
