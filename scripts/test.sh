@@ -6,6 +6,7 @@ if test -z "${TOOL}"; then
     exit 1
 fi
 
+make tools/${TOOL}/manifest.json
 if jq --raw-output --exit-status '.tools[0] | select(.lifecycle != null) | select(.lifecycle.renamed_to != null)' "tools/${TOOL}/manifest.json" >/dev/null; then
     echo "Tool has been renamed"
     exit 0
