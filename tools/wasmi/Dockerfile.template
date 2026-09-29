@@ -1,33 +1,23 @@
 #syntax=docker/dockerfile
 
-FROM rust:alpine AS build
-RUN <<EOF
-apk update
-apk add \
-    build-base \
-    git \
-    bash
-EOF
-WORKDIR /tmp/github.com/wasmi-labs/wasmi
-ARG name
-ARG version
-RUN <<EOF
-git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/wasmi-labs/wasmi .
-sed -i -E "s/^version = \"[0-9]+\.[0-9]+\.[0-9]+(-[a-z]+\.[0-9]+)?\"/version = \"${version}\"/" crates/cli/Cargo.toml
-cargo build --release --target "$(uname -m)-unknown-linux-musl"
-cp "target/$(uname -m)-unknown-linux-musl/release/wasmi_cli" "/usr/local/bin/"
-EOF
+FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04 AS ubuntu2604
 
-FROM registry.gitlab.com/uniget-org/images/build-base:3.24 AS prepare
+FROM ubuntu2604 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-RUN <<EOF
-apk update
-apk add \
-    rust \
-    cargo \
-    musl-dev
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/wasmi-labs/wasmi/releases/download/v${version}/wasmi-v${version}-${arch}-musl-full.tar.xz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "wasmi-labs/wasmi" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --xz --directory="${prefix}/bin" --no-same-owner \
+    "wasmi-v${version}-${arch}-musl-full/wasmi"
 EOF
-COPY --from=build "/usr/local/bin/wasmi_cli" "/uniget_bootstrap/bin/"
