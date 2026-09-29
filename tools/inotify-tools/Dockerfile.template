@@ -1,25 +1,20 @@
 #syntax=docker/dockerfile
 
-FROM ghcr.io/uniget-org/tools/make:latest AS make
-
 FROM registry.gitlab.com/uniget-org/images/build-base:3.24 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-RUN --mount=type=cache,target=/var/cache/apk <<EOF
-apk add --update-cache \
-    gettext \
-    bison
-EOF
-COPY --link --from=make / /usr/local/
-WORKDIR /tmp/inotify-tools
 ARG name
 ARG version
-RUN <<EOF
-git clone -q --config advice.detachedHead=false --depth 1 --branch "${version}" https://github.com/inotify-tools/inotify-tools .
-./autogen.sh
-./configure --prefix="${prefix}" --enable-static-binary --enable-fanotify
-make -j$(nproc) LDFLAGS=--static
-make install
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/inotify-tools/inotify-tools/releases/download/${version}/inotify-tools-${version}-${arch}-linux.tar.gz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "inotify-tools/inotify-tools" "${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}" --strip-components=1 --no-same-owner
 EOF
