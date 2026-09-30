@@ -7,7 +7,7 @@ license:
   link: https://github.com/rstudio/tinytex-releases/blob/master/LICENSE
 homepage: https://yihui.org/tinytex/
 repository: https://github.com/rstudio/tinytex-releases
-version: "2025.02"
+version: "2025.12"
 tags:
 - category/development
 - lang/perl
