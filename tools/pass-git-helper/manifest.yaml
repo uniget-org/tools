@@ -5,7 +5,7 @@ license:
   name: LGPLv3
 homepage: https://github.com/languitar/pass-git-helper
 repository: https://github.com/languitar/pass-git-helper
-version: "4.3.0"
+version: "5.0.0"
 tags:
 - category/security
 - lang/python
