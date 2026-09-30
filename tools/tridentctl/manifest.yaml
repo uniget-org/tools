@@ -7,7 +7,7 @@ license:
   link: https://github.com/NetApp/trident/blob/master/LICENSE
 homepage: https://docs.netapp.com/us-en/trident/index.html
 repository: https://github.com/NetApp/trident
-version: "25.10.0"
+version: "26.06.1"
 tags:
 - org/netapp
 - category/operations
