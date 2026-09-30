@@ -6,7 +6,7 @@ license:
   link: https://github.com/superfly/flyctl/blob/master/LICENSE
 homepage: https://fly.io
 repository: https://github.com/superfly/flyctl
-version: "0.4.110"
+version: "0.4.111"
 tags:
 - type/cli
 - cicd
