@@ -6,7 +6,7 @@ license:
   link: https://github.com/cloudflare/cfssl/blob/master/LICENSE
 homepage: https://cfssl.org/
 repository: https://github.com/cloudflare/cfssl
-version: "1.6.5"
+version: "1.7.0"
 tags:
 - type/cli
 - category/security
