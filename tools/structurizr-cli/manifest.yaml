@@ -6,7 +6,7 @@ license:
   link: https://github.com/structurizr/cli/blob/master/LICENSE
 homepage: https://docs.structurizr.com/cli
 repository: https://github.com/structurizr/cli
-version: "2025.10.29"
+version: "2025.11.09"
 tags:
 - category/development
 - lang/java
