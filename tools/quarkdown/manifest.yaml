@@ -16,6 +16,8 @@ tags:
 check: ${binary} --version 2>/dev/null | grep -oP '\d+\.\d+\.\d+'
 platforms:
 - linux/amd64
+runtime_dependencies:
+- openjdk-jre
 renovate:
   datasource: github-releases
   package: iamgio/quarkdown
