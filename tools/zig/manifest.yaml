@@ -7,7 +7,7 @@ license:
   link: https://codeberg.org/ziglang/zig/src/branch/master/LICENSE
 homepage: https://ziglang.org/
 repository: https://codeberg.org/ziglang/zig
-version: "0.16.0"
+version: "0.17.0"
 tags:
 - category/development
 - lang/zig
