@@ -7,7 +7,7 @@ license:
   link: https://github.com/psviderski/uncloud/blob/main/LICENSE
 homepage: https://uncloud.run
 repository: https://github.com/psviderski/uncloud
-version: "0.20.0"
+version: "0.21.0"
 tags:
 - category/operations
 - lang/go
