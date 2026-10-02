@@ -16,7 +16,7 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
     "${url}"
 
 mkdir -p "${prefix}/libexec/quarkdown"
-unzip -q -o -d "${prefix}/libexec/quarkdown" "${uniget_cache_download}/${filename}"
-find "${prefix}/libexec/quarkdown" -maxdepth 1 -type f -name "quarkdown" -exec \
-    install --mode=0755 {} "${prefix}/bin/quarkdown" \;
+unzip -q -o -d "${prefix}/libexec" "${uniget_cache_download}/${filename}"
+
+ln --relative --symbolic --force "${prefix}/libexec/quarkdown/bin/quarkdown" "${prefix}/bin/quarkdown"
 EOF
