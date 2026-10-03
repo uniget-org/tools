@@ -7,7 +7,7 @@ license:
   link: https://github.com/rustfs/rustfs/blob/main/LICENSE
 homepage: https://rustfs.com/download/
 repository: https://github.com/rustfs/rustfs
-version: "1.0.0-alpha.91"
+version: "1.0.1"
 tags:
 - component/storage
 - lang/rust
