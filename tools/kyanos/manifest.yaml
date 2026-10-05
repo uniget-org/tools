@@ -16,7 +16,7 @@ tags:
 - ebpf
 - networking
 - analysis
-check: ${binary} version | cut -d' ' -f3
+check: ${binary} version 2>&1 | grep ^Version | cut -d' ' -f2
 platforms:
 - linux/amd64
 - linux/arm64
