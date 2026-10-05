@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: prometheus-mcp-server
+description: MCP server for LLMs to interact with Prometheus
+license:
+  name: Apache License 2.0
+  link: https://github.com/tjhop/prometheus-mcp-server/blob/main/LICENSE
+homepage: https://github.com/prometheus/prometheus-mcp
+repository: https://github.com/prometheus/prometheus-mcp
+version: "0.18.0"
+tags:
+- org/prometheus
+- category/monitoring
+- lang/go
+- type/cli
+- ai
+- llm
+- mcp
+check: ${binary} --version | tr -d '\t' | grep ^version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: prometheus/prometheus-mcp
+  extractVersion: ^v(?<version>.+)$
