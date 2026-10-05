@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: mcp-grafana
+description: MCP server for Grafana
+license:
+  name: Apache License 2.0
+  link: https://github.com/grafana/mcp-grafana/blob/main/LICENSE
+homepage: https://github.com/grafana/mcp-grafana
+repository: https://github.com/grafana/mcp-grafana
+version: "2.0.0"
+tags:
+- org/grafana
+- category/development
+- type/cli
+- ai
+- llm
+- mcp
+- lang/go
+check: ${binary} | grep -oP '\d+\.\d+\.\d+'
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: grafana/mcp-grafana
+  extractVersion: ^v(?<version>.+)$
