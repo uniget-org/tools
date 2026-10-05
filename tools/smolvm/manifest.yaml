@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: smolvm
+description: OCI-native microVM runtime
+license:
+  name: Apache-2.0
+  link: https://github.com/smol-machines/smolvm/blob/main/LICENSE
+homepage: https://github.com/smol-machines/smolvm
+repository: https://github.com/smol-machines/smolvm
+version: "1.23.2"
+tags:
+- category/security
+- lang/rust
+- type/cli
+- kvm
+- vm
+- emulation
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: smol-machines/smolvm
+  extractVersion: ^v(?<version>.+)$
