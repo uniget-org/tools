@@ -14,7 +14,7 @@ tags:
 - webassembly
 - wasm
 - cncf/sandbox
-check: ${binary} --version | cut -d' ' -f3
+check: ${binary} --version | head -n 1 | cut -d' ' -f3
 platforms:
 - linux/amd64
 - linux/arm64

@@ -8,13 +8,17 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://github.com/WasmEdge/WasmEdge/releases/download/${version}/WasmEdge-${version}-manylinux_2_28_${arch}.tar.xz"
-filename="$( basename "${url}" )"
+base_url="https://github.com/WasmEdge/WasmEdge/releases/download/${version}"
 
-check-github-release-asset "WasmEdge/WasmEdge" "${version}" "${filename}"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
-    "${url}"
+for file in "WasmEdge-${version}-manylinux_2_28_${arch}.tar.gz" "WasmEdge-${version}-alpine3.23_${arch}_static.tar.gz"; do
+    url="${base_url}/${file}"
+    filename="$( basename "${url}" )"
 
-tar --file="${uniget_cache_download}/${filename}" --list
-tar --file="${uniget_cache_download}/${filename}" --extract --xz --directory="${prefix}" --strip-components=1 --no-same-owner
+    check-github-release-asset "WasmEdge/WasmEdge" "${version}" "${filename}"
+    curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+        "${url}"
+
+    tar --file="${uniget_cache_download}/${filename}" --list
+    tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}" --no-same-owner
+done
 EOF
