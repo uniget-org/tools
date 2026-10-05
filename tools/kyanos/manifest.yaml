@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: kyanos
+description: Kyanos is a networking analysis tool using eBPF. It can visualize the time packets spend in the kernel, capture requests/responses, makes troubleshooting more efficient.
+license:
+  name: Apache License 2.0
+  link: https://github.com/hengyoush/kyanos/blob/main/LICENSE
+homepage: https://kyanos.io
+repository: https://github.com/hengyoush/kyanos
+version: "1.6.0"
+tags:
+- org/hengyoush
+- category/security
+- lang/go
+- type/cli
+- ebpf
+- networking
+- analysis
+check: ${binary} version | cut -d' ' -f3
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: hengyoush/kyanos
+  extractVersion: ^v(?<version>.+)$
