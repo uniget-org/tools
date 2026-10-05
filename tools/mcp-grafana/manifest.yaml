@@ -16,7 +16,7 @@ tags:
 - llm
 - mcp
 - lang/go
-check: ${binary} | grep -oP '\d+\.\d+\.\d+'
+check: ${binary} --version
 platforms:
 - linux/amd64
 - linux/arm64
