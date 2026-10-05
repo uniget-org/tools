@@ -13,13 +13,13 @@ tags:
 - category/security
 - lang/rust
 - type/cli
+- ai
+- llm
 - security
 - agent
 - sandbox
 - sigstore
-- supply-chain-security
-- zero-trust
-check: ${binary} --version | cut -d' ' -f1
+check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64
 - linux/arm64

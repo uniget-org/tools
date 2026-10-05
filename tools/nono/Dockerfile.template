@@ -13,10 +13,10 @@ RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 echo "### Setting architecture string for ${TARGETPLATFORM}"
 case "${arch}" in
     amd64|x86_64)
-        export arch_suffix="${alt_arch}"
+        export arch_suffix="${arch}-unknown-linux-musl"
         ;;
     arm64|aarch64)
-        export arch_suffix="${alt_arch}"
+        export arch_suffix="${arch}-unknown-linux-gnu"
         ;;
     *)
         echo "ERROR: Unsupported architecture ${arch}."
@@ -25,7 +25,7 @@ case "${arch}" in
 esac
 echo "    Using ${arch_suffix}"
 
-url="https://github.com/nolabs-ai/nono/releases/download/v${version}/nono-v${version}-${arch_suffix}-unknown-linux-gnu.tar.gz"
+url="https://github.com/nolabs-ai/nono/releases/download/v${version}/nono-v${version}-${arch_suffix}.tar.gz"
 filename="$( basename "${url}" )"
 
 check-github-release-asset "nolabs-ai/nono" "v${version}" "${filename}"
@@ -33,7 +33,5 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
     "${url}"
 
 tar --file="${uniget_cache_download}/${filename}" --list
-tar --file="${uniget_cache_download}/${filename}" --extract --gzip \
-    --strip-components=0 --no-same-owner \
-    --directory="${prefix}/bin/" "nono"
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/bin/" --no-same-owner
 EOF
