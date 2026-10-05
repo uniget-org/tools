@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: ptcpdump
+description: tcpdump-compatible packet analyzer powered by eBPF, annotating packets with process/container/pod metadata
+license:
+  name: MIT License
+  link: https://github.com/mozillazg/ptcpdump/blob/master/LICENSE
+homepage: https://github.com/mozillazg/ptcpdump
+repository: https://github.com/mozillazg/ptcpdump
+version: "0.37.0"
+tags:
+- type/cli
+- component/network
+- ebpf
+- lang/go
+check: ${binary} --version | head -1 | grep -oP '\d+\.\d+\.\d+'
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: mozillazg/ptcpdump
+  extractVersion: ^v(?<version>.+)$
