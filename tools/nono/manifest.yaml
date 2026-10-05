@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: nono
+description: Agent runtime security - zero trust, zero setup, zero latency micro sandboxes
+license:
+  name: Apache License 2.0
+  link: https://github.com/nolabs-ai/nono/blob/main/LICENSE
+homepage: https://nono.sh
+repository: https://github.com/nolabs-ai/nono
+version: "0.79.0"
+tags:
+- org/nolabs-ai
+- category/security
+- lang/rust
+- type/cli
+- security
+- agent
+- sandbox
+- sigstore
+- supply-chain-security
+- zero-trust
+check: ${binary} --version | cut -d' ' -f1
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: nolabs-ai/nono
+  extractVersion: ^v(?<version>.+)$
