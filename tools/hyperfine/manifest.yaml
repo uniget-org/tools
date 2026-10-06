@@ -5,7 +5,7 @@ license:
   name: Apache License 2.0
 homepage: https://github.com/sharkdp/hyperfine
 repository: https://github.com/sharkdp/hyperfine
-version: "1.20.0"
+version: "1.21.0"
 tags:
 - category/development
 - lang/rust
