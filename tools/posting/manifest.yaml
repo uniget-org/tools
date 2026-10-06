@@ -12,6 +12,8 @@ tags:
 - category/development
 - lang/python
 - type/tui
+- api
+- testing
 check: "" # No version parameter
 build_dependencies:
 - python-3.12
@@ -21,5 +23,5 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 renovate:
-  datasource: github-releases
-  package: darrenburns/posting
+  datasource: pypi
+  package: posting
