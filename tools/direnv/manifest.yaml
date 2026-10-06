@@ -6,7 +6,7 @@ license:
   link: https://github.com/direnv/direnv/blob/master/LICENSE
 homepage: http://direnv.net
 repository: https://github.com/direnv/direnv/
-version: "2.37.1"
+version: "2.38.1"
 tags:
 - type/cli
 - terminal
