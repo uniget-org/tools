@@ -6,7 +6,7 @@ license:
   link: https://github.com/antonmedv/fx/blob/master/LICENSE
 homepage: https://fx.wtf
 repository: https://github.com/antonmedv/fx
-version: "39.2.0"
+version: "40.0.0"
 tags:
 - type/cli
 - format/json
