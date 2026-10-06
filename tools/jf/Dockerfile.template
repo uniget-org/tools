@@ -11,6 +11,7 @@ RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 url="https://releases.jfrog.io/artifactory/jfrog-cli/v2-jf/${version}/jfrog-cli-linux-${alt_arch}/jf"
 filename="$(basename "${url}")"
 
+check-download "${url}"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
     "${url}"
 
