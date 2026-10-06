@@ -7,11 +7,13 @@ license:
   link: https://github.com/darrenburns/posting/blob/main/LICENSE
 homepage: https://github.com/darrenburns/posting
 repository: https://github.com/darrenburns/posting
-version: "2.11.0"
+version: "2.11.2"
 tags:
 - category/development
 - lang/python
 - type/tui
+- api
+- testing
 check: "" # No version parameter
 build_dependencies:
 - python-3.12
@@ -21,5 +23,5 @@ runtime_dependencies:
 platforms:
 - linux/amd64
 renovate:
-  datasource: github-releases
-  package: darrenburns/posting
+  datasource: pypi
+  package: posting
