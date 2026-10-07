@@ -5,7 +5,7 @@ license:
   name: GPLv2
 homepage: https://github.com/inotify-tools/inotify-tools
 repository: https://github.com/inotify-tools/inotify-tools
-version: "4.26.268"
+version: "4.26.270"
 tags:
 - component/kernel
 - lang/c
