@@ -7,7 +7,7 @@ license:
   link: https://github.com/grafana/mcp-grafana/blob/main/LICENSE
 homepage: https://github.com/grafana/mcp-grafana
 repository: https://github.com/grafana/mcp-grafana
-version: "2.0.1"
+version: "2.0.2"
 tags:
 - org/grafana
 - category/development
