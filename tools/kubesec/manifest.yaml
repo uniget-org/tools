@@ -6,7 +6,7 @@ license:
   link: https://github.com/controlplaneio/kubesec/blob/master/LICENSE
 homepage: https://kubesec.io
 repository: https://github.com/controlplaneio/kubesec
-version: "2.14.2"
+version: "2.15.0"
 tags:
 - category/security
 - type/cli
