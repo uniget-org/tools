@@ -6,7 +6,7 @@ license:
   link: https://github.com/kubernetes-sigs/kustomize/blob/master/LICENSE
 homepage: https://github.com/kubernetes-sigs/kustomize
 repository: https://github.com/kubernetes-sigs/kustomize
-version: "5.8.2"
+version: "5.8.3"
 tags:
 - org/cncf
 - org/kubernetes
