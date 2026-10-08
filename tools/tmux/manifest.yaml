@@ -7,7 +7,7 @@ license:
   link: https://github.com/tmux/tmux/blob/master/COPYING
 homepage: https://github.com/tmux/tmux
 repository: https://github.com/tmux/tmux
-version: "3.7b"
+version: "3.8"
 tags:
 - category/terminal
 - lang/c
