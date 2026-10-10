@@ -7,7 +7,7 @@ license:
   link: https://github.com/smol-machines/smolvm/blob/main/LICENSE
 homepage: https://github.com/smol-machines/smolvm
 repository: https://github.com/smol-machines/smolvm
-version: "1.25.2"
+version: "1.25.4"
 tags:
 - category/security
 - lang/rust
