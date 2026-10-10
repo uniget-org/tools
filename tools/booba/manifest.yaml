@@ -7,7 +7,7 @@ license:
   link: https://github.com/NimbleMarkets/go-booba/blob/main/LICENSE.txt
 homepage: https://github.com/NimbleMarkets/go-booba
 repository: https://github.com/NimbleMarkets/go-booba
-version: "0.7.0"
+version: "0.8.0"
 tags:
 - category/operations
 - lang/go
