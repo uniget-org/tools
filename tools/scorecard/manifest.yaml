@@ -6,7 +6,7 @@ license:
   link: https://github.com/ossf/scorecard/blob/main/LICENSE
 homepage: https://scorecard.dev
 repository: https://github.com/ossf/scorecard
-version: "5.5.0"
+version: "5.6.0"
 tags:
 - category/security
 - type/cli
