@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: droprun
+description: Linux sandboxing that doesn't get in your way
+license:
+  name: Apache License 2.0
+  link: https://github.com/wrr/drop/blob/main/LICENSE
+homepage: https://droprun.sh
+repository: https://github.com/wrr/drop
+version: "0.3.1"
+tags:
+- category/security
+- lang/go
+- type/cli
+- sandbox
+check: ${binary} --version | grep -oP '\d+\.\d+\.\d+'
+binary: drop
+runtime_dependencies:
+- passt
+conflicts_with:
+- drop
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: wrr/drop
+  extractVersion: ^v(?<version>.+)$

@@ -17,6 +17,8 @@ tags:
 - standard/docker
 - container/image
 check: "" # No version parameter
+conflicts_with:
+- droprun
 build_dependencies:
 - go
 platforms:
