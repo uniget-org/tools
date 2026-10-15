@@ -8,22 +8,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-echo "### Setting architecture string for ${TARGETPLATFORM}"
-case "${arch}" in
-    x86_64)
-        export arch_suffix="amd64"
-        ;;
-    aarch64)
-        export arch_suffix="arm64"
-        ;;
-    *)
-        echo "ERROR: Unsupported architecture ${arch}."
-        exit 1
-        ;;
-esac
-echo "    Using ${arch_suffix}"
-
-url="https://github.com/coipond/coi/releases/download/v${version}/coi-linux-${arch_suffix}"
+url="https://github.com/coipond/coi/releases/download/v${version}/coi-linux-${alt_arch}"
 filename="$( basename "${url}" )"
 
 check-github-release-asset "coipond/coi" "v${version}" "${filename}"
@@ -33,10 +18,8 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
 install --mode=0755 \
     "${uniget_cache_download}/${filename}" \
     "${prefix}/bin/coi"
-
-"${prefix}/bin/coi" version
-
-echo "### Installing shell completion for coi ${version}"
+EOF
+RUN <<EOF
 "${prefix}/bin/coi" completion bash >"${prefix}/share/bash-completion/completions/coi"
 "${prefix}/bin/coi" completion fish >"${prefix}/share/fish/vendor_completions.d/coi.fish"
 "${prefix}/bin/coi" completion zsh >"${prefix}/share/zsh/vendor-completions/_coi"
