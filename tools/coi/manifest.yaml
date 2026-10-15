@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: coi
+description: Runs AI coding agents inside isolated Incus system containers with root, Docker, systemd, network isolation, and active threat detection
+license:
+  name: MIT License
+  link: https://github.com/coipond/coi/blob/master/LICENSE
+homepage: https://coipond.ai
+repository: https://github.com/coipond/coi
+version: "0.15.0"
+tags:
+- category/development
+- type/cli
+- lang/go
+- ai
+- coding
+- org/lxc
+check: ${binary} version 2>&1 | grep -oP 'v\K\d+\.\d+\.\d+'
+runtime_dependencies:
+- incus
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: coipond/coi
+  extractVersion: ^v(?<version>.+)$
