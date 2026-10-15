@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: cgg
+description: Offline multi-language call graph generator in Rust — point at any folder, get a graph
+license:
+  name: MIT License / Apache License 2.0
+  link: https://github.com/NeuralNotwerk/cgg/blob/main/LICENSE-MIT
+homepage: https://github.com/NeuralNotwerk/cgg
+repository: https://github.com/NeuralNotwerk/cgg
+version: "0.10.2"
+tags:
+- category/development
+- lang/rust
+- type/cli
+- code
+- analysis
+- graph
+check: ${binary} --version | cut -d' ' -f2
+build_dependencies: []
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: NeuralNotwerk/cgg
+  extractVersion: ^v(?<version>.+)$
