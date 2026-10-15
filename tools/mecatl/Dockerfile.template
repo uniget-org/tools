@@ -8,22 +8,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-echo "### Setting architecture string for ${TARGETPLATFORM}"
-case "${arch}" in
-    x86_64)
-        export mecatl_arch="${alt_arch}"
-        ;;
-    aarch64)
-        export mecatl_arch="${alt_arch}"
-        ;;
-    *)
-        echo "ERROR: Unsupported architecture ${arch}."
-        exit 1
-        ;;
-esac
-echo "    Using ${mecatl_arch}"
-
-url="https://github.com/stacklok/mecatl/releases/download/v${version}/mecatl_${version}_linux_${mecatl_arch}.tar.gz"
+url="https://github.com/stacklok/mecatl/releases/download/v${version}/mecatl_${version}_linux_${alt_arch}.tar.gz"
 filename="$( basename "${url}" )"
 
 check-github-release-asset "stacklok/mecatl" "v${version}" "${filename}"
