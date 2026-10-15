@@ -8,22 +8,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-echo "### Setting architecture string for ${TARGETPLATFORM}"
-case "${arch}" in
-    x86_64)
-        export arch_suffix="x86_64"
-        ;;
-    aarch64)
-        export arch_suffix="aarch64"
-        ;;
-    *)
-        echo "ERROR: Unsupported architecture ${arch}."
-        exit 1
-        ;;
-esac
-echo "    Using ${arch_suffix}"
-
-url="https://github.com/NVIDIA/OpenShell/releases/download/v${version}/openshell-${arch_suffix}-unknown-linux-musl.tar.gz"
+url="https://github.com/NVIDIA/OpenShell/releases/download/v${version}/openshell-${arch}-unknown-linux-musl.tar.gz"
 filename="$( basename "${url}" )"
 
 check-github-release-asset "NVIDIA/OpenShell" "v${version}" "${filename}"
@@ -35,8 +20,6 @@ tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="
 
 "${prefix}/bin/openshell" --version
 EOF
-
-# completion
 RUN <<EOF
 "${prefix}/bin/openshell" completions bash >"${prefix}/share/bash-completion/completions/openshell"
 "${prefix}/bin/openshell" completions fish >"${prefix}/share/fish/vendor_completions.d/openshell.fish"
