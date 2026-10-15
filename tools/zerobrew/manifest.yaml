@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: zerobrew
+description: An up to 5x faster Homebrew client
+license:
+  name: MIT
+  link: https://github.com/zerobrewhq/zerobrew/blob/main/LICENSE-MIT.md
+homepage: https://zerobrew.rs
+repository: https://github.com/zerobrewhq/zerobrew
+version: "0.4.1"
+tags:
+- category/development
+- lang/rust
+- type/cli
+check: ${binary} --version | grep -oP '\d+\.\d+\.\d+'
+binary: zb
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: zerobrewhq/zerobrew
