@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: mcpward
+description: Security and contract testing for MCP servers. Catches tool poisoning, rug-pulls, schema drift and protocol violations before they reach production
+license:
+  name: Apache License 2.0
+  link: https://github.com/TsvetanG2/mcpward/blob/main/LICENSE
+homepage: https://github.com/TsvetanG2/mcpward
+repository: https://github.com/TsvetanG2/mcpward
+version: "1.1.1"
+tags:
+- category/security
+- lang/typescript
+- type/cli
+- ai
+- llm
+- mcp
+- testing
+check: ${binary} --version
+build_dependencies:
+- node-lts
+runtime_dependencies:
+- node-lts
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: npm
+  package: mcpward
