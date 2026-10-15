@@ -1,0 +1,19 @@
+#syntax=docker/dockerfile
+
+FROM ghcr.io/uniget-org/tools/node-lts:latest AS node
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+COPY --link --from=node / /usr/local/
+WORKDIR /uniget_bootstrap/libexec/mcpward
+ARG name
+ARG version
+RUN <<EOF
+npm install \
+    --omit=dev \
+    "mcpward@${version}"
+ln --symbolic --relative --force "${prefix}/libexec/mcpward/node_modules/.bin/mcpward" "${prefix}/bin/"
+EOF
