@@ -1,0 +1,43 @@
+#syntax=docker/dockerfile:1.28.0@sha256:bb22d9815c728170f72750f4e5b0d672e06176142e1d602c7e66c050100b7e5b
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04 AS ubuntu2604
+FROM registry.gitlab.com/uniget-org/images/build-essential:26.04 AS build-essential2604
+FROM registry.gitlab.com/uniget-org/images/alpine:3.24 AS alpine324
+FROM registry.gitlab.com/uniget-org/images/build-base:3.24 AS build-base324
+
+FROM ubuntu2604 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+echo "### Setting architecture string for ${TARGETPLATFORM}"
+case "${arch}" in
+    x86_64)
+        export arch_suffix="x64"
+        ;;
+    aarch64)
+        export arch_suffix="arm64"
+        ;;
+    *)
+        echo "ERROR: Unsupported architecture ${arch}."
+        exit 1
+        ;;
+esac
+echo "    Using ${arch_suffix}"
+
+url="https://github.com/zerobrewhq/zerobrew/releases/download/v${version}/zb-linux-${arch_suffix}"
+filename="$( basename "${url}" )"
+
+check-download "${url}"
+check-github-release-asset "zerobrewhq/zerobrew" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/zb"
+EOF
