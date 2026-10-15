@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: pktz
+description: eBPF-powered network traffic monitor - per process, per connection, live
+license:
+  name: MIT License
+  link: https://github.com/immanuwell/pktz/blob/main/LICENSE
+homepage: https://github.com/immanuwell/pktz
+repository: https://github.com/immanuwell/pktz
+version: "0.3.0"
+tags:
+- category/monitoring
+- category/network
+- lang/go
+- type/tui
+check: ${binary} --version >/dev/null && echo ${version} # Upstream --version reports a stale hardcoded version
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: immanuwell/pktz
