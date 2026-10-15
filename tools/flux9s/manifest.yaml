@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: flux9s
+description: K9s-inspired terminal UI for monitoring Flux GitOps resources in real-time
+license:
+  name: Apache License 2.0
+  link: https://github.com/dgunzy/flux9s/blob/main/LICENSE
+homepage: https://github.com/dgunzy/flux9s
+repository: https://github.com/dgunzy/flux9s
+version: "1.3.0"
+tags:
+- category/operations
+- type/tui
+- gitops
+- kubernetes
+- k8s
+- lang/rust
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+renovate:
+  datasource: github-releases
+  package: dgunzy/flux9s
+  extractVersion: ^v(?<version>.+)$
