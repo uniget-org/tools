@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: mecatl
+description: Open source agent harness for cloud-native workloads, with the mecated server and mecatui terminal client
+license:
+  name: Apache-2.0
+  link: https://github.com/stacklok/mecatl/blob/main/LICENSE
+homepage: https://mecatl.dev
+repository: https://github.com/stacklok/mecatl
+version: "0.0.48"
+tags:
+- category/development
+- lang/go
+- type/cli
+- type/daemon
+- ai
+- agent
+- mcp
+check: ${binary} --version | cut -d' ' -f2 | tr -d v
+binary: mecatui
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: stacklok/mecatl
+  extractVersion: ^v(?<version>.+)$
