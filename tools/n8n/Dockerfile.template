@@ -12,8 +12,5 @@ WORKDIR /uniget_bootstrap/libexec/n8n
 ARG name
 ARG version
 RUN <<EOF
-npm install \
-    --omit=dev \
-    "n8n@${version}"
-ln --symbolic --relative --force "${prefix}/libexec/n8n/node_modules/.bin/n8n" "${prefix}/bin/"
+touch "${prefix}/n8n-was-removed"
 EOF
