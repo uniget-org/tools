@@ -6,7 +6,7 @@ license:
   name: SIL Open Font License 1.1
 homepage: https://vercel.com/font
 repository: https://github.com/vercel/geist-font
-version: "1.8.0"
+version: "v1.8.1"
 tags:
 - org/vercel
 - slides
