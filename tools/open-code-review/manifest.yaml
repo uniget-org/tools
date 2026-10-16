@@ -18,6 +18,7 @@ tags:
 - code
 - coding
 - agent
+binary: ocr
 check: ${binary} version | head -n1 | cut -d' ' -f2 | tr -d v
 platforms:
 - linux/amd64
