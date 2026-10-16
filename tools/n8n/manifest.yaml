@@ -12,14 +12,13 @@ tags:
 - lang/javascript
 - type/cli
 - type/daemon
-check: ${binary} --version
-build_dependencies:
-- node-lts
-runtime_dependencies:
-- node-lts
+binary: "false"
+check: "" # No binary to check
 platforms:
 - linux/amd64
 - linux/arm64
 renovate:
   datasource: npm
   package: n8n
+lifecycle:
+  removed_with_reason: No CLI tool
