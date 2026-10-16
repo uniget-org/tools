@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: open-code-review
+description: AI-powered code review CLI that reads git diffs and generates review comments with line-level precision
+license:
+  name: Apache License 2.0
+  link: https://github.com/alibaba/open-code-review/blob/main/LICENSE
+homepage: https://open-codereview.ai
+repository: https://github.com/alibaba/open-code-review
+version: "1.13.0"
+tags:
+- org/alibaba
+- category/development
+- lang/go
+- type/cli
+- ai
+- llm
+- code
+- coding
+- agent
+check: ${binary} version | head -n1 | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: alibaba/open-code-review
+  extractVersion: ^v(?<version>.+)$
