@@ -7,7 +7,7 @@ license:
   link: https://github.com/crossplane-contrib/crossplane-diff/blob/main/LICENSE
 homepage: https://github.com/crossplane-contrib/crossplane-diff
 repository: https://github.com/crossplane-contrib/crossplane-diff
-version: "0.10.0"
+version: "0.11.0"
 tags:
 - org/cncf
 - category/operations
