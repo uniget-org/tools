@@ -7,7 +7,7 @@ license:
   link: https://github.com/tj/n/blob/master/LICENSE
 homepage: https://github.com/tj/n
 repository: https://github.com/tj/n
-version: "10.2.0"
+version: "11.0.0"
 tags:
 - category/development
 - lang/shell
