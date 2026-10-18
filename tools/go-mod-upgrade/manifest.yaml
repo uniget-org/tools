@@ -5,7 +5,7 @@ license:
   name: MIT License
 homepage: https://github.com/oligot/go-mod-upgrade
 repository: https://github.com/oligot/go-mod-upgrade
-version: "0.12.0"
+version: "0.13.0"
 tags:
 - category/security
 - lang/go
