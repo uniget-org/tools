@@ -7,7 +7,7 @@ license:
   link: https://github.com/penberg/chimera/blob/main/LICENSE.md
 homepage: https://github.com/penberg/chimera
 repository: https://github.com/penberg/chimera
-version: "e2e612f05940a42d4ed777ee997464105722140a"
+version: "6d0e4ff5766ed08360b20f6b548772ac4f19086b"
 tags:
 - type/cli
 - category/security
