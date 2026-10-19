@@ -5,22 +5,6 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
-ARG name
-ARG version
-RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://github.com/docker/docker-agent/releases/download/v${version}/docker-agent-linux-${alt_arch}"
-filename="$( basename "${url}" )"
-
-check-github-release-asset "docker/docker-agent" "v${version}" "${filename}"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
-    "${url}"
-
-install --mode=0755 \
-    "${uniget_cache_download}/${filename}" \
-    "${prefix}/libexec/docker/cli-plugins/docker-agent"
-EOF
 RUN <<EOF
-"${prefix}/libexec/docker/cli-plugins/docker-agent" completion bash >"${prefix}/share/bash-completion/completions/docker-agent"
-"${prefix}/libexec/docker/cli-plugins/docker-agent" completion fish >"${prefix}/share/fish/vendor_completions.d/docker-agent.fish"
-"${prefix}/libexec/docker/cli-plugins/docker-agent" completion zsh >"${prefix}/share/zsh/vendor-completions/_docker-agent"
+touch "${prefix}/cagent-was-renamed-to-docker-agent"
 EOF

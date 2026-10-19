@@ -20,15 +20,5 @@ tags:
 - type/cli
 - llm
 - ai
-messages:
-  update: |
-    Disble telemetry:
-
-      TELEMETRY_ENABLED=false docker agent [...]
-
-    ... or...
-
-      export TELEMETRY_ENABLED=false
-      docker agent [...]
 lifecycle:
   renamed_to: docker-agent

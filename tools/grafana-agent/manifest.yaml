@@ -20,10 +20,6 @@ tags:
 check: ${binary} --version | head -1 | cut -d' ' -f3 | tr -d v
 platforms:
 - linux/amd64
-renovate:
-  datasource: github-releases
-  package: grafana/agent
-  extractVersion: ^v(?<version>.+)$
 messages:
   usage: |
     Grafana Agent has been deprecated in favor of Grafana Alloy.

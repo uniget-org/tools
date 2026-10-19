@@ -15,9 +15,5 @@ tags:
 check: ${binary} --version | cut -d' ' -f4 | cut -d, -f1
 platforms:
 - linux/amd64
-renovate:
-  datasource: github-releases
-  package: stefanberger/swtpm
-  extractVersion: ^v(?<version>.+)$
 lifecycle:
   removed_with_reason: This was only an experiment.

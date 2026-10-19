@@ -10,5 +10,5 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN <<EOF
-touch "${prefix}/removed"
+touch "${prefix}/libtpms-was-removed"
 EOF

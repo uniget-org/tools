@@ -18,9 +18,6 @@ tags:
 check: ""
 platforms:
 - linux/amd64
-renovate:
-  datasource: pypi
-  package: amulet-map-editor
 messages:
   usage: |
     As of version 0.10.45, Amulet requires a license.

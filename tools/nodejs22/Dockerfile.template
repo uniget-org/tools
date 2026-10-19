@@ -6,5 +6,5 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
 RUN <<EOF
-touch "${prefix}/deprecated-use-node22"
+touch "${prefix}/nodejs22-is-deprecated-use-node22"
 EOF
