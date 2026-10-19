@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: floci
+description: CLI for floci, the free local AWS emulator alternative, starting and managing the dockerized emulator via Docker
+license:
+  name: MIT
+  link: https://github.com/floci-io/floci-cli/blob/main/LICENSE
+homepage: https://floci.io
+repository: https://github.com/floci-io/floci-cli
+version: "0.4.0"
+tags:
+- type/cli
+- category/development
+- cloud/aws
+- docker
+- lang/java
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+
+renovate:
+  datasource: github-releases
+  package: floci-io/floci-cli
