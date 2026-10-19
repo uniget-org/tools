@@ -15,7 +15,7 @@ tags:
 - kubernetes
 - dns-lb
 - gslb
-check: ${binary} version
+check: "" # No version parameter
 platforms:
 - linux/amd64
 - linux/arm64
