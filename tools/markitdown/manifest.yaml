@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: markitdown
+description: Python tool for converting files and office documents to Markdown
+license:
+  name: MIT License
+  link: https://github.com/microsoft/markitdown/blob/main/LICENSE
+homepage: https://github.com/microsoft/markitdown
+repository: https://github.com/microsoft/markitdown
+version: "0.1.8"
+tags:
+- org/microsoft
+- category/documentation
+- lang/python
+- type/cli
+check: ${binary} --version | cut -d' ' -f2
+build_dependencies:
+- python-3.12
+- shiv
+runtime_dependencies:
+- python-3.12
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: pypi
+  package: markitdown
