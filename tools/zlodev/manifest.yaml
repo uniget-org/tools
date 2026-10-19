@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: zlodev
+description: Local HTTPS reverse proxy with auto-certificates, custom DNS, and a terminal UI for one-command local development
+license:
+  name: MIT
+  link: https://github.com/vandot/zlodev/blob/main/LICENSE
+homepage: https://zlodev.vandot.rs/
+repository: https://github.com/vandot/zlodev
+version: "0.4.1"
+tags:
+- type/cli
+- category/development
+- lang/zig
+check: ${binary} --version 2>&1 | grep -oP '\d+\.\d+\.\d+'
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: vandot/zlodev
+  extractVersion: ^v(?<version>.+)$
