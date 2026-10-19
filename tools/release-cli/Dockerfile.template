@@ -7,16 +7,6 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://gitlab.com/gitlab-org/release-cli/-/releases/v${version}/downloads/bin/release-cli-linux-${alt_arch}"
-filename="$( basename "${url}" )"
-
-check-download "${url}"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
-    "${url}"
-
-install --mode=0755 \
-    "${uniget_cache_download}/${filename}" \
-    "${prefix}/bin/release-cli"
-
+RUN <<EOF
+touch "${prefix}/release-cli-is-deprecated-use-glab"
 EOF

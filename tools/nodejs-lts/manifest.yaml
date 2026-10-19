@@ -15,10 +15,6 @@ check: ${binary} --version | tr -d v
 platforms:
 - linux/amd64
 - linux/arm64
-renovate:
-  datasource: gitlab-releases
-  package: uniget-org/renovate-custom
-  extractVersion: ^nodejs-lts/(?<version>.+)$
 binary: node
 messages:
   usage: |

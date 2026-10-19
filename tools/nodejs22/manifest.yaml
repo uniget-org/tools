@@ -15,10 +15,6 @@ check: ${binary} --version | tr -d v
 platforms:
 - linux/amd64
 - linux/arm64
-renovate:
-  datasource: github-releases
-  package: nodejs/node
-  extractVersion: ^v(?<version>22\..+)$
 binary: node22
 messages:
   usage: |
