@@ -16,6 +16,6 @@ ARG version
 RUN <<EOF
 npm install \
     --omit=dev \
-    "opencode-ai@${version}"
+    "@opencode/cli@${version}"
 ln --symbolic --relative --force "${prefix}/libexec/opencode/node_modules/.bin/opencode" "${prefix}/bin/"
 EOF
