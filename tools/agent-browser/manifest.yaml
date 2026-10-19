@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: agent-browser
+description: Browser automation CLI for AI agents (fast native Rust CLI; browsers like Chrome must be installed by the user via `agent-browser install`)
+license:
+  name: Apache License 2.0
+  link: https://github.com/vercel-labs/agent-browser/blob/main/LICENSE
+homepage: https://agent-browser.dev
+repository: https://github.com/vercel-labs/agent-browser
+version: "0.39.1"
+tags:
+- type/cli
+- category/development
+- lang/rust
+- ai
+- agent
+check: ${binary} --version | grep -oP '\d+\.\d+\.\d+'
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: vercel-labs/agent-browser
+  extractVersion: ^v(?<version>.+)$
