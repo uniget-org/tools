@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: tresor
+description: A k9s-style terminal UI for HashiCorp Vault and OpenBao
+license:
+  name: Apache License 2.0 OR MIT License
+  link: https://github.com/tresortui/tresor/blob/main/LICENSE-APACHE
+homepage: https://github.com/tresortui/tresor
+repository: https://github.com/tresortui/tresor
+version: "0.6.0"
+tags:
+- category/terminal
+- lang/rust
+- type/tui
+- tui
+- terminal
+- secrets
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: tresortui/tresor
+  extractVersion: ^v(?<version>.+)$
