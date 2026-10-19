@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+name: netbird
+description: Peer-to-peer WireGuard-based mesh VPN for identity-based Zero Trust connections of people, machines and AI agents across any network
+license:
+  name: BSD 3-Clause
+  link: https://github.com/netbirdio/netbird/blob/main/LICENSE
+homepage: https://netbird.io
+repository: https://github.com/netbirdio/netbird
+version: "0.81.2"
+tags:
+- type/cli
+- category/security
+- wireguard
+- lang/go
+check: ${binary} version | grep -oP '\d+\.\d+\.\d+'
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: netbirdio/netbird
+  extractVersion: ^v(?<version>.+)$
