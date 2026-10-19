@@ -185,6 +185,8 @@ make foo
 
 The log is located in `tools/foo/build.log`.
 
+Do not test for arm64.
+
 ## 9. Choosing the right option quickly
 
 - Single binary artifact: executable install
