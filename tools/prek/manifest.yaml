@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: prek
+description: A fast Git hook manager written in Rust, designed as a drop-in alternative to pre-commit
+license:
+  name: MIT
+  link: https://github.com/j178/prek/blob/main/LICENSE
+homepage: https://github.com/j178/prek
+repository: https://github.com/j178/prek
+version: "0.5.6"
+tags:
+- type/cli
+- category/development
+- lang/rust
+- git
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: j178/prek
+  extractVersion: ^v(?<version>.+)$
