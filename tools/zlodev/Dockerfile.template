@@ -6,22 +6,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-echo "### Setting architecture string for ${TARGETPLATFORM}"
-case "${arch}" in
-    x86_64)
-        export arch_suffix="amd64"
-        ;;
-    aarch64)
-        export arch_suffix="arm64"
-        ;;
-    *)
-        echo "ERROR: Unsupported architecture ${arch}."
-        exit 1
-        ;;
-esac
-echo "    Using ${arch_suffix}"
-
-url="https://github.com/vandot/zlodev/releases/download/v${version}/zlodev-linux-${arch_suffix}.tar.gz"
+url="https://github.com/vandot/zlodev/releases/download/v${version}/zlodev-linux-${alt_arch}.tar.gz"
 filename="$( basename "${url}" )"
 
 check-github-release-asset "vandot/zlodev" "v${version}" "${filename}"
