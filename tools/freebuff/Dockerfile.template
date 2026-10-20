@@ -1,0 +1,19 @@
+#syntax=docker/dockerfile
+
+FROM ghcr.io/uniget-org/tools/node-lts:latest AS node
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+COPY --link --from=node / /usr/local/
+WORKDIR /uniget_bootstrap/libexec/freebuff
+ARG name
+ARG version
+RUN <<EOF
+npm install \
+    --omit=dev \
+    "freebuff@${version}"
+ln --symbolic --relative --force "${prefix}/libexec/freebuff/node_modules/.bin/freebuff" "${prefix}/bin/"
+EOF
