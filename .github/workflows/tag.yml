@@ -201,6 +201,9 @@ jobs:
         if ${rebuild}; then
             echo "### Building ${{ matrix.tool }}"
             make "${{ matrix.tool }}--push"
+
+        else
+            echo '{"containerimage.digest": "'${version_sha}'"}' >tools/${{ matrix.tool }}/build-metadata.json
         fi
 
         echo "### Signing ${{ matrix.tool }}"
