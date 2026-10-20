@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: gokr-rsync
+description: Rsync program implemented in the Go programming language, wire-compatible with the original rsync
+license:
+  name: BSD 3-Clause License
+  link: https://github.com/gokrazy/rsync/blob/main/LICENSE
+homepage: https://github.com/gokrazy/rsync
+repository: https://github.com/gokrazy/rsync
+version: "0.3.8"
+tags:
+- category/operations
+- lang/go
+- type/cli
+check: ${binary} --version | grep -oP '\d+\.\d+\.\d+'
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: gokrazy/rsync
+  extractVersion: ^v(?<version>.+)$
