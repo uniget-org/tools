@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: kern
+description: Rootless container runtime with no daemon. Runs agent tool calls and LLM-generated code in kernel-enforced containers
+license:
+  name: Apache-2.0
+  link: https://github.com/getkern/kern/blob/main/LICENSE
+homepage: https://getkern.dev
+repository: https://github.com/getkern/kern
+version: "0.33.0"
+tags:
+- category/operations
+- lang/rust
+- type/cli
+- container/runtime
+- standard/oci
+- docker
+- ai
+- agent
+- sandbox
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: getkern/kern
+  extractVersion: ^v(?<version>.+)$
