@@ -12,7 +12,7 @@ tags:
 - category/security
 - wireguard
 - lang/go
-check: ${binary} version | grep -oP '\d+\.\d+\.\d+'
+check: ${binary} version
 platforms:
 - linux/amd64
 - linux/arm64
