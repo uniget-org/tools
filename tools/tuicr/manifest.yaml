@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: tuicr
+description: A code review TUI with vim keybindings. Export to GitHub, GitLab, Gitea, Bitbucket, Azure DevOps, Gerrit, or clipboard
+license:
+  name: MIT License
+  link: https://github.com/agavra/tuicr/blob/main/LICENSE
+homepage: https://tuicr.dev
+repository: https://github.com/agavra/tuicr
+version: "0.27.0"
+tags:
+- category/development
+- lang/rust
+- type/cli
+- tui
+- terminal
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: agavra/tuicr
+  extractVersion: ^v(?<version>.+)$
