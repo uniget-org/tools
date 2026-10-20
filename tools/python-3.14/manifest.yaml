@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+name: python-3.14
+description: Redistributable builds of Python 3.14
+license:
+  name: Python Software Foundation License Version 2
+  link: https://github.com/python/cpython/blob/main/LICENSE
+homepage: https://github.com/indygreg/python-build-standalone
+repository: https://github.com/indygreg/python-build-standalone
+version: "3.14.8.20261013"
+tags:
+- category/development
+- lang/python
+- type/cli
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: gitlab-releases
+  package: uniget-org/renovate-custom
+  extractVersion: ^python-3.14/(?<version>.+)$
+  versioning: loose
+binary: python
+conflicts_with:
+- python
+messages:
+  internals: |
+    This dynamically linked Python requires dynamically linked libraries for executions.
+    Run the following command to update the library cache:
+
+    ldconfig
