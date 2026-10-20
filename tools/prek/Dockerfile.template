@@ -7,12 +7,7 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN --mount=type=cache,target=/var/cache/apt \
-    --mount=type=cache,target=/var/cache/uniget/download <<EOF
-apt-get update
-apt-get -y install --no-install-recommends \
-    busybox-static
-
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 url="https://github.com/j178/prek/releases/download/v${version}/prek-${arch}-unknown-linux-gnu.tar.gz"
 filename="$( basename "${url}" )"
 
@@ -20,11 +15,7 @@ check-github-release-asset "j178/prek" "v${version}" "${filename}"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
     "${url}"
 
-tempdir="$( mktemp -d )"
 tar --file="${uniget_cache_download}/${filename}" --list
-# GNU tar fails to create files under arm64 emulation; use busybox-static instead
-busybox tar -x -z --file="${uniget_cache_download}/${filename}" -C "${tempdir}" --no-same-owner
-install --mode=0755 \
-    "${tempdir}/prek-${arch}-unknown-linux-gnu/prek" \
-    "${prefix}/bin/prek"
+tar --extract --gzip --file="${uniget_cache_download}/${filename}" --directory="${prefix}/bin/" --strip-components=1 --no-same-owner \
+    "prek-${arch}-unknown-linux-gnu/prek"
 EOF
