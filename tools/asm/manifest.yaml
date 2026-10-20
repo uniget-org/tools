@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: asm
+description: CLI and TUI to install, search, audit, and organize skills for AI coding agents
+license:
+  name: MIT License
+  link: https://github.com/luongnv89/asm/blob/main/LICENSE
+homepage: https://luongnv.com/asm
+repository: https://github.com/luongnv89/asm
+version: "2.23.0"
+tags:
+- category/development
+- lang/typescript
+- type/cli
+- type/tui
+- ai
+- agent
+- coding
+check: ${binary} --version
+build_dependencies:
+- node-lts
+- npm
+runtime_dependencies:
+- node-lts
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: npm
+  package: agent-skill-manager

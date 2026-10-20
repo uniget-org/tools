@@ -1,0 +1,21 @@
+#syntax=docker/dockerfile
+
+FROM ghcr.io/uniget-org/tools/node-lts:latest AS node
+FROM ghcr.io/uniget-org/tools/npm:latest AS npm
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+COPY --link --from=node / /usr/local/
+COPY --link --from=npm / /usr/local/
+WORKDIR /uniget_bootstrap/libexec/asm
+RUN <<EOF
+npm install \
+    --omit=dev \
+    "agent-skill-manager@${version}"
+ln --symbolic --relative --force "${prefix}/libexec/asm/node_modules/.bin/asm" "${prefix}/bin/"
+EOF
