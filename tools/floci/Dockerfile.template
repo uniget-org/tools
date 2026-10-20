@@ -8,22 +8,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-echo "### Setting architecture string for ${TARGETPLATFORM}"
-case "${arch}" in
-    x86_64)
-        export arch_suffix="amd64"
-        ;;
-    aarch64)
-        export arch_suffix="arm64"
-        ;;
-    *)
-        echo "ERROR: Unsupported architecture ${arch}."
-        exit 1
-        ;;
-esac
-echo "    Using ${arch_suffix}"
-
-url="https://github.com/floci-io/floci-cli/releases/download/${version}/floci-linux-${arch_suffix}"
+url="https://github.com/floci-io/floci-cli/releases/download/${version}/floci-linux-${alt_arch}"
 filename="$( basename "${url}" )"
 
 check-github-release-asset "floci-io/floci-cli" "${version}" "${filename}"
@@ -34,8 +19,6 @@ install --mode=0755 \
     "${uniget_cache_download}/${filename}" \
     "${prefix}/bin/floci"
 EOF
-
 RUN <<EOF
-"${prefix}/bin/floci" --version
 "${prefix}/bin/floci" completion bash >"${prefix}/share/bash-completion/completions/floci"
 EOF
