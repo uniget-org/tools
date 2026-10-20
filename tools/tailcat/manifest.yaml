@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: tailcat
+description: Like netcat, but over Tailscale's data plane, without Tailscale's control plane
+license:
+  name: BSD-3-Clause
+  link: https://github.com/tailscale/tailcat/blob/main/LICENSE
+homepage: https://tailscale.com/tailcat
+repository: https://github.com/tailscale/tailcat
+version: "0.7.0"
+tags:
+- category/operations
+- lang/go
+- type/cli
+check: ${binary} --version | grep -oP '\d+\.\d+\.\d+'
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: tailscale/tailcat
+  extractVersion: ^v(?<version>.+)$
