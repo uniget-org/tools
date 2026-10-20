@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: herdr
+description: The runtime your coding agents live on. Terminal multiplexer with background server, agent status tracking, and agent-native CLI/socket API
+license:
+  name: Apache-2.0
+  link: https://github.com/herdrdev/herdr/blob/master/LICENSE
+homepage: https://herdr.dev
+repository: https://github.com/herdrdev/herdr
+version: "0.9.5"
+tags:
+- category/terminal
+- category/development
+- lang/rust
+- type/cli
+- ai
+- agent
+- coding
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: herdrdev/herdr
+  extractVersion: ^v(?<version>.+)$
