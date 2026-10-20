@@ -19,13 +19,16 @@ tags:
 - agent
 check: ${binary} --version | cut -d' ' -f2
 build_dependencies:
-- python-3.12
+- python
 - shiv
 runtime_dependencies:
-- python-3.12
+- python
 platforms:
 - linux/amd64
 - linux/arm64
+messages:
+  usage: |
+    Version 3 requires Python 3.14.
 renovate:
   datasource: pypi
   package: mistral-vibe
