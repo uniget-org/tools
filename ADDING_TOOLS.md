@@ -32,12 +32,20 @@ We use [Conventional Commits](https://www.conventionalcommits.org/). Your commit
 **Example:**
 `feat(<toolname>): Added`
 
+Use the following commands:
+
+```bash
+git add tools/<toolname>
+git -c commit.gpgsign=false commit -m "feat(<toolname>): Added"
+```
+
+Make sure commit signing is disabled.
+
 ### Create a Pull Request
 
 Committed your changes and push the branch and create a Pull Request (PR) on GitHub:
 
 ```bash
-git add tools/<toolname>
 git push origin <toolname>
 gh pr create --title "feat(<toolname>): Added" --base main --head <toolname> --label ai-generated
 ```
