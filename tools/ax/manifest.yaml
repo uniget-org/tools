@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: ax
+description: Agent Executor (AX) CLI for Google's open agentic orchestration runtime
+license:
+  name: Apache License 2.0
+  link: https://github.com/google/ax/blob/main/LICENSE
+homepage: https://agentexecutor.io
+repository: https://github.com/google/ax
+version: "0.3.1"
+tags:
+- org/google
+- category/development
+- lang/go
+- type/cli
+check: ${binary} version
+build_dependencies:
+- go
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: google/ax
+  extractVersion: ^v(?<version>.+)$
