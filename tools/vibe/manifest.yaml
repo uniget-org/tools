@@ -19,10 +19,10 @@ tags:
 - agent
 check: ${binary} --version | cut -d' ' -f2
 build_dependencies:
-- python
+- python-3.14
 - shiv
 runtime_dependencies:
-- python
+- python-3.14
 platforms:
 - linux/amd64
 - linux/arm64
