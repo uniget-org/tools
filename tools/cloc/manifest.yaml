@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: cloc
+description: Counts blank lines, comment lines, and physical lines of source code in many programming languages
+license:
+  name: GNU General Public License v2.0
+  link: https://github.com/AlDanial/cloc/blob/master/LICENSE
+homepage: https://github.com/AlDanial/cloc
+repository: https://github.com/AlDanial/cloc
+version: "2.10"
+tags:
+- category/development
+- type/cli
+- lang/perl
+check: ${binary} --version
+runtime_dependencies:
+- perl
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: AlDanial/cloc
+  extractVersion: ^v(?<version>.+)$
