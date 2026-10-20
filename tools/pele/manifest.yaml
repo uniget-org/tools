@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: pele
+description: Small and fast Mermaid renderer that outputs themeable SVG
+license:
+  name: MIT License
+  link: https://github.com/obsidianmd/pele/blob/main/LICENSE
+homepage: https://pele.run
+repository: https://github.com/obsidianmd/pele
+version: "1.7.0"
+tags:
+- category/development
+- lang/javascript
+- type/library
+check: "" # No binary
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: obsidianmd/pele
+  extractVersion: ^(?<version>.+)$
+binary: "false"
