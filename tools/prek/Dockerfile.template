@@ -9,26 +9,11 @@ ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/apt \
     --mount=type=cache,target=/var/cache/uniget/download <<EOF
-echo "### Setting architecture string for ${TARGETPLATFORM}"
-case "${arch}" in
-    x86_64)
-        export arch_suffix="x86_64-unknown-linux-gnu"
-        ;;
-    aarch64)
-        export arch_suffix="aarch64-unknown-linux-gnu"
-        ;;
-    *)
-        echo "ERROR: Unsupported architecture ${arch}."
-        exit 1
-        ;;
-esac
-echo "    Using ${arch_suffix}"
-
 apt-get update
 apt-get -y install --no-install-recommends \
     busybox-static
 
-url="https://github.com/j178/prek/releases/download/v${version}/prek-${arch_suffix}.tar.gz"
+url="https://github.com/j178/prek/releases/download/v${version}/prek-${arch}-unknown-linux-gnu.tar.gz"
 filename="$( basename "${url}" )"
 
 check-github-release-asset "j178/prek" "v${version}" "${filename}"
@@ -40,10 +25,6 @@ tar --file="${uniget_cache_download}/${filename}" --list
 # GNU tar fails to create files under arm64 emulation; use busybox-static instead
 busybox tar -x -z --file="${uniget_cache_download}/${filename}" -C "${tempdir}" --no-same-owner
 install --mode=0755 \
-    "${tempdir}/prek-${arch_suffix}/prek" \
+    "${tempdir}/prek-${arch}-unknown-linux-gnu/prek" \
     "${prefix}/bin/prek"
-EOF
-
-RUN <<EOF
-"${prefix}/bin/prek" --version
 EOF
