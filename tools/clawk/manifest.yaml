@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: clawk
+description: Give coding agents a disposable Linux VM, not your laptop
+license:
+  name: Apache License 2.0
+  link: https://github.com/clawkwork/clawk/blob/main/LICENSE
+homepage: https://github.com/clawkwork/clawk
+repository: https://github.com/clawkwork/clawk
+version: "0.4.0"
+tags:
+- category/development
+- lang/go
+- type/cli
+- ai
+check: ${binary} --version | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: clawkwork/clawk
+  extractVersion: ^v(?<version>.+)$
