@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: whichllm
+description: Find the best local LLM that runs on your hardware, ranked by real benchmarks
+license:
+  name: MIT License
+  link: https://github.com/Andyyyy64/whichllm/blob/main/LICENSE
+homepage: https://github.com/Andyyyy64/whichllm
+repository: https://github.com/Andyyyy64/whichllm
+version: "0.5.21"
+tags:
+- category/development
+- lang/python
+- type/cli
+- ai
+- llm
+check: ${binary} --version
+build_dependencies:
+- python-3.12
+- shiv
+runtime_dependencies:
+- python-3.12
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: pypi
+  package: whichllm
