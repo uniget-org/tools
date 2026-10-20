@@ -137,6 +137,7 @@ jobs:
     permissions:
       contents: read
       packages: write
+      id-token: write
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     runs-on: ubuntu-24.04
