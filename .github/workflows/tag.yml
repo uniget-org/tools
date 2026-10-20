@@ -201,8 +201,10 @@ jobs:
         if ${rebuild}; then
             echo "### Building ${{ matrix.tool }}"
             make "${{ matrix.tool }}--push"
-            make "${{ matrix.tool }}--sign"
         fi
+
+        echo "### Signing ${{ matrix.tool }}"
+        make "${{ matrix.tool }}--sign"
 
         echo "### Promoting ${{ matrix.tool }}"
         make "${{ matrix.tool }}--promote"
