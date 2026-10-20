@@ -7,7 +7,7 @@ license:
   link: https://github.com/libbpf/bpftool/blob/main/LICENSE
 homepage: https://github.com/libbpf/bpftool
 repository: https://github.com/libbpf/bpftool
-version: "7.7.0"
+version: "7.8.1"
 tags:
 - category/development
 - lang/c
