@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: mnfst
+description: Manifest gateway management CLI to configure agents, providers, and routing from the terminal
+license:
+  name: MIT License
+  link: https://github.com/mnfst/manifest/blob/main/LICENSE
+homepage: https://manifest.build
+repository: https://github.com/mnfst/manifest
+version: "6.28.4"
+tags:
+- type/cli
+- category/development
+- lang/javascript
+- ai
+- llm
+- agent
+check: ${binary} --version | grep -oP '\d+\.\d+\.\d+'
+build_dependencies:
+- node-lts
+runtime_dependencies:
+- node-lts
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: npm
+  package: mnfst-gateway-cli
