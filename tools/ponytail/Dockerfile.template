@@ -1,0 +1,21 @@
+#syntax=docker/dockerfile
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+WORKDIR /uniget_bootstrap/share/ponytail
+ARG name
+ARG version
+RUN <<EOF
+url="https://github.com/DietrichGebert/ponytail/archive/refs/tags/v${version}.tar.gz"
+filename="$( basename "${url}" )"
+
+check-download "${url}"
+curl --silent --show-error --location --fail --output "/tmp/${filename}" \
+    "${url}"
+
+tar --file="/tmp/${filename}" --list
+tar --file="/tmp/${filename}" --extract --gzip --strip-components=1 --no-same-owner
+EOF

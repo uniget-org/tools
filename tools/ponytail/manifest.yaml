@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: ponytail
+description: Lazy senior dev mode for AI agents. The best code is the code you never wrote.
+license:
+  name: MIT License
+  link: https://github.com/DietrichGebert/ponytail/blob/main/LICENSE
+homepage: https://ponytail.dev
+repository: https://github.com/DietrichGebert/ponytail
+version: "5.3.2"
+tags:
+- category/development
+- type/configuration
+- type/documentation
+- ai
+- agent
+- coding
+check: "" # No binary, files only
+binary: "false"
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-tags
+  package: DietrichGebert/ponytail
+  extractVersion: ^v(?<version>.+)$
+messages:
+  update: |
+    The files are installed to {{ .Target }}/share/ponytail.
+    To use with an AI agent, copy AGENTS.md into your project or install
+    skills/ponytail/SKILL.md as a skill. See the README for per-agent
+    installation instructions (Claude Code, Codex, OpenCode, Cursor, ...).
