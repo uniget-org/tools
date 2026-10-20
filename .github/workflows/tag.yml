@@ -203,6 +203,7 @@ jobs:
             make "${{ matrix.tool }}--push"
 
         else
+            echo "### Fake build metadata for image signing"
             echo '{"containerimage.digest": "'${version_sha}'"}' >tools/${{ matrix.tool }}/build-metadata.json
         fi
 
