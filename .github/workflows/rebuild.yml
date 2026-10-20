@@ -6,6 +6,10 @@ on:
       tool:
         description: 'Space separated list of tools to rebuild'
         required: true
+      verify_signature:
+        description: 'Verify image signature'
+        required: true
+        default: 'true'
 
 jobs:
 
@@ -42,6 +46,8 @@ jobs:
       fail-fast: false
       matrix:
         tool: ${{ fromJSON(needs.prepare.outputs.tools) }}
+    env:
+      UNIGET_VERIFY_IMAGE_SIGNATURE: ${{ inputs.verify_signature }}
     steps:
 
     - name: Checkout code
