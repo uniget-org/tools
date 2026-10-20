@@ -7,6 +7,10 @@ on:
         description: 'Tools to sign'
         type: string
         default: ''
+      verify_signature:
+        description: 'Verify image signature'
+        required: true
+        default: 'true'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -19,6 +23,8 @@ jobs:
       contents: read
       packages: write
       id-token: write
+    env:
+      UNIGET_VERIFY_IMAGE_SIGNATURE: ${{ inputs.verify_signature }}
     steps:
 
     - name: Checkout code
