@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: zerostack
+description: Lightweight coding agent written in Rust, optimized for memory footprint and performance
+license:
+  name: GNU General Public License v3.0
+  link: https://github.com/gi-dellav/zerostack/blob/main/LICENSE
+homepage: https://gi-dellav.github.io/zerostack/
+repository: https://github.com/gi-dellav/zerostack
+version: "1.8.5"
+tags:
+- category/development
+- lang/rust
+- type/cli
+- type/tui
+- ai
+- llm
+- coding
+- agent
+- mcp
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: gi-dellav/zerostack
+  extractVersion: ^v(?<version>.+)$
