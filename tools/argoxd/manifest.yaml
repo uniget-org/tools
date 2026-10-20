@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: argoxd
+description: Interactive terminal UI for Argo CD
+license:
+  name: MIT License
+  link: https://github.com/awcodify/argoxd/blob/main/LICENSE
+homepage: https://argoxd.dev
+repository: https://github.com/awcodify/argoxd
+version: "0.4.0"
+tags:
+- type/tui
+- category/operations
+- kubernetes
+- k8s
+- gitops
+- lang/go
+check: ""
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: awcodify/argoxd
+  extractVersion: ^v(?<version>.+)$
