@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: fx-vercel
+description: Unix like coding agent for the terminal
+license:
+  name: Apache-2.0
+  link: https://github.com/vercel-labs/fx/blob/main/LICENSE
+homepage: https://fx.sh
+repository: https://github.com/vercel-labs/fx
+version: "0.0.14"
+tags:
+- org/vercel
+- category/development
+- lang/zig
+- type/cli
+- type/tui
+- ai
+- llm
+- coding
+- agent
+- mcp
+check: ${binary} --version | grep -oP '\d+\.\d+\.\d+'
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: vercel-labs/fx
+  extractVersion: ^v(?<version>.+)$
+binary: fx
+conflicts_with:
+- fx
