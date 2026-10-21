@@ -14,7 +14,7 @@ tags:
 - lang/go
 - markdown
 - pdf
-check: ${binary} --version
+check: ${binary} --version | cut -d, -f1 | cut -d' ' -f3
 platforms:
 - linux/amd64
 - linux/arm64
