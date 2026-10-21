@@ -23,7 +23,7 @@ tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="
 chmod +x "${prefix}/bin/bpftool"
 EOF
 WORKDIR /tmp/bpftool
-RUN --mount=type=cache,target=/var/cache/apt <<EOF
+RUN <<EOF
 apt-get update
 apt-get -y install --no-install-recommends \
     python3-docutils
