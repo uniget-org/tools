@@ -6,7 +6,7 @@ license:
   link: https://github.com/GoogleCloudPlatform/gsutil/blob/master/LICENSE
 homepage: https://github.com/GoogleCloudPlatform/gsutil
 repository: https://github.com/GoogleCloudPlatform/gsutil
-version: "5.37"
+version: "5.38"
 tags:
 - org/google
 - category/development
