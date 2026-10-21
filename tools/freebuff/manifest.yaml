@@ -16,7 +16,7 @@ tags:
 - llm
 - coding
 - agent
-check: ${binary} --version | tail -n1
+check: ${binary} --version
 build_dependencies:
 - node-lts
 runtime_dependencies:
