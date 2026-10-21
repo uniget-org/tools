@@ -7,28 +7,15 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN --mount=type=cache,target=/var/cache/uniget/download <<SCRIPT
-echo "### Setting architecture string for ${TARGETPLATFORM}"
-case "${arch}" in
-    x86_64)
-        export arch_suffix="amd64"
-        ;;
-    aarch64)
-        export arch_suffix="arm64"
-        ;;
-    *)
-        echo "ERROR: Unsupported architecture ${arch}."
-        exit 1
-        ;;
-esac
-echo "    Using ${arch_suffix}"
-
-url="https://github.com/solworktech/md2pdf/releases/download/v${version}/mdtopdf_${version}_${arch_suffix}.deb"
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://github.com/solworktech/md2pdf/releases/download/v${version}/mdtopdf_${version}_${alt_arch}.deb"
 filename="$( basename "${url}" )"
 
 check-github-release-asset "solworktech/md2pdf" "v${version}" "${filename}"
 curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
     "${url}"
 
-dpkg --extract "${uniget_cache_download}/${filename}" "${prefix}"
-SCRIPT
+dpkg --extract "${uniget_cache_download}/${filename}" "/tmp"
+mv /tmp/usr/bin/md2pdf "${prefix}/bin/"
+mv /tmp/usr/share/mdtopdf/ "${prefix}/share/"
+EOF
