@@ -7,7 +7,7 @@ license:
   link: https://github.com/luongnv89/asm/blob/main/LICENSE
 homepage: https://luongnv.com/asm
 repository: https://github.com/luongnv89/asm
-version: "2.23.0"
+version: "2.24.0"
 tags:
 - category/development
 - lang/typescript
