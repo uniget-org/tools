@@ -7,7 +7,7 @@ license:
   link: https://github.com/zerobrewhq/zerobrew/blob/main/LICENSE-MIT.md
 homepage: https://zerobrew.rs
 repository: https://github.com/zerobrewhq/zerobrew
-version: "0.4.1"
+version: "0.4.2"
 tags:
 - category/development
 - lang/rust
