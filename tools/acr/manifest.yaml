@@ -7,7 +7,7 @@ license:
   link: https://github.com/Azure/acr-cli/blob/main/LICENSE
 homepage: https://github.com/Azure/acr-cli
 repository: https://github.com/Azure/acr-cli
-version: "0.20"
+version: "0.21"
 tags:
 - org/microsoft
 - category/operations
