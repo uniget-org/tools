@@ -20,7 +20,7 @@ variables:
   variables:
     DOCKER_CERT_DIR: ""
   services:
-  - name: docker:29.9.2-dind@sha256:eb37f58646a901dc7727cf448cae36daaefaba79de33b5058dab79aa4c04aefb
+  - name: docker:29.9.2-dind@sha256:9e79b879b177fbd72c34376a3dd3d91747da5db49e1f560f76aea59561471977
   image: docker:29.9.2@sha256:9e79b879b177fbd72c34376a3dd3d91747da5db49e1f560f76aea59561471977
   before_script: |
     echo "${CI_REGISTRY_PASSWORD}" \
