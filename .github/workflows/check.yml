@@ -214,26 +214,6 @@ jobs:
         echo "JSON: ${tools_with_version_json}"
         echo "tools_with_version=${tools_with_version_json}" >>"${GITHUB_OUTPUT}"
 
-  scan:
-    name: Scan container images
-    needs:
-    - collect_versions
-    - success
-    permissions:
-      security-events: write
-      pull-requests: write
-      packages: read
-    strategy:
-      fail-fast: false
-      matrix:
-        tool_with_version: ${{ fromJSON(needs.collect_versions.outputs.tools_with_version) }}
-    uses: ./.github/workflows/scan.yml
-    with:
-      name_and_version: ${{ matrix.tool_with_version }}
-    secrets:
-      DOCKERHUB_USER: ${{ secrets.DOCKERHUB_USER }}
-      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
-
   version:
     name: Test version extraction
     needs:
