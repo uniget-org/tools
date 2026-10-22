@@ -8,22 +8,7 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-echo "### Setting architecture string for ${TARGETPLATFORM}"
-case "${arch}" in
-    x86_64)
-        export arch_suffix="x86_64-unknown-linux-musl"
-        ;;
-    aarch64)
-        export arch_suffix="aarch64-unknown-linux-musl"
-        ;;
-    *)
-        echo "ERROR: Unsupported architecture ${arch}."
-        exit 1
-        ;;
-esac
-echo "    Using ${arch_suffix}"
-
-url="https://github.com/agavra/tuicr/releases/download/v${version}/tuicr-${version}-${arch_suffix}.tar.gz"
+url="https://github.com/agavra/tuicr/releases/download/v${version}/tuicr-${version}-${arch}-unknown-linux-musl.tar.gz"
 filename="$(basename "${url}")"
 
 check-github-release-asset "agavra/tuicr" "v${version}" "${filename}"
