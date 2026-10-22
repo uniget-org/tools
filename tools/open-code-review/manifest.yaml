@@ -7,7 +7,7 @@ license:
   link: https://github.com/alibaba/open-code-review/blob/main/LICENSE
 homepage: https://open-codereview.ai
 repository: https://github.com/alibaba/open-code-review
-version: "1.13.2"
+version: "1.13.3"
 tags:
 - org/alibaba
 - category/development
