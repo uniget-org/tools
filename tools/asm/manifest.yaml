@@ -16,6 +16,8 @@ tags:
 - ai
 - agent
 - coding
+- skill
+- manager
 check: ${binary} --version
 build_dependencies:
 - node-lts
