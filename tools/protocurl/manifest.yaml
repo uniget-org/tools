@@ -13,10 +13,6 @@ tags:
 - lang/go
 - type/cli
 check: ""
-build_dependencies:
-- bar
-runtime_dependencies:
-- baz
 platforms:
 - linux/amd64
 - linux/arm64
