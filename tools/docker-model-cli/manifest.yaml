@@ -14,6 +14,7 @@ tags:
 - lang/go
 - type/cli
 - ai
+binary: ${target}/libexec/docker/cli-plugins/docker-model
 check: ${binary} version 2>&1 | tr -d ' ' | grep Version | head -n 1 | cut -d':' -f2
 build_dependencies:
 - go
@@ -25,4 +26,3 @@ renovate:
   datasource: github-releases
   package: docker/model-runner
   extractVersion: ^v(?<version>.+)$
-binary: docker-model
