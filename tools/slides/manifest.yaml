@@ -13,7 +13,7 @@ tags:
 - slides
 - presentation
 - lang/go
-- category/visualization
+- category/development
 - state/stale
 check: "" # No version parameter
 platforms:

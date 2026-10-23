@@ -13,6 +13,7 @@ tags:
 - lang/go
 - format/json
 - standard/jsonnet
+- category/development
 check: ${binary} --version | cut -d' ' -f6 | tr -d v
 platforms:
 - linux/amd64

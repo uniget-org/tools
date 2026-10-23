@@ -17,6 +17,7 @@ tags:
 - k8s
 - iac
 - cncf/graduated
+- category/operations
 check: ${binary} --version | tr -d v
 runtime_dependencies:
 - kubectl

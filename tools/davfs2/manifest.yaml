@@ -9,7 +9,7 @@ homepage: https://github.com/alisarctl/davfs2
 repository: https://github.com/alisarctl/davfs2
 version: "1.7.3"
 tags:
-- category/console
+- category/helper
 - lang/c
 - type/cli
 - fuse

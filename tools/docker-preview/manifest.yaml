@@ -19,6 +19,7 @@ tags:
 - stability/prerelease
 - lang/go
 - docker
+- category/operations
 check: ${binary} --version | cut -d, -f1 | cut -d' ' -f3
 runtime_dependencies:
 - fuse-overlayfs

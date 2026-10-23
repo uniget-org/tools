@@ -10,7 +10,7 @@ repository: https://github.com/microsoft/markitdown
 version: "0.1.9"
 tags:
 - org/microsoft
-- category/documentation
+- category/helper
 - lang/python
 - type/cli
 - format/markdown

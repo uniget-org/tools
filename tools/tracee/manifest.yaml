@@ -12,7 +12,6 @@ tags:
 - org/aquasecurity
 - category/security
 - lang/go
-- lang/c
 - type/cli
 - ebpf
 check: ${binary} version | cut -d' ' -f3 | tr -d v

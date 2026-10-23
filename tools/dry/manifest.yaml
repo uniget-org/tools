@@ -16,6 +16,7 @@ tags:
 - lang/go
 - docker
 - state/stale
+- category/operations
 check: ${binary} --version | cut -d, -f1 | cut -d' ' -f3
 runtime_dependencies:
 - docker

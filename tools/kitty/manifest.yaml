@@ -10,8 +10,6 @@ repository: https://github.com/kovidgoyal/kitty
 version: "0.49.2"
 tags:
 - category/operations
-- lang/python
-- lang/c
 - lang/go
 - type/cli
 check: ${binary} --version | cut -d' ' -f2

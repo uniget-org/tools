@@ -12,6 +12,7 @@ tags:
 - component/network
 - ebpf
 - lang/c
+- category/operations
 check: ${binary} --version | cut -d' ' -f2 | tr -d v
 platforms:
 - linux/amd64

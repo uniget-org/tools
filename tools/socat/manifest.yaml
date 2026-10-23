@@ -11,6 +11,7 @@ tags:
 - type/cli
 - component/network
 - lang/c
+- category/helper
 check: ${binary} -V | grep "^socat version" | cut -d' ' -f3
 build_dependencies:
 - make

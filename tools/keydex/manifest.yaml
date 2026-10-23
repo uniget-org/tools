@@ -9,7 +9,7 @@ homepage: https://github.com/shikaan/keydex
 repository: https://github.com/shikaan/keydex
 version: "0.13.0"
 tags:
-- category/console
+- category/terminal
 - lang/go
 - type/cli
 - standard/keypass

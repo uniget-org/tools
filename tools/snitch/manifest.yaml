@@ -9,7 +9,7 @@ homepage: https://github.com/karol-broda/snitch
 repository: https://github.com/karol-broda/snitch
 version: "0.2.2"
 tags:
-- category/console
+- category/helper
 - lang/go
 - type/cli
 check: ${binary} version | grep ^snitch | cut -d' ' -f2

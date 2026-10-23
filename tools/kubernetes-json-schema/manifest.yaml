@@ -14,6 +14,7 @@ tags:
 - type/library
 - format/json
 - category/operations
+- lang/none
 check: "" # No binary
 platforms:
 - linux/amd64

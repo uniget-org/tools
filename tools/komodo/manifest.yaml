@@ -9,7 +9,7 @@ homepage: https://komo.do
 repository: https://github.com/moghtech/komodo
 version: "2.3.4"
 tags:
-- category/devops
+- category/operations
 - type/cli
 - lang/rust
 - deployment

@@ -13,6 +13,7 @@ tags:
 - lang/rust
 - format/json
 - format/yaml
+- category/helper
 check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64

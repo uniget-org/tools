@@ -9,7 +9,7 @@ homepage: https://bun.com
 repository: https://github.com/oven-sh/bun
 version: "1.4.4"
 tags:
-- category/javascript
+- category/development
 - lang/javascript
 - type/cli
 - runtime

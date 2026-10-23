@@ -16,6 +16,7 @@ tags:
 - llm
 - coding
 - agent
+- lang/unknown
 check: ${binary} | grep -oP '\d+\.\d+\.\d+'
 platforms:
 - linux/amd64

@@ -15,6 +15,7 @@ tags:
 - standard/cni
 - lang/go
 - cilium
+- category/operations
 check: timeout 3 ${binary} version 2>/dev/null | grep ^cilium-cli | cut -d' ' -f2 | tr -d v
 platforms:
 - linux/amd64

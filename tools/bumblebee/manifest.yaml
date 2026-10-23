@@ -12,6 +12,7 @@ tags:
 - ebpf
 - lang/c
 - state/stale
+- category/operations
 check: ${binary} version
 platforms:
 - linux/amd64

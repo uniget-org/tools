@@ -13,6 +13,7 @@ tags:
 - lang/rust
 - type/daemon
 - standard/s3
+- category/operations
 check: ${binary} --version | grep ^rustfs | cut -d' ' -f2
 build_dependencies:
 - rust

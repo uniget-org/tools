@@ -11,6 +11,7 @@ tags:
 - terminal
 - lang/go
 - state/stale
+- category/terminal
 check: ${binary} --version
 platforms:
 - linux/amd64

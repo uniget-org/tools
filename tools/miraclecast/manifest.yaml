@@ -14,7 +14,7 @@ homepage: https://github.com/albfan/miraclecast
 repository: https://github.com/albfan/miraclecast
 version: "0.0.0-master.0"
 tags:
-- category/desktop
+- category/helper
 - lang/c
 - type/cli
 check: "" # No versioning

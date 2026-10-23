@@ -10,7 +10,7 @@ repository: https://github.com/OpenSLO/oslo
 version: "0.13.0"
 tags:
 - org/openslo
-- category/observability
+- category/monitoring
 - lang/go
 - type/cli
 check: ${binary} --version | cut -d' ' -f3

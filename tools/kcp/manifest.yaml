@@ -15,6 +15,7 @@ tags:
 - k8s
 - lang/go
 - cncf/sandbox
+- category/operations
 check: ${binary} --version | cut -d' ' -f3 | cut -dv -f3
 platforms:
 - linux/amd64

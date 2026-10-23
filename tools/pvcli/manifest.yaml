@@ -10,7 +10,7 @@ repository: https://github.com/cloudflareresearch/pvcli
 version: "fd64f2f26c85130eef1cf8d69becd9b34c5409ac"
 tags:
 - type/cli
-- category/network
+- category/helper
 - lang/rust
 check: ${binary} --version | cut -d' ' -f2
 platforms:

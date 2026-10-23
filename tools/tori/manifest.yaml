@@ -9,7 +9,7 @@ homepage: https://toricli.sh
 repository: https://github.com/thobiasn/tori-cli
 version: "0.3.4"
 tags:
-- category/observability
+- category/monitoring
 - type/cli
 - type/tui
 - lang/go

@@ -9,6 +9,7 @@ repository: https://github.com/projectdiscovery/nuclei-templates
 version: "10.5.0"
 tags:
 - category/security
+- lang/none
 binary: "false"
 check: "" # No binary and no version file
 platforms:

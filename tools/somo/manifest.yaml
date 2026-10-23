@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: somo
-description: Some description
+description: Human-friendly alternative to netstat for socket
 license:
   name: MIT License
   link: https://github.com/theopfr/somo/blob/master/LICENSE
@@ -9,9 +9,10 @@ homepage: https://github.com/theopfr/somo
 repository: https://github.com/theopfr/somo
 version: "1.4.0"
 tags:
-- category/console
+- category/terminal
 - lang/rust
 - type/cli
+- component/network
 check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64

@@ -13,6 +13,7 @@ tags:
 - vm
 - emulation
 - lang/rust
+- category/operations
 check: ${binary} --version | grep "^Firecracker" | cut -d' ' -f2 | tr -d v
 platforms:
 - linux/amd64

@@ -9,7 +9,7 @@ repository: https://github.com/iamgio/quarkdown
 version: "2.6.4"
 tags:
 - type/cli
-- category/documentation
+- category/helper
 - lang/kotlin
 - markdown
 - typesetting

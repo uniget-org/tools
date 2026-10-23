@@ -13,6 +13,7 @@ tags:
 - type/cli
 - type/configuration
 - type/documentation
+- category/operations
 check: ${binary} version --unshare=false 2>&1 | grep ^Version | cut -d' ' -f2
 build_dependencies:
 - go

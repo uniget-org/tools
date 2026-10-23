@@ -11,6 +11,7 @@ tags:
 - type/daemon
 - cicd
 - lang/go
+- category/development
 check: ${binary} --version
 platforms:
 - linux/amd64

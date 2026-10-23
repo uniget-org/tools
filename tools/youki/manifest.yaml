@@ -14,6 +14,7 @@ tags:
 - standard/docker
 - docker
 - cncf/sandbox
+- category/operations
 check: ${binary} --version | grep ^youki | cut -d' ' -f3
 build_dependencies:
 - rust

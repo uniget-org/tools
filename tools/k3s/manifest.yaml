@@ -16,6 +16,7 @@ tags:
 - lang/go
 - k3s
 - cncf/sandbox
+- category/operations
 check: ${binary} --version | head -n 1 | cut -d' ' -f3 | tr -d v
 platforms:
 - linux/amd64

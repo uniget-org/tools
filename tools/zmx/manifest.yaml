@@ -9,7 +9,7 @@ repository: https://github.com/neurosnap/zmx
 version: "0.8.1"
 tags:
 - type/cli
-- category/shell
+- category/terminal
 - lang/zig
 - terminal
 - multiplexer

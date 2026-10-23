@@ -12,6 +12,7 @@ tags:
 - terminal
 - lang/shell
 - state/stale
+- category/development
 check: "" # No version parameter
 platforms:
 - linux/amd64

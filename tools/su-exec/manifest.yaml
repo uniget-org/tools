@@ -11,6 +11,7 @@ tags:
 - container/su
 - type/cli
 - lang/c
+- category/operations
 check: "" # No version parameter
 build_dependencies:
 - make

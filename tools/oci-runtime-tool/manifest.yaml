@@ -13,6 +13,7 @@ tags:
 - container/runtime
 - type/cli
 - lang/go
+- category/operations
 check: ${binary} --version | cut -d, -f1 | cut -d' ' -f3
 build_dependencies:
 - go

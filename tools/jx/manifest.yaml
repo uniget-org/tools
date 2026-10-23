@@ -12,9 +12,9 @@ tags:
 - cicd
 - lang/go
 - org/jenkins
-- cicd
 - kubernetes
 - k8s
+- category/operations
 check: ${binary} version --short
 platforms:
 - linux/amd64

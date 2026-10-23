@@ -9,7 +9,7 @@ homepage: https://hatchet.run
 repository: https://github.com/hatchet-dev/hatchet
 version: "0.110.8"
 tags:
-- category/devops
+- category/operations
 - type/cli
 - lang/go
 - workflow

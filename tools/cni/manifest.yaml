@@ -14,6 +14,7 @@ tags:
 - type/plugin
 - lang/go
 - standard/cni
+- category/operations
 check: ${binary} 2>&1 | head -n 1 | cut -d' ' -f4 | tr -d v
 platforms:
 - linux/amd64

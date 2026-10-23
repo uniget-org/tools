@@ -15,6 +15,7 @@ tags:
 - k8s
 - lang/go
 - cncf/incubating
+- category/operations
 check: "" # No version parameter
 build_dependencies:
 - go

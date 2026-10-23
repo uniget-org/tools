@@ -11,6 +11,7 @@ tags:
 - format/markdown
 - format/man
 - lang/go
+- category/helper
 check: "" # No version parameter
 build_dependencies:
 - go

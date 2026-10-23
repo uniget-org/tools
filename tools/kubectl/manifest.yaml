@@ -16,6 +16,7 @@ tags:
 - k8s
 - lang/go
 - cncf/graduated
+- category/operations
 check: ${binary} version | grep ^Client | cut -d' ' -f3 | tr -d v
 build_dependencies:
 - cosign

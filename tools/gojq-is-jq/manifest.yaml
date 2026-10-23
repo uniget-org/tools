@@ -9,6 +9,8 @@ tags:
 - type/cli
 - standard/jq
 - format/json
+- lang/none
+- category/helper
 check: "" # No binary to check
 runtime_dependencies:
 - gojq

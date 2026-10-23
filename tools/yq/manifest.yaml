@@ -15,6 +15,7 @@ tags:
 - format/yaml
 - format/xml
 - format/csv
+- category/helper
 check: ${binary} --version | cut -d' ' -f4 | tr -d v
 platforms:
 - linux/amd64

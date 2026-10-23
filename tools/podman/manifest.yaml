@@ -16,6 +16,7 @@ tags:
 - rootless
 - lang/go
 - cncf/sandbox
+- category/operations
 check: ${binary} --version | cut -d' ' -f3
 build_dependencies:
 - go

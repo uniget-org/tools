@@ -13,6 +13,7 @@ tags:
 - category/operations
 - standard/docker
 - type/configuration
+- lang/shell
 check: "" # No binary to check
 runtime_dependencies:
 - docker

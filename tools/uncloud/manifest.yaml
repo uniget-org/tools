@@ -14,6 +14,7 @@ tags:
 - type/cli
 - kubernetes
 - docker
+- k8s
 binary: uc
 check: ${binary} version | grep '^Version:' | tr -s ' ' | cut -d' ' -f2
 platforms:

@@ -17,6 +17,7 @@ tags:
 - state/stale
 - state/onemanshow
 - k8s
+- category/operations
 check: ${binary} --version | cut -d' ' -f2 | tr -d ','
 runtime_dependencies:
 - kubectl

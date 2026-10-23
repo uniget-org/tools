@@ -11,6 +11,7 @@ version: "1.4.4"
 tags:
 - lang/go
 - type/cli
+- category/terminal
 check: "" # No version parameter
 build_dependencies:
 - go

@@ -16,6 +16,7 @@ tags:
 - lang/go
 - state/stale
 - state/deprecated
+- category/operations
 check: ${binary} version --output short | tr -d v
 runtime_dependencies:
 - containerd

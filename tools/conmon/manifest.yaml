@@ -13,6 +13,7 @@ tags:
 - container/runtime
 - type/cli
 - lang/c
+- category/operations
 check: ${binary} --version | grep "conmon version" | cut -d' ' -f3
 build_dependencies:
 - go-md2man

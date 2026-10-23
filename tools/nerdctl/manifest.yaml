@@ -17,6 +17,7 @@ tags:
 - standard/oci
 - standard/docker
 - docker
+- category/operations
 check: XDG_RUNTIME_DIR=foo ${binary} --version | cut -d' ' -f3
 runtime_dependencies:
 - containerd

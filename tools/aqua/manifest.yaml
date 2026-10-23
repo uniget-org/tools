@@ -13,6 +13,7 @@ tags:
 - type/cli
 - lang/go
 - org/aquasecurity
+- category/operations
 check: ${binary} --version | cut -d' ' -f3
 platforms:
 - linux/amd64

@@ -13,6 +13,7 @@ tags:
 - component/storage
 - type/daemon
 - lang/go
+- category/operations
 check: ${binary} --help 2>&1 | grep Version | cut -d' ' -f4 | cut -d= -f2 | tr -d '\\"v'
 runtime_dependencies:
 - fuse-overlayfs

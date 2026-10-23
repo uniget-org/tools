@@ -13,6 +13,8 @@ tags:
 - management
 - lang/go
 - monitoring
+- k8s
+- category/operations
 check: ${binary} version | cut -d, -f1 | cut -d' ' -f3
 platforms:
 - linux/amd64

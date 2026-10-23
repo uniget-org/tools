@@ -12,6 +12,7 @@ tags:
 - vm
 - infrastructure
 - lang/go
+- category/operations
 check: ${binary} version | cut -d' ' -f2
 platforms:
 - linux/amd64

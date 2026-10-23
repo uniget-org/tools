@@ -12,6 +12,7 @@ tags:
 - type/cli
 - troubleshooting
 - lang/python
+- category/security
 check: "" # No binary to check
 runtime_dependencies:
 - mitmproxy

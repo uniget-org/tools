@@ -12,7 +12,6 @@ tags:
 - type/cli
 - type/daemon
 - lang/go
-- lang/javascript
 - observability/metrics
 check: ${binary} --version | cut -d' ' -f3
 platforms:

@@ -13,6 +13,7 @@ tags:
 - lang/c
 - type/cli
 - state/stale
+- category/security
 check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64

@@ -15,6 +15,7 @@ tags:
 - kubernetes
 - k8s
 - ebpf
+- category/operations
 check: "" # No version parameter
 build_dependencies:
 - go

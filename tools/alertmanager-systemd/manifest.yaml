@@ -12,6 +12,7 @@ tags:
 - org/uniget
 - category/operations
 - type/daemon
+- lang/shell
 check: "" # No binary
 runtime_dependencies:
 - alertmanager

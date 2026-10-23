@@ -12,6 +12,7 @@ tags:
 - management
 - lang/go
 - state/stale
+- category/operations
 check: ${binary} -version | cut -d' ' -f2 | tr -d v
 build_dependencies:
 - go

@@ -14,6 +14,7 @@ tags:
 - management
 - lang/rust
 - docker
+- category/operations
 check: ${binary} --version | cut -d' ' -f2
 build_dependencies:
 - rust

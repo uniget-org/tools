@@ -8,6 +8,7 @@ version: "0.0.2"
 tags:
 - org/uniget
 - category/development
+- lang/shell
 check: "" # No version check possible
 platforms:
 - linux/amd64

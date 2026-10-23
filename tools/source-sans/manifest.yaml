@@ -10,6 +10,7 @@ version: "3.052"
 tags:
 - font
 - state/stale
+- lang/none
 check: "" # No binary
 platforms:
 - linux/amd64

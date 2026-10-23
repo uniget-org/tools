@@ -12,6 +12,7 @@ tags:
 - slides
 - presentation
 - font
+- lang/none
 check: "" # No binary
 platforms:
 - linux/amd64

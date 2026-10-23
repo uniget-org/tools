@@ -16,6 +16,7 @@ tags:
 - gpg
 - gnupg
 - pgp
+- category/security
 check: "" # Hangs for a long time
 platforms:
 - linux/amd64

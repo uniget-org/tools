@@ -18,6 +18,7 @@ tags:
 - standard/docker
 - docker
 - format/spdx
+- category/development
 check: ${binary} --version | cut -d' ' -f3 | tr -d v
 platforms:
 - linux/amd64

@@ -9,9 +9,9 @@ repository: https://github.com/direnv/direnv/
 version: "2.38.2"
 tags:
 - type/cli
-- terminal
 - lang/go
 - terminal
+- category/terminal
 check: ${binary} version
 platforms:
 - linux/amd64

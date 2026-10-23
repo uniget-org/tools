@@ -10,7 +10,6 @@ version: "1.7.1"
 tags:
 - org/cilium
 - category/security
-- lang/c
 - lang/go
 - type/cli
 - ebpf

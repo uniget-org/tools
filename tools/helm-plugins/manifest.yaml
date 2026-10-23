@@ -12,6 +12,8 @@ tags:
 - management
 - helm
 - k8s
+- category/operations
+- lang/unknown
 check: "" # No version
 build_dependencies:
 - helm

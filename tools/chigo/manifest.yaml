@@ -11,6 +11,7 @@ tags:
 - fun
 - lang/go
 - terminal
+- category/terminal
 check: ${binary} --help | grep Chigo | cut -d' ' -f2
 platforms:
 - linux/amd64

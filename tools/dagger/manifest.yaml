@@ -11,9 +11,9 @@ tags:
 - type/cli
 - management
 - cicd
-- lang/go
 - lang/cue
 - standard/oci
+- category/development
 check: ${binary} version | cut -d' ' -f2
 platforms:
 - linux/amd64

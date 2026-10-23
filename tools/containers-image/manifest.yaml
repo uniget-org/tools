@@ -12,6 +12,7 @@ tags:
 - org/redhat
 - type/configuration
 - type/documentation
+- category/operations
 check: "" # No binary
 build_dependencies:
 - go-md2man

@@ -13,7 +13,7 @@ tags:
 - lang/go
 - format/json
 - state/stale
-- standard/jmespath
+- category/helper
 check: ${binary} --version | cut -d' ' -f3
 platforms:
 - linux/amd64

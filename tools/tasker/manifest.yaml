@@ -13,6 +13,7 @@ tags:
 - cicd
 - lang/c
 - state/stale
+- category/helper
 check: ${binary} --version
 build_dependencies:
 - make

@@ -12,6 +12,7 @@ tags:
 - lang/c
 - standard/jq
 - format/json
+- category/helper
 check: ${binary} --version | cut -d- -f2
 platforms:
 - linux/amd64

@@ -9,7 +9,7 @@ repository: https://github.com/neilotoole/sq
 version: "0.55.0"
 tags:
 - type/cli
-- category/database
+- category/operations
 - lang/go
 - standard/sql
 - standard/jq

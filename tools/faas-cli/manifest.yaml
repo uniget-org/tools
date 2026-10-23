@@ -8,7 +8,7 @@ homepage: https://www.openfaas.com/
 repository: https://github.com/openfaas/faas-cli
 version: "0.18.18"
 tags:
-- category/serverless
+- category/development
 - type/cli
 - lang/go
 check: ${binary} version | grep "version:" | cut -d' ' -f3

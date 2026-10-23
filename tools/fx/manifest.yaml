@@ -11,6 +11,7 @@ tags:
 - type/cli
 - format/json
 - lang/go
+- category/helper
 check: ${binary} | grep "fx" | head -n 1 | tr -s ' ' | cut -d' ' -f3
 platforms:
 - linux/amd64

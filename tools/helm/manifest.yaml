@@ -15,8 +15,8 @@ tags:
 - package
 - management
 - lang/go
-- helm
 - cncf/graduated
+- category/operations
 check: ${binary} version --short 2>/dev/null | cut -d+ -f1 | tr -d v
 platforms:
 - linux/amd64

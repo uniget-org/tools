@@ -11,6 +11,8 @@ tags:
 - type/cli
 - kubernetes
 - lang/go
+- k8s
+- category/operations
 check: ${binary} --version | grep ^Conftest | cut -d' ' -f2
 platforms:
 - linux/amd64

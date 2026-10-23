@@ -12,6 +12,7 @@ tags:
 - container/runtime
 - type/cli
 - lang/c
+- category/operations
 check: ${binary} --version | grep "crun version" | cut -d' ' -f3
 platforms:
 - linux/amd64

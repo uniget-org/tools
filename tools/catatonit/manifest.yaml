@@ -10,6 +10,7 @@ tags:
 - type/cli
 - container/init
 - lang/c
+- category/operations
 check: ${binary} --version | cut -d' ' -f3 | cut -d_ -f1
 platforms:
 - linux/amd64

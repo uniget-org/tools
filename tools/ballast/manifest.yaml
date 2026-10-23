@@ -10,7 +10,7 @@ repository: https://github.com/Tight-Line/ballast
 version: "0.7.0"
 tags:
 - org/tight-line
-- category/kubernetes
+- category/operations
 - lang/go
 - type/daemon
 check: ""

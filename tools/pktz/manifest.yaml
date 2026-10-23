@@ -10,7 +10,6 @@ repository: https://github.com/immanuwell/pktz
 version: "0.3.0"
 tags:
 - category/monitoring
-- category/network
 - lang/go
 - type/tui
 - ai

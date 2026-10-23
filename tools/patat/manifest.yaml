@@ -13,6 +13,7 @@ tags:
 - slides
 - presentation
 - lang/haskell
+- category/development
 check: ${binary} --version | head -n 1
 platforms:
 - linux/amd64

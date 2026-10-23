@@ -9,7 +9,7 @@ homepage: https://git-pages.org
 repository: https://codeberg.org/git-pages/git-pages
 version: "0.9.1"
 tags:
-- category/web
+- category/operations
 - type/server
 - lang/go
 - static-site

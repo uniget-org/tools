@@ -14,6 +14,7 @@ tags:
 - kubernetes
 - k8s
 - state/stale
+- category/operations
 check: "" # No version parameter
 platforms:
 - linux/amd64

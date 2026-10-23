@@ -9,12 +9,13 @@ homepage: https://www.k8gb.io/latest/
 repository: https://github.com/k8gb-io/k8gb
 version: "1.0.1"
 tags:
-- category/kubernetes
+- category/operations
 - type/cli
 - lang/go
 - kubernetes
 - dns-lb
 - gslb
+- k8s
 check: "" # No version parameter
 platforms:
 - linux/amd64

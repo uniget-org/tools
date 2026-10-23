@@ -15,6 +15,7 @@ tags:
 - kubernetes
 - k8s
 - lang/go
+- category/operations
 check: ${binary} --version | cut -d' ' -f3 | tr -d v
 platforms:
 - linux/amd64

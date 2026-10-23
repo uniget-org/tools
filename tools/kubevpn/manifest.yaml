@@ -9,7 +9,7 @@ repository: https://github.com/kubenetworks/kubevpn
 version: "2.11.10"
 tags:
 - type/cli
-- category/network
+- category/development
 - lang/go
 - kubernetes
 - k8s

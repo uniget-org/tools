@@ -13,6 +13,7 @@ tags:
 - lang/go
 - fuzzy
 - search
+- category/helper
 check: ${binary} --version | cut -d' ' -f1
 platforms:
 - linux/amd64

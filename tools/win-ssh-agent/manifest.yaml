@@ -12,6 +12,7 @@ tags:
 - wsl
 - lang/go
 - ssh
+- category/security
 check: "" # TODO
 runtime_dependencies:
 - socat

@@ -13,6 +13,8 @@ tags:
 - presentation
 - font
 - state/stale
+- lang/none
+- category/helper
 check: "" # No binary
 platforms:
 - linux/amd64

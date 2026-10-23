@@ -13,7 +13,6 @@ tags:
 - sbom
 - cicd
 - lang/c
-- lang/csharp
 - org/cyclonedx
 - format/cyclonedx
 check: ${binary} --version

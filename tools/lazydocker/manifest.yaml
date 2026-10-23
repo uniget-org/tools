@@ -13,6 +13,7 @@ tags:
 - management
 - troubleshooting
 - lang/go
+- category/operations
 check: ${binary} --version | grep Version | cut -d' ' -f2
 runtime_dependencies:
 - docker

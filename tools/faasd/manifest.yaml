@@ -8,7 +8,7 @@ homepage: https://store.openfaas.com/l/serverless-for-everyone-else
 repository: https://github.com/openfaas/faasd
 version: "0.19.7"
 tags:
-- category/serverless
+- category/development
 - type/daemon
 - lang/go
 check: ${binary} version | grep faasd | tr '\t' ' ' | cut -d' ' -f3

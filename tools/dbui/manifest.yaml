@@ -13,6 +13,7 @@ tags:
 - lang/go
 - state/stale
 - standard/sql
+- category/operations
 check: ${binary} -f foo | head -1 | cut -d' ' -f3 | tr -d v
 platforms:
 - linux/amd64

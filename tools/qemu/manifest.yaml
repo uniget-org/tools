@@ -13,6 +13,7 @@ tags:
 - vm
 - emulation
 - lang/c
+- category/operations
 check: ${binary} --version | grep qemu-img | cut -d' ' -f3
 build_dependencies:
 - make

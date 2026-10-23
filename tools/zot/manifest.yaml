@@ -14,6 +14,7 @@ tags:
 - type/daemon
 - lang/go
 - cncf/sandbox
+- category/operations
 check: ${binary} --version 2>&1 | jq --raw-output '.commit' | cut -d- -f1 | tr -d v
 platforms:
 - linux/amd64

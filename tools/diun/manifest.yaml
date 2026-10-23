@@ -13,7 +13,7 @@ tags:
 - container/registry
 - management
 - lang/go
-- container/registry
+- category/operations
 check: ${binary} --version
 platforms:
 - linux/amd64

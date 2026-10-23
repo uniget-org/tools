@@ -9,7 +9,7 @@ homepage: https://github.com/paradigmxyz/iron-proxy
 repository: https://github.com/paradigmxyz/iron-proxy
 version: "0.54.0"
 tags:
-- category/network
+- category/security
 - type/cli
 - lang/go
 check: ${binary} --version

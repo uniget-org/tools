@@ -13,6 +13,7 @@ tags:
 - type/cli
 - state/onemanshow
 - state/stale
+- category/terminal
 check: ${binary} --version | tr -d '"'
 build_dependencies:
 - make

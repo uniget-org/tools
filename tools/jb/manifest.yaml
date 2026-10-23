@@ -14,6 +14,7 @@ tags:
 - management
 - format/json
 - standard/jsonnet
+- category/development
 check: ${binary} --version 2>&1 | tr -d v
 platforms:
 - linux/amd64

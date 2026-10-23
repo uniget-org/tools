@@ -9,7 +9,7 @@ homepage: https://github.com/instavm/tarit
 repository: https://github.com/instavm/tarit
 version: "0.1.2"
 tags:
-- category/devops
+- category/security
 - type/cli
 - lang/rust
 - kvm

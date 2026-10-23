@@ -10,7 +10,6 @@ repository: https://github.com/prometheus/prometheus/tree/main/cmd%2Fpromtool
 version: "3.15.1"
 tags:
 - org/prometheus
-- category/operations
 - lang/go
 - type/cli
 - o11y

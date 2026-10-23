@@ -15,6 +15,7 @@ tags:
 - format/xml
 - format/csv
 - lang/go
+- category/helper
 check: ${binary} --version | cut -d' ' -f3 | tr -d v
 platforms:
 - linux/amd64

@@ -17,6 +17,7 @@ tags:
 - container/runtime
 - lang/go
 - cncf/graduated
+- category/operations
 check: ${binary} --version | cut -d' ' -f3 | tr -d v
 build_dependencies:
 - go-md2man

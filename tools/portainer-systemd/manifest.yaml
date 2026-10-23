@@ -15,7 +15,8 @@ tags:
 - kubernetes
 - k8s
 - management
-- lang/go
+- lang/none
+- category/operations
 check: "" # No binary to check
 runtime_dependencies:
 - portainer

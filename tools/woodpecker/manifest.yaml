@@ -12,6 +12,7 @@ tags:
 - type/daemon
 - cicd
 - lang/go
+- category/operations
 check: ${binary} --version | cut -d' ' -f3
 platforms:
 - linux/amd64

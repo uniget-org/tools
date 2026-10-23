@@ -15,6 +15,7 @@ tags:
 - capi
 - kubernetes
 - k8s
+- category/operations
 check: ${binary} version --output short 2>/dev/null | tr -d v
 platforms:
 - linux/amd64

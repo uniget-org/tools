@@ -9,11 +9,12 @@ homepage: https://stakater.com
 repository: https://github.com/stakater/Forecastle
 version: "2.0.2"
 tags:
-- category/kubernetes
+- category/operations
 - type/cli
 - lang/go
 - kubernetes
 - control-panel
+- k8s
 check: ${binary} version
 platforms:
 - linux/amd64

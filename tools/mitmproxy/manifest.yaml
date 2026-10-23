@@ -12,6 +12,7 @@ tags:
 - type/cli
 - troubleshooting
 - lang/python
+- category/security
 check: ${binary} --version | grep ^Mitmproxy | cut -d' ' -f2
 platforms:
 - linux/amd64

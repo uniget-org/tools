@@ -9,7 +9,7 @@ homepage: https://github.com/daxartio/kdbx
 repository: https://github.com/daxartio/kdbx
 version: "0.13.0"
 tags:
-- category/console
+- category/terminal
 - lang/rust
 - type/cli
 - standard/keypass

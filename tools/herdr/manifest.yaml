@@ -10,7 +10,6 @@ repository: https://github.com/herdrdev/herdr
 version: "0.9.5"
 tags:
 - category/terminal
-- category/development
 - lang/rust
 - type/cli
 - ai

@@ -8,9 +8,9 @@ repository: https://github.com/sharkdp/bat
 version: "0.26.1"
 tags:
 - type/cli
-- terminal
 - lang/rust
 - terminal
+- category/terminal
 check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64

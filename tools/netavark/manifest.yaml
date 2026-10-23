@@ -10,7 +10,7 @@ repository: https://github.com/containers/netavark
 version: "2.1.0"
 tags:
 - org/redhat
-- category/network
+- category/operations
 - lang/rust
 - type/cli
 - component/network

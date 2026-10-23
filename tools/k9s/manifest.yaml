@@ -13,6 +13,7 @@ tags:
 - k8s
 - management
 - lang/go
+- category/operations
 check: ${binary} version --short | grep "^Version" | cut -dv -f2
 platforms:
 - linux/amd64

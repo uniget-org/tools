@@ -14,6 +14,7 @@ tags:
 - package
 - management
 - lang/go
+- category/operations
 check: ${binary} version | grep "Version" | cut -d' ' -f2
 platforms:
 - linux/amd64

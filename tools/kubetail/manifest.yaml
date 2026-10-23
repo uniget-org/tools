@@ -10,7 +10,7 @@ repository: https://github.com/kubetail-org/kubetail
 version: "0.18.1"
 tags:
 - type/cli
-- category/observability
+- category/monitoring
 - kubernetes
 - k8s
 - logs

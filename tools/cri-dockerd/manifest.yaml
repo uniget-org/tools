@@ -17,6 +17,7 @@ tags:
 - k8s
 - lang/go
 - docker
+- category/operations
 check: ${binary} --version 2>&1 | cut -d' ' -f2
 runtime_dependencies:
 - docker

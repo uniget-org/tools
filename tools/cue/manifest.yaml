@@ -10,7 +10,6 @@ version: "0.17.1"
 tags:
 - type/cli
 - category/development
-- lang/go
 - lang/cue
 check: ${binary} version | cut -d' ' -f3 | tr -d v
 platforms:

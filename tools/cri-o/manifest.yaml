@@ -17,6 +17,7 @@ tags:
 - kubernetes
 - k8s
 - cncf/graduated
+- category/operations
 check: ${binary} --version | grep ^crio | cut -d' ' -f3
 build_dependencies:
 - cosign

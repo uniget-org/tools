@@ -15,6 +15,7 @@ tags:
 - lang/go
 - state/onemanshow
 - state/stale
+- category/operations
 check: ${binary} version | grep GitVersion | tr -s ' ' | cut -d' ' -f2
 platforms:
 - linux/amd64

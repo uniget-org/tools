@@ -13,6 +13,7 @@ tags:
 - component/network
 - ebpf
 - lang/go
+- category/operations
 check: ${binary} --version | grep ^ptcpdump | cut -d' ' -f3
 platforms:
 - linux/amd64

@@ -13,6 +13,7 @@ tags:
 - management
 - lang/c
 - alpine
+- category/operations
 check: ${binary} --help | head -1 | cut -d' ' -f2 | tr -d v,
 platforms:
 - linux/amd64

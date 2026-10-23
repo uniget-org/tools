@@ -17,6 +17,7 @@ tags:
 - component/monitoring
 - observability/metrics
 - docker
+- category/operations
 check: ${binary} -v | cut -d, -f1 | cut -d' ' -f3
 platforms:
 - linux/amd64

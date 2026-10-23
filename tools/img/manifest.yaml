@@ -14,6 +14,7 @@ tags:
 - lang/go
 - state/stale
 - standard/docker
+- category/operations
 check: ${binary} --version | cut -d, -f1 | cut -d' ' -f3 | tr -d v
 platforms:
 - linux/amd64

@@ -15,6 +15,7 @@ tags:
 - format/yaml
 - kubernetes
 - k8s
+- category/operations
 check: ${binary} version
 platforms:
 - linux/amd64

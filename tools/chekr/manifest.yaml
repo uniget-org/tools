@@ -16,6 +16,7 @@ tags:
 - k8s
 - state/stale
 - state/deprecated
+- category/operations
 check: ${binary} version | grep ^Version | cut -d' ' -f2
 platforms:
 - linux/amd64

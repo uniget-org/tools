@@ -12,6 +12,7 @@ tags:
 - type/cli
 - lang/c
 - state/stale
+- category/operations
 check: ${binary} --version | cut -d' ' -f3
 platforms:
 - linux/amd64

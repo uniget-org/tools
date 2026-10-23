@@ -9,7 +9,7 @@ homepage: ""
 repository: https://github.com/solworktech/md2pdf
 version: "2.2.23"
 tags:
-- category/utility
+- category/helper
 - type/cli
 - lang/go
 - markdown

@@ -14,6 +14,7 @@ tags:
 - type/cli
 - lang/go
 - capi
+- category/operations
 check: ${binary} version --output short | tr -d v
 platforms:
 - linux/amd64

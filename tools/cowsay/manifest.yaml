@@ -13,6 +13,7 @@ tags:
 - lang/go
 - terminal
 - state/stale
+- category/terminal
 check: "" # No version parameter
 platforms:
 - linux/amd64

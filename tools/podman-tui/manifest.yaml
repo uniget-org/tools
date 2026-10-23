@@ -14,6 +14,7 @@ tags:
 - type/tui
 - rootless
 - lang/go
+- category/operations
 check: ${binary} version | cut -d' ' -f2 | tr -d v
 build_dependencies:
 - go

@@ -16,6 +16,7 @@ tags:
 - state/deprecated
 - standard/docker
 - docker
+- category/operations
 check: ${binary} version | cut -d' ' -f2
 platforms:
 - linux/amd64

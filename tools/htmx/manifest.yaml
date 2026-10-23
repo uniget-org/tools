@@ -10,6 +10,7 @@ version: "4.0.0"
 tags:
 - lang/javascript
 - type/library
+- category/development
 check: "" # No binary
 platforms:
 - linux/amd64
