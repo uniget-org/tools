@@ -19,13 +19,13 @@ tags:
 - lang/go
 - type/daemon
 - ai
-check: ${binary} version 2>&1 | grep ^Client -A 1 | tail -n 1 | tr -d ' ' | cut -d':' -f2 | tr -d v
+binary: model-runner
+check: dmr version 2>&1 | grep ^Client -A 1 | tail -n 1 | tr -d ' ' | cut -d':' -f2 | tr -d v
 build_dependencies:
 - go
 - make
 platforms:
 - linux/amd64
-binary: model-runner
 renovate:
   datasource: github-releases
   package: docker/model-runner
