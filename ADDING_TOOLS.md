@@ -93,13 +93,34 @@ platforms:
 ### Important manifest fields
 
 - `name`: Must match directory name.
-- `version`: Current packaged version.
-- `check`: Command that prints installed version, usually with `${binary}`.
-- `binary`: Override if binary name differs from tool name.
+- `version`: Current packaged version. **Always quote it.** An unquoted `version: 2.10` parses as a YAML float and loses the trailing zero; `version: "2.10"` survives (real case: `cloc`).
+- `check`: Command that prints the installed version. Renovate and CI compare this output against `version`, so it must evaluate to the bare version string without `v` prefix or tool name. If the binary prints extra text, trim it (see below).
+- `binary`: Override if binary name differs from tool name. Can be a plain name or a full path under `${target}` for components not shipped on `PATH`, e.g. `binary: ${target}/libexec/docker/cli-plugins/docker-model` (`docker-model-cli`).
 - `build_dependencies`: Tools needed while building.
-- `runtime_dependencies`: Tools required at runtime.
+- `runtime_dependencies`: Tools required at runtime. Node and npm CLIs typically need `node-lts` at runtime; single-script CLIs need their interpreter (e.g. `perl` for `cloc`).
 - `platforms`: Supported platforms, commonly `linux/amd64` and `linux/arm64`.
 - `conflicts_with`: Tools that provide the same command.
+
+### Writing the `check` command
+
+The `check` command must output the version and nothing else. Common trimming patterns:
+
+```yaml
+# "tool 1.2.3 (abc123)" -> cut second field
+check: ${binary} --version | cut -d' ' -f2
+# "tool version: v1.2.3 ..." -> grep digits, drop v
+check: ${binary} --version | grep -oP '\d+\.\d+\.\d+'
+# "v1.2.3" -> drop the v prefix
+check: ${binary} --version | cut -d' ' -f2 | tr -d v
+```
+
+Other cases seen in practice:
+
+- Noisy or non-version output can be filtered with multiple pipes, e.g. `check: ${binary} version 2>&1 | tr -d ' ' | grep Version | head -n 1 | cut -d':' -f2` (`docker-model-cli`).
+- TUI tools that cannot print a version non-interactively may use an empty `check: ""` (e.g. `argoxd`).
+- pipx-based tools with shebang issues can query the package version from the venv instead of running the CLI, e.g. `check: ${target}/libexec/pipx/venvs/cve-mcp-server/bin/python -c 'import importlib.metadata; print(importlib.metadata.version("cve-mcp-server"))'` (`cve-mcp`).
+
+Validate `check` against the actual binary output before submission. Incorrect version extraction is one of the most frequent follow-up fixes (`freebuff`, `docker-model-cli`).
 
 ### Choosing tags
 
@@ -113,16 +134,29 @@ Then, search through the resulting `metadata.json` for the tags you want to use.
 
 ### Renovate options
 
-Use the matching datasource for the upstream source:
+The `renovate:` block tells Renovate where to look for upstream versions. It goes into `manifest.yaml` (see the commented examples at the bottom of `@template/manifest.yaml`). The datasource is the **version source**, not necessarily where the code lives — npm and PyPI are authoritative for their packages even when the repository is on GitHub:
 
-- GitHub releases: `github-releases`
-- GitHub tags: `github-tags`
+- GitHub releases: `github-releases` - most common
+- GitHub tags: `github-tags` - GitHub without releases
 - npm: `npm`
 - PyPI: `pypi`
-- Custom git host tags: `git-tags`
-- Branch refs only: `git-refs`
+- Custom git host tags (Codeberg, Gitea, Forgejo): `git-tags` with full URL as `package`
+- Branch refs only (no releases/tags): `git-refs`
 - GitLab releases: `gitlab-releases`
 - GitLab tags: `gitlab-tags`
+
+A typical complete block:
+
+```yaml
+renovate:
+  datasource: github-releases
+  package: gokrazy/rsync
+  extractVersion: ^v(?<version>.+)$
+```
+
+- `package` is `owner/repo` for GitHub, the package name for npm/PyPI, and a full URL for `git-tags`.
+- `extractVersion` strips decorations such as a leading `v` from the upstream tag: `^v(?<version>.+)$` yields exactly the string stored in `version`. Adjust the regex when upstream names differ (e.g. `curl/-` prefixes on GitLab).
+- The npm package name often differs from the command name: directory `asm` tracks npm package `agent-skill-manager`; `openclaude` tracks scoped package `@twigpine/openclaude` (quote scoped names in YAML).
 
 ## 4. Add `Dockerfile.template`
 
@@ -132,11 +166,11 @@ Start from `@template/Dockerfile.template` and choose the right packaging patter
 
 ### A. Prebuilt executable download
 
-Use when upstream publishes a single binary.
+Use when upstream publishes a single binary. Download into the cache and `install --mode=0755` into `${prefix}/bin/<tool>` (see `herdr`). Single-file scripts work the same way, e.g. `cloc` installs a `.pl` file directly and depends on `perl` at runtime.
 
 ### B. Tarball extraction
 
-Use for `.tar.gz` or `.tar.xz` archives.
+Use for `.tar.gz` or `.tar.xz` archives. Always `tar --list` the archive first, then extract into `${prefix}/bin` with `--no-same-owner` (see `tuicr`, `tailcat`). When the binary inside the archive carries an arch suffix, rename it afterwards with `mv`, unguarded (see `zerostack`).
 
 ### C. Zip extraction
 
@@ -144,11 +178,23 @@ Use when releases are `.zip` files.
 
 ### D. Architecture mapping
 
-Use a `case` block to map `${arch}` or `${alt_arch}` to upstream naming. `${arch}` contains `amd64` or `arm64`, while `${alt_arch}` contains `x86_64` or `aarch64`.
+`${arch}` contains `amd64` or `arm64`, while `${alt_arch}` contains `x86_64` or `aarch64`.
+
+**Do not write a `case` block by default.** Try plain interpolation first. A repeated pattern in review of new tools was deleting redundant `case` blocks (`tuicr`, `tailcat`, `fx-vercel`, `kern`, `herdr`, `clawk`, `zerostack`, `md2pdf`), usually because the case produced a string identical to `${arch}`. Reach for a `case` block only when upstream naming genuinely differs from both variables, e.g. `gokr-rsync` which ships `rsync_Linux_x86_64.tar.gz` and `rsync_Linux_arm64.tar.gz` (a hybrid of both conventions).
+
+Check the actual asset names on the upstream release page before writing the URL - the suffix zoo includes `${alt_arch}`, `${arch}`, `x86_64-unknown-linux-musl`, `amd64-unknown-linux-musl`, `linux-arm64`, and more:
+
+| Upstream name pattern | Used by |
+|---|---|
+| `<tool>_<version>_linux_x86_64.tar.gz` | `argoxd`, `tailcat` (`${alt_arch}`) |
+| `<tool>-<version>-amd64-unknown-linux-musl.tar.gz` | `tuicr`, `kern` (`${arch}`) |
+| `<tool>-linux-amd64.tar.gz` / unversioned binary | `fx-vercel`, `herdr` (`${arch}`) |
+| `<tool>-v<version>-linux-x86_64.tar.gz` | `clawk` (`${alt_arch}`) |
+| `Linux_x86_64` vs `Linux_arm64` (inconsistent) | `gokr-rsync` (case block) |
 
 ### E. Build from source (Go)
 
-Use `go` (and optionally `make`) build dependencies, clone tagged source, compile, copy binary to `${prefix}/bin`.
+Use `go` (and optionally `make`) build dependencies, clone tagged source, compile, copy binary to `${prefix}/bin`. Always validate the tag with `check-clone` before cloning (see `ax`).
 
 ### F. Build from source (Rust)
 
@@ -156,19 +202,46 @@ Use `rust` build dependency, build release binary, copy into `${prefix}/bin`.
 
 ### G. Python with `shiv`
 
-Create a self-contained executable for Python CLIs.
+Create a self-contained executable for Python CLIs. Prefer `shiv` when the package ships cleanly with no binary wheel issues:
+
+```bash
+shiv --output-file "${prefix}/bin/foo" --console-script foo "foo==${version}"
+```
+
+Declare `python-3.12` and `shiv` as build dependencies plus `python-3.12` as runtime dependency.
 
 ### H. Python with `pipx`
 
-Install package into isolated venv and symlink the binary.
+Prefer `pipx` when `shiv` produces a broken binary or the package has multiple entry points / scripts. pipx requires fix-ups, all shown in `@template/Dockerfile.template` and `cve-mcp`:
+
+```bash
+export PIPX_HOME="${prefix}/libexec/pipx"
+export PIPX_BIN_DIR="${prefix}/bin"
+pipx install foo
+pipx-fix-venv-pyvenv-cfg foo    # required for the venv to work at runtime
+ln --symbolic --relative --force "${prefix}/libexec/pipx/venvs/foo/bin/foo" "${prefix}/bin/foo"
+sed -i "s|#\!${prefix}/|#\!/|" "${prefix}/libexec/pipx/venvs/foo/bin/foo"    # fix baked shebang path
+```
+
+**Verify the PyPI identity first.** If the project name on PyPI differs from the command or belongs to someone else, install from the git repository instead (`cve-mcp`): `pipx install "git+https://github.com/foo/bar.git@v${version}"`. Renovate keeps tracking GitHub releases in that case.
 
 ### I. Node via npm
 
-Install package in `/uniget_bootstrap/libexec/<tool>` and symlink `.bin` executable.
+Install package in `${prefix}/libexec/<tool>` (using `WORKDIR /uniget_bootstrap/libexec/<tool>`), symlink the `.bin` executable, and declare `node-lts` as build **and** runtime dependency. The npm package name frequently differs from the command name (`asm` / `agent-skill-manager`, `openclaude` / `@twigpine/openclaude`).
 
 ### J. Alias/shim tool
 
 For wrapper tools, create a symlink and set `binary: "false"` if no own binary exists.
+
+### K. Command name collisions
+
+When the canonical command name is taken by another tool, qualify the directory name but keep the upstream binary name and declare the conflict (`fx-vercel` provides `fx` alongside the existing `fx` tool):
+
+```yaml
+binary: fx
+conflicts_with:
+- fx
+```
 
 ## 6. Optional additions
 
@@ -207,10 +280,11 @@ Do not test for arm64.
 ## 10. Practical checklist
 
 - Create `tools/<toolname>/`
-- Add `manifest.yaml`
-- Add `Dockerfile.template`
-- Define renovate source
-- Validate `check` command
+- Open the upstream release page and confirm asset names and version format
+- Add `manifest.yaml` (quoted version, validated `check` command, `renovate:` block, `binary`/`conflicts_with` if names differ)
+- Add `Dockerfile.template` copied from the closest template variant (no unnecessary `case` block)
+- Validate `check` command against real binary output
+- Ensure every download has a `check-download`/`check-github-release-asset`
 - Build with `make <toolname>--build-amd64`
-- Build arm64 if declared in `platforms`
-- Ensure tags and dependencies are correct
+- Do not build arm64 even if declared in `platforms`
+- Verify tags against `make metadata.json`, dependencies correct
