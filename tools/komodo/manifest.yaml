@@ -14,6 +14,7 @@ tags:
 - lang/rust
 - deployment
 - build-tool
+binary: km
 check: ${binary} --version
 platforms:
 - linux/amd64
