@@ -7,7 +7,7 @@ license:
   link: https://github.com/rad-security/kbom/blob/main/LICENSE
 homepage: https://github.com/rad-security/kbom
 repository: https://github.com/rad-security/kbom
-version: "0.3.5"
+version: "0.3.6"
 tags:
 - category/security
 - lang/go
