@@ -1,10 +1,9 @@
 #syntax=docker/dockerfile
 
-FROM ghcr.io/uniget-org/tools/make:latest AS make
 FROM ghcr.io/uniget-org/tools/go:latest AS go
 FROM ghcr.io/uniget-org/tools/rust:latest AS rust
 
-FROM registry.gitlab.com/uniget-org/images/build-essential:26.04 AS prepare
+FROM registry.gitlab.com/uniget-org/images/build-essential:26.04 AS base
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -16,19 +15,52 @@ apt-get install -y --no-install-recommends \
 EOF
 ARG name
 ARG version
-COPY --link --from=go / /usr/local/
-COPY --link --from=make / /usr/local/
-COPY --link --from=rust / /usr/local/
 WORKDIR /go/src/github.com/docker/model-runner
 ARG name
 ARG version
 RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
-export CARGO_HOME=/usr/local/cargo
-export RUSTUP_HOME=/usr/local/rustup
 check-clone "https://github.com/docker/model-runner" "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/docker/model-runner .
-make
-cp model-runner "${prefix}/bin/"
-cp dmr "${prefix}/bin/"
-cp cmd/cli/model-cli "${prefix}/libexec/docker/cli-plugins/docker-model"
 EOF
+
+FROM base AS build-gateway-lib
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+COPY --link --from=rust / /usr/local/
+WORKDIR /go/src/github.com/docker/model-runner
+RUN <<EOF
+export CARGO_HOME=/usr/local/cargo
+export RUSTUP_HOME=/usr/local/rustup
+cargo build --release --manifest-path model-cli/Cargo.toml
+EOF
+
+FROM base AS build-model-runner
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+COPY --link --from=go / /usr/local/
+WORKDIR /go/src/github.com/docker/model-runner
+RUN <<EOF
+CGO_ENABLED=1 go build -ldflags="-s -w -X main.Version=${version}" -o "${prefix}/bin/model-runner" .
+CGO_ENABLED=0 go build -ldflags="-s -w -X main.Version=${version} -X github.com/docker/model-runner/cmd/cli/desktop.Version=${version}" -o "${prefix}/bin/dmr" ./cmd/dmr
+EOF
+
+FROM base AS build-model-cli
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+COPY --link --from=go / /usr/local/
+COPY --link --from=build-gateway-lib /go/src/github.com/docker/model-runner/model-cli/target/release/libmodel_cli_gateway.a cmd/cli/commands/gateway_lib/libgateway.a
+WORKDIR /go/src/github.com/docker/model-runner
+RUN <<EOF
+CGO_ENABLED=1 go build -tags gateway -ldflags="-s -w -X github.com/docker/model-runner/cmd/cli/desktop.Version=${version}" -o "${prefix}/libexec/docker/cli-plugins/docker-model" ./cmd/cli
+EOF
+
+FROM base AS prepare
+COPY --from=build-model-runner /uniget_bootstrap/bin/model-runner /uniget_bootstrap/bin/
+COPY --from=build-model-runner /uniget_bootstrap/bin/dmr /uniget_bootstrap/bin/
+COPY --from=build-model-cli /uniget_bootstrap/libexec/docker/cli-plugins/docker-model /uniget_bootstrap/libexec/docker/cli-plugins/docker-model
