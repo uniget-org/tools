@@ -14,6 +14,8 @@ tags:
 - standard/s3
 - state/deprecated
 - category/operations
+- state/stale
+- iam
 check: ${binary} --version | head -1 | cut -d' ' -f3 | cut -d. -f2
 platforms:
 - linux/amd64

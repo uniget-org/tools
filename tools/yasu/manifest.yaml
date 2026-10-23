@@ -12,8 +12,8 @@ tags:
 - type/cli
 - lang/go
 - category/operations
-- container/su
 - state/deprecated
+- state/stale
 check: ${binary} --version | cut -d' ' -f1
 platforms:
 - linux/amd64

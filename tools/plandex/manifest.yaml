@@ -16,6 +16,7 @@ tags:
 - llm
 - coding
 - agent
+- state/stale
 check: ${binary} version
 platforms:
 - linux/amd64

@@ -12,7 +12,7 @@ tags:
 - category/development
 - lang/go
 - type/cli
-- cncf/incubating
+- cncf/graduated
 check: ${binary} --version | cut -d+ -f1
 platforms:
 - linux/amd64

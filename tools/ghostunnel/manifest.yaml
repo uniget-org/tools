@@ -12,6 +12,8 @@ tags:
 - category/security
 - tunneling
 - lang/go
+- authentication
+- certificate
 check: "" # No version parameter
 platforms:
 - linux/amd64

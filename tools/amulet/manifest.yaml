@@ -13,8 +13,6 @@ tags:
 - lang/python
 - type/gui
 - minecraft
-- world
-- editor
 check: ""
 platforms:
 - linux/amd64

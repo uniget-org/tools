@@ -15,6 +15,7 @@ tags:
 - standard/docker
 - container/runtime
 - docker
+- authentication
 check: ${binary} version | cut -d' ' -f3
 platforms:
 - linux/amd64

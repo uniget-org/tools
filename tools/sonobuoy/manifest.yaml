@@ -15,7 +15,6 @@ tags:
 - kubernetes
 - k8s
 - troubleshooting
-- state/stale
 check: ${binary} version | grep ^Sonobuoy | cut -d' ' -f3 | tr -d v
 platforms:
 - linux/amd64

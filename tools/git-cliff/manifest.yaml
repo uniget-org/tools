@@ -14,7 +14,7 @@ tags:
 - type/cli
 - git
 - changelog
-- conventional-commits
+- standard/conventional-commits
 check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64

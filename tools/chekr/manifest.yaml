@@ -12,7 +12,6 @@ tags:
 - kubernetes
 - management
 - lang/go
-- kubernetes
 - k8s
 - state/stale
 - state/deprecated

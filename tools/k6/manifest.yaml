@@ -11,6 +11,8 @@ tags:
 - category/operations
 - lang/go
 - type/cli
+- benchmarking
+- load-testing
 check: ${binary} version | cut -d' ' -f2 | tr -d v
 platforms:
 - linux/amd64

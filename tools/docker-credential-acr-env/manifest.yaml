@@ -15,6 +15,7 @@ tags:
 - lang/go
 - state/stale
 - docker
+- authentication
 check: "" # No version parameter
 runtime_dependencies:
 - docker

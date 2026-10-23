@@ -11,6 +11,8 @@ tags:
 - category/security
 - type/cli
 - lang/go
+- benchmarking
+- load-testing
 check: ${binary} --version | head -1 | tr -s ' ' | cut -d' ' -f2
 platforms:
 - linux/amd64

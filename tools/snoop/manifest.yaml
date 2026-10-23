@@ -13,6 +13,7 @@ tags:
 - type/tui
 - category/security
 - lang/rust
+- state/onemanshow
 check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64

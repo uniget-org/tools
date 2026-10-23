@@ -21,6 +21,7 @@ tags:
 - cloud/gitlab
 - iac
 - state/deprecated
+- state/stale
 check: ${binary} version | cut -d' ' -f2 | tr -d v
 platforms:
 - linux/amd64

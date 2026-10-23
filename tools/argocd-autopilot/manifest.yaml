@@ -15,7 +15,7 @@ tags:
 - gitops
 - kubernetes
 - k8s
-- gitops
+- org/argo
 check: ${binary} version | tr -d v
 platforms:
 - linux/amd64

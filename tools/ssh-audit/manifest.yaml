@@ -12,7 +12,6 @@ tags:
 - category/security
 - lang/python
 - type/cli
-- state/stale
 check: ${binary} --help | grep '# ssh-audit' | cut -d, -f1 | cut -d' ' -f3 | tr -d v
 build_dependencies:
 - python-3.12

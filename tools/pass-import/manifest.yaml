@@ -14,6 +14,7 @@ tags:
 - password
 - management
 - standard/pass
+- state/stale
 check: "" # TODO
 build_dependencies:
 - python-3.12

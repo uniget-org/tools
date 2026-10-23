@@ -13,7 +13,7 @@ tags:
 - type/cli
 - lang/c
 - sudo
-- capability
+- kernel/capabilities
 check: ${binary} --version
 platforms:
 - linux/amd64

@@ -15,6 +15,7 @@ tags:
 - category/security
 - lang/rust
 - type/cli
+- cncf/sandbox
 check: ${binary} --version | cut -d' ' -f2
 build_dependencies: []
 platforms:

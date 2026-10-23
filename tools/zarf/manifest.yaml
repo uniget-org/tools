@@ -14,7 +14,6 @@ tags:
 - kubernetes
 - k8s
 - airgap
-- cncf/sandbox
 check: ${binary} version | tr -d v
 platforms:
 - linux/amd64

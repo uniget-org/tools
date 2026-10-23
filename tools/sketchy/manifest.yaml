@@ -14,6 +14,7 @@ tags:
 - lang/rust
 - terminal
 - git
+- state/onemanshow
 check: "" # No version parameter
 platforms:
 - linux/amd64

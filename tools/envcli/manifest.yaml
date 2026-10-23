@@ -13,7 +13,6 @@ tags:
 - type/cli
 - management
 - lang/go
-- standard/docker
 - docker
 - state/stale
 check: ${binary} --version | cut -d' ' -f3

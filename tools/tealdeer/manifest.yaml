@@ -9,11 +9,9 @@ homepage: https://github.com/tealdeer-rs/tealdeer
 repository: https://github.com/tealdeer-rs/tealdeer
 version: "1.9.0"
 tags:
-- category/development
+- category/terminal
 - lang/rust
 - type/cli
-- terminal
-- help
 - documentation
 check: tldr --version | cut -d' ' -f2
 platforms:

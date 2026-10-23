@@ -12,6 +12,7 @@ tags:
 - category/security
 - lang/go
 - type/cli
+- state/stale
 check: ${binary} version | grep ^Spotter | cut -d' ' -f2
 platforms:
 - linux/amd64

@@ -13,9 +13,9 @@ tags:
 - org/cncf
 - cicd
 - lang/go
-- kubernetes
 - k8s
 - category/operations
+- org/argo
 check: ${binary} version | grep ^argo | cut -d' ' -f2 | tr -d v
 platforms:
 - linux/amd64

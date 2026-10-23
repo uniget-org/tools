@@ -15,6 +15,7 @@ tags:
 - k8s
 - gitops
 - lang/go
+- argocd
 check: ""
 platforms:
 - linux/amd64

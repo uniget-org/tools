@@ -14,6 +14,7 @@ tags:
 - presentation
 - lang/haskell
 - category/development
+- state/stale
 check: ${binary} --version | head -n 1
 platforms:
 - linux/amd64

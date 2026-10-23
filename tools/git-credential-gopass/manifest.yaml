@@ -13,6 +13,7 @@ tags:
 - type/cli
 - standard/git
 - git
+- authentication
 check: "" # No version parameter
 platforms:
 - linux/amd64

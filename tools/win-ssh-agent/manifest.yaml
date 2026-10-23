@@ -13,6 +13,7 @@ tags:
 - lang/go
 - ssh
 - category/security
+- state/stale
 check: "" # TODO
 runtime_dependencies:
 - socat

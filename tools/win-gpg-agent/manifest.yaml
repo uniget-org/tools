@@ -13,9 +13,9 @@ tags:
 - lang/go
 - state/stale
 - state/deprecated
+- pgp
 - gpg
 - gnupg
-- pgp
 - category/security
 check: "" # Hangs for a long time
 platforms:

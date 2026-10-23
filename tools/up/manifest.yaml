@@ -13,7 +13,6 @@ tags:
 - category/operations
 - lang/go
 - type/cli
-- crossplane
 check: ${binary} --client --format=json | jq -r '.client.version' | tr -d v
 platforms:
 - linux/amd64

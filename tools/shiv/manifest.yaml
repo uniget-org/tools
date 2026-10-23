@@ -12,6 +12,7 @@ tags:
 - lang/python
 - type/cli
 - management
+- state/stale
 check: ${binary} --version | cut -d' ' -f3
 runtime_dependencies:
 - python-3.12

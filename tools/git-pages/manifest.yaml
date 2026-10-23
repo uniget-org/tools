@@ -12,8 +12,8 @@ tags:
 - category/operations
 - type/server
 - lang/go
-- static-site
-- git-forge
+- pages
+- git
 check: ${binary} --version
 platforms:
 - linux/amd64

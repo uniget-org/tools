@@ -11,6 +11,8 @@ tags:
 - category/operations
 - lang/go
 - type/cli
+- fuse
+- webdav
 check: ${binary} --version | cut -d' ' -f2
 build_dependencies:
 - go

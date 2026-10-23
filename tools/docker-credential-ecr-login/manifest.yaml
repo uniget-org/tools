@@ -14,6 +14,7 @@ tags:
 - cloud/aws
 - lang/go
 - docker
+- authentication
 check: ${binary} -v | grep ^Version | tr -s ' ' | cut -d' ' -f2
 runtime_dependencies:
 - docker

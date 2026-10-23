@@ -12,6 +12,10 @@ tags:
 - category/security
 - lang/go
 - type/daemon
+- authorization
+- authentication
+- oidc
+- iam
 check: ${binary} --version | cut -d' ' -f3 | tr -d v
 runtime_dependencies:
 - cockroach

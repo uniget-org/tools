@@ -12,6 +12,7 @@ tags:
 - type/cli
 - lang/c
 - category/operations
+- state/stale
 check: "" # No version parameter
 build_dependencies:
 - make

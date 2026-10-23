@@ -11,9 +11,9 @@ tags:
 - type/cli
 - category/security
 - lang/go
+- authentication
 - authorization
 - iam
-- fga
 check: ${binary} version 2>/dev/null | grep -oP '\d+\.\d+\.\d+'
 platforms:
 - linux/amd64

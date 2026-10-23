@@ -15,6 +15,8 @@ tags:
 - management
 - standard/pass
 - pgp
+- gpg
+- gnupg
 check: ${binary} version | tr -s ' ' | grep '= v' | cut -d' ' -f2 | tr -d v
 build_dependencies:
 - make

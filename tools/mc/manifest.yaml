@@ -13,6 +13,9 @@ tags:
 - lang/go
 - type/cli
 - standard/s3
+- state/stale
+- state/deprecated
+- iam
 check: ${binary} --version | head -1 | cut -d' ' -f3 | cut -d. -f2
 platforms:
 - linux/amd64

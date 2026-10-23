@@ -13,6 +13,7 @@ tags:
 - lang/go
 - type/cli
 - git
+- standard/conventional-commits
 check: ${binary} --version | cut -d' ' -f3
 platforms:
 - linux/amd64

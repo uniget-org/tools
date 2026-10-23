@@ -12,7 +12,6 @@ tags:
 - type/daemon
 - rootless
 - lang/shell
-- cncf/sandbox
 - category/operations
 check: "" # No version parameter
 runtime_dependencies:

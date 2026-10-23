@@ -12,7 +12,9 @@ tags:
 - category/operations
 - lang/rust
 - type/tui
-- standard/pgp
+- pgp
+- gpg
+- gnupg
 check: ${binary} --version | cut -d' ' -f2
 platforms:
 - linux/amd64

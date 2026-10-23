@@ -18,7 +18,6 @@ tags:
 - code
 - coding
 - state/stale
-- state/stale
 check: ${binary} version | cut -d' ' -f3
 platforms:
 - linux/amd64

@@ -12,7 +12,8 @@ tags:
 - category/development
 - lang/rust
 - type/cli
-- copilot
+- ai
+- llm
 - state/stale
 check: ${binary} --version | cut -d' ' -f2
 platforms:

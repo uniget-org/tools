@@ -18,6 +18,7 @@ tags:
 - iac
 - cncf/graduated
 - category/operations
+- org/crossplane
 check: ${binary} --version | tr -d v
 runtime_dependencies:
 - kubectl
