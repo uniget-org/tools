@@ -7,7 +7,7 @@ license:
   link: https://github.com/gokrazy/rsync/blob/main/LICENSE
 homepage: https://github.com/gokrazy/rsync
 repository: https://github.com/gokrazy/rsync
-version: "0.3.9"
+version: "0.3.10"
 tags:
 - category/operations
 - lang/go
