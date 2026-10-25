@@ -7,7 +7,7 @@ license:
   link: https://codeberg.org/git-pages/git-pages/src/branch/main/LICENSE
 homepage: https://git-pages.org
 repository: https://codeberg.org/git-pages/git-pages
-version: "0.9.1"
+version: "0.10.0"
 tags:
 - category/operations
 - type/server
