@@ -7,7 +7,7 @@ license:
   link: https://github.com/aristocratos/btop/blob/main/LICENSE
 homepage: https://github.com/aristocratos/btop
 repository: https://github.com/aristocratos/btop
-version: "1.4.7"
+version: "1.4.8"
 tags:
 - category/operations
 - lang/cpp
