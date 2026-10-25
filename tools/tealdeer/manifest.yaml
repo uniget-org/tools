@@ -7,7 +7,7 @@ license:
   link: https://github.com/tealdeer-rs/tealdeer/blob/main/LICENSE-APACHE.txt
 homepage: https://github.com/tealdeer-rs/tealdeer
 repository: https://github.com/tealdeer-rs/tealdeer
-version: "1.9.0"
+version: "1.9.1"
 tags:
 - category/terminal
 - lang/rust
