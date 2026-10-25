@@ -6,7 +6,7 @@ license:
   link: https://github.com/tianon/gosu/blob/master/LICENSE
 homepage: https://github.com/tianon/gosu
 repository: https://github.com/tianon/gosu
-version: "1.19"
+version: "1.20"
 tags:
 - container/su
 - type/cli
