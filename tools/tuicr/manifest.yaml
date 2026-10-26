@@ -7,7 +7,7 @@ license:
   link: https://github.com/agavra/tuicr/blob/main/LICENSE
 homepage: https://tuicr.dev
 repository: https://github.com/agavra/tuicr
-version: "0.27.0"
+version: "0.28.0"
 tags:
 - category/development
 - lang/rust
