@@ -7,7 +7,7 @@ license:
   link: https://github.com/mkaz/termgraph/blob/main/LICENSE.txt
 homepage: https://github.com/mkaz/termgraph
 repository: https://github.com/mkaz/termgraph
-version: "0.7.6"
+version: "0.7.7"
 tags:
 - category/operations
 - lang/python
