@@ -7,7 +7,7 @@ license:
   link: https://github.com/stacklok/mecatl/blob/main/LICENSE
 homepage: https://mecatl.dev
 repository: https://github.com/stacklok/mecatl
-version: "0.0.50"
+version: "0.0.51"
 tags:
 - category/development
 - lang/go
