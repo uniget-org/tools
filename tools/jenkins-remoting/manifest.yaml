@@ -5,7 +5,7 @@ license:
   name: MIT License
 homepage: https://jenkins.io/projects/remoting/
 repository: https://github.com/jenkinsci/remoting
-version: "3391.va_37fa_a_305d6d"
+version: "3395.v6e5377b_0fb_3c"
 tags:
 - org/jenkins
 - category/operations
