@@ -38,14 +38,20 @@ info: ; $(info $(M) Runtime info...)
 .PHONY:
 clean: ## Remove all temporary files
 	@set -o errexit; \
-	rm -f metadata.json; \
+	rm -f metadata*.json; \
 	rm -rf helper; \
 	for TOOL in $(TOOLS_RAW); do \
 		rm -f \
+			$(TOOLS_DIR)/$${TOOL}/image.tar \
 			$(TOOLS_DIR)/$${TOOL}/manifest.json \
+			$(TOOLS_DIR)/$${TOOL}/manifest-full.json \
+			$(TOOLS_DIR)/$${TOOL}/manifest-minimal.json \
 			$(TOOLS_DIR)/$${TOOL}/Dockerfile \
-			$(TOOLS_DIR)/$${TOOL}/build.log \
-			$(TOOLS_DIR)/$${TOOL}/sbom.json; \
+			$(TOOLS_DIR)/$${TOOL}/*.log \
+			$(TOOLS_DIR)/$${TOOL}/history.json \
+			$(TOOLS_DIR)/$${TOOL}/bov.json \
+			$(TOOLS_DIR)/$${TOOL}/sbom.json \
+			$(TOOLS_DIR)/$${TOOL}/sarif.json; \
 	done
 
 .PHONY:
