@@ -5,7 +5,7 @@ license:
   name: LGPLv3
 homepage: http://redirect.sonarsource.com/doc/install-configure-scanner.html
 repository: https://github.com/SonarSource/sonar-scanner-cli
-version: "8.2.0.6438"
+version: "8.3.0.16463"
 tags:
 - org/sonarsource
 - type/cli
