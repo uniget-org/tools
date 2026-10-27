@@ -2,9 +2,7 @@
 
 FROM ghcr.io/uniget-org/tools/make:latest AS make
 
-FROM registry.gitlab.com/uniget-org/images/build-essential:26.04 AS build-essential2604
-
-FROM build-essential2604 AS prepare
+FROM registry.gitlab.com/uniget-org/images/build-base:3.24 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/ \
     /etc/profile.d/
@@ -18,6 +16,6 @@ check-clone "https://github.com/redis/librdb" "v${version}"
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/redis/librdb .
 make -j$(nproc) -C src/lib all WARNS="-Wall -Wextra -pedantic -fstack-protector-all -Wstack-protector"
 make -j$(nproc) -C src/ext all WARNS="-Wall -Wextra -pedantic -fstack-protector-all -Wstack-protector"
-make -C src/cli all WARNS="-Wall -Wextra -pedantic -fstack-protector-all -Wstack-protector"
+make -C src/cli all WARNS="-Wall -Wextra -pedantic -fstack-protector-all -Wstack-protector" LDFLAGS="-static"
 install --mode=0755 bin/rdb-cli "${prefix}/bin/"
 EOF
