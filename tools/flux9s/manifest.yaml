@@ -7,7 +7,7 @@ license:
   link: https://github.com/dgunzy/flux9s/blob/main/LICENSE
 homepage: https://github.com/dgunzy/flux9s
 repository: https://github.com/dgunzy/flux9s
-version: "1.4.2"
+version: "1.4.4"
 tags:
 - category/operations
 - type/tui
