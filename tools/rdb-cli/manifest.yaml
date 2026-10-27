@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: rdb-cli
+description: CLI to parse Redis RDB files based on librdb. Converts RDB files to JSON or RESP and uploads them to a live Redis server.
+license:
+  name: MIT
+  link: https://github.com/redis/librdb/blob/main/LICENSE
+homepage: https://github.com/redis/librdb
+repository: https://github.com/redis/librdb
+version: "2.4.0"
+tags:
+- org/redis
+- category/development
+- lang/c
+- type/cli
+check: ${binary} 2>&1 | head -n 1 | grep -oP '(?<=\[v)\d+\.\d+\.\d+'
+build_dependencies:
+- make
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: redis/librdb
+  extractVersion: ^v(?<version>.+)$
