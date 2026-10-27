@@ -7,7 +7,7 @@ license:
   link: https://github.com/NVIDIA/OpenShell/blob/main/LICENSE
 homepage: https://docs.nvidia.com/openshell/latest/
 repository: https://github.com/NVIDIA/OpenShell
-version: "0.1.5"
+version: "0.1.6"
 tags:
 - org/nvidia
 - ai
