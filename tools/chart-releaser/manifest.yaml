@@ -6,7 +6,7 @@ license:
   link: https://github.com/helm/chart-releaser/blob/main/LICENSE
 homepage: https://github.com/helm/chart-releaser
 repository: https://github.com/helm/chart-releaser
-version: "1.8.1"
+version: "1.9.0"
 tags:
 - category/operations
 - type/cli
