@@ -7,7 +7,7 @@ license:
   link: https://github.com/vercel-labs/fx/blob/main/LICENSE
 homepage: https://fx.sh
 repository: https://github.com/vercel-labs/fx
-version: "0.0.14"
+version: "0.0.15"
 tags:
 - org/vercel
 - category/development
