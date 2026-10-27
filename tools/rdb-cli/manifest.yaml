@@ -13,7 +13,7 @@ tags:
 - category/development
 - lang/c
 - type/cli
-check: ${binary} 2>&1 | head -n 1 | grep -oP '(?<=\[v)\d+\.\d+\.\d+'
+check: ${binary} | grep '^\[' | cut -d' ' -f1 | tr -d '[]v'
 build_dependencies:
 - make
 platforms:
