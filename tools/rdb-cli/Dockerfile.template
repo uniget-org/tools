@@ -1,0 +1,24 @@
+#syntax=docker/dockerfile:1.28.0@sha256:bb22d9815c728170f72750f4e5b0d672e06176142e1d602c7e66c050100b7e5b
+
+FROM ghcr.io/uniget-org/tools/make:latest AS make
+
+FROM registry.gitlab.com/uniget-org/images/build-essential:26.04 AS build-essential2604
+
+FROM build-essential2604 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+
+COPY --link --from=make / /usr/local/
+WORKDIR /tmp/github.com/redis/librdb
+RUN <<EOF
+check-clone "https://github.com/redis/librdb" "v${version}"
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/redis/librdb .
+make -j$(nproc) -C src/lib all WARNS="-Wall -Wextra -pedantic -fstack-protector-all -Wstack-protector"
+make -j$(nproc) -C src/ext all WARNS="-Wall -Wextra -pedantic -fstack-protector-all -Wstack-protector"
+make -C src/cli all WARNS="-Wall -Wextra -pedantic -fstack-protector-all -Wstack-protector"
+install --mode=0755 bin/rdb-cli "${prefix}/bin/"
+EOF
