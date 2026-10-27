@@ -7,7 +7,7 @@ license:
   link: https://github.com/awcodify/argoxd/blob/main/LICENSE
 homepage: https://argoxd.dev
 repository: https://github.com/awcodify/argoxd
-version: "0.4.2"
+version: "0.5.0"
 tags:
 - type/tui
 - category/operations
