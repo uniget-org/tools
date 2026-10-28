@@ -6,7 +6,7 @@ license:
   link: https://github.com/Orange-OpenSource/hurl/blob/master/LICENSE
 homepage: https://hurl.dev
 repository: https://github.com/Orange-OpenSource/hurl
-version: "8.0.1"
+version: "8.1.0"
 tags:
 - category/development
 - lang/rust
