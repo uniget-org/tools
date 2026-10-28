@@ -7,7 +7,7 @@ license:
   link: https://github.com/Andyyyy64/whichllm/blob/main/LICENSE
 homepage: https://github.com/Andyyyy64/whichllm
 repository: https://github.com/Andyyyy64/whichllm
-version: "0.5.22"
+version: "0.5.23"
 tags:
 - category/development
 - lang/python
