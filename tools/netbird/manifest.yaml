@@ -6,7 +6,7 @@ license:
   link: https://github.com/netbirdio/netbird/blob/main/LICENSE
 homepage: https://netbird.io
 repository: https://github.com/netbirdio/netbird
-version: "0.81.5"
+version: "0.82.0"
 tags:
 - type/cli
 - category/security
