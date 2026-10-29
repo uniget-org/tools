@@ -7,7 +7,7 @@ license:
   link: https://github.com/nolabs-ai/nono/blob/main/LICENSE
 homepage: https://nono.sh
 repository: https://github.com/nolabs-ai/nono
-version: "0.80.0"
+version: "0.81.0"
 tags:
 - org/nolabs-ai
 - category/security
