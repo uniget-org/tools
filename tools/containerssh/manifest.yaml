@@ -6,7 +6,7 @@ license:
   link: https://github.com/ContainerSSH/ContainerSSH/blob/main/LICENSE
 homepage: https://containerssh.io/
 repository: https://github.com/ContainerSSH/ContainerSSH
-version: "0.6.0"
+version: "0.6.1"
 tags:
 - type/daemon
 - category/security
