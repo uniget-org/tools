@@ -7,7 +7,7 @@ license:
   link: https://github.com/j178/prek/blob/main/LICENSE
 homepage: https://github.com/j178/prek
 repository: https://github.com/j178/prek
-version: "0.5.7"
+version: "0.5.9"
 tags:
 - type/cli
 - category/development
