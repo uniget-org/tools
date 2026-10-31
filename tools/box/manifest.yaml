@@ -7,7 +7,7 @@ license:
   link: https://github.com/box-project/box/blob/main/LICENSE
 homepage: https://box-project.github.io/box
 repository: https://github.com/box-project/box
-version: "4.7.0"
+version: "4.7.1"
 tags:
 - category/development
 - lang/php
