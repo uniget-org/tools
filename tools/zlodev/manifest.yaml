@@ -7,7 +7,7 @@ license:
   link: https://github.com/vandot/zlodev/blob/main/LICENSE
 homepage: https://zlodev.vandot.rs/
 repository: https://github.com/vandot/zlodev
-version: "0.4.1"
+version: "0.5.0"
 tags:
 - type/cli
 - category/development
