@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: rcon-cli
+description: A little RCON CLI for attaching to an RCON enabled game server, such as Minecraft
+license:
+  name: Apache License 2.0
+  link: https://github.com/itzg/rcon-cli/blob/master/LICENSE
+homepage: https://github.com/itzg/rcon-cli
+repository: https://github.com/itzg/rcon-cli
+version: "1.7.9"
+tags:
+- category/games
+- lang/go
+- type/cli
+- minecraft
+check: strings ${binary} | grep -oP 'main\.version=\K[0-9.]+' | head -n 1
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: itzg/rcon-cli
