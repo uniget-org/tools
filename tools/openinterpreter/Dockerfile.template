@@ -1,0 +1,36 @@
+#syntax=docker/dockerfile
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+echo "### Downloading package bundle"
+url="https://github.com/openinterpreter/openinterpreter/releases/download/rust-v${version}/open-interpreter-package-${arch}-unknown-linux-musl.tar.gz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "openinterpreter/openinterpreter" "rust-v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list | head -n 5
+mkdir -p "${prefix}/libexec/openinterpreter"
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip \
+    --directory="${prefix}/libexec/openinterpreter" --no-same-owner
+EOF
+RUN <<EOF
+echo "### Installing"
+# The bundle ships bin/i as a second identical copy of bin/interpreter;
+# replace it with a symlink to keep the package lean.
+rm "${prefix}/libexec/openinterpreter/bin/i"
+ln --symbolic interpreter "${prefix}/libexec/openinterpreter/bin/i"
+chmod 0755 \
+    "${prefix}/libexec/openinterpreter/bin/"* \
+    "${prefix}/libexec/openinterpreter/codex-path/rg" \
+    "${prefix}/libexec/openinterpreter/codex-resources/bwrap"
+ln --symbolic --relative "${prefix}/libexec/openinterpreter/bin/interpreter" "${prefix}/bin/interpreter"
+ln --symbolic --relative "${prefix}/libexec/openinterpreter/bin/i" "${prefix}/bin/i"
+EOF
