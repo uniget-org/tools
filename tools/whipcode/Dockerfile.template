@@ -1,0 +1,36 @@
+#syntax=docker/dockerfile
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+echo "### Setting architecture string for ${TARGETPLATFORM}"
+case "${arch}" in
+    x86_64)
+        export arch_suffix="x64"
+        ;;
+    aarch64)
+        export arch_suffix="arm64"
+        ;;
+    *)
+        echo "ERROR: Unsupported architecture ${arch}."
+        exit 1
+        ;;
+esac
+echo "    Using ${arch_suffix}"
+
+url="https://github.com/context-labs/whip/releases/download/v${version}/whipcode-linux-${arch_suffix}"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "context-labs/whip" "v${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/whipcode"
+EOF
