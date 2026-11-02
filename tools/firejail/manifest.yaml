@@ -5,7 +5,7 @@ license:
   name: GPLv2
 homepage: https://firejail.wordpress.com
 repository: https://github.com/netblue30/firejail
-version: "0.9.80"
+version: "0.9.82"
 tags:
 - category/security
 - type/cli
