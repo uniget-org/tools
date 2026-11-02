@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: openwiki
+description: Turns your codebase and knowledge sources into a linked Markdown wiki for you and your coding agents
+license:
+  name: MIT License
+  link: https://github.com/langchain-ai/openwiki/blob/main/LICENSE
+homepage: https://github.com/langchain-ai/openwiki
+repository: https://github.com/langchain-ai/openwiki
+version: "0.7.3"
+tags:
+- category/development
+- lang/javascript
+- type/cli
+- ai
+- llm
+- agent
+- mcp
+check: grep '"version"' ${target}/libexec/openwiki/node_modules/openwiki/package.json | cut -d'"' -f4
+build_dependencies:
+- node-lts
+runtime_dependencies:
+- node-lts
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: npm
+  package: openwiki
