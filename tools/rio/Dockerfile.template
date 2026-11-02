@@ -22,7 +22,7 @@ WORKDIR /tmp/rio
 ARG version
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/raphamorim/rio .
-cargo build --package=rioterm --release --features=x11,wayland,wgpu
+cargo build --package=rioterm --release --features=wgpu
 EOF
 RUN <<EOF
 make all
@@ -42,9 +42,3 @@ COPY --from=build /tmp/rio/extra/man/rio-bindings.5 /uniget_bootstrap/share/man/
 COPY --from=build /tmp/rio/misc/rio.desktop share/applications/rio.desktop
 COPY --from=build /tmp/rio/misc/rio.terminfo share/terminfo/r/rio
 COPY --from=build /tmp/rio/misc/logo.svg share/icons/hicolor/scalable/apps/rio.svg
-
-#RUN <<EOF
-#"${prefix}/bin/foo" completion bash >"${prefix}/share/bash-completion/completions/foo"
-#"${prefix}/bin/foo" completion fish >"${prefix}/share/fish/vendor_completions.d/foo.fish"
-#"${prefix}/bin/foo" completion zsh >"${prefix}/share/zsh/vendor-completions/_foo"
-#EOF
