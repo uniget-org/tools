@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: openinterpreter
+description: Coding agent optimized for low-cost models and a fork of OpenAI's Codex with harness emulation
+license:
+  name: Apache-2.0
+  link: https://github.com/openinterpreter/openinterpreter/blob/main/LICENSE
+homepage: https://www.openinterpreter.com
+repository: https://github.com/openinterpreter/openinterpreter
+version: "0.0.58"
+tags:
+- category/development
+- lang/rust
+- type/cli
+- ai
+- llm
+- agent
+- coding
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: openinterpreter/openinterpreter
+  extractVersion: ^rust-v(?<version>.+)$
