@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: sandboxd
+description: Self-hosted AI app builder that builds real apps from prompts in isolated Docker sandboxes
+license:
+  name: MIT License
+  link: https://github.com/tastyeffectco/sandboxd/blob/main/LICENSE
+homepage: https://sandboxd.io
+repository: https://github.com/tastyeffectco/sandboxd
+version: "0.3.26"
+tags:
+- category/development
+- lang/go
+- type/daemon
+- ai
+- llm
+- agent
+- coding
+check: ${binary} version | cut -d' ' -f2
+build_dependencies:
+- go
+runtime_dependencies:
+- docker
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: tastyeffectco/sandboxd
+  extractVersion: ^v(?<version>.+)$
