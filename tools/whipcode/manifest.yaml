@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: whipcode
+description: Open-source coding agent with a shared daemon, terminal TUI, MCP support and background subagents
+license:
+  name: Apache-2.0
+  link: https://github.com/context-labs/whip/blob/main/LICENSE
+homepage: https://github.com/context-labs/whip
+repository: https://github.com/context-labs/whip
+version: "1.0.0"
+tags:
+- category/development
+- lang/go
+- type/cli
+- type/tui
+- ai
+- llm
+- coding
+- agent
+- mcp
+check: ${binary} --version | cut -d' ' -f2 | tr -d v
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: context-labs/whip
+  extractVersion: ^v(?<version>.+)$
