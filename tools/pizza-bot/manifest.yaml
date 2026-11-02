@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: pizza-bot
+description: Local-first inbox for long-running AI agents with a standalone backend and terminal CLI
+license:
+  name: Apache-2.0
+  link: https://github.com/pizza-bot-app/pizza-bot/blob/main/LICENSE
+homepage: https://github.com/pizza-bot-app/pizza-bot
+repository: https://github.com/pizza-bot-app/pizza-bot
+version: "1.2.0"
+tags:
+- category/development
+- lang/javascript
+- type/cli
+- type/daemon
+- ai
+- llm
+- agent
+- mcp
+- coding
+check: grep '"version"' ${target}/libexec/pizza-bot/package.json | cut -d'"' -f4
+binary: ${target}/libexec/pizza-bot/start.mjs
+build_dependencies:
+- node-lts
+- npm
+runtime_dependencies:
+- node-lts
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: pizza-bot-app/pizza-bot
+  extractVersion: ^v(?<version>.+)$

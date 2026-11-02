@@ -1,0 +1,35 @@
+#syntax=docker/dockerfile
+
+FROM ghcr.io/uniget-org/tools/node-lts:latest AS node
+FROM ghcr.io/uniget-org/tools/npm:latest AS npm
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+COPY --link --from=node / /usr/local/
+COPY --link --from=npm / /usr/local/
+WORKDIR /tmp/pizza-bot
+RUN <<EOF
+check-clone "https://github.com/pizza-bot-app/pizza-bot" "v${version}"
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/pizza-bot-app/pizza-bot .
+EOF
+RUN <<EOF
+echo "### Installing dependencies"
+npm ci --no-audit --no-fund
+EOF
+RUN <<EOF
+echo "### Building backend bundle and CLI"
+npm run build -w @pizza-bot/logging -w @pizza-bot/core -w @pizza-bot/cli
+npm run backend:bundle
+echo "### Installing"
+mkdir -p "${prefix}/libexec/pizza-bot"
+cp --archive dist/backend/. "${prefix}/libexec/pizza-bot/"
+sed -i '1i#!/usr/bin/env node' "${prefix}/libexec/pizza-bot/start.mjs"
+chmod 0755 "${prefix}/libexec/pizza-bot/start.mjs"
+node_modules/.bin/esbuild apps/cli/dist/index.js --bundle --platform=node --format=esm --outfile="${prefix}/bin/pizza"
+chmod 0755 "${prefix}/bin/pizza"
+EOF
