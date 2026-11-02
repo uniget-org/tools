@@ -1,0 +1,28 @@
+#syntax=docker/dockerfile
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+echo "### Downloading binary for ${alt_arch}"
+url="https://github.com/itzg/rcon-cli/releases/download/${version}/rcon-cli_${version}_linux_${alt_arch}.tar.gz"
+filename="$( basename "${url}" )"
+
+check-github-release-asset "itzg/rcon-cli" "${version}" "${filename}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+tar --file="${uniget_cache_download}/${filename}" --list
+mkdir -p "${prefix}/share/doc/${name}"
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip \
+    --directory="${prefix}/bin" \
+    "rcon-cli"
+tar --file="${uniget_cache_download}/${filename}" --extract --gzip \
+    --directory="${prefix}/share/doc/${name}" \
+    "README.md" \
+    "LICENSE"
+EOF
