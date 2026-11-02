@@ -1,0 +1,32 @@
+#syntax=docker/dockerfile
+
+FROM ghcr.io/uniget-org/tools/python-3.12:latest AS python
+FROM ghcr.io/uniget-org/tools/pipx:latest AS pipx
+
+FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+COPY --link --from=python / /usr/local/
+COPY --link --from=pipx / /usr/local/
+ARG name
+ARG version
+RUN --mount=type=cache,target=/root/.cache/pip <<EOF
+export PIPX_HOME="${prefix}/libexec/pipx"
+export PIPX_BIN_DIR="${prefix}/bin"
+pipx install gptme=="${version}"
+pipx-fix-venv-pyvenv-cfg gptme
+for script in "${prefix}/libexec/pipx/venvs/gptme/bin/"*; do
+    test -f "${script}" || continue
+    if head -n 1 "${script}" | grep -q "^#!${prefix}"; then
+        mv "${script}" "${script}.go-template"
+        sed -i "s|#\!${prefix}|#\!{{ .Target }}|" "${script}.go-template"
+    fi
+done
+for script in "${prefix}/libexec/pipx/venvs/gptme/bin/"gptme*.go-template; do
+    ln --symbolic --relative --force "${script%.go-template}" "${prefix}/bin/"
+done
+ln --symbolic --relative --force "${prefix}/bin/python3.12" \
+    "${prefix}/libexec/pipx/venvs/gptme/bin/python3.12"
+EOF

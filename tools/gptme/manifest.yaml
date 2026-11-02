@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: gptme
+description: A AI agent for the terminal with shell, python and web capabilities
+license:
+  name: MIT License
+  link: https://github.com/gptme/gptme/blob/master/LICENSE
+homepage: https://gptme.org
+repository: https://github.com/gptme/gptme
+version: "0.36.0"
+tags:
+- category/development
+- lang/python
+- type/cli
+- ai
+- llm
+- agent
+- mcp
+check: ${binary} --version
+build_dependencies:
+- python-3.12
+- pipx
+runtime_dependencies:
+- python-3.12
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: pypi
+  package: gptme
