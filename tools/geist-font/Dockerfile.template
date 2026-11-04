@@ -20,5 +20,5 @@ unzip -q -o "${uniget_cache_download}/${filename}"
 mkdir -p \
     "${prefix}/share/geist-font" \
     "${prefix}/share/fonts/geist-font"
-find "geist-font-${version}" -type f \( -name \*.woff2 -or -name \*.otf -or -name \*.ttf \) -exec cp {} "${prefix}/share/geist-font/" \;
+find "geist-font" -type f \( -name \*.woff2 -or -name \*.otf -or -name \*.ttf \) -exec cp {} "${prefix}/share/geist-font/" \;
 EOF
