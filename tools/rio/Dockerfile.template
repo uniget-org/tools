@@ -22,7 +22,7 @@ WORKDIR /tmp/rio
 ARG version
 RUN <<EOF
 git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/raphamorim/rio .
-cargo build --package=rioterm --release --features=wgpu
+cargo build --package=rioterm --release
 EOF
 RUN <<EOF
 make all
