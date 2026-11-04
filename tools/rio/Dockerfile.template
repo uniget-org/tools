@@ -1,0 +1,44 @@
+#syntax=docker/dockerfile:1.28.0@sha256:bb22d9815c728170f72750f4e5b0d672e06176142e1d602c7e66c050100b7e5b
+
+FROM registry.gitlab.com/uniget-org/images/alpine:3.24 AS alpine324
+FROM ghcr.io/uniget-org/tools/goreleaser:latest AS goreleaser
+
+FROM rust:latest AS build
+RUN <<EOF
+apt-get update
+apt-get install -y \
+    cmake \
+    pkg-config \
+    libfreetype6-dev \
+    libfontconfig1-dev \
+    libxcb-xfixes0-dev \
+    libxkbcommon-dev \
+    python3 \
+    glslang-tools \
+    scdoc
+EOF
+COPY --from=goreleaser / /usr/local/
+WORKDIR /tmp/rio
+ARG version
+RUN <<EOF
+git clone -q --config advice.detachedHead=false --depth 1 --branch "v${version}" https://github.com/raphamorim/rio .
+cargo build --package=rioterm --release
+EOF
+RUN <<EOF
+make all
+EOF
+
+FROM alpine324 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+COPY --from=build /tmp/rio/target/release/rio /uniget_bootstrap/bin/
+COPY --from=build /tmp/rio/extra/man/rio.1 /uniget_bootstrap/share/man/man1/
+COPY --from=build /tmp/rio/extra/man/rio.5 /uniget_bootstrap/share/man/man5/
+COPY --from=build /tmp/rio/extra/man/rio-bindings.5 /uniget_bootstrap/share/man/man5/
+COPY --from=build /tmp/rio/misc/rio.desktop share/applications/rio.desktop
+COPY --from=build /tmp/rio/misc/rio.terminfo share/terminfo/r/rio
+COPY --from=build /tmp/rio/misc/logo.svg share/icons/hicolor/scalable/apps/rio.svg
