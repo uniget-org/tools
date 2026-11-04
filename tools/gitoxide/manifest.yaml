@@ -14,11 +14,11 @@ tags:
 - type/cli
 - standard/git
 - git
-check: "" # Empty version
+binary: gix
+check: ${binary} --version | cut -d' ' -f2 | tr -d v
 platforms:
 - linux/amd64
 renovate:
   datasource: github-releases
   package: GitoxideLabs/gitoxide
   extractVersion: ^v(?<version>.+)$
-binary: gix
