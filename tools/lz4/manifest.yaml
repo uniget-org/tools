@@ -7,7 +7,7 @@ license:
   link: https://github.com/lz4/lz4/blob/dev/LICENSE
 homepage: http://www.lz4.org
 repository: https://github.com/lz4/lz4
-version: "1.10.0"
+version: "1.11.0"
 tags:
 - category/operations
 - lang/c
