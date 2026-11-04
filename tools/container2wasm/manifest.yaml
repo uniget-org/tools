@@ -7,7 +7,7 @@ license:
   link: https://github.com/container2wasm/container2wasm/blob/main/LICENSE
 homepage: https://ktock.github.io/container2wasm-demo/
 repository: https://github.com/container2wasm/container2wasm
-version: "0.8.4"
+version: "0.8.5"
 tags:
 - category/operations
 - lang/c
