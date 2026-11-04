@@ -1,0 +1,26 @@
+#syntax=docker/dockerfile
+
+FROM registry.gitlab.com/uniget-org/images/alpine:3.24 AS prepare
+COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
+    /etc/profile.d/ \
+    /etc/profile.d/
+SHELL [ "bash", "-clo", "errexit" ]
+ARG name
+ARG version
+
+RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
+url="https://dl.gitea.com/gitea-cli/${version}/gitea-cli-${version}-linux-${alt_arch}"
+filename="$(basename "${url}")"
+
+check-download "${url}"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+    "${url}"
+
+install --mode=0755 \
+    "${uniget_cache_download}/${filename}" \
+    "${prefix}/bin/gt"
+
+"${prefix}/bin/gt" completion bash >"${prefix}/share/bash-completion/completions/gt"
+"${prefix}/bin/gt" completion fish >"${prefix}/share/fish/vendor_completions.d/gt.fish"
+"${prefix}/bin/gt" completion zsh >"${prefix}/share/zsh/vendor-completions/_gt"
+EOF
