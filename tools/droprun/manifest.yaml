@@ -7,7 +7,7 @@ license:
   link: https://github.com/wrr/drop/blob/main/LICENSE
 homepage: https://droprun.sh
 repository: https://github.com/wrr/drop
-version: "0.3.1"
+version: "0.3.2"
 tags:
 - category/security
 - lang/go
