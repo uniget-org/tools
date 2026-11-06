@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: secretlint
+description: Pluggable linting tool to prevent committing credential and secret
+license:
+  name: MIT
+  link: https://github.com/secretlint/secretlint/blob/master/LICENSE
+homepage: https://github.com/secretlint/secretlint
+repository: https://github.com/secretlint/secretlint
+version: "13.1.0"
+tags:
+- type/cli
+- category/security
+- lang/javascript
+check: ${binary} --version
+build_dependencies:
+- node-lts
+- npm
+runtime_dependencies:
+- node-lts
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: npm
+  package: secretlint
