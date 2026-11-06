@@ -6,7 +6,7 @@ license:
   link: https://github.com/vladimirvivien/ktop/blob/main/LICENSE
 homepage: https://github.com/vladimirvivien/ktop
 repository: https://github.com/vladimirvivien/ktop
-version: "0.5.3"
+version: "0.6.0"
 tags:
 - type/tui
 - kubernetes
