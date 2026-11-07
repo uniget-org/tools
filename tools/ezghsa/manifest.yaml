@@ -6,7 +6,7 @@ license:
   name: MIT License
 homepage: https://github.com/csdev/ezghsa
 repository: https://github.com/csdev/ezghsa
-version: "0.4.1"
+version: "0.5.0"
 tags:
 - category/security
 - lang/go
