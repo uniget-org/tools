@@ -13,7 +13,7 @@ tags:
 - lang/go
 - type/cli
 - minecraft
-check: strings ${binary} | grep -oP 'main\.version=\K[0-9.]+' | head -n 1
+check: "" # No version parameter
 platforms:
 - linux/amd64
 - linux/arm64
