@@ -14,7 +14,7 @@ tags:
 - type/cli
 - type/daemon
 - minecraft
-check: ${binary} --version | cut -d' ' -f1 | tr -d ,
+check: ${binary} --version | cut -d, -f1
 platforms:
 - linux/amd64
 - linux/arm64

@@ -8,7 +8,6 @@ SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-echo "### Downloading binary for ${alt_arch}"
 url="https://github.com/itzg/mc-router/releases/download/v${version}/mc-router_${version}_linux_${alt_arch}.tar.gz"
 filename="$( basename "${url}" )"
 
@@ -17,12 +16,7 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
     "${url}"
 
 tar --file="${uniget_cache_download}/${filename}" --list
-mkdir -p "${prefix}/share/doc/${name}"
 tar --file="${uniget_cache_download}/${filename}" --extract --gzip \
     --directory="${prefix}/bin" \
     "mc-router"
-tar --file="${uniget_cache_download}/${filename}" --extract --gzip \
-    --directory="${prefix}/share/doc/${name}" \
-    "README.md" \
-    "LICENSE.txt"
 EOF
