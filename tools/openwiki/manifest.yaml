@@ -7,7 +7,7 @@ license:
   link: https://github.com/langchain-ai/openwiki/blob/main/LICENSE
 homepage: https://github.com/langchain-ai/openwiki
 repository: https://github.com/langchain-ai/openwiki
-version: "0.7.3"
+version: "0.9.0"
 tags:
 - category/development
 - lang/javascript
