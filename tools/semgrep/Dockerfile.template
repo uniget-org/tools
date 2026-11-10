@@ -17,6 +17,14 @@ export PIPX_HOME="${prefix}/libexec/pipx"
 export PIPX_BIN_DIR="${prefix}/bin"
 pipx install "semgrep==${version}"
 pipx-fix-venv-pyvenv-cfg semgrep
+for script in "${prefix}/libexec/pipx/venvs/semgrep/bin/"*; do
+    test -f "${script}" || continue
+    if head -n 1 "${script}" | grep -q "^#!${prefix}"; then
+        mv "${script}" "${script}.go-template"
+        sed -i "s|#\!${prefix}|#\!{{ .Target }}|" "${script}.go-template"
+    fi
+done
 ln --symbolic --relative --force "${prefix}/libexec/pipx/venvs/semgrep/bin/semgrep" "${prefix}/bin/semgrep"
-sed -i "s|#\!${prefix}/|#\!/|" "${prefix}/libexec/pipx/venvs/semgrep/bin/semgrep"
+ln --symbolic --relative --force "${prefix}/bin/python3.12" \
+    "${prefix}/libexec/pipx/venvs/semgrep/bin/python3.12"
 EOF
