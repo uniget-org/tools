@@ -7,7 +7,7 @@ license:
   link: https://github.com/itzg/mc-router/blob/master/LICENSE.txt
 homepage: https://github.com/itzg/mc-router
 repository: https://github.com/itzg/mc-router
-version: "1.55.0"
+version: "1.56.0"
 tags:
 - category/games
 - lang/go
