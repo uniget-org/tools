@@ -7,7 +7,7 @@ license:
   link: https://gitea.com/gitea/cli/src/branch/main/LICENSE
 homepage: https://gitea.com/gitea/cli
 repository: https://gitea.com/gitea/cli
-version: "1.0.0"
+version: "1.2.0"
 tags:
 - org/gitea
 - category/development
