@@ -24,7 +24,7 @@ ln --symbolic --relative "${prefix}/libexec/openinterpreter/bin/interpreter" "${
 ln --symbolic --relative "${prefix}/libexec/openinterpreter/bin/i" "${prefix}/bin/i"
 EOF
 RUN <<EOF
-"${prefix}/bin/openinterpreter" completion bash >"${prefix}/share/bash-completion/completions/openinterpreter"
-"${prefix}/bin/openinterpreter" completion fish >"${prefix}/share/fish/vendor_completions.d/openinterpreter.fish"
-"${prefix}/bin/openinterpreter" completion zsh >"${prefix}/share/zsh/vendor-completions/_openinterpreter"
+"${prefix}/bin/interpreter" completion bash >"${prefix}/share/bash-completion/completions/openinterpreter"
+"${prefix}/bin/interpreter" completion fish >"${prefix}/share/fish/vendor_completions.d/openinterpreter.fish"
+"${prefix}/bin/interpreter" completion zsh >"${prefix}/share/zsh/vendor-completions/_openinterpreter"
 EOF
