@@ -19,8 +19,12 @@ tar --file="${uniget_cache_download}/${filename}" --list | head -n 5
 mkdir -p "${prefix}/libexec/openinterpreter"
 tar --file="${uniget_cache_download}/${filename}" --extract --gzip \
     --directory="${prefix}/libexec/openinterpreter" --no-same-owner
-EOF
-RUN <<EOF
+
 ln --symbolic --relative "${prefix}/libexec/openinterpreter/bin/interpreter" "${prefix}/bin/interpreter"
 ln --symbolic --relative "${prefix}/libexec/openinterpreter/bin/i" "${prefix}/bin/i"
+EOF
+RUN <<EOF
+"${prefix}/bin/openinterpreter" completion bash >"${prefix}/share/bash-completion/completions/openinterpreter"
+"${prefix}/bin/openinterpreter" completion fish >"${prefix}/share/fish/vendor_completions.d/openinterpreter.fish"
+"${prefix}/bin/openinterpreter" completion zsh >"${prefix}/share/zsh/vendor-completions/_openinterpreter"
 EOF
