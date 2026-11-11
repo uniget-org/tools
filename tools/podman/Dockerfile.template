@@ -52,6 +52,12 @@ RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
 export CGO_ENABLED=1
 make -j$(nproc) LDFLAGS_PODMAN="-s -w -extldflags '-static'" BUILDTAGS='seccomp selinux apparmor exclude_graphdriver_devicemapper containers_image_openpgp'
 EOF
+RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
+# quadlet and rootlessport do not use cgo, so the internal linker ignores -extldflags -static
+# and links them against the musl loader. Rebuild them without cgo.
+rm -f bin/quadlet bin/rootlessport
+make CGO_ENABLED=0 LDFLAGS_PODMAN="-s -w" bin/quadlet bin/rootlessport
+EOF
 RUN <<EOF
 make install             DESTDIR="${prefix}" PREFIX=""
 make install.completions DESTDIR="${prefix}" PREFIX=""
