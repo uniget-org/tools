@@ -6,7 +6,7 @@ license:
   link: https://github.com/rfjakob/gocryptfs/blob/master/LICENSE
 homepage: https://nuetzlich.net/gocryptfs/
 repository: https://github.com/rfjakob/gocryptfs
-version: "2.6.1"
+version: "2.7.0"
 tags:
 - type/cli
 - category/security
