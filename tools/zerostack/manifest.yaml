@@ -7,7 +7,7 @@ license:
   link: https://github.com/gi-dellav/zerostack/blob/main/LICENSE
 homepage: https://gi-dellav.github.io/zerostack/
 repository: https://github.com/gi-dellav/zerostack
-version: "1.8.5"
+version: "1.8.6"
 tags:
 - category/development
 - lang/rust
