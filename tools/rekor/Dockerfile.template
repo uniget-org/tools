@@ -22,10 +22,10 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
     "${url}"
 
 echo "### Checking keyless signature for rekor-cli ${version}"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}-keyless.sigstore.json" \
-    "${url}-keyless.sigstore.json"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.sigstore.json" \
+    "${url}.sigstore.json"
 cosign verify-blob "${uniget_cache_download}/${filename}" \
-    --bundle "${uniget_cache_download}/${filename}-keyless.sigstore.json" \
+    --bundle "${uniget_cache_download}/${filename}.sigstore.json" \
     --certificate-oidc-issuer https://accounts.google.com \
     --certificate-identity "keyless@projectsigstore.iam.gserviceaccount.com"
 
@@ -50,10 +50,10 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
     "${url}"
 
 echo "### Checking keyless signature for rekor-server ${version}"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}-keyless.sigstore.json" \
-    "${url}-keyless.sigstore.json"
+curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}.sigstore.json" \
+    "${url}.sigstore.json"
 cosign verify-blob "${uniget_cache_download}/${filename}" \
-    --bundle "${uniget_cache_download}/${filename}-keyless.sigstore.json" \
+    --bundle "${uniget_cache_download}/${filename}.sigstore.json" \
     --certificate-oidc-issuer https://accounts.google.com \
     --certificate-identity "keyless@projectsigstore.iam.gserviceaccount.com"
 
