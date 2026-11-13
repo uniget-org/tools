@@ -7,7 +7,7 @@ license:
   link: https://github.com/AlDanial/cloc/blob/master/LICENSE
 homepage: https://github.com/AlDanial/cloc
 repository: https://github.com/AlDanial/cloc
-version: "2.10"
+version: "2.12"
 tags:
 - category/development
 - type/cli
