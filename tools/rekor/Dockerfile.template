@@ -1,6 +1,7 @@
 #syntax=docker/dockerfile
 
 FROM ghcr.io/uniget-org/tools/cosign:latest AS cosign
+FROM ghcr.io/uniget-org/tools/tuf:latest AS tuf
 
 FROM registry.gitlab.com/uniget-org/images/ubuntu:26.04 AS prepare
 COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
@@ -8,9 +9,19 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
     /etc/profile.d/
 SHELL [ "bash", "-clo", "errexit" ]
 COPY --link --from=cosign / /usr/local/
+COPY --link --from=tuf / /usr/local/
 ARG name
 ARG version
 COPY rekor.service.go-template /uniget_bootstrap/etc/systemd/system/
+
+WORKDIR /tmp
+RUN <<EOF
+curl --silent --show-error --location --fail --output root.json \
+    https://github.com/sigstore/root-signing/raw/refs/heads/main/metadata/root.json
+tuf-client init --url https://tuf-repo-cdn.sigstore.dev -f root.json
+tuf-client get --url https://tuf-repo-cdn.sigstore.dev -t https://tuf-repo-cdn.sigstore.dev/targets artifact.pub
+cp tuf_download/artifact.pub ./artifact.pub
+EOF
 
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 url="https://github.com/sigstore/rekor/releases/download/v${version}/rekor-cli-linux-${alt_arch}"
@@ -26,8 +37,7 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
     "${url}.sigstore.json"
 cosign verify-blob "${uniget_cache_download}/${filename}" \
     --bundle "${uniget_cache_download}/${filename}.sigstore.json" \
-    --certificate-oidc-issuer https://accounts.google.com \
-    --certificate-identity "keyless@projectsigstore.iam.gserviceaccount.com"
+    --key /tmp/artifact.pub
 
 echo "### Installing rekor-cli ${version}"
 install --mode=0755 \
@@ -54,8 +64,7 @@ curl --silent --show-error --location --fail --output "${uniget_cache_download}/
     "${url}.sigstore.json"
 cosign verify-blob "${uniget_cache_download}/${filename}" \
     --bundle "${uniget_cache_download}/${filename}.sigstore.json" \
-    --certificate-oidc-issuer https://accounts.google.com \
-    --certificate-identity "keyless@projectsigstore.iam.gserviceaccount.com"
+    --key /tmp/artifact.pub
 
 echo "### Installing rekor-server ${version}"
 install --mode=0755 \
