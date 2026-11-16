@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: lite
-description: Fastest, litest AI Gateway (CLI)
+description: CLI for LiteLLM, the fastest, litest AI Gateway
 license:
   name: MIT License
   link: https://github.com/BerriAI/litellm/blob/main/LICENSE
