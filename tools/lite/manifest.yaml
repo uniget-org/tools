@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: lite
+description: Fastest, litest AI Gateway (CLI)
+license:
+  name: MIT License
+  link: https://github.com/BerriAI/litellm/blob/main/LICENSE
+homepage: https://www.litellm.ai/
+repository: https://github.com/BerriAI/litellm
+version: "1.109.0"
+tags:
+- category/development
+- lang/python
+- type/cli
+- type/daemon
+- ai
+- llm
+- mcp
+check: ${binary} --version | grep ^LiteLLM | head -n 1 | cut -d' ' -f5
+build_dependencies:
+- python-3.12
+- shiv
+runtime_dependencies:
+- python-3.12
+platforms:
+- linux/amd64
+renovate:
+  datasource: pypi
+  package: litellm
