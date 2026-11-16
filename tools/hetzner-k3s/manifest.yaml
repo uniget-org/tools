@@ -6,7 +6,7 @@ license:
   name: MIT License
 homepage: https://github.com/vitobotta/hetzner-k3s
 repository: https://github.com/vitobotta/hetzner-k3s
-version: "2.12.0"
+version: "2.13.1"
 tags:
 - category/operations
 - lang/crystal
