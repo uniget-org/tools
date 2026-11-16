@@ -6,7 +6,7 @@ license:
   link: https://github.com/openfaas/faasd/blob/master/LICENSE
 homepage: https://store.openfaas.com/l/serverless-for-everyone-else
 repository: https://github.com/openfaas/faasd
-version: "0.19.7"
+version: "0.20.0"
 tags:
 - category/development
 - type/daemon
