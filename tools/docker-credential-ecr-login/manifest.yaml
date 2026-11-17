@@ -6,7 +6,7 @@ license:
   link: https://github.com/awslabs/amazon-ecr-credential-helper/blob/main/LICENSE
 homepage: https://github.com/awslabs/amazon-ecr-credential-helper
 repository: https://github.com/awslabs/amazon-ecr-credential-helper
-version: "0.12.0"
+version: "0.13.0"
 tags:
 - standard/docker
 - container/runtime
