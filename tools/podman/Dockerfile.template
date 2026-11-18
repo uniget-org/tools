@@ -62,6 +62,8 @@ RUN <<EOF
 make install             DESTDIR="${prefix}" PREFIX=""
 make install.completions DESTDIR="${prefix}" PREFIX=""
 make install.man         DESTDIR="${prefix}" PREFIX=""
-make install.systemd     DESTDIR="${prefix}" PREFIX=""
+# install.systemd is empty unless BUILDTAGS contains systemd (no libsystemd on Alpine).
+# The units do not need it. BINDIR sets ExecStart to the installed podman.
+make install.systemd     DESTDIR="${prefix}" PREFIX="" BINDIR=/usr/local/bin BUILDTAGS=systemd
 mv "${prefix}/share/zsh/vendor-completions" "${prefix}/share/zsh/site-functions"
 EOF
