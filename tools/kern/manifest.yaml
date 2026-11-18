@@ -7,7 +7,7 @@ license:
   link: https://github.com/getkern/kern/blob/main/LICENSE
 homepage: https://getkern.dev
 repository: https://github.com/getkern/kern
-version: "0.33.0"
+version: "0.51.1"
 tags:
 - category/operations
 - lang/rust
