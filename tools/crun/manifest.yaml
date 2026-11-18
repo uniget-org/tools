@@ -5,7 +5,7 @@ license:
   name: GPLv2
 homepage: https://github.com/containers/crun
 repository: https://github.com/containers/crun
-version: "1.8.4"
+version: "1.30.1"
 tags:
 - org/redhat
 - standard/oci
