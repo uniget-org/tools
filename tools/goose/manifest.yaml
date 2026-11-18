@@ -7,7 +7,7 @@ license:
   link: https://github.com/block/goose/blob/main/LICENSE
 homepage: https://block.github.io/goose/
 repository: https://github.com/block/goose
-version: "1.59.2"
+version: "1.60.1"
 tags:
 - category/development
 - lang/rust
