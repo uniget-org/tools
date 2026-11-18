@@ -7,7 +7,7 @@ license:
   link: https://github.com/TsvetanG2/mcpward/blob/main/LICENSE
 homepage: https://github.com/TsvetanG2/mcpward
 repository: https://github.com/TsvetanG2/mcpward
-version: "1.2.0"
+version: "1.2.1"
 tags:
 - category/security
 - lang/typescript
