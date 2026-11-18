@@ -56,7 +56,8 @@ RUN --mount=type=cache,target=/root/go/pkg/mod <<EOF
 # quadlet and rootlessport do not use cgo, so the internal linker ignores -extldflags -static
 # and links them against the musl loader. Rebuild them without cgo.
 rm -f bin/quadlet bin/rootlessport
-make CGO_ENABLED=0 LDFLAGS_PODMAN="-s -w" bin/quadlet bin/rootlessport
+# EXTRA_LDFLAGS keeps the default LDFLAGS_PODMAN, which sets quadlet's podman path (BINDIR).
+make CGO_ENABLED=0 EXTRA_LDFLAGS="-s -w" BINDIR=/usr/local/bin bin/quadlet bin/rootlessport
 EOF
 RUN <<EOF
 make install             DESTDIR="${prefix}" PREFIX=""
