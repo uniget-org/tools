@@ -13,7 +13,7 @@ RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
 echo "### Setting architecture string for ${TARGETPLATFORM}"
 case "${arch}" in
     x86_64)
-        export arch_suffix="x64"
+        export arch_suffix="x64-modern"
         ;;
     aarch64)
         export arch_suffix="${alt_arch}"
@@ -36,7 +36,7 @@ package_id_for_version="$(
 )"
 download_id="$(
     curl --silent --show-error --fail "${gitlab_api_base_url}/projects/${project_id}/packages/${package_id_for_version}/package_files" \
-    | jq -r ".[] | select(.file_name == \"duo-linux-${arch_suffix}-modern\") | .id"
+    | jq -r ".[] | select(.file_name == \"duo-linux-${arch_suffix}\") | .id"
 )"
 
 url="https://${gitlab_host}/${project_path}/-/package_files/${download_id}/download"
