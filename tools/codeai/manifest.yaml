@@ -1,11 +1,11 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
-name: codeai
-description: Some description
+name: codai
+description: The open source coding agent for your terminal
 license:
   name: Apache License 2.0
   link: https://github.com/meysamhadeli/codai/blob/main/LICENSE
-homepage: https://github.com/meysamhadeli/codai
+homepage: https://meysamhadeli.github.io/codai
 repository: https://github.com/meysamhadeli/codai
 version: "2.2.0"
 tags:
@@ -16,13 +16,9 @@ tags:
 - llm
 - coding
 - agent
-check: ${binary} --version | cut -d' ' -f2
-build_dependencies:
-- go
+check: ""
 platforms:
 - linux/amd64
 - linux/arm64
-renovate:
-  datasource: github-releases
-  package: meysamhadeli/codai
-  extractVersion: ^v(?<version>.+)$
+lifecycle:
+  removed_with_reason: Wrong name and too niche
