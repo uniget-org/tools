@@ -6,7 +6,7 @@ license:
   link: https://github.com/estesp/manifest-tool/blob/main/LICENSE
 homepage: https://github.com/estesp/manifest-tool
 repository: https://github.com/estesp/manifest-tool
-version: "2.2.2"
+version: "2.2.3"
 tags:
 - standard/oci
 - container/registry
