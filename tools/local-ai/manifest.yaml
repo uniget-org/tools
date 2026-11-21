@@ -7,7 +7,7 @@ license:
   link: https://github.com/mudler/LocalAI/blob/master/LICENSE
 homepage: https://localai.io/
 repository: https://github.com/mudler/LocalAI
-version: "5.0.0"
+version: "5.0.1"
 tags:
 - category/development
 - lang/go
