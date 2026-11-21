@@ -7,7 +7,7 @@ license:
   link: https://github.com/antonmedv/walk/blob/master/LICENSE
 homepage: https://github.com/antonmedv/walk
 repository: https://github.com/antonmedv/walk
-version: "1.13.0"
+version: "1.14.0"
 tags:
 - category/operations
 - lang/go
