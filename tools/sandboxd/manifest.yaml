@@ -7,7 +7,7 @@ license:
   link: https://github.com/tastyeffectco/sandboxd/blob/main/LICENSE
 homepage: https://sandboxd.io
 repository: https://github.com/tastyeffectco/sandboxd
-version: "0.3.26"
+version: "0.3.27"
 tags:
 - category/development
 - lang/go
