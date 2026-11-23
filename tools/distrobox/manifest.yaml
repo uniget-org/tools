@@ -5,7 +5,7 @@ license:
   name: GPLv3
 homepage: https://distrobox.it/
 repository: https://github.com/89luca89/distrobox
-version: "1.8.2.5"
+version: "1.8.2.6"
 tags:
 - category/development
 - lang/shell
