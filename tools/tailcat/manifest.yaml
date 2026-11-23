@@ -7,7 +7,7 @@ license:
   link: https://github.com/tailscale/tailcat/blob/main/LICENSE
 homepage: https://tailscale.com/tailcat
 repository: https://github.com/tailscale/tailcat
-version: "0.7.0"
+version: "0.8.0"
 tags:
 - category/operations
 - lang/go
