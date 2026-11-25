@@ -20,4 +20,6 @@ RUN <<EOF
 mkdir -p "${prefix}/lib/ghostty"
 cp -r /usr/lib/$(uname -m)-linux-gnu/* "${prefix}/lib/ghostty/"
 EOF
-COPY com.michellh.ghostty.desktop.go-template /uniget_bootstrap/share/applications/
+COPY com.mitchellh.ghostty.desktop.go-template /uniget_bootstrap/share/applications/
+COPY app-com.mitchellh.ghostty.service.go-template /uniget_bootstrap/share/systemd/user/
+COPY app-com.mitchellh.ghostty.service.go-template /uniget_bootstrap/share/dbus-1/services/
