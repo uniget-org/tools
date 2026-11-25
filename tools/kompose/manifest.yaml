@@ -6,7 +6,7 @@ license:
   link: https://github.com/kubernetes/kompose/blob/main/LICENSE
 homepage: http://kompose.io
 repository: https://github.com/kubernetes/kompose
-version: "1.38.0"
+version: "1.39.0"
 tags:
 - org/kubernetes
 - container/compose
