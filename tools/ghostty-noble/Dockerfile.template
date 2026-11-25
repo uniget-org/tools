@@ -18,6 +18,6 @@ ARG name
 ARG version
 RUN <<EOF
 mkdir -p "${prefix}/lib/ghostty"
-cp -r /usr/lib/x86_64-linux-gnu/* "${prefix}/lib/ghostty/"
+cp -r /usr/lib/$(uname -m)-linux-gnu/* "${prefix}/lib/ghostty/"
 EOF
 COPY com.michellh.ghostty.desktop.go-template /uniget_bootstrap/share/applications/
