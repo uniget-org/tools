@@ -3,8 +3,8 @@ Version=1.0
 Name=Ghostty (shim)
 Type=Application
 Comment=A terminal emulator
-TryExec=/usr/bin/ghostty
-Exec=bwrap --bind / / --dev-bind /dev /dev --bind $PWD/ghostty-deps/usr/lib/x86_64-linux-gnu/ /usr/lib/x86_64-linux-gnu/ -- /usr/bin/ghostty --gtk-single-instance=true
+TryExec={{ .Target }}/ghostty
+Exec=bwrap --bind / / --dev-bind /dev /dev --bind {{ .Target }}/lib/ghostty/ /usr/lib/x86_64-linux-gnu/ -- {{ .Target }}/ghostty --gtk-single-instance=true
 Icon=com.mitchellh.ghostty
 Categories=System;TerminalEmulator;
 Keywords=terminal;tty;pty;
@@ -23,4 +23,4 @@ X-KDE-Shortcuts=Ctrl+Alt+T
 
 [Desktop Action new-window]
 Name=New Window
-Exec=/usr/bin/ghostty --gtk-single-instance=true
+Exec={{ .Target }}/ghostty --gtk-single-instance=true
