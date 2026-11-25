@@ -14,9 +14,6 @@ tags:
 - type/gui
 binary: ghostty
 check: ${binary} --version | grep ^Ghostty | cut -d' ' -f2
-runtime_dependencies:
-- ghostty
-- bubblewrap
 platforms:
 - linux/amd64
 - linux/arm64
