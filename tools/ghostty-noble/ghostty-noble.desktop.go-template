@@ -1,26 +1,21 @@
 [Desktop Entry]
 Version=1.0
-Name=Ghostty (shim)
+Name=Ghostty
 Type=Application
 Comment=A terminal emulator
-TryExec={{ .Target }}/ghostty
-Exec=bwrap --bind / / --dev-bind /dev /dev --bind {{ .Target }}/lib/ghostty/ /usr/lib/x86_64-linux-gnu/ -- {{ .Target }}/ghostty --gtk-single-instance=true
 Icon=com.mitchellh.ghostty
+Exec={{ .Target }}/bin/Ghostty.AppImage
 Categories=System;TerminalEmulator;
 Keywords=terminal;tty;pty;
-StartupNotify=true
-StartupWMClass=com.mitchellh.ghostty
 Terminal=false
 Actions=new-window;
-X-GNOME-UsesNotifications=true
 X-TerminalArgExec=-e
 X-TerminalArgTitle=--title=
 X-TerminalArgAppId=--class=
 X-TerminalArgDir=--working-directory=
 X-TerminalArgHold=--wait-after-command
-DBusActivatable=true
 X-KDE-Shortcuts=Ctrl+Alt+T
 
 [Desktop Action new-window]
 Name=New Window
-Exec={{ .Target }}/ghostty --gtk-single-instance=true
+Exec={{ .Target }}/bin/Ghostty.AppImage

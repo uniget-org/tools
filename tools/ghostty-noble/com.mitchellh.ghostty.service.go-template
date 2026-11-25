@@ -1,4 +1,0 @@
-[D-BUS Service]
-Name=com.mitchellh.ghostty
-SystemdService=app-com.mitchellh.ghostty.service
-Exec=bwrap --bind / / --dev-bind /dev /dev --bind {{ .Target }}/lib/ghostty/ /usr/lib/x86_64-linux-gnu/ -- {{ .Target }}/ghostty --gtk-single-instance=true --initial-window=false
