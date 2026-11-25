@@ -7,7 +7,7 @@ license:
   link: https://github.com/open-webui/mcpo/blob/main/LICENSE
 homepage: https://docs.openwebui.com/openapi-servers/mcp
 repository: https://github.com/open-webui/mcpo
-version: "0.0.20"
+version: "0.0.21"
 tags:
 - category/development
 - lang/python
