@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
 $schema: https://tools.uniget.dev/schema.yaml
 name: yaegi
-description: Yaegi is a pure Go interpreter for Go
+description: Pure Go interpreter
 license:
   name: Apache License 2.0
   link: https://github.com/traefik/yaegi/blob/main/LICENSE
