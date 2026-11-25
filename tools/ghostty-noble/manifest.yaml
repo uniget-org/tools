@@ -22,11 +22,10 @@ platforms:
 - linux/arm64
 messages:
   internals: |
-    This package contains the libraries from Ubuntu 26.04.
+    This packages an AppImage from https://github.com/pkgforge-dev/ghostty-appimage
   update: |
     Activate the desktop integrations by running the following commands:
     $ update-desktop-database -v ~/.local/share/applications
-    $ systemctl --user daemon-reload
 renovate:
   datasource: github-tags
   package: ghostty-org/ghostty
