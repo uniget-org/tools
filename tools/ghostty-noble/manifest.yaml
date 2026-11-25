@@ -14,19 +14,16 @@ tags:
 - type/gui
 binary: ghostty
 check: ${binary} --version | grep ^Ghostty | cut -d' ' -f2
-build_dependencies:
-- zig
 runtime_dependencies:
-- gtk4-layer-shell
+- ghostty
+- bubblewrap
 platforms:
 - linux/amd64
 - linux/arm64
 messages:
+  internals: |
+    This package contains the libraries from Ubuntu 26.04.
   update: |
-    Ghostty depends on gtk4-layer-shell which is missing in Ubuntu 24.04.
-    In this case, install gtk4-layer-shell globally, e.g.
-    $ uniget --target=/usr install gtk4-layer-shell
-
     Activate the desktop integrations by running the following commands:
     $ update-desktop-database -v ~/.local/share/applications
     $ systemctl --user daemon-reload
