@@ -8,6 +8,7 @@ Exec={{ .Target }}/bin/Ghostty.AppImage
 Categories=System;TerminalEmulator;
 Keywords=terminal;tty;pty;
 Terminal=false
+StartupWMClass=com.mitchellh.ghostty
 Actions=new-window;
 X-TerminalArgExec=-e
 X-TerminalArgTitle=--title=
