@@ -35,6 +35,18 @@ export CARGO_HOME=/usr/local/cargo
 export RUSTUP_HOME=/usr/local/rustup
 export CARGO_PROFILE_RELEASE_LTO=false
 cargo build --release --manifest-path model-cli/Cargo.toml
+cd model-cli/target/release
+mkdir stripped
+cd stripped
+ar x ../libmodel_cli_gateway.a
+for object in *.o; do
+    objcopy --remove-section=.llvmbc --remove-section=.llvmcmd "${object}"
+done
+ar rcs ../libmodel_cli_gateway.a *.o
+if readelf -S *.o | grep -Eq "\.llvmbc|\.llvmcmd"; then
+    echo "LTO sections remain in libmodel_cli_gateway.a" >&2
+    exit 1
+fi
 EOF
 
 FROM base AS prepare
