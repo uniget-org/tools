@@ -220,27 +220,6 @@ jobs:
         name: ${{ matrix.tool }}-build.log.zip
         path: "**/build.log"
 
-  scan:
-    name: Scan container images
-    if: ${{ needs.collect_versions.outputs.tools_with_version != '[]' && needs.collect_versions.outputs.tools_with_version != '' }}
-    needs:
-    - collect_versions
-    - tag
-    permissions:
-      security-events: write
-      pull-requests: write
-      packages: read
-    strategy:
-      fail-fast: false
-      matrix:
-        tool_with_version: ${{ fromJSON(needs.collect_versions.outputs.tools_with_version) }}
-    uses: ./.github/workflows/scan.yml
-    with:
-      name_and_version: ${{ matrix.tool_with_version }}
-    secrets:
-      DOCKERHUB_USER: ${{ secrets.DOCKERHUB_USER }}
-      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
-
   metadata:
     name: Metadata
     permissions:
@@ -249,7 +228,6 @@ jobs:
     runs-on: ubuntu-24.04
     needs:
     - tag
-    #- scan
     steps:
 
     - name: Checkout code
