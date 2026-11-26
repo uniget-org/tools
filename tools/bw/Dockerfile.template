@@ -24,7 +24,7 @@ case "${arch}" in
 esac
 echo "    Using ${arch_suffix}"
 
-url="https://github.com/bitwarden/clients/releases/download/cli-v${version}/bw-${arch_suffix}-${version}.zip"
+url="https://github.com/bitwarden/clients/releases/download/cli-v${version}/bw-oss-${arch_suffix}-${version}.zip"
 filename="$( basename "${url}" )"
 
 check-download "${url}"
