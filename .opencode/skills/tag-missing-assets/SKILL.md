@@ -18,12 +18,20 @@ The Check workflow is defined in `.github/workflows/check.yml` (name `Check`,
 job `Build container image`; displayed in the UI as
 `Check / Build container image (<tool>)`).
 
+Only consider PRs that do not already carry a `stuck/*` label. Include labels
+in the listing and filter out any PR whose labels contain an entry starting
+with `stuck/`:
+
 ```sh
 gh pr list --repo uniget-org/tools --state open \
-  --json number,title,headRefName,headRefOid
+  --json number,title,headRefName,headRefOid,labels
 ```
 
-For each PR, find the most recent run of `check.yml` on its head branch and
+Discard every PR that has a label matching `stuck/*` before doing anything
+else. The remaining PRs are the candidates to inspect.
+
+For each remaining PR, find the most recent run of `check.yml` on its head
+branch and
 pick the run whose `headSha` matches the PR's current head commit:
 
 ```sh
