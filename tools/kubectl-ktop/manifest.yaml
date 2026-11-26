@@ -17,12 +17,10 @@ tags:
 - kubectl-plugin
 - monitoring
 - metrics
-check: ${binary} version | grep -oP '\d+\.\d+\.\d+'
+binary: "false"
+check: ""
 platforms:
 - linux/amd64
 - linux/arm64
-binary: kubectl-ktop
-renovate:
-  datasource: github-releases
-  package: vladimirvivien/ktop
-  extractVersion: ^v(?<version>.+)$
+lifecycle:
+  renamed_to: ktop
