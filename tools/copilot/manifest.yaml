@@ -17,7 +17,7 @@ tags:
 - coding
 - agent
 - lang/unknown
-check: ${binary} | grep -oP '\d+\.\d+\.\d+'
+check: ${binary} --version | grep "^GitHub Copilot" | cut -d' ' -f4 | cut -d. -f1-3
 platforms:
 - linux/amd64
 - linux/arm64
