@@ -7,15 +7,30 @@ COPY --from=ghcr.io/uniget-org/tools/uniget-build:latest \
 SHELL [ "bash", "-clo", "errexit" ]
 ARG name
 ARG version
-RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://github.com/rstudio/tinytex-releases/releases/download/v${version}/TinyTeX-v${version}.tar.gz"
+RUN <<EOF
+echo "### Setting architecture string for ${TARGETPLATFORM}"
+case "${arch}" in
+    x86_64)
+        export arch_suffix="linux-${arch}"
+        ;;
+    aarch64)
+        export arch_suffix="linux-${alt_arch}"
+        ;;
+    *)
+        echo "ERROR: Unsupported architecture ${arch}."
+        exit 1
+        ;;
+esac
+echo "    Using ${arch_suffix}"
+
+url="https://github.com/rstudio/tinytex-releases/releases/download/v${version}/TinyTeX-${arch_suffix}-v${version}.tar.xz"
 filename="$( basename "${url}" )"
 
 check-github-release-asset "rstudio/tinytex-releases" "v${version}" "${filename}"
-curl --silent --show-error --location --fail --output "${uniget_cache_download}/${filename}" \
+curl --silent --show-error --location --fail --output "/tmp/${filename}" \
     "${url}"
 
-tar --file="${uniget_cache_download}/${filename}" --list
+tar --file="/tmp/${filename}" --list
 mkdir -p "${prefix}/opt/tinytex"
-tar --file="${uniget_cache_download}/${filename}" --extract --gzip --directory="${prefix}/opt/tinytex" --strip-components=1 --no-same-owner
+tar --file="/tmp/${filename}" --extract --xz --directory="${prefix}/opt/tinytex" --strip-components=1 --no-same-owner
 EOF

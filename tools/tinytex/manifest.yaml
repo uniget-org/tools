@@ -18,7 +18,7 @@ binary: "false"
 check: "" # Version only exposes TexLive version
 platforms:
 - linux/amd64
-- linux/arm64
+#- linux/arm64
 renovate:
   datasource: github-releases
   package: rstudio/tinytex-releases
