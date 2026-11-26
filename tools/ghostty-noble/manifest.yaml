@@ -24,6 +24,6 @@ messages:
     Activate the desktop integrations by running the following commands:
     $ update-desktop-database -v ~/.local/share/applications
 renovate:
-  datasource: github-tags
-  package: ghostty-org/ghostty
+  datasource: github-releases
+  package: pkgforge-dev/ghostty-appimage
   extractVersion: ^v(?<version>.+)$
