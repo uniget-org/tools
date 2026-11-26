@@ -16,7 +16,7 @@ tags:
 - cloud/hetzner
 - infrastructure
 - management
-check: ${binary} version | grep ^Version | tr -s ' ' | cut -d' ' -f
+check: ${binary} version | grep ^Version | tr -s ' ' | cut -d' ' -f2
 platforms:
 - linux/amd64
 - linux/arm64
