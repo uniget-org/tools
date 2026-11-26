@@ -7,7 +7,7 @@ license:
   link: https://github.com/itzg/mc-monitor/blob/master/LICENSE.txt
 homepage: https://github.com/itzg/mc-monitor
 repository: https://github.com/itzg/mc-monitor
-version: "1.21.0"
+version: "1.21.1"
 tags:
 - category/games
 - lang/go
