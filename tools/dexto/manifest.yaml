@@ -18,7 +18,7 @@ tags:
 - mcp
 - coding
 - agent
-check: ${binary}--version
+check: ${binary} --version
 build_dependencies:
 - node-lts
 - python
