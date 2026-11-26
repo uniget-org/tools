@@ -22,9 +22,10 @@ install --mode=0755 \
     "${prefix}/bin/Ghostty.AppImage"
 EOF
 RUN <<EOF
-mkdir -p "${prefix}/share/icons/ghostty"
+mkdir -p "${prefix}/share/icons/hicolor/256x256/apps/"
 curl --silent --show-error --location --fail https://github.com/ghostty-org/ghostty/archive/refs/tags/v${version}.tar.gz \
-| tar --extract --gzip --directory="${prefix}/share/icons/ghostty" --strip-components=3 --no-same-owner \
+| tar --extract --gzip --directory=/tmp --no-same-owner \
     "ghostty-${version}/images/icons/"
+mv "/tmp/ghostty-${version}/images/icons/icon_256.png" "${prefix}/share/icons/hicolor/256x256/apps/com.mitchellh.ghostty.png"
 EOF
 COPY ghostty-noble.desktop.go-template /uniget_bootstrap/share/applications/
