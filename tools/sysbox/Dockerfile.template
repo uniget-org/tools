@@ -9,7 +9,7 @@ ARG name
 ARG version
 WORKDIR /tmp/sysbox
 RUN --mount=type=cache,target=/var/cache/uniget/download <<EOF
-url="https://downloads.nestybox.com/sysbox/releases/v${version}/sysbox-ce_${version}-0.linux_${alt_arch}.deb"
+url="https://github.com/nestybox/sysbox/releases/download/v${version}/sysbox-ce_${version}.linux_${alt_arch}.deb"
 filename="$(basename "${url}")"
 
 check-download "${url}"
@@ -19,12 +19,12 @@ ar x "${uniget_cache_download}/${filename}"
 tar --file=data.tar.xz --extract --xz
 
 for type in fs runc mgr; do
-    mv "usr/bin/sysbox-${type}" "${prefix}/bin/"
+    cp "usr/bin/sysbox-${type}" "${prefix}/bin/"
     test -f "lib/systemd/system/sysbox-${type}.service" \
-    && mv "lib/systemd/system/sysbox-${type}.service" "${prefix}/etc/systemd/system/"
+    && cp "lib/systemd/system/sysbox-${type}.service" "${prefix}/etc/systemd/system/"
 done
-mv "lib/systemd/system/sysbox.service" "${prefix}/etc/systemd/system/"
-
+cp "lib/systemd/system/sysbox.service" "${prefix}/etc/systemd/system/"
+    
 mkdir -p "${prefix}/etc/sysctl.d"
-mv "lib/sysctl.d/99-sysbox-sysctl.conf" "${prefix}/etc/sysctl.d/"
+cp "lib/sysctl.d/99-sysbox-sysctl.conf" "${prefix}/etc/sysctl.d/"
 EOF
