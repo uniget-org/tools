@@ -7,7 +7,7 @@ license:
   link: https://github.com/cweill/gotests/blob/develop/LICENSE
 homepage: https://github.com/cweill/gotests
 repository: https://github.com/cweill/gotests
-version: "1.9.0"
+version: "1.10.0"
 tags:
 - category/development
 - lang/go
