@@ -14,7 +14,7 @@ tags:
 - lang/go
 - type/daemon
 - standard/prometheus
-check: ${binary} --version | cut -d' ' -
+check: ${binary} --version | cut -d' ' -f3
 platforms:
 - linux/amd64
 - linux/arm64
