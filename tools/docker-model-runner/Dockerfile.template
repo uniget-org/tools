@@ -33,6 +33,7 @@ WORKDIR /go/src/github.com/docker/model-runner
 RUN <<EOF
 export CARGO_HOME=/usr/local/cargo
 export RUSTUP_HOME=/usr/local/rustup
+export CARGO_PROFILE_RELEASE_LTO=false
 cargo build --release --manifest-path model-cli/Cargo.toml
 EOF
 
