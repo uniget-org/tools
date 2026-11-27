@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: noodle
+description: A REST Client where the Repository is the Workspace
+license:
+  name: Apache License 2.0
+  link: https://github.com/noodle-rest/noodle/blob/main/LICENSE
+homepage: https://github.com/noodle-rest/noodle
+repository: https://github.com/noodle-rest/noodle
+version: "1.0.0"
+tags:
+- category/development
+- type/tui
+- lang/typescript
+- terminal
+check: ${binary} --version
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: noodle-rest/noodle
+  extractVersion: ^v(?<version>.+)$
