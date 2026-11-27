@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: btmux
+description: A persistent terminal workspace and session manager for desktop, browser, and mobile. tmux-style UI, built-in dev tools, and coding agent support
+license:
+  name: MIT License
+  link: https://github.com/btmux-dev/btmux/blob/main/LICENSE
+homepage: https://btmux-dev.github.io/btmux/
+repository: https://github.com/btmux-dev/btmux
+version: "0.0.223"
+tags:
+- category/terminal
+- type/cli
+- lang/typescript
+- terminal
+check: ${binary} version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: btmux-dev/btmux
+  extractVersion: ^v(?<version>.+)$
