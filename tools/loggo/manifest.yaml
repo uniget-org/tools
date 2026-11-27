@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: loggo
+description: Rich terminal UI app for streaming structured (JSON) log sources
+license:
+  name: MIT
+  link: https://github.com/aurc/loggo/blob/main/LICENSE
+homepage: https://github.com/aurc/loggo
+repository: https://github.com/aurc/loggo
+version: "0.3.26"
+tags:
+- category/monitoring
+- lang/go
+- type/tui
+check: ${binary} version
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: aurc/loggo
+  extractVersion: ^v(?<version>.+)$
