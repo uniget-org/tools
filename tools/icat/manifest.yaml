@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: icat
+description: Display images in terminals implementing kitty's graphics protocol
+license:
+  name: Apache License 2.0
+  link: https://github.com/dolmen-go/kittyimg/blob/main/LICENSE
+homepage: https://pkg.go.dev/github.com/dolmen-go/kittyimg
+repository: https://github.com/dolmen-go/kittyimg
+version: "1.0.0"
+tags:
+- category/terminal
+- lang/go
+- type/cli
+check: ""
+build_dependencies:
+- go
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-tags
+  package: dolmen-go/kittyimg
+  extractVersion: ^v(?<version>(?!.*-rc).+)$
