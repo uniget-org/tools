@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: tokscale
+description: Track token usage across AI coding agents from your terminal
+license:
+  name: MIT License
+  link: https://github.com/junhoyeo/tokscale/blob/main/LICENSE
+homepage: https://github.com/junhoyeo/tokscale
+repository: https://github.com/junhoyeo/tokscale
+version: "4.23.1"
+tags:
+- category/development
+- type/cli
+- lang/javascript
+- ai
+- llm
+- coding
+- terminal
+check: ${binary} --version | cut -d' ' -f2
+build_dependencies:
+- node-lts
+- npm
+runtime_dependencies:
+- node-lts
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: npm
+  package: tokscale
