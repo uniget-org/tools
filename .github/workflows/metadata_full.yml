@@ -1,0 +1,74 @@
+name: Create full metadata
+
+on:
+  workflow_run:
+    workflows:
+    - Tag latest
+    types:
+    - completed
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+
+  metadata-full:
+    name: Create full metadata
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    permissions:
+      packages: write
+      id-token: write
+    runs-on: ubuntu-24.04
+    steps:
+
+    - name: Checkout code
+      uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      with:
+        fetch-depth: 0
+
+    - name: Install uniget
+      uses: uniget-org/uniget-action@2139e70435b6bd47834b7be785d7cb90bf18be6b # v1.0.5
+      with:
+        prefix: helper
+        tools: jq regclient yq cosign jc
+
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@ce360397dd3f832beb865e1373c09c0e9f86d70a # 4.0.0
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@4d04d5d9486b7bd6fa91e7baf45bbb4f8b9deedd # 4.0.0
+
+    - name: Login to GitHub Container Registry
+      uses: docker/login-action@b45d80f862d83dbcd57f89517bcf500b2ab88fb2 # v4.0.0
+      with:
+        registry: ghcr.io
+        username: uniget-bot
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Export git history
+      run: |
+        make history.json
+
+    - name: Update metadata
+      run: |
+        make -j$(nproc) \
+            metadata-full.json
+        make \
+            metadata-full.json--push
+
+    - name: Store logs
+      uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
+      if: always()
+      with:
+        name: metadata-build.log.zip
+        path: "@metadata/build.log"
+
+  pages:
+    name: Trigger creation of tools page
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event.inputs.full == 'true' }}
+    needs:
+    - metadata-full
+    uses: ./.github/workflows/trigger-pages.yml
+    secrets:
+      BOT_GITHUB_TOKEN: ${{ secrets.BOT_GITHUB_TOKEN }}
+      GITLAB_TRIGGER_TOOLS: ${{ secrets.GITLAB_TRIGGER_TOOLS }}
