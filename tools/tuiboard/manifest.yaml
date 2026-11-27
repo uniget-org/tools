@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: tuiboard
+description: Terminal kanban on plain markdown with optional Today/Tomorrow planner, 24h agenda + calendar and a live view of your coding agents
+license:
+  name: MIT License
+  link: https://github.com/NazzarenoGiannelli/tuiboard/blob/main/LICENSE
+homepage: https://github.com/NazzarenoGiannelli/tuiboard
+repository: https://github.com/NazzarenoGiannelli/tuiboard
+version: "0.16.0"
+tags:
+- category/development
+- type/tui
+- lang/typescript
+- agent
+- terminal
+check: ""
+build_dependencies:
+- bun
+runtime_dependencies:
+- bun
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: npm
+  package: tuiboard
