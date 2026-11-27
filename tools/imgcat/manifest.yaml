@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: imgcat
+description: Terminal image viewer supporting kitty, sixel, iTerm2 and halfblocks
+license:
+  name: MIT
+  link: https://github.com/blacktop/go-termimg/blob/main/LICENSE
+homepage: https://github.com/blacktop/go-termimg
+repository: https://github.com/blacktop/go-termimg
+version: "0.1.26"
+tags:
+- category/terminal
+- lang/go
+- type/cli
+check: ""
+build_dependencies:
+- go
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-tags
+  package: blacktop/go-termimg
+  extractVersion: ^v(?<version>.+)$
