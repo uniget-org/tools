@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: brothy
+description: "A calm terminal Markdown reader: folder tree, outline, live reload, Obsidian-flavored, 42 themes. Built with Bun and OpenTUI"
+license:
+  name: Apache License 2.0
+  link: https://github.com/jackMort/brothy/blob/main/LICENSE
+homepage: https://github.com/jackMort/brothy
+repository: https://github.com/jackMort/brothy
+version: "0.3.0"
+tags:
+- category/terminal
+- type/tui
+- lang/typescript
+- terminal
+check: ${binary} --version | tail -n 1
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: jackMort/brothy
+  extractVersion: ^v(?<version>.+)$
