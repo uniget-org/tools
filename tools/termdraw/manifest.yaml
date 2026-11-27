@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: termdraw
+description: Agent-friendly ASCII illustrator for the terminal
+license:
+  name: MIT License
+  link: https://github.com/benvinegar/termdraw/blob/main/LICENSE
+homepage: https://github.com/benvinegar/termdraw
+repository: https://github.com/benvinegar/termdraw
+version: "0.4.1"
+tags:
+- category/development
+- type/tui
+- lang/typescript
+- ai
+- agent
+- terminal
+check: ${binary} --version
+build_dependencies:
+- bun
+runtime_dependencies:
+- bun
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: npm
+  package: "@termdraw/app"
