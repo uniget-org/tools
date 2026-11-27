@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: ghui
+description: Terminal UI for GitHub pull requests
+license:
+  name: MIT License
+  link: https://github.com/kitlangton/ghui/blob/main/LICENSE
+homepage: https://github.com/kitlangton/ghui
+repository: https://github.com/kitlangton/ghui
+version: "0.9.1"
+tags:
+- category/development
+- type/tui
+- lang/typescript
+- vcs/git
+- terminal
+check: ${binary} --version
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: kitlangton/ghui
+  extractVersion: ^v(?<version>.+)$
