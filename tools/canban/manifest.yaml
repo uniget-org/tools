@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: canban
+description: Organize with Kanban. Work with native agent CLIs
+license:
+  name: Apache License 2.0
+  link: https://github.com/jjyr/canban/blob/main/LICENSE
+homepage: https://canban.dev
+repository: https://github.com/jjyr/canban
+version: "20261124-4"
+tags:
+- category/development
+- type/tui
+- lang/rust
+- ai
+- llm
+- coding
+- agent
+- terminal
+check: ${binary} build-info | grep -oP '"version":"\K[^"]+'
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: jjyr/canban
