@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: shellfb
+description: Network-traversing web terminal in Go, spiritual successor to ShellInBox
+license:
+  name: MIT
+  link: https://github.com/valorisa/ShellFromBrowser/blob/main/LICENSE
+homepage: https://github.com/valorisa/ShellFromBrowser
+repository: https://github.com/valorisa/ShellFromBrowser
+version: "0.6.0"
+tags:
+- category/terminal
+- lang/go
+- type/server
+check: ${binary} --version | grep -oP '\d+\.\d+\.\d+'
+build_dependencies:
+- go
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: valorisa/ShellFromBrowser
+  extractVersion: ^v(?<version>.+)$
