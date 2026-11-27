@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: critique
+description: TUI & website for reviewing git changes
+license:
+  name: MIT License
+  link: https://github.com/remorses/critique/blob/main/LICENSE
+homepage: https://github.com/remorses/critique
+repository: https://github.com/remorses/critique
+version: "0.5.0"
+tags:
+- category/development
+- type/tui
+- lang/typescript
+- ai
+- llm
+- coding
+- terminal
+check: ${binary} --version
+build_dependencies:
+- bun
+runtime_dependencies:
+- bun
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: npm
+  package: critique
