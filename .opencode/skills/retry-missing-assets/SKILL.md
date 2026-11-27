@@ -1,5 +1,5 @@
 ---
-name: Retry Missing Assets
+name: retry-missing-assets
 description: Retry failed "Check / Build container image" workflow runs for PRs labeled stuck/missing-asset when the missing download URL is reachable again
 ---
 

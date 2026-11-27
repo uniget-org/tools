@@ -1,5 +1,5 @@
 ---
-name: Retry Automerge
+name: retry-automerge
 description: Retry the Automerge workflow run for open PRs whose checks succeeded but whose automerge attempt failed
 ---
 

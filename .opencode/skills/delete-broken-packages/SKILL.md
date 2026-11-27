@@ -1,5 +1,5 @@
 ---
-name: Delete Broken Packages
+name: delete-broken-packages
 description: Delete ghcr.io/uniget-org/tools/<name> packages whose failed Check build was caused by "permission_denied: read_package", then rerun check.yml for the affected PRs
 ---
 

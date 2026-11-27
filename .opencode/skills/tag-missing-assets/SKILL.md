@@ -1,5 +1,5 @@
 ---
-name: Tag Missing Assets
+name: tag-missing-assets
 description: Label open PRs with stuck/missing-asset when their failed Check build is caused by an unreachable download URL or missing release asset
 ---
 
