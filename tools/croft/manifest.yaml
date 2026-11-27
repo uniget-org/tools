@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://tools.uniget.dev/schema.yaml
+$schema: https://tools.uniget.dev/schema.yaml
+name: croft
+description: VSCode-style TUI written in Rust
+license:
+  name: MIT License
+  link: https://github.com/vitali87/croft/blob/main/LICENSE
+homepage: https://croft.software
+repository: https://github.com/vitali87/croft
+version: "0.2.182"
+tags:
+- category/development
+- type/tui
+- lang/rust
+- terminal
+check: ${binary} --version | cut -d' ' -f2
+platforms:
+- linux/amd64
+- linux/arm64
+renovate:
+  datasource: github-releases
+  package: vitali87/croft
+  extractVersion: ^v(?<version>.+)$
