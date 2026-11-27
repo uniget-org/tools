@@ -1,0 +1,19 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "melious/gpt-oss-120b",
+  "providers": {
+    "melious": {
+      "name": "Melious",
+      "env": ["MELIOUS_API_KEY"],
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": {
+        "baseURL": "https://api.melious.ai/v1"
+      },
+      "models": {
+        "gpt-oss-120b": {
+          "name": "GPT-OSS 120B"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+schemaVersion: "1"
+name: opencode-tools
+agent: shell
+workspace: .
+entrypoint:
+- opencode
+cmd: []
+
+kits:
+- docker.io/sbx/opencode-mixin:2.4.2
+
+#printf '%s' "$MELIOUS_API_KEY" | sbx secret set-custom \
+#  --host api.melious.ai \
+#  --env MELIOUS_API_KEY \
+#  --value-stdin
+env:
+  MELIOUS_API_KEY: sbx-cs-Au6vZj755aJAgcMJ
