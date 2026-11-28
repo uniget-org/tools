@@ -6,7 +6,7 @@ license:
   link: https://github.com/Code-Hex/Neo-cowsay/blob/master/LICENSE
 homepage: https://github.com/Code-Hex/Neo-cowsay
 repository: https://github.com/Code-Hex/Neo-cowsay
-version: "2.0.4"
+version: "2.1.0"
 tags:
 - type/cli
 - fun
