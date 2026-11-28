@@ -5,7 +5,7 @@ license:
   name: Apache License 2.0
 homepage: https://github.com/sharkdp/bat
 repository: https://github.com/sharkdp/bat
-version: "0.26.1"
+version: "0.27.0"
 tags:
 - type/cli
 - lang/rust
